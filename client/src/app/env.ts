@@ -550,6 +550,8 @@ review() {
 }
 
 async statusRefresh(data) {
+	if (!this.modulesData.length)
+		return;
 	if (data.progress)
 		this.setupUIProgress = data.progress;
 	if (data.module === "_setup_" && data.state === "finish") {
