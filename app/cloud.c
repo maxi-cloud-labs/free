@@ -152,7 +152,7 @@ void cloudSetup(cJSON *el) {
 		}
 		FILE *fpK = fopen(ADMIN_PATH "letsencrypt/privkey.pem", "w");
 		if (fpK) {
-			fwrite(privkey, privkeyL, 1, fpC);
+			fwrite(privkey, privkeyL, 1, fpK);
 			fclose(fpK);
 		}
 	} else {
