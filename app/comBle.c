@@ -83,13 +83,13 @@ static int le_callback(int clientnode, int operation, int cticn) {
 		PRINTF("le_callback connect from %s(%d)\n", device_name(clientnode), clientnode);
 		buzzer(1);
 	} else if(operation == LE_READ) {
-		PRINTF("le_callback: %s read by %s\n", ctic_name(localnode(), cticn), device_name(clientnode));
+		//PRINTF("le_callback: %s read by %s\n", ctic_name(localnode(), cticn), device_name(clientnode));
 	} else if(operation == LE_WRITE) {
-		PRINTF("le_callback: %s written by %s\n",ctic_name(localnode(), cticn), device_name(clientnode));
+		//PRINTF("le_callback: %s written by %s\n",ctic_name(localnode(), cticn), device_name(clientnode));
 		char buf[256];
 		memset(buf, 0, 256);
 		int nread = read_ctic(localnode(), cticn, buf, sizeof(buf));
-		PRINTF("le_callback: len=%d 0x%x=%d\n", nread, buf[0], buf[0]);
+		//PRINTF("le_callback: len=%d 0x%x=%d\n", nread, buf[0], buf[0]);
 		serverReadDataBle(buf, nread);
 	} else if(operation == LE_DISCONNECT) {
 		communicationConnection(1, 0);
