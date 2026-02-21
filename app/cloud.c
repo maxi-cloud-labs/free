@@ -138,10 +138,10 @@ void cloudSetup(cJSON *el) {
 	int fullchainL = 0, privkeyL = 0;
 	if (elLetsencrypt) {
 		fullchain = cJSON_GetStringValue2(elLetsencrypt, "fullchain");
-		if (fullchainL)
+		if (fullchain)
 			fullchainL = strlen(fullchain);
 		privkey = cJSON_GetStringValue2(elLetsencrypt, "privatekey");
-		if (privkeyL)
+		if (privkey)
 			privkeyL = strlen(privkey);
 	}
 	if (fullchainL != 0 && privkeyL != 0) {
