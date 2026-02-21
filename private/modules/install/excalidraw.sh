@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd /usr/local/modules/excalidraw
-yarn --non-interactive install
+yes | yarn install
 NODE_OPTIONS="--max-old-space-size=4096" yarn build
