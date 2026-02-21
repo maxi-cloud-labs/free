@@ -77,27 +77,27 @@ This is the list of all used ports in the image, separated between listening por
 
 # Used listening ports on server
 
-This is the list of all used listening ports on server side.
+This is the list of all listening ports on server side.
 
 - frp: 80 (http), 443 (https), 7000 (clients), 7500 (stats)
-- haproxy: 22 (ssh), 465 (smtp), 993 (imap), 995 (pop3)
+- haproxy: 465 (smtp), 993 (imap), 995 (pop3)
 - postfix: 25 (email)
 - bind9: 53 (dns)
 
 
 # Traffic paths
 
-This is the interesting traffic paths from and to the Internet:
+These are the interesting traffic paths from and to the Internet:
 
 ### Internet -> hardware
 
-- 22: haproxy -> frps (19022)  -(server)/(hardware)->  frpc (22) -> openssh
-- 25: postfix -> frps (19025)  -(server)/(hardware)->  frpc (25) -> postfix
+- 22: frps (19XX2)  -(server)/(hardware)->  frpc (22) -> ssh
+- 25: postfix -> frps (19XX1)  -(server)/(hardware)->  frpc (25) -> postfix
 - 80: frps  -(server)/(hardware)->  frpc (80) -> apache2
 - 443: frps  -(server)/(hardware)->  frpc (443) -> apache2
-- 465: haproxy -> frps (19465)  -(server)/(hardware)->  frpc (465) -> postfix
-- 993: haproxy -> frps (19993)  -(server)/(hardware)->  frpc (993) -> dovecot
-- 995: haproxy -> frps (19995)  -(server)/(hardware)->  frpc (995) -> dovecot
+- 465: haproxy -> frps (19XX4)  -(server)/(hardware)->  frpc (465) -> postfix
+- 993: haproxy -> frps (19XX3)  -(server)/(hardware)->  frpc (993) -> dovecot
+- 995: haproxy -> frps (19XX5)  -(server)/(hardware)->  frpc (995) -> dovecot
 
 ### hardware -> outside
 

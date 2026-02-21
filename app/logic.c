@@ -55,8 +55,12 @@ void logicKey(int key, int longPress) {
 		} else if (key == LV_KEY_LEFT) {
 			if (backendRotate(-1) == 0)
 				logicWelcome();
-		} else if (key == LV_KEY_RIGHT)
-			logicHome(0, 0);
+		} else if (key == LV_KEY_RIGHT) {
+			if (smdc.setupDone)
+				logicTips(0, 0);
+			else
+				logicQrSetup();
+		}
 	} else if (lmdc.current == LOGIC_SLEEP) {
 #ifndef DESKTOP
 		system("/usr/local/modules/_core_/leds.sh -b 1 -l normal");
@@ -77,20 +81,16 @@ void logicKey(int key, int longPress) {
 			if (smdc.setupDone)
 				logicTips(0, 0);
 			else
-				logicQrLogin();
+				logicQrSetup();
 		} else if (key == LV_KEY_RIGHT)
 			logicHome(-1, 1);
 	} else if (lmdc.current == LOGIC_SETUP) {
 	} else if (lmdc.current == LOGIC_QR_SETUP) {//Done
-		if (key == LV_KEY_RIGHT) {
-			smdc.setupDone = 1;
-			logicHome(0, 0);
-		}
+		if (key == LV_KEY_RIGHT)
+			logicWelcome();
 	} else if (lmdc.current == LOGIC_QR_LOGIN) {//Done
-		if (key == LV_KEY_RIGHT) {
-			smdc.setupDone = 1;
+		if (key == LV_KEY_RIGHT)
 			logicHome(0, 0);
-		}
 	} else if (lmdc.current == LOGIC_TIPS) {//Back, Setup, Previous, Next
 		if (key == LV_KEY_UP)
 			logicHome(-1, 0);
