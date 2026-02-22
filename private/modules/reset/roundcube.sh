@@ -19,7 +19,7 @@ rm -rf /disk/admin/modules/mail
 mkdir -p /disk/admin/modules/mail/${CLOUDNAME}.mydongle.cloud/admin
 echo "${EMAIL} ${CLOUDNAME}.mydongle.cloud/admin/" > /disk/admin/modules/mail/virtualmaps
 postmap /disk/admin/modules/mail/virtualmaps
-echo "" > /disk/admin/modules/mail/virtualalias
+echo "root@${CLOUDNAME}.mydongle.cloud	admin@${CLOUDNAME}.mydongle.cloud" > /disk/admin/modules/mail/virtualalias
 postmap /disk/admin/modules/mail/virtualalias
 cat > /disk/admin/modules/mail/virtualhosts <<EOF
 ${CLOUDNAME}.mydongle.cloud
