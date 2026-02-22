@@ -51,7 +51,7 @@
 			"^/web/$"
 		],
 		"enabled": true,
-		"localPort": 9438,
+		"localPort": 9440,
 		"permissions": [
 			"user"
 		],

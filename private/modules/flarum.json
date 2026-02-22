@@ -26,7 +26,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9425,
+		"localPort": 9427,
 		"path": "/usr/local/modules/flarum/public",
 		"permissions": [
 			"user"

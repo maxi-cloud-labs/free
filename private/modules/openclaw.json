@@ -23,7 +23,7 @@
 	"default": {
 		"addConfigBegin": "RequestHeader set Authorization \"authorizationisdoneautomaticallybybackend\"",
 		"enabled": true,
-		"localPort": 9531,
+		"localPort": 9467,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

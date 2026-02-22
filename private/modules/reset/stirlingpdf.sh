@@ -22,7 +22,7 @@ customPaths:
     watchedFoldersDir: "/disk/admin/modules/stirlingpdf/documents"
     finishedFoldersDir: "/disk/admin/modules/stirlingpdf/documents"
 EOF
-systemctl start stirlingpdf.service
-systemctl enable stirlingpdf.service
+#systemctl start stirlingpdf.service
+#systemctl enable stirlingpdf.service
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

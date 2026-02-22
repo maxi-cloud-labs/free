@@ -45,7 +45,7 @@
 			]
 		},
 		"enabled": true,
-		"localPort": 9523,
+		"localPort": 9525,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

@@ -28,7 +28,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9475,
+		"localPort": 9479,
 		"permissions": [
 			"user"
 		]

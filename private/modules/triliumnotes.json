@@ -54,7 +54,7 @@
 			"^/login"
 		],
 		"enabled": true,
-		"localPort": 9515,
+		"localPort": 9517,
 		"permissions": [
 			"user"
 		],

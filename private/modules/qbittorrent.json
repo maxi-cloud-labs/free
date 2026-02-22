@@ -48,7 +48,7 @@
 			"^/$"
 		],
 		"enabled": true,
-		"localPort": 9490,
+		"localPort": 9492,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

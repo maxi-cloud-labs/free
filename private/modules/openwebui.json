@@ -59,7 +59,7 @@
 			"^/auth"
 		],
 		"enabled": true,
-		"localPort": 9466,
+		"localPort": 9470,
 		"permissions": [
 			"user"
 		],

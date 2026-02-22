@@ -31,7 +31,7 @@
 			"rss"
 		],
 		"enabled": true,
-		"localPort": 9426,
+		"localPort": 9428,
 		"path": "/usr/local/modules/freshrss/p",
 		"permissions": [
 			"user"

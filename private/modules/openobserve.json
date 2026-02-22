@@ -44,7 +44,7 @@
 			"^/web/login"
 		],
 		"enabled": true,
-		"localPort": 9529,
+		"localPort": 9468,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

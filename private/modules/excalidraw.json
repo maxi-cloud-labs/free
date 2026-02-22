@@ -23,7 +23,7 @@
 		"config": true,
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9532,
+		"localPort": 9423,
 		"permissions": [
 			"user"
 		],

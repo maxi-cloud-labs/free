@@ -25,7 +25,7 @@
 			"docs_static"
 		],
 		"enabled": true,
-		"localPort": 9418,
+		"localPort": 9419,
 		"permissions": [
 			"public"
 		]
