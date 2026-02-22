@@ -31,6 +31,7 @@ done
 echo "Doing openwebui user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
+EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 data="{ \"email\": \"${EMAIL}\", \"name\": \"${CLOUDNAME}\", \"password\": \"${PASSWD}\" }"
