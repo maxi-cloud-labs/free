@@ -10,6 +10,7 @@ This is the list of all used ports in the image, separated between listening por
 - invidious: 3000, 8282 (reverseproxy)
 - betterauthstudio: 3002
 - librechat: 3080 (reverseproxy)
+- rocketchat: 3100 (reverseproxy)
 - ente: 3200 (reverseproxy), 3201, 3202, 3203, 3204
 - lobechat: 3210 (reverseproxy)
 - mysql: 3306, 33060
@@ -44,6 +45,7 @@ This is the list of all used ports in the image, separated between listening por
 - signoz: 8113 (reverseproxy)
 - excalidraw: 8114 (reverseproxy)
 - portainer: 8115 (reverseproxy), 8116
+- dillinger: 8117 (reverseproxy)
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
 - sonarr: 8989 (reverseproxy)
@@ -58,7 +60,7 @@ This is the list of all used ports in the image, separated between listening por
 ### Listening ports (0.0.0.0)
 - ssh: 22
 - postfix: 25 (mail), 465 (smtp)
-- apache: 80 (http), 443 (https), 9400-9532 (modules)
+- apache: 80 (http), 443 (https), 9400-9530 (modules)
 - dovecot imaps: 110 (imaps), 143 (pop3s), 993 (imaps), 995 (pop3s)
 - networkmanager: 546 (dhcpv6)
 - avahi: 5353 (mdns)
@@ -92,7 +94,7 @@ These are the interesting traffic paths from and to the Internet:
 
 ### Internet -> hardware
 
-- 22: frps (19XX2)  -(server)/(hardware)->  frpc (22) -> ssh
+- 19XX2: frps  -(server)/(hardware)->  frpc (22) -> ssh
 - 25: postfix -> frps (19XX1)  -(server)/(hardware)->  frpc (25) -> postfix
 - 80: frps  -(server)/(hardware)->  frpc (80) -> apache2
 - 443: frps  -(server)/(hardware)->  frpc (443) -> apache2
