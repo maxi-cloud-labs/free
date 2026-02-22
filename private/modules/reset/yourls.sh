@@ -29,16 +29,13 @@ cp /usr/local/modules/yourls/user/config-sample.php /disk/admin/modules/yourls/c
 dbuser="yourlsUser"
 dbname="yourlsDB"
 site="https://yourls.${PRIMARY}"
-saltpass=$(tr -dc '1-9' < /dev/urandom | head -c 5)
-md5=`echo "$saltpass${PASSWD}" | md5sum | cut -d ' ' -f 1`
-passwdMd5="md5:$saltpass:$md5"
 
 sed -i -e "s|define( 'YOURLS_DB_USER',.*|define( 'YOURLS_DB_USER', '$dbuser' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_DB_PASS',.*|define( 'YOURLS_DB_PASS', '$DBPASS' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_DB_NAME',.*|define( 'YOURLS_DB_NAME', '$dbname' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_SITE',.*|define( 'YOURLS_SITE', '$site' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_COOKIEKEY',.*|define( 'YOURLS_COOKIEKEY', '$SALT' );|" /disk/admin/modules/yourls/config.php
-sed -i -e "s|	'username' => 'password',.*|	'${CLOUDNAME}' => '$passwdMd5',|" /disk/admin/modules/yourls/config.php
+sed -i -e "s|	'username' => 'password',.*|	'${CLOUDNAME}' => '${PASSWD}',|" /disk/admin/modules/yourls/config.php
 
 cd /usr/local/modules/yourls
 cat > /tmp/yourls.php << EOF
