@@ -6,7 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Create user portainer##################"
-PORT=8116
+PORT=8115
 URL="http://localhost:$PORT"
 TIMEOUT=20
 while [ $TIMEOUT -gt 0 ]; do
