@@ -8,7 +8,7 @@ fi
 echo "#Reset invidious##################"
 systemctl stop invidiouscompanion.service
 systemctl stop invidious.service
-SALT=$(pwgen 16 1)
+SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 16)
 export dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
