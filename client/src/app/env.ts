@@ -609,6 +609,11 @@ statsStopPolling() {
 
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 	this.activateUrl = state.url;
+	if (!this.splashDone) {
+		const params = new URLSearchParams(window.location.search);
+		if (params.get("dev") != null)
+			this.developerSet(true);
+	}
 	return this.splashDone ? true : this.router.navigate(["/splash"]);
 }
 
