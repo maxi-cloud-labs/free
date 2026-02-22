@@ -6,7 +6,6 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Reset triliumnotes##################"
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 systemctl stop triliumnotes.service
 rm -rf /disk/admin/modules/triliumnotes
 mkdir /disk/admin/modules/triliumnotes
@@ -37,8 +36,7 @@ oauthIssuerBaseUrl=
 oauthIssuerName=
 oauthIssuerIcon=
 EOF
-echo "{\"password\":\"${PASSWD}\"}" > /disk/admin/modules/_config_/triliumnotes.json
 systemctl start triliumnotes.service
 systemctl enable triliumnotes.service
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+/usr/local/modules/_core_/reset/triliumnotes-user.sh &
