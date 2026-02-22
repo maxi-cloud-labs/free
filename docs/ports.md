@@ -10,6 +10,7 @@ This is the list of all used ports in the image, separated between listening por
 - invidious: 3000, 8282 (reverseproxy)
 - betterauthstudio: 3002
 - librechat: 3080 (reverseproxy)
+- rocketchat: 3100 (reverseproxy), 3101, 3102, 3103, 3104
 - lobechat: 3210 (reverseproxy)
 - mysql: 3306, 33060
 - signoz: 4317, 4318, 8113 (reverseproxy)

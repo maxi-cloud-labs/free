@@ -3,15 +3,15 @@
 	"name": "Rocket.Chat",
 	"title": "Communication",
 	"category": "Productivity",
-	"version": "7.12.1",
-	"installMethod": "clone",
+	"version": "8.1.0",
+	"installMethod": "wget",
 	"web": true,
 	"essential": false,
-	"finished": false,
+	"finished": true,
 	"ai": false,
 	"database": "",
 	"github": "RocketChat/Rocket.Chat",
-	"description": "A communications platform that puts data protection first.",
+	"description": "A communication platform that puts data protection first.",
 	"keywords": [
 		"Communication",
 		"Communication platform",
@@ -30,6 +30,19 @@
 		"localPort": 9495,
 		"permissions": [
 			"user"
-		]
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 3100,
+				"path": "/"
+			}
+		],
+		"services": [
+			"rocketchat"
+		],
+		"setup": true,
+		"setupDependencies": []
 	}
 }
