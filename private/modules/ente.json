@@ -7,7 +7,7 @@
 	"installMethod": "clone",
 	"web": true,
 	"essential": false,
-	"finished": false,
+	"finished": true,
 	"ai": false,
 	"database": "",
 	"github": "ente-io/ente",
@@ -28,6 +28,19 @@
 		"localPort": 9420,
 		"permissions": [
 			"user"
-		]
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 3200,
+				"path": "/"
+			}
+		],
+		"services": [
+			"ente"
+		],
+		"setup": true,
+		"setupDependencies": []
 	}
 }
