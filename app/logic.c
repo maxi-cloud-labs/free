@@ -57,7 +57,7 @@ void logicKey(int key, int longPress) {
 				logicWelcome();
 		} else if (key == LV_KEY_RIGHT) {
 			if (smdc.setupDone)
-				logicTips(0, 0);
+				logicHome(-1, 0);
 			else
 				logicQrSetup();
 		}
@@ -77,12 +77,9 @@ void logicKey(int key, int longPress) {
 		} else if (key == LV_KEY_DOWN) {
 			if (backendRotate(-1) == 0)
 				logicHome(-1, 0);
-		} else if (key == LV_KEY_LEFT) {
-			if (smdc.setupDone)
-				logicTips(0, 0);
-			else
-				logicQrSetup();
-		} else if (key == LV_KEY_RIGHT)
+		} else if (key == LV_KEY_LEFT)
+			logicTips(0, 0);
+		else if (key == LV_KEY_RIGHT)
 			logicHome(-1, 1);
 	} else if (lmdc.current == LOGIC_SETUP) {
 	} else if (lmdc.current == LOGIC_QR_SETUP) {//Done
