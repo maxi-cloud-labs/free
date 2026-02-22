@@ -241,6 +241,7 @@ else
 	clone convertx C4illin/ConvertX v0.14.1
 	clone cssunminifier mrcoles/cssunminifier c5cad8ab
 	clone cyberchef gchq/CyberChef v10.19.4
+	clone dillinger joemccann/dillinger 637ef3e7
 	clone discourse discourse/discourse v3.4.6
 	clone docsify docsifyjs/docsify v4.13.1
 	clone docusaurus facebook/docusaurus v3.9.2
@@ -298,7 +299,6 @@ else
 	clone shields badges/shields server-2025-12-06
 	clone silverbullet silverbulletmd/silverbullet 2.3.0
 	clone sqliteweb coleifer/sqlite-web 0.6.6
-	clone stackedit benweet/stackedit v5.15.4
 	clone stirlingpdf Stirling-Tools/Stirling-PDF v1.0.2
 	clone stremio Stremio/stremio-web v5.0.0-beta.29
 	clone studio outerbase/studio v0.10.2

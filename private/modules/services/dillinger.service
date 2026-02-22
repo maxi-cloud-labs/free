@@ -1,0 +1,24 @@
+[Unit]
+Description=MeTube
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=300s
+OnFailure=notify-failure@%n.service
+
+[Service]
+Restart=on-failure
+RestartMode=direct
+Type=simple
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=5s
+User=admin
+ExecStart=node app
+WorkingDirectory=/usr/local/modules/dillinger
+Environment=HOST=127.0.0.1
+Environment=PORT=8117
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

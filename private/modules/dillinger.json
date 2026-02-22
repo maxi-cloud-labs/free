@@ -1,0 +1,49 @@
+{
+	"module": "dillinger",
+	"name": "Dillinger",
+	"title": "",
+	"category": "Knowledge",
+	"version": "637ef3e7",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "joemccann/dillinger",
+	"description": "A markdown editor.",
+	"keywords": [
+		"Collaborative writing",
+		"Document creation",
+		"Editor",
+		"In-browser editor",
+		"Markdown",
+		"Markdown editor",
+		"Online text editor",
+		"Writing",
+		"Writing tool"
+	],
+	"proprietary": [
+		"Typora"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9533,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8117,
+				"path": "/"
+			}
+		],
+		"services": [
+			"dillinger"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}
