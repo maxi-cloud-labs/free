@@ -13,3 +13,5 @@ SUBSYSTEM=="tty", KERNEL=="ttyAMA10", ACTION=="add", RUN+="/usr/bin/ln -sf ttyAM
 SUBSYSTEM=="tty", KERNEL=="ttySAC3", ACTION=="add", RUN+="/usr/bin/ln -sf ttySAC3 /dev/tty_debug"
 
 SUBSYSTEM=="tty", KERNEL=="ttyAMA0", ACTION=="add", RUN+="/usr/bin/ln -sf ttyAMA0 /dev/tty_attiny"
+
+KERNEL=="rfkill", GROUP="rfkill", MODE="0664"

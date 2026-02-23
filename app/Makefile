@@ -104,9 +104,9 @@ ifeq ($(DEBUG),)
 	@strip app
 endif
 ifeq ($(shell [ "$$(uname -m)" = "aarch64" ] || ischroot ; echo $$?), 0)
-	@setcap 'cap_net_admin+eip' app
+	@setcap 'cap_net_raw,cap_net_admin+eip' app
 	@cp app /usr/local/modules/_core_/app
-	@setcap 'cap_net_admin+eip' /usr/local/modules/_core_/app
+	@setcap 'cap_net_raw,cap_net_admin+eip' /usr/local/modules/_core_/app
 endif
 
 desktop_exec: $(OBJs_DESKTOP)
