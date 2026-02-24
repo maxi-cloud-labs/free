@@ -1,0 +1,28 @@
+{
+	"module": "formbricks",
+	"name": "Formbricks",
+	"title": "Form Creator",
+	"category": "Collaboration",
+	"version": "4.7.3",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": false,
+	"database": "",
+	"github": "formbricks/formbricks",
+	"description": "A platform to build and distribute surveys, analyze data, and generate actionable insights.",
+	"keywords": [
+		"Workflow automation"
+	],
+	"proprietary": [
+		"Qualtrics"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9541,
+		"permissions": [
+			"user"
+		]
+	}
+}

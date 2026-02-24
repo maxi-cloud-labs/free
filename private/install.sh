@@ -252,6 +252,7 @@ else
 	clone fider getfider/fider v0.32.0
 	clone filegator filegator/filegator v7.13.0
 	clone flarum flarum/flarum v1.8.1
+	clone formbricks formbricks/formbricks 4.7.3
 	clone freshrss FreshRSS/FreshRSS 1.26.3
 	clone gitea go-gitea/gitea v1.24.3
 	clone grav getgrav/grav 1.7.48
