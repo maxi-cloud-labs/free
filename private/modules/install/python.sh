@@ -2,7 +2,7 @@
 
 install() {
 	cd /home/ai/build
-	wget -nv https://www.python.org/ftp/python/$1/Python-$1.tar.xz
+	wget -q --show-progress --progress=bar:force:noscroll https://www.python.org/ftp/python/$1/Python-$1.tar.xz
 	tar -xpf Python-$1.tar.xz
 	cd Python-$1
 	./configure --enable-optimizations
