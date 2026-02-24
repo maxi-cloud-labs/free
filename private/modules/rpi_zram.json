@@ -1,0 +1,26 @@
+{
+	"module": "rpi_zram",
+	"name": "rpi zram",
+	"title": "ZRAM Optimizer",
+	"category": "Server",
+	"version": "00a382d7",
+	"installMethod": "clone",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "novaspirit/rpi_zram",
+	"description": "A script to enable zram for raspberry pi.",
+	"keywords": [
+		"Kernel",
+		"zram",
+		"OS",
+		"RPI",
+		"Zram"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": []
+	}
+}

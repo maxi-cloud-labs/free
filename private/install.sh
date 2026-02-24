@@ -294,6 +294,7 @@ else
 	clone projectsend projectsend/projectsend r1720
 	clone psitransfer psi-4ward/psitransfer v2.3.1
 	clone qrcodegenerator bizzycola/qrcode-generator HEAD
+	clone rpi_zram novaspirit/rpi_zram 00a382d7
 	clone scrcpy Genymobile/scrcpy v3.3.4
 	clone searxng searxng/searxng 74ec225a
 	clone shafi dealfonso/shafi e55e339f
