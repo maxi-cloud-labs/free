@@ -6,6 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Reset openclaw##################"
+PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 systemctl stop openclaw.service
 rm -rf /disk/admin/modules/openclaw
 mkdir /disk/admin/modules/openclaw
@@ -43,7 +44,10 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
     "bind": "loopback",
     "trustedProxies": ["127.0.0.1", "::1"],
     "controlUi": {
-       "allowInsecureAuth": true
+        "dangerouslyDisableDeviceAuth": true,
+        "allowedOrigins": [
+            "https://openclaw.${PRIMARY}"
+        ]
     },
     "tailscale": {
       "mode": "off",

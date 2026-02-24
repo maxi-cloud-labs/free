@@ -21,8 +21,8 @@
 	],
 	"proprietary": [],
 	"default": {
-		"addConfigBegin": "RequestHeader set Authorization \"authorizationisdoneautomaticallybybackend\"",
 		"enabled": true,
+		"homepage": "?token=authorizationisdoneautomaticallybybackend",
 		"localPort": 9467,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
