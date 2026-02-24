@@ -280,6 +280,7 @@ else
 	clone ollama ollama/ollama v0.9.7-rc1
 	clone osticket osTicket/osTicket v1.18.2
 	clone passbolt passbolt/passbolt_api v5.7.2
+	clone penpot penpot/penpot 2.13.3
 	clone photoprism photoprism/photoprism 250707-d28b3101e
 	clone photoview photoview/photoview v2.4.0
 	clone phpbb phpbb/phpbb release-3.3.15

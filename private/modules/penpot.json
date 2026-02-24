@@ -1,0 +1,27 @@
+{
+	"module": "penpot",
+	"name": "Penpot",
+	"title": "Design Collaboration",
+	"category": "Collaboration",
+	"version": "2.13.3",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": false,
+	"database": "",
+	"github": "penpot/penpot",
+	"description": "An open-source design tool for design and code collaboration.",
+	"keywords": [
+		"Code",
+		"Design"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9531,
+		"permissions": [
+			"user"
+		]
+	}
+}
