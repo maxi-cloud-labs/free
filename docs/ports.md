@@ -49,6 +49,7 @@ This is the list of all used ports in the image, separated between listening por
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
 - sonarr: 8989 (reverseproxy)
+- minio: 9000, 9001 (reverseproxy)
 - transmission: 9091 (reverseproxy)
 - prowlarr: 9696 (reverseproxy)
 - wgdashboard: 10086

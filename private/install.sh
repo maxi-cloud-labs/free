@@ -274,7 +274,7 @@ else
 	clone maybe maybe-finance/maybe v0.5.0
 	clone mermaid mermaid-js/mermaid mermaid@11.9.0
 	clone metube alexta69/metube HEAD
-	clone minio minio/minio RELEASE.2025-07-18T21-56-31Z
+	clone minio minio/minio RELEASE.2025-10-15T17-29-55Z
 	clone mkdocs mkdocs/mkdocs 1.6.1
 	clone ollama ollama/ollama v0.9.7-rc1
 	clone osticket osTicket/osTicket v1.18.2

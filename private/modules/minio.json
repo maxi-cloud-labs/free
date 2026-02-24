@@ -2,12 +2,12 @@
 	"module": "minio",
 	"name": "MinIO",
 	"title": "Object Storage",
-	"category": "Developer",
-	"version": "2025-07-18",
+	"category": "Server",
+	"version": "RELEASE.2025-10-15T17-29-55Z",
 	"installMethod": "clone",
 	"web": true,
 	"essential": false,
-	"finished": false,
+	"finished": true,
 	"ai": false,
 	"database": "",
 	"github": "minio/minio",
@@ -25,10 +25,51 @@
 		"Amazon S3"
 	],
 	"default": {
+		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/",
+					"form": "form",
+					"arg1": "input[id=accessKey]",
+					"arg2": "input[id=secretKey]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/api/v1/login",
+					"arg1": "accessKey",
+					"arg2": "secretKey",
+					"val1": 0,
+					"val2": 2
+				}
+			]
+		},
 		"enabled": true,
 		"localPort": 9462,
 		"permissions": [
 			"user"
-		]
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 9001,
+				"path": "/"
+			},
+			{
+				"type": "ws",
+				"port": 9001,
+				"path": "/ws"
+			}
+		],
+		"services": [
+			"minio"
+		],
+		"setup": true,
+		"setupDependencies": []
 	}
 }
