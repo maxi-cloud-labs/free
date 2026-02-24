@@ -65,7 +65,6 @@
 		"enabled": true,
 		"localPort": 9513,
 		"permissions": [
-			"local",
 			"user"
 		],
 		"reset": true,
