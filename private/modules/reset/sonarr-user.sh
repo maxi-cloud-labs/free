@@ -40,4 +40,4 @@ DATA="{\"path\":\"/disk/admin/modules/sonarr/downloads\"}"
 response=`curl -sS -X POST "$URL/api/v3/rootfolder" -H "X-Api-Key: $APIKEY" -H "Content-Type: application/json" -d "$DATA"`
 #echo $response
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 -user.sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

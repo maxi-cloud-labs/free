@@ -26,4 +26,4 @@ curl -sS -X POST "$URL/set-password" --data-urlencode "password1=$PASSWD" --data
 
 echo "{\"password\":\"${PASSWD}\"}" > /disk/admin/modules/_config_/triliumnotes.json
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 -user.sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
