@@ -18,11 +18,12 @@ POSTNAME=""
 FINAL=0
 CLEAN=0
 FORCE=0
+COMPRESSION=3
 while getopts cd:fhl:z opt; do
 	case "$opt" in
 		c) CLEAN=1;;
 		d) DISK="/dev/${OPTARG}";;
-		f) POSTNAME="-final";FINAL=1;;
+		f) POSTNAME="-final";FINAL=1;COMPRESSION=22;;
 		h) helper;;
 		l) LOSETUP=/dev/loop${OPTARG};;
 		z) FORCE=1;;
@@ -131,21 +132,18 @@ else
 	rm -rf ${ROOTFS}/home/admin.default
 	cp -a ${ROOTFS}/disk/admin ${ROOTFS}/home/admin.default
 	rm -f /tmp/squashfs-exclude.txt
-	if [ $FINAL = 1 ]; then
-		cp squashfs-exclude.txt /tmp/squashfs-exclude.txt
-	else
-		rm -f /tmp/squashfs-exclude.txt
-		touch /tmp/squashfs-exclude.txt
-	fi
+	rm -f /tmp/squashfs-exclude.txt
 	cat >> /tmp/squashfs-exclude.txt <<EOF
 ./disk/
+./home/ai/build/
+./home/gregoire/
 EOF
 	sed -i -e 's|#LABEL=rootfs  /disk|LABEL=rootfs  /disk|' ${ROOTFS}/etc/fstab
 	echo "######## WARNING ########"
 	echo "${ROOTFS}/etc/fstab has been modified. It will be reverted once squashfs is finished"
 	cd ${ROOTFS}
 	DATESTARTS=`date +%s`
-	mksquashfs . /tmp/os${POSTNAME}.img -ef /tmp/squashfs-exclude.txt
+	mksquashfs . /tmp/os${POSTNAME}.img -comp zstd -Xcompression-level $COMPRESSION -b 256K -ef /tmp/squashfs-exclude.txt
 	DATEFINISHS=`date +%s`
 	DELTAS=$((DATEFINISHS - DATESTARTS))
 	echo "Squashfs done in $((DELTAS / 60))m $((DELTAS % 60))s"
