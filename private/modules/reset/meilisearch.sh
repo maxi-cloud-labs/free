@@ -10,7 +10,7 @@ PASSWORD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 systemctl stop meilisearch.service
 rm -rf /disk/admin/modules/meilisearch
-mkdir -p /disk/admin/modules/meilisearch
+mkdir /disk/admin/modules/meilisearch
 echo "MEILI_HOST=127.0.0.1\nMEILI_MASTER_KEY=$PASSWORD" > /disk/admin/modules/meilisearch/meilisearch.env
 echo "{\"key\":\"${PASSWORD}\"}" > /disk/admin/modules/_config_/meilisearch.json
 systemctl start meilisearch.service
