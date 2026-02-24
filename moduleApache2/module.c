@@ -167,7 +167,7 @@ int authorization2(request_rec *r, const char *permission, int strict) {
 	//PRINTF("APP: authorization2 cookieJwt: %s", cookieJwt);
 	if (cookieJwt != NULL && strlen(cookieJwt) > 0) {
 		configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
-		//PRINTF("APP: authorization1b %s jwkPem: %.*s", permission, 32, confVH->jwkPem);
+		//PRINTF("APP: authorization2 %s jwkPem: %.*s", permission, 32, confVH->jwkPem);
 		return decodeAndCheck(s, cookieJwt, confVH->jwkPem, permission, strict) == 1 ? AUTHZ_GRANTED : AUTHZ_DENIED;
 	}
 	return AUTHZ_DENIED;
@@ -177,18 +177,9 @@ static authz_status app_permission_check(request_rec *r, const char *require_lin
 	const char *permission = ap_getword_conf(r->pool, &require_line);
 	server_rec *s = r->server;
 	const char *current_uri = r->uri;
-	configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
-#ifdef STATS
-	int *global_hits = apr_shm_baseaddr_get(confVH->shm_hits);
-	time_t *global_lasttime = apr_shm_baseaddr_get(confVH->shm_lasttime);
-	apr_proc_mutex_lock(confVH->mutex);
-	(*global_hits)++;
-	*global_lasttime = time(NULL);
-	apr_proc_mutex_unlock(confVH->mutex);
-	//PRINTF("APP: authorization1a name:%s uri:%s hits:%d", confVH->name, r->uri, *global_hits);
-#endif
 	if (current_uri != NULL && strncmp(current_uri, "/_app_/", 7) == 0)
 		return AUTHZ_GRANTED;
+	configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
 	//PRINTF("APP: name:%s uri:%s", confVH->name, r->uri);
 	//const apr_array_header_t *fields = apr_table_elts(r->headers_in);
 	//const apr_table_entry_t *e = (const apr_table_entry_t *)fields->elts;
@@ -209,6 +200,21 @@ static authz_status app_permission_check(request_rec *r, const char *require_lin
 	return authorization2(r, permission, 0);
 }
 
+static int statsCounter(request_rec *r) {
+#ifdef STATS
+	server_rec *s = r->server;
+	configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
+	int *global_hits = apr_shm_baseaddr_get(confVH->shm_hits);
+	time_t *global_lasttime = apr_shm_baseaddr_get(confVH->shm_lasttime);
+	apr_proc_mutex_lock(confVH->mutex);
+	(*global_hits)++;
+	*global_lasttime = time(NULL);
+	apr_proc_mutex_unlock(confVH->mutex);
+	//PRINTF("APP: stats name:%s uri:%s hits:%d", confVH->name, r->uri, *global_hits);
+#endif
+	return DECLINED;
+}
+
 static const command_rec directives[] = {
 	AP_INIT_TAKE1("AppJwkPem", moduleJwkPemFileSet, NULL, RSRC_CONF | ACCESS_CONF, "App Jwt Key"),
 	AP_INIT_TAKE1("AppModule", moduleNameSet, NULL, RSRC_CONF | ACCESS_CONF, "App module name"),
@@ -220,6 +226,7 @@ static const authz_provider authz_app_module_provider = { &app_permission_check,
 
 static void registerHooks(apr_pool_t *p) {
 	ap_register_auth_provider(p, AUTHZ_PROVIDER_GROUP, "AppModulePermission", AUTHZ_PROVIDER_VERSION, &authz_app_module_provider, AP_AUTH_INTERNAL_PER_CONF);
+	ap_hook_access_checker(statsCounter, NULL, NULL, APR_HOOK_FIRST);
 	registerFilter();
 }
 
