@@ -43,4 +43,4 @@ chown -R admin:admin /disk/admin/modules/bugzilla
 chown -R www-data:admin /disk/admin/modules/bugzilla/data
 chown -R www-data:admin /disk/admin/modules/bugzilla/localconfig
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

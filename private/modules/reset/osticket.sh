@@ -70,4 +70,4 @@ chmod 644 /disk/admin/modules/osticket/ost-config.php
 
 echo "{\"other\":\"name: ${name}, email: ${supportemail}\", \"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASS}\"}" > /disk/admin/modules/_config_/osticket.json
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

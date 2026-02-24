@@ -67,4 +67,4 @@ chown admin:admin /disk/admin/modules/_config_/projectsend.json
 chown -R admin:admin /disk/admin/modules/projectsend
 chown -R www-data:admin /disk/admin/modules/projectsend/sys.config.php /disk/admin/modules/projectsend/files /disk/admin/modules/projectsend/temp /disk/admin/modules/projectsend/cache
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

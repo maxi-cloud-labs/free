@@ -82,4 +82,4 @@ systemctl enable mastodon.service
 echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"mastodondb\", \"dbuser\":\"mastodonuser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/mastodon.json
 chown admin:admin /disk/admin/modules/_config_/mastodon.json
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

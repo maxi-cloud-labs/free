@@ -20,4 +20,4 @@ cd /usr/local/modules/pinchflat/_build/prod/rel/pinchflat
 systemctl start pinchflat.service
 systemctl enable pinchflat.service
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename \""$0"\" .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
