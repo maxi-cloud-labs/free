@@ -13,7 +13,7 @@ StandardOutput=inherit
 StandardError=inherit
 RestartSec=5s
 User=admin
-ExecStart=/usr/local/modules/ente/server/main
+ExecStart=/usr/local/modules/ente/server/museum
 WorkingDirectory=/usr/local/modules/ente/server
 
 [Install]

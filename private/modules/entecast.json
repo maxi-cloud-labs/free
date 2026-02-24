@@ -1,7 +1,7 @@
 {
-	"module": "ente",
-	"name": "Ente",
-	"title": "Cloud Manager",
+	"module": "entecast",
+	"name": "Ente Cast",
+	"title": "Cloud Manager Cast",
 	"category": "Collaboration",
 	"version": "bbfb99f8",
 	"installMethod": "clone",
@@ -10,7 +10,7 @@
 	"finished": true,
 	"ai": false,
 	"database": "",
-	"github": "ente-io/ente",
+	"github": "",
 	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",
 	"keywords": [
 		"Cloud storage",
@@ -25,27 +25,10 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"homepage": "/ping",
-		"localPort": 9532,
+		"localPort": 9535,
+		"path": "/usr/local/modules/ente/web/apps/cast/out",
 		"permissions": [
 			"user"
-		],
-		"reset": true,
-		"reverseProxy": [
-			{
-				"type": "http",
-				"port": 3200,
-				"path": "/"
-			}
-		],
-		"services": [
-			"ente"
-		],
-		"setup": true,
-		"setupDependencies": [
-			"minio",
-			"postgresql"
-		],
-		"setupRoot": true
+		]
 	}
 }
