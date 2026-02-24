@@ -23,7 +23,7 @@
 	"default": {
 		"enabled": true,
 		"homepage": "?token=authorizationisdoneautomaticallybybackend",
-		"localPort": 9467,
+		"localPort": 9475,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

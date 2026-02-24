@@ -25,7 +25,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9539,
+		"localPort": 9428,
 		"path": "/usr/local/modules/ente/web/apps/share/out",
 		"permissions": [
 			"user"

@@ -52,7 +52,7 @@
 		"config": true,
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9489,
+		"localPort": 9498,
 		"permissions": [
 			"user"
 		],

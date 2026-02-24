@@ -25,7 +25,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9537,
+		"localPort": 9426,
 		"path": "/usr/local/modules/ente/web/apps/ensu/out",
 		"permissions": [
 			"user"

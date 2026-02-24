@@ -63,7 +63,7 @@
 		"config": true,
 		"configFile": "/disk/admin/modules/tabby/config.toml",
 		"enabled": true,
-		"localPort": 9513,
+		"localPort": 9522,
 		"permissions": [
 			"user"
 		],

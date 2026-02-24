@@ -28,7 +28,7 @@
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9519,
+		"localPort": 9528,
 		"path": "/usr/local/modules/typesensedashboard/dist/spa",
 		"permissions": [
 			"user"

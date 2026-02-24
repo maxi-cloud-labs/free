@@ -25,7 +25,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9538,
+		"localPort": 9427,
 		"path": "/usr/local/modules/ente/web/apps/photos/out",
 		"permissions": [
 			"user"

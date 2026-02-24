@@ -25,7 +25,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9535,
+		"localPort": 9424,
 		"path": "/usr/local/modules/ente/web/apps/cast/out",
 		"permissions": [
 			"user"

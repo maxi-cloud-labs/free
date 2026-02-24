@@ -30,7 +30,7 @@
 			"search"
 		],
 		"enabled": true,
-		"localPort": 9500,
+		"localPort": 9509,
 		"permissions": [
 			"user"
 		],

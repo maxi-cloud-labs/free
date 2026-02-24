@@ -26,7 +26,7 @@
 	"default": {
 		"enabled": true,
 		"homepage": "/ping",
-		"localPort": 9532,
+		"localPort": 9421,
 		"permissions": [
 			"user"
 		],

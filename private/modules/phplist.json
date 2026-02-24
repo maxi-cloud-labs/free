@@ -27,7 +27,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9480,
+		"localPort": 9489,
 		"path": "/usr/local/modules/phplist/public_html",
 		"permissions": [
 			"user"

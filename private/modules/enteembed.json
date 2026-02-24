@@ -25,7 +25,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9536,
+		"localPort": 9425,
 		"path": "/usr/local/modules/ente/web/apps/embed/out",
 		"permissions": [
 			"user"

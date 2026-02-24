@@ -51,7 +51,7 @@
 			]
 		},
 		"enabled": true,
-		"localPort": 9456,
+		"localPort": 9464,
 		"permissions": [
 			"user"
 		],

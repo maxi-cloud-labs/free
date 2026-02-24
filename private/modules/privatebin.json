@@ -30,7 +30,7 @@
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9488,
+		"localPort": 9497,
 		"permissions": [
 			"user"
 		],
