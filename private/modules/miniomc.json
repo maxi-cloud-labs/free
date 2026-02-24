@@ -1,0 +1,32 @@
+{
+	"module": "miniomc",
+	"name": "MinIO MC",
+	"title": "Object Storage Utility",
+	"category": "Server",
+	"version": "RELEASE.2025-08-13T08-35-41Z",
+	"installMethod": "clone",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "minio/mc",
+	"description": "A Unix-like utility for object store MinIO.",
+	"keywords": [
+		"Cloud storage",
+		"Data storage",
+		"Object",
+		"Object storage",
+		"S3",
+		"S3 compatible",
+		"Storage"
+	],
+	"proprietary": [
+		"Amazon S3"
+	],
+	"default": {
+		"cmds": [
+			"/usr/local/bin/mc"
+		]
+	}
+}
