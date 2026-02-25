@@ -43,6 +43,7 @@
 		"autoLoginNoGzip": [
 			"^/web/login"
 		],
+		"config": true,
 		"enabled": true,
 		"localPort": 9476,
 		"permissions": [],

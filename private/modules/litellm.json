@@ -40,6 +40,7 @@
 				}
 			]
 		},
+		"config": true,
 		"enabled": true,
 		"homepage": "/ui",
 		"localPort": 9541,
@@ -47,7 +48,6 @@
 			"user"
 		],
 		"reset": true,
-		"resetConfig": true,
 		"reverseProxy": [
 			{
 				"type": "http",

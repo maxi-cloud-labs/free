@@ -48,13 +48,13 @@
 				}
 			]
 		},
+		"config": true,
 		"enabled": true,
 		"localPort": 9470,
 		"permissions": [
 			"user"
 		],
 		"reset": true,
-		"resetConfig": true,
 		"reverseProxy": [
 			{
 				"type": "http",

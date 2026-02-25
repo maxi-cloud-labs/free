@@ -24,6 +24,7 @@
 	],
 	"proprietary": [],
 	"default": {
+		"config": true,
 		"enabled": true,
 		"homepage": "/ping",
 		"localPort": 9421,

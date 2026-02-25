@@ -20,7 +20,6 @@
 	],
 	"proprietary": [],
 	"default": {
-		"config": true,
 		"enabled": true,
 		"followSymLinks": true,
 		"localPort": 9430,

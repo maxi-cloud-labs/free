@@ -28,6 +28,7 @@
 		"Microsoft Exchange"
 	],
 	"default": {
+		"config": true,
 		"reset": true,
 		"setup": true,
 		"setupDependencies": [],

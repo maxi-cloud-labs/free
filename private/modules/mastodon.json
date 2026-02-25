@@ -50,6 +50,7 @@
 				}
 			]
 		},
+		"config": true,
 		"enabled": true,
 		"localPort": 9464,
 		"permissions": [

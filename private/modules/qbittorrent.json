@@ -47,6 +47,7 @@
 		"autoLoginNoGzip": [
 			"^/$"
 		],
+		"config": true,
 		"enabled": true,
 		"localPort": 9501,
 		"permissions": [],

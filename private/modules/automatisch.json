@@ -23,7 +23,6 @@
 		"Zapier"
 	],
 	"default": {
-		"config": true,
 		"enabled": true,
 		"indexes": true,
 		"localPort": 9405,
