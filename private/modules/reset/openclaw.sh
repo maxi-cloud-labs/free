@@ -7,6 +7,7 @@ fi
 
 echo "#Reset openclaw##################"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
+TOKEN=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 systemctl stop openclaw.service
 rm -rf /disk/admin/modules/openclaw
 mkdir /disk/admin/modules/openclaw
@@ -38,7 +39,7 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
     "mode": "local",
     "auth": {
       "mode": "token",
-      "token": "authorizationisdoneautomaticallybybackend"
+      "token": "${TOKEN}"
     },
     "port": 18789,
     "bind": "loopback",
@@ -64,5 +65,7 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
 EOF
 systemctl start openclaw.service
 systemctl enable openclaw.service
+
+echo "{\"token\":\"${TOKEN}\"}" > /disk/admin/modules/_config_/openclaw.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

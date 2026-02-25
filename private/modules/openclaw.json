@@ -21,8 +21,31 @@
 	],
 	"proprietary": [],
 	"default": {
+		"addConfigBegin": "Alias /access /usr/local/modules/openclaw/access\n\t<Directory /usr/local/modules/openclaw/access>\n\t\tRequire all granted\n\t</Directory>\n\tProxyPass /access !",
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/access/index.php",
+					"form": "form[id=formID]",
+					"arg1": "input[id=tokenID]",
+					"arg2": "",
+					"arg3": "button[id=submitID]",
+					"val1": 2,
+					"val2": 4
+				}
+			],
+			"post": [
+				{
+					"url": "/access/index.php",
+					"arg1": "token",
+					"arg2": "",
+					"val1": 2,
+					"val2": 4
+				}
+			]
+		},
 		"enabled": true,
-		"homepage": "?token=authorizationisdoneautomaticallybybackend",
+		"homepage": "/access",
 		"localPort": 9475,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
