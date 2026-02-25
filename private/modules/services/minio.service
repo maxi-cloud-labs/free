@@ -15,7 +15,7 @@ RestartSec=5s
 User=admin
 ExecStart=/usr/local/bin/minio server /disk/admin/modules/minio --console-address "localhost:9001"
 WorkingDirectory=/disk/admin/modules/minio
-EnvironmentFile=/disk/admin/modules/minio/minio.env
+EnvironmentFile=/disk/admin/modules/minio/env
 
 [Install]
 WantedBy=multi-user.target
