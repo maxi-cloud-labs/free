@@ -48,7 +48,7 @@ html {
 				</div>
 				<p class="text-gray-600">Enter the token of your OpenClaw account</p>
 			</div>
-			<form method="GET" action="/" id="formID" class="space-y-6">
+			<form method="POST" action="#" id="formID" class="space-y-6">
 				<div>
 					<label for="password" class="block text-sm font-medium text-gray-700 mb-2">Token</label>
 					<div class="relative">
