@@ -26,4 +26,4 @@ echo "{\"accessKey\":\"${CLOUDNAME}\", \"secretKey\":\"${PASSWORD}\"}" > /disk/a
 systemctl start minio.service
 systemctl enable minio.service
 
-/usr/local/modules/_core_/reset/minio-user.sh &
+/usr/local/modules/_core_/reset/minio-user.sh
