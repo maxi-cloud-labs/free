@@ -10,14 +10,14 @@ DATE=$(date +%s)
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
-DBPASS=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 mysql --defaults-file=/disk/admin/modules/mysql/conf.txt << EOF
 DROP DATABASE IF EXISTS osticketDB;
 CREATE DATABASE osticketDB;
 DROP USER IF EXISTS 'osticketUser'@'localhost';
-CREATE USER 'osticketUser'@'localhost' IDENTIFIED BY '${DBPASS}';
+CREATE USER 'osticketUser'@'localhost' IDENTIFIED BY '${DBPASSM}';
 GRANT ALL PRIVILEGES ON osticketDB.* TO 'osticketUser'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -55,7 +55,7 @@ cat > /tmp/osticket.php << EOF
 \$_POST['dbhost'] = '$dbhost';
 \$_POST['dbname'] = '$dbname';
 \$_POST['dbuser'] = '$dbuser';
-\$_POST['dbpass'] = '$DBPASS';
+\$_POST['dbpass'] = '${DBPASSM}';
 \$_POST['timezone'] = '$timezone';
 
 \$_SERVER['REQUEST_METHOD'] = 'POST';
@@ -68,6 +68,6 @@ rm /tmp/osticket.php
 
 chmod 644 /disk/admin/modules/osticket/ost-config.php
 
-echo "{\"other\":\"name: ${name}, email: ${supportemail}\", \"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASS}\"}" > /disk/admin/modules/_config_/osticket.json
+echo "{\"other\":\"name: ${name}, email: ${supportemail}\", \"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASSM}\"}" > /disk/admin/modules/_config_/osticket.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

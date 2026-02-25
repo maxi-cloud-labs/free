@@ -13,14 +13,14 @@ PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 KEY_VAULTS_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 BETTER_AUTH_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 QSTASH_TOKEN=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
-dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS lobechatdb;
 CREATE DATABASE lobechatdb;
 DROP USER IF EXISTS lobechatuser;
-CREATE USER lobechatuser WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER lobechatuser WITH ENCRYPTED PASSWORD '${DBPASSP}';
 GRANT ALL PRIVILEGES ON DATABASE lobechatdb TO lobechatuser;
 \c lobechatdb
 GRANT ALL ON SCHEMA public TO lobechatuser;
@@ -42,7 +42,7 @@ SMTP_SECURE=false
 SMTP_USER=${EMAIL}
 SMTP_PASS=demodemo
 
-DATABASE_URL=postgres://lobechatuser:${dbpass}@127.0.0.1:5432/lobechatdb?sslmode=disable
+DATABASE_URL=postgres://lobechatuser:${DBPASSP}@127.0.0.1:5432/lobechatdb?sslmode=disable
 
 KEY_VAULTS_SECRET=${KEY_VAULTS_SECRET}
 BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
@@ -52,7 +52,7 @@ EOF
 cd /usr/local/modules/lobechat
 #bun run db:migrate
 
-echo "{\"dbname\":\"lobechatdb\", \"dbuser\":\"lobechatuser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/lobechat.json
+echo "{\"dbname\":\"lobechatdb\", \"dbuser\":\"lobechatuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/lobechat.json
 chown admin:admin /disk/admin/modules/_config_/lobechat.json
 
 chown -R admin:admin /disk/admin/modules/lobechat

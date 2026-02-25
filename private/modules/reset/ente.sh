@@ -6,7 +6,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset ente##################"
-dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 read -r PORTaccounts PORTauth PORTcast PORTembed PORTensu PORTphotos PORTshare << EOF
 	$(jq ".enteaccounts.localPort,.enteauth.localPort,.entecast.localPort,.enteembed.localPort,.enteensu.localPort,.entephotos.localPort,.enteshare.localPort" /usr/local/modules/_core_/web/assets/modulesdefault.json | xargs)
 EOF
@@ -23,7 +23,7 @@ su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS entedb;
 CREATE DATABASE entedb;
 DROP USER IF EXISTS enteuser;
-CREATE USER enteuser WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER enteuser WITH ENCRYPTED PASSWORD '${DBPASSP}';
 GRANT ALL PRIVILEGES ON DATABASE entedb TO enteuser;
 \c entedb
 GRANT ALL PRIVILEGES ON SCHEMA public TO enteuser;
@@ -45,7 +45,7 @@ db:
     port: 5432
     name: entedb
     user: enteuser
-    password: $dbpass
+    password: ${DBPASSP}
 
 s3:
     are_local_buckets: true
@@ -69,7 +69,7 @@ EOF
 
 /usr/local/modules/ente/server/keys >> /disk/admin/modules/ente/museum.yaml
 
-echo "{\"dbname\":\"entedb\", \"dbuser\":\"enteuser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/ente.json
+echo "{\"dbname\":\"entedb\", \"dbuser\":\"enteuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/ente.json
 chown admin:admin /disk/admin/modules/_config_/piped.json
 
 systemctl start ente.service

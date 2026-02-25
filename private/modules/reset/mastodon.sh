@@ -10,7 +10,7 @@ CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 SECRET_KEY_BASE=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 64)
-dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 systemctl stop mastodon.service
 rm -rf /disk/admin/modules/mastodon
@@ -20,7 +20,7 @@ export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS mastodondb;
 DROP USER IF EXISTS mastodonuser;
-CREATE USER mastodonuser WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER mastodonuser WITH ENCRYPTED PASSWORD '${DBPASSP}';
 CREATE DATABASE mastodondb OWNER mastodonuser;
 \c mastodondb
 GRANT ALL ON SCHEMA public TO mastodonuser;
@@ -55,7 +55,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=mastodondb
 DB_USER=mastodonuser
-DB_PASS=${dbpass}
+DB_PASS=${DBPASSP}
 OTP_SECRET=${OTP_SECRET}
 REDIS_HOST=localhost
 REDIS_PORT=6379
@@ -79,7 +79,7 @@ RAILS_ENV=production bin/tootctl accounts modify ${CLOUDNAME} --approve
 systemctl start mastodon.service
 systemctl enable mastodon.service
 
-echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"mastodondb\", \"dbuser\":\"mastodonuser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/mastodon.json
+echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"mastodondb\", \"dbuser\":\"mastodonuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/mastodon.json
 chown admin:admin /disk/admin/modules/_config_/mastodon.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

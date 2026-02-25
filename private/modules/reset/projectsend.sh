@@ -9,14 +9,14 @@ echo "#Reset projectsend##################"
 DATE=$(date +%s)
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
-DBPASS=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 mysql --defaults-file=/disk/admin/modules/mysql/conf.txt << EOF
 DROP DATABASE IF EXISTS projectsendDB;
 CREATE DATABASE projectsendDB;
 DROP USER IF EXISTS 'projectsendUser'@'localhost';
-CREATE USER 'projectsendUser'@'localhost' IDENTIFIED BY '${DBPASS}';
+CREATE USER 'projectsendUser'@'localhost' IDENTIFIED BY '${DBPASSM}';
 GRANT ALL PRIVILEGES ON projectsendDB.* TO 'projectsendUser'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -34,7 +34,7 @@ title="projectsend"
 
 sed -i -e "s|define('DB_NAME',.*|define('DB_NAME', '$dbname');|" /disk/admin/modules/projectsend/sys.config.php
 sed -i -e "s|define('DB_USER',.*|define('DB_USER', '$dbuser');|" /disk/admin/modules/projectsend/sys.config.php
-sed -i -e "s|define('DB_PASSWORD',.*|define('DB_PASSWORD', '$DBPASS');|" /disk/admin/modules/projectsend/sys.config.php
+sed -i -e "s|define('DB_PASSWORD',.*|define('DB_PASSWORD', '${DBPASSM}');|" /disk/admin/modules/projectsend/sys.config.php
 
 
 cd /usr/local/modules/projectsend
@@ -60,7 +60,7 @@ INSERT INTO tbl_options (name, value) VALUES ('show_upgrade_success_message', tr
 EOF
 
 rm -f /disk/admin/modules/projectsend/conf.txt
-echo "{\"mail\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASS}\"}" > /disk/admin/modules/_config_/projectsend.json
+echo "{\"mail\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASSM}\"}" > /disk/admin/modules/_config_/projectsend.json
 chown admin:admin /disk/admin/modules/_config_/projectsend.json
 
 

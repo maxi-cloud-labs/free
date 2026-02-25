@@ -9,14 +9,14 @@ echo "#Reset invidious##################"
 systemctl stop invidiouscompanion.service
 systemctl stop invidious.service
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 16)
-export dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS invidiousdb;
 CREATE DATABASE invidiousdb;
 DROP USER IF EXISTS invidioususer;
-CREATE USER invidioususer WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER invidioususer WITH ENCRYPTED PASSWORD '${DBPASSP}';
 GRANT ALL PRIVILEGES ON DATABASE invidiousdb TO invidioususer;
 \c invidiousdb
 GRANT ALL PRIVILEGES ON SCHEMA public TO invidioususer;
@@ -30,7 +30,7 @@ rm -rf /disk/admin/modules/invidious
 mkdir -p /disk/admin/modules/invidious/tmp
 cp /usr/local/modules/invidious/config/config.example.yml /disk/admin/modules/invidious/config.yml
 sed -i -e "s/^  user:.*/  user: invidioususer/" /disk/admin/modules/invidious/config.yml
-sed -i -e "s/^  password:.*/  password: ${dbpass}/" /disk/admin/modules/invidious/config.yml
+sed -i -e "s/^  password:.*/  password: ${DBPASSP}/" /disk/admin/modules/invidious/config.yml
 sed -i -e "s/^  dbname:.*/  dbname: invidiousdb/" /disk/admin/modules/invidious/config.yml
 sed -i -e "s/^hmac_key:.*/hmac_key: \"${SALT}\"/" /disk/admin/modules/invidious/config.yml
 sed -i -e "s/^#invidious_companion:.*/invidious_companion:/" /disk/admin/modules/invidious/config.yml
@@ -41,7 +41,7 @@ sed -i -e "s/^  #default_home:.*/  default_home: Trending/" /disk/admin/modules/
 cd /usr/local/modules/invidious
 ./invidious --migrate
 
-echo "{\"dbname\":\"invidiousdb\", \"dbuser\":\"invidioususer\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/invidious.json
+echo "{\"dbname\":\"invidiousdb\", \"dbuser\":\"invidioususer\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/invidious.json
 echo "SERVER_SECRET_KEY=${SALT}" > /disk/admin/modules/invidious/companion.env
 chown admin:admin /disk/admin/modules/_config_/invidious.json
 chown -R admin:admin /disk/admin/modules/invidious

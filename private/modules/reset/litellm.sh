@@ -7,7 +7,7 @@ fi
 
 echo "#Reset litellm##################"
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
-dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 systemctl stop litellm.service
 rm -rf /disk/admin/modules/litellm
 mkdir /disk/admin/modules/litellm
@@ -17,7 +17,7 @@ su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS litellmdb;
 CREATE DATABASE litellmdb;
 DROP USER IF EXISTS litellmuser;
-CREATE USER litellmuser WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER litellmuser WITH ENCRYPTED PASSWORD '${DBPASSP}';
 GRANT ALL PRIVILEGES ON DATABASE litellmdb TO litellmuser;
 \c litellmdb
 GRANT ALL PRIVILEGES ON SCHEMA public TO litellmuser;
@@ -36,10 +36,10 @@ model_list:
 
 general_settings:
   master_key: sk-${PASSWD}
-  database_url: "postgresql://litellmuser:${dbpass}@localhost:5432/litellmdb?sslmode=disable"
+  database_url: "postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
 EOF
 
-echo "{\"username\":\"admin\", \"password\":\"sk-${PASSWORD}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/litellm.json
+echo "{\"username\":\"admin\", \"password\":\"sk-${PASSWORD}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/litellm.json
 chown admin:admin /disk/admin/modules/_config_/litellm.json
 
 systemctl start litellm.service

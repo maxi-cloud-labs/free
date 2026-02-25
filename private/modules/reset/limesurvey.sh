@@ -8,14 +8,14 @@ fi
 echo "#Reset limesurvey##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
-DBPASS=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 mysql --defaults-file=/disk/admin/modules/mysql/conf.txt << EOF
 DROP DATABASE IF EXISTS limesurveyDB;
 CREATE DATABASE limesurveyDB;
 DROP USER IF EXISTS 'limesurveyUser'@'localhost';
-CREATE USER 'limesurveyUser'@'localhost' IDENTIFIED BY '${DBPASS}';
+CREATE USER 'limesurveyUser'@'localhost' IDENTIFIED BY '${DBPASSM}';
 GRANT ALL PRIVILEGES ON limesurveyDB.* TO 'limesurveyUser'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -28,11 +28,10 @@ cp -a /usr/local/modules/limesurvey/upload.bak /disk/admin/modules/limesurvey/up
 
 dbname="limesurveyDB"
 dbuser="limesurveyUser"
-dbpass="${DBPASS}"
 
 cd /usr/local/modules/limesurvey
 
-echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/limesurvey.json
+echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASSM}\"}" > /disk/admin/modules/_config_/limesurvey.json
 chown admin:admin /disk/admin/modules/_config_/limesurvey.json
 
 chown -R www-data:admin /disk/admin/modules/limesurvey

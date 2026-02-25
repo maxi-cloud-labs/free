@@ -10,14 +10,14 @@ DATE=$(date +%s)
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
-DBPASS=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 mysql --defaults-file=/disk/admin/modules/mysql/conf.txt << EOF
 DROP DATABASE IF EXISTS yourlsDB;
 CREATE DATABASE yourlsDB;
 DROP USER IF EXISTS 'yourlsUser'@'localhost';
-CREATE USER 'yourlsUser'@'localhost' IDENTIFIED BY '${DBPASS}';
+CREATE USER 'yourlsUser'@'localhost' IDENTIFIED BY '${DBPASSM}';
 GRANT ALL PRIVILEGES ON yourlsDB.* TO 'yourlsUser'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -31,7 +31,7 @@ dbname="yourlsDB"
 site="https://yourls.${PRIMARY}"
 
 sed -i -e "s|define( 'YOURLS_DB_USER',.*|define( 'YOURLS_DB_USER', '$dbuser' );|" /disk/admin/modules/yourls/config.php
-sed -i -e "s|define( 'YOURLS_DB_PASS',.*|define( 'YOURLS_DB_PASS', '$DBPASS' );|" /disk/admin/modules/yourls/config.php
+sed -i -e "s|define( 'YOURLS_DB_PASS',.*|define( 'YOURLS_DB_PASS', '${DBPASSM}' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_DB_NAME',.*|define( 'YOURLS_DB_NAME', '$dbname' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_SITE',.*|define( 'YOURLS_SITE', '$site' );|" /disk/admin/modules/yourls/config.php
 sed -i -e "s|define( 'YOURLS_COOKIEKEY',.*|define( 'YOURLS_COOKIEKEY', '$SALT' );|" /disk/admin/modules/yourls/config.php
@@ -58,6 +58,6 @@ UPDATE yourls_options SET option_value='a:2:{i:0;s:27:"random-shorturls/plugin.p
 EOF
 
 rm -f /disk/admin/modules/yourls/conf.txt
-echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASS}\"}" > /disk/admin/modules/_config_/yourls.json
+echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${dbname}\", \"dbuser\":\"${dbuser}\", \"dbpass\":\"${DBPASSM}\"}" > /disk/admin/modules/_config_/yourls.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

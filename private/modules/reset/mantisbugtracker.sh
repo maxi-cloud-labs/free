@@ -11,14 +11,14 @@ CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
-DBPASS=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 mysql --defaults-file=/disk/admin/modules/mysql/conf.txt << EOF
 DROP DATABASE IF EXISTS mantisbugtrackerDB;
 CREATE DATABASE mantisbugtrackerDB;
 DROP USER IF EXISTS 'mantisbugtrackerUser'@'localhost';
-CREATE USER 'mantisbugtrackerUser'@'localhost' IDENTIFIED BY '${DBPASS}';
+CREATE USER 'mantisbugtrackerUser'@'localhost' IDENTIFIED BY '${DBPASSM}';
 GRANT ALL PRIVILEGES ON mantisbugtrackerDB.* TO 'mantisbugtrackerUser'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -34,7 +34,6 @@ db_type="mysqli"
 timezone="UTC"
 hostname="localhost"
 db_username="mantisbugtrackerUser"
-db_password="${DBPASS}"
 database_name="mantisbugtrackerDB"
 admin_username=""
 admin_password=""
@@ -46,7 +45,7 @@ log_queries="0"
 
 sed -i -e "s/^\\\$g_hostname.*/\\\$g_hostname = '$hostname';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
 sed -i -e "s/^\\\$g_db_username.*/\\\$g_db_username = '$db_username';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
-sed -i -e "s/^\\\$g_db_password.*/\\\$g_db_password = '$db_password';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
+sed -i -e "s/^\\\$g_db_password.*/\\\$g_db_password = '${DBPASSM}';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
 sed -i -e "s/^\\\$g_database_name.*/\\\$g_database_name = '$database_name';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
 sed -i -e "s/^\\\$g_db_type.*/\\\$g_db_type = '$db_type';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
 sed -i -e "s/^\\\$g_crypto_master_salt.*/\\\$g_crypto_master_salt = '$SALT';/" /disk/admin/modules/mantisbugtracker/config/config_inc.php
@@ -61,7 +60,7 @@ cat > /tmp/mantisbugtracker.php << EOF
 \$_POST['timezone'] = '$timezone';
 \$_POST['hostname'] = '$hostname';
 \$_POST['db_username'] = '$db_username';
-\$_POST['db_password'] = '$db_password';
+\$_POST['db_password'] = '${DBPASSM}';
 \$_POST['database_name'] = '$database_name';
 \$_POST['admin_username'] = '$admin_username';
 \$_POST['admin_password'] = '$admin_password';
@@ -84,6 +83,6 @@ USE mantisbugtrackerDB;
 UPDATE ${db_table_prefix}_user${db_table_suffix} SET username='${CLOUDNAME}', password=MD5('${PASSWD}'), email='${EMAIL}' WHERE username='administrator';
 EOF
 
-echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${database_name}\", \"dbuser\":\"${db_username}\", \"dbpass\":\"${db_password}\"}" > /disk/admin/modules/_config_/mantisbugtracker.json
+echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"${database_name}\", \"dbuser\":\"${db_username}\", \"dbpass\":\"${DBPASSM}\"}" > /disk/admin/modules/_config_/mantisbugtracker.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

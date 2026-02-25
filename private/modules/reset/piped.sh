@@ -9,14 +9,14 @@ echo "#Reset piped##################"
 systemctl stop pipedbackend.service
 systemctl stop pipedproxy.service
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
-dbpass=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF
 DROP DATABASE IF EXISTS pipeddb;
 CREATE DATABASE pipeddb;
 DROP USER IF EXISTS pipeduser;
-CREATE USER pipeduser WITH ENCRYPTED PASSWORD '${dbpass}';
+CREATE USER pipeduser WITH ENCRYPTED PASSWORD '${DBPASSP}';
 GRANT ALL PRIVILEGES ON DATABASE pipeddb TO pipeduser;
 \c pipeddb
 GRANT ALL PRIVILEGES ON SCHEMA public TO pipeduser;
@@ -38,11 +38,11 @@ hibernate.connection.url:jdbc:postgresql://127.0.0.1:5432/pipeddb
 hibernate.connection.driver_class:org.postgresql.Driver
 hibernate.dialect:org.hibernate.dialect.PostgreSQLDialect
 hibernate.connection.username:pipeduser
-hibernate.connection.password:${dbpass}
+hibernate.connection.password:${DBPASSP}
 COMPROMISED_PASSWORD_CHECK:false
 EOF
 
-echo "{\"dbname\":\"pipeddb\", \"dbuser\":\"pipeduser\", \"dbpass\":\"${dbpass}\"}" > /disk/admin/modules/_config_/piped.json
+echo "{\"dbname\":\"pipeddb\", \"dbuser\":\"pipeduser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/piped.json
 chown admin:admin /disk/admin/modules/_config_/piped.json
 
 chown -R admin:admin /disk/admin/modules/piped
