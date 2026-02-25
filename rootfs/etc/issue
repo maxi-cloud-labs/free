@@ -41,8 +41,8 @@ Scan this QR Code to go to the MyDongle.Cloud app:
 
 ##########################################################################
 You can login with the admin credentials:
-mydongecloud login: admin
+cloud login: admin
 Password: the_password_associated_with_your_primary_email
 Alternatively, you can request an OTP (6-digit one-time-password)
-for admin in the MyDongle.Cloud app.
+in the web app (hardware section).
 ##########################################################################
