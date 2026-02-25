@@ -48,6 +48,7 @@ This is the list of all used ports in the image, separated between listening por
 - dillinger: 8117 (reverseproxy)
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
+- portkey: 8787 (reverseproxy)
 - sonarr: 8989 (reverseproxy)
 - minio: 9000, 9001 (reverseproxy)
 - transmission: 9091 (reverseproxy)

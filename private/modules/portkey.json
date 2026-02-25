@@ -1,0 +1,41 @@
+{
+	"module": "portkey",
+	"name": "Portkey",
+	"title": "AI Gateway",
+	"category": "Media",
+	"version": "1.15.2",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "",
+	"github": "portkey-ai/gateway",
+	"description": "A blazing fast AI Gateway with integrated guardrails.",
+	"keywords": [
+		"AI Gateway",
+		"AI Routing"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"homepage": "/public",
+		"localPort": 9540,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8787,
+				"path": "/"
+			}
+		],
+		"services": [
+			"portkey"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}
