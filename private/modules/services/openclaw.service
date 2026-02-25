@@ -16,6 +16,7 @@ User=admin
 ExecStart=/usr/local/modules/openclaw/node_modules/.bin/openclaw gateway --port 18789
 WorkingDirectory=/disk/admin/modules/openclaw
 Environment=OPENCLAW_CONFIG_PATH=/disk/admin/modules/openclaw/openclaw.json
+Environment=OPENCLAW_STATE_DIR=/disk/admin/modules/openclaw
 
 [Install]
 WantedBy=multi-user.target

@@ -50,6 +50,7 @@
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,
+		"resetConfig": true,
 		"reverseProxy": [
 			{
 				"type": "http",
