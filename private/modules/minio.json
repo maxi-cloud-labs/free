@@ -54,6 +54,7 @@
 			"user"
 		],
 		"reset": true,
+		"resetConfig": true,
 		"reverseProxy": [
 			{
 				"type": "http",
