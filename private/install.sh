@@ -73,7 +73,7 @@ echo "################################"
 echo "Initial"
 echo "################################"
 cd /home/ai
-mkdir /home/ai/build
+mkdir -p /home/ai/build
 sed -i -e 's|/root|/home/ai|' /etc/passwd
 rm -rf /root
 sed -i -e 's|# "\\e\[5~": history-search-backward|"\\e\[5~": history-search-backward|' /etc/inputrc
