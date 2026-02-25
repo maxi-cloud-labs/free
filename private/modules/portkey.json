@@ -2,7 +2,7 @@
 	"module": "portkey",
 	"name": "Portkey",
 	"title": "AI Gateway",
-	"category": "Media",
+	"category": "Server",
 	"version": "1.15.2",
 	"installMethod": "npm",
 	"web": true,
