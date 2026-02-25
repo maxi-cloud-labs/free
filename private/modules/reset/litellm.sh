@@ -6,8 +6,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset litellm##################"
+CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+KEY=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 systemctl stop litellm.service
 rm -rf /disk/admin/modules/litellm
 mkdir /disk/admin/modules/litellm
@@ -35,11 +37,18 @@ model_list:
       api_key: "os.environ/OPENAI_API_KEY"
 
 general_settings:
-  master_key: sk-${PASSWD}
   database_url: "postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
 EOF
 
-echo "{\"username\":\"admin\", \"password\":\"sk-${PASSWORD}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/litellm.json
+cat > /disk/admin/modules/litellm/env << EOF
+LITELLM_MASTER_KEY=sk-${KEY}
+UI_USERNAME=${CLOUDNAME}
+UI_PASSWORD=${PASSWD}
+DOCS_URL=/docs
+ROOT_REDIRECT_URL=/ui
+EOF
+
+echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"key\":\"sk-${KEY}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/litellm.json
 chown admin:admin /disk/admin/modules/_config_/litellm.json
 
 systemctl start litellm.service

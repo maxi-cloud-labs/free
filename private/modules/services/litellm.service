@@ -13,10 +13,12 @@ StandardOutput=inherit
 StandardError=inherit
 RestartSec=5s
 User=admin
-ExecStart=/usr/local/modules/litellm/bin/litellm --port 4001 --config /disk/admin/modules/litellm/config.yaml
+ExecStart=/usr/local/modules/litellm/bin/litellm --host 127.0.0.1 --port 4001 --config /disk/admin/modules/litellm/config.yaml
 WorkingDirectory=/disk/admin/modules/litellm
+EnvironmentFile=/disk/admin/modules/litellm/env
 Environment=PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
 Environment=PATH=/usr/local/modules/litellm/bin:/usr/bin:/bin
+Environment=PRISMA_QUERY_ENGINE_BINARY=/usr/local/modules/litellm/bin/query-engine
 Environment=LITELLM_MIGRATION_DIR=/tmp/litellm_migrations
 
 [Install]

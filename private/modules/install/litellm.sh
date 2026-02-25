@@ -10,7 +10,9 @@ echo "PATH new: $PATH python: `python --version`"
 cd /usr/local/modules/litellm
 pip install prisma litellm 'litellm[proxy]'
 cd lib/python*/site-packages/litellm/proxy
+export PRISMA_HOME=/usr/local/modules/litellm
 prisma generate --schema schema.prisma
+cp /usr/local/modules/litellm/.cache/prisma/master/*/linux-arm64-openssl-3.0.x/query-engine /usr/local/modules/litellm/bin/query-engine
 PATH=$PATHOLD
 export PATH=$PATHOLD
 echo "PATH restored: $PATH"
