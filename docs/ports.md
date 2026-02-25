@@ -14,6 +14,7 @@ This is the list of all used ports in the image, separated between listening por
 - ente: 3200 (reverseproxy)
 - lobechat: 3210 (reverseproxy)
 - mysql: 3306, 33060
+- litellm: 4001 (reverseproxy)
 - signoz: 4317, 4318, 8113 (reverseproxy)
 - openobserve: 5080 (reverseproxy)
 - postgres: 5432

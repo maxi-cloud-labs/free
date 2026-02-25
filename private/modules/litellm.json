@@ -1,0 +1,68 @@
+{
+	"module": "litellm",
+	"name": "LiteLLM",
+	"title": "AI Proxy",
+	"category": "Server",
+	"version": "1.81.15",
+	"installMethod": "pip",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "",
+	"github": "BerriAI/litellm",
+	"description": "An AI proxy to call 100+ LLM APIs in OpenAI format, with cost tracking, guardrails, loadbalancing and logging.",
+	"keywords": [
+		"AI Gateway",
+		"AI Routing"
+	],
+	"proprietary": [],
+	"default": {
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/ui/login/",
+					"form": "form",
+					"arg1": "input[id=username]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/v2/login",
+					"arg1": "username",
+					"arg2": "password",
+					"val1": 0,
+					"val2": 2
+				}
+			]
+		},
+		"enabled": true,
+		"homepage": "/ui",
+		"localPort": 9541,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"resetConfig": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 4001,
+				"path": "/"
+			}
+		],
+		"services": [
+			"litellm"
+		],
+		"setup": true,
+		"setupRoot": true,
+		"setupDependencies": [
+			"postgresql"
+		],
+		"setupRoot": true
+	}
+}
