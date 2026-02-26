@@ -1,0 +1,33 @@
+{
+	"module": "maven",
+	"name": "Maven",
+	"title": "Java Build",
+	"category": "Developer",
+	"version": "3.9.9",
+	"installMethod": "apt",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "apache/maven",
+	"description": "A Java build system.",
+	"keywords": [
+		"Automation",
+		"Build",
+		"Build system",
+		"Coding",
+		"Compilation",
+		"Java",
+		"Software development"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/mvn"
+		],
+		"setupDependencies": [
+			"java"
+		]
+	}
+}
