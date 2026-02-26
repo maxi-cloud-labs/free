@@ -278,6 +278,7 @@ else
 	clone minio minio/minio RELEASE.2025-10-15T17-29-55Z
 	clone miniomc minio/mc RELEASE.2025-08-13T08-35-41Z
 	clone mkdocs mkdocs/mkdocs 1.6.1
+	clone newapi QuantumNous/new-api v0.11.0-alpha.9
 	clone ollama ollama/ollama v0.9.7-rc1
 	clone osticket osTicket/osTicket v1.18.2
 	clone passbolt passbolt/passbolt_api v5.7.2

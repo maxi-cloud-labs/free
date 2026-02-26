@@ -1,0 +1,64 @@
+{
+	"module": "newapi",
+	"name": "New API",
+	"title": "AI Model Hub",
+	"category": "Server",
+	"version": "v0.11.0-alpha.9",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "SQLite",
+	"github": "QuantumNous/new-api",
+	"description": "A unified AI model hub for aggregation & distribution, supporting cross-converting various LLMs.",
+	"keywords": [
+		"AI Gateway",
+		"AI Routing"
+	],
+	"proprietary": [],
+	"default": {
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/login",
+					"form": "form",
+					"arg1": "input[id=username]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/api/user/login",
+					"arg1": "username",
+					"arg2": "password",
+					"val1": 0,
+					"val2": 2
+				}
+			]
+		},
+		"config": true,
+		"enabled": true,
+		"localPort": 9542,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8118,
+				"path": "/"
+			}
+		],
+		"services": [
+			"newapi"
+		],
+		"setup": true,
+		"setupDependencies": [],
+		"setupRoot": true
+	}
+}
