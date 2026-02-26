@@ -1,0 +1,25 @@
+{
+	"module": "swagger",
+	"name": "Swagger",
+	"title": "API Doc Builder",
+	"category": "Knowledge",
+	"version": "3.0.78",
+	"installMethod": "wget",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "swagger-api/swagger-codegen",
+	"description": "A template-driven engine to generate API documentation.",
+	"keywords": [
+		"API",
+		"Documentation"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/java -jar swagger-codegen-cli.jar"
+		]
+	}
+}
