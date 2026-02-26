@@ -19,7 +19,7 @@ EnvironmentFile=/disk/admin/modules/litellm/env
 Environment=PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
 Environment=PATH=/usr/local/modules/litellm/bin:/usr/bin:/bin
 Environment=PRISMA_QUERY_ENGINE_BINARY=/usr/local/modules/litellm/bin/query-engine
-Environment=LITELLM_MIGRATION_DIR=/tmp/litellm_migrations
+Environment=DISABLE_SCHEMA_UPDATE=true
 
 [Install]
 WantedBy=multi-user.target

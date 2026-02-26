@@ -48,6 +48,12 @@ DOCS_URL=/docs
 ROOT_REDIRECT_URL=/ui
 EOF
 
+export DATABASE_URL="postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
+export PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
+export PATH=/usr/local/modules/litellm/bin:$PATH
+/usr/local/modules/litellm/bin/litellm --config /disk/admin/modules/litellm/config.yaml --skip_server_startup
+#USE_PRISMA_MIGRATE="True" /usr/local/modules/litellm/bin/litellm --config /disk/admin/modules/litellm/config.yaml --skip_server_startup
+
 echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"key\":\"sk-${KEY}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/litellm.json
 chown admin:admin /disk/admin/modules/_config_/litellm.json
 
