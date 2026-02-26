@@ -1,0 +1,35 @@
+{
+	"module": "swaggerui",
+	"name": "Swagger UI",
+	"title": "API Doc",
+	"category": "Knowledge",
+	"version": "5.31.2",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "swagger-api/swagger-ui",
+	"description": "A collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation.",
+	"keywords": [
+		"API",
+		"Documentation"
+	],
+	"proprietary": [],
+	"default": {
+		"alias": [
+			"apidocs"
+		],
+		"enabled": true,
+		"followSymLinks": true,
+		"localPort": 9543,
+		"path": "/disk/admin/modules/swaggerui",
+		"permissions": [
+			"public"
+		],
+		"reset": true,
+		"setup": true,
+		"setupDependencies": []
+	}
+}
