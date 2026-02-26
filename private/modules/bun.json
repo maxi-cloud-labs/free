@@ -3,7 +3,7 @@
 	"name": "Bun",
 	"title": "Javascript Bundler",
 	"category": "Developer",
-	"version": "1.3.6",
+	"version": "1.3.10",
 	"installMethod": "npm",
 	"web": false,
 	"essential": false,

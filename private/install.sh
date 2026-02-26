@@ -166,12 +166,12 @@ wget -nv https://nodejs.org/dist/latest-v22.x/$FILENODE
 tar -xJpf node-v*
 cp -a node-v*/bin/ node-v*/include/ node-v*/lib/ node-v*/share/ /usr/local
 cd ..
-npm -g install npm node-gyp pnpm yarn serve
+npm -g install npm node-gyp pnpm
 
 echo "################################"
 echo "npm Packages"
 echo "################################"
-npm -g install @angular/cli @ionic/cli @vue/cli cordova-res
+npm -g install @angular/cli @ionic/cli @vue/cli cordova-res yarn serve bun
 
 echo "################################"
 echo "pcpp"
