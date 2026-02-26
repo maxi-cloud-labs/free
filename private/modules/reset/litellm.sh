@@ -30,14 +30,7 @@ EOF
 unset PGPASSWORD
 
 cat > /disk/admin/modules/litellm/config.yaml << EOF
-model_list:
-  - model_name: gpt-4o
-    litellm_params:
-      model: gpt-4o
-      api_key: "os.environ/OPENAI_API_KEY"
-
 general_settings:
-  database_url: "postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
 EOF
 
 cat > /disk/admin/modules/litellm/env << EOF
@@ -46,13 +39,18 @@ UI_USERNAME=${CLOUDNAME}
 UI_PASSWORD=${PASSWD}
 DOCS_URL=/docs
 ROOT_REDIRECT_URL=/ui
+PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
+PATH=/usr/local/modules/litellm/bin:/usr/bin:/bin
+PRISMA_QUERY_ENGINE_BINARY=/usr/local/modules/litellm/bin/query-engine
+DISABLE_SCHEMA_UPDATE=true
+DATABASE_URL=postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable
+STORE_MODEL_IN_DB=True
 EOF
 
 export DATABASE_URL="postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
 export PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
 export PATH=/usr/local/modules/litellm/bin:$PATH
 /usr/local/modules/litellm/bin/litellm --config /disk/admin/modules/litellm/config.yaml --skip_server_startup
-#USE_PRISMA_MIGRATE="True" /usr/local/modules/litellm/bin/litellm --config /disk/admin/modules/litellm/config.yaml --skip_server_startup
 
 echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"key\":\"sk-${KEY}\", \"dbname\":\"litellmdb\", \"dbuser\":\"litellmuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/litellm.json
 chown admin:admin /disk/admin/modules/_config_/litellm.json

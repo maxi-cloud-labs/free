@@ -9,7 +9,7 @@
 	"essential": false,
 	"finished": true,
 	"ai": true,
-	"database": "",
+	"database": "PostgreSQL",
 	"github": "BerriAI/litellm",
 	"description": "An AI proxy to call 100+ LLM APIs in OpenAI format, with cost tracking, guardrails, loadbalancing and logging.",
 	"keywords": [
