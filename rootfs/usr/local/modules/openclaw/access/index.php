@@ -1,5 +1,14 @@
 <?php
+if (isset($_SERVER['HTTP_REFERER'])) {
+	if (session_status() === PHP_SESSION_NONE) session_start();
+	if (isset($_SESSION["token"])) {
+		header("Location: /?token=" . $_SESSION["token"]);
+		exit;
+	}
+}
 if (isset($_POST["token"])) {
+	if (session_status() === PHP_SESSION_NONE) session_start();
+	$_SESSION["token"] = $_POST["token"];
 	header("Location: /?token=" . $_POST["token"]);
 	exit;
 }
