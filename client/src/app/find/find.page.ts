@@ -58,7 +58,7 @@ async doFind() {
 	} catch(e) { this.global.consolelog(1, e); this.errorSt = e.error?.message || e.statusText; }
 	this.progress = false;
 	if (ret != null) {
-		this.global.setCookie("email", this.email1.value, "mydongle.cloud");
+		document.cookie = "email=" + this.email1.value + "; Domain=mydongle.cloud; Path=/;";
 		window.location.href = ret["url"];
 	} else
 		this.cdr.detectChanges();

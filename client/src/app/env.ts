@@ -113,26 +113,6 @@ getCookie(name) {
 	return null;
 }
 
-domainFromFqdn(fqdn) {
-	const parts = fqdn.split('.');
-	if (parts.length <= 2)
-		return fqdn;
-	if (!isNaN(parts[parts.length - 1]))
-		return fqdn;
-	const sliceIndex = (parts[parts.length - 2] === "mydongle" || parts[parts.length - 2] === "mondongle" || parts[parts.length - 2] === "myd") ? -3 : -2;
-	return parts.slice(sliceIndex).join('.');
-}
-
-setCookie(name, value, domain = null) {
-	const host = window.location.hostname.replace(/^([^:]*)(?::\d+)?$/i, '$1');
-	if (domain == null)
-		domain = this.domainFromFqdn(host);
-	if (value == "")
-		document.cookie = `${name}=; Domain=${domain}; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-	else
-		document.cookie = `${name}=${value}; Domain=${domain}; Path=/;`;
-}
-
 async getExternalIP() {
 	try {
 		let response = await fetch("https://mydongle.cloud/master/ip.json");
@@ -188,7 +168,6 @@ async getSession() {
 }
 
 async logout() {
-	this.setCookie("jwt", "");
 	const data = { token:this.session?.session?.token };
 	try {
 		const ret = await this.httpClient.post("/_app_/auth/revoke-session", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();

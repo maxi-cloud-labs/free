@@ -554,6 +554,14 @@ export const auth = betterAuth({
 				});
 				ctx.context.returned["token"] = "";
 			}
+			if (ctx.path == "/revoke-session") {
+				if (statusDemo)
+					console.log("Sign-out");
+				else {
+					const domain = findDomain(ctx.request?.headers.get("host") || "");
+					ctx.setCookie("jwt", "", { httpOnly: true, domain, path: "/" });
+				}
+			}
 			if (ctx.path == "/sign-up/email") {
 				if (statusDemo)
 					console.log("Sign-up for " + ctx.context.returned?.["user"]?.email + ", " + ctx.context.returned?.["user"]?.username);
