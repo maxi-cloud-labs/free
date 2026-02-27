@@ -17,7 +17,7 @@ elif [ $OS = "pios" ]; then
 	cd /home/ai/build
 	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/liba/libaio/libaio1_0.3.112-13build1_arm64.deb
 	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/i/icu/libicu70_70.1-2ubuntu1_arm64.deb
-	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/p/protobuf/libprotobuf-lite23_3.12.4-1ubuntu7.22.04.4_arm64.deb
+	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/p/protobuf/libprotobuf-lite23_3.12.4-1ubuntu7.22.04.6_arm64.deb
 	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/m/mysql-defaults/mysql-common_5.8+1.1.1ubuntu1_all.deb
 	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/m/mysql-8.0/mysql-server-core-8.0_8.0.45-0ubuntu0.22.04.1_arm64.deb
 	wget -q --show-progress --progress=bar:force:noscroll https://ports.ubuntu.com/pool/main/m/mysql-8.0/mysql-server-8.0_8.0.45-0ubuntu0.22.04.1_arm64.deb
