@@ -38,7 +38,7 @@ cat > /disk/admin/modules/swaggerui/index.html <<EOF
 </body>
 </html>
 EOF
-echo '{ "status":"OK" }' > /disk/admin/modules/swaggerui/health
+echo '{ "status":"OK" }' > /disk/admin/modules/swaggerui/health.json
 cat > /disk/admin/modules/swaggerui/openapi.json <<EOF
 {
 	"openapi": "3.0.0",
@@ -53,7 +53,7 @@ cat > /disk/admin/modules/swaggerui/openapi.json <<EOF
 		}
 	],
 	"paths": {
-		"/health": {
+		"/health.json": {
 			"get": {
 				"summary": "Get health",
 				"responses": {
