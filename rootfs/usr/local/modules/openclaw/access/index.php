@@ -36,7 +36,7 @@ html {
 	<div class="max-w-md w-full">
 		<div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
 			<div class="text-center mb-8 flex items-center flex-col">
-				<h1 class="flex flex-row items-center text-lg -mt-2 mb-4 font-bold"><img src="logo.png" class="w-10 h-10 mr-2 cursor-pointer" (click)="global.openPage('');"/> <span class="text-blue-600">My</span><span style class="text-blue-200">Dongle.</span><span class="text-blue-600">Cloud</span></h1>
+				<h1 class="flex flex-row items-center text-lg -mt-2 mb-4 font-bold"><img src="logo.png" class="w-10 h-10 mr-2 cursor-pointer" (click)="global.openPage('');"/> OPENCLAW</h1>
 				<div class="flex items-center gap-2 mb-2">
 					<div class="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto">
 						<svg xmlns="http://www.w3.org/2000/svg" class="text-white w-10 h-10" viewBox="0 0 512 512">
@@ -46,7 +46,7 @@ html {
 					</div>
 					<h1 class="text-3xl font-bold text-left text-gray-900">Enter<br>Token</h1>
 				</div>
-				<p class="text-gray-600">Enter the token of your OpenClaw account</p>
+				<p class="text-gray-600">Enter the token of OpenClaw</p>
 			</div>
 			<form method="POST" action="#" id="formID" class="space-y-6">
 				<div>
@@ -58,7 +58,7 @@ html {
 								<rect x="96" y="208" width="320" height="272" rx="48" ry="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
 							</svg>
 						</div>
-						<input id="tokenID" name="token" required class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-colors duration-200" placeholder="Enter your token" [class.border-red-300]="token?.invalid && token?.touched" [class.focus:ring-red-500]="token?.invalid && token?.touched" type="password">
+						<input id="tokenID" name="token" required class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-colors duration-200" placeholder="Enter token" [class.border-red-300]="token?.invalid && token?.touched" [class.focus:ring-red-500]="token?.invalid && token?.touched" type="password">
 					</div>
 				</div>
 				<div class="bg-red-50 border border-red-200 rounded-xl p-4" id="errorDiv" style="display:none;">
