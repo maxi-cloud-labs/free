@@ -17,3 +17,6 @@ yarn build:ensu
 yarn build:payments
 yarn build:photos
 yarn build:share
+cd ../cli
+go mod tidy
+go build -o /usr/local/bin/ente main.go
