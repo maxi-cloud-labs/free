@@ -44,7 +44,6 @@ This is the list of all used ports in the image, separated between listening por
 - searxng: 8111 (reverseproxy)
 - mastodon: 8112 (reverseproxy)
 - signoz: 8113 (reverseproxy)
-- excalidraw: 8114 (reverseproxy)
 - portainer: 8115 (reverseproxy), 8116
 - dillinger: 8117 (reverseproxy)
 - newapi: 8118 (reverseproxy)

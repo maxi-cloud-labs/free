@@ -25,16 +25,6 @@
 		"localPort": 9430,
 		"permissions": [
 			"user"
-		],
-		"reset": true,
-		"reverseProxy": [
-			{
-				"type": "http",
-				"port": 8114,
-				"path": "/"
-			}
-		],
-		"setup": true,
-		"setupDependencies": []
+		]
 	}
 }
