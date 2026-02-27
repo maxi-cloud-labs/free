@@ -1,5 +1,28 @@
 #!/bin/sh
 
+#On PC
+cat > /dev/null << EOF
+tar -cjpf a.tbz2 app/ auth/ kernel/ rootfs/ screenAvr/ moduleApache2/ pam/ moduleIpApache2/ private/install.sh private/modules/ private/preseed*.cfg build/screen
+scp a.tbz2 build/img/clone.tbz2 ai@192.168.10.12:/tmp
+rm a.tbz2
+EOF
+
+#On device
+cat > /dev/null << EOF
+sudo -s
+sed -i -e 's|/root|/home/ai|' /etc/passwd
+nmcli connection modify preconfigured ipv4.dns "8.8.8.8 8.8.4.4"
+nmcli connection modify preconfigured ipv4.ignore-auto-dns yes
+nmcli connection modify preconfigured ipv6.dns "2001:4860:4860::8888"
+nmcli connection modify preconfigured ipv6.ignore-auto-dns yes
+nmcli connection down preconfigured && nmcli connection up preconfigured
+exit
+sudo -s
+tar -xjpf /tmp/a.tbz2
+build/screen -RD
+private/install.sh 2>&1 | tee log
+EOF
+
 helper() {
 echo "*******************************************************"
 echo "Usage for install [-c -h -p]"
@@ -49,11 +72,6 @@ cd `dirname $0`
 echo "Current directory is now `pwd`"
 PP=`pwd`
 
-#On PC
-#tar -cjpf a.tbz2 app/ auth/ kernel/ rootfs/ screenAvr/ moduleApache2/ pam/ moduleIpApache2/ private/install.sh private/modules/ private/preseed*.cfg build/screen
-#scp a.tbz2 build/img/clone.tbz2 ai@192.168.10.11:/tmp
-#On device
-#tar -xjpf /tmp/a.tbz2
 lsb_release -a | grep trixie
 if [ $? = 0 ]; then
 	OS="pios"
@@ -74,8 +92,6 @@ echo "Initial"
 echo "################################"
 cd /home/ai
 mkdir -p /home/ai/build
-sed -i -e 's|/root|/home/ai|' /etc/passwd
-rm -rf /root
 sed -i -e 's|# "\\e\[5~": history-search-backward|"\\e\[5~": history-search-backward|' /etc/inputrc
 sed -i -e 's|# "\\e\[6~": history-search-forward|"\\e\[6~": history-search-forward|' /etc/inputrc
 sed -i -e 's|%sudo	ALL=(ALL:ALL) ALL|%sudo	ALL=(ALL:ALL) NOPASSWD:ALL|' /etc/sudoers
