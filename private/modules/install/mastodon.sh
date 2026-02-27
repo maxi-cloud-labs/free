@@ -16,5 +16,10 @@ export ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY=$(openssl rand -base64 32)
 export ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT=$(openssl rand -base64 32)
 export ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY=$(openssl rand -base64 32)
 RAILS_ENV=production bundle exec rails assets:precompile
+RET=$?
+if [ $RET = 0 ]; then
+	echo "**CLEANING**"
+	rm -rf tmp/cache
+fi
 
 ln -sf /disk/admin/modules/mastodon/env .env.production
