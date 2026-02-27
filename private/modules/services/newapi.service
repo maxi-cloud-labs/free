@@ -14,7 +14,7 @@ StandardError=inherit
 RestartSec=5s
 User=admin
 ExecStart=/usr/local/bin/newapi --port 8118
-WorkingDirectory=/usr/local/modules/newapi
+WorkingDirectory=/disk/admin/modules/newapi
 
 [Install]
 WantedBy=multi-user.target

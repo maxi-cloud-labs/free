@@ -61,7 +61,6 @@
 			"newapi"
 		],
 		"setup": true,
-		"setupDependencies": [],
-		"setupRoot": true
+		"setupDependencies": []
 	}
 }
