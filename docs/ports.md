@@ -26,7 +26,7 @@ This is the list of all used ports in the image, separated between listening por
 - metube: 8089 (reverseproxy)
 - triliumnotes: 8090 (reverseproxy)
 - betterauth: 8091 (reverseproxy)
-- mydongecloud app: 8094 (reverseproxy)
+- _core_: 8094 (reverseproxy)
 - zigbee2mqtt: 8095 (reverseproxy)
 - jellyfin: 8096 (reverseproxy)
 - tubesync: 8098 (reverseproxy)
@@ -46,7 +46,6 @@ This is the list of all used ports in the image, separated between listening por
 - signoz: 8113 (reverseproxy)
 - portainer: 8115 (reverseproxy), 8116
 - dillinger: 8117 (reverseproxy)
-- newapi: 8118 (reverseproxy)
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
 - portkey: 8787 (reverseproxy)
@@ -63,7 +62,7 @@ This is the list of all used ports in the image, separated between listening por
 ### Listening ports (0.0.0.0)
 - ssh: 22
 - postfix: 25 (mail), 465 (smtp)
-- apache: 80 (http), 443 (https), 9400-9530 (modules)
+- apache: 80 (http), 443 (https), 9400-9543 (modules)
 - dovecot imaps: 110 (imaps), 143 (pop3s), 993 (imaps), 995 (pop3s)
 - networkmanager: 546 (dhcpv6)
 - avahi: 5353 (mdns)
@@ -74,6 +73,7 @@ This is the list of all used ports in the image, separated between listening por
 - homeassistant: 1900, 5353, 8123
 - pinchflat: 4000 (reverseproxy)
 - audiobookshelf: 8092 (reverseproxy)
+- newapi: 8118 (reverseproxy)
 - cockpit: 9090 (reverseproxy)
 
 ### Outgoing ports
@@ -81,11 +81,11 @@ This is the list of all used ports in the image, separated between listening por
 - postfix: 466
 
 
-# Used listening ports on server
+# Used listening ports on the Internet server
 
-This is the list of all listening ports on server side.
+This is the list of all listening ports on the Internet server.
 
-- frp: 80 (http), 443 (https), 7000 (clients), 7500 (stats)
+- frp: 80 (http), 443 (https), 7000 (client), 7500 (stats)
 - haproxy: 465 (smtp), 993 (imap), 995 (pop3)
 - postfix: 25 (email)
 - bind9: 53 (dns)
@@ -108,3 +108,8 @@ These are the interesting traffic paths from and to the Internet:
 ### hardware -> outside
 
 - 465: postfix  -(hardware)/(server)->  postfix (466)
+
+
+# Web sites
+
+Any module with a web interface is hosted by Apache2 (potentially with some reverse proxy). For each module, an alias /_app_/ redirects to the _core_ web app, located at /usr/local/modules/_core_/web. Another alias /_app_/auth redirects internally to http://localhost:8091/auth which is handled by the Better Auth backend. Read also the modules [permissions](permissions) page for more information about the access restriction of each module web interface.
