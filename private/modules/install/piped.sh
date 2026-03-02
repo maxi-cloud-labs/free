@@ -4,7 +4,8 @@ cd /usr/local/modules/piped
 npm install
 sync
 echo 3 > /proc/sys/vm/drop_caches
-NODE_OPTIONS="--max-old-space-size=4096" npm run build
+sed -i -e "s|sourcemap: true,|sourcemap: true, minify: 'esbuild',|" vite.config.js
+npm run build
 find dist -type f -exec sed -i -e 's@https://pipedapi.kavin.rocks@" + window.location.origin + "/_api_@g'  {} \;
 find dist -type f -exec sed -i -e 's@https://pipedproxy.kavin.rocks@" + window.location.origin + "/_proxy_@g' {} \;
 
