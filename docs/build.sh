@@ -62,6 +62,6 @@ fi
 
 if [ $TEST = 1 ]; then
 	cd web
-	(sleep 1 && google-chrome --incognito http://localhost:8099) &
-	php -S localhost:8099
+	(sleep 1 && google-chrome --incognito http://localhost:8102) &
+	php -S localhost:8102
 fi
