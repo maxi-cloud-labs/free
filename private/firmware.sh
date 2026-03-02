@@ -155,10 +155,14 @@ sync
 umount ${DISK}*
 umount ${DISK}*
 
-dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=1024
-SIZE=$((`stat -c %s /tmp/os${POSTNAME}.img` * 125 / 100 / 1024))
-echo "Img Size: $((SIZE + 4 * 1024)) kiBytes"
-dd if=/dev/zero of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=1024 count=$SIZE seek=$((4 * 1024)) conv=notrunc
+#dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((1024 * 1024))
+SIZEOS=$(stat -c %s /tmp/os${POSTNAME}.img)
+echo "Squashfs Size: $((SIZEOS / 1024 / 1024)) MiB = $((SIZEOS / 1024 / 1024 / 1024)) GiB"
+SIZE=$(((SIZEOS + (1024 + 128 + 4) * 1024 * 1024) / 1024 / 1024 / 4))
+echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
+fallocate -l $((SIZE * 4 * 1024 * 1024)) ${PP}/build/img/flasher-m${POSTNAME}-s.img
+dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((1024 * 1024)) conv=notrunc
+#dd if=/dev/zero of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((4 * 1024 * 1024)) count=$SIZE seek=1 conv=notrunc status=progress
 echo -n '\061' | dd of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=1 seek=4194303 conv=notrunc
 losetup --show ${LOSETUP} ${PP}/build/img/flasher-m${POSTNAME}-s.img
 sfdisk -f ${LOSETUP} << EOF
@@ -190,7 +194,7 @@ cp ${PP}/build/img/initramfs_2712 /tmp/1
 mount ${LOSETUP}p2 /tmp/2
 rm -rf /tmp/2/lost+found/
 mkdir -p /tmp/2/fs/upper/ /tmp/2/fs/lower/ /tmp/2/fs/overlay/ /tmp/2/fs/work/
-cp /tmp/os${POSTNAME}.img /tmp/2/fs/
+rsync -ah --info=progress2 /tmp/os${POSTNAME}.img /tmp/2/fs/
 sync
 sync
 umount ${LOSETUP}*
