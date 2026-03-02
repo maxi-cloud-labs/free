@@ -1,0 +1,42 @@
+{
+	"module": "rediscommander",
+	"name": "Redis Commander",
+	"title": "In-memory Data Server Commander",
+	"category": "Server",
+	"version": "0.9.0",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "joeferner/redis-commander",
+	"description": "A Redis management tool.",
+	"keywords": [
+		"Data",
+		"Data server",
+		"Data structures",
+		"Document storage",
+		"Fast cache",
+		"In-memory",
+		"Query engine",
+		"Server software",
+		"Structure",
+		"Vector search"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9425,
+		"permissions": [],
+		"permissionsPublicForbidden": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8119,
+				"path": "/"
+			}
+		],
+		"setupDependencies": []
+	}
+}
