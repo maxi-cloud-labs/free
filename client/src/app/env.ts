@@ -273,20 +273,55 @@ openHome() {
 		this.refreshUI.next("reset");
 }
 
-openModule(identifier:number|string, extract:boolean = true, page:string = null) {
+openModuleHref(identifier:number|string) {
 	let id = identifier;
 	if (typeof identifier == "string")
 		id = this.modulesDataFindId(identifier);
-	if (this.modulesData[id].notReady != 0 && !this.demo) {
-		this.presentToast("This module setup is under progress. It should be ready shortly...", "close-outline", 5000);
+	if (!this.modulesData[id].web)
+		return null;
+	const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
+	const page_ = this.modulesData[id].homepage ?? "";
+	if (this.demo)
+		return "/wrapper?module=" + this.modulesData[id].module + "&subdomain=" + subdomain + "&page=" + page_;
+	else
+		return location.protocol + "//" + location.host + "/m/" + subdomain + page_;
+}
+
+openModuleTarget(identifier:number|string) {
+	let id = identifier;
+	if (typeof identifier == "string")
+		id = this.modulesDataFindId(identifier);
+	if (this.demo || !this.modulesData[id].web)
+		return "_self";
+	else
+		return "_blank";		
+}
+
+openModuleClick(event, identifier:number|string, t = null) {
+	let id = identifier;
+	if (typeof identifier == "string")
+		id = this.modulesDataFindId(identifier);
+	if (!this.modulesData[id].web) {
+		event.preventDefault();
+		if (t)
+			t.info(this.modulesData[id].module);
 		return;
 	}
-	const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
-	const page_ = page ?? this.modulesData[id].homepage ?? "";
-	if (extract && !this.demo && (this.modulesData[id].finished || this.developer))
-		window.open(location.protocol + "//" + location.host + "/m/" + subdomain + page_, "_blank");
-	else
-		this.router.navigate(["/wrapper"], { queryParams:{ module:this.modulesData[id].module, subdomain, page:page_ } });
+	if (this.demo) {
+		event.preventDefault();
+		const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
+		const page_ = this.modulesData[id].homepage ?? "";
+		this.router.navigate(["/wrapper"], { queryParams: {
+			module: this.modulesData[id].module,
+			subdomain,
+			page: page_
+		} });
+	} else {
+		if (this.modulesData[id].notReady != 0) {
+			event.preventDefault();
+			this.presentToast("This module setup is under progress. It should be ready shortly...", "close-outline", 5000);
+		}
+	}
 }
 
 async presentAlert(hd, st, msg, key:string = "") {

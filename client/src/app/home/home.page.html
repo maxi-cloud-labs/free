@@ -81,8 +81,8 @@
 				<div class="rounded-xl border border--gray-200 p-3 shadow-sm flex flex-col" *ngFor="let card of filteredCards; let cc = index;" [class]="card.web != true ? 'bg--indigo-50' : ''">
 					<div class="flex flex-col">
 						<div class="min-w-full flex items-center">
-							<p class="text-sm font-medium text--gray-600 cursor-pointer">
-								<a [class]="card.web ? 'cursor-pointer' : ''" (click)="global.openModule(card.module);">{{card.name}}</a>
+							<p class="text-sm font-medium text--gray-800">
+								<a [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title="">{{card.name}}</a>
 								<ion-icon size="small" (click)="toggleSortDirection('name')" [name]="sortDirection['name'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" class="ml-2 cursor-pointer" *ngIf="cc == 0 && filteredCards.length > 1"></ion-icon>
 							</p>
 							<div class="flex-1"></div>
@@ -94,13 +94,12 @@
 							<ion-icon name="information-circle-outline" (click)="info(card.module)" class="w-6 h-6 cursor-pointer"></ion-icon>
 						</div>
 						<div class="min-w-full flex items-center mt-2 mb-2 overflow-hidden">
-							<div><p class="text-3xl font-bold text--gray-900" [class]="card.notReady != 0 ? 'bg-[repeating-linear-gradient(-45deg,var(--color--red-300)_0,var(--color--red-300)_1px,transparent_1px,transparent_15px)]' : !card.finished ? 'bg-[repeating-linear-gradient(-45deg,var(--color--gray-300)_0,var(--color--gray-300)_1px,transparent_1px,transparent_15px)]' : ''"><a [class]="card.web ? 'cursor-pointer' : ''" (click)="global.openModule(card.module);">{{firstWords(LMT(card.title))}} </a><span class="whitespace-nowrap"><a [class]="card.web ? 'cursor-pointer' : ''" (click)="global.openModule(card.module);">{{lastWord(LMT(card.title))}}</a><!--<ion-icon name="open-outline" class="ml-2 h-6 w-6 cursor-pointer" *ngIf="card.web" (click)="global.openModule(card.module, true);"></ion-icon>--><ion-icon size="small" (click)="toggleSortDirection('title')" [name]="sortDirection['title'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" class="ml-2 cursor-pointer" *ngIf="cc == 0 && filteredCards.length > 1"></ion-icon></span></p><span *ngIf="card.notReady != 0" class="text-xs font-bold text--red-500">{{card.notReady == 2 ? L("Scheduled setup") : L("Reset in progress")}}</span></div>
+							<div><a class="text-3xl font-bold text--gray-800" [class]="card.notReady != 0 ? 'bg-[repeating-linear-gradient(-45deg,var(--color--red-300)_0,var(--color--red-300)_1px,transparent_1px,transparent_15px)]' : !card.finished ? 'bg-[repeating-linear-gradient(-45deg,var(--color--gray-300)_0,var(--color--gray-300)_1px,transparent_1px,transparent_15px)]' : ''" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title="">{{LMT(card.title)}}</a> <ion-icon size="small" (click)="toggleSortDirection('title')" [name]="sortDirection['title'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" class="ml-2 cursor-pointer" *ngIf="cc == 0 && filteredCards.length > 1"></ion-icon><br *ngIf="card.notReady != 0"><span *ngIf="card.notReady != 0" class="text-xs font-bold text--red-500">{{card.notReady == 2 ? L("Scheduled setup") : L("Reset in progress")}}</span></div>
 							<div class="flex-1"></div>
-							<!-- [class]="global.colorWord(card.category, false)" -->
 							<div class="ml-3 flex flex-col items-end">
-								<div class="w-16 h-16 rounded-lg flex items-center justify-center" [class]="global.colorWord(card.category, false)">
-									<div class="overflow-hidden"><img src="assets/icons/{{card.module}}.png" class="w-14 h-14 cursor-pointer" [class]="global.colorWord2(card.category)" (click)="global.openModule(card.module);"></div>
-								</div>
+								<a class="w-16 h-16 rounded-lg flex items-center justify-center" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title="">
+									<img src="assets/icons/{{card.module}}.png" class="w-14 h-14" [class]="global.colorWord2(card.category)">
+								</a>
 							</div>
 						</div>
 					</div>
@@ -138,9 +137,9 @@
 						<tr>
 							<th scope="col" (click)="toggleSortDirection('title')" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider cursor-pointer">{{L("TITLE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['title'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></th>
 							<th scope="col" (click)="toggleSortDirection('name')" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider cursor-pointer">{{L("OPEN SOURCE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['name'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></th>
-							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider">{{L("PERMISSIONS")}}</th>
 							<th scope="col" (click)="toggleSortDirection('category')" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider cursor-pointer">{{L("CAT.")}}<ion-icon *ngIf="category == 'All'" class="w-5 h-5 ml-2" [name]="sortDirection['category'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></th>
 							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider">{{L("DESCRIPTION")}}</th>
+							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider">{{L("PERMISSIONS")}}</th>
 							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider" *ngIf="showDetails">{{L("GITHUB")}}</th>
 							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text--gray-500 tracking-wider" *ngIf="showDetails">{{L("KEYWORDS")}}</th>
 						</tr>
@@ -148,9 +147,15 @@
 					<tbody class="divide-y divide--gray-200">
 						<tr class="hover:bg--gray-50" *ngFor="let card of filteredCards; let cc = index;" [class]="global.developer && card.status != 'done' ? 'bg-repeatline' : !card.enabled ? 'bg--red-50' : card.web != true ? 'bg--indigo-50' : ''">
 							<td class="px-6 py-4 whitespace-nowrap">
-								<div class="text-sm font-medium text--gray-900" [class.line-through]="card?.completed"><a title="{{LMT(card.title)}}" (click)="global.openModule(card.module);" class="cursor-pointer">{{LMT(card.title)}}</a><!--<ion-icon name="open-outline" class="ml-2 h-4 w-4 cursor-pointer" (click)="global.openModule(card.module, true);"></ion-icon>--></div>
+								<a class="flex items-center text-sm font-medium" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title=""><ion-icon name="globe-outline" class="w-4 h-4 mr-1" *ngIf="showTerminal && card.web"></ion-icon>{{LMT(card.title)}}</a>
 							</td>
-							<td class="px-6 py-4 whitespace-nowrap text-left text-sm"><a (click)="global.openModule(card.module);" class="cursor-pointer">{{card.name}}</a></td>
+							<td class="px-6 py-4 whitespace-nowrap text-left text-sm"><a [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title="">{{card.name}}</a></td>
+							<td class="px-6 py-4 whitespace-nowrap text-left">
+								<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium" [class]="global.colorWord(card.category)">{{LG(card.category)}}</span>
+							</td>
+							<td class="px-6 py-4 text-left">
+								<div class="text-sm text--gray-500 max-w-xs truncate" [class.line-through]="card?.completed">{{LMD(card.description)}}</div>
+							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-left">
 								<div class="-ml-2" *ngIf="!card.enabled">
 									<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ml-1 mr-1" [class]="global.colorWord('_disabled_')">Disabled</span>
@@ -158,12 +163,6 @@
 								<div class="-ml-2" *ngIf="card.enabled">
 									<a routerLink="/permissions" class="cursor-pointer"><span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ml-1 mr-1" [class]="global.colorWord(pm)" *ngFor="let pm of card.permissions">{{LG(global.permissions(pm))}}</span></a>
 								</div>
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap text-left">
-								<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium" [class]="global.colorWord(card.category)">{{LG(card.category)}}</span>
-							</td>
-							<td class="px-6 py-4 text-left">
-								<div class="text-sm text--gray-500 max-w-xs truncate" [class.line-through]="card?.completed">{{LMD(card.description)}}</div>
 							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-left" *ngIf="showDetails">
 								<a href="https://github.com/{{card.github}}" title="https://github.com/{{card.github}}" target="_blank" *ngIf="card.github != ''">{{card.github}} ({{global.formatCount(card.githubStars)}}&nbsp;⭐)</a>
@@ -190,13 +189,8 @@
 			<br>
 			<div class="mx-5 mb-5"><table class="w-full">
 				<tr><td colspan="3">
-					<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank">
-						<div class="w-16 h-16 rounded-lg flex items-center justify-center float-left mr-3" [class]="global.colorWord(cards[cardIdCur].category)">
-							<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank"><img src="assets/icons/{{cards[cardIdCur].module}}.png" class="w-14 h-14 cursor-pointer" [class]="global.colorWord2(cards[cardIdCur].category)" (click)="global.openModule(cardIdCur);"/></a>
-						</div>
-					</a>
-					<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank" style="color:var(--ion-color-secondary); font-size:xx-large;">{{LMT(cards[cardIdCur].title)}}</a><br><a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank" style="color:var(--ion-color-secondary);">{{cards[cardIdCur].name}}
-					</a>
+					<a class="w-16 h-16 rounded-lg flex items-center justify-center float-left mr-3" [class]="global.colorWord2(cards[cardIdCur].category)" [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><img src="assets/icons/{{cards[cardIdCur].module}}.png" class="w-14 h-14 cursor-pointer"/></a>
+					<a [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><span class="text-3xl">{{LMT(cards[cardIdCur].title)}}</span><br>{{cards[cardIdCur].name}}</a>
 				</td></tr>
 				<tr><td colspan="3" class="h-2"></td></tr>
 				<tr><td colspan="3"><span style="color:black;">{{LMD(cards[cardIdCur].description)}}</span></td></tr>
@@ -263,13 +257,8 @@
 			<br>
 			<div class="mx-5 mb-5"><table class="w-full">
 				<tr><td colspan="3">
-					<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank">
-						<div class="w-16 h-16 rounded-lg flex items-center justify-center float-left mr-3" [class]="global.colorWord(cards[cardIdCur].category)">
-							<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank"><img src="assets/icons/{{cards[cardIdCur].module}}.png" class="w-14 h-14 cursor-pointer" [class]="global.colorWord2(cards[cardIdCur].category)" (click)="global.openModule(cardIdCur);"/></a>
-						</div>
-					</a>
-					<a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank" style="color:var(--ion-color-secondary); font-size:xx-large;">{{LMT(cards[cardIdCur].title)}}</a><br><a href="{{cards[cardIdCur].link}}" title="{{LMT(cards[cardIdCur].title)}}" target="_blank" style="color:var(--ion-color-secondary);">{{cards[cardIdCur].name}}
-					</a>
+					<a class="w-16 h-16 rounded-lg flex items-center justify-center float-left mr-3" [class]="global.colorWord2(cards[cardIdCur].category)" [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><img src="assets/icons/{{cards[cardIdCur].module}}.png" class="w-14 h-14 cursor-pointer"/></a>
+					<a [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><span class="text-3xl">{{LMT(cards[cardIdCur].title)}}</span><br>{{cards[cardIdCur].name}}</a>
 				</td></tr>
 				<tr><td colspan="3" class="h-2"></td></tr>
 				<tr><td colspan="3"><span style="color:black;">{{LMD(cards[cardIdCur].description)}}</span></td></tr>

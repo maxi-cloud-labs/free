@@ -55,7 +55,7 @@
 					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 border border--gray-300 text--gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring--blue-600 focus:border-transparent transition-colors">
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
-					<a (click)="global.openModule(data.module);" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer" *ngFor="let data of sidebarFilteredModules; let dd = index;">
+					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
 						<div class="w-5 h-5 flex items-center justify-center">
 							<div class="overflow-hidden"><img src="assets/icons/{{data.module}}.png" class="w-5 h-5" [class]="global.colorWord2(data.category)"></div>
 						</div>
@@ -90,7 +90,7 @@
 					</div>
 					<span>{{LG("Hardware")}}</span>
 				</a>
-				<a (click)="global.openModule('webssh2');" title="Terminal" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
+				<a [href]="global.openModuleHref('webssh2')" (click)="global.openModuleClick($event, 'webssh2');" title="" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="terminal-outline" class="w-5 h-5"></ion-icon>
 					</div>
