@@ -10,16 +10,21 @@ EOF
 #On device
 cat > /dev/null << EOF
 sudo -s
+
 sed -i -e 's|/root|/home/ai|' /etc/passwd
 nmcli connection modify preconfigured ipv4.dns "8.8.8.8 8.8.4.4"
 nmcli connection modify preconfigured ipv4.ignore-auto-dns yes
 nmcli connection modify preconfigured ipv6.dns "2001:4860:4860::8888"
 nmcli connection modify preconfigured ipv6.ignore-auto-dns yes
 nmcli connection down preconfigured && nmcli connection up preconfigured
+
 exit
+
 sudo -s
+
 tar -xjpf /tmp/a.tbz2
 build/screen -RD
+
 private/install.sh 2>&1 | tee log
 EOF
 
