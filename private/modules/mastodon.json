@@ -65,7 +65,8 @@
 			}
 		],
 		"services": [
-			"mastodon"
+			"mastodon",
+			"mastodon-sidekiq"
 		],
 		"setup": true,
 		"setupDependencies": [],

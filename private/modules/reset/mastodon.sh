@@ -13,6 +13,7 @@ SECRET_KEY_BASE=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 64)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 systemctl stop mastodon.service
+systemctl stop mastodon-sidekiq.service
 rm -rf /disk/admin/modules/mastodon
 mkdir /disk/admin/modules/mastodon
 
@@ -78,6 +79,8 @@ RAILS_ENV=production bin/tootctl accounts modify ${CLOUDNAME} --approve
 
 systemctl start mastodon.service
 systemctl enable mastodon.service
+systemctl start mastodon-sidekiq.service
+systemctl enable mastodon-sidekiq.service
 
 echo "{\"email\":\"${EMAIL}\", \"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"dbname\":\"mastodondb\", \"dbuser\":\"mastodonuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/mastodon.json
 chown admin:admin /disk/admin/modules/_config_/mastodon.json

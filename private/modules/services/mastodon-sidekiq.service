@@ -1,0 +1,23 @@
+[Unit]
+Description=Mastodon Sidekiq
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=300s
+OnFailure=notify-failure@%n.service
+
+[Service]
+Restart=on-failure
+RestartMode=direct
+Type=simple
+StandardOutput=inherit
+StandardError=inherit
+RestartSec=5s
+User=admin
+ExecStart=/usr/local/bin/bundle exec sidekiq -c 25
+WorkingDirectory=/usr/local/modules/mastodon
+Environment=RAILS_ENV=production
+Environment=DB_POOL=25
+Environment=MALLOC_ARENA_MAX=2
+
+[Install]
+WantedBy=multi-user.target
