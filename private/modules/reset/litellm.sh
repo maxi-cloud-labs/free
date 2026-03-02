@@ -44,6 +44,8 @@ PATH=/usr/local/modules/litellm/bin:/usr/bin:/bin
 DISABLE_SCHEMA_UPDATE=true
 DATABASE_URL=postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable
 STORE_MODEL_IN_DB=True
+TELEMETRY=False
+LITELLM_MODE=PRODUCTION
 EOF
 
 export DATABASE_URL="postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable"
