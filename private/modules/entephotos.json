@@ -2,7 +2,7 @@
 	"module": "entephotos",
 	"name": "Ente Photos",
 	"title": "Cloud Manager Photos",
-	"category": "Collaboration",
+	"category": "Media",
 	"version": "bbfb99f8",
 	"installMethod": "clone",
 	"web": true,
@@ -26,7 +26,6 @@
 	"default": {
 		"enabled": true,
 		"localPort": 9427,
-		"path": "/usr/local/modules/ente/web/apps/photos/out",
 		"permissions": [
 			"user"
 		]

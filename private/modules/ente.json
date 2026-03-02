@@ -2,7 +2,7 @@
 	"module": "ente",
 	"name": "Ente",
 	"title": "Cloud Manager",
-	"category": "Collaboration",
+	"category": "Server",
 	"version": "bbfb99f8",
 	"installMethod": "clone",
 	"web": true,

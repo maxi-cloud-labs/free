@@ -2,7 +2,7 @@
 	"module": "enteauth",
 	"name": "Ente Auth",
 	"title": "Cloud Manager Auth",
-	"category": "Collaboration",
+	"category": "Utils",
 	"version": "bbfb99f8",
 	"installMethod": "clone",
 	"web": true,
@@ -26,7 +26,6 @@
 	"default": {
 		"enabled": true,
 		"localPort": 9423,
-		"path": "/usr/local/modules/ente/web/apps/auth/out",
 		"permissions": [
 			"user"
 		]

@@ -2,7 +2,7 @@
 	"module": "enteensu",
 	"name": "Ente Ensu",
 	"title": "Cloud Manager Ensu",
-	"category": "Collaboration",
+	"category": "Personal",
 	"version": "bbfb99f8",
 	"installMethod": "clone",
 	"web": true,
@@ -26,7 +26,6 @@
 	"default": {
 		"enabled": true,
 		"localPort": 9426,
-		"path": "/usr/local/modules/ente/web/apps/ensu/out",
 		"permissions": [
 			"user"
 		]

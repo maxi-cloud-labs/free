@@ -6,9 +6,13 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset ente##################"
+CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
+EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
+SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
-read -r PORTaccounts PORTauth PORTcast PORTembed PORTensu PORTphotos PORTshare << EOF
-	$(jq ".enteaccounts.localPort,.enteauth.localPort,.entecast.localPort,.enteembed.localPort,.enteensu.localPort,.entephotos.localPort,.enteshare.localPort" /usr/local/modules/_core_/web/assets/modulesdefault.json | xargs)
+read -r PORTACCOUNTS PORTAUTH PORTCAST PORTEMBED PORTENSU PORTPHOTOS PORTSHARE << EOF
+	$(jq -r ".enteaccounts.localPort,.enteauth.localPort,.entecast.localPort,.enteembed.localPort,.enteensu.localPort,.entephotos.localPort,.enteshare.localPort" /usr/local/modules/_core_/web/assets/modulesdefault.json | xargs)
 EOF
 read -r MINIOACCESS MINIOSECRET << EOF
 	$(jq -r ".accessKey,.secretKey" /disk/admin/modules/_config_/minio.json | xargs)
@@ -53,19 +57,37 @@ s3:
     b2-eu-cen:
       key: ${MINIOACCESS}
       secret: ${MINIOSECRET}
-      endpoint: localhost:9000
+      endpoint: https://minios3.${PRIMARY}
       region: us-east-1
       bucket: ente
 
 apps:
-    accounts: http://localhost:$PORTaccounts
-    auth: http://localhost:$PORTauth
-    cast: http://localhost:$PORTcast
-    embed: http://localhost:$PORTembed
-    ensu: http://localhost:$PORTensu
-    photos: http://localhost:$PORTphotos
-    share: http://localhost:$PORTshare
+    accounts: http://localhost:$PORTACCOUNTS
+    auth: http://localhost:$PORTAUTH
+    cast: http://localhost:$PORTCAST
+    embed: http://localhost:$PORTEMBED
+    ensu: http://localhost:$PORTENSU
+    photos: http://localhost:$PORTPHOTOS
+    share: http://localhost:$PORTSHARE
+
+smtp:
+    host: smtp.${CLOUDNAME}.mydongle.cloud
+    port: 465
+    username: ${EMAIL}
+    password: ${SMTPPASSWD}
+    email: ${EMAIL}
+    sender-name: ${CLOUDNAME}
+    encryption: ssl
+
 EOF
+
+#    accounts: https://enteaccounts.${PRIMARY}
+#    auth: https://enteauth.${PRIMARY}
+#    cast: https://entecast.${PRIMARY}
+#    embed: https://enteembed.${PRIMARY}
+#    ensu: https://enteensu.${PRIMARY}
+#    photos: https://entephotos.${PRIMARY}
+#    share: https://enteshare.${PRIMARY}
 
 /usr/local/modules/ente/server/keys >> /disk/admin/modules/ente/museum.yaml
 
