@@ -559,7 +559,7 @@ export const auth = betterAuth({
 					console.log("Sign-out");
 				else {
 					const domain = findDomain(ctx.request?.headers.get("host") || "");
-					ctx.setCookie("jwt", "", { httpOnly: true, domain, path: "/" });
+					ctx.setCookie("jwt", "", { httpOnly: true, domain, path: "/", expires: new Date(0), maxAge: 0 });
 				}
 			}
 			if (ctx.path == "/sign-up/email") {
