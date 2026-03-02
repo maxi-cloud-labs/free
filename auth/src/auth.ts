@@ -112,9 +112,9 @@ si.networkStats();
 let usersNb = 0;
 
 const rootPath = "/var/log/";
-const mdcEndpoints = () => {
+const endpoints = () => {
 	return {
-		id: "mdcEndpoints",
+		id: "endpointsID",
 		endpoints: {
 			status: createAuthEndpoint("/status", {
 				method: "GET",
@@ -490,7 +490,7 @@ export const auth = betterAuth({
 			},
 			jwks: { keyPairConfig:{ alg:"ES256" } }
 		}),
-		mdcEndpoints()
+		endpoints()
 	],
 	hooks: {
 		before: createAuthMiddleware(async (ctx) => {
