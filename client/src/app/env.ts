@@ -277,7 +277,7 @@ openModuleHref(identifier:number|string) {
 	let id = identifier;
 	if (typeof identifier == "string")
 		id = this.modulesDataFindId(identifier);
-	if (!this.modulesData[id].web)
+	if (!this.modulesData[id]?.web)
 		return null;
 	const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
 	const page_ = this.modulesData[id].homepage ?? "";
@@ -291,7 +291,7 @@ openModuleTarget(identifier:number|string) {
 	let id = identifier;
 	if (typeof identifier == "string")
 		id = this.modulesDataFindId(identifier);
-	if (this.demo || !this.modulesData[id].web)
+	if (this.demo || !this.modulesData[id]?.web)
 		return "_self";
 	else
 		return "_blank";		
