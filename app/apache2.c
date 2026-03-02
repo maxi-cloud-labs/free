@@ -159,6 +159,7 @@ void buildApache2Conf(cJSON *cloud, cJSON *modulesDefault, cJSON *modules, cJSON
 #Values added up by [2] after [1]: addConfig, addLineInDirectory\n\
 #\n\
 LoadModule app_module /usr/local/modules/apache2/mod_app.so\n\
+AppCloudName %s\n\
 AppJwkPem /disk/admin/modules/betterauth/jwk-pub.pem\n\
 LoadModule app_ip_module /usr/local/modules/apache2/mod_app_ip.so\n\n\
 GlobalLog /var/log/apache2/_all_.log vhost_combined\n\
@@ -204,7 +205,7 @@ AppALEnabled %s\n\
 	Include /usr/local/modules/apache2/options-ssl-apache.conf\n\
 	SSLCertificateFile /disk/admin/modules/letsencrypt/fullchain.pem\n\
 	SSLCertificateKeyFile /disk/admin/modules/letsencrypt/privkey.pem\n\
-</Macro>\n", cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "updateRemoteIP")) ? "on" : "off", cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "autoLogin")) ? "on" : "off");
+</Macro>\n", cJSON_GetStringValue2(cJSON_GetObjectItem(cloud, "info"), "name"), cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "updateRemoteIP")) ? "on" : "off", cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "autoLogin")) ? "on" : "off");
 	fwrite(sz, strlen(sz), 1, pfM);
 	strcpy(sz, "<Macro Macro_Rewrite>\n");
 	fwrite(sz, strlen(sz), 1, pfM);
@@ -238,7 +239,7 @@ begin:
 				snprintf(path, sizeof(path), "/usr/local/modules/%s", elModule->string);
 			snprintf(sz, sizeof(sz), "\
 <Macro Macro_%s>\n\
-	AppModule %s\n\
+	AppModuleName %s\n\
 	Use Macro_Redirect %s\n", elModule->string, elModule->string, elModule->string);
 			fwrite(sz, strlen(sz), 1, pfM);
 			cJSON *elEnabled = cJSON_GetObjectItem(elModule, "enabled");

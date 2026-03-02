@@ -3,6 +3,7 @@
 
 //Struct
 typedef struct {
+	const char *cloudname;
 	const char *jwkPem;
 	const char *name;
 	cJSON *permissions;
@@ -13,6 +14,7 @@ typedef struct {
 } configVH;
 
 typedef struct {
+	const char *cloudname;
 	const char *jwkPem;
 	int autologin;
 } configS;

@@ -68,6 +68,7 @@ static void *createConfig(apr_pool_t *p, server_rec *s) {
 static void *mergeConfig(apr_pool_t *p, void *basev, void *addv) {
 	configS *confS = (configS *)basev;
 	configVH *confVH = (configVH *)addv;
+	confVH->cloudname = confS->cloudname;
 	confVH->jwkPem = confS->jwkPem;
 	confVH->autologin = confS->autologin;
 	return confVH;
@@ -92,6 +93,14 @@ char *getJwkPemContent(const char *arg) {
 	return sz;
 }
 
+static const char *cloudNameSet(cmd_parms *cmd, void *mconfig, const char *arg) {
+	server_rec *s = cmd->server;
+	configS *confS = (configS *)ap_get_module_config(s->module_config, &app_module);
+	confS->cloudname = arg;
+	PRINTF("APP: Cloud name %s", arg);
+	return NULL;
+}
+
 static const char *moduleJwkPemFileSet(cmd_parms *cmd, void *mconfig, const char *arg) {
 	server_rec *s = cmd->server;
 	configS *confS = (configS *)ap_get_module_config(s->module_config, &app_module);
@@ -104,15 +113,15 @@ static const char *moduleNameSet(cmd_parms *cmd, void *mconfig, const char *arg)
 	server_rec *s = cmd->server;
 	configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
 	confVH->name = arg;
-	PRINTF("APP: Name %s", arg);
+	PRINTF("APP: Module name %s", arg);
 	return NULL;
 }
 
-static const char *moduleAutoLoginSet(cmd_parms *cmd, void *mconfig, const char *arg) {
+static const char *autoLoginSet(cmd_parms *cmd, void *mconfig, const char *arg) {
 	server_rec *s = cmd->server;
 	configS *confS = (configS *)ap_get_module_config(s->module_config, &app_module);
 	confS->autologin = strcmp(arg, "on") == 0 ? 1 : 0;
-	PRINTF("AppAutoLogin: %s", arg);
+	PRINTF("APP: AutoLogin: %s", arg);
 	return NULL;
 }
 
@@ -216,9 +225,10 @@ static int statsCounter(request_rec *r) {
 }
 
 static const command_rec directives[] = {
+	AP_INIT_TAKE1("AppCloudName", cloudNameSet, NULL, RSRC_CONF | ACCESS_CONF, "Cloud Name"),
 	AP_INIT_TAKE1("AppJwkPem", moduleJwkPemFileSet, NULL, RSRC_CONF | ACCESS_CONF, "App Jwt Key"),
-	AP_INIT_TAKE1("AppModule", moduleNameSet, NULL, RSRC_CONF | ACCESS_CONF, "App module name"),
-	AP_INIT_TAKE1("AppALEnabled", moduleAutoLoginSet, NULL, RSRC_CONF | ACCESS_CONF, "AutoLogin Enabled"),
+	AP_INIT_TAKE1("AppALEnabled", autoLoginSet, NULL, RSRC_CONF | ACCESS_CONF, "AutoLogin Enabled"),
+	AP_INIT_TAKE1("AppModuleName", moduleNameSet, NULL, RSRC_CONF | ACCESS_CONF, "Module Name"),
 	{NULL}
 };
 
