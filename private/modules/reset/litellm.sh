@@ -41,7 +41,6 @@ DOCS_URL=/docs
 ROOT_REDIRECT_URL=/ui
 PYTHONPATH=/usr/local/modules/litellm/lib/python3.12/site-packages
 PATH=/usr/local/modules/litellm/bin:/usr/bin:/bin
-PRISMA_QUERY_ENGINE_BINARY=/usr/local/modules/litellm/bin/query-engine
 DISABLE_SCHEMA_UPDATE=true
 DATABASE_URL=postgresql://litellmuser:${DBPASSP}@localhost:5432/litellmdb?sslmode=disable
 STORE_MODEL_IN_DB=True
