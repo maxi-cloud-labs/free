@@ -27,9 +27,9 @@ typedef struct {
 #define PRINTFc(format, ...) PRINTFc_(APLOG_ERR, format, ##__VA_ARGS__)
 
 #define VAL0 "_app_username_"
-#define VAL1 "_app_email_@app.com"
+#define VAL1 "_app_@mydongle.cloud"
 #define VAL2 "_app_.1.Password_"
-#define VAL3 "_app_email_%40app.com"
+#define VAL3 "_app_%40mydongle.cloud"
 #define VAL4 ""
 #define CONF_PATH "/disk/admin/modules/_config_/%s.json"
 #define INJECTION "<script type='module'>\n\
