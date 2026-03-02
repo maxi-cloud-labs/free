@@ -1,0 +1,46 @@
+{
+	"module": "minios3",
+	"name": "MinIO S3",
+	"title": "Object Storage API",
+	"category": "Server",
+	"version": "RELEASE.2025-10-15T17-29-55Z",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "",
+	"description": "The API server for MinIO S3.",
+	"keywords": [
+		"Cloud storage",
+		"Data storage",
+		"Object",
+		"Object storage",
+		"S3",
+		"S3 compatible",
+		"Storage"
+	],
+	"proprietary": [
+		"Amazon S3"
+	],
+	"default": {
+		"enabled": true,
+		"homepage": "/minio/health/ready",
+		"localPort": 9544,
+		"permissions": [
+			"user"
+		],
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 9000,
+				"path": "/"
+			}
+		],
+		"setup": true,
+		"setupDependencies": [
+			"minio"
+		]
+	}
+}
