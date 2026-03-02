@@ -12,4 +12,4 @@ if [ $RET = 0 ]; then
 	rm -rf /usr/local/modules/typesensedashboard/
 	mv /tmp/typesensedashboard /usr/local/modules/
 fi
-ln -sf /disk/admin/modules/typesensedashboard/config.json /usr/local/modules/typesensedashboard/dist/spa/
+ln -sf /disk/admin/modules/typesensedashboard/config.json /usr/local/modules/typesensedashboard/
