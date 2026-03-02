@@ -1,0 +1,25 @@
+{
+	"module": "redoccli",
+	"name": "Redoc CLI",
+	"title": "Redoc CLI",
+	"category": "Knowledge",
+	"version": "2.20.0",
+	"installMethod": "npm",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "",
+	"description": "The reference documentation based on OpenAPI/Swagger-generated API.",
+	"keywords": [
+		"Open API",
+		"Reference Documentation"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/local/modules/redoc/node_modules/.bin/redocly"
+		]
+	}
+}
