@@ -21,10 +21,8 @@ done
 echo "Doing ente user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
-#URL=https://ente.${PRIMARY}
+PASSWD=$1
 
 data="{ \"email\": \"${EMAIL}\", \"password\": \"${PASSWD}\", \"confirmPassword\": \"${PASSWD}\", \"purpose\": \"signup\" }"
 response=`curl -sS -X POST ${URL}/users/ott -H "Content-Type: application/json" -d "$data"`
@@ -32,6 +30,4 @@ response=`curl -sS -X POST ${URL}/users/ott -H "Content-Type: application/json" 
 data="{ \"email\": \"${EMAIL}\", \"ott\": \"123456\" }"
 #response=`curl -sS -X POST ${URL}/users/verify-email -H "Content-Type: application/json" -d "$data"`
 
-echo "{\"email\":\"${EMAIL}\", \"password\":\"${PASSWD}\"}" > /disk/admin/modules/_config_/ente.json
-
-/usr/local/modules/_core_/reset/ente-user.sh &
+echo "{ \"a\":\"status\", \"module\":\"$(basename $0 -user.sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094

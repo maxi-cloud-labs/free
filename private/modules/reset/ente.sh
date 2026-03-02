@@ -9,6 +9,7 @@ echo "#Reset ente##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
+PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 read -r PORTACCOUNTS PORTAUTH PORTCAST PORTEMBED PORTENSU PORTPHOTOS PORTSHARE << EOF
@@ -81,20 +82,12 @@ smtp:
 
 EOF
 
-#    accounts: https://enteaccounts.${PRIMARY}
-#    auth: https://enteauth.${PRIMARY}
-#    cast: https://entecast.${PRIMARY}
-#    embed: https://enteembed.${PRIMARY}
-#    ensu: https://enteensu.${PRIMARY}
-#    photos: https://entephotos.${PRIMARY}
-#    share: https://enteshare.${PRIMARY}
-
 /usr/local/modules/ente/server/keys >> /disk/admin/modules/ente/museum.yaml
 
-echo "{\"dbname\":\"entedb\", \"dbuser\":\"enteuser\", \"dbpass\":\"${DBPASSP}\"}" > /disk/admin/modules/_config_/ente.json
-chown admin:admin /disk/admin/modules/_config_/piped.json
+echo "{\"dbname\":\"entedb\", \"dbuser\":\"enteuser\", \"dbpass\":\"${DBPASSP}\", \"email\":\"${EMAIL}\", \"password\":\"${PASSWD}\"}" > /disk/admin/modules/_config_/ente.json
+chown admin:admin /disk/admin/modules/_config_/ente.json
 
 systemctl start ente.service
 systemctl enable ente.service
 
-echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
+/usr/local/modules/_core_/reset/ente-user.sh "${PASSWD}" &
