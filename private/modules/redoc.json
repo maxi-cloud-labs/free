@@ -1,0 +1,32 @@
+{
+	"module": "redoc",
+	"name": "Redoc",
+	"title": "Redoc",
+	"category": "Knowledge",
+	"version": "2.5.2",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "Redocly/redoc",
+	"description": "A tool to generate reference documentation.",
+	"keywords": [
+		"Open API",
+		"Reference Documentation"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"followSymLinks": true,
+		"localPort": 9428,
+		"path": "/disk/admin/modules/redoc",
+		"permissions": [
+			"public"
+		],
+		"reset": true,
+		"setup": true,
+		"setupDependencies": []
+	}
+}
