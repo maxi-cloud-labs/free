@@ -84,7 +84,8 @@ static apr_status_t html_filter(ap_filter_t *f, apr_bucket_brigade *bb) {
 			}
 		}
 		apr_size_t offset = (pos - data) + 6;
-		const char *szScript = apr_psprintf(f->r->pool, INJECTION, html[ctx->foundHtml][6], html[ctx->foundHtml][7], html[ctx->foundHtml][2], html[ctx->foundHtml][3], html[ctx->foundHtml][4], html[ctx->foundHtml][5]);
+		configVH *confVH = (configVH *)ap_get_module_config(f->r->server->module_config, &app_module);
+		const char *szScript = apr_psprintf(f->r->pool, INJECTION, html[ctx->foundHtml][6], html[ctx->foundHtml][7], html[ctx->foundHtml][2], html[ctx->foundHtml][3], html[ctx->foundHtml][4], html[ctx->foundHtml][5], confVH->cloudname, html[ctx->foundHtml][0]);
 		apr_bucket *inject_b = apr_bucket_transient_create(szScript, strlen(szScript), f->c->bucket_alloc);
 		apr_bucket_split(b, offset);
 		APR_BUCKET_INSERT_AFTER(b, inject_b);
