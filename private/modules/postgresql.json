@@ -24,6 +24,9 @@
 	],
 	"proprietary": [],
 	"default": {
+		"cmds": [
+			"/usr/bin/psql \"postgresql://postgres:$(jq -r .password /disk/admin/modules/_config_/postgresql.json)@localhost\""
+		],
 		"config": true,
 		"setup": true,
 		"setupDependencies": [],
