@@ -36,7 +36,6 @@
 				"port": 8119,
 				"path": "/"
 			}
-		],
-		"setupDependencies": []
+		]
 	}
 }
