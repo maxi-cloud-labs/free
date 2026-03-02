@@ -25,6 +25,9 @@
 		"Oracle Database"
 	],
 	"default": {
+		"cmds": [
+			"/usr/bin/mysql -u root -p\"$(jq -r .password /disk/admin/modules/_config_/mysql.json)\""
+		],
 		"config": true,
 		"enabled": true,
 		"services": [
