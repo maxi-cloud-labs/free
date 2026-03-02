@@ -9,6 +9,7 @@ echo "#Reset mastodon##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
+SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
 SECRET_KEY_BASE=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 64)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
@@ -61,12 +62,14 @@ OTP_SECRET=${OTP_SECRET}
 REDIS_HOST=localhost
 REDIS_PORT=6379
 REDIS_PASSWORD=
-SMTP_SERVER=localhost
+SMTP_SERVER=smtp.${CLOUDNAME}.mydongle.cloud
 SMTP_PORT=465
-SMTP_AUTH_METHOD=none
-SMTP_OPENSSL_VERIFY_MODE=none
-SMTP_ENABLE_STARTTLS=auto
-SMTP_FROM_ADDRESS='${CLOUDNAME} <${EMAIL}>'
+SMTP_AUTH_METHOD=plain
+SMTP_LOGIN=${EMAIL}
+SMTP_PASSWORD=${SMTPPASSWD}
+SMTP_SSL=true
+SMTP_ENABLE_STARTTLS_AUTO=false
+SMTP_FROM_ADDRESS="${CLOUDNAME} <${EMAIL}>"
 UPDATE_CHECK_URL=
 PORT=8112
 RAILS_SERVE_STATIC_FILES=true
