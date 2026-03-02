@@ -46,11 +46,11 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	this.route.queryParams.subscribe((params) => {
 		if (params["search"]) {
 			this.searchTerm = params?.["search"];
-			if (params["settings"] === "true")
-				this.settings(params["search"]);
 			setTimeout(() => {
 				this.filterCards();
 				this.cdr.detectChanges();
+				if (params["settings"] === "true")
+					this.settings(params["search"]);
 			}, 1);
 		}
 	});
