@@ -13,14 +13,11 @@ StandardOutput=inherit
 StandardError=inherit
 RestartSec=5s
 User=admin
-ExecStart=/usr/bin/java -Xmx1024m -XX:+UseG1GC -XX:TieredStopAtLevel=1 -noverify -jar /usr/local/modules/stirlingpdf/stirling-pdf-1.0.2.jar
+ExecStart=/usr/bin/java -noverify -jar /usr/local/modules/stirlingpdf/stirling-pdf-1.0.2.jar
 WorkingDirectory=/disk/admin/modules/stirlingpdf
 Environment="DISABLE_ADDITIONAL_FEATURES=true"
 Environment="ENDPOINTS_GROUPSTOREMOVE=LibreOffice,OCR"
 Environment="SYSTEM_STARTUPCLEANUP=false"
-CPUWeight=50
-CPUQuota=200%
-MemoryMax=1200M
 
 [Install]
 WantedBy=multi-user.target
