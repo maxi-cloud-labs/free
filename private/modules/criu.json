@@ -1,0 +1,28 @@
+{
+	"module": "criu",
+	"name": "CRIU",
+	"title": "Checkpoint tool",
+	"category": "Server",
+	"version": "4.1.1",
+	"installMethod": "apt",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "checkpoint-restore/criu",
+	"description": "A checkpoint and restore tool.",
+	"keywords": [
+		"Kernel",
+		"Linux",
+		"OS",
+		"Operating system",
+		"System core"
+	],
+	"proprietary": [
+		"Microsoft Windows"
+	],
+	"default": {
+		"cmds": []
+	}
+}
