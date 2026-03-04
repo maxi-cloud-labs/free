@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ "$(id -u)" = "0" ]; then
-	echo "You should not be root"
+if [ "$(id -u)" != "0" ]; then
+	echo "You need to be root"
 	exit 0
 fi
 
