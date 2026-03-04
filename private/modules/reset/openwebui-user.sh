@@ -39,7 +39,7 @@ response=`curl -sS -X POST $URL/api/v1/auths/signup -H "Content-Type: applicatio
 token=`echo $response | jq -r ".token"`
 #echo "token: $token"
 
-data="{ \"ENABLE_OPENAI_API\":true, \"OPENAI_API_BASE_URLS\":[\"https://aiproxy.mydongle.cloud/v1\"], \"OPENAI_API_KEYS\":[\"api.mistral.ai\"], \"OPENAI_API_CONFIGS\":{ \"additionalProp1\": {} } }"
+data="{ \"ENABLE_OPENAI_API\":true, \"OPENAI_API_BASE_URLS\":[\"http://localhost:8091/auth/ai/openwebui/v1\"], \"OPENAI_API_KEYS\":[\"key_managed_by_internal_backend\"], \"OPENAI_API_CONFIGS\":{ \"additionalProp1\": {} } }"
 response=`curl -sS -X POST $URL/openai/config/update -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d "$data"`
 #echo $response
 
