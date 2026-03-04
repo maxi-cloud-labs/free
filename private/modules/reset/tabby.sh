@@ -28,18 +28,14 @@ kind = "llama.cpp/embedding"
 api_endpoint = "http://localhost:8099"
 
 [model.completion.http]
-kind = "mistral/completion"
-api_endpoint = "https://aiproxy.mydongle.cloud"
-supported_models = ["codestral-latest"]
-model_name = "codestral-latest"
-api_key = "api.mistral.ai"
+kind = "openai/completion"
+api_endpoint = "http://localhost:8091/auth/ai/tabby/v1"
+model_name = "_codecompletion_"
 
 [model.chat.http]
-kind = "mistral/chat"
-api_endpoint = "https://aiproxy.mydongle.cloud/v1"
-supported_models = ["mistral-large-latest", "codestral-latest"]
-model_name = "codestral-latest"
-api_key = "api.mistral.ai"
+kind = "openai/chat"
+api_endpoint = "http://localhost:8091/auth/ai/tabby/v1"
+model_name = "_codechat_"
 
 [anonymousUsageTracking]
 disable = true
