@@ -8,6 +8,11 @@ const routes: Routes = [
 		loadChildren: () => import('./about/about.module').then( m => m.AboutModule)
 	},
 	{
+		path: 'ai',
+		canActivate: [Global],
+		loadChildren: () => import('./ai/ai.module').then( m => m.AIModule)
+	},
+	{
 		path: 'backup',
 		canActivate: [Global],
 		loadChildren: () => import('./backup/backup.module').then( m => m.BackupModule)

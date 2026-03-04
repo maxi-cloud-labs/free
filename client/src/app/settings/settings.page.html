@@ -30,9 +30,6 @@
 						<button (click)="activeTab = 'security'" [class]="activeTab == 'security' ? 'border--blue-500 text--blue-600' : 'border-transparent text--gray-500 hover:text--gray-700 hover:border--gray-300'" class="py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Security")}}
 						</button>
-						<button (click)="activeTab = 'aikeys'" [class]="activeTab == 'aikeys' ? 'border--blue-500 text--blue-600' : 'border-transparent text--gray-500 hover:text--gray-700 hover:border--gray-300'" class="py-2 px-1 border-b-2 font-medium text-sm transition-colors">
-							{{L("AI Keys")}}
-						</button>
 					</nav>
 				</div>
 				@if (activeTab == 'general') {
@@ -242,36 +239,6 @@
 							<button type="button" (click)="getSshKeys()" class="flex justify-center items-center bg--blue-600 p-2 rounded ml-2" style="cursor:pointer;"><ion-icon name="download-outline" class="text--white"></ion-icon></button>
 						</div>
 						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="border"></textarea>
-					</div>
-				</div>
-				}
-				@if (activeTab == 'aikeys') {
-				<div class="rounded-xl border border--gray-200 p-6 shadow-sm">
-					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("MyDongle.Cloud Keys")}}</h3>
-					<h4 class="text-md font-medium text--gray-900 mb-2">{{L("Free Usage")}}</h4>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Remaining messages")}}</p>
-						<span class="font-medium text--blue-600 focus:ring--blue-500 border--gray-300 rounded">{{adminSudo}}</span>
-					</div>
-					<div class="border-t border--gray-200 my-8"></div>
-					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("BYOK (Bring Your Own Keys)")}}</h3>
-					<p class="text-sm text--gray-500 mb-8">{{L("Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.")}}</p>
-					<h4 class="text-md font-medium text--gray-900 mb-2">"OpenAI (ChatGPT)</h4>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<h4 class="text-md font-medium text--gray-900 mb-2">Anthropic (Claude)</h4>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<h4 class="text-md font-medium text--gray-900 mb-2">Mistral (Le Chat)</h4>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
 					</div>
 				</div>
 				}

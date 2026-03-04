@@ -1,6 +1,7 @@
 {
 	"global": {
 		"About": "À propos",
+		"Access rights, Hits": "Droits d'accès, Hits",
 		"Active Users": "Utilisateurs actifs",
 		"AI": "IA",
 		"Backup & Restore": "Sauvegarde et restauration",
@@ -14,6 +15,7 @@
 		"free": "dispo",
 		"Hardware": "Matériel",
 		"Help": "Aide",
+		"Keys, Routing, Stats": ", Clefs, Routage, Stats",
 		"Last Backup": "Dernière sauvegarde",
 		"Light": "Clair",
 		"Log out": "Déconnexion",
@@ -36,7 +38,7 @@
 		"Tag": "Signet",
 		"Terminal": "Terminal",
 		"Users": "Utilisateurs",
-		"Wi-Fi, VPN, SSH, AI keys": "Wi-Fi, VPN, SSH, Clefs IA",
+		"Wi-Fi, VPN, SSH": "Wi-Fi, VPN, SSH",
 
 		"All": "Tous",
 		"Essential": "Essentiel",

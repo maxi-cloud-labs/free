@@ -66,43 +66,49 @@
 
 			<div joyrideStep="anchor7" title="System" text="Tune the system." stepPosition="right" *ngIf="global.session?.user?.role == 'admin'">
 				<div class="px-3 text-s text--black font-semibold text--gray-600 tracking-wider mt-6 md:mt-12">{{LG("SYSTEM")}}</div>
-				<a routerLink="/settings" title="Settings" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/settings" title="Settings" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>
 					</div>
-					<span>{{LG("Settings")}}<br><span class="text-xs text-gray-500">{{LG("Wi-Fi, VPN, SSH, AI keys")}}</span></span>
+					<span>{{LG("Settings")}}<br><span class="text-xs text-gray-500">{{LG("Wi-Fi, VPN, SSH")}}</span></span>
 				</a>
-				<a routerLink="/users" title="Users" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/ai" title="AI" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
+					<div class="w-5 h-5 flex items-center justify-center">
+						<ion-icon name="bulb-outline" class="w-5 h-5"></ion-icon>
+					</div>
+					<span>{{LG("AI")}}<br><span class="text-xs text-gray-500">{{LG("Keys, Routing, Stats")}}</span></span>
+				</a>
+				<a routerLink="/permissions" title="Permissions" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
+					<div class="w-5 h-5 flex items-center justify-center">
+						<ion-icon name="lock-closed-outline" class="w-5 h-5"></ion-icon>
+					</div>
+					<span>{{LG("Permissions")}}<br><span class="text-xs text-gray-500">{{LG("Access rights, Hits")}}</span></span>
+				</a>
+				<a routerLink="/users" title="Users" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="people-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Users")}}</span>
 				</a>
-				<a routerLink="/permissions" title="Permissions" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
-					<div class="w-5 h-5 flex items-center justify-center">
-						<ion-icon name="lock-closed-outline" class="w-5 h-5"></ion-icon>
-					</div>
-					<span>{{LG("Permissions")}}</span>
-				</a>
-				<a routerLink="/hardware" title="Hardware" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="!global.demo || global.developer">
+				<a routerLink="/hardware" title="Hardware" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="!global.demo || global.developer">
 					<div class="w-5 h-5 flex items-center justify-center overflow-hidden">
 						<ion-icon name="tv-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Hardware")}}</span>
 				</a>
-				<a [href]="global.openModuleHref('webssh2')" (click)="global.openModuleClick($event, 'webssh2');" title="" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
+				<a [href]="global.openModuleHref('webssh2')" (click)="global.openModuleClick($event, 'webssh2');" title="" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="terminal-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Terminal")}}</span>
 				</a>
-				<a routerLink="/serverlog" title="System Logs" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/serverlog" title="System Logs" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="document-text-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("System Logs")}}</span>
 				</a>
-				<a routerLink="/backup" title="Backup & Restore" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/backup" title="Backup & Restore" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="download-outline" class="w-5 h-5"></ion-icon>
 					</div>

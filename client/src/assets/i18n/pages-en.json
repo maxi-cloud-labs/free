@@ -5,6 +5,16 @@
 		"Copyright": "",
 		"The developer mode is enabled.": ""
 	},
+	"ai": {
+		"AI": "",
+		"Keys": "",
+		"Routing": "",
+		"Save": "",
+		"Stats": "",
+		"System internal / external IP addresses:": "",
+		"Those are the AI settings. Your personal settings including your password can be tuned on the page:": "",
+		"Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.": ""
+	},
 	"backup": {
 		"Backup": "",
 		"Backup & Restore": ""
@@ -101,7 +111,6 @@
 		"Must be agreed": "",
 		"Must be at least 2 characters": "",
 		"Must be at least 6 characters": "",
-		"My": "",
 		"No worries! Enter your email to receive instructions.": "",
 		"Password": "",
 		"Password must match": "",

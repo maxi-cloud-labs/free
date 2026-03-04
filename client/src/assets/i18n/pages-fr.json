@@ -5,6 +5,16 @@
 		"Copyright": "Droits d'auteur",
 		"The developer mode is enabled.": "Le mode dévelopeur est activé."
 	},
+	"ai": {
+		"AI": "IA",
+		"Keys": "Clefs",
+		"Routing": "Routage",
+		"Save": "Sauver",
+		"Stats": "Stats",
+		"System internal / external IP addresses:": "Adresses IP interne et externe du système :",
+		"Those are the AI settings. Your personal settings including your password can be tuned on the page:": "Ceux sont les paramètres d'IA. Les paramètres personnels de dont le mot de passe peuvent être modifiés sur la page :",
+		"Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.": "Vos clefs sont stoquées sur le système et ne sont pas envoyées sur les serveurs mydongle.cloud. Une requête effectuée avec ces clefs ne transite pas via les serveurs mydongle.cloud."
+	},
 	"backup": {
 		"Backup": "Sauvegarde",
 		"Backup & Restore": "Sauvegarde et Restauration"
@@ -26,7 +36,6 @@
 		"Find and go to your cloud": "Rechercher et aller à votre cloud",
 		"Finding...": "Recherche en cours...",
 		"Have some new hardware?": "Vous avez du nouveau matériel ?",
-		"My": "Mon",
 		"Please enter a valid email address": "Veuillez entrer une adresse e-mail valide",
 		"Setup here!": "Configurer ici !"
 	},
@@ -102,7 +111,6 @@
 		"Must be agreed": "Doit être accepté",
 		"Must be at least 2 characters": "Doit être d'au moins 2 caractères",
 		"Must be at least 6 characters": "Doit être d'au moins 6 caractères",
-		"My": "Mon",
 		"No worries! Enter your email to receive instructions.": "Pas de soucis ! Entrez votre e-mail pour recevoir les instructions.",
 		"Password": "Mot de passe",
 		"Password must match": "Le mot de passe doit correspondre",

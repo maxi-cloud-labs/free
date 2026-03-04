@@ -3,14 +3,14 @@ import { Global } from '../env';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-	selector: 'app-settings',
-	templateUrl: './settings.page.html',
+	selector: 'app-ai',
+	templateUrl: './ai.page.html',
 	standalone: false
 })
 
-export class Settings {
+export class AI {
 L(st) { return this.global.mytranslate(st); }
-tabs = ["general", "domains", "connectivity", "vpn", "security"];
+tabs = ["keys", "routing", "stats"];
 activeTab = this.tabs[0];
 adminSudo;
 sshKeys = "";

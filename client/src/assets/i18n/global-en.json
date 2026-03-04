@@ -1,6 +1,7 @@
 {
 	"global": {
 		"About": "",
+		"Access rights, Hits": "",
 		"Active Users": "",
 		"AI": "",
 		"Backup & Restore": "",
@@ -14,6 +15,7 @@
 		"free": "",
 		"Hardware": "",
 		"Help": "",
+		"Keys, Routing, Stats": "",
 		"Last Backup": "",
 		"Light": "",
 		"Log out": "",
@@ -36,7 +38,7 @@
 		"Tag": "",
 		"Terminal": "",
 		"Users": "",
-		"Wi-Fi, VPN, SSH, AI keys": "",
+		"Wi-Fi, VPN, SSH": "",
 
 		"All": "",
 		"Essential": "",
