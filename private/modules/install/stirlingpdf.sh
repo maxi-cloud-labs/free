@@ -1,6 +1,7 @@
 #!/bin/sh
 
 apt-get install -y libleptonica-dev zlib1g-dev libreoffice-writer libreoffice-calc libreoffice-impress unpaper ocrmypdf
+apt-get install -y tesseract-ocr
 mv /usr/local/modules/stirlingpdf /home/ai/build
 mkdir /usr/local/modules/stirlingpdf
 cd /home/ai/build/stirlingpdf
@@ -11,13 +12,9 @@ PATH=/usr/local/modules/stirlingpdf/bin:$PATHOLD
 export PATH=/usr/local/modules/stirlingpdf/bin:$PATHOLD
 echo "PATH new: $PATH python: `python --version`"
 pip install uno opencv-python-headless unoconv pngquant WeasyPrint
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-arm64
-sync
-echo 3 > /proc/sys/vm/drop_caches
-./gradlew build
-sync
-echo 3 > /proc/sys/vm/drop_caches
-cp -a scripts stirling-pdf/build/libs/stirling-pdf-*.jar /usr/local/modules/stirlingpdf
+pip install unoserver
 PATH=$PATHOLD
 export PATH=$PATHOLD
 echo "PATH restored: $PATH"
+wget -nv --show-progress --progress=bar:force:noscroll https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v2.5.3/Stirling-PDF.jar
+cp -a scripts Stirling-PDF.jar /usr/local/modules/stirlingpdf

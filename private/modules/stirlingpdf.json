@@ -3,7 +3,7 @@
 	"name": "Stirling-PDF",
 	"title": "PDF Manipulation Tool",
 	"category": "Productivity",
-	"version": "v1.0.2",
+	"version": "v2.5.3",
 	"installMethod": "clone",
 	"web": true,
 	"essential": false,

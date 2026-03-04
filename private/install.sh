@@ -326,7 +326,7 @@ else
 	clone shields badges/shields server-2025-12-06
 	clone silverbullet silverbulletmd/silverbullet 2.3.0
 	clone sqliteweb coleifer/sqlite-web 0.6.6
-	clone stirlingpdf Stirling-Tools/Stirling-PDF v1.0.2
+	clone stirlingpdf Stirling-Tools/Stirling-PDF v2.5.3
 	clone stremio Stremio/stremio-web v5.0.0-beta.29
 	clone studio outerbase/studio v0.10.2
 	clone sunrisecms cityssm/sunrise-cms v1.0.0-alpha.19
