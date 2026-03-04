@@ -33,7 +33,27 @@ PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 rm -rf /disk/admin/modules/librechat
 mkdir -p /disk/admin/modules/librechat/logs
 cp /usr/local/modules/librechat/.env.example /disk/admin/modules/librechat/.env
-cp /usr/local/modules/librechat/librechat.example.yaml /disk/admin/modules/librechat/librechat.yaml
+cat > /disk/admin/modules/librechat/librechat.yaml << EOF
+version: 1.3.0
+
+cache: true
+
+interface:
+  modelSelect: true
+  parameters: true
+  endpointsMenu: true
+  defaultEndpoint: "Internal System"
+
+endpoints:
+  custom:
+    - name: "Internal System"
+      baseURL: "http://localhost:8091/auth/ai/librechat/v1"
+      apiKey: "api__key"
+      models:
+        default: ["default"]
+        fetch: true
+      summarize: false
+EOF
 sed -i -e "s|^MEILI_HOST=.*|MEILI_HOST=http://127.0.0.1:7700|" /disk/admin/modules/librechat/.env
 sed -i -e "s|^MEILI_MASTER_KEY=.*|MEILI_MASTER_KEY=$MEILISEARCH_KEY|" /disk/admin/modules/librechat/.env
 sed -i -e "s|^MONGO_URI=.*|MONGO_URI=mongodb://librechatUser:${DBPASSMO}@127.0.0.1:27017/librechatDB|" /disk/admin/modules/librechat/.env
