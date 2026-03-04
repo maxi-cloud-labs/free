@@ -1,0 +1,30 @@
+{
+	"anthropic": {
+		"url": "https://api.anthropic.com",
+		"models": {
+			"_codechat_": "claude-sonnet-4-6",
+			"_codecompletion_": "claude-haiku-4-5-20251001",
+			"_codeembedding_": "mistral-embed"
+		}
+	},
+	"litellm": {
+		"url": "http://localhost:4001",
+		"models": {}
+	},
+	"mistral": {
+		"url": "https://api.mistral.ai",
+		"models": {
+			"_codechat_": "codestral-latest",
+			"_codecompletion_": "codestral-latest",
+			"_codeembedding_": "mistral-embed"
+		}
+	},
+	"_server_": {
+		"url": "https://aiproxy.mydongle.cloud",
+		"models": {
+			"_codechat_": "_codechat_",
+			"_codecompletion_": "_codecompletion_",
+			"_codeembedding_": "_codeembedding_"
+		}
+	}
+}

@@ -27,6 +27,8 @@ const jwkPath = adminPath + "betterauth/jwk-pub.pem";
 const databasePath = adminPath + "betterauth/database.sqlite";
 const cloudPath = adminPath + "_config_/_cloud_.json";
 export const cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
+const aiProvidersPath = (process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/usr/local/modules/_core_/aiproviders.json";
+const aiProviders = JSON.parse(readFileSync(aiProvidersPath, "utf-8"));
 const sshKeysPath = "/disk/admin/.ssh/authorized_keys";
 const modulesPath = adminPath + "_config_/_modules_.json";
 const certificatePath = adminPath + "letsencrypt/fullchain.pem";
@@ -110,6 +112,33 @@ function sendToApp(data) {
 
 si.networkStats();
 let usersNb = 0;
+
+async function aiProxy(params, request, body) {
+	try {
+		const { appName, subPath } = params;
+		const providerName = cloud.ai.routingModules[cloud.ai.routingPerModule ? appName : "_all_"];
+		request.headers.delete("content-length");
+		request.headers.set("host", aiProviders[providerName].url.replace(/[^\/]*\/\//, ""));
+		request.headers.set("authorization", "Bearer " + cloud.ai.keys[providerName]);
+		if (providerName == "anthropic")
+			request.headers.set("anthropic-version", "2023-06-01");
+		if (body?.model?.startsWith("_") && body?.model?.endsWith("_"))
+			body.model = aiProviders[providerName].models[body.model];
+		const upstream = await fetch(aiProviders[providerName].url + "/" + subPath, {
+			method: request.method,
+			headers: request.headers,
+			body: JSON.stringify(body)
+		});
+		const responseHeaders = new Headers();
+		upstream.headers.forEach((value, key) => {
+			if (!["connection", "content-length", "date", "content-encoding", "transfer-encoding"].includes(key.toLowerCase()))
+				responseHeaders.set(key, value);
+		});
+		return new Response(upstream.body, { status:upstream.status, headers:responseHeaders });
+	} catch (err: any) {
+		return Response.json({ status: "error", detail: err.message }, { status: 502 });
+	}
+}
 
 const rootPath = "/var/log/";
 const endpoints = () => {
@@ -225,6 +254,27 @@ const endpoints = () => {
 			}, async(ctx) => {
 				ctx?.context.options.database.prepare("UPDATE user SET settings = ? WHERE id = ?").run(JSON.stringify(ctx.body), ctx.context.session.user.id);
 				return Response.json({ "status":"success" }, { status:200 });
+			}),
+
+			settingsAiSave: createAuthEndpoint("/settings-ai/save", {
+				method: "POST",
+				use: [sensitiveSessionMiddleware]
+			}, async(ctx) => {
+				return Response.json({ "status":"success" }, { status:200 });
+			}),
+
+			aiPost: createAuthEndpoint("/ai/:appName/**:subPath", {
+				method: "POST",
+				useOriginalRequest: true,
+			}, async(ctx) => {
+				return await aiProxy(ctx.params, ctx?.request, ctx?.body);
+			}),
+
+			aiGet: createAuthEndpoint("/ai/:appName/**:subPath", {
+				method: "GET",
+				useOriginalRequest: true,
+			}, async(ctx) => {
+				return await aiProxy(ctx.params, ctx?.request, ctx?.body);
 			}),
 
 			stats: createAuthEndpoint("/stats", {

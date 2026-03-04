@@ -260,7 +260,7 @@ async doWiFi() {
 	this.progress = true;
 	this.errorSt = null;
 	let ret1 = { fullChain:"", privateKey:"" };
-	let ret2 = { frp:{}, postfix:{} };
+	let ret2 = { ai:{ keys: { _server_:"" } }, frp:{}, postfix:{} };
 	await this.modalWait.present();
 	try {
 		ret1 = await this.certificate.process(this.name1.value, this.shortname1.value, this.domain1.value); //Not used: ret1.accountKey, ret1.accountKeyId
@@ -282,6 +282,15 @@ async doWiFi() {
 				name: this.name1.value,
 				shortname: this.shortname1.value,
 				domain: this.domain1.value
+			},
+			ai: {
+				keys: {
+					_server_: ret2.ai.keys._server_
+				},
+				routingModules: {
+					_all_: "_server_"
+				},
+				routingPerModule: false
 			},
 			frp: ret2.frp,
 			postfix: ret2.postfix,
