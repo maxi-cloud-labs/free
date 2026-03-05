@@ -244,9 +244,8 @@ sortCards() {
 }
 
 toggleSortDirection(p) {
-	if (this.sortProperty == p)
-		this.sortDirection[this.sortProperty] = this.sortDirection[this.sortProperty] === "asc" ? "desc" : "asc";
 	this.sortProperty = p;
+	this.sortDirection[this.sortProperty] = this.sortDirection[this.sortProperty] === "asc" ? "desc" : "asc";
 	this.sortCards();
 	localStorage.setItem("sortPropertyPermissions", this.sortProperty);
 	localStorage.setItem("sortDirectionPermissions", JSON.stringify(this.sortDirection));
