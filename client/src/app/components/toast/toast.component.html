@@ -1,5 +1,8 @@
-<div #toastE class="fixed top-20 right-5 z-[20004] flex items-center w-full max-w-xs p-4 text--gray-900 bg--sidebar rounded-lg shadow-lg border border--gray-900 transform transition-all ease-out" [class]="show ? 'translate-x-0 opacity-100 duration-500' : hide ? 'hidden' : 'translate-x-full opacity-0 pointer-events-none duration-500'">
-	<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+<div #toastE class="fixed top-20 right-5 z-[20004] flex items-center w-full max-w-xs p-4 text--gray-900 bg--sidebar rounded-lg shadow-lg border border--blue-900 transform transition-all ease-out" [class]="show ? 'translate-x-0 opacity-100 duration-500' : hide ? 'hidden' : 'translate-x-full opacity-0 pointer-events-none duration-500'">
+    <div *ngIf="delay > 0" class="absolute top-0 left-1 w-[98%] h-[3px] bg-black/10">
+        <div class="h-full bg--blue-500 transition-all ease-linear" [style.width]="show ? '0%' : '100%'" [style.transition-duration.ms]="delay"></div>
+    </div>
+	<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text--green-500 bg--green-100 rounded-lg">
 		<ion-icon [name]="icon" class="h-4 w-4"></ion-icon>
 	</div>
 	<div class="ml-3 text-sm font-normal" [innerHTML]="message"></div>

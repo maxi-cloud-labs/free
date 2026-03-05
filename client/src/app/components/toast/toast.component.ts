@@ -15,6 +15,7 @@ show: boolean = false;
 instant: boolean = false;
 message: string = "";
 icon: string = "";
+delay;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef) {
 	global.toast.subscribe(event => {
@@ -36,6 +37,7 @@ dismissToast(now) {
 }
 
 showToast(message, icon, delay) {
+	this.delay = delay;
 	this.message = message;
 	this.icon = icon;
 	this.instant = false;
