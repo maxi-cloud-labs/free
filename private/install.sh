@@ -266,6 +266,7 @@ else
 	clone discourse discourse/discourse v3.4.6
 	clone docsify docsifyjs/docsify v4.13.1
 	clone docusaurus facebook/docusaurus v3.9.2
+	clone domainmod domainmod/domainmod v4.23.0
 	clone droppy droppyjs/droppy v1.3.1
 	clone erugo ErugoOSS/Erugo v0.2.0
 	clone ente ente-io/ente bbfb99f8
