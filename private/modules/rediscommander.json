@@ -36,6 +36,12 @@
 				"port": 8119,
 				"path": "/"
 			}
-		]
+		],
+		"services": [
+			"rediscommander"
+		],
+		"setup": true,
+		"setupDependencies": []
+
 	}
 }
