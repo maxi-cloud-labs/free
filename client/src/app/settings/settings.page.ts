@@ -1,4 +1,5 @@
-import { Component, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef, HostListener } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 import { Global } from '../env';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,6 +13,7 @@ export class Settings {
 L(st) { return this.global.mytranslate(st); }
 tabs = ["general", "domains", "connectivity", "vpn", "security"];
 activeTab = this.tabs[0];
+@ViewChild("modalAlert") modalAlert: IonModal;
 adminSudo;
 sshKeys = "";
 dSshKeys = true;
@@ -41,6 +43,11 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	this.updateTime();
 	this.timer = setInterval(() => { this.updateTime(); }, 1000);
 	this.certificateGetInfo();
+}
+
+ngAfterViewInit() {
+	if (this.global.session?.hardware?.disk?.startsWith("/dev/nvme"))
+		this.modalAlert.present();
 }
 
 @HostListener("document:keydown", ["$event"]) handleKeyboardEvent(event: KeyboardEvent) {

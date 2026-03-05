@@ -246,3 +246,12 @@
 		</div>
 	</div>
 </div>
+<ion-modal #modalAlert style="--min-height:15vw; --max-height:15vw;">
+	<ng-template>
+		<div class="flex flex-col w-full items-center justify-center" style="height:15vw;">
+			<ion-icon name="warning-outline" class="w-8 h-8"></ion-icon>
+			<span class="text-xl my-5">{{L("Warning!!!")}}</span>
+			<span class="text-justify w-[20vw]">{{L("It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD.")}}</span>
+		</div>
+	</ng-template>
+</ion-modal>

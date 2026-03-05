@@ -35,10 +35,13 @@ const certificatePath = adminPath + "letsencrypt/fullchain.pem";
 let hardware = { model:"Unknown", internalIP:"", externalIP:"", timezone:Intl.DateTimeFormat().resolvedOptions().timeZone };
 if (process.env.PRODUCTION === "true")
 	try {
-		hardware["model"] = readFileSync( "/dev/dongle_platform/model", "utf-8").trimEnd();
+		hardware["model"] = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
+		si.fsSize().then(data => { hardware["disk"] = data.find(d => d.mount === '/disk')?.fs; });
 	} catch (e) {}
-else
+else {
 	hardware["model"] = "PC";
+	hardware["disk"] = "/dev/nvme0n1p2";
+}
 
 function getInternalIp() {
 	const networkInterfaces = os.networkInterfaces();
