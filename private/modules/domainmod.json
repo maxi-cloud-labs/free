@@ -1,0 +1,33 @@
+{
+	"module": "domainmod",
+	"name": "DomainMOD",
+	"title": "Domain Management",
+	"category": "Utils",
+	"version": "v4.23.0",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "MySQL",
+	"github": "domainmod/domainmod",
+	"description": "A management tool for your domains and other internet assets in a central location.",
+	"keywords": [
+		"Domain",
+		"Internet",
+		"Registry"
+	],
+	"proprietary": [],
+	"default": {
+		"config": true,
+		"enabled": true,
+		"localPort": 9545,
+		"permissions": [],
+		"reset": true,
+		"setup": true,
+		"setupDependencies": [
+			"mysql"
+		],
+		"setupRoot": true
+	}
+}
