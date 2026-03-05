@@ -26,7 +26,8 @@
 	],
 	"default": {
 		"cmds": [
-			"/usr/bin/mysql -u root -p\"$(jq -r .password /disk/admin/modules/_config_/mysql.json)\""
+			"/usr/bin/mysql -u root -p\"$(jq -r .password /disk/admin/modules/_config_/mysql.json)\"",
+			"/usr/bin/mysql --defaults-file=/disk/admin/modules/mysql/conf.txt"
 		],
 		"config": true,
 		"enabled": true,
