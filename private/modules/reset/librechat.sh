@@ -48,7 +48,7 @@ endpoints:
   custom:
     - name: "Internal System"
       baseURL: "http://localhost:8091/auth/ai/librechat/v1"
-      apiKey: "api__key"
+      apiKey: "key_managed_by_internal_backend"
       models:
         default: ["default"]
         fetch: true
