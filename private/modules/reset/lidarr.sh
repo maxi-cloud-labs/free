@@ -32,4 +32,8 @@ echo "{\"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/lidarr.json
 systemctl start lidarr.service
 systemctl enable lidarr.service
 
-/usr/local/modules/_core_/reset/lidarr-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/lidarr-user.sh &
+else
+	/usr/local/modules/_core_/reset/lidarr-user.sh
+fi

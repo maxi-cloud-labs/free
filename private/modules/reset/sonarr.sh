@@ -32,4 +32,8 @@ echo "{\"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/sonarr.json
 systemctl start sonarr.service
 systemctl enable sonarr.service
 
-/usr/local/modules/_core_/reset/sonarr-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/sonarr-user.sh &
+else
+	/usr/local/modules/_core_/reset/sonarr-user.sh
+fi

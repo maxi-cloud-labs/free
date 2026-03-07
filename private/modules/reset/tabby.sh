@@ -44,4 +44,8 @@ ln -sf /disk/admin/modules/tabby /disk/admin/.tabby
 systemctl start tabby.service
 systemctl enable tabby.service
 
-/usr/local/modules/_core_/reset/tabby-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/tabby-user.sh &
+else
+	/usr/local/modules/_core_/reset/tabby-user.sh
+fi

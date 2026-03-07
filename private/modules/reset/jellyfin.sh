@@ -17,4 +17,8 @@ chown -R jellyfin:jellyfin /disk/admin/modules/jellyfin/data/
 systemctl start jellyfin.service
 systemctl enable jellyfin.service
 
-/usr/local/modules/_core_/reset/jellyfin-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/jellyfin-user.sh &
+else
+	/usr/local/modules/_core_/reset/jellyfin-user.sh
+fi

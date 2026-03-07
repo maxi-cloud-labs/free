@@ -23,4 +23,8 @@ EOF
 systemctl start homeassistant.service
 systemctl enable homeassistant.service
 
-/usr/local/modules/_core_/reset/homeassistant-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/homeassistant-user.sh &
+else
+	/usr/local/modules/_core_/reset/homeassistant-user.sh
+fi

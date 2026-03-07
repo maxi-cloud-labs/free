@@ -19,4 +19,8 @@ EOF
 systemctl start openwebui.service
 systemctl enable openwebui.service
 
-/usr/local/modules/_core_/reset/openwebui-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/openwebui-user.sh &
+else
+	/usr/local/modules/_core_/reset/openwebui-user.sh
+fi

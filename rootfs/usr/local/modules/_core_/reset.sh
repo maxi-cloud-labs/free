@@ -55,6 +55,7 @@ fi
 if [ ! -f $PP/reset/$NAME.sh ]; then
 	echo "#Doing nothing for $NAME##################"
 else
+	export RESET_SYNC=1
 	if [ $USER = 1 ]; then
 		$PP/reset/$NAME.sh
 	else

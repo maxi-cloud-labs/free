@@ -90,4 +90,8 @@ chown admin:admin /disk/admin/modules/_config_/ente.json
 systemctl start ente.service
 systemctl enable ente.service
 
-/usr/local/modules/_core_/reset/ente-user.sh "${PASSWD}" &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/ente-user.sh "${PASSWD}" &
+else
+	/usr/local/modules/_core_/reset/ente-user.sh "${PASSWD}"
+fi

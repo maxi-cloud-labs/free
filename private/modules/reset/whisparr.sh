@@ -32,4 +32,8 @@ echo "{\"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/whisparr.json
 systemctl start whisparr.service
 systemctl enable whisparr.service
 
-/usr/local/modules/_core_/reset/whisparr-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/whisparr-user.sh &
+else
+	/usr/local/modules/_core_/reset/whisparr-user.sh
+fi

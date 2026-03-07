@@ -32,4 +32,8 @@ echo "{\"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/prowlarr.json
 systemctl start prowlarr.service
 systemctl enable prowlarr.service
 
-/usr/local/modules/_core_/reset/prowlarr-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/prowlarr-user.sh &
+else
+	/usr/local/modules/_core_/reset/prowlarr-user.sh
+fi

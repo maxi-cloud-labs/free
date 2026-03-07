@@ -32,4 +32,8 @@ echo "{\"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/radarr.json
 systemctl start radarr.service
 systemctl enable radarr.service
 
-/usr/local/modules/_core_/reset/radarr-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/radarr-user.sh &
+else
+	/usr/local/modules/_core_/reset/radarr-user.sh
+fi

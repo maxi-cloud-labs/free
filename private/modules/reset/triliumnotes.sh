@@ -39,4 +39,8 @@ EOF
 systemctl start triliumnotes.service
 systemctl enable triliumnotes.service
 
-/usr/local/modules/_core_/reset/triliumnotes-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/triliumnotes-user.sh &
+else
+	/usr/local/modules/_core_/reset/triliumnotes-user.sh
+fi

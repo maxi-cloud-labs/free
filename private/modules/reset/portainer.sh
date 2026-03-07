@@ -12,4 +12,8 @@ mkdir /disk/admin/modules/portainer
 systemctl start portainer.service
 systemctl enable portainer.service
 
-/usr/local/modules/_core_/reset/portainer-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/portainer-user.sh &
+else
+	/usr/local/modules/_core_/reset/portainer-user.sh
+fi

@@ -12,4 +12,8 @@ mkdir /disk/admin/modules/newapi
 systemctl start newapi.service
 systemctl enable newapi.service
 
-/usr/local/modules/_core_/reset/newapi-user.sh &
+if [ -z $RESET_SYNC ]; then
+	/usr/local/modules/_core_/reset/newapi-user.sh &
+else
+	/usr/local/modules/_core_/reset/newapi-user.sh
+fi
