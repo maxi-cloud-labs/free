@@ -25,6 +25,9 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
+      },
+      "models": {
+        "internalsystem/_mcp_": {}
       }
     }
   },
@@ -53,6 +56,20 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
     "tailscale": {
       "mode": "off",
       "resetOnExit": false
+    }
+  },
+  "models": {
+    "providers": {
+      "internalsystem": {
+        "api": "openai-completions",
+        "baseUrl": "http://localhost:8091/auth/ai/openclaw/v1",
+        "apiKey": "key_managed_by_internal_backend",
+        "models": [ {
+          "id": "_mcp_",
+          "name": "InternalMCP",
+          "contextWindow": 131072
+        } ]
+      }
     }
   },
   "wizard": {
