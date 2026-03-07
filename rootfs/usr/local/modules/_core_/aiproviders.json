@@ -1,10 +1,20 @@
 {
+	"openai": {
+		"url": "https://api.openai.ai",
+		"models": {
+			"_codechat_": "gpt-5.4",
+			"_codecompletion_": "gpt-3.5-turbo-instruct",
+			"_codeembedding_": "",
+			"_mcp_": "gpt-5.4"
+		}
+	},
 	"anthropic": {
 		"url": "https://api.anthropic.com",
 		"models": {
-			"_codechat_": "claude-sonnet-4-6",
-			"_codecompletion_": "claude-haiku-4-5-20251001",
-			"_codeembedding_": "mistral-embed"
+			"_codechat_": "",
+			"_codecompletion_": "",
+			"_codeembedding_": "",
+			"_mcp_": ""
 		}
 	},
 	"litellm": {
@@ -16,7 +26,8 @@
 		"models": {
 			"_codechat_": "codestral-latest",
 			"_codecompletion_": "codestral-latest",
-			"_codeembedding_": "mistral-embed"
+			"_codeembedding_": "mistral-embed",
+			"_mcp_": "mistral-large-latest"
 		}
 	},
 	"_server_": {
@@ -24,7 +35,8 @@
 		"models": {
 			"_codechat_": "_codechat_",
 			"_codecompletion_": "_codecompletion_",
-			"_codeembedding_": "_codeembedding_"
+			"_codeembedding_": "_codeembedding_",
+			"_mcp_": "_mcp_"
 		}
 	}
 }
