@@ -319,7 +319,7 @@ openModuleClick(event, identifier:number|string, t = null) {
 	} else {
 		if (this.modulesData[id].notReady != 0) {
 			event.preventDefault();
-			this.presentToast("This module setup is under progress. It should be ready shortly...", "close-outline", 5000);
+			this.presentToast("The setup of this module is under progress. It should be ready shortly...", "close-outline", 5000);
 		}
 	}
 }
