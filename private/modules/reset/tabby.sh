@@ -28,13 +28,15 @@ kind = "llama.cpp/embedding"
 api_endpoint = "http://localhost:8099"
 
 [model.completion.http]
-kind = "openai/completion"
-api_endpoint = "http://localhost:8091/auth/ai/tabby/v1"
+kind = "mistral/completion"
+api_endpoint = "http://localhost:8091/auth/ai/tabby"
+api_key = "key_managed_by_internal_backend"
 model_name = "_codecompletion_"
 
 [model.chat.http]
 kind = "openai/chat"
 api_endpoint = "http://localhost:8091/auth/ai/tabby/v1"
+api_key = "key_managed_by_internal_backend"
 model_name = "_codechat_"
 
 [anonymousUsageTracking]
