@@ -117,29 +117,119 @@ si.networkStats();
 let usersNb = 0;
 
 async function aiProxy(params, request, body) {
+	const debuglog = false;
+	let debugSt = "";
 	try {
-		const { appName, subPath } = params;
+		let { appName, subPath } = params;
 		const providerName = cloud.ai.routingModules[cloud.ai.routingPerModule ? appName : "_all_"];
+		let url = aiProviders[providerName].url + "/" + subPath;
+		if (debuglog) {
+			debugSt += appName + " " + subPath + " (" + request.method + ")";
+			debugSt += "\n#Original Headers######################\n" + JSON.stringify(Object.fromEntries(request.headers.entries()), null, '\t');
+			debugSt += "\n#Original Body######################\n" + JSON.stringify(body, null, '\t');
+		}
 		request.headers.delete("content-length");
 		request.headers.set("host", aiProviders[providerName].url.replace(/[^\/]*\/\//, ""));
 		request.headers.set("authorization", "Bearer " + cloud.ai.keys[providerName]);
-		if (providerName == "anthropic")
-			request.headers.set("anthropic-version", "2023-06-01");
 		if (body?.model?.startsWith("_") && body?.model?.endsWith("_"))
 			body.model = aiProviders[providerName].models[body.model];
-		const upstream = await fetch(aiProviders[providerName].url + "/" + subPath, {
+
+		if (providerName == "anthropic")
+			request.headers.set("anthropic-version", "2023-06-01");
+		if (providerName == "mistral" && body) {
+			if (body["max_completion_tokens"]) {
+				body["max_tokens"] = body["max_completion_tokens"];
+				delete body["max_completion_tokens"];
+			}
+			const forbiddenParams = ["store", "user", "frequency_penalty", "presence_penalty"]; //"stop",
+			forbiddenParams.forEach(param => { delete body[param]; });
+		}
+		if (providerName == "openai" && subPath.includes("v1/fim/completions"))
+			url = url.replace("v1/fim/completions", "v1/completions");
+
+		if (debuglog) {
+			debugSt += "\nURL: " + url;
+			debugSt += "\n#Sending Headers######################\n" + JSON.stringify(Object.fromEntries(request.headers.entries()), null, '\t');
+			debugSt += "\n#Sending Body######################\n" + JSON.stringify(body, null, '\t');
+		}
+		const upstream = await fetch(url, {
 			method: request.method,
 			headers: request.headers,
 			body: JSON.stringify(body)
 		});
+		if (debuglog) {
+			debugSt += "\n#Response headers######################" + upstream.status + "\n" + JSON.stringify(Object.fromEntries(upstream.headers.entries()), null, '\t');
+			if (request.method == "POST" && !body.stream) {
+				const clonedResponse = upstream.clone();
+				debugSt += "\n#Response.text######################\n" + await clonedResponse.text();
+			}
+		}
 		const responseHeaders = new Headers();
 		upstream.headers.forEach((value, key) => {
 			if (!["connection", "content-length", "date", "content-encoding", "transfer-encoding"].includes(key.toLowerCase()))
 				responseHeaders.set(key, value);
 		});
-		return new Response(upstream.body, { status:upstream.status, headers:responseHeaders });
+		if (debuglog) {
+			debugSt += "\n#Returned headers######################\n" + JSON.stringify(Object.fromEntries(responseHeaders.entries()), null, '\t');
+			const formattedDate = new Date().toISOString().replace(/[-T:]/g, '').split('.')[0].replace(/^(\d{8})(\d{6})$/, '$1-$2');
+			writeFileSync("/tmp/aiProxy-" + formattedDate, debugSt, "utf-8");
+		}
+		if (providerName == "openai" && subPath.includes("v1/fim/completions")) {
+			if (body.stream && upstream.body) {
+				const { readable, writable } = new TransformStream();
+				const writer = writable.getWriter();
+				const reader = upstream.body.getReader();
+				const decoder = new TextDecoder();
+				const encoder = new TextEncoder();
+				(async () => {
+					try {
+						while (true) {
+							const { done, value } = await reader.read();
+							if (done)
+								break;
+							const chunk = decoder.decode(value);
+							const lines = chunk.split("\n");
+							for (const line of lines) {
+								if (line.startsWith("data: ") && line !== "data: [DONE]") {
+									try {
+										const json = JSON.parse(line.replace("data: ", ""));
+										const mistralChunk = {
+											id: json.id,
+											choices: json.choices.map(c => ({
+												delta: { content: c.text },
+												index: c.index,
+												finish_reason: c.finish_reason
+											}))
+										};
+										await writer.write(encoder.encode(`data: ${JSON.stringify(mistralChunk)}\n\n`));
+									} catch (e) {
+										await writer.write(encoder.encode(line + "\n\n"));
+									}
+								} else
+									await writer.write(encoder.encode(line + "\n"));
+							}
+						}
+					} finally {
+						writer.close();
+					}
+				})();
+				return new Response(readable, { status: upstream.status, headers: responseHeaders });
+			} else {
+				const json = await upstream.json();
+				const mappedJson = {
+					id: json.id,
+					choices: json.choices.map(c => ({
+						message: { role: "assistant", content: c.text },
+						index: c.index,
+						finish_reason: c.finish_reason
+					}))
+				};
+				return new Response(JSON.stringify(mappedJson), { status:upstream.status, headers:responseHeaders });
+			}
+		} else
+			return new Response(upstream.body, { status:upstream.status, headers:responseHeaders });
 	} catch (err: any) {
-		return Response.json({ status: "error", detail: err.message }, { status: 502 });
+		return Response.json({ status:"error", detail:err.message }, { status:502 });
 	}
 }
 
