@@ -305,14 +305,16 @@ const endpoints = () => {
 			}, async(ctx) => {
 				if (ctx.context.session?.user?.role != "admin")
 					return Response.json({ status:"error" }, { status:200 });
-				const certData = fs.readFileSync(certificatePath);
-				const cert = new X509Certificate(certData);
-				return Response.json({
-					"status":"success",
-					"date": cert.validToDate,
-					"dateString": cert.validTo,
-					"domains": cert.subjectAltName ? cert.subjectAltName.split(", ").map(d => d.replace(/^DNS:/, "")) : []
-				}, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
+				try {
+					const certData = fs.readFileSync(certificatePath);
+					const cert = new X509Certificate(certData);
+					return Response.json({
+						"status":"success",
+						"date": cert.validToDate,
+						"dateString": cert.validTo,
+						"domains": cert.subjectAltName ? cert.subjectAltName.split(", ").map(d => d.replace(/^DNS:/, "")) : []
+					}, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
+				} catch(err) { return Response.json({ status:"error" }, { status:200 }); }
 			}),
 
 			settingsCertificateRenew: createAuthEndpoint("/settings/certificate-save", {
