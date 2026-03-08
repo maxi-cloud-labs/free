@@ -2,6 +2,7 @@ import fs from "fs";
 import userid from "userid";
 import path from "path";
 
+//Interface
 interface FileSystemNode {
 	name: string;
 	type: "directory" | "file" | "symlink";
@@ -13,6 +14,7 @@ interface FileSystemNode {
 	children?: FileSystemNode[];
 }
 
+//Functions
 function getFileStats(filePath: string): FileSystemNode {
 	const stats = fs.statSync(filePath);
 	const { uid, gid, mode, size, mtime } = stats;

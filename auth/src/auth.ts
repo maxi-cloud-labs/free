@@ -15,13 +15,10 @@ import * as jose from "jose";
 import * as os from "os";
 import * as si from "systeminformation";
 
+//Variables
 export const port = 8091;
 const statusDemo = process.env.PRODUCTION === "true" ? false : true;
 const adminPath = (process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/disk/admin/modules/";
-let version = "";
-try {
-	readFileSync((process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/usr/local/modules/_core_/version.txt", "utf-8");
-} catch(e) {}
 const secretPath = adminPath + "betterauth/secret.txt";
 const jwkPath = adminPath + "betterauth/jwk-pub.pem";
 const databasePath = adminPath + "betterauth/database.sqlite";
@@ -32,29 +29,45 @@ const aiProviders = JSON.parse(readFileSync(aiProvidersPath, "utf-8"));
 const sshKeysPath = "/disk/admin/.ssh/authorized_keys";
 const modulesPath = adminPath + "_config_/_modules_.json";
 const certificatePath = adminPath + "letsencrypt/fullchain.pem";
-let hardware = { model:"Unknown", internalIP:"", externalIP:"", timezone:Intl.DateTimeFormat().resolvedOptions().timeZone };
-if (process.env.PRODUCTION === "true")
-	try {
-		hardware["model"] = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
-		si.fsSize().then(data => { hardware["disk"] = data.find(d => d.mount === '/disk')?.fs; });
-	} catch (e) {}
-else {
-	hardware["model"] = "PC";
-	hardware["disk"] = "/dev/nvme0n1p2";
-}
+const rootPath = "/var/log/";
+let usersNb = 0;
+let version = "";
+let hardware;
+let trustedOrigins;
 
-function getInternalIp() {
-	const networkInterfaces = os.networkInterfaces();
-	for (const name of Object.keys(networkInterfaces)) {
-		const addresses = networkInterfaces[name];
-		if (addresses)
-			for (const address of addresses)
-				if (address.family === "IPv4" && !address.internal)
-					return address.address;
+//Functions
+function init() {
+	console.log("auth.ts: init");
+	try {
+		readFileSync((process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/usr/local/modules/_core_/version.txt", "utf-8");
+	} catch(e) {}
+	if (!existsSync(secretPath))
+		writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
+
+	hardware = { model:"Unknown", internalIP:"", externalIP:"", timezone:Intl.DateTimeFormat().resolvedOptions().timeZone };
+	if (process.env.PRODUCTION === "true")
+		try {
+			hardware["model"] = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
+			si.fsSize().then(data => { hardware["disk"] = data.find(d => d.mount === '/disk')?.fs; });
+		} catch (e) {}
+	else {
+		hardware["model"] = "PC";
+		hardware["disk"] = "/dev/nvme0n1p2";
 	}
-	return "";
+	hardware["internalIP"] = getInternalIp();
+	getExternalIp().then((ip) => { hardware["externalIP"] = ip; });
+
+	if (process.env.PRODUCTION === "true") {
+		trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
+		if (cloud?.domains)
+			cloud.info.domains.map( domain => trustedOrigins.push(`*.${domain}`) );
+		if (hardware["internalIP"] != "")
+			trustedOrigins.push(hardware["internalIP"], hardware["internalIP"] + ":9400");
+	} else
+		trustedOrigins = [ "http://localhost:8100" ];
+
+	si.networkStats();
 }
-hardware["internalIP"] = getInternalIp();
 
 async function getExternalIp() {
 	try {
@@ -70,23 +83,20 @@ async function getExternalIp() {
 	}
 	return "";
 }
-getExternalIp().then((ip) => { hardware["externalIP"] = ip; });
 
-let trustedOrigins;
-if (process.env.PRODUCTION === "true") {
-	trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
-	if (cloud?.domains)
-		cloud.info.domains.map( domain => trustedOrigins.push(`*.${domain}`) );
-	if (hardware["internalIP"] != "")
-		trustedOrigins.push(hardware["internalIP"], hardware["internalIP"] + ":9400");
-} else
-	trustedOrigins = [ "http://localhost:8100" ];
-
-if (!existsSync(secretPath)) {
-	writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
+function getInternalIp() {
+	const networkInterfaces = os.networkInterfaces();
+	for (const name of Object.keys(networkInterfaces)) {
+		const addresses = networkInterfaces[name];
+		if (addresses)
+			for (const address of addresses)
+				if (address.family === "IPv4" && !address.internal)
+					return address.address;
+	}
+	return "";
 }
 
-export const jwkInit = async () => {
+export async function jwkInit() {
 	const response = await fetch("http://localhost:" + port + "/auth/jwks-pem");
 	const fileContent = await response.text();
 	writeFileSync(jwkPath, fileContent, "utf-8");
@@ -112,9 +122,6 @@ function sendToApp(data) {
 		client.close();
 	};
 }
-
-si.networkStats();
-let usersNb = 0;
 
 async function aiProxy(params, request, body) {
 	const debuglog = false;
@@ -233,8 +240,7 @@ async function aiProxy(params, request, body) {
 	}
 }
 
-const rootPath = "/var/log/";
-const endpoints = () => {
+function extraEndpoints(): BetterAuthPlugin {
 	return {
 		id: "endpointsID",
 		endpoints: {
@@ -557,8 +563,11 @@ const endpoints = () => {
 				return new Response(pem, { status:200 });
 			})
 		}
-	} satisfies BetterAuthPlugin
+	}
 }
+
+//Run
+init();
 
 export const auth = betterAuth({
 	secret: readFileSync(secretPath, "utf-8").trim(),
@@ -635,7 +644,7 @@ export const auth = betterAuth({
 			},
 			jwks: { keyPairConfig:{ alg:"ES256" } }
 		}),
-		endpoints()
+		extraEndpoints()
 	],
 	hooks: {
 		before: createAuthMiddleware(async (ctx) => {
@@ -740,7 +749,5 @@ export const auth = betterAuth({
 			}
 		}
 	},
-	trustedOrigins: trustedOrigins
+	trustedOrigins
 });
-
-export const handler = auth.handler;

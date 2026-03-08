@@ -1,7 +1,19 @@
 import { readFileSync } from "fs";
 import nodemailer from "nodemailer";
 
+//Variables
 let transporter, APP_NAME, APP_URL, APP_ADMIN;
+
+//Run
+lazyInit();
+
+//Functions
+async function lazyInit() {
+    const { cloud } = await import("./auth");
+	APP_NAME = "MyDongle.Cloud " + cloud?.info?.name;
+	APP_URL = "https://app." + cloud?.info?.name + ".mydongle.cloud";
+	APP_ADMIN = "admin@" + cloud?.info?.name + ".mydongle.cloud";
+}
 
 async function transporterInit() {
 	if (transporter)
@@ -19,15 +31,7 @@ async function transporterInit() {
 	});
 }
 
-async function lazyInit() {
-    const { cloud } = await import("./auth");
-	APP_NAME = "MyDongle.Cloud " + cloud?.info?.name;
-	APP_URL = "https://app." + cloud?.info?.name + ".mydongle.cloud";
-	APP_ADMIN = "admin@" + cloud?.info?.name + ".mydongle.cloud";
-}
-lazyInit();
-
-const sendMagicLinkEmail = async (to, token, url) => {
+export async function sendMagicLinkEmail(to, token, url) {
 	await transporterInit();
 	const link = APP_URL + "/_app_/login?verify=" + token;
 	await transporter.sendMail({
@@ -57,7 +61,7 @@ const sendMagicLinkEmail = async (to, token, url) => {
 	});
 };
 
-const sendVerificationEmail = async (to, code) => {
+export async function sendVerificationEmail(to, code) {
 	await transporterInit();
 	await transporter.sendMail({
 	from: `"Admin ${APP_NAME}" <${APP_ADMIN}>`,
@@ -85,7 +89,7 @@ const sendVerificationEmail = async (to, code) => {
 	});
 };
 
-const sendPasswordResetVerificationEmail = async (to, code) => {
+export async function sendPasswordResetVerificationEmail(to, code) {
 	await transporterInit();
 	await transporter.sendMail({
 	from: `"Admin ${APP_NAME}" <${APP_ADMIN}>`,
@@ -113,7 +117,7 @@ const sendPasswordResetVerificationEmail = async (to, code) => {
 	});
 };
 
-const sendSignInNotification = async (to) => {
+export async function sendSignInNotification(to) {
 	await transporterInit();
 	await transporter.sendMail({
 	from: `"Admin ${APP_NAME}" <${APP_ADMIN}>`,
@@ -137,7 +141,7 @@ const sendSignInNotification = async (to) => {
 	});
 };
 
-const sendSignInOTP = async (to, code) => {
+export async function sendSignInOTP(to, code) {
 	await transporterInit();
 	await transporter.sendMail({
 	from: `"Admin ${APP_NAME}" <${APP_ADMIN}>`,
@@ -165,7 +169,7 @@ const sendSignInOTP = async (to, code) => {
 	});
 };
 
-const sendVerificationEmailURL = async (to, url) => {
+export async function sendVerificationEmailURL(to, url) {
 	await transporterInit();
 	await transporter.sendMail({
 	from: `"${APP_NAME} - Email Verification" <${APP_ADMIN}>`,
@@ -192,13 +196,4 @@ const sendVerificationEmailURL = async (to, url) => {
 		</div>
 	`,
 	});
-};
-
-export {
-	sendMagicLinkEmail,
-	sendVerificationEmail,
-	sendPasswordResetVerificationEmail,
-	sendSignInNotification,
-	sendSignInOTP,
-	sendVerificationEmailURL
 };
