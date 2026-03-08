@@ -46,7 +46,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 }
 
 ngAfterViewInit() {
-	if (this.global.session?.hardware?.disk?.startsWith("/dev/nvme"))
+	if (!this.global.session?.hardware?.disk?.startsWith("/dev/nvme"))
 		this.modalAlert.present();
 }
 
