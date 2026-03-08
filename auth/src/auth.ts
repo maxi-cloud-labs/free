@@ -685,13 +685,13 @@ export const auth = betterAuth({
 					if (cloud?.security?.signInNotification === true && ctx.context.returned?.["user"]?.email !== "")
 						sendSignInNotification(ctx.context.returned?.["user"]?.email);
 				}
-				const domain = findDomain(ctx.request?.headers.get("host") || "");
+				const domain = findDomain(ctx.request?.headers?.get("host") || "");
 				const currentCookie = ctx?.context?.responseHeaders?.get("set-cookie");
 				if (currentCookie)
 					ctx?.context?.responseHeaders?.set("set-cookie", currentCookie + "; Domain=" + domain);
 			}
 			if (ctx.path == "/token" && ctx.context.returned?.["token"]) {
-				const domain = findDomain(ctx.request?.headers.get("host") || "");
+				const domain = findDomain(ctx.request?.headers?.get("host") || "");
 				ctx.setCookie("jwt", ctx.context.returned["token"], {
 					httpOnly: true,
 					domain,
@@ -703,7 +703,7 @@ export const auth = betterAuth({
 				if (statusDemo)
 					console.log("Sign-out");
 				else {
-					const domain = findDomain(ctx.request?.headers.get("host") || "");
+					const domain = findDomain(ctx.request?.headers?.get("host") || "");
 					ctx.setCookie("jwt", "", { httpOnly: true, domain, path: "/", expires: new Date(0), maxAge: 0 });
 				}
 			}
