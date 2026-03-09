@@ -1,7 +1,11 @@
 #!/bin/sh
 
-cd /usr/local/modules/rpi_zram
-sed -i -e 's@ExecStart=.*@ExecStart=/usr/local/modules/rpi_zram/zram.sh@' rpi-zram.service
-sed -i -e 's@ExecStop=.*@ExecStop=/usr/local/modules/rpi_zram/zram.sh stop@' rpi-zram.service
-ln -sf /usr/local/modules/rpi_zram/rpi-zram.service /etc/systemd/system/
-systemctl enable rpi-zram
+mkdir /etc/rpi/swap.conf.d/
+cat > /etc/rpi/swap.conf.d/zram-custom.conf << EOF
+[Main]
+Mechanism=zram
+
+[Zram]
+RamMultiplier=1
+MaxSizeMiB=4096
+EOF
