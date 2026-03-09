@@ -10,6 +10,7 @@ import { folderAndChildren } from "./tree";
 import Database from "better-sqlite3";
 import "dotenv/config";
 import fs from "fs";
+import chokidar from "chokidar";
 import * as net from "net";
 import * as jose from "jose";
 import * as os from "os";
@@ -23,7 +24,7 @@ const secretPath = adminPath + "betterauth/secret.txt";
 const jwkPath = adminPath + "betterauth/jwk-pub.pem";
 const databasePath = adminPath + "betterauth/database.sqlite";
 const cloudPath = adminPath + "_config_/_cloud_.json";
-export const cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
+export let cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
 const aiProvidersPath = (process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/usr/local/modules/_core_/aiproviders.json";
 const aiProviders = JSON.parse(readFileSync(aiProvidersPath, "utf-8"));
 const sshKeysPath = "/disk/admin/.ssh/authorized_keys";
@@ -43,6 +44,9 @@ function init() {
 	} catch(e) {}
 	if (!existsSync(secretPath))
 		writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
+	chokidar.watch(cloudPath, { persistent:true }).on("change", (path) => {
+		cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
+	});
 
 	hardware = { model:"Unknown", internalIP:"", externalIP:"", timezone:Intl.DateTimeFormat().resolvedOptions().timeZone };
 	if (process.env.PRODUCTION === "true")
