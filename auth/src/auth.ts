@@ -576,6 +576,7 @@ init();
 export const auth = betterAuth({
 	secret: readFileSync(secretPath, "utf-8").trim(),
 	baseURL: "http://localhost:" + port + "/auth",
+	trustedOrigins,
 	database: new Database(databasePath),
 	emailAndPassword: { enabled:true, autoSignIn:false },
 	advanced: { disableOriginCheck: process.env.PRODUCTION !== "true" },
@@ -752,6 +753,5 @@ export const auth = betterAuth({
 				}
 			}
 		}
-	},
-	trustedOrigins
+	}
 });
