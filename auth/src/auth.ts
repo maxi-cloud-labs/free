@@ -63,8 +63,8 @@ function init() {
 
 	if (process.env.PRODUCTION === "true") {
 		trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
-		if (cloud?.domains)
-			cloud.info.domains.map( domain => trustedOrigins.push(`*.${domain}`) );
+		if (cloud?.domain)
+			trustedOrigins.push("*." + cloud.info.domain);
 		if (hardware["internalIP"] != "")
 			trustedOrigins.push(hardware["internalIP"], hardware["internalIP"] + ":9400");
 	} else
