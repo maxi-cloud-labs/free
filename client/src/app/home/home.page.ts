@@ -39,7 +39,7 @@ presentation: string = "cards";
 showDetails: boolean = false;
 showTerminal: boolean = false;
 showDone: boolean = true;
-showNotDone: boolean = true;
+showNotDone: boolean = false;
 CategoriesBar = CategoriesBar;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private joyrideService: JoyrideService, private route: ActivatedRoute, public ble: BleService) {

@@ -14,7 +14,7 @@
 					<ion-icon name="refresh-outline" class="w-4 h-4"></ion-icon>
 				</button>
 				<div class="flex-1"></div>
-				<div class="rounded-lg border border--gray-200 p-1 hidden lg:flex gap-1" *ngIf="global.developer">
+				<div class="rounded-lg border border--gray-200 p-1 hidden lg:flex gap-1">
 					<label class="relative flex cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300" title="{{L('Modules finished')}}">
 						<input type="checkbox" [(ngModel)]="showDone" (change)="filterCards()" class="peer sr-only"/>
 						<span class="absolute inset-0 z-0 rounded-md bg--gray-100 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
@@ -292,11 +292,11 @@
 				<tr *ngIf="cards[cardIdCur].services"><td colspan="3" class="h-2"></td></tr>
 				<tr *ngIf="cards[cardIdCur].services"><td colspan="3" class="h-px bg--gray-300"></td></tr>
 				<tr *ngIf="cards[cardIdCur].services"><td colspan="3" class="h-2"></td></tr>
-				<tr *ngIf="cards[cardIdCur].services"><td>Refresh</td><td width="20"></td><td><ion-button (click)="moduleRefresh()" [disabled]="cards[cardIdCur].notReady != 0"><ion-icon name="refresh-outline" size="medium"></ion-icon>Refresh</ion-button></td></tr>
+				<tr *ngIf="cards[cardIdCur].services"><td>Refresh</td><td width="20"></td><td><button (click)="moduleRefresh()" [disabled]="cards[cardIdCur].notReady != 0" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 border border--gray-300 rounded-lg text-sm font-medium text--white hover:bg--yellow-700 transition-colors cursor-pointer disabled:bg--gray-100 disabled:cursor-default disabled:text--gray-400"><ion-icon name="refresh-outline" size="medium"></ion-icon>Refresh</button></td></tr>
 				<tr *ngIf="cards[cardIdCur].reset"><td colspan="3" class="h-2"></td></tr>
 				<tr *ngIf="cards[cardIdCur].reset"><td colspan="3" class="h-px bg--gray-300"></td></tr>
 				<tr *ngIf="cards[cardIdCur].reset"><td colspan="3" class="h-2"></td></tr>
-				<tr *ngIf="cards[cardIdCur].reset"><td>Reset</td><td width="20"></td><td><ion-button (click)="moduleReset()" [disabled]="cards[cardIdCur].notReady != 0"><ion-icon name="alert-circle-outline" size="medium"></ion-icon>Reset</ion-button></td></tr>
+				<tr *ngIf="cards[cardIdCur].reset"><td>Reset</td><td width="20"></td><td><button (click)="moduleReset()" [disabled]="cards[cardIdCur].notReady != 0" class="inline-flex items-center gap-2 px-4 py-2 bg--red-600 border border--gray-300 rounded-lg text-sm font-medium text--white hover:bg--red-700 transition-colors cursor-pointer disabled:bg--gray-100 disabled:cursor-default disabled:text--gray-400"><ion-icon name="alert-circle-outline" size="medium"></ion-icon>Reset</button></td></tr>
 			</table></div>
 	</ng-template>
 </ion-modal>
