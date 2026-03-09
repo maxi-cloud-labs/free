@@ -206,7 +206,7 @@ show_Domain() {
 async doDomain() {
 	this.progress = true;
 	this.errorSt = null;
-	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-domain.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
+	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-domain.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master domain", ret);
 	if (ret["status"] === "success") {
 		if (this.formDomain.controls.domain1.value != "") {
@@ -216,12 +216,14 @@ async doDomain() {
 		} else
 			this.show_Password();
 	} else {
-		if (ret["name"] && ret["shortname"])
-			this.errorSt = this.name1.value + " is not available ; " + this.shortname1.value + " is not available";
-		else if (ret["name"])
-			this.errorSt = this.name1.value + " is not available";
-		else if (ret["shortname"])
-			this.errorSt = this.shortname1.value + " is not available";
+		this.errorSt = "";
+		if (ret["name"] === "taken")
+			this.errorSt += this.name1.value + " is not available ; ";
+		if (ret["shortname"] === "taken")
+			this.errorSt += this.shortname1.value + " is not available ; ";
+		if (ret["domain"] === "taken")
+			this.errorSt += this.domain1.value + " is not available ; ";
+		this.errorSt = this.errorSt.replace(/ ; $/, "");
 	}
 	this.progress = false;
 }

@@ -224,7 +224,7 @@
 					</div>
 					}
 					<div class="flex items-center gap-1 text--green-500 text-sm mt-2">
-						<ion-icon name="info-circle-outline" class="text--green-500 w-5 h-5"></ion-icon>
+						<ion-icon name="information-circle-outline" class="text--green-500 w-5 h-5"></ion-icon>
 						{{L("This password goes directly to the hardware without transiting via the Internet")}}
 					</div>
 				</div>
@@ -332,7 +332,7 @@
 					</div>
 				</div>
 				}
-				<button type="submit" [disabled]="progress || formPassword.invalid" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]">
+				<button type="submit" [disabled]="progress || formWiFi.invalid" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]">
 					@if (progress) {
 					<ion-icon name="cog-outline" class="animate-spin text--white w-6 h-6"></ion-icon>
 					{{L("Please wait...")}}
