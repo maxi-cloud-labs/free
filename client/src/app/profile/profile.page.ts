@@ -16,7 +16,7 @@ L(st) { return this.global.mytranslate(st); }
 @ViewChild("modalTwoFA") modalTwoFA: IonModal;
 tabs = ["general", "identity", "security"];
 activeTab = this.tabs[0];
-TwoFA;
+twoFA;
 formTwoFA: FormGroup;
 showQRCode = false;
 dataQRCode = " ";
@@ -33,6 +33,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 		"password1": [ "", [ Validators.required ] ]
 	});
 	this.global.getExternalIP().then((ip) => { this.externalIP = ip; });
+	this.twoFA = this.global.session?.user?.twoFactorEnabled;
 }
 
 @HostListener("document:keydown", ["$event"]) handleKeyboardEvent(event: KeyboardEvent) {
@@ -48,20 +49,26 @@ async doTwoFA() {
 	this.progress = true;
 	this.errorSt = null;
 	const data = { password:this.password1.value, issuer:"MyDongle.Cloud" };
+	const currentTwoFA = this.twoFA;
 	let ret = null;
 	try {
-		ret = await this.httpClient.post("/_app_/auth/two-factor/enable", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
-		this.global.consolelog(2, "Auth two-factor/enable: ", ret);
+		ret = await this.httpClient.post("/_app_/auth/two-factor/" + (currentTwoFA ? "disable" : "enable"), JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
+		this.global.consolelog(2, "Auth two-factor/" + (currentTwoFA ? "disable" : "enable") + ": ", ret);
 	} catch(e) { this.errorSt = e.error.message; }
 	this.progress = false;
 	if (ret != null) {
-		this.dataQRCode = ret["totpURI"];
-		this.showQRCode = true;
-	} else
-		this.cdr.detectChanges();
+		this.twoFA = !currentTwoFA;
+		this.global.session.user.twoFactorEnabled = this.twoFA;
+		if (this.twoFA) {
+			this.dataQRCode = ret["totpURI"];
+			this.showQRCode = true;
+		} else
+			this.modalTwoFA.dismiss();
+	}
 }
 
 async showTwoFA() {
+	setTimeout(() => { this.twoFA = !this.twoFA; }, 10);
 	await this.modalTwoFA.present();
 }
 

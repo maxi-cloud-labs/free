@@ -85,7 +85,7 @@
 					<h4 class="text-md font-medium text--gray-900 mb-2">{{L("Two-Factor Authentication")}}</h4>
 					<div class="space-y-4 flex items-center justify-between">
 						<p class="text-sm font-medium text--gray-700">{{L("Enable")}}</p>
-						<input type="checkbox" [(ngModel)]="TwoFA" (click)="showTwoFA()" class="w-4 h-4 text--blue-600 focus:ring--blue-500 border--gray-300 rounded">
+						<input type="checkbox" [(ngModel)]="twoFA" (click)="showTwoFA()" class="w-4 h-4 text--blue-600 focus:ring--blue-500 border--gray-300 rounded">
 					</div>
 					<div class="border-t border--gray-200 my-6"></div>
 					<h4 class="text-md font-medium text--gray-900 mb-2">{{L("Password")}}</h4>
@@ -164,7 +164,7 @@
 						{{L("Enabling...")}}
 						} @else {
 						<ion-icon name="log-in-outline" class="text--white w-6 h-6"></ion-icon>
-						{{L("Enable")}}
+						{{L(twoFA ? "Disable" : "Enable")}}
 						}
 					</button>
 				</form>
