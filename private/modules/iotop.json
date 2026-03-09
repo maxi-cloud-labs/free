@@ -1,0 +1,26 @@
+{
+	"module": "iotop",
+	"name": "iotop",
+	"title": "IO Usage",
+	"category": "Server",
+	"version": "0.6",
+	"installMethod": "apt",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "Tomas-M/iotop",
+	"description": "A top utility for IO.",
+	"keywords": [
+		"CPU usage",
+		"Disk access",
+		"Processor"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/iotop"
+		]
+	}
+}
