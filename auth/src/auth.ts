@@ -498,6 +498,14 @@ function extraEndpoints(): BetterAuthPlugin {
 				return Response.json(ret, { status:200 });
 			}),
 
+			modulesSetup2: createAuthEndpoint("/modules/setup2", {
+				method: "GET",
+				use: [sensitiveSessionMiddleware]
+			}, async(ctx) => {
+				sendToApp({ a:"setup2" });
+				return Response.json({ status:"success" }, { status:200 });
+			}),
+
 			moduleRefresh: createAuthEndpoint("/module/refresh", {
 				method: "POST",
 				use: [sensitiveSessionMiddleware]

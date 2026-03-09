@@ -303,6 +303,7 @@ async doWiFi() {
 				signInNotification: true,
 				updateRemoteIP: true
 			},
+			setup: "none",
 			connectivity: {
 				wifi: {
 					ssid: this.ssid3.value,

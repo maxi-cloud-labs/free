@@ -14,6 +14,7 @@
 #include "communication.h"
 #include "language.h"
 #include "apache2.h"
+#include "cloud.h"
 
 //Define
 #define PERFORMANCE
@@ -106,9 +107,9 @@ void setupLoop(int *i, int total, cJSON *cloud, cJSON *modulesDefault, cJSON *mo
 		}
 }
 
-void cloudSetup(cJSON *el) {
+void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	if (inSetup) {
-		PRINTF("cloudSetup not run because inSetup\n");
+		PRINTF("cloudSetup1 not run because inSetup\n");
 		return;
 	}
 	cJSON *elCheck = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
@@ -120,9 +121,9 @@ void cloudSetup(cJSON *el) {
 	cJSON_Delete(elCheck);
 	inSetup = 1;
 	logicSetup(L("Initialization"), 0);
-	cJSON *elCloud = cJSON_GetObjectItem(el, "cloud");
+	cJSON *elCloud = cJSON_GetObjectItem(elSetup1, "cloud");
 	char sz[256];
-	snprintf(sz, sizeof(sz), "sudo /usr/local/modules/_core_/reset.sh -t %s", cJSON_GetStringValue2(el, "timezone"));
+	snprintf(sz, sizeof(sz), "sudo /usr/local/modules/_core_/reset.sh -t %s", cJSON_GetStringValue2(elSetup1, "timezone"));
 	system(sz);
 	cJSON *elSecurity = cJSON_GetObjectItem(elCloud, "security");
 	cJSON *elConnectivity = cJSON_GetObjectItem(elCloud, "connectivity");
@@ -131,9 +132,10 @@ void cloudSetup(cJSON *el) {
 		PRINTF("Setup Wi-Fi with %s %s\n", cJSON_GetStringValue2(elWifi, "ssid"), cJSON_GetStringValue2(elWifi, "password"));//wiFiAddActivate
 	}
 	updateIPExternal();
+	cJSON_SetStringValue2(elCloud, "setup", "progress1");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	mkdir(ADMIN_PATH "letsencrypt", 0775);
-	cJSON *elLetsencrypt = cJSON_GetObjectItem(el, "letsencrypt");
+	cJSON *elLetsencrypt = cJSON_GetObjectItem(elSetup1, "letsencrypt");
 	char *fullchain, *privkey;
 	int fullchainL = 0, privkeyL = 0;
 	if (elLetsencrypt) {
@@ -159,7 +161,7 @@ void cloudSetup(cJSON *el) {
 		copyFile("/usr/local/modules/apache2/self-fullchain.pem", ADMIN_PATH "letsencrypt/fullchain.pem", NULL);
 		copyFile("/usr/local/modules/apache2/self-privkey.pem", ADMIN_PATH "letsencrypt/privkey.pem", NULL);
 	}
-	cJSON * elBetterauth = cJSON_GetObjectItem(el, "betterauth");
+	cJSON * elBetterauth = cJSON_GetObjectItem(elSetup1, "betterauth");
 	char buf[1024];
 	char *post = cJSON_Print(elBetterauth);
 	downloadURLBuffer("http://localhost:8091/auth/sign-up/email", buf, "Content-Type: application/json", post, NULL, NULL);
@@ -172,25 +174,59 @@ void cloudSetup(cJSON *el) {
 	cJSON *elModule;
 	int total = 1;
 	cJSON_ArrayForEach(elModule, modulesDefault)
-		if (cJSON_IsTrue(cJSON_GetObjectItem(elModule, "setup")))
+		if ((cJSON_IsTrue(cJSON_GetObjectItem(elModule, "setup")) && cJSON_HasObjectItem(elModule, "setupPriority") == 1))
 			total++;
 	int i = 1;
 	cJSON *fqdn = fqdnInit(elCloud);
 	setupLoop(&i, total, elCloud, modulesDefault, modules, fqdn, 1);
-	PRINTF("Saving(1) _modules_.json during setup\n");
 	jsonWrite(modules, ADMIN_PATH "_config_/_modules_.json");
-	cloudInit_();
-	buzzer(1);
-	setupLoop(&i, total, elCloud, modulesDefault, modules, fqdn, 0);
 	logicSetup(L("Finalization"), 100);
-	communicationString("{ \"a\":\"status\", \"progress\":100, \"module\":\"_setup_\", \"state\":\"finish\" }");
 	cJSON_Delete(fqdn);
-	cJSON_Delete(modulesDefault);
-	PRINTF("Saving(2) _modules_.json during setup\n");
-	jsonWrite(modules, ADMIN_PATH "_config_/_modules_.json");
 	cJSON_Delete(modules);
-	logicMessage(1, 1);
-	jingle();
-	sync();
+	cJSON_Delete(modulesDefault);
+	buzzer(1);
+	if (doSetup2)
+		cloudSetup2();
+	else {
+		cJSON_SetStringValue2(elCloud, "setup", "done1");
+		jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
+		cloudInit_();
+		logicMessage(1, 1);
+		inSetup = 0;
+	}
+}
+
+void cloudSetup2() {
+	cJSON *elCloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
+	char *setupStatus = cJSON_GetStringValue2(elCloud, "setup");
+	if (strcmp(setupStatus, "done2") == 0) {
+		PRINTF("cloudSetup2: Doing nothing\n");
+		cJSON_Delete(elCloud);
+		return;
+	}
+	inSetup = 1;
+	cJSON_SetStringValue2(elCloud, "setup", "progress2");
+	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
+	cJSON *modulesDefault = jsonRead(WEB_PATH "assets/modulesdefault.json");
+	cJSON *modules = jsonRead(ADMIN_PATH "_config_/_modules_.json");
+	cJSON *fqdn = fqdnInit(elCloud);
+	cJSON *elModule;
+	int total = 1;
+	cJSON_ArrayForEach(elModule, modulesDefault)
+		if ((cJSON_IsTrue(cJSON_GetObjectItem(elModule, "setup")) && cJSON_HasObjectItem(elModule, "setupPriority") == 0))
+			total++;
+	int i = 1;
+	setupLoop(&i, total, elCloud, modulesDefault, modules, fqdn, 0);
+	jsonWrite(modules, ADMIN_PATH "_config_/_modules_.json");
+	logicSetup(L("Finalization"), 100);
+	cJSON_Delete(fqdn);
+	cJSON_Delete(modules);
+	cJSON_Delete(modulesDefault);
+	cJSON_SetStringValue2(elCloud, "setup", "done2");
+	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
+	cJSON_Delete(elCloud);
 	inSetup = 0;
+	communicationString("{ \"a\":\"status\", \"progress\":100, \"module\":\"_setup_\", \"state\":\"finish\" }");
+	jingle();
+	logicMessage(1, 1);
 }

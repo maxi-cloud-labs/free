@@ -109,10 +109,14 @@ static void communicationStateDelayed() {
 }
 
 #ifndef WEB
-static void *cloudSetup_t(void *arg) {
+static void *cloudSetup1_t(void *arg) {
 	cJSON *el = (cJSON *)arg;
-	cloudSetup(el);
+	cloudSetup1(el, 0);
 	cJSON_Delete(el);
+}
+
+static void *cloudSetup2_t(void *arg) {
+	cloudSetup2();
 }
 #endif
 
@@ -163,15 +167,24 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			//PRINTF("PAM: user:%s service:%s type:%s arg1:%s\n", user, service, type, arg1);
 			if (arg1 && strcmp(arg1, "oath_success") == 0)
 				logicOtpFinished();
-		} else if (strcmp(action, "setup") == 0) {
+		} else if (strcmp(action, "setup1") == 0) {
 #ifdef DESKTOP
-			PRINTF("communicationReceive: Setup\n%s\n", data);
+			PRINTF("communicationReceive: Setup1\n%s\n", data);
 #else
-			//PRINTF("communicationReceive: Setup\n");
+			//PRINTF("communicationReceive: Setup1\n");
 			touchClick();
 			pthread_t pth;
-			pthread_create(&pth, NULL, cloudSetup_t, (void *)el);
-			communicationString("{ \"a\":\"setup\", \"success\":1 }");
+			pthread_create(&pth, NULL, cloudSetup1_t, (void *)el);
+#endif
+			return;
+		} else if (strcmp(action, "setup2") == 0) {
+#ifdef DESKTOP
+			PRINTF("communicationReceive: Setup2\n%s\n", data);
+#else
+			//PRINTF("communicationReceive: Setup2\n");
+			touchClick();
+			pthread_t pth;
+			pthread_create(&pth, NULL, cloudSetup2_t, NULL);
 #endif
 			return;
 		} else if (strcmp(action, "status") == 0) {
