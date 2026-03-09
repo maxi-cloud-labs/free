@@ -8,7 +8,6 @@
   },
   "files": [
     "src/main.ts",
-    "src/app/dns.ts",
     "src/polyfills.ts"
   ],
   "include": [

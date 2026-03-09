@@ -30,7 +30,7 @@
     "@capacitor-community/bluetooth-le": "7.2.0",
     "@capacitor/app": "7.0.2",
     "@capacitor/core": "7.4.3",
-    "@fishballpkg/acme": "^0.14.0",
+    "@fishballpkg/acme": "^0.15.0",
     "@ionic/angular": "8.7.11",
     "@ngx-translate/core": "17.0.0",
     "@ngx-translate/http-loader": "17.0.0",

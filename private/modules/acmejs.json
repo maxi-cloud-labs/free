@@ -3,7 +3,7 @@
 	"name": "ACME.js",
 	"title": "JavaScript ACME",
 	"category": "Server",
-	"version": "0.13.0",
+	"version": "0.15.0",
 	"installMethod": "npm",
 	"web": false,
 	"essential": false,
