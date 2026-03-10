@@ -125,7 +125,6 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	char sz[256];
 	snprintf(sz, sizeof(sz), "sudo /usr/local/modules/_core_/reset.sh -t %s", cJSON_GetStringValue2(elSetup1, "timezone"));
 	system(sz);
-	cJSON *elSecurity = cJSON_GetObjectItem(elCloud, "security");
 	cJSON *elConnectivity = cJSON_GetObjectItem(elCloud, "connectivity");
 	cJSON *elWifi = cJSON_GetObjectItem(elConnectivity, "wifi");
 	if (elWifi && cJSON_GetStringValue2(elWifi, "ssid") && cJSON_GetStringValue2(elWifi, "password")) {
