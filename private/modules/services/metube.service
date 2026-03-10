@@ -13,7 +13,7 @@ StandardOutput=inherit
 StandardError=inherit
 RestartSec=5s
 User=admin
-ExecStart=/usr/local/modules/metube/env/bin/python3 app/main.py
+ExecStart=/usr/local/modules/metube/penv/bin/python3 app/main.py
 WorkingDirectory=/usr/local/modules/metube
 Environment=HOST=127.0.0.1
 Environment=PORT=8089
