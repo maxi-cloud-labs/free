@@ -29,9 +29,9 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, public ble: B
 	});
 }
 
-ngAfterViewInit() {
-	appInit("assets/js/app.js", true, true, this.canvasE.nativeElement);
-	appRefreshScreen();
+async ngAfterViewInit() {
+	await appInit("assets/js/app.js", true, true, this.canvasE.nativeElement);
+	setTimeout(appRefreshScreen, 250);
 	this.ble.connectedWS = 2;
 }
 

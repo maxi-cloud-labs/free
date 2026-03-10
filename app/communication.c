@@ -97,17 +97,6 @@ int communicationState() {
 	return ret;
 }
 
-static void *communicationState_t(void *arg) {
-	usleep(250 * 1000);
-	communicationState();
-	return 0;
-}
-
-static void communicationStateDelayed() {
-	pthread_t pth;
-	pthread_create(&pth, NULL, communicationState_t, NULL);
-}
-
 #ifndef WEB
 static void *cloudSetup1_t(void *arg) {
 	cJSON *el = (cJSON *)arg;
@@ -208,7 +197,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			cloudInit();
 		} else if (strcmp(action, "refresh-screen") == 0) {
 			//PRINTF("communicationReceive: refresh-screen\n");
-			communicationStateDelayed();
+			communicationState();
 #endif
 		} else if (strcmp(action, "date") == 0) {
 			;
