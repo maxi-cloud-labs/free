@@ -283,9 +283,6 @@
 						<div class="flex items-center gap-2">
 							<input #ssid3E (blur)="handleBlur($event, ssid3)" type="text" formControlName="ssid3" autocomplete="name" required class="block w-full pl-10 pr-3 py-3 border border--gray-300 rounded-xl placeholder--gray-400 focus:outline-none focus:ring-2 focus:ring--blue-700 focus:border-transparent transition-colors duration-200 text--gray-900" placeholder="Enter the SSID of home router" [class.border--red-300]="ssid3?.invalid && ssid3?.touched" [class.focus:ring--red-500]="ssid3?.invalid && ssid3?.touched">
 							<button type="button" (click)="wifiScan()" class="flex justify-center items-center py-3 px-2 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]">
-								@if (progress) {
-								<ion-icon name="cog-outline" class="animate-spin text--white w-6 h-6"></ion-icon>
-								}
 								{{L("Scan")}}
 							</button>
 						</div>
