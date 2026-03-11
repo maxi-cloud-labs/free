@@ -184,8 +184,10 @@ CJSON_PUBLIC(const char *) cJSON_GetErrorPtr(void);
 /* Check item type and return its value */
 CJSON_PUBLIC(char *) cJSON_GetStringValue(const cJSON * const item);
 #define cJSON_GetStringValue2(object, string) cJSON_GetStringValue(cJSON_GetObjectItem(object, string))
+#define cJSON_GetStringValue3(object, string1, string2) cJSON_GetStringValue(cJSON_GetObjectItem(cJSON_GetObjectItem(object, string1), string2))
 CJSON_PUBLIC(double) cJSON_GetNumberValue(const cJSON * const item);
 #define cJSON_GetNumberValue2(object, string) cJSON_GetNumberValue(cJSON_GetObjectItem(object, string))
+#define cJSON_GetNumberValue3(object, string1, string2) cJSON_GetNumberValue(cJSON_GetObjectItem(cJSON_GetObjectItem(object, string1), string2))
 
 /* These functions check the type of an item */
 CJSON_PUBLIC(cJSON_bool) cJSON_IsInvalid(const cJSON * const item);
@@ -285,9 +287,11 @@ CJSON_PUBLIC(cJSON*) cJSON_AddArrayToObject(cJSON * const object, const char * c
 CJSON_PUBLIC(double) cJSON_SetNumberHelper(cJSON *object, double number);
 #define cJSON_SetNumberValue(object, number) ((object != NULL) ? cJSON_SetNumberHelper(object, (double)number) : (number))
 #define cJSON_SetNumberValue2(object, string, value) cJSON_SetNumberValue(cJSON_GetObjectItem(object, string), value)
+#define cJSON_SetNumberValue3(object, string1, string2, value) cJSON_SetNumberValue(cJSON_GetObjectItem(cJSON_GetObjectItem(object, string1), string2), value)
 /* Change the valuestring of a cJSON_String object, only takes effect when type of object is cJSON_String */
 CJSON_PUBLIC(char*) cJSON_SetValuestring(cJSON *object, const char *valuestring);
 #define cJSON_SetStringValue2(object, string, value) cJSON_SetValuestring(cJSON_GetObjectItem(object, string), value)
+#define cJSON_SetStringValue3(object, string1, string2, value) cJSON_SetValuestring(cJSON_GetObjectItem(cJSON_GetObjectItem(object, string1), string2), value)
 
 /* If the object is not a boolean type this does nothing and returns cJSON_Invalid else it returns the new type*/
 #define cJSON_SetBoolValue(object, boolValue) ( \
