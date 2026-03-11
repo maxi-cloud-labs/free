@@ -364,6 +364,13 @@ function extraEndpoints(): BetterAuthPlugin {
 				return Response.json(cloud.hardware, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
 			}),
 
+			reinit: createAuthEndpoint("/reinit", {
+				method: "GET"
+			}, async(ctx) => {
+				initCloud();
+				return Response.json({ "status":"success" }, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
+			}),
+
 			refresh: createAuthEndpoint("/refresh", {
 				method: "GET",
 				use: [sensitiveSessionMiddleware]

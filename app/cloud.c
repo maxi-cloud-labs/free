@@ -103,6 +103,12 @@ void setupLoop(int *i, int total, cJSON *cloud, cJSON *modulesDefault, cJSON *mo
 		}
 }
 
+static void wifiCallback() {
+	PRINTF("wifiCallback to reinit Better Auth\n");
+	char buf[1024];
+	downloadURLBuffer("http://localhost:8091/auth/reinit", buf, "Content-Type: application/json", NULL, NULL, NULL);
+}
+
 void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	if (inSetup) {
 		PRINTF("cloudSetup1 not run because inSetup\n");
@@ -124,12 +130,11 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 		snprintf(sz, sizeof(sz), "sudo /usr/local/modules/_core_/reset.sh -t \"%s\"", timezone);
 		system(sz);
 	}
-	cJSON *elConnectivity = cJSON_GetObjectItem(elCloud, "connectivity");
-	cJSON *elWifi = cJSON_GetObjectItem(elConnectivity, "wifi");
-	if (elWifi && cJSON_GetStringValue2(elWifi, "ssid") && cJSON_GetStringValue2(elWifi, "password")) {
-		PRINTF("Setup Wi-Fi with %s %s\n", cJSON_GetStringValue2(elWifi, "ssid"), cJSON_GetStringValue2(elWifi, "password"));//wiFiAddActivate
-	}
-	updateIPExternal();
+	cJSON *elConnectivity = cJSON_GetObjectItem(elSetup1, "connectivity");
+	char *ssid = cJSON_GetStringValue3(elConnectivity, "wifi", "ssid");
+	char *password = cJSON_GetStringValue3(elConnectivity, "wifi", "password");
+	if (ssid && password)
+		wiFiAddActivate(ssid, password, &wifiCallback);
 	cJSON_SetStringValue3(elCloud, "info", "setup", "progress1");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	mkdir(ADMIN_PATH "letsencrypt", 0775);

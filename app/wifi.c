@@ -173,16 +173,19 @@ static void *wiFiAddActivate_t(void *arg) {
 
 	g_object_unref(connection);
 	g_object_unref(client);
+
+	if (arg)
+		((void (*)())arg)();
 	return 0;
 }
 
-int wiFiAddActivate(const char *ssid, const char *pwd) {
+int wiFiAddActivate(const char *ssid, const char *pwd, void (*cb)()) {
 	strcpy(SSID, ssid);
 	memset(psk, 0, 65);
 	if (wpaPassphrase(ssid, pwd, psk) != 0)
 		return -1;
 	pthread_t pthEW;
-	pthread_create(&pthEW, NULL, wiFiAddActivate_t, NULL);
+	pthread_create(&pthEW, NULL, wiFiAddActivate_t, cb);
 	return 0;
 }
 
