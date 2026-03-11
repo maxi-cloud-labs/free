@@ -2,7 +2,7 @@
 #define DISKNOTIFY_H
 
 //Global functions
-void diskNotifyCB(int fdNotify, void (*cb)(char *path));
+void diskNotifyCB(int fdNotify, void (*cb)());
 int diskNotifyStart(char *sz);
 int diskNotifyStop();
 
