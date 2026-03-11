@@ -37,19 +37,25 @@
 					<div class="border-t border--gray-200 my-8"></div>
 					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("BYOK (Bring Your Own Keys)")}}</h3>
 					<p class="text-sm text--gray-500 mb-8">{{L("Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.")}}</p>
-					<h4 class="text-md font-medium text--gray-900 mb-2">OpenAI (ChatGPT)</h4>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
 					<h4 class="text-md font-medium text--gray-900 mb-2">Anthropic (Claude)</h4>
 					<div class="flex items-center justify-between">
 						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
 						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
 					</div>
 					<div class="border-t border--gray-200 my-6"></div>
+					<h4 class="text-md font-medium text--gray-900 mb-2">Google (Gemini)</h4>
+					<div class="flex items-center justify-between">
+						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
+					</div>
+					<div class="border-t border--gray-200 my-6"></div>
 					<h4 class="text-md font-medium text--gray-900 mb-2">Mistral (Le Chat)</h4>
+					<div class="flex items-center justify-between">
+						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
+					</div>
+					<div class="border-t border--gray-200 my-6"></div>
+					<h4 class="text-md font-medium text--gray-900 mb-2">OpenAI (ChatGPT)</h4>
 					<div class="flex items-center justify-between">
 						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
 						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
