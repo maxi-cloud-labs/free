@@ -104,8 +104,7 @@ static int le_callback(int clientnode, int operation, int cticn) {
 static void *bleStart_t(void *arg) {
 #ifndef DESKTOP
 	bluetoothAddr(bluetoothClassicAddr, 0);
-	mkdir(ADMIN_PATH "_core_", 0775);
-	FILE *pf = fopen(ADMIN_PATH "_core_/blecfg.txt", "w");
+	FILE *pf = fopen("/tmp/blecfg.txt", "w");
 	if (pf) {
 		char sz[1024];
 		char nn[128];
