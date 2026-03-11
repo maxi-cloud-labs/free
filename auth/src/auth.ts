@@ -68,6 +68,7 @@ async function initCloud() {
 	}
 	if (watcher == null)
 		watcher = watch(cloudPath, { persistent:true }).on("change", (path) => {
+			cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
 			initCloud();
 		});
 }
