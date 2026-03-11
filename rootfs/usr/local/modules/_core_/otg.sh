@@ -17,7 +17,7 @@ fi
 
 MANUFACTURER="MyDongle.Cloud"
 PRODUCT="MyDongle.Cloud `cat /dev/dongle_platform/model | sed 's/./\U&/'`"
-SERIALNUMBER=`cat /dev/dongle_platform/serialNumber`
+SERIAL=`cat /dev/dongle_platform/serial`
 VERSION=`cat /usr/local/modules/_core_/version.txt`
 MODEL=`cat /dev/dongle_platform/model`
 PATHg1=/sys/kernel/config/usb_gadget/mygadget
@@ -134,10 +134,10 @@ mkdir $PATHg1/strings/0x409
 
 echo -n $MANUFACTURER > $PATHg1/strings/0x409/manufacturer
 echo -n $PRODUCT > $PATHg1/strings/0x409/product
-echo -n $SERIALNUMBER > $PATHg1/strings/0x409/serialnumber
+echo -n $SERIAL > $PATHg1/strings/0x409/serialnumber
 sed -i -e "s/manufacturer.*/manufacturer \"${MANUFACTURER}\"/" /disk/admin/modules/mtp/umtprd.conf
 sed -i -e "s/product.*/product \"${PRODUCT}\"/" /disk/admin/modules/mtp/umtprd.conf
-sed -i -e "s/serial.*/serial \"${SERIALNUMBER}\"/" /disk/admin/modules/mtp/umtprd.conf
+sed -i -e "s/serial.*/serial \"${SERIAL}\"/" /disk/admin/modules/mtp/umtprd.conf
 sed -i -e "s/firmware_version.*/firmware_version \"${VERSION}\"/" /disk/admin/modules/mtp/umtprd.conf
 echo 0x0 > $PATHg1/bDeviceClass
 echo 0x0 > $PATHg1/bDeviceSubClass

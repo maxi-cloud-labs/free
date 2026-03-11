@@ -108,7 +108,7 @@ static ssize_t show_hardwareVersion(struct device *dev, struct device_attribute 
 
 static DEVICE_ATTR(hardwareVersion, 0440, show_hardwareVersion, NULL);
 
-static ssize_t show_serialNumber(struct device *dev, struct device_attribute *attr, char *buf) {
+static ssize_t show_serial(struct device *dev, struct device_attribute *attr, char *buf) {
 	struct mydonglePriv *ip = dev_get_drvdata(dev);
 	if (strcmp(ip->model, "Dongle Pro") == 0 || strstr(ip->model, "Raspberry Pi") != NULL) {
 		const char *sz = NULL;
@@ -125,7 +125,7 @@ static ssize_t show_serialNumber(struct device *dev, struct device_attribute *at
 		return sprintf(buf, "1234567890abcdef");
 }
 
-static DEVICE_ATTR(serialNumber, 0440, show_serialNumber, NULL);
+static DEVICE_ATTR(serial, 0440, show_serial, NULL);
 
 static ssize_t show_debug(struct device *dev, struct device_attribute *attr, char *buf) {
 	struct mydonglePriv *ip = dev_get_drvdata(dev);
@@ -190,7 +190,7 @@ static struct attribute *dongle_attributes[] = {
 	&dev_attr_buzzerFreq.attr,
 	&dev_attr_model.attr,
 	&dev_attr_hardwareVersion.attr,
-	&dev_attr_serialNumber.attr,
+	&dev_attr_serial.attr,
 	&dev_attr_debug.attr,
 	&dev_attr_printk.attr,
 	&dev_attr_ccreset.attr,
@@ -278,7 +278,7 @@ static int dongle_probe(struct platform_device *pdev) {
 	ret = sysfs_file_change_owner(&dev->kobj, "hardwareVersion", new_uid, new_gid);
 	ret = sysfs_file_change_owner(&dev->kobj, "model", new_uid, new_gid);
 	ret = sysfs_file_change_owner(&dev->kobj, "printk", new_uid, new_gid);
-	ret = sysfs_file_change_owner(&dev->kobj, "serialNumber", new_uid, new_gid);
+	ret = sysfs_file_change_owner(&dev->kobj, "serial", new_uid, new_gid);
 	printk("Dongle: Exit probe\n");
 	return ret;
 }
