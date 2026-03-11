@@ -124,7 +124,7 @@ static void *bleStart_t(void *arg) {
 		fwrite(szTplt, strlen(szTplt), 1, pf);
 		fclose(pf);
 	}
-	int ret = init_blue(ADMIN_PATH "_core_/blecfg.txt");
+	int ret = init_blue("/tmp/blecfg.txt");
 	if (ret != 1) {
 		PRINTF("ERROR: 2. No btferret started\n");
 		return 0;
