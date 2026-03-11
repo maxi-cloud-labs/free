@@ -276,7 +276,7 @@ async doWiFi() {
 	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 	const primary = this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".mydongle.cloud");
 	const data = {
-		a:"setup",
+		a:"setup1",
 		betterauth: {
 			email: this.email2.value,
 			name: this.displayname2.value,
