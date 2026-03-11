@@ -165,7 +165,6 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	char *post = cJSON_Print(elBetterauth);
 	downloadURLBuffer("http://localhost:8091/auth/sign-up/email", buf, "Content-Type: application/json", post, NULL, NULL);
 	free(post);
-	serviceAction("betterauth.service", "RestartUnit");
 	cJSON *modulesDefault = jsonRead(WEB_PATH "assets/modulesdefault.json");
 	cJSON *modules = jsonRead(ADMIN_PATH "_config_/_modules_.json");
 	if (modules == NULL)
