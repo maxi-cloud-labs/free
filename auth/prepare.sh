@@ -54,7 +54,51 @@ else
 		npm install
 	fi
 	if [ ! -d ../rootfs/disk/admin/modules/betterauth/ ]; then
-		echo '{ "ai":{ "keys":{ "_server_":"fake_key" }, "routingModules":{ "_all_":"_server_" }, "routingPerModule":false }, "info":{ "domain":"", "language":"en", "name":"johndoe", "shortname":"jd" }, "security":{ "adminSudo":true, "autoLogin":true, "grantLocalPermission":true, "includeTorrent":true, "newUserNeedsApproval":true, "signInNotification":false, "updateRemoteIP":true }, "setup":"done2" }' | jq . > ../rootfs/disk/admin/modules/_config_/_cloud_.json
+		DATA=$(cat << EOF
+{
+	"ai": {
+		"keys": {
+			"_server_": "fake_key"
+		},
+		"routingModules": {
+			"_all_": "_server_"
+		},
+		"routingPerModule": false
+	},
+	"hardware": {
+		"disk": "/dev/nvme0n1p2",
+		"dongle": {
+			"noBuzzer": 0,
+			"rotation": 0,
+			"sleepKeepLed": 0
+		},
+		"internalIP": "",
+		"externalIP": "",
+		"model": "PC",
+		"serial": "1234567890abcdef",
+		"timezone": "America/Los_Angeles"
+	},
+	"info": {
+		"domain": "",
+		"language": "en",
+		"name": "johndoe",
+		"primary": "johndoe.mydongle.cloud",
+		"setup": "done2",
+		"shortname": "jd"
+	},
+	"security": {
+		"adminSudo": true,
+		"autoLogin": true,
+		"includeTorrent": true,
+		"grantLocalPermission": true,
+		"newUserNeedsApproval": true,
+		"signInNotification": false,
+		"updateRemoteIP": true
+	}
+}
+EOF
+)
+		echo $DATA | jq . > ../rootfs/disk/admin/modules/_config_/_cloud_.json
 		mkdir -p ../rootfs/disk/admin/modules/betterauth
 		npx @better-auth/cli migrate -y
 		(sleep 3 && ./test.sh -c) &

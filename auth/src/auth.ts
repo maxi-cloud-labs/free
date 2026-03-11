@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { execSync } from "child_process";
 import { randomBytes, X509Certificate } from "crypto";
-import { WebSocket } from "ws"	;
+import { WebSocket } from "ws";
+import { watch, FSWatcher } from "chokidar";
 import { betterAuth, BetterAuthPlugin } from "better-auth";
 import { APIError, createAuthEndpoint, createAuthMiddleware, sensitiveSessionMiddleware } from "better-auth/api";
 import { username, customSession, emailOTP, magicLink, twoFactor, haveIBeenPwned, admin, jwt } from "better-auth/plugins";
@@ -10,7 +11,6 @@ import { folderAndChildren } from "./tree";
 import Database from "better-sqlite3";
 import "dotenv/config";
 import fs from "fs";
-import chokidar from "chokidar";
 import * as net from "net";
 import * as jose from "jose";
 import * as os from "os";
@@ -33,47 +33,65 @@ const certificatePath = adminPath + "letsencrypt/fullchain.pem";
 const rootPath = "/var/log/";
 let usersNb = 0;
 let version = "";
-let hardware;
 let trustedOrigins;
+let watcher: FSWatcher | null = null;
 
 //Functions
-function init() {
-	console.log("auth.ts: init");
+async function initCloud() {
+	console.log("auth.ts: initCloud");
+	let needSave = false;
+	if (cloud?.hardware?.model == "") {
+		try {
+			const data = await si.fsSize();
+			cloud.hardware.disk = data.find(d => d.mount === "/disk")?.fs;
+			cloud.hardware.model = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
+			cloud.hardware.serial = readFileSync("/dev/dongle_platform/serialNumber", "utf-8").trimEnd();
+			needSave = true;
+		} catch (e) {}
+	}
+	const internalIP = getinternalIP();
+	if (cloud?.hardware && cloud.hardware.internalIP !== internalIP) {
+		cloud.hardware.internalIP = internalIP;
+		needSave = true;
+	}
+	const externalIP = await getexternalIP();
+	if (cloud?.hardware && cloud.hardware.externalIP !== externalIP) {
+		cloud.hardware.externalIP = externalIP;
+		needSave = true;
+	}
+	if (needSave) {
+		if (watcher != null) {
+			await watcher.close();
+			watcher = null;
+		}
+		writeFileSync(cloudPath, JSON.stringify(cloud, null, "\t"), "utf-8");
+	}
+	if (watcher == null)
+		watcher = watch(cloudPath, { persistent:true }).on("change", (path) => {
+			initCloud();
+		});
+}
+
+function start() {
+	console.log("auth.ts: start");
 	try {
 		readFileSync((process.env.PRODUCTION === "true" ? "" : "../rootfs") + "/usr/local/modules/_core_/version.txt", "utf-8");
 	} catch(e) {}
 	if (!existsSync(secretPath))
 		writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
-	chokidar.watch(cloudPath, { persistent:true }).on("change", (path) => {
-		cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
-	});
-
-	hardware = { model:"Unknown", internalIP:"", externalIP:"", timezone:Intl.DateTimeFormat().resolvedOptions().timeZone };
-	if (process.env.PRODUCTION === "true")
-		try {
-			hardware["model"] = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
-			si.fsSize().then(data => { hardware["disk"] = data.find(d => d.mount === '/disk')?.fs; });
-		} catch (e) {}
-	else {
-		hardware["model"] = "PC";
-		hardware["disk"] = "/dev/nvme0n1p2";
-	}
-	hardware["internalIP"] = getInternalIp();
-	getExternalIp().then((ip) => { hardware["externalIP"] = ip; });
 
 	if (process.env.PRODUCTION === "true") {
 		trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
-		if (cloud?.domain)
+		if (cloud?.hardware?.info?.domain)
 			trustedOrigins.push("*." + cloud.info.domain);
-		if (hardware["internalIP"] != "")
-			trustedOrigins.push(hardware["internalIP"], hardware["internalIP"] + ":9400");
+		if (cloud?.hardware?.internalIP && cloud?.hardware?.internalIP != "")
+			trustedOrigins.push(cloud.hardware.internalIP, cloud.hardware.internalIP + ":9400");
 	} else
 		trustedOrigins = [ "http://localhost:8100" ];
-
-	si.networkStats();
+	initCloud();
 }
 
-async function getExternalIp() {
+async function getexternalIP() {
 	try {
 		let response = await fetch("https://mydongle.cloud/master/ip.json");
 		if (!response.ok)
@@ -88,7 +106,7 @@ async function getExternalIp() {
 	return "";
 }
 
-function getInternalIp() {
+function getinternalIP() {
 	const networkInterfaces = os.networkInterfaces();
 	for (const name of Object.keys(networkInterfaces)) {
 		const addresses = networkInterfaces[name];
@@ -272,7 +290,7 @@ function extraEndpoints(): BetterAuthPlugin {
 				} catch (error) {}
 				if (ctx.body?.security?.sshKeys !== "")
 					writeFileSync(sshKeysPath, ctx.body?.security?.sshKeys, "utf-8");
-				if (ctx.body?.timezone !== hardware.timezone)
+				if (ctx.body?.timezone !== cloud.hardware.timezone)
 					execSync("sudo /usr/local/modules/_core_/reset.sh -t \"" + (ctx.body.timezone) + "\"");
 				return Response.json({ status:(ret ? "success" : "error") }, { status:200 });
 			}),
@@ -340,9 +358,9 @@ function extraEndpoints(): BetterAuthPlugin {
 				method: "GET",
 				use: [sensitiveSessionMiddleware]
 			}, async(ctx) => {
-				hardware["internalIP"] = getInternalIp();
-				hardware["externalIP"] = await getExternalIp();
-				return Response.json(hardware, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
+				cloud.hardware.internalIP = getinternalIP();
+				cloud.hardware.externalIP = await getexternalIP();
+				return Response.json(cloud.hardware, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
 			}),
 
 			refresh: createAuthEndpoint("/refresh", {
@@ -581,7 +599,7 @@ function extraEndpoints(): BetterAuthPlugin {
 }
 
 //Run
-init();
+start();
 
 export const auth = betterAuth({
 	secret: readFileSync(secretPath, "utf-8").trim(),
@@ -615,7 +633,7 @@ export const auth = betterAuth({
 	plugins: [
 		username(),
 		customSession(async ({ user, session }) => {
-			return { session, user, hardware, cloud };
+			return { cloud:{ hardware:cloud.hardware, info:cloud.info, security:cloud.security }, session, user };
 		}),
 		emailOTP({
 			async sendVerificationOTP({ email, otp, type }) {
