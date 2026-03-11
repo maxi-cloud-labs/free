@@ -136,7 +136,7 @@ static void *wiFiAddActivate_t(void *arg) {
 	}
 	NMConnection *connection = nm_simple_connection_new();
 	NMSettingConnection *s_con = (NMSettingConnection *)nm_setting_connection_new();
-	g_object_set(s_con, NM_SETTING_CONNECTION_ID, "_core_", NM_SETTING_CONNECTION_UUID, nm_utils_uuid_generate(), NM_SETTING_CONNECTION_TYPE, NM_SETTING_WIRELESS_SETTING_NAME, NULL);
+	g_object_set(s_con, NM_SETTING_CONNECTION_ID, "_cloud_", NM_SETTING_CONNECTION_UUID, nm_utils_uuid_generate(), NM_SETTING_CONNECTION_TYPE, NM_SETTING_WIRELESS_SETTING_NAME, NULL);
 	nm_connection_add_setting(connection, NM_SETTING(s_con));
 
 	GBytes *ssid_bytes = g_bytes_new(SSID, strlen(SSID));
