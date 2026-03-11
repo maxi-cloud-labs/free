@@ -586,7 +586,7 @@ async statusRefresh(data) {
 		this.modulesData[this.modulesDataFindId(data.module)]["notReady"] = 1;
 	} else if (data.module && data.state === "finish") {
 		this.modulesData[this.modulesDataFindId(data.module)]["notReady"] = 0;
-		if (this.setupUIProgress == 0)
+		if (!this.session.cloud.info.setup.startsWith("progress"))
 			this.presentToast("The module " + data.module + " is now ready.", "close-outline", 5000);
 	}
 	this.refreshUI.next("refresh");
