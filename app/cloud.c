@@ -30,7 +30,11 @@ static void updateIPExternal() {
 	PRINTF("IPExternal: %s\n", ipExternal);
 }
 
-static void cloudInit_() {
+void cloudInit() {
+	if (inSetup)
+		return;
+	if (strlen(ipExternal) == 0)
+		updateIPExternal();
 	pthread_mutex_lock(&cloudMutex);
 	PRINTF("CloudInit_\n");
 	cJSON *cloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
@@ -45,14 +49,6 @@ static void cloudInit_() {
 	cJSON_Delete(modules);
 	cJSON_Delete(modulesDefault);
 	pthread_mutex_unlock(&cloudMutex);
-}
-
-void cloudInit() {
-	if (inSetup)
-		return;
-	if (strlen(ipExternal) == 0)
-		updateIPExternal();
-	cloudInit_();
 }
 
 static void setup(int i, int total, char *name, int root, cJSON *modules) {
@@ -188,9 +184,9 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	else {
 		cJSON_SetStringValue3(elCloud, "info", "setup", "done1");
 		jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
-		cloudInit_();
-		logicMessage(1, 1);
 		inSetup = 0;
+		cloudInit();
+		logicMessage(1, 1);
 	}
 }
 
