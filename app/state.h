@@ -5,11 +5,11 @@
 //#pragma pack(push, 1)
 typedef struct stateS {
 	uint32_t otp;
-	uint32_t storageUsed;
-	uint32_t storageTotal;
-	uint8_t cpuUsed;
-	uint8_t memUsed;
-	uint8_t temperature;
+	uint32_t storageUsed;//MB
+	uint32_t storageTotal;//MB
+	uint8_t cpuUsed;//%
+	uint8_t memUsed;//%
+	uint8_t temperature;//°C
 	uint8_t current;
 	uint8_t previous;
 	uint8_t homePos;

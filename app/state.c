@@ -3,10 +3,12 @@
 #include <stdint.h>
 #include <string.h>
 #include <time.h>
+#include <sys/statvfs.h>
 #include "macro.h"
 #include "cJSON.h"
 #include "state.h"
 #ifndef WEB
+#include "common.h"
 #include "json.h"
 #endif
 
@@ -67,11 +69,11 @@ void stateLoad_(char *sz) {
 	}
 	if (cJSON_HasObjectItem(stateCloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(stateCloud, "info"), "setup")) {
 		char *s = cJSON_GetStringValue3(stateCloud, "info", "setup");
-		state.setupDone = strcmp(s, "done2")  == 0 ? 4 : strcmp(s, "progress2")  == 0 ? 3 : strcmp(s, "done1")  == 0 ? 2 : strcmp(s, "progress1")  == 0 ? 1 : 0;
+		state.setupDone = strcmp(s, "done2") == 0 ? 4 : strcmp(s, "progress2") == 0 ? 3 : strcmp(s, "done1") == 0 ? 2 : strcmp(s, "progress1") == 0 ? 1 : 0;
 	}
 	if (cJSON_HasObjectItem(stateCloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(stateCloud, "info"), "language")) {
 		char *s = cJSON_GetStringValue3(stateCloud, "info", "language");
-		state.language = strcmp(s, "fr")  == 0 ? 1 : 0;
+		state.language = strcmp(s, "fr") == 0 ? 1 : 0;
 	}
 }
 
@@ -81,10 +83,43 @@ void stateLoad() {
 
 void updateStateStats() {
 #ifndef WEB
-	state.storageUsed = 0;
-	state.storageTotal = 0;
-	state.temperature = 0;
-	state.cpuUsed = 0;
-	state.memUsed = 0;
+	struct statvfs buf;
+#ifdef DESKTOP
+	if (statvfs("/", &buf) == 0) {
+#else
+	if (statvfs("/disk", &buf) == 0) {
+#endif
+		state.storageTotal = buf.f_blocks * buf.f_frsize / 1000 / 1000;
+		state.storageTotal = 1000 * 1000;
+		state.storageUsed = state.storageTotal - buf.f_bfree * buf.f_frsize / 1000 / 1000;
+	}
+	state.temperature = readTemperature() / 1000;
+	FILE* fp1 = fopen("/proc/stat", "r");
+	unsigned long long user, nice, system, idle_tick, iowait, irq, softirq, steal;
+	if (fp1) {
+		fscanf(fp1, "cpu %llu %llu %llu %llu %llu %llu %llu %llu", &user, &nice, &system, &idle_tick, &iowait, &irq, &softirq, &steal);
+		unsigned long long idle = idle_tick + iowait;
+		unsigned long long total = user + nice + system + idle_tick + iowait + irq + softirq + steal;
+		state.cpuUsed = (total - idle) * 100 / total;
+		fclose(fp1);
+	}
+	FILE* fp2 = fopen("/proc/meminfo", "r");
+	if (fp2) {
+		unsigned long long total = 0, available = 0;
+		char label[32];
+		while (fscanf(fp2, "%31s %llu kB", label, &total) != EOF) {
+			if (strcmp(label, "MemTotal:") == 0) {
+				unsigned long long t = total;
+				while (fscanf(fp2, "%31s %llu kB", label, &available) != EOF) {
+					if (strcmp(label, "MemAvailable:") == 0) {
+						state.memUsed = 100.0f * (t - available) / t;
+						break;
+					}
+				}
+				break;
+			}
+		}
+		fclose(fp2);
+	}
 #endif
 }

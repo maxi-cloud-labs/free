@@ -462,7 +462,7 @@ void uiScreenHome() {
 		lv_style_set_text_font(&labelStyle1, &lv_font_montserrat_14);
 		lv_obj_add_style(label1, &labelStyle1, LV_STATE_DEFAULT);
 
-		sprintf(sz, "%dGB/%dTB", state.storageUsed, state.storageTotal / 1024);
+		sprintf(sz, "%dGB/%dTB", state.storageUsed / 1000, state.storageTotal / 1000 / 1000);
 //		circulaText(sz, 2, 95, 60);
 		lv_obj_t *label2 = lv_label_create(lv_screen_active());
 		lv_label_set_text(label2, sz);
@@ -535,8 +535,8 @@ void uiScreenHome() {
 		sprintf(sz, "%d%%, %d proc", state.memUsed, 145);
 		progressBar(120, 54, L("Mem"), sz, state.memUsed);
 
-		sprintf(sz, "%d%%, %dGB/%dTB", state.storageUsed * 100 / 1024, state.storageUsed, 1);
-		progressBar(120, 82, L("Disk"), sz, state.storageUsed * 100 / 1024);
+		sprintf(sz, "%d%%, %dGB/%dTB", state.storageUsed * 100 / state.storageTotal, state.storageUsed / 1000, state.storageTotal / 1000 / 1000);
+		progressBar(120, 82, L("Disk"), sz, state.storageUsed * 100 / state.storageTotal);
 	} else if (state.homePos == 3) {
 		doubleText("Port https (443)", "OK", 28, 100);
 		doubleText("Port mail (25)", "OK", 42, 100);
