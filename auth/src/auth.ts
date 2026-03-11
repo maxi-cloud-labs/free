@@ -85,7 +85,7 @@ function start() {
 		trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
 		if (cloud?.hardware?.info?.domain)
 			trustedOrigins.push("*." + cloud.info.domain);
-		if (cloud?.hardware?.internalIP && cloud?.hardware?.internalIP != "")
+		if (cloud?.hardware && cloud.hardware.internalIP !== "")
 			trustedOrigins.push(cloud.hardware.internalIP, cloud.hardware.internalIP + ":9400");
 	} else
 		trustedOrigins = [ "http://localhost:8100" ];
