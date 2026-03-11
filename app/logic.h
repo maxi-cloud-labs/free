@@ -2,20 +2,6 @@
 #define LOGIC_H
 
 //Struct
-//#pragma pack(push, 1)
-typedef struct logics {
-	int current;
-	int previous;
-	int homePos;
-	int tipsPos;
-	int messageNb;
-	int messageOK;
-	int setupPercentage;
-	int otp;
-	char *string;
-} logics;
-//#pragma pack(pop)
-
 //Enum
 enum LOGIC_SCREEN {
 	LOGIC_WELCOME,
@@ -32,8 +18,7 @@ enum LOGIC_SCREEN {
 	LOGIC_SLAVENOTCONNECTED
 };
 
-//Public variables
-extern logics lmdc;
+//Public variable
 extern int slaveMode;
 
 //Functions

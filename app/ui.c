@@ -7,7 +7,8 @@
 #include "logic.h"
 #include "ui.h"
 #include "language.h"
-#include "settings.h"
+#include "cJSON.h"
+#include "state.h"
 
 //Defines color
 #define COLOR_BACKGROUND 0xffffff
@@ -433,7 +434,7 @@ void uiScreenHome() {
 	lv_obj_clean(lv_screen_active());
 	uiBar();
 
-	if (lmdc.homePos == 0) {
+	if (state.homePos == 0) {
 		char sz[32];
 
 		lv_obj_t *label0 = lv_label_create(lv_screen_active());
@@ -447,9 +448,9 @@ void uiScreenHome() {
 		lv_style_set_text_font(&labelStyle0, &lv_font_montserrat_14);
 		lv_obj_add_style(label0, &labelStyle0, LV_STATE_DEFAULT);
 
-		arc(10, 46, 44, 241 * 100 / 1024);
+		arc(10, 46, 44, state.storageUsed * 100 / state.storageTotal);
 
-		sprintf(sz, "%d%%", 241 * 100 / 1024);
+		sprintf(sz, "%d%%", state.storageUsed * 100 / state.storageTotal);
 		lv_obj_t *label1 = lv_label_create(lv_screen_active());
 		lv_label_set_text(label1, sz);
 		lv_obj_set_width(label1, 40);
@@ -461,7 +462,7 @@ void uiScreenHome() {
 		lv_style_set_text_font(&labelStyle1, &lv_font_montserrat_14);
 		lv_obj_add_style(label1, &labelStyle1, LV_STATE_DEFAULT);
 
-		sprintf(sz, "%dGB/%dTB", 241, 1);
+		sprintf(sz, "%dGB/%dTB", state.storageUsed, state.storageTotal / 1024);
 //		circulaText(sz, 2, 95, 60);
 		lv_obj_t *label2 = lv_label_create(lv_screen_active());
 		lv_label_set_text(label2, sz);
@@ -510,24 +511,33 @@ void uiScreenHome() {
 				lv_style_init(&labelStyle5);
 		lv_style_set_text_font(&labelStyle5, &lv_font_montserrat_10);
 		lv_obj_add_style(label5, &labelStyle5, LV_STATE_DEFAULT);
-	} else if (lmdc.homePos == 1) {
-		doubleText(L("Serial"), "4a18eb02", 28, 50);
-		doubleText(NULL, "https://demo.mydongle.cloud", 42, 50);
-		doubleText(NULL, "https://dm.myd.cd", 56, 50);
-		doubleText(L("Wi-Fi"), "Family-Doe", 70, 50);
-		doubleText(L("Local"), "192.168.10.21", 84, 50);
-		doubleText(L("Externe"), "166.23.45.165", 98, 50);
-	} else if (lmdc.homePos == 2) {
+	} else if (state.homePos == 1) {
+		char *primary = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "info"), "primary");
+		char *shortname = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "info"), "shortname");
+		char *serial = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "serial");
+		char *internalIP = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "internalIP");
+		char *externalIP = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "externalIP");
+		char sz[128];
+		snprintf(sz, 128, "%.8s", serial);
+		doubleText(L("Serial"), serial, 28, 50);
+		snprintf(sz, 128, "https://%s", primary);
+		doubleText(NULL, sz, 42, 50);
+		snprintf(sz, 128, "https://%s.myd.cd", shortname);
+		doubleText(NULL, sz, 56, 50);
+		doubleText(L("Wi-Fi"), "XXXXX", 70, 50);
+		doubleText(L("Local"), internalIP, 84, 50);
+		doubleText(L("Extern"), externalIP, 98, 50);
+	} else if (state.homePos == 2) {
 		char sz[32];
-		sprintf(sz, "%d%%, %d°C", 3, 55);
-		progressBar(120, 28, L("CPU"), sz, 3);
+		sprintf(sz, "%d%%, %d°C", state.cpuUsed, state.temperature);
+		progressBar(120, 28, L("CPU"), sz, state.cpuUsed);
 
-		sprintf(sz, "%d%%, %d proc", 10, 145);
-		progressBar(120, 54, L("Mem"), sz, 10);
+		sprintf(sz, "%d%%, %d proc", state.memUsed, 145);
+		progressBar(120, 54, L("Mem"), sz, state.memUsed);
 
-		sprintf(sz, "%d%%, %dGB/%dTB", 241 * 100 / 1024, 241, 1);
-		progressBar(120, 82, L("Disk"), sz, 241 * 100 / 1024);
-	} else if (lmdc.homePos == 3) {
+		sprintf(sz, "%d%%, %dGB/%dTB", state.storageUsed * 100 / 1024, state.storageUsed, 1);
+		progressBar(120, 82, L("Disk"), sz, state.storageUsed * 100 / 1024);
+	} else if (state.homePos == 3) {
 		doubleText("Port https (443)", "OK", 28, 100);
 		doubleText("Port mail (25)", "OK", 42, 100);
 		doubleText("Port pop3s (995)", "OK", 56, 100);
@@ -535,9 +545,9 @@ void uiScreenHome() {
 		doubleText("Port smtps (465)", "OK", 84, 100);
 	}
 
-	button(LV_KEY_LEFT, smdc.setupDone ? L("Tips") : L("Login"), NULL);
+	button(LV_KEY_LEFT, L("Tips"), NULL);
 	button(LV_KEY_RIGHT, L("Next"), NULL);
-	advancement(lmdc.homePos);
+	advancement(state.homePos);
 }
 
 void uiScreenSetup() {
@@ -561,7 +571,7 @@ void uiScreenSetup() {
 	lv_obj_add_style(spinner, &arcStyle1, LV_PART_MAIN);
 
 	char sz[8];
-	sprintf(sz, L("%d%%"), lmdc.setupPercentage);
+	sprintf(sz, L("%d%%"), state.setupPercentage);
 	lv_obj_t *label0 = lv_label_create(lv_screen_active());
 	lv_label_set_text(label0, sz);
 	lv_obj_set_width(label0, 128);
@@ -584,9 +594,9 @@ void uiScreenSetup() {
 	lv_obj_add_style(label1, &labelStyle1, LV_STATE_DEFAULT);
 
 	lv_obj_t *label2 = lv_label_create(lv_screen_active());
-	if (lmdc.setupPercentage == 0)
+	if (state.setupPercentage == 0)
 		lv_label_set_text(label2, L("Starting procedure"));
-	else if (lmdc.setupPercentage == 0)
+	else if (state.setupPercentage == 0)
 		lv_label_set_text(label2, L("Finishing process"));
 	else
 		lv_label_set_text(label2, L("Preparing module"));
@@ -603,7 +613,8 @@ void uiScreenSetup() {
 #ifdef WEB
 	lv_label_set_text(label3, "module");
 #else
-	lv_label_set_text(label3, lmdc.string);
+extern char *string_;
+	lv_label_set_text(label3, string_);
 #endif
 	lv_obj_set_width(label3, 128);
 	lv_obj_set_style_text_align(label3, LV_TEXT_ALIGN_CENTER, 0);
@@ -669,7 +680,7 @@ void uiScreenTips() {
 	lv_obj_clean(lv_screen_active());
 
 	lv_obj_t *label0 = lv_label_create(lv_screen_active());
-	lv_label_set_text(label0, L(szTips[lmdc.tipsPos]));
+	lv_label_set_text(label0, L(szTips[state.tipsPos]));
 	lv_obj_set_width(label0, 128);
 	lv_obj_set_style_text_align(label0, LV_TEXT_ALIGN_CENTER, 0);
 	static lv_style_t labelStyle0;
@@ -682,7 +693,7 @@ void uiScreenTips() {
 	lv_obj_t *label1 = lv_label_create(lv_screen_active());
 	char sz2[16];
 	int total = sizeof(szTips)/sizeof(szTips[0]);
-	sprintf(sz2, "%d/%d", lmdc.tipsPos + 1, total);
+	sprintf(sz2, "%d/%d", state.tipsPos + 1, total);
 	lv_label_set_text(label1, sz2);
 	lv_obj_set_width(label1, 128);
 	lv_obj_set_style_text_align(label1, LV_TEXT_ALIGN_CENTER, 0);
@@ -694,7 +705,7 @@ void uiScreenTips() {
 	lv_obj_add_style(label1, &labelStyle1, LV_STATE_DEFAULT);
 
 	button(LV_KEY_UP, L("Back"), NULL);
-	if (lmdc.tipsPos == 0)
+	if (state.tipsPos == 0)
 		button(LV_KEY_DOWN, L("Login"), NULL);
 	button(LV_KEY_LEFT, L("Prev."), NULL);
 	button(LV_KEY_RIGHT, L("Next"), NULL);
@@ -727,12 +738,12 @@ void uiScreenMessage() {
 	lv_obj_clean(lv_screen_active());
 
 	lv_obj_t *label0 = lv_label_create(lv_screen_active());
-	lv_label_set_text(label0, L(szString[lmdc.messageNb]));
+	lv_label_set_text(label0, L(szString[state.messageNb]));
 	lv_obj_set_width(label0, 128);
 	lv_obj_set_style_text_align(label0, LV_TEXT_ALIGN_CENTER, 0);
 	lv_obj_center(label0);
 
-	if (lmdc.messageOK)
+	if (state.messageOK)
 		button(LV_KEY_RIGHT, L("OK"), NULL);
 }
 
@@ -764,7 +775,7 @@ void uiScreenOtp(int expiration) {
 
 	lv_obj_t *label1 = lv_label_create(lv_screen_active());
 	char sz2[16];
-	sprintf(sz2, "%03d %03d", (lmdc.otp / 1000) % 1000, lmdc.otp % 1000);
+	sprintf(sz2, "%03d %03d", (state.otp / 1000) % 1000, state.otp % 1000);
 	lv_label_set_text(label1, sz2);
 	lv_obj_set_width(label1, 128);
 	lv_obj_set_style_text_align(label1, LV_TEXT_ALIGN_CENTER, 0);
@@ -808,8 +819,8 @@ void uiScreenSlaveNotConnected() {
 }
 
 void uiUpdate() {
-	if (lmdc.current == LOGIC_WELCOME || lmdc.current == LOGIC_HOME)
+	if (state.current == LOGIC_WELCOME || state.current == LOGIC_HOME)
 		uiBarTime();
-	else if (lmdc.current == LOGIC_OTP)
+	else if (state.current == LOGIC_OTP)
 		uiScreenOtp(-1);
 }

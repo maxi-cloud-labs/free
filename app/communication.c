@@ -43,7 +43,7 @@
 #include "base64.h"
 #include "logic.h"
 #include "backend.h"
-#include "settings.h"
+#include "state.h"
 #include "password.h"
 
 //Public variable
@@ -85,10 +85,9 @@ int communicationState() {
 		return 0;
 	cJSON *el = cJSON_CreateObject();
 	cJSON_AddStringToObject(el, "a", "state");
-	unsigned char *data_ = malloc(sizeof(smdc) + sizeof(lmdc));
-	memcpy(data_, &smdc, sizeof(smdc));
-	memcpy(data_ + sizeof(smdc), &lmdc, sizeof(lmdc));
-	char *sz = b64_encode(data_, sizeof(smdc) + sizeof(lmdc));
+	unsigned char *data_ = malloc(sizeof(stateS));
+	memcpy(data_, &state, sizeof(stateS));
+	char *sz = b64_encode(data_, sizeof(stateS));
 	free(data_);
 	cJSON_AddStringToObject(el, "p", sz);
 	free(sz);
@@ -138,13 +137,12 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			logicKey(k, l);
 		} else if (strcmp(action, "language") == 0) {
 			char *l = cJSON_GetStringValue2(el, "l");
-			settingsLanguage(strcmp(l, "fr") == 0);
+			//settingsLanguage(strcmp(l, "fr") == 0);
 			logicUpdate();
 		} else if (strcmp(action, "state") == 0) {
 			unsigned long decsize;
 			unsigned char *payload = b64_decode_ex(cJSON_GetStringValue2(el, "p"), &decsize);
-			memcpy(&smdc, payload, sizeof(smdc));
-			memcpy(&lmdc, payload + sizeof(smdc), sizeof(lmdc));
+			memcpy(&state, payload, sizeof(stateS));
 			free(payload);
 			logicUpdate();
 #ifndef WEB

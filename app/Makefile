@@ -39,7 +39,7 @@ OBJs := $(PRE)apache2.o \
 	$(PRE)password.o \
 	$(PRE)sbl.o \
 	$(PRE)sbl2.o \
-	$(PRE)settings.o \
+	$(PRE)state.o \
 	$(PRE)ui.o \
 	$(PRE)wifi.o \
 	$(PRE)wsServer/base64.o \
@@ -72,7 +72,7 @@ OBJs_WEB := $(PRE)backend__.o \
 	$(PRE)lv_font_montserrat_30__.o \
 	$(PRE)logic__.o \
 	$(PRE)main__.o \
-	$(PRE)settings__.o \
+	$(PRE)state__.o \
 	$(PRE)ui__.o
 #OBJs_WEB := $(PRE)demo-web__.o
 

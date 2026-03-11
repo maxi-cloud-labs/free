@@ -15,8 +15,8 @@
 #include "backend-plat.h"
 #include "ui.h"
 #include "logic.h"
-#include "settings.h"
 #include "cJSON.h"
+#include "state.h"
 #include "cloud.h"
 #include "diskNotify.h"
 
@@ -34,7 +34,7 @@ int eventFdUI = 0;
 //Private variables
 static lv_indev_t *indevK;
 #ifndef WEB
-static struct pollfd pollfd[4];
+static struct pollfd pollfd[5];
 #endif
 static int autoSleep = -1;
 
@@ -44,9 +44,8 @@ int backendRotate(int incr) {
 	logicMessage(0, 1);
 	return -1;
 #endif
-	smdc.rotation = (smdc.rotation + 4 + incr) % 4;
-	settingsSave();
-	backendRotate_plat(smdc.rotation);
+	state.rotation = (state.rotation + 4 + incr) % 4;
+	backendRotate_plat(state.rotation);
 	return 0;
 }
 
@@ -103,7 +102,7 @@ static int rotateKey(int k, int ignoreRotation) {
 		break;
 	}
 	if (ignoreRotation == 0)
-		ret = LV_KEY_UP + ((ret - LV_KEY_UP + smdc.rotation) % 4);
+		ret = LV_KEY_UP + ((ret - LV_KEY_UP + state.rotation) % 4);
 	//PRINTF("Real:%s -> Virtual:%s\n", k == KEY_LEFT ? "KEY_LEFT": k == KEY_RIGHT ? "KEY_RIGHT": k == KEY_UP ? "KEY_UP": k == KEY_DOWN ? "KEY_DOWN" : "", ret == LV_KEY_LEFT ? "LV_KEY_LEFT": ret == LV_KEY_RIGHT ? "LV_KEY_RIGHT": ret == LV_KEY_UP ? "LV_KEY_UP": ret == LV_KEY_DOWN ? "LV_KEY_DOWN": "");
 	return ret;
 }
@@ -198,6 +197,8 @@ void backendInit(int daemon) {
 	pollfd[2].events = POLLIN;
 	pollfd[3].fd = diskNotifyStart(ADMIN_PATH "_config_/_modules_.json");
 	pollfd[3].events = POLLIN;
+	pollfd[4].fd = diskNotifyStart(ADMIN_PATH "_config_/_cloud_.json");
+	pollfd[4].events = POLLIN;
 #endif
 }
 
@@ -221,7 +222,7 @@ void backendLoop() {
 #ifdef WEB
 	usleep(1000 * time_till_next);
 #else
-	int ret = poll(pollfd, 4, time_till_next);
+	int ret = poll(pollfd, 5, time_till_next);
 	if (doLoop == 0)
 		return;
 	if (pollfd[0].revents & POLLIN) {
@@ -253,6 +254,8 @@ void backendLoop() {
 	}
 	if (pollfd[3].revents & POLLIN)
 		diskNotifyCB(pollfd[3].fd, &cloudInit);
+	if (pollfd[4].revents & POLLIN)
+		diskNotifyCB(pollfd[4].fd, &stateLoad);
 #endif
 	static int count = 0;
 	if (count++ % 30 == 0)

@@ -131,7 +131,7 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 		PRINTF("Setup Wi-Fi with %s %s\n", cJSON_GetStringValue2(elWifi, "ssid"), cJSON_GetStringValue2(elWifi, "password"));//wiFiAddActivate
 	}
 	updateIPExternal();
-	cJSON_SetStringValue2(elCloud, "setup", "progress1");
+	cJSON_SetStringValue3(elCloud, "info", "setup", "progress1");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	mkdir(ADMIN_PATH "letsencrypt", 0775);
 	cJSON *elLetsencrypt = cJSON_GetObjectItem(elSetup1, "letsencrypt");
@@ -187,7 +187,7 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	if (doSetup2)
 		cloudSetup2();
 	else {
-		cJSON_SetStringValue2(elCloud, "setup", "done1");
+		cJSON_SetStringValue3(elCloud, "info", "setup", "done1");
 		jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 		cloudInit_();
 		logicMessage(1, 1);
@@ -197,14 +197,14 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 
 void cloudSetup2() {
 	cJSON *elCloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
-	char *setupStatus = cJSON_GetStringValue2(elCloud, "setup");
+	char *setupStatus = cJSON_GetStringValue3(elCloud, "info", "setup");
 	if (strcmp(setupStatus, "done2") == 0) {
 		PRINTF("cloudSetup2: Doing nothing\n");
 		cJSON_Delete(elCloud);
 		return;
 	}
 	inSetup = 1;
-	cJSON_SetStringValue2(elCloud, "setup", "progress2");
+	cJSON_SetStringValue3(elCloud, "info", "setup", "progress2");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	cJSON *modulesDefault = jsonRead(WEB_PATH "assets/modulesdefault.json");
 	cJSON *modules = jsonRead(ADMIN_PATH "_config_/_modules_.json");
@@ -221,7 +221,7 @@ void cloudSetup2() {
 	cJSON_Delete(fqdn);
 	cJSON_Delete(modules);
 	cJSON_Delete(modulesDefault);
-	cJSON_SetStringValue2(elCloud, "setup", "done2");
+	cJSON_SetStringValue3(elCloud, "info", "setup", "done2");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	cJSON_Delete(elCloud);
 	inSetup = 0;

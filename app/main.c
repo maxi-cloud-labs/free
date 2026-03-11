@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <time.h>
 #include <string.h>
 #include <unistd.h>
@@ -8,7 +9,6 @@
 #include "common.h"
 #include "backend.h"
 #include "backend-plat.h"
-#include "settings.h"
 #include "logic.h"
 #include "language.h"
 #ifndef WEB
@@ -16,6 +16,7 @@
 #include "comWebSocket.h"
 #endif
 #include "cJSON.h"
+#include "state.h"
 #include "cloud.h"
 #include "common.h"
 #include "communication.h"
@@ -28,8 +29,12 @@ int main(int argc, char *argv[]) {
 	int ble = 1;
 	int forceRotation = -1;
 	int forceLanguage = -1;
-	while ((option = getopt(argc, argv, "bdhl:r:st")) != -1) {
+	int stateArgPos = -1;
+	while ((option = getopt(argc, argv, "a:bdhl:r:st")) != -1) {
 		switch (option) {
+		case 'a':
+			stateArgPos = optind - 1;
+			break;
 		case 'b':
 			ble = 0;
 			break;
@@ -38,7 +43,8 @@ int main(int argc, char *argv[]) {
 			break;
 		case 'h':
 			PRINTF("*******************************************************\n");
-			PRINTF("Usage for app [-b -d -l la -r rot -s -t]\n");
+			PRINTF("Usage for app [-a state -b -d -l la -r rot -s -t]\n");
+			PRINTF("a state:	Use state\n");
 			PRINTF("b:	Don't start ble\n");
 			PRINTF("d:	Set daemon mode\n");
 			PRINTF("h:	Print this usage and exit\n");
@@ -74,8 +80,6 @@ int main(int argc, char *argv[]) {
 		}
 	}
 #ifdef WEB
-	if (forceLanguage != -1)
-		smdc.language = forceLanguage;
 	PRINTF("Version:%s\n", APP_VERSION);
 #else
 	if (killOtherPids("app")) {
@@ -83,18 +87,17 @@ int main(int argc, char *argv[]) {
 		return 0;
 	}
 	logInit(daemon);
-	cloudInit();
 	getSerialID();
 	PRINTF("Version:%s Serial:%s\n", APP_VERSION, szSerial);
-	settingsLoad();
-	if (forceRotation != -1) {
-		smdc.rotation = forceRotation;
-		settingsSave();
-	}
-	if (forceLanguage != -1) {
-		smdc.language = forceLanguage;
-		settingsSave();
-	}
+#endif
+	stateDefault();
+	stateLoad_(stateArgPos < 0 ? NULL : argv[stateArgPos]);
+	if (forceRotation != -1)
+		state.rotation = forceRotation;
+	if (forceLanguage != -1)
+		state.language = forceLanguage;
+#ifndef WEB
+	cloudInit();
 #endif
 #ifdef DESKTOP
 	languageTest();

@@ -8,7 +8,8 @@
 #include "lvgl.h"
 #include "src/drivers/libinput/lv_libinput.h"
 #include "backend.h"
-#include "settings.h"
+#include "cJSON.h"
+#include "state.h"
 #include "common.h"
 
 //Define
@@ -28,7 +29,7 @@ static void backendUpdate_plat(lv_disp_t *disp_drv, const lv_area_t *area, unsig
 	int y = area->y1;
 	int w = area->x2 - area->x1 + 1;
 	int h = area->y2 - area->y1 + 1;
-	int rot = smdc.rotation;
+	int rot = state.rotation;
 
 	char sz[64];
 #ifdef NOMMAP
@@ -67,7 +68,7 @@ void backendInit_plat(int argc, char *argv[]) {
 	lv_display_set_buffers(disp, fbPublic, 0, WIDTH * HEIGHT * DEPTH, LV_DISPLAY_RENDER_MODE_PARTIAL);
 	lv_display_set_flush_cb(disp, backendUpdate_plat);
 
-	backendRotate_plat(smdc.rotation);
+	backendRotate_plat(state.rotation);
 }
 
 void backendRun_plat() {

@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #include <time.h>
-#include "settings.h"
 #include "language.h"
 #include "cJSON.h"
 #include "json.h"
+#include "state.h"
 #include "macro.h"
 
 //Global variable
@@ -44,10 +45,10 @@ unsigned char *LL(unsigned char *a, int b) {
 }
 
 unsigned char *L(unsigned char *a) {
-	if (smdc.language == 0 || smdc.language >= NB_LANG)
+	if (state.language == 0 || state.language >= NB_LANG)
 		return a;
 	else
-		return LL(a, smdc.language);
+		return LL(a, state.language);
 }
 
 void languagePrepare() {
