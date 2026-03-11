@@ -35,8 +35,8 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	this.global.getExternalIP().then((ip) => {
 		this.externalIP = ip;
 		const ipv4Regex = /^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$/;
-		if (!this.global.developer && !ipv4Regex.test(window.location.hostname) && !this.global.demo && this.externalIP == this.global.session?.hardware?.externalIP && this.global.session?.hardware?.internalIP != "")
-			this.global.presentToast("You seem to be on the same network as the " + global.session?.hardware?.model + ". You can have direct access through <a href='http://" + this.global.session?.hardware?.internalIP + ":9400' class='underline' target='_blank'>http://" + this.global.session?.hardware?.internalIP + ":9400</a>", "help-outline", 10000);
+		if (!this.global.developer && !ipv4Regex.test(window.location.hostname) && !this.global.demo && this.externalIP == this.global.session?.cloud?.hardware?.externalIP && this.global.session?.cloud?.hardware?.internalIP != "")
+			this.global.presentToast("You seem to be on the same network as the " + global.session?.cloud?.hardware?.model + ". You can have direct access through <a href='http://" + this.global.session?.cloud?.hardware?.internalIP + ":9400' class='underline' target='_blank'>http://" + this.global.session?.cloud?.hardware?.internalIP + ":9400</a>", "help-outline", 10000);
 	});
 	this.updateTime();
 	this.timer = setInterval(() => { this.updateTime(); }, 1000);

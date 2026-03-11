@@ -277,14 +277,12 @@ async doWiFi() {
 	const primary = this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".mydongle.cloud");
 	const data = {
 		a:"setup",
+		betterauth: {
+			email: this.email2.value,
+			name: this.displayname2.value,
+			password: this.password2.value
+		},
 		cloud: {
-			info: {
-				language: navigator.language.startsWith("fr") ? "fr" : "en",
-				primary,
-				name: this.name1.value,
-				shortname: this.shortname1.value,
-				domain: this.domain1.value
-			},
 			ai: {
 				keys: {
 					_server_: ret2.ai.keys._server_
@@ -295,6 +293,27 @@ async doWiFi() {
 				routingPerModule: false
 			},
 			frp: ret2.frp,
+			hardware: {
+				disk: "",
+				dongle: {
+					noBuzzer: 0,
+					rotation: 0,
+					sleepKeepLed: 0
+				},
+				internalIP: "",
+				externalIP: "",
+				model: "",
+				serial: "",
+				timezone
+			},
+			info: {
+				domain: this.domain1.value,
+				language: navigator.language.startsWith("fr") ? "fr" : "en",
+				name: this.name1.value,
+				primary,
+				setup: "none",
+				shortname: this.shortname1.value
+			},
 			postfix: ret2.postfix,
 			security: {
 				adminSudo: false,
@@ -304,25 +323,18 @@ async doWiFi() {
 				newUserNeedsApproval: true,
 				signInNotification: true,
 				updateRemoteIP: true
-			},
-			setup: "none",
-			connectivity: {
-				wifi: {
-					ssid: this.ssid3.value,
-					password: this.password3.value
-				}
 			}
 		},
-		betterauth: {
-			email: this.email2.value,
-			name: this.displayname2.value,
-			password: this.password2.value
+		connectivity: {
+			wifi: {
+				password: this.password3.value,
+				ssid: this.ssid3.value
+			}
 		},
 		letsencrypt: {
 			fullchain: ret1.fullChain,
 			privatekey :ret1.privateKey
-		},
-		timezone
+		}
 	};
 	this.global.consolelog(2, "SETUP: Sending to hardware:", data);
 	if (this.ble.connectedWS == 2)

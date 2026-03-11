@@ -30,7 +30,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, public ble: B
 }
 
 async ngAfterViewInit() {
-	await appInit("assets/js/app.js", true, true, this.canvasE.nativeElement);
+	await appInit("assets/js/app.js", true, true, this.canvasE.nativeElement, this.global.session?.cloud);
 	setTimeout(appRefreshScreen, 250);
 	this.ble.connectedWS = 2;
 }

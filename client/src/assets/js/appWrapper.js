@@ -20,20 +20,22 @@ function loadScript(src) {
 	});
 }
 
-async function appInit(path, log, slave, elCanvas) {
+async function appInit(path, log, slave, elCanvas, dataCloud = null) {
 	if (!initDone) {
 		await loadScript(path);
 		initDone = true;
 	}
 	var argCmdLine = [];
-	if (window.location.hostname.indexOf("mondongle.cloud") != -1)
-		argCmdLine = [ "-l", "fr" ];
-	else if (navigator.language.startsWith("fr"))
-		argCmdLine = [ "-l", "fr" ];
+	if (window.location.hostname.indexOf("mondongle.cloud") != -1 || navigator.language.startsWith("fr"))
+		argCmdLine.push("-l", "fr");
+	if (slave)
+		argCmdLine.push("-s");
+	if (dataCloud)
+		argCmdLine.push("-a", JSON.stringify(dataCloud));
 	Module = {
 		print: function(text) { if (log) console_log(1, text); },
 		canvas: elCanvas,
-		arguments: slave ? [ "-s" ] : argCmdLine
+		arguments: argCmdLine
 	};
 	await appCreate(Module);
 }

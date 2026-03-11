@@ -2,7 +2,7 @@
 	<app-sidebar></app-sidebar>
 	<div class="flex-1 flex flex-col min-h-screen">
 		<app-topbar [title]="L('Settings')"></app-topbar>
-		<div class="flex mt-4 p-4 w-full" *ngIf="global.session.cloud?.setup == 'done1'">
+		<div class="flex mt-4 p-4 w-full" *ngIf="global.session.cloud?.info?.setup == 'done1'">
 			<span class="text--red-500 font-bold">{{L("First-time setup is needed...")}} </span>
 			<div class="flex-1"></div>
 			<button (click)="global.setup2Start(true)" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 border border--gray-300 rounded-lg text-sm font-medium text--white hover:bg--yellow-700 transition-colors cursor-pointer">
@@ -10,7 +10,7 @@
 				{{L("Launch Setup")}}
 			</button>
 		</div>
-		<div class="ml-4 my-4">{{L("System internal / external IP addresses:")}} {{global.session?.hardware?.internalIP}} / {{global.session?.hardware?.externalIP}}</div>
+		<div class="ml-4 my-4">{{L("System internal / external IP addresses:")}} {{global.session?.cloud?.hardware?.internalIP}} / {{global.session?.cloud?.hardware?.externalIP}}</div>
 		<div class="flex gap-3 mt-4 mr-4">
 			<div class="ml-4">{{L("Those are the system settings. Your personal settings including your password can be tuned on the page:")}} <a routerLink="/profile" class="underline cursor-pointer">Profile</a></div>
 			<div class="flex-1"></div>
