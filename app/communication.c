@@ -162,6 +162,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			touchClick();
 			pthread_t pth;
 			pthread_create(&pth, NULL, cloudSetup1_t, (void *)el);
+			communicationString("{ \"a\":\"setup\", \"success\":1 }");
 #endif
 			return;
 		} else if (strcmp(action, "setup2") == 0) {
