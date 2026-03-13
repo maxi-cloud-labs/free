@@ -8,6 +8,8 @@ polkit.addRule(function(action, subject) {
 			return polkit.Result.YES;
 		if (action.id == "org.freedesktop.NetworkManager.settings.modify.system")
 			return polkit.Result.YES;
+		if (action.id == "org.freedesktop.NetworkManager.network-control")
+			return polkit.Result.YES;
 	}
 });
 
