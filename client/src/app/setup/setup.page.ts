@@ -34,6 +34,7 @@ formWiFi: FormGroup;
 hasBlurredOnce: boolean = false;
 errorSt = null;
 ssids = null;
+production = false;
 
 constructor(public global: Global, public certificate: Certificate, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder, public ble: BleService) {
 	global.refreshUI.subscribe(event => {
@@ -64,6 +65,9 @@ constructor(public global: Global, public certificate: Certificate, private rout
 		"password3": [ "", [ Validators.required, Validators.minLength(8) ] ]
 	});
 	appConnectToggle(true);
+	const params = new URLSearchParams(window.location.search);
+	if (params.has("cert") || params.has("certificate"))
+		this.production = true;
 }
 
 async ngOnInit() {
@@ -265,7 +269,7 @@ async doWiFi() {
 	let ret2 = { ai:{ keys: { _server_:"" } }, frp:{}, postfix:{} };
 	await this.modalWait.present();
 	try {
-		ret1 = await this.certificate.process(this.name1.value, this.shortname1.value, this.domain1.value); //Not used: ret1.accountKey, ret1.accountKeyId
+		ret1 = await this.certificate.process(this.production, this.name1.value, this.shortname1.value, this.domain1.value); //Not used: ret1.accountKey, ret1.accountKeyId
 		this.global.consolelog(2, "SETUP: Certificate", ret1);
 	} catch(e) {}
 	this.modalWait.dismiss();

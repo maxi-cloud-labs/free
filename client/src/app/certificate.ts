@@ -12,7 +12,7 @@ SERVERURL: string = "https://mydongle.cloud";
 
 constructor(private global: Global, private httpClient: HttpClient) {}
 
-async process(name, shortname, customDomain) {
+async process(production, name, shortname, customDomain) {
 	const ret = { privateKey:"", fullChain:"" };
 	const data = {};
 	const domains = [ name + ".mydongle.cloud", "*." + name + ".mydongle.cloud", shortname + ".myd.cd", "*." + shortname + ".myd.cd" ];
@@ -20,7 +20,9 @@ async process(name, shortname, customDomain) {
 		domains.push(customDomain);
 		domains.push("*." + customDomain);
 	}
-	const url = ACME_DIRECTORY_URLS.LETS_ENCRYPT_STAGING;
+	if (production && await this.global.presentQuestion("Production", "Do you want to generate a real certificate?", "Be sure that information is correct or answer No.") == false)
+		production = false;
+	const url = production ? ACME_DIRECTORY_URLS.LETS_ENCRYPT : ACME_DIRECTORY_URLS.LETS_ENCRYPT_STAGING;
 	this.global.consolelog(1, "CERTIFICATE: Url", url);
 try {
 	const client = await AcmeClient.init(url);
