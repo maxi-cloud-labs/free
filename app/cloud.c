@@ -25,16 +25,11 @@ static int inSetup = 0;
 char ipExternal[48] = "";
 
 //Functions
-static void updateIPExternal() {
-	getExternalIP(ipExternal);
-	PRINTF("IPExternal: %s\n", ipExternal);
-}
-
-void cloudInit() {
-	if (inSetup)
-		return;
-	if (strlen(ipExternal) == 0)
-		updateIPExternal();
+static void cloudInit_() {
+	if (strlen(ipExternal) == 0) {
+		getExternalIP(ipExternal);
+		PRINTF("IPExternal: %s\n", ipExternal);
+	}
 	pthread_mutex_lock(&cloudMutex);
 	PRINTF("CloudInit_\n");
 	cJSON *cloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
@@ -49,6 +44,12 @@ void cloudInit() {
 	cJSON_Delete(modules);
 	cJSON_Delete(modulesDefault);
 	pthread_mutex_unlock(&cloudMutex);
+}
+
+void cloudInit() {
+	if (inSetup)
+		return;
+	cloudInit_();
 }
 
 static void setup(int i, int total, char *name, int root, cJSON *modules) {
@@ -104,9 +105,12 @@ void setupLoop(int *i, int total, cJSON *cloud, cJSON *modulesDefault, cJSON *mo
 }
 
 static void wifiCallback() {
-	PRINTF("wifiCallback to reinit Better Auth\n");
-	char buf[1024];
-	downloadURLBuffer("http://localhost:8091/auth/reinit", buf, "Content-Type: application/json", NULL, NULL, NULL);
+	PRINTF("WifiCallback\n");
+	if (!inSetup) {
+		PRINTF("Reinit Better Auth\n");
+		char buf[1024];
+		downloadURLBuffer("http://localhost:8091/auth/reinit", buf, "Content-Type: application/json", NULL, NULL, NULL);
+	}
 }
 
 void cloudSetup1(cJSON *elSetup1, int doSetup2) {
@@ -192,9 +196,9 @@ void cloudSetup1(cJSON *elSetup1, int doSetup2) {
 	else {
 		cJSON_SetStringValue3(elCloud, "info", "setup", "done1");
 		jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
-		inSetup = 0;
-		cloudInit();
+		cloudInit_();
 		logicMessage(1, 1);
+		inSetup = 0;
 	}
 }
 
@@ -227,8 +231,8 @@ void cloudSetup2() {
 	cJSON_SetStringValue3(elCloud, "info", "setup", "done2");
 	jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
 	cJSON_Delete(elCloud);
-	inSetup = 0;
 	communicationString("{ \"a\":\"status\", \"progress\":100, \"module\":\"_setup_\", \"state\":\"finish\" }");
 	jingle();
 	logicMessage(1, 1);
+	inSetup = 0;
 }
