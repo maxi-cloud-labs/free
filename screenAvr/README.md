@@ -2,7 +2,7 @@
 
 ****mAxI.cloud** is your PERSONAL cloud** with mail, calendar, AI chatbot, collaborative office suite, video conference, web hosting, blog, photos, files exchange, every online service you need.
 
-mAxI.cloud gathers **150+ compiled and pre-configured** github or Open Source projects representing more than **4.8 million ⭐**.
+mAxI.cloud gathers **150+ compiled and pre-configured** github or Open Source projects representing more than **6.5 million ⭐**.
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
