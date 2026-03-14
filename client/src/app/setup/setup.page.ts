@@ -88,7 +88,7 @@ async handleBleMessage(data) {
 			this.progress = false;
 			this.cdr.detectChanges();
 			await this.global.presentAlert("Success!", "Your hardware is setting up!", "You will need to login now.");
-			document.location.href = "https://app." + this.name1.value + ".mydongle.cloud";
+			document.location.href = "https://app." + this.name1.value + ".maxi.cloud";
 		} else {
 			this.errorSt = "An error occured, please try again.";
 			this.progress = false;
@@ -164,7 +164,7 @@ async verifyDns(st) {
 	let res = false;
 	if (Array.isArray(ret)) 
 		ret.forEach((dns) => {
-			if (/^ns[1-2]\.mydongle\.cloud$/i.test(dns))
+			if (/^ns[1-2]\.maxi\.cloud$/i.test(dns))
 				res = true;
 		});
 	this.errorSt = res ? null : "DNS doesn't point correctly.";
@@ -278,7 +278,7 @@ async doWiFi() {
 		this.global.consolelog(2, "Master final", ret2);
 	} catch(e) {}
 	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-	const primary = this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".mydongle.cloud");
+	const primary = this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".maxi.cloud");
 	const data = {
 		a:"setup1",
 		betterauth: {

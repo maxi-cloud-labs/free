@@ -1,10 +1,10 @@
-<h1 align="center">MyDongle.Cloud, My Data, My sovereignty</h1>
+<h1 align="center">mAxI.cloud, My Data, My sovereignty</h1>
 
-****MyDongle.Cloud** is your PERSONAL cloud** with mail, calendar, AI chatbot, collaborative office suite, video conference, web hosting, blog, photos, files exchange, every online service you need.
+****mAxI.cloud** is your PERSONAL cloud** with mail, calendar, AI chatbot, collaborative office suite, video conference, web hosting, blog, photos, files exchange, every online service you need.
 
-MyDongle.Cloud gathers **150+ compiled and pre-configured** github or Open Source projects representing more than **4.8 million ⭐**.
+mAxI.cloud gathers **150+ compiled and pre-configured** github or Open Source projects representing more than **4.8 million ⭐**.
 
-<p align="center">🚀 <b>MyDongle.Cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
+<p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
 # Content of this folder
 `client` is the web client frontend app.

@@ -426,7 +426,7 @@ int downloadURLBuffer(char *url, char *buf, char *header, char *post, char *cook
 int getExternalIP(char *szIPExternal) {
 	char buf[1024];
 	buf[0] = '\0';
-	downloadURLBuffer("https://mydongle.cloud/master/ip.json", buf, NULL, NULL, NULL, NULL);
+	downloadURLBuffer("https://maxi.cloud/master/ip.json", buf, NULL, NULL, NULL, NULL);
 	char *quote3 = NULL;
 	char *quote4 = NULL;
 	char *quote1 = strchr(buf, '"');

@@ -8,7 +8,7 @@ fi
 echo "#Reset lobechat##################"
 systemctl stop lobechat.service
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 KEY_VAULTS_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 BETTER_AUTH_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)

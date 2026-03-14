@@ -15,7 +15,7 @@
 #define LOG_INFO 2
 #define LOG_VERBOSE 3
 
-struct mydonglePriv {
+struct donglePriv {
 	int debug;
 	int buzzerCount;
 	struct pwm_device *buzzerS;
@@ -27,11 +27,11 @@ struct mydonglePriv {
 	int ccnrst;
 };
 
-static struct mydonglePriv *myip;
+static struct donglePriv *myip;
 static struct timer_list my_timer_buzzer;
 
 static void dongle_workBuzzer(struct work_struct *w) {
-	struct mydonglePriv *ip = container_of(w, struct mydonglePriv, workBuzzer);
+	struct donglePriv *ip = container_of(w, struct donglePriv, workBuzzer);
 	if (ip->buzzerON) {
 		pwm_config(ip->buzzerS, 166000, 322000);
 		pwm_enable(ip->buzzerS);
@@ -40,7 +40,7 @@ static void dongle_workBuzzer(struct work_struct *w) {
 }
 
 static int inBuzzer;
-static void buzzer_(struct mydonglePriv *ip, int enable) {
+static void buzzer_(struct donglePriv *ip, int enable) {
 	ip->buzzerON = enable;
 	if (enable)
 		inBuzzer = 1;
@@ -52,7 +52,7 @@ static void my_timer_buzzer_callback(unsigned long data) {
 #else
 static void my_timer_buzzer_callback(struct timer_list *tl) {
 #endif
-	struct mydonglePriv *ip = myip;
+	struct donglePriv *ip = myip;
 	if (ip->buzzerCount >= 0)
 		ip->buzzerCount--;
 	if (ip->buzzerCount >= 0)
@@ -64,7 +64,7 @@ static void my_timer_buzzer_callback(struct timer_list *tl) {
 }
 
 static ssize_t write_buzzer(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	unsigned long i;
         if (kstrtoul(buf, 10, &i))
 		return -EINVAL;
@@ -78,7 +78,7 @@ static ssize_t write_buzzer(struct device *dev, struct device_attribute *attr, c
 static DEVICE_ATTR(buzzer, 0220, NULL, write_buzzer);
 
 static ssize_t write_buzzerFreq(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	unsigned long i;
         if (kstrtoul(buf, 10, &i))
 		return -EINVAL;
@@ -95,21 +95,21 @@ static ssize_t write_buzzerFreq(struct device *dev, struct device_attribute *att
 static DEVICE_ATTR(buzzerFreq, 0220, NULL, write_buzzerFreq);
 
 static ssize_t show_model(struct device *dev, struct device_attribute *attr, char *buf) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	return sprintf(buf, "%s", ip->model);
 }
 
 static DEVICE_ATTR(model, 0440, show_model, NULL);
 
 static ssize_t show_hardwareVersion(struct device *dev, struct device_attribute *attr, char *buf) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	return sprintf(buf, "%u\n", ip->hardwareVersion);
 }
 
 static DEVICE_ATTR(hardwareVersion, 0440, show_hardwareVersion, NULL);
 
 static ssize_t show_serial(struct device *dev, struct device_attribute *attr, char *buf) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	if (strcmp(ip->model, "Dongle Pro") == 0 || strstr(ip->model, "Raspberry Pi") != NULL) {
 		const char *sz = NULL;
 		of_property_read_string(of_root, "serial-number", &sz);
@@ -128,12 +128,12 @@ static ssize_t show_serial(struct device *dev, struct device_attribute *attr, ch
 static DEVICE_ATTR(serial, 0440, show_serial, NULL);
 
 static ssize_t show_debug(struct device *dev, struct device_attribute *attr, char *buf) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	return sprintf(buf, "%u\n", ip->debug);
 }
 
 static ssize_t write_debug(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	unsigned long i;
         if (kstrtoul(buf, 10, &i))
 		return -EINVAL;
@@ -154,12 +154,12 @@ static ssize_t write_printk(struct device *dev, struct device_attribute *attr, c
 static DEVICE_ATTR(printk, 0220, NULL, write_printk);
 
 static ssize_t show_ccreset(struct device *dev, struct device_attribute *attr, char *buf) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	return sprintf(buf, "%u\n", !gpio_get_value(ip->ccnrst));
 }
 
 static ssize_t write_ccreset(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	unsigned long i;
 		if (kstrtoul(buf, 10, &i))
 		return -EINVAL;
@@ -171,7 +171,7 @@ static ssize_t write_ccreset(struct device *dev, struct device_attribute *attr, 
 static DEVICE_ATTR(ccreset, 0660, show_ccreset, write_ccreset);
 
 static ssize_t write_buzzerClick(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	struct mydonglePriv *ip = dev_get_drvdata(dev);
+	struct donglePriv *ip = dev_get_drvdata(dev);
 	unsigned long i;
         if (kstrtoul(buf, 10, &i))
 		return -EINVAL;
@@ -206,14 +206,14 @@ int isDongle = 0;
 static int dongle_probe(struct platform_device *pdev) {
 	int ret;
 	struct device *dev = &pdev->dev;
-	struct mydonglePriv *ip = devm_kzalloc(dev, sizeof(struct mydonglePriv), GFP_KERNEL);
+	struct donglePriv *ip = devm_kzalloc(dev, sizeof(struct donglePriv), GFP_KERNEL);
 	if (!ip)
 		return -ENOMEM;
 	printk("Dongle: Enter probe\n");
 
 	isDongle = 1;
 	platform_set_drvdata(pdev, ip);
-	myip = (struct mydonglePriv *)ip;
+	myip = (struct donglePriv *)ip;
 	ip->debug = 0;
 	const char *mm;
 	of_property_read_string(of_root, "model", &mm); //Raspberry Pi Compute Module 5 Rev 1.0
@@ -245,7 +245,7 @@ static int dongle_probe(struct platform_device *pdev) {
 #endif
 	}
 	if (IS_ERR(ip->buzzerS))
-		printk("MyDongle-Dongle: Requesting PWM failed\n");
+		printk("Dongle: Requesting PWM failed\n");
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
 #define timer_setup setup_timer
@@ -261,7 +261,7 @@ static int dongle_probe(struct platform_device *pdev) {
 #endif
 	ret = gpio_request(ip->ccnrst, "CCNRST");
 	if (ret < 0) {
-		printk("MyDongle-Dongle: Failed to request GPIO %d for CCNRST\n", ip->ccnrst);
+		printk("Dongle: Failed to request GPIO %d for CCNRST\n", ip->ccnrst);
 		//return 0;
 	}
 	gpio_direction_output(ip->ccnrst, 1);
@@ -292,7 +292,7 @@ static void dongle_remove(struct platform_device *pdev) {
 
 	ret = del_timer(&my_timer_buzzer);
 	if (ret)
-		printk("MyDongle-Dongle: Timer buzzer still in use\n");
+		printk("Dongle: Timer buzzer still in use\n");
 
 	sysfs_remove_group(NULL, &dongle_attr_group);
 #if LINUX_VERSION_CODE <= KERNEL_VERSION(6,12,0)
@@ -325,6 +325,6 @@ static void __exit dongle_exit(void) {
 }
 module_exit(dongle_exit);
 
-MODULE_DESCRIPTION("Driver for MyDongle Cloud");
+MODULE_DESCRIPTION("Driver");
 MODULE_AUTHOR("Gregoire Gentil");
 MODULE_LICENSE("GPL");

@@ -15,8 +15,8 @@ if [ "m`id -u`" != "m0" ]; then
 	exit 0
 fi
 
-MANUFACTURER="MyDongle.Cloud"
-PRODUCT="MyDongle.Cloud `cat /dev/dongle_platform/model | sed 's/./\U&/'`"
+MANUFACTURER="mAxI.cloud"
+PRODUCT="mAxI.cloud `cat /dev/dongle_platform/model | sed 's/./\U&/'`"
 SERIAL=`cat /dev/dongle_platform/serial`
 VERSION=`cat /usr/local/modules/_core_/version.txt`
 MODEL=`cat /dev/dongle_platform/model`

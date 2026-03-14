@@ -9,7 +9,7 @@ echo "v VERSION:	Download VERSION"
 exit 0
 }
 
-BASEURL=https://github.com/MyDongleCloud/Free
+BASEURL=https://github.com/mAxIcloud/Free
 VERSION=LATEST
 SKIP=0
 while getopts hsv: opt; do

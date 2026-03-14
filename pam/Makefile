@@ -8,11 +8,11 @@ MYCC = $(QUIET)gcc
 MYLINKPP = $(QUIETLINK)gcc
 #DEBUG = -g -fsanitize=address -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
 PRE = ../build/_pam/
-MDC_VERSION=\"$(shell cat ../app/version.txt)\"
+APP_VERSION=\"$(shell cat ../app/version.txt)\"
 
 OBJs := $(PRE)cJSON.o $(PRE)pam.o
 
-MYCFLAGS = $(CFLAGS) -DMDC_VERSION=$(MDC_VERSION) -fPIC
+MYCFLAGS = $(CFLAGS) -DAPP_VERSION=$(APP_VERSION) -fPIC
 MYLDFLAGS = -shared -fPIC -lcurl
 
 .PHONY : clean

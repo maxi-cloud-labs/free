@@ -10,9 +10,9 @@ lazyInit();
 //Functions
 async function lazyInit() {
     const { cloud } = await import("./auth");
-	APP_NAME = "MyDongle.Cloud " + cloud?.info?.name;
-	APP_URL = "https://app." + cloud?.info?.name + ".mydongle.cloud";
-	APP_ADMIN = "admin@" + cloud?.info?.name + ".mydongle.cloud";
+	APP_NAME = "mAxI.cloud " + cloud?.info?.name;
+	APP_URL = "https://app." + cloud?.info?.name + ".maxi.cloud";
+	APP_ADMIN = "admin@" + cloud?.info?.name + ".maxi.cloud";
 }
 
 async function transporterInit() {

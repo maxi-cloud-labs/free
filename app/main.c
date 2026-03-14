@@ -104,8 +104,6 @@ int main(int argc, char *argv[]) {
 #endif
 #if !defined(DESKTOP) && !defined(WEB)
 	writeValueKey(PLATFORM_PATH, "printk", "start app");
-	chdir("/home/mdc/app");
-	setenv("HOME", "/home/mdc", 1);
 	if (ble)
 		bleStart();
 	buzzer(1);

@@ -7,7 +7,7 @@ fi
 
 echo "#Reset ente##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
@@ -72,7 +72,7 @@ apps:
     share: http://localhost:$PORTSHARE
 
 smtp:
-    host: smtp.${CLOUDNAME}.mydongle.cloud
+    host: smtp.${CLOUDNAME}.maxi.cloud
     port: 465
     username: ${EMAIL}
     password: ${SMTPPASSWD}

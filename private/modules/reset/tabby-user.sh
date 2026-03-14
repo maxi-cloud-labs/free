@@ -31,7 +31,7 @@ done
 echo "Doing tabby user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 URL2="https://aicode.${PRIMARY}"

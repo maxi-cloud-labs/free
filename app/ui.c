@@ -30,7 +30,7 @@ static char *szTips[] = {
 
 static char *szString[] = {
 "Rotation is not supported on the web demo.",
-"Congratulations! MyDongle is now ready",
+"Congratulations! mAxI is now ready",
 };
 
 //Functions
@@ -522,7 +522,7 @@ void uiScreenHome() {
 		doubleText(L("Serial"), serial, 28, 50);
 		snprintf(sz, 128, "https://%s", primary);
 		doubleText(NULL, sz, 42, 50);
-		snprintf(sz, 128, "https://%s.myd.cd", shortname);
+		snprintf(sz, 128, "https://%s.maxi.cloud", shortname);
 		doubleText(NULL, sz, 56, 50);
 		doubleText(L("Wi-Fi"), "XXXXX", 70, 50);
 		doubleText(L("Local"), internalIP, 84, 50);

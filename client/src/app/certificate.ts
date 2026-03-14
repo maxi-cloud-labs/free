@@ -8,14 +8,14 @@ import { Global } from './env';
 })
 
 export class Certificate {
-SERVERURL: string = "https://mydongle.cloud";
+SERVERURL: string = "https://maxi.cloud";
 
 constructor(private global: Global, private httpClient: HttpClient) {}
 
 async process(production, name, shortname, customDomain) {
 	const ret = { privateKey:"", fullChain:"" };
 	const data = {};
-	const domains = [ name + ".mydongle.cloud", "*." + name + ".mydongle.cloud", shortname + ".myd.cd", "*." + shortname + ".myd.cd" ];
+	const domains = [ name + ".maxi.cloud", "*." + name + ".maxi.cloud", shortname + ".maxi.cloud", "*." + shortname + ".maxi.cloud" ];
 	if (customDomain && customDomain != "") {
 		domains.push(customDomain);
 		domains.push("*." + customDomain);
@@ -26,7 +26,7 @@ async process(production, name, shortname, customDomain) {
 	this.global.consolelog(1, "CERTIFICATE: Url", url);
 try {
 	const client = await AcmeClient.init(url);
-	const account = await client.createAccount({ emails: ["acme@mydongle.cloud"] });
+	const account = await client.createAccount({ emails: ["acme@maxi.cloud"] });
 	const order = await account.createOrder({ domains });
 	const dns01Challenges = order.authorizations.map((authorization) => {
 		return authorization.findDns01Challenge();

@@ -8,7 +8,7 @@ fi
 echo "#Reset bugzilla##################"
 DATE=$(date +%s)
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/-" 12 1)
 
 rm -rf /disk/admin/modules/bugzilla

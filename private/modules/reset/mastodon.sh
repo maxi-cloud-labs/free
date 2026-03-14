@@ -7,7 +7,7 @@ fi
 
 echo "#Reset mastodon##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
 SECRET_KEY_BASE=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 64)
@@ -62,7 +62,7 @@ OTP_SECRET=${OTP_SECRET}
 REDIS_HOST=localhost
 REDIS_PORT=6379
 REDIS_PASSWORD=
-SMTP_SERVER=smtp.${CLOUDNAME}.mydongle.cloud
+SMTP_SERVER=smtp.${CLOUDNAME}.maxi.cloud
 SMTP_PORT=465
 SMTP_AUTH_METHOD=plain
 SMTP_LOGIN=${EMAIL}

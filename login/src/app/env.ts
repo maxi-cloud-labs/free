@@ -18,7 +18,7 @@ export class Global {
 developer: boolean = false;
 demo: boolean = false;
 VERSION: string = VERSION;
-SERVERURL: string = "https://mydongle.cloud";
+SERVERURL: string = "https://maxi.cloud";
 language;
 settings: Settings = {} as Settings;
 DONGLEURL: string;
@@ -29,11 +29,11 @@ darkVal = false;
 
 constructor(public plt: Platform, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private translate: TranslateService, private httpClient: HttpClient) {
 	this.developer = window.location.hostname == "localhost" && window.location.port == "8100";
-	this.consolelog(0, "%c⛅ MyDongle.Cloud: my data, my cloud, my sovereignty 🚀", "font-weight:bold; font-size:x-large;");
-	this.consolelog(0, "%cDocs: https://docs.mydongle.cloud", "font-weight:bold; font-size:large;");
+	this.consolelog(0, "%c⛅ mAxI cloud: my data, my cloud, my sovereignty 🚀", "font-weight:bold; font-size:x-large;");
+	this.consolelog(0, "%cDocs: https://docs.maxi.cloud", "font-weight:bold; font-size:large;");
 	this.consolelog(0, "%cVersion: " + this.VERSION, "background-color:#646464; border-radius:5px; padding:5px;");
 	this.consolelog(0, "%cPlease give a ⭐ to this project at:", "color:black; background-color:#fef9c2; border-radius:5px; padding:5px;");
-	this.consolelog(0, "%chttps://github.com/mydonglecloud/free", "border:1px solid white; border-radius:5px; padding:5px; font-weight:bold;");
+	this.consolelog(0, "%chttps://github.com/mAxIcloud/Free", "border:1px solid white; border-radius:5px; padding:5px; font-weight:bold;");
 	this.consolelog(1, "Platform: " + this.plt.platforms());
 	navCtrl.setDirection("forward");
 	translate.setDefaultLang("en");
@@ -86,7 +86,7 @@ domainFromFqdn(fqdn) {
 		return fqdn;
 	if (!isNaN(parts[parts.length - 1]))
 		return fqdn;
-	const sliceIndex = (parts[parts.length - 2] === "mydongle" || parts[parts.length - 2] === "mondongle" || parts[parts.length - 2] === "myd") ? -3 : -2;
+	const sliceIndex = (parts[parts.length - 2] === "maxi") ? -3 : -2;
 	return parts.slice(sliceIndex).join('.');
 }
 

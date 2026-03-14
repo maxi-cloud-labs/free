@@ -75,7 +75,7 @@ async doVerify(token) {
 	} catch(e) { alert("Wrong or expired delete link"); }
 	if (ret != null)
 		await this.global.presentAlert("Deletion", "Your account has been deleted.", ".");
-	document.location.href = "https://mydongle.cloud";
+	document.location.href = "https://maxi.cloud";
 }
 
 }

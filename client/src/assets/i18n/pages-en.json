@@ -1,6 +1,6 @@
 {
 	"about": {
-		"About MyDongle.Cloud": "",
+		"About mAxI.cloud": "",
 		"App Version:": "",
 		"Copyright": "",
 		"The developer mode is enabled.": ""
@@ -13,7 +13,7 @@
 		"Stats": "",
 		"System internal / external IP addresses:": "",
 		"Those are the AI settings. Your personal settings including your password can be tuned on the page:": "",
-		"Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.": ""
+		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": ""
 	},
 	"backup": {
 		"Backup": "",
@@ -107,7 +107,7 @@
 		"Forgot password?": "",
 		"Forgot your\nPassword?": "",
 		"I agree to the": "",
-		"Join this MyDongle Cloud!": "",
+		"Join this mAxI cloud!": "",
 		"Must be agreed": "",
 		"Must be at least 2 characters": "",
 		"Must be at least 6 characters": "",
@@ -204,7 +204,7 @@
 		"Language": "",
 		"Launch Setup": "",
 		"Module(s)": "",
-		"MyDongle.Cloud Keys": "",
+		"mAxI.cloud Keys": "",
 		"New User Sign-Up": "",
 		"Notification": "",
 		"Open the module": "",
@@ -238,7 +238,7 @@
 		"VPN Server": "",
 		"Wi-Fi": "",
 		"You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...": "",
-		"Your keys are stored on the system and are not sent to the mydongle.cloud servers. A request made with those keys doesn't transit via the mydongle.cloud servers.": ""
+		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": ""
 	},
 	"setup": {
 		"Admin": "",
@@ -309,7 +309,7 @@
 		"USER\nAPPROVED": ""
 	},
 	"wrapper": {
-		"The integration of this module is not yet finished. Check the next monthly release of MyDongle.Cloud.": "",
-		"This module is not accessible in the web demo. Download and run MyDongle.Cloud on your Raspberry Pi to experience the whole demo.": ""
+		"The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.": "",
+		"This module is not accessible in the web demo. Download and run mAxI.cloud on your Raspberry Pi to experience the whole demo.": ""
 	}
 }

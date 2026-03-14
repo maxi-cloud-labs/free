@@ -8,7 +8,7 @@ fi
 echo "#Reset osticket##################"
 DATE=$(date +%s)
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 DBPASSM=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
@@ -30,7 +30,7 @@ sed -i -e "s|^define.*SECRET_SALT.*|define('SECRET_SALT','${SALT}');|" /disk/adm
 
 s="install"
 name="Support Center"
-supportemail="support@${CLOUDNAME}.mydongle.cloud"
+supportemail="support@${CLOUDNAME}.maxi.cloud"
 fname="First Name"
 lname="Last Name"
 prefix="ost_"

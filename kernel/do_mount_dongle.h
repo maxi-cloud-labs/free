@@ -222,16 +222,16 @@ static int do_mount_dongle(int encryption) {
 	if (encryption)
 		crypt_folder(ROOTALL "/fs/upper");
 
-	/* Bind ROOTALL "/mdc.img" to the loop */
+	/* Bind ROOTALL "/os.img" to the loop */
 	memset(&loopinfo, 0, sizeof(loopinfo));
 	loopinfo.lo_offset = 0;
 
 	/* 0. Update squashfs */
-	ret = sys_statfs(ROOTALL "/fs/mdc.new.img", &buf);
+	ret = sys_statfs(ROOTALL "/fs/os.new.img", &buf);
 	if (ret == 0) {
 		reset = 1;
-		sys_rename(ROOTALL "/fs/mdc.new.img", ROOTALL "/fs/mdc.img");
-		printk("Dongle Mount Warning: Updating squashfs mdc.img\n");
+		sys_rename(ROOTALL "/fs/os.new.img", ROOTALL "/fs/os.img");
+		printk("Dongle Mount Warning: Updating squashfs os.img\n");
 	}
 
 	/* 0. Do we have reset? */
@@ -254,9 +254,9 @@ static int do_mount_dongle(int encryption) {
 
 
 	/* 1. Open the squashfs */
-	ffd = sys_open(ROOTALL "/fs/mdc.img", O_RDONLY, 0);
+	ffd = sys_open(ROOTALL "/fs/os.img", O_RDONLY, 0);
 	if (ffd < 0) {
-		printk("Dongle Mount Error: failed to open mdc.img %d\n", ffd);
+		printk("Dongle Mount Error: failed to open os.img %d\n", ffd);
 		return -6;
 	}
 

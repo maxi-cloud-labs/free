@@ -1,5 +1,5 @@
 ./boot/
-./home/mdc/app/
-./home/mdc/build/
-./home/mdc/kernel/
+./home/ai/app/
+./home/ai/build/
+./home/ai/kernel/
 ./var/cache/apt/

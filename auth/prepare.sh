@@ -82,7 +82,7 @@ else
 		"domain": "",
 		"language": "en",
 		"name": "johndoe",
-		"primary": "johndoe.mydongle.cloud",
+		"primary": "johndoe.maxi.cloud",
 		"setup": "done2",
 		"shortname": "jd"
 	},

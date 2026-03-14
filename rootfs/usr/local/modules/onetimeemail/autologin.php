@@ -121,7 +121,7 @@ if (isset($_COOKIE["jwt"])) {
 	$jwt = $_COOKIE["jwt"];
 	$payload = verifyJwt($jwt, $jwksPem);
 	if (!empty($payload)) {
-		$email = $payload["user"]["username"] . "@" . $payload["cloudname"] . ".mydongle.cloud";
+		$email = $payload["user"]["username"] . "@" . $payload["cloudname"] . ".maxi.cloud";
 	}
 }
 /*

@@ -1,9 +1,9 @@
 <div class="flex text--gray-900 h-full">
 	<app-sidebar title="About"></app-sidebar>
 	<div class="flex-1 flex flex-col">
-		<app-topbar [title]="L('About MyDongle.Cloud')"></app-topbar>
+		<app-topbar [title]="L('About mAxI.cloud')"></app-topbar>
 		<div class="p-6	flex flex-col gap-3 items-start">
-			<div long-press (press)="longCopyright()" class="font-bold cursor-pointer">&copy; {{L("Copyright")}} MyDongle.Cloud 2026.</div>
+			<div long-press (press)="longCopyright()" class="font-bold cursor-pointer">&copy; {{L("Copyright")}} mAxI.cloud 2026.</div>
 			<div>{{L("App Version:")}} {{global.VERSION}} ({{LG(global.getMonth(global.VERSION))}})</div>
 			<div *ngIf="global.developer">{{L("The developer mode is enabled.")}}</div>
 		</div>

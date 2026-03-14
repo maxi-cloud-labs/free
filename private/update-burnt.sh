@@ -33,13 +33,13 @@ if [ $RESET = 1 ]; then
 	rm -rf /tmp/2/admin
 fi
 mkdir /tmp/2b
-mount -t squashfs -o loop /tmp/2/fs/mdc.img /tmp/2/fs/lower
+mount -t squashfs -o loop /tmp/2/fs/os.img /tmp/2/fs/lower
 mount -t overlay -o lowerdir=/tmp/2/fs/lower,upperdir=/tmp/2/fs/upper,workdir=/tmp/2/fs/work none /tmp/2b
 
-rm -rf /tmp/2b/home/mdc/app/ /tmp/2b/home/mdc/moduleApache2/
-cp -a ../app/ ../moduleApache2/ /tmp/2b/home/mdc/
-chroot /tmp/2b sh -c 'cd home/mdc/app/ && make clean && make'
-chroot /tmp/2b sh -c 'cd home/mdc/moduleApache2/ && make clean && make'
+rm -rf /tmp/2b/home/admin/app/ /tmp/2b/home/admin/moduleApache2/
+cp -a ../app/ ../moduleApache2/ /tmp/2b/home/admin/
+chroot /tmp/2b sh -c 'cd home/admin/app/ && make clean && make'
+chroot /tmp/2b sh -c 'cd home/admin/moduleApache2/ && make clean && make'
 
 umount /tmp/2b
 rmdir /tmp/2b

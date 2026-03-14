@@ -48,7 +48,7 @@ get password1() { return this.formTwoFA.get("password1"); }
 async doTwoFA() {
 	this.progress = true;
 	this.errorSt = null;
-	const data = { password:this.password1.value, issuer:"MyDongle.Cloud" };
+	const data = { password:this.password1.value, issuer:"mAxI.cloud" };
 	const currentTwoFA = this.twoFA;
 	let ret = null;
 	try {

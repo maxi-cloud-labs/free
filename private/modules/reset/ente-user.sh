@@ -21,7 +21,7 @@ done
 echo "Doing ente user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-EMAIL="admin@${CLOUDNAME}.mydongle.cloud"
+EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PASSWD=$1
 
 data="{ \"email\": \"${EMAIL}\", \"password\": \"${PASSWD}\", \"confirmPassword\": \"${PASSWD}\", \"purpose\": \"signup\" }"

@@ -108,12 +108,12 @@ static void *bleStart_t(void *arg) {
 	if (pf) {
 		char sz[1024];
 		char nn[128];
-		snprintf(nn, sizeof(nn), "MyDongle-%s", "1234567890");
+		snprintf(nn, sizeof(nn), "mAxI-%s", "1234567890");
 		cJSON *cloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
 		if (cloud && cJSON_HasObjectItem(cloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(cloud, "info"), "name"))
-			snprintf(nn, 27, "MyDongle-%s", cJSON_GetStringValue2(cJSON_GetObjectItem(cloud, "info"), "name"));
+			snprintf(nn, 27, "mAxI-%s", cJSON_GetStringValue2(cJSON_GetObjectItem(cloud, "info"), "name"));
 		else
-			snprintf(nn, 27, "MyDongle-%s", szSerial);
+			snprintf(nn, 27, "mAxI-%s", szSerial);
 		cJSON_Delete(cloud);
 		snprintf(sz, sizeof(sz), "DEVICE=%s type=mesh node=2 address=%s\n", nn, bluetoothClassicAddr);
 		fwrite(sz, strlen(sz), 1, pf);

@@ -126,7 +126,7 @@ static remoteip_parse_status_t remoteip_process_v1_header(conn_rec *c, remoteip_
 #define GET_NEXT_WORD(field) \
 	word = apr_strtok(NULL, " ", &saveptr); \
 	if (!word) { \
-		/* PRINTFc("MDCIP: error no " field " found in header '%s'", hdr->v1.line); */ \
+		/* PRINTFc("APP: error no " field " found in header '%s'", hdr->v1.line); */ \
 		return HDR_ERROR; \
 	}
 
@@ -158,12 +158,12 @@ static remoteip_parse_status_t remoteip_process_v1_header(conn_rec *c, remoteip_
 		family = APR_INET6;
 		valid_addr_chars = "0123456789abcdefABCDEF:";
 #else
-		//PRINTFc("MDCIP: error unable to parse v6 address - APR is not compiled with IPv6 support");
+		//PRINTFc("APP: error unable to parse v6 address - APR is not compiled with IPv6 support");
 		return HDR_ERROR;
 #endif
 	}
 	else {
-		//PRINTFc("MDCIP: error unknown family '%s' in header '%s'", word, hdr->v1.line);
+		//PRINTFc("APP: error unknown family '%s' in header '%s'", word, hdr->v1.line);
 		return HDR_ERROR;
 	}
 
@@ -171,7 +171,7 @@ static remoteip_parse_status_t remoteip_process_v1_header(conn_rec *c, remoteip_
 	GET_NEXT_WORD("client-address")
 
 	if (strspn(word, valid_addr_chars) != strlen(word)) {
-		//PRINTFc("MDCIP: error invalid client-address '%s' found in " "header '%s'", word, hdr->v1.line);
+		//PRINTFc("APP: error invalid client-address '%s' found in " "header '%s'", word, hdr->v1.line);
 		return HDR_ERROR;
 	}
 
@@ -183,7 +183,7 @@ static remoteip_parse_status_t remoteip_process_v1_header(conn_rec *c, remoteip_
 	/* parse client-port */
 	GET_NEXT_WORD("client-port")
 	if (sscanf(word, "%hu", &port) != 1) {
-		//PRINTFc("MDCIP: error parsing port '%s' in header '%s'", word, hdr->v1.line);
+		//PRINTFc("APP: error parsing port '%s' in header '%s'", word, hdr->v1.line);
 		return HDR_ERROR;
 	}
 
@@ -194,7 +194,7 @@ static remoteip_parse_status_t remoteip_process_v1_header(conn_rec *c, remoteip_
 	ret = apr_sockaddr_info_get(&conn_conf->client_addr, host, family, port, 0, c->pool);
 	if (ret != APR_SUCCESS) {
 		conn_conf->client_addr = NULL;
-		//PRINTFc("MDCIP: error converting family '%d', host '%s'," " and port '%hu' to sockaddr; header was '%s'", family, host, port, hdr->v1.line);
+		//PRINTFc("APP: error converting family '%d', host '%s'," " and port '%hu' to sockaddr; header was '%s'", family, host, port, hdr->v1.line);
 		return HDR_ERROR;
 	}
 
@@ -234,7 +234,7 @@ static int remoteip_hook_pre_connection(conn_rec *c, void *csd) {
 		return DECLINED;
 	}
 
-	//PRINTFc("MDCIP: success connection to %s:%hu", c->local_ip, c->local_addr->port);
+	//PRINTFc("APP: success connection to %s:%hu", c->local_ip, c->local_addr->port);
 
 	/* this holds the resolved proxy info for this connection */
 	conn_conf = apr_pcalloc(c->pool, sizeof(*conn_conf));
@@ -264,7 +264,7 @@ static remoteip_parse_status_t remoteip_process_v2_header(conn_rec *c, remoteip_
 					ret = apr_sockaddr_info_get(&conn_conf->client_addr, NULL, APR_INET, ntohs(hdr->v2.addr.ip4.src_port), 0, c->pool);
 					if (ret != APR_SUCCESS) {
 						conn_conf->client_addr = NULL;
-						//PRINTFc("MDCIP: error creating sockaddr");
+						//PRINTFc("APP: error creating sockaddr");
 						return HDR_ERROR;
 					}
 
@@ -277,24 +277,24 @@ static remoteip_parse_status_t remoteip_process_v2_header(conn_rec *c, remoteip_
 					ret = apr_sockaddr_info_get(&conn_conf->client_addr, NULL, APR_INET6, ntohs(hdr->v2.addr.ip6.src_port), 0, c->pool);
 					if (ret != APR_SUCCESS) {
 						conn_conf->client_addr = NULL;
-						//PRINTFc("MDCIP: error creating sockaddr");
+						//PRINTFc("APP: error creating sockaddr");
 						return HDR_ERROR;
 					}
 					memcpy(&conn_conf->client_addr->sa.sin6.sin6_addr.s6_addr, hdr->v2.addr.ip6.src_addr, 16);
 					break;
 #else
-					//PRINTFc("MDCIP: error APR is not compiled with IPv6 support");
+					//PRINTFc("APP: error APR is not compiled with IPv6 support");
 					return HDR_ERROR;
 #endif
 				default:
 					/* unsupported protocol */
-					//PRINTFc("MDCIP: error unsupported protocol %.2hx", (unsigned short)hdr->v2.fam);
+					//PRINTFc("APP: error unsupported protocol %.2hx", (unsigned short)hdr->v2.fam);
 					return HDR_ERROR;
 			}
 			break; /* we got a sockaddr now */
 		default:
 			/* not a supported command */
-			//PRINTFc("MDCIP: error unsupported command %.2hx", (unsigned short)hdr->v2.ver_cmd);
+			//PRINTFc("APP: error unsupported command %.2hx", (unsigned short)hdr->v2.ver_cmd);
 			return HDR_ERROR;
 	}
 
@@ -302,7 +302,7 @@ static remoteip_parse_status_t remoteip_process_v2_header(conn_rec *c, remoteip_
 	ret = apr_sockaddr_ip_get(&conn_conf->client_ip, conn_conf->client_addr);
 	if (ret != APR_SUCCESS) {
 		conn_conf->client_addr = NULL;
-		//PRINTFc("MDCIP: error converting address to string");
+		//PRINTFc("APP: error converting address to string");
 		return HDR_ERROR;
 	}
 	return HDR_DONE;
@@ -360,13 +360,13 @@ static apr_status_t remoteip_input_filter(ap_filter_t *f, apr_bucket_brigade *bb
 
 			ret = ap_get_brigade(f->next, ctx->bb, ctx->mode, block, want);
 			if (ret != APR_SUCCESS) {
-				//PRINTFc("MDCIP: error failed reading input");
+				//PRINTFc("APP: error failed reading input");
 				return ret;
 			}
 
 			ret = apr_brigade_length(ctx->bb, 1, &got);
 			if (ret || got > want) {
-				//PRINTFc("MDCIP: error header too long, " "got %" APR_OFF_T_FMT " expected %" APR_OFF_T_FMT, got, want);
+				//PRINTFc("APP: error header too long, " "got %" APR_OFF_T_FMT " expected %" APR_OFF_T_FMT, got, want);
 				f->c->aborted = 1;
 				return APR_ECONNABORTED;
 			}
@@ -411,7 +411,7 @@ static apr_status_t remoteip_input_filter(ap_filter_t *f, apr_bucket_brigade *bb
 					ctx->need = MIN_V2_HDR_LEN +
 						remoteip_get_v2_len((proxy_header *) ctx->header);
 					if (ctx->need > sizeof(proxy_v2)) {
-						//PRINTFc("MDCIP: error protocol header length too long");
+						//PRINTFc("APP: error protocol header length too long");
 						f->c->aborted = 1;
 						apr_brigade_destroy(ctx->bb);
 						return APR_ECONNABORTED;
@@ -421,7 +421,7 @@ static apr_status_t remoteip_input_filter(ap_filter_t *f, apr_bucket_brigade *bb
 					psts = remoteip_process_v2_header(f->c, conn_conf, (proxy_header *) ctx->header);
 				}
 			} else {
-				//PRINTFc("MDCIP: error unknown version " "%d", ctx->version);
+				//PRINTFc("APP: error unknown version " "%d", ctx->version);
 				f->c->aborted = 1;
 				apr_brigade_destroy(ctx->bb);
 				return APR_ECONNABORTED;
@@ -429,7 +429,7 @@ static apr_status_t remoteip_input_filter(ap_filter_t *f, apr_bucket_brigade *bb
 
 			switch (psts) {
 				case HDR_ERROR:
-					//PRINTFc("MDCIP: success PROXY header not valid, switching to passthrough\n");
+					//PRINTFc("APP: success PROXY header not valid, switching to passthrough\n");
 					if (ctx->rcvd > 0) {
 						char *reinsert_data = apr_pmemdup(f->c->pool, ctx->header, ctx->rcvd);
 						apr_bucket *header_bucket = apr_bucket_heap_create(reinsert_data, ctx->rcvd, NULL, f->c->bucket_alloc);
@@ -454,9 +454,9 @@ static apr_status_t remoteip_input_filter(ap_filter_t *f, apr_bucket_brigade *bb
 			}
 		}
 	}
-	//PRINTFc("MDCIP: success PROXY header valid %s:%hu v%d", conn_conf->client_ip, conn_conf->client_addr->port, ctx->version);
+	//PRINTFc("APP: success PROXY header valid %s:%hu v%d", conn_conf->client_ip, conn_conf->client_addr->port, ctx->version);
 	if (ctx->rcvd > ctx->need || !APR_BRIGADE_EMPTY(ctx->bb)) {
-		//PRINTFc("MDCIP: error have data left over;  need=%" APR_SIZE_T_FMT ", rcvd=%" APR_SIZE_T_FMT ", brigade-empty=%d", ctx->need, ctx->rcvd, APR_BRIGADE_EMPTY(ctx->bb));
+		//PRINTFc("APP: error have data left over;  need=%" APR_SIZE_T_FMT ", rcvd=%" APR_SIZE_T_FMT ", brigade-empty=%d", ctx->need, ctx->rcvd, APR_BRIGADE_EMPTY(ctx->bb));
 		f->c->aborted = 1;
 		apr_brigade_destroy(ctx->bb);
 		return APR_ECONNABORTED;
@@ -474,7 +474,7 @@ static int remoteip_modify_request(request_rec *r) {
         c->client_addr = conn_config->client_addr;
         r->useragent_addr = conn_config->client_addr;
         r->useragent_ip = conn_config->client_ip;
-        //PRINTFr("MDCIP: success REMOTE_ADDR set to %s", conn_config->client_ip);
+        //PRINTFr("APP: success REMOTE_ADDR set to %s", conn_config->client_ip);
         return OK;
     }
     return DECLINED;

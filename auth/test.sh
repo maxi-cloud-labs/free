@@ -78,7 +78,7 @@ if [ $TWOFACTOR = 0 ]; then
 	echo $RET_TWOFACTOR | jq
 fi
 if [ $TWOFACTOR = 1 ]; then
-	RET_TWOFACTOR=`curl -sS --fail -b /tmp/cookie.txt -X POST http://localhost:8091/auth/two-factor/enable -H "Content-Type: application/json" -d '{"password":"demodemo", "issuer":"MyDongle.Cloud"}' -c /tmp/cookie.txt`
+	RET_TWOFACTOR=`curl -sS --fail -b /tmp/cookie.txt -X POST http://localhost:8091/auth/two-factor/enable -H "Content-Type: application/json" -d '{"password":"demodemo", "issuer":"mAxI.cloud"}' -c /tmp/cookie.txt`
 	echo $RET_TWOFACTOR | jq
 fi
 if [ $TWOFACTOR = 2 ]; then

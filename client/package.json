@@ -1,9 +1,9 @@
 {
-  "name": "MyDongle Cloud",
+  "name": "mAxI cloud",
   "version": "2025.01.01",
-  "author": "MyDongle Cloud",
-  "homepage": "https://mydongle.cloud",
-  "description": "The MyDongle Cloud project",
+  "author": "mAxI cloud",
+  "homepage": "https://maxi.cloud",
+  "description": "The mAxI cloud project",
   "scripts": {
     "ng": "ng",
     "postinstall": "patch-package",

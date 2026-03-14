@@ -73,7 +73,7 @@ html {
 	<div class="max-w-md w-full">
 		<div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
 			<div class="text-center mb-8 flex items-center flex-col">
-				<h1 class="flex flex-row items-center text-lg -mt-2 mb-4 font-bold"><img src="logo.png" class="w-10 h-10 mr-2 cursor-pointer" (click)="global.openPage('');"/> <span class="text-blue-600">My</span><span style class="text-blue-200">Dongle.</span><span class="text-blue-600">Cloud</span></h1>
+				<h1 class="flex flex-row items-center text-lg -mt-2 mb-4 font-bold"><img src="logo.png" class="w-10 h-10 mr-2 cursor-pointer" (click)="global.openPage('');"/><span class="text--blue-200">m</span><span class="text--blue-600">A</span><span class="text--blue-200">x</span><span class="text--blue-600 font-[monospace]">I</span><span class="text--blue-200">.cloud</span></h1>
 				<div class="flex items-center gap-2 mb-2">
 					<div class="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto">
 						<svg xmlns="http://www.w3.org/2000/svg" class="text-white w-10 h-10" viewBox="0 0 512 512">
@@ -83,7 +83,7 @@ html {
 					</div>
 					<h1 class="text-3xl font-bold text-left text-gray-900">Enter<br>Password</h1>
 				</div>
-				<p class="text-gray-600">Enter the password of your MyDongle.Cloud account</p>
+				<p class="text-gray-600">Enter the password of your mAxI.cloud account</p>
 			</div>
 			<form method="POST" action="#" onsubmit="return validateCredentials(event);" id="idForm" class="space-y-6">
 				<div>

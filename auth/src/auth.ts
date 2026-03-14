@@ -82,7 +82,7 @@ function start() {
 		writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
 
 	if (process.env.PRODUCTION === "true") {
-		trustedOrigins = [ "*.mydongle.cloud", "*.mondongle.cloud", "*.myd.cd" ];
+		trustedOrigins = [ "*.maxi.cloud" ];
 		if (cloud?.hardware?.info?.domain)
 			trustedOrigins.push("*." + cloud.info.domain);
 		if (cloud?.hardware && cloud.hardware.internalIP !== "")
@@ -94,7 +94,7 @@ function start() {
 
 async function getexternalIP() {
 	try {
-		let response = await fetch("https://mydongle.cloud/master/ip.json");
+		let response = await fetch("https://maxi.cloud/master/ip.json");
 		if (!response.ok)
 			response = await fetch("https://api.ipify.org?format=json");
 		if (response.ok) {
@@ -132,7 +132,7 @@ function findDomain(hostname) {
 	if (parts.length <= 2 || !isNaN(Number(parts[parts.length - 1])))
 		domain = fqdn;
 	else {
-		const sliceIndex = (parts[parts.length - 2] === "mydongle" || parts[parts.length - 2] === "mondongle" || parts[parts.length - 2] === "myd") ? -3 : -2;
+		const sliceIndex = (parts[parts.length - 2] === "maxi") ? -3 : -2;
 		domain = parts.slice(sliceIndex).join('.');
 	}
 	return domain;

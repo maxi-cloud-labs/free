@@ -226,12 +226,12 @@ if [ $FINAL = 1 ]; then
 	echo "*******************************************************"
 	echo -n "\e[31m"
 	cat <<EOF
-cd /var/www/mydonglecloud
+cd /var/www/maxi
 rm -rf app && tar -xjpf ~/a.tbz2 && rm ~/a.tbz2
 sed -i -e 's|<base href="/"|<base href="/app/"|' app/index.html
 
 RELEASE=`date +'%Y-%m-%m'`
-cd /var/www/mydonglecloud/firmware
+cd /var/www/maxi/firmware
 mkdir -p \$RELEASE
 cd \$RELEASE
 mv ~/flasher-m-final-s.img flasher-\$RELEASE.img

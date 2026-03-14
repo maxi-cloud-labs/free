@@ -47,7 +47,7 @@ async forwardWhenReady() {
 openUpgrade() {
 	let url = this.global.SERVERURL + "";
 	if (this.global.plt.is("android"))
-		url = "https://play.google.com/store/apps/details?id=cloud.mydongle.app";
+		url = "https://play.google.com/store/apps/details?id=cloud.maxi.app";
 	else if (this.global.plt.is("ios"))
 		url = "https://apps.apple.com/us/app/in-out-sport/id";
 	window.open(url, "_blank");

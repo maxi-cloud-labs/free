@@ -1,4 +1,4 @@
-myhostname = smtp.placeholder.mydongle.cloud
+myhostname = smtp.placeholder.maxi.cloud
 smtpd_banner = $myhostname ESMTP $mail_name
 biff = no
 append_dot_mydomain = no
@@ -34,7 +34,7 @@ inet_interfaces = all
 inet_protocols = all
 message_size_limit = 20480000
 
-relayhost = [server.mydongle.cloud]:466
+relayhost = [server.maxi.cloud]:466
 smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = hash:/disk/admin/modules/mail/relay
 smtp_sasl_security_options = noanonymous

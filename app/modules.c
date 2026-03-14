@@ -79,7 +79,7 @@ void modulesInit(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules, char *sz
 			if (pf) {
 				char sz[2048];
 				snprintf(sz, sizeof(sz), "\
-serverAddr = \"server.mydongle.cloud\"\n\
+serverAddr = \"server.maxi.cloud\"\n\
 serverPort = %d\n\
 auth.method = \"token\"\n\
 auth.tokenSource.type = \"file\"\n\

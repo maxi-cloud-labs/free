@@ -31,7 +31,7 @@
 		}
 	},
 	"_server_": {
-		"url": "https://aiproxy.mydongle.cloud",
+		"url": "https://aiproxy.maxi.cloud",
 		"models": {
 			"_codechat_": "_codechat_",
 			"_codecompletion_": "_codecompletion_",
