@@ -255,7 +255,7 @@ void getSerialID() {
 	strcpy(szSerial, "1234567890abcdef");
 #else
 	memset(szSerial, 0, 17);
-	readString(PLATFORM_PATH, "serialNumber", szSerial, 16);
+	readString(PLATFORM_PATH, "serial", szSerial, 16);
 #endif
 }
 
