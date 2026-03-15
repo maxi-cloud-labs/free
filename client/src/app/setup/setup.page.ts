@@ -35,6 +35,7 @@ hasBlurredOnce: boolean = false;
 errorSt = null;
 ssids = null;
 production = false;
+modalWaitMsg = "";
 
 constructor(public global: Global, public certificate: Certificate, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder, public ble: BleService) {
 	global.refreshUI.subscribe(event => {
@@ -87,7 +88,7 @@ async handleBleMessage(data) {
 		if (data.success === 1) {
 			this.progress = false;
 			this.cdr.detectChanges();
-			await this.global.presentAlert("Success!", "Your hardware is setting up!", "You will need to login now.");
+			await this.global.presentAlert("Success!", "Your hardware is setting up!", "You will need to login at https://" + this.name1.value + ".maxi.cloud");
 			document.location.href = "https://app." + this.name1.value + ".maxi.cloud";
 		} else {
 			this.errorSt = "An error occured, please try again.";
@@ -162,7 +163,7 @@ async verifyDns(st) {
 	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-dns.json", "domain=" + encodeURIComponent(st), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master dns", ret);
 	let res = false;
-	if (Array.isArray(ret)) 
+	if (Array.isArray(ret))
 		ret.forEach((dns) => {
 			if (/^ns[1-2]\.maxi\.cloud$/i.test(dns))
 				res = true;
@@ -267,12 +268,13 @@ async doWiFi() {
 	this.errorSt = null;
 	let ret1 = { fullChain:"", privateKey:"" };
 	let ret2 = { ai:{ keys: { _server_:"" } }, frp:{}, postfix:{} };
+	this.modalWaitMsg = "Retrieval of the https certificate:\nThis can take up to 30 seconds.";
 	await this.modalWait.present();
 	try {
 		ret1 = await this.certificate.process(this.production, this.name1.value, this.shortname1.value, this.domain1.value); //Not used: ret1.accountKey, ret1.accountKeyId
 		this.global.consolelog(2, "SETUP: Certificate", ret1);
+		this.modalWaitMsg = "The https certificate has been acquired.\nSending to hardware now...";
 	} catch(e) {}
-	this.modalWait.dismiss();
 	try {
 		ret2 = await this.httpClient.post(this.global.SERVERURL + "/master/setup-final.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value) + "&email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
 		this.global.consolelog(2, "Master final", ret2);

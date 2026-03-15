@@ -19,7 +19,7 @@
 				<p class="text--gray-600">{{L("Connect to your hardware and set it up")}}</p>
 			</div>
 			<form [formGroup]="formDomain" (ngSubmit)="doDomain();" class="space-y-6">
-				<button type="button" (click)="connectToggle()" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]" [class]="ble.connectedBLE == 2 ? 'bg--green-600' : ble.connectedBLE == 1 ? 'bg--red-600' : 'bg--blue-600'" *ngIf="ble.connectedWS != 2">
+				<button type="button" (click)="connectToggle()" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]" [class]="ble.connectedBLE == 2 ? 'bg--green-600' : ble.connectedBLE == 1 ? 'bg--red-600' : 'bg--blue-600'" *ngIf="ble.connectedWS != 2">
 					<ion-icon name="bluetooth-outline" class="text--white w-6 h-6"></ion-icon>
 					{{L(ble.connectedBLE == 2 ? "Connected" : ble.connectedBLE == 1 ? "Connecting" : "Connect via Bluetooth")}}
 				</button>
@@ -352,7 +352,7 @@
 		<div class="flex flex-col w-full items-center justify-center" style="height:25vw;">
 			<ion-icon name="cog-outline" class="animate-spin w-8 h-8"></ion-icon>
 			<span class="text-xl my-5">{{L("Please wait...")}}</span>
-			<span>{{L("Retrieval of the https certificate:")}}<br>{{L("This can take up to 30 seconds.")}}</span>
+			<span class="whitespace-pre-wrap">{{L(modalWaitMsg)}}</span>
 		</div>
 	</ng-template>
 </ion-modal>
