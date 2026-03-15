@@ -1,8 +1,11 @@
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, statSync, readFileSync, readdirSync, writeFileSync } from "fs";
 import { execSync } from "child_process";
 import { randomBytes, X509Certificate } from "crypto";
 import { WebSocket } from "ws";
 import { watch, FSWatcher } from "chokidar";
+import { totalmem, networkInterfaces } from "os";
+import { importJWK, KeyObject, exportSPKI } from "jose";
+import { fsSize, currentLoad, mem, networkStats } from "systeminformation";
 import { betterAuth, BetterAuthPlugin } from "better-auth";
 import { APIError, createAuthEndpoint, createAuthMiddleware, sensitiveSessionMiddleware } from "better-auth/api";
 import { username, customSession, emailOTP, magicLink, twoFactor, haveIBeenPwned, admin, jwt } from "better-auth/plugins";
@@ -10,11 +13,6 @@ import { sendMagicLinkEmail, sendVerificationEmail, sendPasswordResetVerificatio
 import { folderAndChildren } from "./tree";
 import Database from "better-sqlite3";
 import "dotenv/config";
-import fs from "fs";
-import * as net from "net";
-import * as jose from "jose";
-import * as os from "os";
-import * as si from "systeminformation";
 
 //Variables
 export const port = 8091;
@@ -42,7 +40,7 @@ async function initCloud() {
 	let needSave = false;
 	if (cloud?.hardware?.model == "") {
 		try {
-			const data = await si.fsSize();
+			const data = await fsSize();
 			cloud.hardware.disk = data.find(d => d.mount === "/disk")?.fs;
 			cloud.hardware.mem = Math.round(totalmem() / (1024 ** 3));
 			cloud.hardware.model = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
@@ -109,9 +107,9 @@ async function getexternalIP() {
 }
 
 function getinternalIP() {
-	const networkInterfaces = os.networkInterfaces();
-	for (const name of Object.keys(networkInterfaces)) {
-		const addresses = networkInterfaces[name];
+	const networkInterfaces_ = networkInterfaces();
+	for (const name of Object.keys(networkInterfaces_)) {
+		const addresses = networkInterfaces_[name];
 		if (addresses)
 			for (const address of addresses)
 				if (address.family === "IPv4" && !address.internal)
@@ -285,7 +283,7 @@ function extraEndpoints(): BetterAuthPlugin {
 					const groups = execSync("id -Gn").toString();
 					if (groups.split(" ").includes("sudo") != ctx.body?.security?.adminSudo)
 						execSync("sudo /usr/local/modules/_core_/reset.sh -s " + (ctx.body?.security?.adminSudo ? 1 : 0));
-					const cloud = JSON.parse(fs.readFileSync(cloudPath, "utf-8"));
+					const cloud = JSON.parse(readFileSync(cloudPath, "utf-8"));
 					Object.entries(ctx.body).forEach(([key, value]) => { cloud[key] = value; });
 					writeFileSync(cloudPath, JSON.stringify(cloud, null, "\t"), "utf-8");
 					ret = true;
@@ -326,7 +324,7 @@ function extraEndpoints(): BetterAuthPlugin {
 			}, async(ctx) => {
 				if (ctx.context.session?.user?.role != "admin")
 					return new Response("", { status:500 });
-				return new Response(fs.readFileSync(sshKeysPath, "utf8"), { status:200 });
+				return new Response(readFileSync(sshKeysPath, "utf8"), { status:200 });
 			}),
 
 			settingsCertificateInfo: createAuthEndpoint("/settings/certificate-info", {
@@ -336,7 +334,7 @@ function extraEndpoints(): BetterAuthPlugin {
 				if (ctx.context.session?.user?.role != "admin")
 					return Response.json({ status:"error" }, { status:200 });
 				try {
-					const certData = fs.readFileSync(certificatePath);
+					const certData = readFileSync(certificatePath);
 					const cert = new X509Certificate(certData);
 					return Response.json({
 						"status":"success",
@@ -420,7 +418,7 @@ function extraEndpoints(): BetterAuthPlugin {
 					usersNb = result?.count;
 				}
 				ret["users"] = { count: usersNb };
-				const dataLoad = await si.currentLoad();
+				const dataLoad = await currentLoad();
 				ret["cpu"] = {
 					current: {
 						user: parseFloat(dataLoad.currentLoadUser.toFixed(2)), //%
@@ -430,7 +428,7 @@ function extraEndpoints(): BetterAuthPlugin {
 					},
 					average: parseFloat(dataLoad.avgLoad.toFixed(2)) //%
 				};
-				const dataMem = await si.mem();
+				const dataMem = await mem();
 				ret["mem"] = {
 					total: (dataMem.total / (1000 * 1000)).toFixed(0), //MB
 					used: (dataMem.active / (1000 * 1000)).toFixed(0), //MB
@@ -441,8 +439,8 @@ function extraEndpoints(): BetterAuthPlugin {
 						available: (dataMem.swapfree / (1000 * 1000)).toFixed(0) //MB
 					}
 				};
-				const dataStorage_ = await si.fsSize();
-				const dataStorage = dataStorage_.find(fs => fs.mount === "/");
+				const dataStorage_ = await fsSize();
+				const dataStorage = dataStorage_.find(fs_ => fs_.mount === "/");
 				if (dataStorage)
 					ret["storage"] = {
 						usage: parseFloat(dataStorage.use.toFixed(2)), //%
@@ -450,7 +448,7 @@ function extraEndpoints(): BetterAuthPlugin {
 						used: parseFloat((dataStorage.used / (1000 * 1000)).toFixed(0)), //MB
 						available: parseFloat((dataStorage.available / (1000 * 1000)).toFixed(0)) //MB
 					};
-				const dataNetwork_ = await si.networkStats();
+				const dataNetwork_ = await networkStats();
 				let dataNetwork;
 				dataNetwork = dataNetwork_.find(nw => nw.iface === "wlan0");
 				if (!dataNetwork)
@@ -483,18 +481,18 @@ function extraEndpoints(): BetterAuthPlugin {
 					path = path.replace(/\/[^/]+\/\.\.\//g, "/");
 				path = path.replace(/^\/\.\.\/|\/\.\.\/?$/, "");
 				const fullPath = rootPath + path;
-				const stats = fs.statSync(fullPath);
+				const stats = statSync(fullPath);
 				if (stats.isDirectory())
 					return Response.json(folderAndChildren(fullPath), { status:200 });
 				else
-					return new Response(fs.readFileSync(fullPath, "utf8"), { status:200 });
+					return new Response(readFileSync(fullPath, "utf8"), { status:200 });
 			}),
 
 			modulesData: createAuthEndpoint("/modules/data", {
 				method: "GET",
 				use: [sensitiveSessionMiddleware]
 			}, async(ctx) => {
-				return new Response(fs.readFileSync(modulesPath, "utf-8"), { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
+				return new Response(readFileSync(modulesPath, "utf-8"), { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
 			}),
 
 			modulesPermissions: createAuthEndpoint("/module/permissions", {
@@ -503,7 +501,7 @@ function extraEndpoints(): BetterAuthPlugin {
 			}, async(ctx) => {
 				let ret;
 				try {
-					const modules = JSON.parse(fs.readFileSync(modulesPath, "utf-8"));
+					const modules = JSON.parse(readFileSync(modulesPath, "utf-8"));
 					Object.entries(ctx.body).forEach(([key, value]) => {
 						if (!modules[key])
 							modules[key] = {};
@@ -568,7 +566,7 @@ function extraEndpoints(): BetterAuthPlugin {
 			}, async(ctx) => {
 				let ret;
 				try {
-					ret = JSON.parse(fs.readFileSync("/disk/admin/modules/_config_/" + ctx.body?.module + ".json", "utf8"));
+					ret = JSON.parse(readFileSync("/disk/admin/modules/_config_/" + ctx.body?.module + ".json", "utf8"));
 				} catch (e) {
 					ret = { status:"error" };
 				}
@@ -582,12 +580,12 @@ function extraEndpoints(): BetterAuthPlugin {
 				let ret = {};
 				try {
 					if (ctx.body?.all) {
-						const files = fs.readdirSync("/var/log/apache2/");
+						const files = readdirSync("/var/log/apache2/");
 						const matchingFiles = files.filter(file => /^stats-.*\.json$/.test(file));
 						for (const file of matchingFiles)
-							ret[file.replace("stats-", "").replace(".json", "")] = JSON.parse(fs.readFileSync("/var/log/apache2/" + file, "utf8"));
+							ret[file.replace("stats-", "").replace(".json", "")] = JSON.parse(readFileSync("/var/log/apache2/" + file, "utf8"));
 					} else
-						ret = JSON.parse(fs.readFileSync("/var/log/apache2/stats-" + ctx.body?.module + ".json", "utf8"));
+						ret = JSON.parse(readFileSync("/var/log/apache2/stats-" + ctx.body?.module + ".json", "utf8"));
 				} catch (e) {
 					ret = { status:"error" };
 				}
@@ -599,8 +597,8 @@ function extraEndpoints(): BetterAuthPlugin {
 			}, async(ctx) => {
 				const jwksRes = await fetch("http://localhost:" + port + "/auth/jwks");
 				const jwks = await jwksRes.json();
-				const key = await jose.importJWK(jwks.keys[0], "ES256") as jose.KeyObject;
-				const pem = await jose.exportSPKI(key);
+				const key = await importJWK(jwks.keys[0], "ES256") as KeyObject;
+				const pem = await exportSPKI(key);
 				return new Response(pem, { status:200 });
 			})
 		}
