@@ -157,6 +157,32 @@ async presentAlert(hd, st, msg, key:string = "") {
 //	}
 }
 
+async presentQuestion(hd, st, msg, key:string = "") {
+//	if (this.settings.dontShowAgain?.[key] !== undefined)
+//		return false;
+	let checked = false;
+	let yesClicked = false;
+	const question = await this.alertCtrl.create({
+		cssClass: "white-space-pre-wrap",
+		header: hd,
+		subHeader: st,
+		message: msg,
+		buttons: [{
+			text: "Yes", handler: (data) => { yesClicked = true; if (data !== undefined && data.length > 0 && data[0]) checked = true; }
+		}, {
+			text: "No", cssClass: "secondary", handler: (data) => { yesClicked = false; if (data !== undefined && data.length > 0 && data[0]) checked = true; }
+		}],
+		inputs: key != "" ? [{ label:"Don't show again", type:"checkbox", checked:false, value:true }] : []
+	});
+	await question.present();
+	await question.onDidDismiss();
+//	if (checked) {
+//		this.settings.dontShowAgain[key] = true;
+//		this.settingsSave();
+//	}
+	return yesClicked;
+}
+
 async changeLanguage(st) {
 	if (st != this.language) {
 		this.language = st;
