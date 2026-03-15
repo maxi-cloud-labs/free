@@ -175,15 +175,14 @@ sync
 losetup -d ${LOSETUP}
 sync
 sync
-losetup --partscan --show ${LOSETUP} ${PP}/build/img/flasher-m${POSTNAME}-s.img
+losetup --partscan --show --direct-io=on ${LOSETUP} ${PP}/build/img/flasher-m${POSTNAME}-s.img
 if [ $? != 0 ]; then
 	echo "ERROR losetup"
 	exit 1
 fi
 mkfs.fat -F 32 ${LOSETUP}p1
 fatlabel ${LOSETUP}p1 bootfs
-mkfs.ext4 ${LOSETUP}p2
-tune2fs -O encrypt ${LOSETUP}p2
+mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 ${LOSETUP}p2
 e2label ${LOSETUP}p2 rootfs
 sync
 umount ${LOSETUP}*
@@ -194,9 +193,13 @@ cp ${PP}/build/img/initramfs_2712 /tmp/1
 mount ${LOSETUP}p2 /tmp/2
 rm -rf /tmp/2/lost+found/
 mkdir -p /tmp/2/fs/upper/ /tmp/2/fs/lower/ /tmp/2/fs/overlay/ /tmp/2/fs/work/
-rsync -ah --info=progress2 /tmp/os${POSTNAME}.img /tmp/2/fs/
+DATESTARTS=`date +%s`
+dd if=/tmp/os${POSTNAME}.img of=/tmp/2/fs/os${POSTNAME}.img bs=16M oflag=direct status=progress
 sync
 sync
+DATEFINISHS=`date +%s`
+DELTAS=$((DATEFINISHS - DATESTARTS))
+echo "Copy done in $((DELTAS / 60))m $((DELTAS % 60))s"
 umount ${LOSETUP}*
 umount ${LOSETUP}*
 e2fsck -f -p ${LOSETUP}p2
