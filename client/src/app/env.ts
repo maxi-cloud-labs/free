@@ -47,6 +47,11 @@ setupUIProgress = 0;
 setupUIDesc = "";
 
 constructor(public plt: Platform, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private menu: MenuController, private translate: TranslateService, public popoverController: PopoverController, private httpClient: HttpClient) {
+	if (!this.splashDone) {
+		const params = new URLSearchParams(window.location.search);
+		if (params.get("dev") != null)
+			this.developerSet(true);
+	}
 	this.httpClient.get("assets/modulesmeta.json").toPromise().then(data => { this.modulesMeta = data; });
 	this.httpClient.get("assets/modulesdefault.json").toPromise().then(data => { this.modulesDefault = data; });
 	this.developer = this.developerGet();
@@ -631,11 +636,6 @@ statsStopPolling() {
 
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 	this.activateUrl = state.url;
-	if (!this.splashDone) {
-		const params = new URLSearchParams(window.location.search);
-		if (params.get("dev") != null)
-			this.developerSet(true);
-	}
 	return this.splashDone ? true : this.router.navigate(["/splash"]);
 }
 
