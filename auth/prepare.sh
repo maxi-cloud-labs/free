@@ -74,6 +74,7 @@ else
 		},
 		"internalIP": "",
 		"externalIP": "",
+		"mem": "31",
 		"model": "PC",
 		"serial": "1234567890abcdef",
 		"timezone": "America/Los_Angeles"

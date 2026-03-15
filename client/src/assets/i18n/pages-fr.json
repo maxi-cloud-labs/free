@@ -201,6 +201,7 @@
 		"First-time setup is needed...": "L'installation initiale doit être accomplie...",
 		"Free Usage": "Utilisation gratuite",
 		"General" : "Général",
+		"It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD.": "Il semble que vous utilisez une carte SD. Cet OS requiert un disque haute performance, aussi recommandons-nous d'utilser un disque NVMe SSD.",
 		"Language" : "Langue",
 		"Launch Setup": "Démarrer l'Installation",
 		"Module(s)": "Module(s)",
@@ -227,6 +228,7 @@
 		"System internal / external IP addresses:": "Adresses IP interne et externe du système :",
 		"System Time:": "Heure du Système",
 		"The system can act as a VPN server, meaning that you connect to, get and use its IP address.": "Le sytème peut jouer le rôle de serveur VPN, c'est à dire de vous connecter, obtenir et utiliser son adresse IP.",
+		"This OS requires at least 8GB of RAM.": "Cet OS requiert au moins 8GB de mémoire vive",
 		"Those are the system settings. Your personal settings including your password can be tuned on the page:": "Ceux sont les paramètres du système. Les paramètres personnels de dont le mot de passe peuvent être modifiés sur la page :",
 		"Time Zone": "Fuseau Horaire",
 		"Torrent": "Torrent",
@@ -236,6 +238,7 @@
 		"VPN": "VPN",
 		"VPN Client": "Client VPN",
 		"VPN Server": "Serveur VPN",
+		"Warning!!!": "Avertissement !!!",
 		"Wi-Fi": "Wi-Fi",
 		"You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...": "Vous pouvez utiliser n'importe quel VPN commercial tel que NordVPN, PIA, ProtonVPN...",
 		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": "Vos clefs sont stoquées sur le système et ne sont pas envoyées sur les serveurs maxi.cloud. Une requête effectuée avec ces clefs ne transite pas via les serveurs maxi.cloud."

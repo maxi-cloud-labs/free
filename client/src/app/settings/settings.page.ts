@@ -14,6 +14,8 @@ L(st) { return this.global.mytranslate(st); }
 tabs = ["general", "domains", "connectivity", "vpn", "security"];
 activeTab = this.tabs[0];
 @ViewChild("modalAlert") modalAlert: IonModal;
+noNvme = false;
+lowRAM = false;
 adminSudo;
 sshKeys = "";
 dSshKeys = true;
@@ -46,7 +48,9 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 }
 
 ngAfterViewInit() {
-	if (!this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/nvme"))
+	this.noNvme = !this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/nvme");
+	this.lowRAM = this.global.session?.cloud?.hardware?.mem < 8;
+	if (this.noNvme || this.lowRAM)
 		this.modalAlert.present();
 }
 

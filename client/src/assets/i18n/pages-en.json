@@ -201,6 +201,7 @@
 		"First-time setup is needed...": "",
 		"Free Usage": "",
 		"General": "",
+		"It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD.": "",
 		"Language": "",
 		"Launch Setup": "",
 		"Module(s)": "",
@@ -227,6 +228,7 @@
 		"System internal / external IP addresses:": "",
 		"System Time:": "",
 		"The system can act as a VPN server, meaning that you connect to, get and use its IP address.": "",
+		"This OS requires at least 8GB of RAM.": "",
 		"Those are the system settings. Your personal settings including your password can be tuned on the page:": "",
 		"Time Zone": "",
 		"Torrent": "",
@@ -236,6 +238,7 @@
 		"VPN": "",
 		"VPN Client": "",
 		"VPN Server": "",
+		"Warning!!!": "",
 		"Wi-Fi": "",
 		"You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...": "",
 		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": ""

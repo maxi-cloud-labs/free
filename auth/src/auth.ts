@@ -44,6 +44,7 @@ async function initCloud() {
 		try {
 			const data = await si.fsSize();
 			cloud.hardware.disk = data.find(d => d.mount === "/disk")?.fs;
+			cloud.hardware.mem = Math.round(totalmem() / (1024 ** 3));
 			cloud.hardware.model = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
 			cloud.hardware.serial = readFileSync("/dev/dongle_platform/serial", "utf-8").trimEnd();
 			needSave = true;
