@@ -4,10 +4,10 @@
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from--gray-50 via--white to--blue-50 py-12 px-4 sm:px-6 lg:px-8" [class]="ready ? '' : 'hidden'">
 	<div class="max-w-md w-full">
 		<div class="bg--main rounded-2xl shadow-xl border border--gray-300 p-8">
-			@if (!showEmailSent) {
+			@if (!showSuccess) {
 			<div>
 				<div class="text-center mb-8 flex items-center flex-col">
-					<div class="flex items-center text-lg -mt-2 mb-4 font-bold"><img src="assets/images/logo.png" class="w-10 h-10 mr-2"><span class="text--blue-600">My</span><span style class="text--blue-200">Dongle.</span><span class="text--blue-600">Cloud</span></div>
+					<div class="flex items-center text-lg -mt-2 mb-4 font-bold"><img src="assets/images/logo.png" class="w-10 h-10 mr-2"><span class="text--blue-200">m</span><span class="text--blue-600">A</span><span class="text--blue-200">x</span><span class="text--blue-600 font-[monospace]">I</span><span class="text--blue-200">.cloud</span></div>
 					<div class="flex items-center gap-2 mb-2">
 						<div class="bg--blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto">
 							<ion-icon name="lock-closed-outline" class="text--white w-10 h-10"></ion-icon>
@@ -16,19 +16,36 @@
 					</div>
 					<p class="text--gray-600">{{L("WARNING! DANGER! Account deletion cannot be undone.")}}</p>
 				</div>
-				<form [formGroup]="formEmail" (ngSubmit)="doSendEmail()" class="space-y-6">
+				<form [formGroup]="formDelete" (ngSubmit)="doDelete()" class="space-y-6">
 					<div>
-						<label for="email" class="block text-sm font-medium text--gray-700 mb-2">{{L("Email address")}}</label>
+						<label for="name1" class="block text-sm font-medium text--gray-700">{{L("Primary Cloud URL")}}</label>
 						<div class="relative">
 							<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-								<ion-icon name="at-outline" class="text--gray-500 w-4 h-4"></ion-icon>
+								<ion-icon name="globe-outline" class="text--gray-500 w-4 h-4"></ion-icon>
 							</div>
-							<input #emailE (blur)="handleBlur($event, email)" type="email" formControlName="email" autocomplete="email" required class="block w-full pl-10 pr-3 py-3 border border--gray-300 rounded-xl placeholder--gray-400 focus:outline-none focus:ring-2 focus:ring--blue-500 focus:border-transparent transition-colors duration-200 text--gray-900"
-								placeholder="Enter your email address"
-								[class.border--red-300]="email?.invalid && email?.touched"
-								[class.focus:ring--red-500]="email?.invalid && email?.touched">
+							<input #name1E (blur)="handleBlur($event, name1)" type="text" formControlName="name1" autocomplete="name" required class="block w-full pl-10 pr-3 py-3 border border--gray-300 rounded-xl placeholder--gray-400 focus:outline-none focus:ring-2 focus:ring--blue-700 focus:border-transparent transition-colors duration-200 text--gray-900" placeholder="Enter your cloud name" [class.border--red-300]="name1?.invalid && name1?.touched" [class.focus:ring--red-500]="name1?.invalid && name1?.touched">
 						</div>
-						@if (email?.invalid && email?.touched) {
+						@if (name1?.invalid && (name1?.touched || name1?.value?.length >= 1)) {
+						<div class="flex items-center gap-1 text--red-500 text-sm mt-2">
+							<ion-icon name="alert-circle-outline" class="text--red-500 w-5 h-5"></ion-icon>
+							{{L("Must have 5-20 characters: a-z, 0-9")}}
+						</div>
+						} @else if (name1?.value.length >= 6) {
+						<label for="name1" class="block text-sm font-medium text--gray-500 mt-1">https://{{name1?.value}}.maxi.cloud</label>
+						}
+					</div>
+					<div>
+						<label for="email1" class="block text-sm font-medium text--gray-700 mb-2">{{L("Email address")}}</label>
+						<div class="relative">
+							<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+								<ion-icon name="mail-outline" class="text--gray-500 w-4 h-4"></ion-icon>
+							</div>
+							<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="block w-full pl-10 pr-3 py-3 border border--gray-300 rounded-xl placeholder--gray-400 focus:outline-none focus:ring-2 focus:ring--blue-500 focus:border-transparent transition-colors duration-200 text--gray-900"
+								placeholder="Enter your email address"
+								[class.border--red-300]="email1?.invalid && email1?.touched"
+								[class.focus:ring--red-500]="email1?.invalid && email1?.touched">
+						</div>
+						@if (email1?.invalid && email1?.touched) {
 						<div class="flex items-center gap-1 text--red-500 text-sm mt-2">
 							<ion-icon name="alert-circle-outline" class="text--red-500 w-5 h-5"></ion-icon>
 							{{L("Please enter a valid email address")}}
@@ -43,13 +60,13 @@
 						</div>
 					</div>
 					}
-					<button type="submit" [disabled]="progress || formEmail.invalid" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02] cursor-pointer">
+					<button type="submit" [disabled]="progress || formDelete.invalid" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02] cursor-pointer">
 						@if (progress) {
 						<ion-icon name="cog-outline" class="animate-spin text--white w-6 h-6"></ion-icon>
-						{{L("Sending delete link...")}}
+						{{L("Deleting...")}}
 						} @else {
-						<ion-icon name="mail-unread-outline" class="text--white w-6 h-6"></ion-icon>
-						{{L("Send delete link")}}
+						<ion-icon name="trash-outline" class="text--white w-6 h-6"></ion-icon>
+						{{L("Delete Cloud")}}
 						}
 					</button>
 				</form>
@@ -60,10 +77,8 @@
 					class="w-16 h-16 bg--green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
 					<ion-icon name="checkmark-outline" class="text--white w-8 h-8"></ion-icon>
 				</div>
-				<h1 class="text-3xl font-bold text--gray-900 mb-4">{{L("Check your email")}}</h1>
-				<p class="text--gray-600 mb-6">
-					{{L("A delete link has been sent to")}} <span class="font-semibold text--gray-900">{{ email.value }}</span>
-				</p>
+				<h1 class="text-3xl font-bold text--gray-900 mb-4">{{L("Deletion successful")}}</h1>
+				<p class="text--gray-600 mb-6">{{L("This cloud has been deleted.")}}</p>
 			</div>
 			}
 		</div>

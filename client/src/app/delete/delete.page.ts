@@ -12,17 +12,19 @@ import { Global } from '../env';
 
 export class Delete {
 L(st) { return this.global.mytranslate(st); }
-@ViewChild("emailE") emailE: ElementRef;
+@ViewChild("name1E") name1E: ElementRef;
+@ViewChild("email1E") email1E: ElementRef;
 ready:boolean = false;
 progress:boolean = false;
-showEmailSent: boolean = false;
-formEmail: FormGroup;
+showSuccess: boolean = false;
+formDelete: FormGroup;
 hasBlurredOnce: boolean = false;
 errorSt = null;
 
 constructor(public global: Global, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder) {
-	this.formEmail = fb.group({
-		"email": ["", [Validators.required, Validators.email]]
+	this.formDelete = fb.group({
+		"name1": [ "", [ Validators.required, this.checkname1 ] ],
+		"email1": [ "", [ Validators.required, Validators.email ] ]
 	});
 	this.init();
 }
@@ -37,45 +39,32 @@ handleBlur(event, element) {
 }
 
 async init() {
-	const params = new URLSearchParams(window.location.search);
-	if (params.has("token")) {
-		await this.doVerify(params.get("token"));
-		return;
-	}
 	this.ready = true;
 	this.hasBlurredOnce = false;
 	this.errorSt = null;
-	setTimeout(() => { this.emailE.nativeElement.focus(); }, 100);
+	setTimeout(() => { this.name1E.nativeElement.focus(); }, 100);
 }
 
-get email() { return this.formEmail.get("email"); }
+checkname1(group: FormGroup) {
+	return /[a-z0-9]{5,20}$/i.test(group.value) ? null : {"invalid": true};
+}
 
-async doSendEmail() {
+get name1() { return this.formDelete.get("name1"); }
+get email1() { return this.formDelete.get("email1"); }
+
+async doDelete() {
 	this.progress = true;
 	this.errorSt = null;
-	const data = { email:this.email.value };
 	let ret = null;
 	try {
-		ret = await this.httpClient.post(this.global.SERVERURL + "/master/delete.json", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
+		ret = await this.httpClient.post(this.global.SERVERURL + "/master/delete.json", "name=" + encodeURIComponent(this.name1.value) + "&email=" + encodeURIComponent(this.email1.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 		this.global.consolelog(2, "Master delete: ", ret);
 	} catch(e) { this.errorSt = e.error.message; }
 	this.progress = false;
 	if (ret != null)
-		this.showEmailSent = true;
+		this.showSuccess = true;
 	else
-		this.cdr.detectChanges();
-}
-
-async doVerify(token) {
-	let ret = null;
-	const data = { token };
-	try {
-		ret = await this.httpClient.post(this.global.SERVERURL + "/master/delete.json", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
-		this.global.consolelog(2, "Master delete: ", ret);
-	} catch(e) { alert("Wrong or expired delete link"); }
-	if (ret != null)
-		await this.global.presentAlert("Deletion", "Your account has been deleted.", ".");
-	document.location.href = "https://maxi.cloud";
+		alert("An error has occured, nothing has been deleted.");
 }
 
 }

@@ -229,7 +229,7 @@ async doDomain() {
 			this.errorSt += this.shortname1.value + " is not available ; ";
 		if (ret["domain"] === "taken")
 			this.errorSt += this.domain1.value + " is not available ; ";
-		this.errorSt = this.errorSt.replace(/ ; $/, "");
+		this.errorSt = this.errorSt.replace(/ ; $/, ".<a href='/delete' target='_blank' class='underline'>Delete</a> first if needed.");
 	}
 	this.progress = false;
 }
