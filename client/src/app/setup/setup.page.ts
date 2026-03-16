@@ -83,7 +83,8 @@ async handleBleMessage(data) {
 			} catch(e) {}
 			await this.global.presentAlert("Denial", "This hardware is already setup. You need to reset it.", "Press the two bottom buttons at the same time and follow the instructions on screen.");
 			this.router.navigate(["/find"]);
-		}
+		} else if (this.errorSt == "You need to connect to your hardware")
+			this.doDomain();
 	} else if (data.a === "setup") {
 		if (data.success === 1) {
 			this.progress = false;
