@@ -31,7 +31,7 @@ splashDone = false;
 VERSION: string = VERSION;
 SERVERURL: string = "https://maxi.cloud";
 activateUrl: string;
-settings: Settings = { lang:"en", welcomeTourShown:false } as Settings;
+settings: Settings = { lang:"en", powerUser:false, tags:[], dontShowAgain:[], welcomeTourShown:false } as Settings;
 refreshUI:Subject<any> = new Subject();
 toast:Subject<any> = new Subject();
 session;
@@ -211,7 +211,7 @@ async backButtonAlert() {
 }
 
 async presentQuestion(hd, st, msg, key:string = "") {
-	if (this.settings.dontShowAgain?.[key] !== undefined)
+	if (this.settings.dontShowAgain.includes(key) !== undefined)
 		return false;
 	let checked = false;
 	let yesClicked = false;
@@ -230,7 +230,7 @@ async presentQuestion(hd, st, msg, key:string = "") {
 	await question.present();
 	await question.onDidDismiss();
 	if (checked) {
-		this.settings.dontShowAgain[key] = true;
+		this.settings.dontShowAgain.push(key);
 		this.settingsSave();
 	}
 	return yesClicked;
@@ -240,6 +240,7 @@ async changeLanguage(st) {
 	if (st != this.settings.lang) {
 		this.settings.lang = st;
 		await this.translate.use(this.settings.lang);
+		this.settingsSave();
 	}
 }
 
@@ -331,7 +332,7 @@ openModuleClick(event, identifier:number|string, t = null) {
 
 async presentAlert(hd, st, msg, key:string = "") {
 	let checked = false;
-	if (this.settings.dontShowAgain?.[key] !== undefined)
+	if (this.settings.dontShowAgain.includes(key) !== undefined)
 		return;
 	const alert = await this.alertCtrl.create({
 		cssClass: "basic-alert",
@@ -344,7 +345,7 @@ async presentAlert(hd, st, msg, key:string = "") {
 	await alert.present();
 	await alert.onDidDismiss();
 	if (checked) {
-		this.settings.dontShowAgain[key] = true;
+		this.settings.dontShowAgain.push(key);
 		this.settingsSave();
 	}
 }
@@ -524,7 +525,7 @@ async modulesDataPrepare() {
 		Object.entries(this.modulesMeta[key]).forEach(([key2, value2]) => {
 			value[key2] = value2;
 		});
-		value["tag"] = this.settings.tags?.includes(key)?? false;
+		value["tag"] = this.settings.tags.includes(key) ?? false;
 		const items = [
 			value["module"],
 			value["name"],
@@ -562,12 +563,6 @@ modulesDataFindId(m) {
 			ret = index;
 	});
 	return ret;
-}
-
-review() {
-	//this.settings.reviewRequestLastTime = Date.now();
-	this.settingsSave();
-	InAppReview.requestReview();
 }
 
 async statusRefresh(data) {

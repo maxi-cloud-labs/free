@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 export interface Settings {
 	lang: string,
-	welcomeTourShown: boolean,
 	powerUser: boolean,
-	dontShowAgain: object,
-	tags: string[];
+	tags: string[],
+	dontShowAgain: string[],
+	welcomeTourShown: boolean
 }
 
 export const Categories = {

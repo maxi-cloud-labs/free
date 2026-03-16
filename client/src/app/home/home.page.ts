@@ -260,14 +260,17 @@ closeModuleSettings() {
 }
 
 ngOnInit() {
-	if (!this.global.developer && !this.global.settings.welcomeTourShown) {
+	if (!this.global.settings.welcomeTourShown && !this.global.developer) {
 		setTimeout(() => {
-		    this.joyrideService.startTour({
-				steps: ["anchor1", "anchor2", "anchor3", "anchor4", "anchor5", "anchor6", "anchor7", "anchor8", "anchor9", "anchor10"]
-			}).subscribe( (step) => {}, (error) => {}, () => { setTimeout(() => { this.veryReady(); }, 1000) } );
+			if (!this.global.settings.welcomeTourShown) {
+				const steps = ["anchor1", "anchor2", "anchor3", "anchor4", "anchor5", "anchor6", "anchor7", "anchor8", "anchor9", "anchor10"];
+				this.joyrideService.startTour({ steps }).subscribe( (step) => {}, (error) => {}, () => { setTimeout(() => {
+					this.veryReady();
+					this.global.settings.welcomeTourShown = true;
+					this.global.settingsSave();
+				}, 1000) } );
+			}
 		}, 1000);
-		this.global.settings.welcomeTourShown = true;
-		this.global.settingsSave();
 	} else
 		this.veryReady();
 }
