@@ -538,14 +538,8 @@ async modulesDataPrepare() {
 		this.modulesData.push(value);
 	});
 	this.refreshUI.next("modules");
-	if (this.session.user.role == "admin") {
-		if (this.session.cloud.info.setup.startsWith("progress"))
-			this.setup2Start(false);
-		else if (this.session.cloud.info.setup == "done1") {
-			if (await this.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later from the settings section or each module will be automatically set up during first use.", "firsttimesetup"))
-				this.setup2Start(true);
-		}
-	}
+	if (this.session.user.role == "admin" && this.session.cloud.info.setup.startsWith("progress"))
+		this.setup2Start(false);
 }
 
 async setup2Start(start) {

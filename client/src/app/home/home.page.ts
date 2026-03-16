@@ -264,11 +264,17 @@ ngOnInit() {
 		setTimeout(() => {
 		    this.joyrideService.startTour({
 				steps: ["anchor1", "anchor2", "anchor3", "anchor4", "anchor5", "anchor6", "anchor7", "anchor8", "anchor9", "anchor10"]
-			});
+			}).subscribe( (step) => {}, (error) => {}, () => { setTimeout(() => { this.veryReady(); }, 1000) } );
 		}, 1000);
 		this.global.settings.welcomeTourShown = true;
 		this.global.settingsSave();
-	}
+	} else
+		this.veryReady();
+}
+
+async veryReady() {
+	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later from the settings section or each module will be automatically set up during first use.", "firsttimesetup"))
+		this.global.setup2Start(true);
 }
 
 }

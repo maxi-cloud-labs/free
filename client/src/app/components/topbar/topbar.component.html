@@ -66,6 +66,14 @@
 		</div>
 	</div>
 </div>
+<div class="flex mt-4 p-4 w-full" *ngIf="global.session.cloud?.info?.setup == 'done1'">
+	<span class="text--red-500 font-bold">{{LG("First-time setup is needed. Click on the button 'Launch Setup'.")}} </span>
+	<div class="flex-1"></div>
+	<button (click)="global.setup2Start(true)" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 border border--gray-300 rounded-lg text-sm font-medium text--white hover:bg--yellow-700 transition-colors cursor-pointer">
+		<ion-icon name="cog-outline" class="w-4 h-4"></ion-icon>
+		{{LG("Launch Setup")}}
+	</button>
+</div>
 <div class="flex flex-col mt-4 p-4 w-full" *ngIf="global.setupUIProgress > 0">
 	<div class="flex items-center justify-between">
 		<span class="text--red-500 font-bold">{{LG("First-time setup of the modules is under progress...")}} ({{global.setupUIDesc}})</span>
