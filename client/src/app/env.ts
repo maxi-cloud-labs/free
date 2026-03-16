@@ -60,7 +60,7 @@ constructor(public plt: Platform, private router: Router, private navCtrl: NavCo
 	this.consolelog(0, "%cDocs: https://docs.maxi.cloud", "font-weight:bold; font-size:large;");
 	this.consolelog(0, "%cVersion: " + this.VERSION, "background-color:#646464; border-radius:5px; padding:5px;");
 	this.consolelog(0, "%cPlease give a ⭐ to this project at:", "color:black; background-color:#fef9c2; border-radius:5px; padding:5px;");
-	this.consolelog(0, "%chttps://github.com/mAxIcloud/Free", "border:1px solid white; border-radius:5px; padding:5px; font-weight:bold;");
+	this.consolelog(0, "%chttps://github.com/maxi-cloud-labs/free", "border:1px solid white; border-radius:5px; padding:5px; font-weight:bold;");
 	this.consolelog(1, "Platform: " + this.plt.platforms());
 	navCtrl.setDirection("forward");
 	translate.setDefaultLang("en");

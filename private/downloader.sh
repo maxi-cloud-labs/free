@@ -9,7 +9,7 @@ echo "v VERSION:	Download VERSION"
 exit 0
 }
 
-BASEURL=https://github.com/mAxIcloud/Free
+BASEURL=https://github.com/maxi-cloud-labs/free
 VERSION=LATEST
 SKIP=0
 while getopts hsv: opt; do
