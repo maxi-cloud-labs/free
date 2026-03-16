@@ -281,7 +281,7 @@ async doWiFi() {
 		this.global.consolelog(2, "Master final", ret2);
 	} catch(e) {}
 	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-	const primary = this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".maxi.cloud");
+	const primary = this.name1.value + ".maxi.cloud";//this.domain1.value != "" ? this.domain1.value : (this.name1.value + ".maxi.cloud");
 	const data = {
 		a:"setup1",
 		betterauth: {
