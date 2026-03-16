@@ -20,8 +20,6 @@ async process(production, name, shortname, customDomain) {
 		domains.push(customDomain);
 		domains.push("*." + customDomain);
 	}
-	if (production && await this.global.presentQuestion("Production", "Do you want to generate a real certificate?", "Be sure that information is correct or answer No.") == false)
-		production = false;
 	const url = production ? ACME_DIRECTORY_URLS.LETS_ENCRYPT : ACME_DIRECTORY_URLS.LETS_ENCRYPT_STAGING;
 	this.global.consolelog(1, "CERTIFICATE: Url", url);
 try {
