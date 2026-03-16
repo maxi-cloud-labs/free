@@ -153,11 +153,11 @@ void writeValueKeyInts(const char *path, const char *key, int i, int j) {
 void writeValueKeyPrintf(const char *path, const char *key, const char *fmt, ...) {
 	char fullpath[256];
 	snprintf(fullpath, sizeof(fullpath), path, key);
-    va_list args;
-    char *sz = NULL;
-    va_start(args, fmt);
-    vasprintf(&sz, fmt, args);
-    va_end (args);
+	va_list args;
+	char *sz = NULL;
+	va_start(args, fmt);
+	vasprintf(&sz, fmt, args);
+	va_end (args);
 	writeValue(fullpath, sz);
 	if (sz)
 		free(sz);
@@ -513,24 +513,24 @@ void serviceAction(const char *name, const char *action) {
 }
 
 int serviceState(const char *name) {
-    sd_bus *bus = NULL;
-    sd_bus_error error = SD_BUS_ERROR_NULL;
-    char path[256];
-    int r = sd_bus_open_system(&bus);
+	sd_bus *bus = NULL;
+	sd_bus_error error = SD_BUS_ERROR_NULL;
+	char *path = NULL;
+	char *state = NULL;
+	char full_name[256];
+	snprintf(full_name, sizeof(full_name), "%s.service", name);
+	int r = sd_bus_open_system(&bus);
+	if (r < 0) return -1;
+	r = sd_bus_path_encode("/org/freedesktop/systemd1/unit", full_name, &path);
 	if (r < 0) {
-		PRINTF("Failed to connect to system bus: %s\n", strerror(-r));
+		sd_bus_unref(bus);
 		return -1;
 	}
-    snprintf(path, sizeof(path), "/org/freedesktop/systemd1/unit/%s_2eservice", "jellyfin");
-	char *state;
-    r = sd_bus_get_property_string(bus, "org.freedesktop.systemd1", path, "org.freedesktop.systemd1.Unit", "ActiveState", &error, &state);
-	if (r < 0) {
-		PRINTF("Failed unit %s: %s\n", name, error.message);
-		sd_bus_error_free(&error);
-		return -1;
-	}
-    sd_bus_close(bus);
-    int ret = strcmp(state, "active") == 0;
+	r = sd_bus_get_property_string(bus, "org.freedesktop.systemd1", path, "org.freedesktop.systemd1.Unit", "ActiveState", &error, &state);
+	int ret = (r >= 0 && strcmp(state, "active") == 0);
 	free(state);
-	return ret;
+	free(path);
+	sd_bus_error_free(&error);
+	sd_bus_flush_close_unref(bus);
+	return (r < 0) ? -1 : ret;
 }
