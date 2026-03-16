@@ -205,7 +205,7 @@ AppALEnabled %s\n\
 	Include /usr/local/modules/apache2/options-ssl-apache.conf\n\
 	SSLCertificateFile /disk/admin/modules/letsencrypt/fullchain.pem\n\
 	SSLCertificateKeyFile /disk/admin/modules/letsencrypt/privkey.pem\n\
-</Macro>\n", cJSON_GetStringValue2(cJSON_GetObjectItem(cloud, "info"), "name"), cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "updateRemoteIP")) ? "on" : "off", cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "autoLogin")) ? "on" : "off");
+</Macro>\n", cJSON_GetStringValue2(cloud, "info", "name"), cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "updateRemoteIP")) ? "on" : "off", cJSON_IsTrue(cJSON_GetObjectItem(cJSON_GetObjectItem(cloud, "security"), "autoLogin")) ? "on" : "off");
 	fwrite(sz, strlen(sz), 1, pfM);
 	strcpy(sz, "<Macro Macro_Rewrite>\n");
 	fwrite(sz, strlen(sz), 1, pfM);
@@ -234,7 +234,7 @@ begin:
 			cJSON *elModule2 = cJSON_GetObjectItem(modules, elModule->string);
 			char path[128];
 			if (cJSON_HasObjectItem(elModule, "path"))
-				strcpy(path, cJSON_GetStringValue2(elModule, "path"));
+				strcpy(path, cJSON_GetStringValue_(elModule, "path"));
 			else
 				snprintf(path, sizeof(path), "/usr/local/modules/%s", elModule->string);
 			snprintf(sz, sizeof(sz), "\
@@ -252,11 +252,11 @@ begin:
 					elPermissions = cJSON_GetObjectItem(elModule2, "permissions");
 
 				if (cJSON_HasObjectItem(elModule, "addConfigBegin")) {
-					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue2(elModule, "addConfigBegin"));
+					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue_(elModule, "addConfigBegin"));
 					fwrite(sz, strlen(sz), 1, pfM);
 				}
 				if (cJSON_HasObjectItem(elModule2, "addConfigBegin")) {
-					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue2(elModule2, "addConfigBegin"));
+					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue_(elModule2, "addConfigBegin"));
 					fwrite(sz, strlen(sz), 1, pfM);
 				}
 
@@ -264,9 +264,9 @@ begin:
 				if (cJSON_HasObjectItem(elModule, "reverseProxy")) {
 					cJSON *elReverseProxy;
 					cJSON_ArrayForEach(elReverseProxy, cJSON_GetObjectItem(elModule, "reverseProxy")) {
-						char *type_ = cJSON_GetStringValue2(elReverseProxy, "type");
-						char *path_ = cJSON_GetStringValue2(elReverseProxy, "path");
-						char *path2_ = cJSON_GetStringValue2(elReverseProxy, "path2");
+						char *type_ = cJSON_GetStringValue_(elReverseProxy, "type");
+						char *path_ = cJSON_GetStringValue_(elReverseProxy, "path");
+						char *path2_ = cJSON_GetStringValue_(elReverseProxy, "path2");
 						if (!path2_)
 							path2_ = path_;
 						int reversePort = (int)cJSON_GetNumberValue(cJSON_GetObjectItem(elReverseProxy, "port"));
@@ -290,18 +290,18 @@ begin:
 					fwrite(sz, strlen(sz), 1, pfM);
 
 					if (cJSON_HasObjectItem(elModule, "addLineInDirectory")) {
-						snprintf(sz, sizeof(sz), "\t\t%s\n", cJSON_GetStringValue2(elModule, "addLineInDirectory"));
+						snprintf(sz, sizeof(sz), "\t\t%s\n", cJSON_GetStringValue_(elModule, "addLineInDirectory"));
 						fwrite(sz, strlen(sz), 1, pfM);
 					}
 					if (cJSON_HasObjectItem(elModule2, "addLineInDirectory")) {
-						snprintf(sz, sizeof(sz), "\t\t%s\n", cJSON_GetStringValue2(elModule2, "addLineInDirectory"));
+						snprintf(sz, sizeof(sz), "\t\t%s\n", cJSON_GetStringValue_(elModule2, "addLineInDirectory"));
 						fwrite(sz, strlen(sz), 1, pfM);
 					}
 					writePermissions(elPermissions, grantLocal, elLocalRanges, szIPExternal, pfM);
 					if (cJSON_HasObjectItem(elModule2, "directoryIndex"))
-						writeDirectoryIndex(cJSON_GetStringValue2(elModule2, "directoryIndex"), pfM);
+						writeDirectoryIndex(cJSON_GetStringValue_(elModule2, "directoryIndex"), pfM);
 					else if (cJSON_HasObjectItem(elModule, "directoryIndex"))
-						writeDirectoryIndex(cJSON_GetStringValue2(elModule, "directoryIndex"), pfM);
+						writeDirectoryIndex(cJSON_GetStringValue_(elModule, "directoryIndex"), pfM);
 					if (cJSON_HasObjectItem(elModule2, "followSymLinks"))
 						writeSymlinks(cJSON_IsTrue(cJSON_GetObjectItem(elModule2, "followSymLinks")), pfM);
 					else if (cJSON_GetObjectItem(elModule, "followSymLinks"))
@@ -320,11 +320,11 @@ begin:
 				}
 
 				if (cJSON_HasObjectItem(elModule, "addConfigEnd")) {
-					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue2(elModule, "addConfigEnd"));
+					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue_(elModule, "addConfigEnd"));
 					fwrite(sz, strlen(sz), 1, pfM);
 				}
 				if (cJSON_HasObjectItem(elModule2, "addConfigEnd")) {
-					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue2(elModule2, "addConfigEnd"));
+					snprintf(sz, sizeof(sz), "\t%s\n", cJSON_GetStringValue_(elModule2, "addConfigEnd"));
 					fwrite(sz, strlen(sz), 1, pfM);
 				}
 

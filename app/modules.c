@@ -19,14 +19,14 @@ cJSON *fqdnInit(cJSON *elCloud) {
 	char sz[256];
 	cJSON * elCloudAll = cJSON_GetObjectItem(elCloud, "info");
 	cJSON *fqdn = cJSON_CreateArray();
-	snprintf(sz, sizeof(sz), "%s.%s", cJSON_GetStringValue2(elCloudAll, "name"), MAIN_DOMAIN);
+	snprintf(sz, sizeof(sz), "%s.%s", cJSON_GetStringValue_(elCloudAll, "name"), MAIN_DOMAIN);
 	cJSON *s = NULL;
 	s = cJSON_CreateString(sz);
 	cJSON_AddItemToArray(fqdn, s);
-	snprintf(sz, sizeof(sz), "%s.%s", cJSON_GetStringValue2(elCloudAll, "shortname"), SHORT_DOMAIN);
+	snprintf(sz, sizeof(sz), "%s.%s", cJSON_GetStringValue_(elCloudAll, "shortname"), SHORT_DOMAIN);
 	s = cJSON_CreateString(sz);
 	cJSON_AddItemToArray(fqdn, s);
-	char *domain = cJSON_GetStringValue2(elCloudAll, "domain");
+	char *domain = cJSON_GetStringValue_(elCloudAll, "domain");
 	if (domain && strlen(domain) > 0) {
 		s = cJSON_CreateString(domain);
 		cJSON_AddItemToArray(fqdn, s);
@@ -87,7 +87,7 @@ auth.tokenSource.file.path = \"" FRP_PATH "token.txt\"\n\
 user = \"%s\"\n\
 metadatas.token = \"%s\"\n\
 webServer.addr = \"127.0.0.1\"\n\
-webServer.port = 7400\n\n", port, cJSON_GetStringValue2(cJSON_GetObjectItem(elCloud, "info"), "name"), cJSON_GetStringValue2(elModule3, "token"));
+webServer.port = 7400\n\n", port, cJSON_GetStringValue2(elCloud, "info", "name"), cJSON_GetStringValue_(elModule3, "token"));
 				fwrite(sz, strlen(sz), 1, pf);
 				for (int t = 0; t < cJSON_GetArraySize(elModuleS); t++) {
 					cJSON *elModuleSt = cJSON_GetArrayItem(elModuleS, t);
@@ -100,7 +100,7 @@ webServer.port = 7400\n\n", port, cJSON_GetStringValue2(cJSON_GetObjectItem(elCl
 						enabled = 1;
 					if (enabled) {
 						used = 1;
-						char *type = cJSON_GetStringValue2(elModuleSt, "type");
+						char *type = cJSON_GetStringValue_(elModuleSt, "type");
 						int localPort = (int)cJSON_GetNumberValue(cJSON_GetObjectItem(elModuleSt, "localPort"));
 						int remotePort = (int)cJSON_GetNumberValue(cJSON_GetObjectItem(elModule3St, "remotePort"));
 						sprintf(sz, "\

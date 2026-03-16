@@ -34,7 +34,7 @@ static apr_status_t cleanup(void *data) {
 		cJSON *el = jsonRead(sz);
 		if (!el)
 			el = cJSON_CreateObject();
-		int hits = (int)cJSON_GetNumberValue2(el, "hits");
+		int hits = (int)cJSON_GetNumberValue_(el, "hits");
 		cJSON_AddNumberToObject(el, "hits", hits + *global_hits);
 		cJSON_AddNumberToObject(el, "lasttime", *global_lasttime);
 		jsonWrite(el, sz);

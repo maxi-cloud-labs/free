@@ -70,7 +70,7 @@ static int authentify(const char *password) {
 		return -1;
 	}
 	char username[256];
-	snprintf(username, sizeof(username), "%s", cJSON_GetStringValue2(cJSON_GetObjectItem(cloud, "info"), "name"));
+	snprintf(username, sizeof(username), "%s", cJSON_GetStringValue2(cloud, "info", "name"));
 	cJSON_Delete(cloud);
 	char buf[1024];
 	char post[512];
@@ -81,7 +81,7 @@ static int authentify(const char *password) {
 			cJSON *el = cJSON_Parse(buf);
 			cJSON *el2 = cJSON_GetObjectItem(el, "user");
 			if (el2) {
-					char *username2 = cJSON_GetStringValue2(el2, "username");
+					char *username2 = cJSON_GetStringValue_(el2, "username");
 					if (strcmp(username, username2) == 0)
 							ret = 0;
 			} else if (cJSON_IsTrue(cJSON_GetObjectItem(el, "twoFactorRedirect")))

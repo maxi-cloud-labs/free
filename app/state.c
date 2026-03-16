@@ -68,11 +68,11 @@ void stateLoad_(char *sz) {
 		state.sleepKeepLed = 0;
 	}
 	if (cJSON_HasObjectItem(stateCloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(stateCloud, "info"), "setup")) {
-		char *s = cJSON_GetStringValue3(stateCloud, "info", "setup");
+		char *s = cJSON_GetStringValue2(stateCloud, "info", "setup");
 		state.setupDone = strcmp(s, "done2") == 0 ? 4 : strcmp(s, "progress2") == 0 ? 3 : strcmp(s, "done1") == 0 ? 2 : strcmp(s, "progress1") == 0 ? 1 : 0;
 	}
 	if (cJSON_HasObjectItem(stateCloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(stateCloud, "info"), "language")) {
-		char *s = cJSON_GetStringValue3(stateCloud, "info", "language");
+		char *s = cJSON_GetStringValue2(stateCloud, "info", "language");
 		state.language = strcmp(s, "fr") == 0 ? 1 : 0;
 	}
 }

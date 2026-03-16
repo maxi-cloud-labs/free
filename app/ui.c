@@ -512,11 +512,11 @@ void uiScreenHome() {
 		lv_style_set_text_font(&labelStyle5, &lv_font_montserrat_10);
 		lv_obj_add_style(label5, &labelStyle5, LV_STATE_DEFAULT);
 	} else if (state.homePos == 1) {
-		char *primary = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "info"), "primary");
-		char *shortname = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "info"), "shortname");
-		char *serial = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "serial");
-		char *internalIP = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "internalIP");
-		char *externalIP = cJSON_GetStringValue2(cJSON_GetObjectItem(stateCloud, "hardware"), "externalIP");
+		char *primary = cJSON_GetStringValue2(stateCloud, "info", "primary");
+		char *shortname = cJSON_GetStringValue2(stateCloud, "info", "shortname");
+		char *serial = cJSON_GetStringValue2(stateCloud, "hardware", "serial");
+		char *internalIP = cJSON_GetStringValue2(stateCloud, "hardware", "internalIP");
+		char *externalIP = cJSON_GetStringValue2(stateCloud, "hardware", "externalIP");
 		char sz[128];
 		snprintf(sz, 128, "%.8s", serial);
 		doubleText(L("Serial"), serial, 28, 50);

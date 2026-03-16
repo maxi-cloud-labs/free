@@ -113,14 +113,14 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 	cJSON *el = cJSON_Parse(data);
 	char *action = NULL;
 	if (el)
-		action = cJSON_GetStringValue2(el, "a");
+		action = cJSON_GetStringValue_(el, "a");
 	if (action) {
 		if (strcmp(action, "otp") == 0) {
-			char *email = cJSON_GetStringValue2(el, "e");
+			char *email = cJSON_GetStringValue_(el, "e");
 			PRINTF("communicationReceive: OTP by %s\n", email);
 			int v = -1;
 			if (cJSON_HasObjectItem(el, "v"))
-				v = (int)cJSON_GetNumberValue2(el, "v");
+				v = (int)cJSON_GetNumberValue_(el, "v");
 			if (v == 0)
 				logicOtpFinished();
 			else
@@ -129,28 +129,28 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			PRINTF("communicationReceive: Shutdown\n");
 			logicShutdown();
 		} else if (strcmp(action, "key") == 0) {
-			int k = (int)cJSON_GetNumberValue2(el, "k");
-			int l = (int)cJSON_GetNumberValue2(el, "l");
+			int k = (int)cJSON_GetNumberValue_(el, "k");
+			int l = (int)cJSON_GetNumberValue_(el, "l");
 #ifndef WEB
 			touchClick();
 #endif
 			logicKey(k, l);
 		} else if (strcmp(action, "language") == 0) {
-			char *l = cJSON_GetStringValue2(el, "l");
+			char *l = cJSON_GetStringValue_(el, "l");
 			//settingsLanguage(strcmp(l, "fr") == 0);
 			logicUpdate();
 		} else if (strcmp(action, "state") == 0) {
 			unsigned long decsize;
-			unsigned char *payload = b64_decode_ex(cJSON_GetStringValue2(el, "p"), &decsize);
+			unsigned char *payload = b64_decode_ex(cJSON_GetStringValue_(el, "p"), &decsize);
 			memcpy(&state, payload, sizeof(stateS));
 			free(payload);
 			logicUpdate();
 #ifndef WEB
 		} else if (strcmp(action, "pam") == 0) {
-			char *user = cJSON_GetStringValue2(el, "u");
-			char *service = cJSON_GetStringValue2(el, "s");
-			char *type = cJSON_GetStringValue2(el, "t");
-			char *arg1 = cJSON_GetStringValue2(el, "o");
+			char *user = cJSON_GetStringValue_(el, "u");
+			char *service = cJSON_GetStringValue_(el, "s");
+			char *type = cJSON_GetStringValue_(el, "t");
+			char *arg1 = cJSON_GetStringValue_(el, "o");
 			//PRINTF("PAM: user:%s service:%s type:%s arg1:%s\n", user, service, type, arg1);
 			if (arg1 && strcmp(arg1, "oath_success") == 0)
 				logicOtpFinished();
@@ -177,7 +177,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			return;
 		} else if (strcmp(action, "status") == 0) {
 			//PRINTF("communicationReceive: status #%s#\n", data);
-			moduleSetupDone(cJSON_GetStringValue2(el, "module"));
+			moduleSetupDone(cJSON_GetStringValue_(el, "module"));
 			communicationString(data);
 		} else if (strcmp(action, "cloud") == 0) {
 			cJSON *cloud = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
@@ -189,7 +189,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			communicationJSON(ssids);
 			cJSON_Delete(ssids);
 		} else if (strcmp(action, "alert") == 0) {
-			PRINTF("communicationReceive: alert type:%s name:%s\n", cJSON_GetStringValue2(el, "type"), cJSON_GetStringValue2(el, "name"));
+			PRINTF("communicationReceive: alert type:%s name:%s\n", cJSON_GetStringValue_(el, "type"), cJSON_GetStringValue_(el, "name"));
 		} else if (strcmp(action, "refresh-webserver") == 0) {
 			//PRINTF("communicationReceive: refresh-webserver\n");
 			touchClick();

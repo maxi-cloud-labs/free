@@ -170,8 +170,8 @@ static apr_status_t post_filter(ap_filter_t *f, apr_bucket_brigade *bb, ap_input
 			snprintf(szTmp, sizeof(szTmp), CONF_PATH, post[ctx->foundPost][0]);
 			el = jsonRead(szTmp);
 			if (el) {
-				char *arg1 = cJSON_GetStringValue2(el, post[ctx->foundPost][2]);
-				char *arg2 = cJSON_GetStringValue2(el, post[ctx->foundPost][3]);
+				char *arg1 = cJSON_GetStringValue_(el, post[ctx->foundPost][2]);
+				char *arg2 = cJSON_GetStringValue_(el, post[ctx->foundPost][3]);
 				replace(f, buffer, post[ctx->foundPost][4], post[ctx->foundPost][5], arg1, arg2, &newBuffer);
 				ret = 1;
 				len = strlen(newBuffer);
