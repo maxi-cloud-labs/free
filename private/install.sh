@@ -60,7 +60,7 @@ installModule() {
 		echo "Module: $1"
 		echo "################################"
 		DATESTARTM=`date +%s`
-		OS=$OS PP=$PP $PP/modules/install/$1.sh
+		PP=$PP $PP/modules/install/$1.sh
 		touch /home/ai/build/_modulesInstalled/$1
 		DATEFINISHM=`date +%s`
 		DELTAM=$((DATEFINISHM - DATESTARTM))
@@ -76,15 +76,6 @@ fi
 cd `dirname $0`
 echo "Current directory is now `pwd`"
 PP=`pwd`
-
-lsb_release -a | grep trixie
-if [ $? = 0 ]; then
-	OS="pios"
-fi
-lsb_release -a | grep noble
-if [ $? = 0 ]; then
-	OS="ubuntu"
-fi
 
 echo "################################"
 echo "Start install"
@@ -136,22 +127,9 @@ apt-get -y upgrade
 echo "################################"
 echo "Basic"
 echo "################################"
-if [ $OS = "ubuntu" ]; then
-	chmod a-x /etc/update-motd.d/*
-	which snapd
-	if [ $? = 0 ]; then
-		snap remove snapd
-		apt-get -y purge snapd
-	fi
-	apt-get -y install bzip2 zip gpiod net-tools wireless-tools build-essential curl wget nano initramfs-tools device-tree-compiler
-fi
 apt-get -y install evtest qrencode dos2unix lrzsz libpam-oath oathtool cryptsetup-bin cmake lsof hdparm screen figlet toilet composer network-manager bind9 acl jq telnet netcat-openbsd pamtester expect rsyslog meson ninja-build
 apt-get -y install liboath-dev libinput-dev libboost-dev libboost-system-dev libboost-thread-dev libboost-filesystem-dev libcurl4-openssl-dev libssl-dev libbluetooth-dev libturbojpeg0-dev libldap-dev libsasl2-dev apache2-dev libpam0g-dev libnm-dev libjwt-dev libsystemd-dev libdb-dev libsqlite3-dev
-if [ $OS = "ubuntu" ]; then
-	apt-get -y install libprotobuf32t64 libjpeg62-dev
-elif [ $OS = "pios" ]; then
-	apt-get -y install libprotobuf32 libjpeg62-turbo-dev
-fi
+apt-get -y install libprotobuf32 libjpeg62-turbo-dev
 
 echo "################################"
 echo "python"
@@ -197,16 +175,11 @@ npm -g install @angular/cli @ionic/cli @vue/cli cordova-res yarn serve bun
 echo "################################"
 echo "pcpp"
 echo "################################"
-if [ $OS = "ubuntu" ]; then
-	apt-get -y install python3-pcpp
-	ln -sf pcpp-python /usr/bin/pcpp
-elif [ $OS = "pios" ]; then
-	cd /home/ai/build
-	wget -nv https://files.pythonhosted.org/packages/41/07/876153f611f2c610bdb8f706a5ab560d888c938ea9ea65ed18c374a9014a/pcpp-1.30.tar.gz
-	tar -xpf pcpp-1.30.tar.gz
-	cd pcpp-1.30
-	python3 setup.py install
-fi
+cd /home/ai/build
+wget -nv https://files.pythonhosted.org/packages/41/07/876153f611f2c610bdb8f706a5ab560d888c938ea9ea65ed18c374a9014a/pcpp-1.30.tar.gz
+tar -xpf pcpp-1.30.tar.gz
+cd pcpp-1.30
+python3 setup.py install
 
 echo "################################"
 echo "postfixparser"
@@ -392,9 +365,7 @@ adduser admin www-data
 echo "################################"
 echo "Cleanup"
 echo "################################"
-if [ $OS = "pios" ]; then
-	apt-get -y purge python3-rpi-lgpio rpicam-apps-core rpicam-apps-lite
-fi
+apt-get -y purge python3-rpi-lgpio rpicam-apps-core rpicam-apps-lite
 apt-get -y autoremove
 rm -rf /lib/modules/6.12.47*
 rm -f /etc/udev/rules.d/99-rpi-keyboard.rules
