@@ -117,7 +117,8 @@ async init() {
 		else
 			this.formLogin.get("email1").setValue("john.doe@example.com");
 		this.formLogin.get("password1").setValue("demodemo");
-		setTimeout(() => { this.submit1E.nativeElement.focus(); }, 100);
+		if (window.self === window.top)
+			setTimeout(() => { this.submit1E.nativeElement.focus(); }, 100);
 		return;
 	}
 	let email = this.global.getCookie("email");
