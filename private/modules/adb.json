@@ -11,7 +11,7 @@
 	"ai": false,
 	"database": "",
 	"github": "",
-	"description": "A command-line tool to communication with an Android device",
+	"description": "A command-line tool to communication with an Android device.",
 	"keywords": [
 		"Android",
 		"Apk",
