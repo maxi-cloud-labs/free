@@ -56,8 +56,12 @@ d
 mv web/README.md web/home.md
 if [ $TEST = 1 ]; then
 	ln -sf ../modules.html web
+	ln -sf ../modules2.html web
+	ln -sf ../../private/modules/icons web/icons_
 else
 	cp modules.html web
+	cp modules2.html web
+	cp -a ../private/modules/icons/ web/icons_
 fi
 
 if [ $TEST = 1 ]; then

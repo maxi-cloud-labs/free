@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="tailwindcss-4.js"></script>
+<style type="text/tailwindcss">
+@theme {
+	--color-main: #fdfcf3;
+	--color-sidebar: #f5f6ea;
+}
+</style>
+<script>
+let data;
+
+async function loadJson(st) {
+	try {
+		const response = await fetch(st);
+		if (!response.ok) return;
+		data = await response.json();
+	} catch(e) { return; }
+	fillTableContent();
+	filterTable();
+}
+
+function fillTableContent() {
+	const tbody = document.getElementById("dataTbody");
+	tbody.innerHTML = "";
+	let count = 1;
+	Object.entries(data).forEach(([key, value]) => {
+		const title = value["title"];
+		const name = value["name"];
+		const github = value["github"];
+		const module = value["module"];
+		const description = value["description"];
+		const stars = value["githubStars"];
+		const td = document.createElement("div");
+		td.className = "grid-cell";
+		td.style.border = "1px solid black";
+		td.style.flex = "0 0 12.5%";
+		td.style.boxSizing = "border-box";
+		td.style.textAlign = "center";
+		td.style.padding = "10px";
+		td.data_content = module;
+		td.data_githubStars	= stars;
+		td.innerHTML = "<center><img src='icons_/" + module + ".png' class='w-16 h-16'></center><br><span class='font-bold text-xl'>" + title + "</span><br><a href='https://github.com/" + github + "' target='_blank' class='underline'>" + name + "</a>" + (stars !== undefined ? (" " + stars + " ⭐") : "") + "<br><br><span>" + description + "</span>";
+		tbody.appendChild(td);
+		count++;
+	});
+}
+
+function formatCount(count) {
+	if (count >= 1_000_000) {
+		const rounded = (count / 1_000_000).toFixed(1);
+		return rounded.endsWith(".0") ? rounded.slice(0, -2) + "M" : rounded + "M";
+	} else if (count >= 1000) {
+		const rounded = (count / 1000).toFixed(1);
+		return rounded.endsWith(".0") ? rounded.slice(0, -2) + "k" : rounded + "k";
+	} else
+		return "" + count;
+}
+
+function filterTable() {
+	const search = document.getElementById("searchID").value.toLowerCase();
+	const dirty = search != "";
+	document.getElementById("resetID").disabled = !dirty;
+
+	const tbody = document.getElementById("dataTbody");
+	let countModules = 0;
+	let countStars = 0;
+	Array.from(tbody.children).forEach((cell) => {
+		const isMatch = cell.data_content.indexOf(search) != -1;
+		cell.style.display = isMatch ? "" : "none";
+		if (isMatch) {
+			countModules++;
+			countStars += cell.data_githubStars ?? 0;
+			hasVisibleCell = true;
+		}
+	});
+	document.getElementById("countID").innerHTML = "" + countModules + " module" + (countModules > 1 ? "s" : "") + " - " + formatCount(countStars) + " ⭐";
+}
+
+function reset() {
+	document.getElementById("searchID").value = "";
+	filterTable();
+}
+
+function updateClass() {
+	document.querySelectorAll("[data-class]").forEach(el => {
+		const prevDynamicClasses = (el.dataset.dynamicClasses || "").split(" ");
+		prevDynamicClasses.forEach(cls => cls && el.classList.remove(cls));
+		const classExpression = el.dataset.class;
+		const classesToApply = eval(classExpression) || "";
+		const staticClasses = el.className.split(" ").filter(cls => !prevDynamicClasses.includes(cls));
+		el.className = staticClasses.join(" ").trim();
+		if (classesToApply) {
+			const newClasses = classesToApply.split(" ");
+			newClasses.forEach(cls => cls && el.classList.add(cls));
+			el.dataset.dynamicClasses = newClasses.join(" ");
+		} else
+			el.dataset.dynamicClasses = "";
+	});
+}
+
+function versionChange() {
+	loadJson(document.getElementById("versionID").value);
+}
+
+async function onStart() {
+	const selectElement = document.getElementById("versionID");
+	try {
+		const response = await fetch("releases.json");
+		if (!response.ok) return;
+		const ret = await response.json();
+		selectElement.innerHTML = "";
+		ret.list.forEach(version => {
+			const option = document.createElement("option");
+			option.value = "modules_" + version + ".json";
+			option.textContent = version;
+			selectElement.appendChild(option);
+		});
+		selectElement.selectedIndex = 0;
+		versionChange();
+	} catch(e) { return; }
+}
+</script>
+</head>
+<body onload="onStart();">
+<div class="flex flex-col h-screen px-2 bg-main text-black">
+	<div class="py-2 flex">
+		<label for="versionID">Version:&nbsp;</label>
+		<select id="versionID" name="selectedOption" class="border rounded" onchange="versionChange();"></select>
+		<a href="modules.html">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-8" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 144h288M160 256h288M160 368h288"/><circle cx="80" cy="144" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="80" cy="256" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="80" cy="368" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+		</a>
+		<svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-5 h-5 text-gray-400" viewBox="0 0 512 512"><rect x="64" y="64" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="216" y="64" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="368" y="64" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="64" y="216" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="216" y="216" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="368" y="216" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="64" y="368" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="216" y="368" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><rect x="368" y="368" width="80" height="80" rx="40" ry="40" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+	</div>
+	<div class="py-2 relative flex items-center gap-2">
+		<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"/></svg>
+		</div>
+		<input type="text" id="searchID" oninput="filterTable()" placeholder="Filter modules..." class="pl-10 pr-4 border border-gray-300 text-gray-500 rounded-lg">
+		<button id="resetID" onclick="reset()" disabled class="inline-flex items-center border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer disabled:bg-gray-100 disabled:cursor-default disabled:text-gray-400">
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 512 512"><path d="M320 146s24.36-12-64-12a160 160 0 10160 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 58l80 80-80 80"/></svg>
+		</button>
+		<span id="countID" class="ml-2"></span>
+	</div>
+	<div class="overflow-y-auto">
+		<div class="border-separate border-spacing-0 mb-10 flex flex-wrap" style="width:100%;" id="dataTbody">
+		</div>
+	</div>
+</div>
+</body>
+</html>
