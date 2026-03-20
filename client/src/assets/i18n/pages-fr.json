@@ -30,9 +30,8 @@
 		"A delete link has been sent to": "Un lien de suppression a été envoyé à"
 	},
 	"find": {
-		"Cloud": "Cloud",
 		"Email address": "Adresse e-mail",
-		"Find": "Rechercher",
+		"Find\nyour Cloud": "Rechercher\nvotre Cloud",
 		"Find and go to your cloud": "Rechercher et aller à votre cloud",
 		"Finding...": "Recherche en cours...",
 		"Have some new hardware?": "Vous avez du nouveau matériel ?",
