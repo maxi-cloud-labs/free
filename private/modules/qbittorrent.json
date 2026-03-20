@@ -49,7 +49,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9501,
+		"localPort": 9504,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

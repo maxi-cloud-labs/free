@@ -31,7 +31,7 @@
 			"photo"
 		],
 		"enabled": true,
-		"localPort": 9487,
+		"localPort": 9489,
 		"permissions": [
 			"user"
 		]

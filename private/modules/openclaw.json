@@ -47,7 +47,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/access",
-		"localPort": 9475,
+		"localPort": 9477,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

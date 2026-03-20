@@ -51,7 +51,7 @@
 		"config": true,
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9458,
+		"localPort": 9457,
 		"permissions": [
 			"user"
 		],

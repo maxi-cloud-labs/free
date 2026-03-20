@@ -49,7 +49,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/admin",
-		"localPort": 9538,
+		"localPort": 9544,
 		"permissions": [
 			"hardware",
 			"user"

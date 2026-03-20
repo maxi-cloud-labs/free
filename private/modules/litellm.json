@@ -43,7 +43,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/ui",
-		"localPort": 9541,
+		"localPort": 9458,
 		"permissions": [
 			"user"
 		],
@@ -62,7 +62,6 @@
 		"setupRoot": true,
 		"setupDependencies": [
 			"postgresql"
-		],
-		"setupRoot": true
+		]
 	}
 }

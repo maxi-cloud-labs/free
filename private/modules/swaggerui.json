@@ -23,7 +23,7 @@
 		],
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9543,
+		"localPort": 9526,
 		"path": "/disk/admin/modules/swaggerui",
 		"permissions": [
 			"public"

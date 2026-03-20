@@ -20,7 +20,7 @@
 	"default": {
 		"enabled": true,
 		"homepage": "/public",
-		"localPort": 9540,
+		"localPort": 9498,
 		"permissions": [
 			"user"
 		],

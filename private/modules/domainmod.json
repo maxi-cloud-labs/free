@@ -21,7 +21,7 @@
 	"default": {
 		"config": true,
 		"enabled": true,
-		"localPort": 9545,
+		"localPort": 9420,
 		"permissions": [],
 		"reset": true,
 		"setup": true,
