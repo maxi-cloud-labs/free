@@ -504,6 +504,8 @@ async modulesDataPrepare() {
 			return;
 		value["enabled"] = modules[key]?.enabled ?? value["enabled"] ?? true;
 		value["notReady"] = modules[key]?.["setupDone"] !== true && value["setup"] === true && !this.demo ? 2 : 0;
+		if (this.demo)
+			this.modulesMeta[key]["finished"] = true;
 		value["permissions"] = modules[key]?.permissions ?? value["permissions"];
 		if (this.session.user.role == "user" && !(value["permissions"].includes("public") || value["permissions"].includes("user")))
 			return;
