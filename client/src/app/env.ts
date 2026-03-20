@@ -56,7 +56,7 @@ constructor(public plt: Platform, private router: Router, private navCtrl: NavCo
 	this.httpClient.get("assets/modulesdefault.json").toPromise().then(data => { this.modulesDefault = data; });
 	this.developer = this.developerGet();
 	appDeveloper = this.developer;
-	this.consolelog(0, "%c⛅ mAxI.cloud: my data, my cloud, my sovereignty 🚀", "font-weight:bold; font-size:x-large;");
+	this.consolelog(0, "%c⛅ mAxI.cloud: my Data, my AI, my Sovereignty 🚀", "font-weight:bold; font-size:x-large;");
 	this.consolelog(0, "%cDocs: https://docs.maxi.cloud", "font-weight:bold; font-size:large;");
 	this.consolelog(0, "%cVersion: " + this.VERSION, "background-color:#646464; border-radius:5px; padding:5px;");
 	this.consolelog(0, "%cPlease give a ⭐ to this project at:", "color:black; background-color:#fef9c2; border-radius:5px; padding:5px;");
