@@ -310,6 +310,7 @@
 	},
 	"wrapper": {
 		"The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.": "L'intégration de ce module n'est pas fini. Consultez la prochaine publication mensuelle de mAxI.cloud.",
-		"This module is not accessible in the web demo. Download and run mAxI.cloud on your Raspberry Pi to experience the whole demo.": "Ce module n'est pas accessible dans la démo web. Téléchargez et exécutez mAxI.cloud sur votre Raspberry Pi pour accéder à l'ensemble de la démo."
+		"This module is not accessible in the web demo. Download and run": "Ce module n'est pas accessible dans la démo web. Téléchargez et exécutez",
+		"on your Raspberry Pi to experience the whole demo.": "sur votre Raspberry Pi pour accéder à l'ensemble de la démo."
 	}
 }

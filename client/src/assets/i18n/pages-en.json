@@ -310,6 +310,7 @@
 	},
 	"wrapper": {
 		"The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.": "",
-		"This module is not accessible in the web demo. Download and run mAxI.cloud on your Raspberry Pi to experience the whole demo.": ""
+		"This module is not accessible in the web demo. Download and run": "",
+		"on your Raspberry Pi to experience the whole demo.": ""
 	}
 }

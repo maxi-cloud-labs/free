@@ -3,7 +3,7 @@
 	<div class="flex-1 flex flex-col min-h-screen">
 		<app-topbar [title]="title"></app-topbar>
 			@if (this.global.demo) {
-			<div class="p-5 min-w-full min-h-full">{{L("This module is not accessible in the web demo. Download and run mAxI.cloud on your Raspberry Pi to experience the whole demo.")}}</div>
+			<div class="p-5 min-w-full min-h-full">{{L("This module is not accessible in the web demo. Download and run")}} <b><span class="text-blue-200">m</span><span class="text-blue-600">A</span><span class="text-blue-200">x</span><span class="text-blue-600 text-[1.04rem] font-[monospace]">I</span><span class="text-blue-200">.cloud</span></b> {{L("on your Raspberry Pi to experience the whole demo.")}}</div>
 			} @else if (!this.global.developer && !this.finished) {
 			<div class="p-5 min-w-full min-h-full">{{L("The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.")}}</div>
 			} @else {
