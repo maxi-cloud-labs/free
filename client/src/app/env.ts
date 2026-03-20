@@ -211,7 +211,7 @@ async backButtonAlert() {
 }
 
 async presentQuestion(hd, st, msg, key:string = "") {
-	if (this.settings.dontShowAgain.includes(key) !== undefined)
+	if (key != "" && this.settings.dontShowAgain.includes(key))
 		return false;
 	let checked = false;
 	let yesClicked = false;
