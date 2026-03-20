@@ -90,6 +90,8 @@ export const CategoriesBar = [
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Essential"] },
 	{ separator:true },
+	{ separator:false, value:CategoriesEx["AI"] },
+	{ separator:true },
 	{ separator:false, value:CategoriesEx["Productivity"] },
 	{ separator:false, value:CategoriesEx["Knowledge"] },
 	{ separator:false, value:CategoriesEx["Collaboration"] },
@@ -103,8 +105,6 @@ export const CategoriesBar = [
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Developer"] },
 	{ separator:false, value:CategoriesEx["Database"] },
-	{ separator:true },
-	{ separator:false, value:CategoriesEx["AI"] },
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Tag"] }
 ];
