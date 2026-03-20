@@ -1,0 +1,28 @@
+{
+	"module": "fail2ban",
+	"name": "Fail2Ban",
+	"title": "Ban User",
+	"category": "Server",
+	"version": "1.1.0",
+	"installMethod": "apt",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"ai": false,
+	"database": "",
+	"github": "fail2ban/fail2ban",
+	"description": "A daemon to ban hosts that cause multiple authentication errors.",
+	"keywords": [
+		"Ban",
+		"Check",
+		"Connection",
+		"Diagnose",
+		"Networking"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/fail2ban-client"
+		]
+	}
+}
