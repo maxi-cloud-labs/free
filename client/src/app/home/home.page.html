@@ -14,7 +14,7 @@
 					<ion-icon name="refresh-outline" class="w-4 h-4"></ion-icon>
 				</button>
 				<div class="flex-1"></div>
-				<div class="rounded-lg border border--gray-200 p-1 hidden lg:flex gap-1">
+				<div class="rounded-lg border border--gray-200 p-1 hidden lg:flex gap-1" *ngIf="!global.demo">
 					<label class="relative flex cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300" title="{{L('Modules finished')}}">
 						<input type="checkbox" [(ngModel)]="showDone" (change)="filterCards()" class="peer sr-only"/>
 						<span class="absolute inset-0 z-0 rounded-md bg--gray-100 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
