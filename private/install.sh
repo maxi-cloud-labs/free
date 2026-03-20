@@ -244,6 +244,7 @@ else
 	clone erugo ErugoOSS/Erugo v0.2.0
 	clone ente ente-io/ente bbfb99f8
 	clone excalidraw excalidraw/excalidraw v0.18.0
+	clone fail2banui swissmakers/fail2ban-ui v1.4.5
 	clone fider getfider/fider v0.32.0
 	clone filegator filegator/filegator v7.13.0
 	clone flarum flarum/flarum v1.8.1

@@ -1,0 +1,22 @@
+[Unit]
+Description=Fail2Ban UI
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=300s
+OnFailure=notify-failure@%n.service
+
+[Service]
+Restart=on-failure
+RestartMode=direct
+Type=simple
+StandardOutput=inherit
+StandardError=inherit
+RestartSec=5s
+User=root
+ExecStart=/usr/local/modules/fail2banui/fail2ban-ui
+WorkingDirectory=/usr/local/modules/fail2banui
+Environment=HOST=127.0.0.1
+Environment=PORT=8118
+
+[Install]
+WantedBy=multi-user.target
