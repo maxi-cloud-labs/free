@@ -31,7 +31,7 @@ mailbox_command = procmail -a "$EXTENSION"
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
-inet_protocols = all
+inet_protocols = ipv4
 message_size_limit = 20480000
 
 relayhost = [server.maxi.cloud]:466
