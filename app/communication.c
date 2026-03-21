@@ -37,7 +37,6 @@
 #include "json.h"
 #include "wifi.h"
 #include "common.h"
-#include "cloud.h"
 #include "modules.h"
 #endif
 #include "base64.h"
@@ -97,14 +96,14 @@ int communicationState() {
 }
 
 #ifndef WEB
-static void *cloudSetup1_t(void *arg) {
+static void *modulesSetup1_t(void *arg) {
 	cJSON *el = (cJSON *)arg;
-	cloudSetup1(el, 0);
+	modulesSetup1(el, 0);
 	cJSON_Delete(el);
 }
 
-static void *cloudSetup2_t(void *arg) {
-	cloudSetup2();
+static void *modulesSetup2_t(void *arg) {
+	modulesSetup2();
 }
 #endif
 
@@ -161,7 +160,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			//PRINTF("communicationReceive: Setup1\n");
 			touchClick();
 			pthread_t pth;
-			pthread_create(&pth, NULL, cloudSetup1_t, (void *)el);
+			pthread_create(&pth, NULL, modulesSetup1_t, (void *)el);
 			communicationString("{ \"a\":\"setup\", \"success\":1 }");
 #endif
 			return;
@@ -172,7 +171,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 			//PRINTF("communicationReceive: Setup2\n");
 			touchClick();
 			pthread_t pth;
-			pthread_create(&pth, NULL, cloudSetup2_t, NULL);
+			pthread_create(&pth, NULL, modulesSetup2_t, NULL);
 #endif
 			return;
 		} else if (strcmp(action, "status") == 0) {
@@ -193,7 +192,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 		} else if (strcmp(action, "refresh-webserver") == 0) {
 			//PRINTF("communicationReceive: refresh-webserver\n");
 			touchClick();
-			cloudInit();
+			modulesInit();
 		} else if (strcmp(action, "refresh-screen") == 0) {
 			//PRINTF("communicationReceive: refresh-screen\n");
 			communicationState();

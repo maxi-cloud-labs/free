@@ -17,7 +17,7 @@
 #include "logic.h"
 #include "cJSON.h"
 #include "state.h"
-#include "cloud.h"
+#include "modules.h"
 #include "diskNotify.h"
 
 //Defines
@@ -253,7 +253,7 @@ void backendLoop() {
 		logicUpdate();
 	}
 	if (pollfd[3].revents & POLLIN)
-		diskNotifyCB(pollfd[3].fd, &cloudInit);
+		diskNotifyCB(pollfd[3].fd, &modulesInit);
 	if (pollfd[4].revents & POLLIN)
 		diskNotifyCB(pollfd[4].fd, &stateLoad);
 #endif

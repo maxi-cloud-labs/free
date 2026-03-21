@@ -17,7 +17,7 @@
 #endif
 #include "cJSON.h"
 #include "state.h"
-#include "cloud.h"
+#include "modules.h"
 #include "common.h"
 #include "communication.h"
 #include "password.h"
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 	if (forceLanguage != -1)
 		state.language = forceLanguage;
 #ifndef WEB
-	cloudInit();
+	modulesInit();
 #endif
 #ifdef DESKTOP
 	languageTest();
