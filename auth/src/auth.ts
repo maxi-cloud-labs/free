@@ -378,7 +378,7 @@ function extraEndpoints(): BetterAuthPlugin {
 				return Response.json({ "status":"success" }, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
 			}),
 
-			settingsUserSave: createAuthEndpoint("/settings-user/save", {
+			profileSave: createAuthEndpoint("/profile/save", {
 				method: "POST",
 				use: [sensitiveSessionMiddleware]
 			}, async(ctx) => {
