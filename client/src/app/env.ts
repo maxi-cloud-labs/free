@@ -329,14 +329,13 @@ async openModuleClick(event, identifier:number|string, t = null) {
 				this.presentToast("The setup of this module is under progress. It should be ready shortly...", "close-outline", 5000);
 			else if (this.session.cloud.info.setup == "done1") {
 				if (this.modulesData[id].notReady == 3)
-					this.presentToast("The module is being resetted. Please wait...", "alert-circle-outline");
+					this.presentToast("The module is being set up. Please wait...", "alert-circle-outline");
 				else if (await (this.presentQuestion("First-time setup", "Do you want to setup this module now?", "You will be notified when the module is ready."))) {
-					this.presentToast("The module is being resetted. Please wait...", "alert-circle-outline");
+					this.presentToast("The module setup has started. You will be notified of completion.", "alert-circle-outline");
 					this.modulesData[id].notReady = 3;
+					this.refreshUI.next("refresh");
 					const data = { module:this.modulesData[id].module };
-					const ret = await this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
-					this.consolelog(2, "Auth module-reset: ", ret);
-					this.presentToast("The module has been resetted!", "alert-circle-outline");
+					this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise().then(ret => { this.consolelog(2, "Auth module-reset: ", ret); });
 				}
 			}
 		}
