@@ -2,7 +2,8 @@
 
 helper() {
 echo "*******************************************************"
-echo "Usage for setup [-h -u u -s 0-1 -t t] name"
+echo "Usage for setup [-d -h -u u -s 0-1 -t t] name"
+echo "d:	Do dependency"
 echo "h:	Print this usage and exit"
 echo "u u:	Launch as user 0:admin, 1:root, -1:read from json (default)"
 echo "s 0-1:	Enable or disable admin in sudoers"
@@ -18,9 +19,11 @@ fi
 USER=-1
 SUDOERS=-1
 TIMEZONE=
-while getopts hu:s:t: opt
+DEPENDENCIES=0
+while getopts dhu:s:t: opt
 do
 	case "$opt" in
+		d) DEPENDENCIES=1;;
 		h) helper;;
 		u) USER=$OPTARG;;
 		s) SUDOERS=$OPTARG;;
@@ -49,6 +52,15 @@ fi
 
 shift $((OPTIND -1))
 NAME=$1
+if [ $DEPENDENCIES = 1 ]; then
+	LIST2=`jq -r ".$NAME.setupDependencies | join(\" \")" $PP/web/assets/modulesdefault.json 2> /dev/null`
+	for tt in $LIST2; do
+		ALREADYDONE=`jq -r ".$tt.setupDone" /disk/admin/modules/_config_/_modules_.json 2> /dev/null`
+		if [ "$ALREADYDONE" != "true" ]; then
+			$PP/reset.sh -d $tt
+		fi
+	done
+fi
 if [ $USER = -1 ]; then
 	USER=`jq -r ".\"$NAME\".setupRoot | if . == true then 1 else 0 end" $PP/web/assets/modulesdefault.json 2> /dev/null`
 fi

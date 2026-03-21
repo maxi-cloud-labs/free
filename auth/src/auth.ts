@@ -550,7 +550,7 @@ function extraEndpoints(): BetterAuthPlugin {
 					return Response.json({ status:"error" }, { status:200 });
 				if (typeof ctx.body.module != "string" || !/^[0-9a-z]+$/.test(ctx.body.module))
 					return Response.json({ status:"error" }, { status:200 });
-				const tbe = "sudo /usr/local/modules/_core_/reset.sh " + ctx.body?.module;
+				const tbe = "sudo /usr/local/modules/_core_/reset.sh -d " + ctx.body?.module;
 				let ret = false;
 				let output;
 				try {
