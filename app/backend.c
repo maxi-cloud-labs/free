@@ -253,7 +253,7 @@ void backendLoop() {
 		logicUpdate();
 	}
 	if (pollfd[3].revents & POLLIN)
-		diskNotifyCB(pollfd[3].fd, &modulesInit);
+		diskNotifyCB(pollfd[3].fd, &modulesInitA2o);
 	if (pollfd[4].revents & POLLIN)
 		diskNotifyCB(pollfd[4].fd, &stateLoad);
 #endif

@@ -192,7 +192,7 @@ void communicationReceive(unsigned char *data, int size, char *orig) {
 		} else if (strcmp(action, "refresh-webserver") == 0) {
 			//PRINTF("communicationReceive: refresh-webserver\n");
 			touchClick();
-			modulesInit();
+			modulesInitA2o();
 		} else if (strcmp(action, "refresh-screen") == 0) {
 			//PRINTF("communicationReceive: refresh-screen\n");
 			communicationState();

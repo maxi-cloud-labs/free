@@ -44,7 +44,7 @@ static cJSON *fqdnInit(cJSON *elCloud) {
 	return fqdn;
 }
 
-void modulesWorkApache2(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules, cJSON *fqdn) {
+static void modulesWorkApache2(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules, cJSON *fqdn) {
 	mkdir(ADMIN_PATH "apache2", 0775);
 	cJSON *elModule2 = cJSON_GetObjectItem(modules, "apache2");
 	if (cJSON_IsTrue(cJSON_GetObjectItem(elModule2, "overwrite"))) {
@@ -56,7 +56,7 @@ void modulesWorkApache2(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules, c
 #endif
 }
 
-static void modulesWork(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules) {
+static void modulesWork(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules, cJSON *fqdn) {
 	//PRINTF("ModulesWork: Enter\n");
 	if (elCloud == NULL || !cJSON_HasObjectItem(elCloud, "info")) {
 		buildApache2ConfBeforeSetup();
@@ -65,7 +65,6 @@ static void modulesWork(cJSON *elCloud, cJSON *modulesDefault, cJSON *modules) {
 #endif
 		return;
 	}
-	cJSON *fqdn = fqdnInit(elCloud);
 	cJSON *elModule;
 	cJSON_ArrayForEach(elModule, modulesDefault) {
 		if (strcmp(elModule->string, "apache2") == 0) {
@@ -165,10 +164,9 @@ localPort = %d\n", elModuleSt->string, type, strncmp(type, "http", 4) == 0 ? "tr
 			}
 		}
 	}
-	cJSON_Delete(fqdn);
 }
 
-static void modulesInit_() {
+static void modulesInit_(int apache2Only) {
 	if (strlen(ipExternal) == 0) {
 		getExternalIP(ipExternal);
 		PRINTF("IPExternal: %s\n", ipExternal);
@@ -182,7 +180,12 @@ static void modulesInit_() {
 	cJSON *modules = jsonRead(ADMIN_PATH "_config_/_modules_.json");
 	if (modules == NULL)
 		modules = cJSON_CreateObject();
-	modulesWork(cloud, modulesDefault, modules);
+	cJSON *fqdn = fqdnInit(cloud);
+	if (apache2Only)
+		modulesWorkApache2(cloud, modulesDefault, modules, fqdn);
+	else
+		modulesWork(cloud, modulesDefault, modules, fqdn);
+	cJSON_Delete(fqdn);
 	cJSON_Delete(cloud);
 	cJSON_Delete(modules);
 	cJSON_Delete(modulesDefault);
@@ -192,7 +195,15 @@ static void modulesInit_() {
 void modulesInit() {
 	if (inSetup)
 		return;
-	modulesInit_();
+	int apache2Only = 0;
+	modulesInit_(apache2Only);
+}
+
+void modulesInitA2o() {
+	if (inSetup)
+		return;
+	int apache2Only = 1;
+	modulesInit_(apache2Only);
 }
 
 void moduleSetupDone(char *moduleSt) {
@@ -266,6 +277,7 @@ static void wifiCallback() {
 		PRINTF("Reinit Better Auth\n");
 		char buf[1024];
 		downloadURLBuffer("http://localhost:8091/auth/reinit", buf, "Content-Type: application/json", NULL, NULL, NULL);
+		modulesInit();
 	}
 }
 
@@ -352,7 +364,7 @@ void modulesSetup1(cJSON *elSetup1, int doSetup2) {
 	else {
 		cJSON_SetStringValue2(elCloud, "info", "setup", "done1");
 		jsonWrite(elCloud, ADMIN_PATH "_config_/_cloud_.json");
-		modulesInit_();
+		modulesInit_(0);
 		logicMessage(1, 1);
 		inSetup = 0;
 	}
