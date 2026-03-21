@@ -30,7 +30,7 @@
 		"reverseProxy": [
 			{
 				"type": "http",
-				"port": 8118,
+				"port": 8120,
 				"path": "/"
 			}
 		],

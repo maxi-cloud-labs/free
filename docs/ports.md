@@ -46,8 +46,9 @@ This is the list of all used ports in the image, separated between listening por
 - signoz: 8113 (reverseproxy)
 - portainer: 8115 (reverseproxy), 8116
 - dillinger: 8117 (reverseproxy)
-- fail2banui: 8118 (reverseproxy)
+- newapi: 8118 (reverseproxy)
 - rediscommander: 8119 (reverseproxy)
+- fail2banui: 8120 (reverseproxy)
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
 - portkey: 8787 (reverseproxy)

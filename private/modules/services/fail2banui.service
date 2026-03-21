@@ -16,7 +16,7 @@ User=root
 ExecStart=/usr/local/modules/fail2banui/fail2ban-ui
 WorkingDirectory=/usr/local/modules/fail2banui
 Environment=HOST=127.0.0.1
-Environment=PORT=8118
+Environment=PORT=8120
 
 [Install]
 WantedBy=multi-user.target
