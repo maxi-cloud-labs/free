@@ -158,9 +158,12 @@ localPort = %d\n", elModuleSt->string, type, strncmp(type, "http", 4) == 0 ? "tr
 void moduleSetupDone(char *moduleSt) {
 	pthread_mutex_lock(&modulesMutex);
 	cJSON *modules = jsonRead(ADMIN_PATH "_config_/_modules_.json");
-	cJSON *el = cJSON_CreateObject();
-	cJSON_AddBoolToObject(el, "setupDone", 1);
-	cJSON_AddItemToObject(modules, moduleSt, el);
-	jsonWrite(modules, ADMIN_PATH "_config_/_modules_.json");
+	if (!cJSON_HasObjectItem(modules, "setupDone")) {
+		cJSON *el = cJSON_CreateObject();
+		cJSON_AddBoolToObject(el, "setupDone", 1);
+		cJSON_AddItemToObject(modules, moduleSt, el);
+		jsonWrite(modules, ADMIN_PATH "_config_/_modules_.json");
+	}
+	cJSON_Delete(modules);
 	pthread_mutex_unlock(&modulesMutex);
 }
