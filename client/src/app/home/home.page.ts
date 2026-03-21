@@ -45,17 +45,6 @@ CategoriesBar = CategoriesBar;
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private joyrideService: JoyrideService, private route: ActivatedRoute, public ble: BleService) {
 	if (this.global.demo)
 		this.showNotDone = true;
-	this.route.queryParams.subscribe((params) => {
-		if (params["search"]) {
-			this.searchTerm = params?.["search"];
-			setTimeout(() => {
-				this.filterCards();
-				this.cdr.detectChanges();
-				if (params["settings"] === "true")
-					this.settings(params["search"]);
-			}, 1);
-		}
-	});
 	global.refreshUI.subscribe(event => {
 		if (event === "onlySidebar")
 			this.sidebar.refresh();
@@ -82,6 +71,18 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 		this.sortDirection = JSON.parse(data2);
 	global.sidebarFilterType = "";
 	this.filterCards();
+}
+
+ngAfterViewInit() {
+	this.route.queryParams.subscribe((params) => {
+		if (params["search"]) {
+			this.searchTerm = params?.["search"];
+			this.filterCards();
+			this.cdr.detectChanges();
+			if (params["settings"] === "true")
+				this.settings(params["search"]);
+		}
+	});
 }
 
 private lastCtrlFPressTimestamp: number = 0;
