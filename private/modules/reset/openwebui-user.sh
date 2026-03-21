@@ -7,6 +7,7 @@ fi
 
 echo "#Create user openwebui##################"
 PORT=8101
+AIKEY=$(jq -r ".ai.keys._server_" /disk/admin/modules/_config_/_cloud_.json)
 URL="http://localhost:$PORT"
 TIMEOUT=40
 while [ $TIMEOUT -gt 0 ]; do
@@ -39,7 +40,7 @@ response=`curl -sS -X POST $URL/api/v1/auths/signup -H "Content-Type: applicatio
 token=`echo $response | jq -r ".token"`
 #echo "token: $token"
 
-data="{ \"ENABLE_OPENAI_API\":true, \"OPENAI_API_BASE_URLS\":[\"http://localhost:8091/auth/ai/openwebui/v1\"], \"OPENAI_API_KEYS\":[\"key_managed_by_internal_backend\"], \"OPENAI_API_CONFIGS\":{ \"additionalProp1\": {} } }"
+data="{ \"ENABLE_OPENAI_API\":true, \"OPENAI_API_BASE_URLS\":[\"https://aiproxy.maxi.cloud/v1\"], \"OPENAI_API_KEYS\":[\"${AIKEY}\"], \"OPENAI_API_CONFIGS\":{ \"additionalProp1\": {} } }"
 response=`curl -sS -X POST $URL/openai/config/update -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d "$data"`
 #echo $response
 

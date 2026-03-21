@@ -6,6 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Reset tabby##################"
+AIKEY=$(jq -r ".ai.keys._server_" /disk/admin/modules/_config_/_cloud_.json)
 TIMEOUT=10
 echo "10 seconds to watch for llam.cpp..."
 while [ $TIMEOUT -gt 0 ]; do
@@ -29,14 +30,14 @@ api_endpoint = "http://localhost:8099"
 
 [model.completion.http]
 kind = "mistral/completion"
-api_endpoint = "http://localhost:8091/auth/ai/tabby"
-api_key = "key_managed_by_internal_backend"
+api_endpoint = "https://aiproxy.maxi.cloud"
+api_key = "${AIKEY}"
 model_name = "_codecompletion_"
 
 [model.chat.http]
 kind = "openai/chat"
-api_endpoint = "http://localhost:8091/auth/ai/tabby/v1"
-api_key = "key_managed_by_internal_backend"
+api_endpoint = "https://aiproxy.maxi.cloud/v1"
+api_key = "${AIKEY}"
 model_name = "_codechat_"
 
 [anonymousUsageTracking]

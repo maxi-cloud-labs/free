@@ -7,6 +7,7 @@ fi
 
 echo "#Reset openclaw##################"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
+AIKEY=$(jq -r ".ai.keys._server_" /disk/admin/modules/_config_/_cloud_.json)
 TOKEN=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 systemctl stop openclaw.service
 rm -rf /disk/admin/modules/openclaw
@@ -27,7 +28,7 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
         "maxConcurrent": 8
       },
       "models": {
-        "internalsystem/_mcp_": {}
+        "server/_mcp_": {}
       }
     }
   },
@@ -60,13 +61,13 @@ cat > /disk/admin/modules/openclaw/openclaw.json << EOF
   },
   "models": {
     "providers": {
-      "internalsystem": {
+      "server": {
         "api": "openai-completions",
-        "baseUrl": "http://localhost:8091/auth/ai/openclaw/v1",
-        "apiKey": "key_managed_by_internal_backend",
+        "baseUrl": "https://aiproxy.maxi.cloud/v1",
+        "apiKey": "${AIKEY}",
         "models": [ {
           "id": "_mcp_",
-          "name": "InternalMCP",
+          "name": "ServerMCP",
           "contextWindow": 131072
         } ]
       }

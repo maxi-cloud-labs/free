@@ -8,6 +8,7 @@ fi
 echo "#Reset librechat##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
+AIKEY=$(jq -r ".ai.keys._server_" /disk/admin/modules/_config_/_cloud_.json)
 DBPASSMO=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 MEILISEARCH_KEY=$(jq -r ".key" /disk/admin/modules/_config_/meilisearch.json)
 cd /disk/admin/modules
@@ -47,8 +48,8 @@ interface:
 endpoints:
   custom:
     - name: "Internal System"
-      baseURL: "http://localhost:8091/auth/ai/librechat/v1"
-      apiKey: "key_managed_by_internal_backend"
+      baseURL: "https://aiproxy.maxi.cloud/v1"
+      apiKey: "${AIKEY}"
       models:
         default: ["default"]
         fetch: true
