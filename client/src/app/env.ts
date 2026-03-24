@@ -343,9 +343,9 @@ async openModuleClick(event, identifier:number|string, t = null) {
 }
 
 async presentAlert(hd, st, msg, key:string = "") {
-	let checked = false;
-	if (this.settings.dontShowAgain.includes(key) !== undefined)
+	if (key != "" && this.settings.dontShowAgain.includes(key))
 		return;
+	let checked = false;
 	const alert = await this.alertCtrl.create({
 		cssClass: "basic-alert",
 		header: hd,
