@@ -1,13 +1,13 @@
-<h1 align="center">mAxI.cloud, My Data, My sovereignty</h1>
+<h1 align="center">mAxI.cloud: my Data, my AI, my Sovereignty</h1>
 
-****mAxI.cloud** is your PERSONAL cloud** with mail, calendar, AI chatbot, collaborative office suite, video conference, web hosting, blog, photos, files exchange, every online service you need.
+**mAxI.cloud** is your **AI self-hosted OS** with AI chatbot, AI agents, mail, Office suite, video conference, web hosting, blog, photos, files exchange... **Every AI and cloud service you need. All secured.**
 
-mAxI.cloud gathers **150+ compiled and pre-configured** github or Open Source projects representing more than **4.8 million ⭐**.
+**mAxI.cloud** includes **225+ compiled and pre-configured** github or Open Source projects representing more than **6.5 million ⭐**.
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
 # Content of this folder
-`app` is a C-code app that runs on the dongle. It handles core features such as initial setup, refresh, routes of user interactions to the right code in the dongle. It halso handles the screen. 
+`app` is a C-code app that runs on the hardware. It handles core features such as initial setup, refresh, routes of user interactions. It halso handles the screen for the dongle.
 
 # Compilation of this folder
 To compile this folder:
@@ -18,4 +18,4 @@ To compile this folder:
 * Run `./lvgl-web.sh -s` to compile LVGL for the web interface leveraging emscripten
 * Run `make`
 
-You will get `app` which is the executable that runs on the dongle, `app.js` which is the web version leveraging emscripten that you can run with `app.html`, and `appD` which is a test desktop version based on gtk+-3.0.
+You will get `app` which is the executable that runs on the hardware, `app.js` which is the web version leveraging emscripten that you can run with `app.html`, and `appD` which is a desktop test version based on gtk+-3.0.
