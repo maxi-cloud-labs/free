@@ -1,18 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ACME_DIRECTORY_URLS, AcmeClient, AcmeOrder, CryptoKeyUtils } from "@fishballpkg/acme";
-import { Global } from './env';
-
-@Injectable({
-	providedIn: "root"
-})
 
 export class Certificate {
-SERVERURL: string = "https://maxi.cloud";
+static SERVERURL: string = "https://maxi.cloud";
+static developer = false;
 
-constructor(private global: Global, private httpClient: HttpClient) {}
+constructor() {}
 
-async process(production, name, shortname, customDomain) {
+static consolelog(level, ...st) {
+	if (level == 0 || this.developer)
+		console.log(...st);
+}
+
+static async sleepms(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+static async process(production, developer, name, shortname, customDomain) {
+	this.developer = developer;
 	const ret = { privateKey:"", fullChain:"" };
 	const data = {};
 	const domains = [ name + ".maxi.cloud", "*." + name + ".maxi.cloud", shortname + ".maxi.cloud", "*." + shortname + ".maxi.cloud" ];
@@ -21,44 +25,48 @@ async process(production, name, shortname, customDomain) {
 		domains.push("*." + customDomain);
 	}
 	const url = production ? ACME_DIRECTORY_URLS.LETS_ENCRYPT : ACME_DIRECTORY_URLS.LETS_ENCRYPT_STAGING;
-	this.global.consolelog(1, "CERTIFICATE: Url", url);
-try {
-	const client = await AcmeClient.init(url);
-	const account = await client.createAccount({ emails: ["acme@maxi.cloud"] });
-	const order = await account.createOrder({ domains });
-	const dns01Challenges = order.authorizations.map((authorization) => {
-		return authorization.findDns01Challenge();
-	});
-	const expectedRecords = await Promise.all(
+	this.consolelog(1, "CERTIFICATE: Url", url);
+	try {
+		const client = await AcmeClient.init(url);
+		const account = await client.createAccount({ emails: ["acme@maxi.cloud"] });
+		const order = await account.createOrder({ domains });
+		const dns01Challenges = order.authorizations.map((authorization) => {
+			return authorization.findDns01Challenge();
+		});
+		const expectedRecords = await Promise.all(
+			dns01Challenges.map(async (challenge) => {
+				if (challenge !== undefined) {
+					const txtRecordContent = await challenge.digestToken();
+					(data[challenge.authorization.domain.replace("*.", "")] ??= []).push(txtRecordContent);
+				}
+				return true;
+			})
+		);
+		this.consolelog(1, "CERTIFICATE: Data", data);
+		const responseA = await fetch(this.SERVERURL + "/master/setup-certificate.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"add=1&v=" + encodeURIComponent(JSON.stringify(data)) });
+		const retA = await responseA.json();
+		this.consolelog(1, "CERTIFICATE: Add", retA);
+		await this.sleepms(5000);
 		dns01Challenges.map(async (challenge) => {
-			const txtRecordContent = await challenge.digestToken();
-			(data[challenge.authorization.domain.replace("*.", "")] ??= []).push(txtRecordContent);
-			return true;
-		})
-	);
-	this.global.consolelog(1, "CERTIFICATE: Data", data);
-	const retA = await this.httpClient.post(this.SERVERURL + "/master/setup-certificate.json", "add=1&v=" + encodeURIComponent(JSON.stringify(data)), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
-	this.global.consolelog(1, "CERTIFICATE: Add", retA);
-	await this.global.sleepms(5000);
-	dns01Challenges.map(async (challenge) => {
-		await challenge.submit()
-	});
-	this.global.consolelog(1, "CERTIFICATE: PollStatus");
-	await order.pollStatus({
-		pollUntil: "ready",
-		onBeforeAttempt: () => {},
-		onAfterFailAttempt: () => { this.global.consolelog(1, "CERTIFICATE: After fail attempt"); }
-	});
-	this.global.consolelog(1, "CERTIFICATE: Finalize");
-	const certKeyPair = await order.finalize();
-	await order.pollStatus({ pollUntil: "valid" });
-	const key = await CryptoKeyUtils.exportKeyPairToPem(certKeyPair);
-	ret.privateKey = key.privateKey;
-	ret.fullChain = await order.getCertificate();
-} catch(e) { this.global.consolelog(0, "CERTIFICATE: ERROR", e); }
-	this.global.consolelog(1, "CERTIFICATE: Ret", ret);
-	const retD = await this.httpClient.post(this.SERVERURL + "/master/setup-certificate.json", "del=1&v=" + encodeURIComponent(JSON.stringify(data)), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
-	this.global.consolelog(1, "CERTIFICATE: Del", retD);
+			await challenge?.submit()
+		});
+		this.consolelog(1, "CERTIFICATE: PollStatus");
+		await order.pollStatus({
+			pollUntil: "ready",
+			onBeforeAttempt: () => {},
+			onAfterFailAttempt: () => { this.consolelog(1, "CERTIFICATE: After fail attempt"); }
+		});
+		this.consolelog(1, "CERTIFICATE: Finalize");
+		const certKeyPair = await order.finalize();
+		await order.pollStatus({ pollUntil: "valid" });
+		const key = await CryptoKeyUtils.exportKeyPairToPem(certKeyPair);
+		ret.privateKey = key.privateKey;
+		ret.fullChain = await order.getCertificate();
+	} catch(e) { this.consolelog(0, "CERTIFICATE: ERROR", e); }
+	this.consolelog(1, "CERTIFICATE: Ret", ret);
+	const responseD = await fetch(this.SERVERURL + "/master/setup-certificate.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"del=1&v=" + encodeURIComponent(JSON.stringify(data)) });
+	const retD = await responseD.json();
+	this.consolelog(1, "CERTIFICATE: Del", retD);
 	return ret;
 }
 
