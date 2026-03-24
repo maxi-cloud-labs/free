@@ -33,7 +33,7 @@ async function appInit(path, log, slave, elCanvas, dataCloud = null) {
 	if (dataCloud)
 		argCmdLine.push("-a", JSON.stringify(dataCloud));
 	Module = {
-		print: function(text) { if (log) console_log(1, text); },
+		print: function(text) { console_log(log ? 0 : 1, text); },
 		canvas: elCanvas,
 		arguments: argCmdLine
 	};

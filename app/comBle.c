@@ -112,7 +112,7 @@ static void *bleStart_t(void *arg) {
 		if (cloud && cJSON_HasObjectItem(cloud, "info") && cJSON_HasObjectItem(cJSON_GetObjectItem(cloud, "info"), "name"))
 			snprintf(nn, 27, "mAxI-%s", cJSON_GetStringValue2(cloud, "info", "name"));
 		else
-			snprintf(nn, 27, "mAxI-%s", szSerial);
+			strcpy(nn, "mAxI.cloud");
 		cJSON_Delete(cloud);
 		snprintf(sz, sizeof(sz), "DEVICE=%s type=mesh node=2 address=%s\n", nn, bluetoothClassicAddr);
 		fwrite(sz, strlen(sz), 1, pf);

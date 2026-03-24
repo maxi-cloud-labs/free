@@ -1,9 +1,6 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-//Global variable
-extern char szSerial[17];
-
 //Global functions
 void readString(const char *path, const char *key, char *buf, int size);
 int readValue(const char *path, const char *key);
@@ -23,7 +20,6 @@ void leaveInputMode();
 void copyFile(char *from, char *to, void (*progresscallback)());
 void generateUniqueId(char sz[17]);
 void generateRandomHexString(char sz[33]);
-void getSerialID();
 int killOtherPids(char *sz);
 int fileExists(char *st);
 void logInit(int daemon);
@@ -33,7 +29,6 @@ void buzzer(int n);
 void touchClick();
 void jingle();
 void touch(char *szPath);
-int hardwareVersion();
 int downloadURLBuffer(char *szURL, char *buf, char *header, char *post, char *cookieI, char *cookieO);
 int getExternalIP(char *szIPExternal);
 int getLocalIP(char *szIPLocal);

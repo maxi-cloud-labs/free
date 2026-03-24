@@ -518,8 +518,8 @@ void uiScreenHome() {
 		char *internalIP = cJSON_GetStringValue2(stateCloud, "hardware", "internalIP");
 		char *externalIP = cJSON_GetStringValue2(stateCloud, "hardware", "externalIP");
 		char sz[128];
-		snprintf(sz, 128, "%.8s", serial);
-		doubleText(L("Serial"), serial, 28, 50);
+		snprintf(sz, 128, "%.8s...", serial);
+		doubleText(L("Serial"), sz, 28, 50);
 		snprintf(sz, 128, "https://%s", primary);
 		doubleText(NULL, sz, 42, 50);
 		snprintf(sz, 128, "https://%s.maxi.cloud", shortname);

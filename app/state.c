@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include <sys/statvfs.h>
+#include "logic.h"
 #include "macro.h"
 #include "cJSON.h"
 #include "state.h"
@@ -82,7 +83,15 @@ void stateLoad() {
 }
 
 void updateStateStats() {
-#ifndef WEB
+	if (slaveMode)
+		return;
+#ifdef WEB
+	state.storageTotal = 1000 * 1000;
+	state.storageUsed = 20 * 1000;
+	state.temperature = 59;
+	state.cpuUsed = 3;
+	state.memUsed = 81;
+#else
 	struct statvfs buf;
 #ifdef DESKTOP
 	if (statvfs("/", &buf) == 0) {

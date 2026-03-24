@@ -12,7 +12,7 @@
 </script>
 <button onclick="appOtp('john.doe@example.com');" style="font-size:larger;">OTP</button>
 <script>
-appInit("app.js", true, true, document.getElementById("canvas"));
+appInit("app.js", true, false, document.getElementById("canvas"), {"hardware":{"disk":"/dev/nvme0n1p2","internalIP":"192.168.10.2","externalIP":"101.101.101.101","mem":"31","model":"PC","serial":"fedcba0987654321","timezone":"America/Los_Angeles"},"info":{"domain":"","language":"en","name":"johndoe","primary":"johndoe.maxi.cloud","setup":"done2","shortname":"jd"}});
 appConnectToggle();
 </script>
 </body>

@@ -23,9 +23,6 @@
 #include "macro.h"
 #include "common.h"
 
-//Global variable
-char szSerial[17];
-
 //Private variables
 static int termioUsed = 0;
 static struct termio termioOriginal;
@@ -164,11 +161,7 @@ void writeValueKeyPrintf(const char *path, const char *key, const char *fmt, ...
 }
 
 int readTemperature() {
-#ifdef DESKTOP
-	return 65000;
-#else
 	return readValue(TEMPERATURE_PATH, "temp");
-#endif
 }
 
 void enterInputMode() {
@@ -248,15 +241,6 @@ void generateRandomHexString(char sz[33]) {
 		strcat(sz, ss);
 	}
 	sz[32] = '\0';
-}
-
-void getSerialID() {
-#ifdef DESKTOP
-	strcpy(szSerial, "1234567890abcdef");
-#else
-	memset(szSerial, 0, 17);
-	readString(PLATFORM_PATH, "serial", szSerial, 16);
-#endif
 }
 
 int killOtherPids(char *sz) {
@@ -374,17 +358,6 @@ void touch(char *szPath) {
 	FILE *pf = fopen(szPath, "w+");
 	if (pf)
 		fclose(pf);
-}
-
-int hardwareVersion() {
-	static int rv = -1;
-#ifdef DESKTOP
-	rv = 30;
-#else
-	if (rv == -1)
-		rv = readValue(PLATFORM_PATH, "hardwareVersion");
-#endif
-	return rv;
 }
 
 static size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {

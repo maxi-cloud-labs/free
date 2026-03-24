@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 			sscanf(optarg, "%d", &forceRotation);
 			break;
 		case 's':
-			slaveMode =  1;
+			slaveMode = 1;
 			break;
 		case 't':
 #ifndef WEB
@@ -79,17 +79,14 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 	}
-#ifdef WEB
-	PRINTF("Version:%s\n", APP_VERSION);
-#else
+#ifndef WEB
 	if (killOtherPids("app")) {
 		fprintf(stderr, "Exiting because process already exists\n");
 		return 0;
 	}
 	logInit(daemon);
-	getSerialID();
-	PRINTF("Version:%s Serial:%s\n", APP_VERSION, szSerial);
 #endif
+	PRINTF("Version:%s\n", APP_VERSION);
 	stateDefault();
 	stateLoad_(stateArgPos < 0 ? NULL : argv[stateArgPos]);
 	if (forceRotation != -1)
