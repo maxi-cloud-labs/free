@@ -249,7 +249,7 @@ async doPassword() {
 	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-password.json", "email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master password", ret);
 	if (ret["status"] !== "success")
-		this.errorSt = this.email2.value + " is already in use (for the moment, one email = one cloud)";
+		this.errorSt = this.email2.value + " is already in use. <a href='/delete' target='_blank' class='underline'>Delete</a> first if needed.";
 	else
 		this.show_WiFi();
 	this.progress = false;
