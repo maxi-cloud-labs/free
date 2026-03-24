@@ -37,7 +37,7 @@ ssids = null;
 production = false;
 modalWaitMsg = "";
 
-constructor(public global: Global, public certificate: Certificate, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder, public ble: BleService) {
+constructor(public global: Global, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder, public ble: BleService) {
 	global.refreshUI.subscribe(event => {
 		this.cdr.detectChanges();
 	});
@@ -264,6 +264,14 @@ show_WiFi() {
 	this.cdr.detectChanges();
 }
 
+async getCertificateNative(production, developer, name, shortname, domain) {
+	return await Certificate.process(production, developer, name, shortname, domain);
+}
+
+async getCertificateRemote(production, developer, name, shortname, domain) {
+	return await this.httpClient.post(this.global.SERVERURL + "/master/setup-acme.json", "production=" + encodeURIComponent(production) + "&name=" + encodeURIComponent(name) + "&shortname=" + encodeURIComponent(shortname) + "&domain=" + encodeURIComponent(domain), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
+}
+
 async doWiFi() {
 	this.progress = true;
 	this.errorSt = null;
@@ -272,7 +280,7 @@ async doWiFi() {
 	this.modalWaitMsg = "Retrieval of the https certificate:\nThis can take up to 30 seconds.";
 	await this.modalWait.present();
 	try {
-		ret1 = await this.certificate.process(this.production, this.name1.value, this.shortname1.value, this.domain1.value); //Not used: ret1.accountKey, ret1.accountKeyId
+		ret1 = await this.getCertificateNative(this.production, this.global.developer, this.name1.value, this.shortname1.value, this.domain1.value);
 		this.global.consolelog(2, "SETUP: Certificate", ret1);
 		this.modalWaitMsg = "The https certificate has been acquired.\nSending to hardware now...";
 	} catch(e) {}
