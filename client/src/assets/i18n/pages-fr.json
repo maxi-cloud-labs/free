@@ -20,13 +20,17 @@
 		"Backup & Restore": "Sauvegarde et Restauration"
 	},
 	"delete": {
-		"Delete your\nAccount": "",
+		"Cloud Name": "Nom du Cloud",
+		"Delete Cloud": "Supprimer le Cloud",
+		"Delete your\nAccount": "Supprimer\nvotre Account",
+		"Deleting...": "Suppression en cours...",
+		"Deletion successful": "Succès de la Suppression",
 		"WARNING! DANGER! Account deletion cannot be undone.": "ATTENTION ! DANGER ! La suppression d'un compte ne peut être annulée.",
 		"Email address": "Adresse e-mail",
 		"Please enter a valid email address": "Veuillez entrer une adresse e-mail valide",
 		"Sending delete link...": "Envoi du lien de suppression",
 		"Send delete link": "Envoyer un lien de suppression",
-		"Check your email": "Vérifiez votre e-mail",
+		"This cloud has been deleted.": "Ce cloud a bien été supprimé.",
 		"A delete link has been sent to": "Un lien de suppression a été envoyé à"
 	},
 	"find": {

@@ -20,13 +20,17 @@
 		"Backup & Restore": ""
 	},
 	"delete": {
+		"Cloud Name": "",
+		"Delete Cloud": "",
 		"Delete your\nAccount": "",
+		"Deleting...": "",
+		"Deletion successful": "",
 		"WARNING! DANGER! Account deletion cannot be undone.": "",
 		"Email address": "",
 		"Please enter a valid email address": "",
 		"Sending delete link...": "",
 		"Send delete link": "",
-		"Check your email": "",
+		"This cloud has been deleted.": "",
 		"A delete link has been sent to": ""
 	},
 	"find": {
