@@ -49,6 +49,8 @@ cp ../README.md web
 cp  ../client/src/assets/modulesmeta.json web/modules_latest.json
 cp ../release/modules*.json web 2> /dev/null
 ls -r ../release/modulesmeta_*.json 2> /dev/null | jq -R -s 'split("\n") | map(select(length > 0) | split("_")[1] | split(".")[0]) | {list: (["latest"] + .)}' > web/releases.json
+sed -i 's/|Module|Title|Description|⭐|Type|Category|/<TABLE_MODULES>/' web/README.md
+sed -i '/^|.*/d' web/README.md
 sed -i '/<TABLE_MODULES>/ {
 r ../build/README-modules.md
 d
