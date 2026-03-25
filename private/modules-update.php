@@ -76,7 +76,7 @@ foreach ($files as $file) {
 	$modulesMeta[$name] = $module;
 	$modulesTranslationTitle[$module["title"]] = "";
 	$modulesTranslationDescription[$module["description"]] = "";
-	$modulesMarkdown[$count] = "|" . implode("|", array($module["github"] != "" ? ("[" . $module["name"] . "](https://github.com/" . $module["github"] . ")") : $module["name"], $module["title"], $module["description"], "" . number_format(intval($github["stargazers_count"] ?? 0) / 1000, 1) . "k", $module["web"] ? "web" : "terminal", $module["category"], $module["version"])) . "|";
+	$modulesMarkdown[$count] = "|" . implode("|", array($module["github"] != "" ? ("[" . $module["name"] . "](https://github.com/" . $module["github"] . ")") : $module["name"], $module["title"], $module["description"], "" . number_format(intval($github["stargazers_count"] ?? 0) / 1000, 1) . "k", $module["web"] ? "web" : "terminal", $module["category"])) . "|";
 	$modulesMarkdown[$count] = str_replace("0.0k", "", $modulesMarkdown[$count]);
 	$count++;
 }
@@ -86,7 +86,7 @@ store("/../client/src/assets/modulesdefault.json", $modulesDefault);
 store("/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
 ksort($modulesKeywords);
 store("/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
-$modulesMarkdownHeader="|Module|Title|Description|⭐|Category|Version|\n|-|-|-|:-:|-|:-:|\n";
+$modulesMarkdownHeader="|Module|Title|Description|⭐|Type|Category|\n|-|-|-|:-:|-|:-:|\n";
 $modulesMarkdownFooter="\n||||" . number_format($starsTotal / 1000 / 1000, 2) . "M ⭐|||";
 if (!is_dir(__DIR__ . "/../build"))
 	mkdir(__DIR__ . "/../build");
