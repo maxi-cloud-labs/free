@@ -6,55 +6,58 @@
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
-<p align="center">A <b>🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽</b> is available. Read this <a href="#free-version"><b>section</b></a> below.</p>
+<p align="center">A <b>🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽</b> is available. Read this <a href="#install-the-free-version"><b>section</b></a> below.</p>
 
 
 # Table of Contents
-* [Why this project?](#why-this-project)
-* [Dedicated hardware](#dedicated-hardware)
-* [Free version](#free-version)
-* [Easy installation of the free version](#easy-installation-of-the-free-version)
-* [Your cloud URLs](#your-cloud-urls)
-* [Main web app](#main-web-app)
-* [List of included modules (aka. Open Source projects)](#list-of-included-modules-aka-open-source-projects)
-* [Docs](#docs)
-* [FAQs](#faqs)
+
+* 👍 [Why this project?](#why-this-project)
+* 🤖 [Hardware to run mAxI.cloud](#hardware-to-run-maxicloud)
+* 🚀 [Install the free version](#install-the-free-version)
+* 🔗 [Your cloud URLs](#your-cloud-urls)
+* 🌐 [Main web app](#main-web-app)
+* 📦 [List of included modules (aka. Open Source projects)](#list-of-included-modules-aka-open-source-projects)
+* 📚 [Docs](#docs)
+* ❓ [FAQs](#faqs)
 
 
 # Why this project?
 
 * Get back your sovereignty!
-* Fight enshittification and crapification!
+* Leverage Open Source and Save $1000s/year
+* Fight [enshittification](https://en.wikipedia.org/wiki/Enshittification) and [crapification](https://en.wikipedia.org/wiki/Enshittification)!
+* Secure your data and sandbox your AI agents
 * It's time to de-Google and un-Microsoft!
-
-If you disagree 👎, fine with us 😅, but this project is probably not for you.
-
-
-# Dedicated hardware
-**mAxI.cloud** has been optimized to run on a dedicated ARM-based dongle sold by [https://maxi.cloud](https://maxi.cloud).
-
-[![mAxI.cloud](https://maxi.cloud/images/dongle-hand-1.png)](https://maxi.cloud)
+* Get back your data and AI sovereignty
 
 
-# Free version
+# hardware to run mAxI.cloud
 
-You are not obliged to buy hardware in order to enjoy **mAxI.cloud**. There is a pre-compiled, ready-to-go, **FREE** version that can run on a Raspberry Pi5:
+**mAxI.cloud** can run on multiple hardware options:
 
-[**Click here to download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽**](https://maxi.cloud/download).
+* a Raspberry Pi 5 with 8GB of RAM and 32 GB of storage. A NVMe SSD is highly recommended though a microSD card can work - but it will be slow.
 
-It's a lot of work; it would be appreciated that you give a ⭐ to this project if you download it.
+[![mAxI.cloud](https://maxi.cloud/images/pi5-small.png)](https://maxi.cloud)
+* a dedicated and optimized ARM-based dongle sold by [https://maxi.cloud](https://maxi.cloud).
+
+[![mAxI.cloud](https://maxi.cloud/images/dongle-hand-1-small.png)](https://maxi.cloud)
+* a x86 machine (coming soon).
+* a virtualized version of mAxI.cloud that can run in a server farm (coming soon).
 
 
-# Easy installation of the free version
+# Install the free version
 
-Installation consists of:
-1. [Downloading the free version](https://maxi.cloud/download) (7 GB).
-2. Giving a ⭐ to the project. 😅
-3. Burning the downloaded .img file to a micro SD card or a NVME disk.
-4. Booting your Raspberry Pi5.
-5. Visiting [https://app.maxi.cloud/setup](https://app.maxi.cloud/setup) to set up your **mAxI.cloud**.
+You can try and enjoy **mAxI.cloud** without any restriction on your own hardware such as a Raspberry Pi 5. The pre-compiled, ready-to-go, **FREE** version can be downloaded and installed:
 
-Connection will be done via Bluetooth LE from your browser to the PI5 during the setup. The Raspberry Pi5 will then be associated to your home Wi-Fi.
+* 1. <a href="https://maxi.cloud/download.html" target="_blank" rel="noopener">**Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽**</a>
+
+* 2. Giving a ⭐ to the project. 😅 This project is a lot of work: your recognition will be appreciated.
+
+* 3. Burn the downloaded .img file to a NVMe SSD disk or a micro SD card. You can use for instance the free application [balenaEtcher](https://etcher.balena.io).
+
+* 4. Boot your Raspberry Pi 5 and go to [https://maxi.cloud/s](https://maxi.cloud/s) in the browser of a machine with Bluetooth. The one-minute setup will ask you cloud name, credentials and Wi-Fi information and will be sent over Bluetooth to the Raspberry Pi 5.
+
+You can optionally bring your own domain name (example.com) and use it with **mAxI.cloud**. You will need to point the DNS of your domain to `ns1.maxi.cloud` and `ns2.maxi.cloud`.
 
 
 # Your cloud URLs
@@ -67,20 +70,20 @@ We also provide a "shortcut" URL. We recommend you provide your initials. It wil
 
 * **`https://jd.maxi.cloud`**
 
-If you own a domain name, you can host it via **mAxI.cloud**. It will be another alias:
+As said, if you own a domain name, you can host it via **mAxI.cloud**. It will be another alias:
 
 * **`https://example.com`** = **`https://johndoe.maxi.cloud`**
 
-<small>*If you host your own domain name, its DNS should point to our DNS server ns1.maxi.cloud.*</small>
+<small>*If you host your own domain name, its DNS should point to our DNS servers `ns1.maxi.cloud` and `ns2.maxi.cloud`.*</small>
 
-Then, the **main web app** to control your cloud will be available at:
+The **main web app** to control your cloud will be available at:
 
 * **`https://app.johndoe.maxi.cloud`**
 
 Each **module** will be available also as a sub-domain. For instance:
 * **`https://mail.johndoe.maxi.cloud`** (or **`https://mail.example.com`**)
 * **`https://chatbot.johndoe.maxi.cloud`**
-* **`https://officesuite.johndoe.maxi.cloud`**
+* **`https://aiagent.johndoe.maxi.cloud`**
 * ...
 
 Your mail address will be:
@@ -90,23 +93,24 @@ Your mail address will be:
 
 # Main web app
 
-**mAxI.cloud** has a delightful web app to control all the **modules**, aka. all the included Github or Open Source projects.
+**mAxI.cloud** has a web app to control all the **modules**, aka. all the included Github or Open Source projects.
 
 [![mAxI.cloud](https://maxi.cloud/images/webapp.png)](https://app.maxi.cloud).
 
 <p align="center"><a href="https://app.maxi.cloud" target="_blank"><b>Click here to try the 🄾🄽🄻🄸🄽🄴   🄳🄴🄼🄾 of the web app</b></a>.</p>
 
+
 # List of included modules (aka. Open Source projects)
 
-**mAxI.cloud** gathers **200+ compiled and pre-configured** github or Open Source projects totaling **more than 6.5 million ⭐**.
+**mAxI.cloud** gathers **225+ compiled and pre-configured** github or Open Source projects totaling **more than 6.5 million ⭐**.
 
-**mAxI.cloud** **HEAD** includes:
+**mAxI.cloud** includes:
 
 The full sortable, filterable table is available at https://docs.maxi.cloud/modules.html
 
 <TABLE_MODULES>
 
-<h6><b>mAxI.cloud</b> is in active development and integration of some modules is not completely finished.</h6>
+<h6><b>mAxI.cloud</b> is in active development and integration of some modules is under progress.</h6>
 
 
 ## Docs
@@ -116,8 +120,8 @@ Complete 📚 documentation of this project is available at [https://docs.maxi.c
 ## FAQs
 **Q.** Do you store any information on your server?
 
-**A.** All data is stored on either the dongle if you buy one, or on your Raspberry Pi5 for the free version. We don't want to see your data. That's the whole point of this project! We only store on our server your cloud name, your email address (to fight any abuse, no marketing spam!) and the IP address of the dongle (or the Raspberry Pi5) for the right DNS entries.
+**A.** All data is stored on either the dongle if you buy one, or on your Raspberry Pi 5 for the free version. We don't want to see your data. That's the whole point of this project! We only store on our server your cloud name, your email address (to fight any abuse, no marketing spam!) and the IP address of the dongle (or the Raspberry Pi 5) for the right DNS entries.
 
 **Q.** Can I run completely independently from **mAxI.cloud**?
 
-**A.** Yes. You need your own domain name example.com and point some DNS records (read the [docs](https://docs.maxi.cloud)) to the external IP address of the dongle (or the Raspberry Pi5).
+**A.** Yes. You need your own domain name example.com and point some DNS records (read the [docs](https://docs.maxi.cloud)) to the external IP address of the dongle (or the Raspberry Pi 5).
