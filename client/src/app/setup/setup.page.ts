@@ -161,7 +161,7 @@ checkFormPassword(group: FormGroup) {
 
 async verifyDns(st) {
 	this.progress = true;
-	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-dns.json", "domain=" + encodeURIComponent(st), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
+	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-check-dns.json", "domain=" + encodeURIComponent(st), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master dns", ret);
 	let res = false;
 	if (Array.isArray(ret))
@@ -212,7 +212,7 @@ show_Domain() {
 async doDomain() {
 	this.progress = true;
 	this.errorSt = null;
-	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-domain.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
+	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-check-cloud.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master domain", ret);
 	if (ret["status"] === "success") {
 		if (this.formDomain.controls.domain1.value != "") {
@@ -246,7 +246,7 @@ show_Password() {
 async doPassword() {
 	this.progress = true;
 	this.errorSt = null;
-	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-password.json", "email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
+	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-check-email.json", "email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master password", ret);
 	if (ret["status"] !== "success")
 		this.errorSt = this.email2.value + " is already in use. <a href='/delete' target='_blank' class='underline'>Delete</a> first if needed.";
@@ -269,7 +269,7 @@ async getCertificateNative(production, developer, name, shortname, domain) {
 }
 
 async getCertificateRemote(production, developer, name, shortname, domain) {
-	return await this.httpClient.post(this.global.SERVERURL + "/master/setup-acme.json", "production=" + encodeURIComponent(production) + "&name=" + encodeURIComponent(name) + "&shortname=" + encodeURIComponent(shortname) + "&domain=" + encodeURIComponent(domain), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
+	return await this.httpClient.post(this.global.SERVERURL + "/master/setup-get-certificate.json", "production=" + encodeURIComponent(production) + "&name=" + encodeURIComponent(name) + "&shortname=" + encodeURIComponent(shortname) + "&domain=" + encodeURIComponent(domain), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
 }
 
 async doWiFi() {
@@ -285,7 +285,7 @@ async doWiFi() {
 		this.modalWaitMsg = "The https certificate has been acquired.\nSending to hardware now...";
 	} catch(e) {}
 	try {
-		ret2 = await this.httpClient.post(this.global.SERVERURL + "/master/setup-final.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value) + "&email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
+		ret2 = await this.httpClient.post(this.global.SERVERURL + "/master/setup-create-cloud.json", "name=" + encodeURIComponent(this.name1.value) + "&shortname=" + encodeURIComponent(this.shortname1.value) + "&domain=" + encodeURIComponent(this.domain1.value) + "&email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise() as any;
 		this.global.consolelog(2, "Master final", ret2);
 	} catch(e) {}
 	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;

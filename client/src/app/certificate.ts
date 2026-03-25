@@ -43,7 +43,7 @@ static async process(production, developer, name, shortname, customDomain) {
 			})
 		);
 		this.consolelog(1, "CERTIFICATE: Data", data);
-		const responseA = await fetch(this.SERVERURL + "/master/setup-certificate.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"add=1&v=" + encodeURIComponent(JSON.stringify(data)) });
+		const responseA = await fetch(this.SERVERURL + "/master/setup-set-dnsrecords.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"add=1&v=" + encodeURIComponent(JSON.stringify(data)) });
 		const retA = await responseA.json();
 		this.consolelog(1, "CERTIFICATE: Add", retA);
 		await this.sleepms(5000);
@@ -64,7 +64,7 @@ static async process(production, developer, name, shortname, customDomain) {
 		ret.fullChain = await order.getCertificate();
 	} catch(e) { this.consolelog(0, "CERTIFICATE: ERROR", e); }
 	this.consolelog(1, "CERTIFICATE: Ret", ret);
-	const responseD = await fetch(this.SERVERURL + "/master/setup-certificate.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"del=1&v=" + encodeURIComponent(JSON.stringify(data)) });
+	const responseD = await fetch(this.SERVERURL + "/master/setup-set-dnsrecords.json", { method:"POST", headers:{ "content-type":"application/x-www-form-urlencoded" }, body:"del=1&v=" + encodeURIComponent(JSON.stringify(data)) });
 	const retD = await responseD.json();
 	this.consolelog(1, "CERTIFICATE: Del", retD);
 	return ret;
