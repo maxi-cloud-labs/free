@@ -49,7 +49,7 @@
 
 You can try and enjoy **mAxI.cloud** without any restriction on your own hardware such as a Raspberry Pi 5. The pre-compiled, ready-to-go, **FREE** version can be downloaded and installed:
 
-* 1. <a href="https://maxi.cloud/download.html" target="_blank" rel="noopener">**Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽**</a>
+* 1. [**Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽**](https://maxi.cloud/download.html)
 
 * 2. Giving a ⭐ to the project. 😅 This project is a lot of work: your recognition will be appreciated.
 
@@ -106,7 +106,7 @@ Your mail address will be:
 
 **mAxI.cloud** includes:
 
-The full sortable, filterable table is available at https://docs.maxi.cloud/modules.html
+The full sortable, filterable table is available [here](https://docs.maxi.cloud/modules.html).
 
 <TABLE_MODULES>
 
@@ -114,7 +114,8 @@ The full sortable, filterable table is available at https://docs.maxi.cloud/modu
 
 
 ## Docs
-Complete 📚 documentation of this project is available at [https://docs.maxi.cloud](https://docs.maxi.cloud).
+
+Complete 📚 documentation of this project is available at [here](https://docs.maxi.cloud).
 
 
 ## FAQs
