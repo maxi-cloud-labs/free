@@ -4,7 +4,7 @@ import { BleClient, textToDataView, numberToUUID, ScanResult, ConnectionPriority
 import { Global } from './env';
 import { Subject } from 'rxjs';
 
-const BLE_NAME = "mAxI-";
+const BLE_NAME = "mAxI.";
 const UUID_GATT = "0000fff0-a82e-1000-8000-00805f9b34fb";
 const UUID_VERSION = "0000fff1-a82e-1000-8000-00805f9b34fb";
 const UUID_DATA = "0000fff2-a82e-1000-8000-00805f9b34fb";
