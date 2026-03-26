@@ -21,21 +21,18 @@
 						<button (click)="activeTab = 'routing'" [class]="activeTab == 'routing' ? 'border--blue-500 text--blue-600' : 'border-transparent text--gray-500 hover:text--gray-700 hover:border--gray-300'" class="py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Routing")}}
 						</button>
-						<button (click)="activeTab = 'stats'" [class]="activeTab == 'stats' ? 'border--blue-500 text--blue-600' : 'border-transparent text--gray-500 hover:text--gray-700 hover:border--gray-300'" class="py-2 px-1 border-b-2 font-medium text-sm transition-colors">
-							{{L("Stats")}}
-						</button>
 					</nav>
 				</div>
 				@if (activeTab == 'keys') {
 				<div class="rounded-xl border border--gray-200 p-6 shadow-sm">
-					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("mAxI.cloud Keys")}}</h3>
+					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("mAxI.cloud Key")}}</h3>
 					<h4 class="text-md font-medium text--gray-900 mb-2">{{L("Free Usage")}}</h4>
 					<div class="flex items-center justify-between">
 						<p class="text-sm font-medium text--gray-700">{{L("Remaining messages")}}</p>
 						<span class="font-medium text--blue-600 focus:ring--blue-500 border--gray-300 rounded">{{adminSudo}}</span>
 					</div>
 					<div class="border-t border--gray-200 my-8"></div>
-					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("BYOK (Bring Your Own Keys)")}}</h3>
+					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("BYOK (Bring Your Own Key)")}}</h3>
 					<p class="text-sm text--gray-500 mb-8">{{L("Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.")}}</p>
 					<h4 class="text-md font-medium text--gray-900 mb-2">Anthropic (Claude)</h4>
 					<div class="flex items-center justify-between">
@@ -60,61 +57,27 @@
 						<p class="text-sm font-medium text--gray-700">{{L("Bearer key")}}</p>
 						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
 					</div>
+					<div class="border-t border--gray-200 my-6"></div>
+					<button (click)="wifiApply()" [disabled]="dWiFi" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 text--white rounded-lg text-sm font-medium hover:bg--yellow-700 transition-colors cursor-pointer">
+						<span class="text-lg">{{L("Apply")}}</span>
+					</button>
 				</div>
 				}
-
 				@if (activeTab == 'routing') {
 				<div class="rounded-xl border border--gray-200 p-6 shadow-sm">
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Cloud Name")}}</p>
-						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.name}}.maxi.cloud" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
+					<div *ngFor="let route of routing;">
+						<div class="flex items-center justify-between">
+							<p class="text-sm font-medium text--gray-700">{{LMT(route.title)}} ({{route.name}})</p>
+							<select id="route.module" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
+								<option value="_server_" selected=true>mAxI.cloud</option>
+								<option value="anthropic">Anthropic (Claude)</option>
+								<option value="google">Google (Gemini)</option>
+								<option value="mistral">Mistral (Le Chat)</option>
+								<option value="openai">OpenAI (ChatGPT)</option>
+							</select>
+						</div>
+						<div class="border-t border--gray-200 my-6"></div>
 					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Short Name")}}</p>
-						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.shortname}}.maxi.cloud" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("BYO Domains (Bring Your Own Domains)")}}</p>
-						<input type="text" disabled="true" value="{{global.session.cloud.all?.domains?.join(', ')}}" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Certificate")}}</p>
-						<span class="text-right flex flex-col items-end">
-							{{certificateExpirationDate}}<br>
-							{{certificateDomains}}<br>&nbsp;
-							<button (click)="certificateRenew()" disabled="true" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 text--white rounded-lg text-sm font-medium hover:bg--yellow-700 transition-colors cursor-pointer">
-								<ion-icon name="refresh-outline" class="text--white w-4 h-4"></ion-icon>
-								<span class="text-lg">{{L("Renew")}}</span>
-							</button>
-						</span>
-					</div>
-				</div>
-				}
-				@if (activeTab == 'stats') {
-				<div class="rounded-xl border border--gray-200 p-6 shadow-sm">
-					<h3 class="text-lg font-semibold text--gray-900 mb-4">{{L("Wi-Fi")}}</h3>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("SSID")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Type")}}</p>
-						<select class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-							<option value="nome">None</option>
-							<option value="wep">WEP</option>
-							<option value="wpa" selected=true>WPA/WPA2</option>
-						</select>
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
-					<div class="flex items-center justify-between">
-						<p class="text-sm font-medium text--gray-700">{{L("Password")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" class="text--blue-600 focus:ring--blue-500 border--gray-300 rounded border grow ml-5 max-w-[50%]">
-					</div>
-					<div class="border-t border--gray-200 my-6"></div>
 					<button (click)="wifiApply()" [disabled]="dWiFi" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 text--white rounded-lg text-sm font-medium hover:bg--yellow-700 transition-colors cursor-pointer">
 						<span class="text-lg">{{L("Apply")}}</span>
 					</button>

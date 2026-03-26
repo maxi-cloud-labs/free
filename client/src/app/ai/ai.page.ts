@@ -10,7 +10,29 @@ import { HttpClient } from '@angular/common/http';
 
 export class AI {
 L(st) { return this.global.mytranslate(st); }
-tabs = ["keys", "routing", "stats"];
+LMT(st) { return this.global.mytranslateMT(st); }
+tabs = ["keys", "routing"];
+routing = [ {
+	"module": "librechat",
+	"name": "LibreChat",
+	"title": "Libre Chatbot"
+}, {
+	"module": "lobechat",
+	"name": "Lobe Chat",
+	"title": "Lobe Chatbot"
+}, {
+	"module": "openclaw",
+	"name": "Open Claw",
+	"title": "AI Assistant"
+}, {
+	"module": "openwebui",
+	"name": "Open WebUI",
+	"title": "Chatbot"
+}, {
+	"module": "tabby",
+	"name": "Tabby",
+	"title": "AI Code Helper"
+} ];
 activeTab = this.tabs[0];
 adminSudo;
 sshKeys = "";

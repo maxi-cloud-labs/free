@@ -7,10 +7,15 @@
 	},
 	"ai": {
 		"AI": "IA",
+		"Apply": "Appliquer",
+		"Bearer key": "Clef",
+		"BYOK (Bring Your Own Key)": "AVPC (Apporter Votre Propre Clef)",
+		"Free Usage": "Usage Gratuit",
 		"Keys": "Clefs",
+		"mAxI.cloud Key": "Clef mAxI.cloud",
+		"Remaining messages": "Messages Restants",
 		"Routing": "Routage",
 		"Save": "Sauver",
-		"Stats": "Stats",
 		"System internal / external IP addresses:": "Adresses IP interne et externe du système :",
 		"Those are the AI settings. Your personal settings including your password can be tuned on the page:": "Ceux sont les paramètres d'IA. Les paramètres personnels de dont le mot de passe peuvent être modifiés sur la page :",
 		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": "Vos clefs sont stoquées sur le système et ne sont pas envoyées sur les serveurs maxi.cloud. Une requête effectuée avec ces clefs ne transite pas via les serveurs maxi.cloud."
