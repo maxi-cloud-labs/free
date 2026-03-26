@@ -323,7 +323,10 @@ async openModuleClick(event, identifier:number|string, t = null) {
 			page: page_
 		} });
 	} else {
-		if (this.modulesData[id].notReady != 0) {
+		if (this.modulesData[id].finished === false) {
+			event.preventDefault();
+			this.presentAlert("Not finished", "This module has not yet been fully integrated.", "It should be available in the next release.");
+		} else if (this.modulesData[id].notReady != 0) {
 			event.preventDefault();
 			if (this.session.cloud.info.setup.startsWith("progress"))
 				this.presentToast("The setup of this module is under progress. It should be ready shortly...", "close-outline", 5000);

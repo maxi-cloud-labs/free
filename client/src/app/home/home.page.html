@@ -188,7 +188,7 @@
 			</h3>
 			<br>
 			<div class="mx-5 mb-5"><table class="w-full">
-				<tr><td colspan="3">
+				<tr><td colspan="3" [class]="cards[cardIdCur].finished === false ? 'bg-[repeating-linear-gradient(-45deg,var(--color--gray-300)_0,var(--color--gray-300)_1px,transparent_1px,transparent_15px)]' : ''">
 					<a class="w-16 h-16 rounded-lg flex items-center justify-center float-left mr-3" [class]="global.colorWord2(cards[cardIdCur].category)" [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><img src="assets/icons/{{cards[cardIdCur].module}}.png" class="w-14 h-14 cursor-pointer"/></a>
 					<a [href]="global.openModuleHref(cards[cardIdCur].module)" [target]="global.openModuleTarget(cards[cardIdCur].module)" (click)="global.openModuleClick($event, cards[cardIdCur].module);" title=""><span class="text-3xl">{{LMT(cards[cardIdCur].title)}}</span><br>{{cards[cardIdCur].name}}</a>
 				</td></tr>
@@ -211,7 +211,7 @@
 					<a href="{{cards[cardIdCur].link2}}" title="{{cards[cardIdCur].link2}}" target="_blank" style="color:var(--ion-color-secondary);">{{cards[cardIdCur].link2}}</a><br>
 					<a href="{{cards[cardIdCur].link}}" title="{{cards[cardIdCur].link}}" target="_blank" style="color:var(--ion-color-secondary);">{{cards[cardIdCur].link}}</a>
 					} @else {
-					<span [innerHTML]="cards[cardIdCur].cmds.join('<br>')"></span>
+					<span [innerHTML]="cards[cardIdCur].finished === false ? 'Module not yet finished' : cards[cardIdCur].cmds.join('<br>')"></span>
 					}
 				</td></tr>
 				<tr><td colspan="3" class="h-2"></td></tr>
