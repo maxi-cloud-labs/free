@@ -6,7 +6,9 @@
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
-<p align="center">A <b>🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽</b> is available. Read this <a href="#install-the-free-version"><b>section</b></a> below.</p>
+<div align="center">
+
+A **🄵🅁🄴🄴 🅅🄴🅁🅂🄸🄾🄽** is available. This [section](#install-the-free-version) details how to install.</div>
 
 
 # Table of Contents
@@ -24,11 +26,11 @@
 # Why this project?
 
 * Get back your sovereignty!
-* Leverage Open Source and Save $1000s/year
+* Leverage Open Source and Save $1000s/year.
 * Fight [enshittification](https://en.wikipedia.org/wiki/Enshittification) and [crapification](https://en.wikipedia.org/wiki/Enshittification)!
-* Secure your data and sandbox your AI agents
+* Secure your data and sandbox your AI agents.
 * It's time to de-Google and un-Microsoft!
-* Get back your data and AI sovereignty
+* Get back your data and AI sovereignty.
 
 
 # hardware to run mAxI.cloud
@@ -37,8 +39,8 @@
 
 * a Raspberry Pi 5 with 8GB of RAM and 32 GB of storage. A NVMe SSD is highly recommended though a microSD card can work - but it will be slow.
 
-[![mAxI.cloud](https://maxi.cloud/images/pi5-small.png)](https://maxi.cloud)
-* a dedicated and optimized ARM-based dongle sold by [https://maxi.cloud](https://maxi.cloud).
+[![mAxI.cloud](https://maxi.cloud/images/pi5-small.png)](https://maxi.cloud/buy)
+* a dedicated and optimized ARM-based dongle sold by [https://maxi.cloud](https://maxi.cloud/buy).
 
 [![mAxI.cloud](https://maxi.cloud/images/dongle-hand-1-small.png)](https://maxi.cloud)
 * a x86 machine (coming soon).
@@ -49,7 +51,7 @@
 
 You can try and enjoy **mAxI.cloud** without any restriction on your own hardware such as a Raspberry Pi 5. The pre-compiled, ready-to-go, **FREE** version can be downloaded and installed:
 
-* 1. [**Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽**](https://maxi.cloud/download.html)
+* 1. [Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽](https://maxi.cloud/download.html)
 
 * 2. Giving a ⭐ to the project. 😅 This project is a lot of work: your recognition will be appreciated.
 
@@ -102,9 +104,7 @@ Your mail address will be:
 
 # List of included modules (aka. Open Source projects)
 
-**mAxI.cloud** gathers **225+ compiled and pre-configured** github or Open Source projects totaling **more than 6.5 million ⭐**.
-
-**mAxI.cloud** includes:
+**mAxI.cloud** includes **225+ compiled and pre-configured** github or Open Source projects totaling **more than 6.5 million ⭐**.
 
 The full sortable, filterable table is available [here](https://docs.maxi.cloud/modules.html).
 
