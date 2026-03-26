@@ -149,16 +149,28 @@ filterCards(typing = false) {
 	} else {
 		const isFinalized = input.endsWith(" ");
 		const tokens = [...input.toLowerCase().matchAll(/"([^"]+)"|(\S+)/g)].map(m => m[1] || m[2]);
-		let retAtLeastOnce = false;
+		let retAtLeastOnceTerminal = false;
+		let retAtLeastOnceDone = false;
+		let retAtLeastOnceNotDone = false;
+		let retAtLeastOnceCategory = false;
 		this.filteredCards = this.cards.filter(card => {
+			const ret = this.validation(input, isFinalized, tokens, card.hayStack);
+			if (ret) {
+				if (this.showTerminal == false && card.web == false)
+					retAtLeastOnceTerminal = true;
+				if (this.showDone == false && card.finished)
+					retAtLeastOnceDone = true;
+				if (this.showNotDone == false && !card.finished)
+					retAtLeastOnceNotDone = true;
+				if (this.category != "All")
+					retAtLeastOnceCategory = true;
+			}
 			if (this.showTerminal == false && card.web == false)
 				return false;
 			if (this.showDone == false && card.finished)
 				return false;
 			if (this.showNotDone == false && !card.finished)
 				return false;
-			const ret = this.validation(input, isFinalized, tokens, card.hayStack);
-			retAtLeastOnce = retAtLeastOnce || ret;
 			if (this.category == "All")
 				return ret;
 			else if (this.category == "AI")
@@ -170,8 +182,15 @@ filterCards(typing = false) {
 			else
 				return ret && card.category.includes(this.category);
 		});
-		if (typing && retAtLeastOnce && this.filteredCards.length == 0 && this.category != "All") {
-			this.category = "All";
+		if (typing && this.filteredCards.length == 0 && (retAtLeastOnceTerminal || retAtLeastOnceDone || retAtLeastOnceNotDone || retAtLeastOnceCategory)) {
+			if (retAtLeastOnceTerminal)
+				this.showTerminal = true;
+			if (retAtLeastOnceDone)
+				this.showDone = true;
+			if (retAtLeastOnceNotDone)
+				this.showNotDone = true;
+			if (retAtLeastOnceCategory)
+				this.category = "All";
 			this.filterCards();
 			return;
 		}
