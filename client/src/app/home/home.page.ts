@@ -74,7 +74,15 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 }
 
 ngAfterViewInit() {
-	this.route.queryParams.subscribe((params) => {
+	this.parseQuery();
+}
+
+parseQuery() {
+	const sub = this.route.queryParams.subscribe(async (params) => {
+		if (!this.cards || this.cards.length === 0) {
+			setTimeout(() => { this.parseQuery(); }, 1000);
+			return;
+		}
 		if (params["search"]) {
 			this.searchTerm = params?.["search"];
 			this.filterCards();
