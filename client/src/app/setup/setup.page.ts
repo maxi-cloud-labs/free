@@ -280,7 +280,7 @@ async doWiFi() {
 	this.modalWaitMsg = "Retrieval of the https certificate:\nThis can take up to 30 seconds.";
 	await this.modalWait.present();
 	try {
-		ret1 = await this.getCertificateNative(this.production, this.global.developer, this.name1.value, this.shortname1.value, this.domain1.value);
+		ret1 = await this.getCertificateRemote(this.production, this.global.developer, this.name1.value, this.shortname1.value, this.domain1.value);
 		this.global.consolelog(2, "SETUP: Certificate", ret1);
 		this.modalWaitMsg = "The https certificate has been acquired.\nSending to hardware now...";
 	} catch(e) {}
