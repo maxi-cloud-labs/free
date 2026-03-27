@@ -51,7 +51,7 @@ A **🄵🅁🄴🄴 🅅🄴🅁🅂🄸🄾🄽** is available. This [section]
 
 You can try and enjoy **mAxI.cloud** without any restriction on your own hardware such as a Raspberry Pi 5. The pre-compiled, ready-to-go, **FREE** version can be downloaded and installed:
 
-* 1. [Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽](https://maxi.cloud/download.html)
+* 1. [Download the 🄵🅁🄴🄴   🅅🄴🅁🅂🄸🄾🄽](https://maxi.cloud/d)
 
 * 2. Giving a ⭐ to the project. 😅 This project is a lot of work: your recognition will be appreciated.
 

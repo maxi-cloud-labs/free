@@ -5,13 +5,17 @@ If you think that we have forgotten a module, please suggest. The main requireme
 # What's needed to suggest a module?
 Each module integration is based on the following files:
 
--1. module.json, the file that describes the module and provide a lot of information for run-time
--2. icons/module.png, a transparent 512-pixel black-only icon representing the module. It's recommended to find a good matching icon at [https://flaticon.com](https://flaticon.com).
--3. logos/module.jpg, a white-based image representing the module.
--4. install/module.sh, the /bin/sh script that needs to be run to install the module during the preparation of the image
+- 1. module.json, the file that describes the module and provide a lot of information for run-time.
 
--5. reset/module.sh, an optional /bin/sh script to reset the module. It's also called during the first setup.
--6. services/module.service, an optional service for the module.
+- 2. icons/module.png, a transparent 512-pixel black-only icon representing the module. It's recommended to find a good matching icon at [https://flaticon.com](https://flaticon.com).
+
+- 3. logos/module.jpg, a white-based image representing the module.
+
+- 4. install/module.sh, the /bin/sh script that needs to be run to install the module during the preparation of the image.
+
+- 5. reset/module.sh, an optional /bin/sh script to reset the module. It's also called during the first setup.
+
+- 6. services/module.service, an optional service for the module.
 
 # Module.json
 Each module is described by an exhaustive json config file:
@@ -92,3 +96,5 @@ Each module is described by an exhaustive json config file:
 }
 
 ```
+
+The best way is to start from a similar module to the one in [https://github.com/maxi-cloud-labs/free/tree/master/private/modules](https://github.com/maxi-cloud-labs/free/tree/master/private/modules).

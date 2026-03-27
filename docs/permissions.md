@@ -1,9 +1,7 @@
 This page documents the modules permissions architecture.
 
-Most of the modules have a web interface which is eventually exposed through the Apache2 of **mAxI.cloud**. This provides an additional layer of security.
+Most of the modules have web interfaces which are eventually exposed through the Apache2 server of your personal **mAxI.cloud**.
 
-Your **mAxI.cloud** users can have the role of admin or the role of user. The very first user, which username is the cloud name, has a super admin role and can't be deleted.
+Your **mAxI.cloud** users can have the role of admin or the role of user. As a reminder, the very first user, which username is the cloud name, has obviously the role of admin role. It can't be deleted. It has also extra privileges, including access to restricted modules (web terminal, server administration, ssh...).
 
-The web interface of a module can be disabled (aka. turned off), made public, meaning that all visitors can access it or can be restricted to role-admin or role-user visitors.
-
-The permissions setup at in the permissions section of the web app concern only the web interface of the module.
+The web interface of a module can be disabled. On the opposite, it can be made public, meaning that any external visitor can access it. It can also be restricted to role-admin or role-user users.
