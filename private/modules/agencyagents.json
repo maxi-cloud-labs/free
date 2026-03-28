@@ -1,0 +1,26 @@
+{
+	"module": "agencyagents",
+	"name": "The Agency",
+	"title": "Agency Agents",
+	"category": "Knowledge",
+	"version": "4feb0cd7",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "",
+	"github": "msitarzewski/agency-agents",
+	"description": "A complete AI agency at your fingertips, each agent being a specialized expert with personality, processes, and proven deliverables.",
+	"keywords": [
+		"Agency",
+		"Agents",
+		"Specialized expert"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"followSymLinks": true,
+		"localPort": 9551
+	}
+}
