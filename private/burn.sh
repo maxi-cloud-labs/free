@@ -27,7 +27,7 @@ while getopts d:efhz opt; do
 		z) FORCE=1;;
 	esac
 done
-IMG=../build/img/flasher-m${POSTNAME}-s.img
+IMG=../build/img/maxicloud-arm64${POSTNAME}.img
 
 if [ "m`id -u`" != "m0" ]; then
 	echo "You need to be root"

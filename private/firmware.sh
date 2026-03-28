@@ -2,12 +2,13 @@
 
 helper() {
 echo "*******************************************************"
-echo "Usage for firmware [-c -d disk -f -h -l NB -z]"
+echo "Usage for firmware [-c -d disk -f -h -l NB -r -z]"
 echo "c:	Clean build"
 echo "d disk:	set /dev/disk[1-2] (sda or mmcblk0p)"
 echo "f:	Create final binaries"
 echo "h:	Print this usage and exit"
 echo "l:	Set loop number"
+echo "r:	Compress to the maximum"
 echo "z:	Force if disk size is not the usual"
 exit 0
 }
@@ -19,13 +20,14 @@ FINAL=0
 CLEAN=0
 FORCE=0
 COMPRESSION=3
-while getopts cd:fhl:z opt; do
+while getopts cd:fhl:rz opt; do
 	case "$opt" in
 		c) CLEAN=1;;
 		d) DISK="/dev/${OPTARG}";;
 		f) POSTNAME="-final";FINAL=1;COMPRESSION=22;;
 		h) helper;;
 		l) LOSETUP=/dev/loop${OPTARG};;
+		r) COMPRESSION=22;;
 		z) FORCE=1;;
 	esac
 done
@@ -55,7 +57,7 @@ DATESTART=`date +%s`
 
 umount ${DISK}*
 umount ${DISK}*
-rm -f ${PP}/build/img/flasher-m${POSTNAME}-s.img ${PP}/build/img/upgrade.bin ${PP}/build/img/partition1.zip
+rm -f ${PP}/build/img/maxicloud-arm64${POSTNAME}.img ${PP}/build/img/partition1.zip
 mount ${DISK}1 /tmp/1
 mount ${DISK}2 /tmp/2
 cd /tmp/1
@@ -137,6 +139,7 @@ else
 ./disk/
 ./home/ai/build/
 ./home/gregoire/
+./usr/local/modules/trash/
 EOF
 	sed -i -e 's|#LABEL=rootfs  /disk|LABEL=rootfs  /disk|' ${ROOTFS}/etc/fstab
 	echo "######## WARNING ########"
@@ -155,16 +158,16 @@ sync
 umount ${DISK}*
 umount ${DISK}*
 
-#dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((1024 * 1024))
+#dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024))
 SIZEOS=$(stat -c %s /tmp/os${POSTNAME}.img)
 echo "Squashfs Size: $((SIZEOS / 1024 / 1024)) MiB = $((SIZEOS / 1024 / 1024 / 1024)) GiB"
 SIZE=$(((SIZEOS + (1024 + 128 + 4) * 1024 * 1024) / 1024 / 1024 / 4))
 echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
-fallocate -l $((SIZE * 4 * 1024 * 1024)) ${PP}/build/img/flasher-m${POSTNAME}-s.img
-dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((1024 * 1024)) conv=notrunc
-#dd if=/dev/zero of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=$((4 * 1024 * 1024)) count=$SIZE seek=1 conv=notrunc status=progress
-echo -n '\061' | dd of=${PP}/build/img/flasher-m${POSTNAME}-s.img bs=1 seek=4194303 conv=notrunc
-losetup --show ${LOSETUP} ${PP}/build/img/flasher-m${POSTNAME}-s.img
+fallocate -l $((SIZE * 4 * 1024 * 1024)) ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
+dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024)) conv=notrunc
+#dd if=/dev/zero of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((4 * 1024 * 1024)) count=$SIZE seek=1 conv=notrunc status=progress
+echo -n '\061' | dd of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=1 seek=4194303 conv=notrunc
+losetup --show ${LOSETUP} ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
 sfdisk -f ${LOSETUP} << EOF
 8192,262144,c
 270336,
@@ -175,7 +178,7 @@ sync
 losetup -d ${LOSETUP}
 sync
 sync
-losetup --partscan --show --direct-io=on ${LOSETUP} ${PP}/build/img/flasher-m${POSTNAME}-s.img
+losetup --partscan --show --direct-io=on ${LOSETUP} ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
 if [ $? != 0 ]; then
 	echo "ERROR losetup"
 	exit 1
@@ -212,44 +215,28 @@ sync
 losetup -d ${LOSETUP}
 
 if [ $FINAL = 1 ]; then
-	zip -j ${PP}/build/img/upgrade.bin ${PP}/build/img/partition1.zip /tmp/os${POSTNAME}.img
-
 	cd ${PP}/client
 	ionic build --prod
-	ionic cap sync android --prod
 	cd ${PP}
-
 	echo "*******************************************************"
 	echo -n "\e[34m"
 	echo "cd ${PP}/client"
 	echo "tar -cjpf a.tbz2 app && scp a.tbz2 gregoire@server:/home/gregoire/ && rm -f a.tbz2"
 	echo "cd ${PP}/private/img"
-	echo "scp upgrade.bin flasher-m-final-s.img gregoire@server:/home/gregoire"
+	echo "scp maxicloud-arm64-final.img gregoire@server:/home/gregoire"
 	echo -n "\e[m"
 	echo "*******************************************************"
 	echo -n "\e[31m"
 	cat <<EOF
 cd /var/www/maxi
 rm -rf app && tar -xjpf ~/a.tbz2 && rm ~/a.tbz2
-sed -i -e 's|<base href="/"|<base href="/app/"|' app/index.html
 
 RELEASE=`date +'%Y-%m-%m'`
-cd /var/www/maxi/firmware
-mkdir -p \$RELEASE
-cd \$RELEASE
-mv ~/flasher-m-final-s.img flasher-\$RELEASE.img
-touch -t \${RELEASE//\-/}1048 f* .f* .l*
-
-cd ..
-ln -sf \$RELEASE/upgrade-\$RELEASE.bin upgrade.bin
-ln -sf \$RELEASE/.upgrade-\$RELEASE.md5sum upgrade.md5sum
-ln -sf \$RELEASE/flasher-\$RELEASE.img flasher.img
-ln -sf \$RELEASE/.flasher-\$RELEASE.md5sum flasher.md5sum
-
+mv ~/maxicloud-arm64-final.img /var/www/maxi/releases/maxicloud-arm64-\$RELEASE.img
+touch -t \${RELEASE//\-/}1048 /var/www/maxi/releases/maxicloud-arm64-\$RELEASE.img
+ln -sf maxicloud-arm64-\$RELEASE.img /var/www/maxi/releases/maxicloud-arm64-latest.img
 chown -R www-data:www-data /var/www/
-
-echo -n "\$RELEASE" > version
-echo -n "\$RELEASE" > version-app
+echo -n "\$RELEASE" > /var/www/maxi/master/version
 EOF
 	echo -n "\e[m"
 	echo "*******************************************************"
