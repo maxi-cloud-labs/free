@@ -2,7 +2,7 @@
 	"module": "grav",
 	"name": "Grav",
 	"title": "Knowledege Site",
-	"category": "Knowledege",
+	"category": "Knowledge",
 	"version": "1.7.48",
 	"installMethod": "clone",
 	"web": true,
