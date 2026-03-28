@@ -3,15 +3,15 @@
 	"name": "Silver Bullet",
 	"title": "Knowledge Management",
 	"category": "Knowledge",
-	"version": "v2.3.0",
-	"installMethod": "clone",
+	"version": "v2.5.2",
+	"installMethod": "wget",
 	"web": true,
 	"essential": false,
-	"finished": false,
+	"finished": true,
 	"ai": false,
 	"database": "",
 	"github": "silverbulletmd/silverbullet",
-	"description": "A note-taking application optimized for people with a hacker mindset.",
+	"description": "A personal productivity platform built on Markdown.",
 	"keywords": [
 		"Browser-based",
 		"Customizable platform",
@@ -26,8 +26,18 @@
 	"default": {
 		"enabled": true,
 		"localPort": 9519,
-		"permissions": [
-			"user"
-		]
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8121,
+				"path": "/"
+			}
+		],
+		"services": [
+			"silverbullet"
+		],
+		"setup": true,
+		"setupDependencies": []
 	}
 }

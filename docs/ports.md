@@ -49,6 +49,7 @@ This is the list of all used ports in the image, separated between listening por
 - newapi: 8118 (reverseproxy)
 - rediscommander: 8119 (reverseproxy)
 - fail2banui: 8120 (reverseproxy)
+- silverbullet: 8121 (reverseproxy)
 - syncthing: 8384 (reverseproxy)
 - lidarr: 8686 (reverseproxy)
 - portkey: 8787 (reverseproxy)
