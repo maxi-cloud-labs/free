@@ -145,7 +145,7 @@ static ssize_t write_debug(struct device *dev, struct device_attribute *attr, co
 static DEVICE_ATTR(debug, 0660, show_debug, write_debug);
 
 static ssize_t write_printk(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-	printk("Dongle: %s", buf);
+	printk("Dongle: %.*s", (int)count, buf);
 	if (strlen(buf) > 0 && buf[strlen(buf) - 1] != '\n')
 		printk("\n");
 	return count;
