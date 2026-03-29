@@ -61,6 +61,7 @@ This is the list of all used ports in the image, separated between listening por
 - wgdashboard: 10086
 - rspamd: 11332, 11333, 11334
 - stremio: 11470 (reverseproxy)
+- promptfoo: 15500 (reverseproxy)
 - openclaw: 18789 (reverseproxy)
 - mongodb: 27017
 

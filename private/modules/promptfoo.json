@@ -1,0 +1,40 @@
+{
+	"module": "promptfoo",
+	"name": "Promptfoo",
+	"title": "Prompt Tester",
+	"category": "Knowledge",
+	"version": "0.121.3",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "",
+	"github": "promptfoo/promptfoo",
+	"description": "A tester for your prompts, agents, and RAGs.",
+	"keywords": [
+		"Agent",
+		"Prompt",
+		"RAG",
+		"Tester"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9547,
+		"permissions": [],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 15500,
+				"path": "/"
+			}
+		],
+		"services": [
+			"promptfoo"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}
