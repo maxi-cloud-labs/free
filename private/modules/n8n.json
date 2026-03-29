@@ -7,7 +7,7 @@
 	"installMethod": "npm",
 	"web": true,
 	"essential": false,
-	"finished": false,
+	"finished": true,
 	"ai": true,
 	"database": "",
 	"github": "n8n-io/n8n",
@@ -17,6 +17,42 @@
 	],
 	"proprietary": [],
 	"default": {
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/",
+					"form": "main[id=content]",
+					"arg1": "input[id=emailOrLdapLoginId]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=button]",
+					"val1": 1,
+					"val2": 2
+				},
+				{
+					"url": "/signin",
+					"form": "main[id=content]",
+					"arg1": "input[id=emailOrLdapLoginId]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=button]",
+					"val1": 1,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/rest/login",
+					"arg1": "emailOrLdapLoginId",
+					"arg2": "password",
+					"val1": 1,
+					"val2": 2
+				}
+			]
+		},
+		"autoLoginNoGzip": [
+			"^/$",
+			"^/signin"
+		],
+		"config": true,
 		"enabled": true,
 		"localPort": 9548,
 		"permissions": [],
