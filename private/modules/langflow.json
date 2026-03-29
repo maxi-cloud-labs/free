@@ -1,0 +1,26 @@
+{
+	"module": "langflow",
+	"name": "Langflow",
+	"title": "AI Agents Deployer",
+	"category": "Knowledge",
+	"version": "1.8.3",
+	"installMethod": "pip",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": true,
+	"database": "",
+	"github": "langflow-ai/langflow",
+	"description": "A powerful tool for building and deploying AI-powered agents and workflows.",
+	"keywords": [
+		"AI agents",
+		"Deploy",
+		"Workflow"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9549,
+		"permissions": []
+	}
+}
