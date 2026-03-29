@@ -1,0 +1,26 @@
+{
+	"module": "openviking",
+	"name": "OpenViking",
+	"title": "AI Agents Database",
+	"category": "Knowledge",
+	"version": "4feb0cd7",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": true,
+	"database": "",
+	"github": "volcengine/OpenViking",
+	"description": "A context database designed specifically for AI Agents.",
+	"keywords": [
+		"Agency",
+		"Agents",
+		"Specialized expert"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9552,
+		"permissions": []
+	}
+}
