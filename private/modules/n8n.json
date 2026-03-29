@@ -1,0 +1,37 @@
+{
+	"module": "n8n",
+	"name": "n8n",
+	"title": "Workflow Automation",
+	"category": "Knowledge",
+	"version": "n8n@2.13.4",
+	"installMethod": "npm",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": true,
+	"database": "",
+	"github": "n8n-io/n8n",
+	"description": "A fair-code workflow automation platform with native AI capabilities.",
+	"keywords": [
+		"n8n"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9548,
+		"permissions": [],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 5678,
+				"path": "/"
+			}
+		],
+		"services": [
+			"n8n"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}

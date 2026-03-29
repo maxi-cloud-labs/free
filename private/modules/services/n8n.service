@@ -1,0 +1,21 @@
+[Unit]
+Description=n8n
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=300s
+OnFailure=notify-failure@%n.service
+
+[Service]
+Restart=on-failure
+RestartMode=direct
+Type=simple
+StandardOutput=inherit
+StandardError=inherit
+RestartSec=5s
+User=admin
+ExecStart=/usr/local/modules/n8n/node_modules/.bin/n8n start
+WorkingDirectory=/disk/admin/modules/n8n
+Environment=N8N_USER_FOLDER=/disk/admin/modules/n8n
+
+[Install]
+WantedBy=multi-user.target

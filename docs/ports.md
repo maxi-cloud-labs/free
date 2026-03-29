@@ -18,6 +18,7 @@ This is the list of all used ports in the image, separated between listening por
 - signoz: 4317, 4318, 8113 (reverseproxy)
 - openobserve: 5080 (reverseproxy)
 - postgres: 5432
+- n8n: 5678
 - redis: 6379
 - frp: 7400
 - meilisearch: 7700
