@@ -1,0 +1,25 @@
+{
+	"module": "flowise",
+	"name": "flowise",
+	"title": "AI Agents Builder",
+	"category": "Knowledge",
+	"version": "flowise@1.3.1",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"ai": true,
+	"database": "",
+	"github": "FlowiseAI/Flowise",
+	"description": "A visual AI agents builder.",
+	"keywords": [
+		"AI agents",
+		"Builder"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9550,
+		"permissions": []
+	}
+}
