@@ -58,6 +58,7 @@
 			"^/$",
 			"^/auth"
 		],
+		"config": true,
 		"enabled": true,
 		"localPort": 9480,
 		"permissions": [
