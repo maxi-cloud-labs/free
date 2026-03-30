@@ -20,7 +20,7 @@ async function transporterInit() {
 		return;
 	const pf = JSON.parse(readFileSync("/disk/admin/modules/_config_/postfix.json", "utf-8"));
 	transporter = nodemailer.createTransport({
-		host: "localhost",
+		host: "127.0.0.1",
 		auth: {
 			user: APP_ADMIN,
 			pass: pf["password"]
