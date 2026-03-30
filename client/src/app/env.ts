@@ -335,7 +335,7 @@ async openModuleClick(event, identifier:number|string, t = null) {
 				if (this.modulesData[id].notReady == 3)
 					this.presentToast("The module is being set up. Please wait...", "warning");
 				else if (await (this.presentQuestion("First-time setup", "Do you want to setup this module now?", "You will be notified when the module is ready."))) {
-					this.presentToast("The module setup has started. You will be notified of completion.", "info", {}, true);
+					this.presentToast("The setup for the module '" + this.modulesData[id].name + "' has started. You will be notified of completion.", "info", {}, true);
 					this.modulesData[id].notReady = 3;
 					this.refreshUI.next("refresh");
 					const data = { module:this.modulesData[id].module };
@@ -609,7 +609,7 @@ async statusRefresh(data) {
 	} else if (data.module && data.state === "finish") {
 		this.modulesData[this.modulesDataFindId(data.module)]["notReady"] = 0;
 		if (!this.session.cloud.info.setup.startsWith("progress"))
-			this.presentToast("The module " + data.module + " is now ready.", "sucess");
+			this.presentToast("The module '" + this.modulesData[this.modulesDataFindId(data.module)].name + "' is now ready.", "success");
 	}
 	this.refreshUI.next("refresh");
 }

@@ -261,12 +261,11 @@ async settings(module) {
 async moduleReset() {
 	if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "Are you sure to reset this module?"))
 		if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "This is your last chance. All data of this module will be erased and won't be recoverable. Are you absolutely sure to reset this module?")) {
-			this.global.presentToast("The module is being resetted. Please wait...", "info", {}, true);
+			this.global.presentToast("The module '" + this.cards[this.cardIdCur].name + "' is being resetted. You will be notified of completion.", "info", {}, true);
 			const data = { module:this.global.modulesData[this.cardIdCur].module };
 			this.global.modulesData[this.cardIdCur]["notReady"] = 1;
-			const ret = await this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
-			this.global.consolelog(2, "Auth module-reset: ", ret);
-			this.global.presentToast("The module has been resetted!", "success");
+			this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
+			this.global.consolelog(2, "Auth module-reset");
 			this.modalModuleSettings.dismiss();
 		}
 }
@@ -275,7 +274,7 @@ async moduleRefresh() {
 	const data = { services:this.global.modulesData[this.cardIdCur].services };
 	const ret = await this.httpClient.post("/_app_/auth/module/refresh", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
 	this.global.consolelog(2, "Auth module-refresh: ", ret);
-	this.global.presentToast("The module service has been restarted!", "success");
+	this.global.presentToast("The service associated to the module '" + this.cards[this.cardIdCur].name + "' has been restarted!", "success");
 	this.modalModuleSettings.dismiss();
 }
 
