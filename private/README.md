@@ -2,7 +2,7 @@
 
 **mAxI.cloud** is your **AI self-hosted OS** with AI chatbot, AI agents, mail, Office suite, video conference, web hosting, blog, photos, files exchange... **Every AI and cloud service you need. All secured.**
 
-**mAxI.cloud** includes **225+ compiled and pre-configured** github or Open Source projects representing more than **6.5 million ⭐**.
+**mAxI.cloud** includes **250 compiled and configured** github or Open Source projects representing more than **7 million ⭐**.
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
