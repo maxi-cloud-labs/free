@@ -287,8 +287,8 @@ else
 	clone pihole pi-hole/pi-hole v6.3
 	clone pingvinshare stonith404/pingvin-share v1.13.0
 	clone piped TeamPiped/Piped 72c92b9
-	clone piped/pipedbackend TeamPiped/Piped-Backend c5921f6b
-	clone piped/pipedproxy TeamPiped/Piped-Proxy a973968
+	clone piped/pipedbackend TeamPiped/Piped-Backend e3c7bdbb
+	clone piped/pipedproxy TeamPiped/piped-proxy a973968
 	clone prettier prettier/prettier 3.7.4
 	clone privatebin PrivateBin/PrivateBin 2.0.3
 	clone projectsend projectsend/projectsend r1720
