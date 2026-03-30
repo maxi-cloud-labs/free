@@ -4,7 +4,7 @@ apt-get -y install fonts-open-sans libevent-dev libevent-extra-2.1-7t64 libevent
 cd /usr/local/modules
 git clone https://github.com/iv-org/invidious
 cd invidious
-git checkout 5f84a5b
+git checkout 749791cd
 sync
 echo 3 > /proc/sys/vm/drop_caches
 make
@@ -13,5 +13,5 @@ mkdir /var/log/invidious/
 
 git clone https://github.com/iv-org/invidious-companion
 cd invidious-companion
-git checkout 2668927
+git checkout cb8d9bbb
 deno task compile
