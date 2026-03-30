@@ -1,4 +1,3 @@
-<app-toast></app-toast>
 <div class="absolute z-[10] bottom-2 left-4 flex gap-3 text--gray-900" [class]="router.url == '/login' || router.url == '/find' || router.url == '/setup' ? '' : 'hidden'">
 	<a href="javascript:void()" (click)="global.themeSet('light')" title="{{LG('Light')}}"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border--gray-900' : ''"></ion-icon></a>
 	<a href="javascript:void()" (click)="global.themeSet('dark')" title="{{LG('Dark')}}"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border--gray-900' : ''"></ion-icon></a>

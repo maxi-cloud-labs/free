@@ -79,7 +79,7 @@ closeTwoFA() {
 resetSettings() {
 	this.global.settings = { lang:"en", welcomeTourShown:false } as Settings;
 	this.global.settingsSave();
-	this.global.presentToast("The settings of this profile have been resetted!", "alert-circle-outline");
+	this.global.presentToast("The settings of this profile have been resetted!", "success");
 }
 
 }

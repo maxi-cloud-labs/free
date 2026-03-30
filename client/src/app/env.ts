@@ -10,6 +10,7 @@ import { Preferences } from '@capacitor/preferences';
 import { InAppReview } from '@capacitor-community/in-app-review';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { Settings, CategoriesEx } from './myinterface';
@@ -33,7 +34,7 @@ SERVERURL: string = "https://maxi.cloud";
 activateUrl: string;
 settings: Settings = { lang:"en", powerUser:false, tags:[], dontShowAgain:[], welcomeTourShown:false } as Settings;
 refreshUI:Subject<any> = new Subject();
-toast:Subject<any> = new Subject();
+previousToastID;
 session;
 modulesData = [];
 sidebarFilterType = "";
@@ -46,7 +47,7 @@ darkVal = false;
 setupUIProgress = 0;
 setupUIDesc = "";
 
-constructor(public plt: Platform, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private menu: MenuController, private translate: TranslateService, public popoverController: PopoverController, private httpClient: HttpClient) {
+constructor(public plt: Platform, private toastr: ToastrService, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private menu: MenuController, private translate: TranslateService, public popoverController: PopoverController, private httpClient: HttpClient) {
 	if (!this.splashDone) {
 		const params = new URLSearchParams(window.location.search);
 		if (params.get("dev") != null)
@@ -329,12 +330,12 @@ async openModuleClick(event, identifier:number|string, t = null) {
 		} else if (this.modulesData[id].notReady != 0) {
 			event.preventDefault();
 			if (this.session.cloud.info.setup.startsWith("progress"))
-				this.presentToast("The setup of this module is under progress. It should be ready shortly...", "close-outline", 5000);
+				this.presentToast("The setup of this module is under progress. It should be ready shortly...");
 			else if (this.session.cloud.info.setup == "done1") {
 				if (this.modulesData[id].notReady == 3)
-					this.presentToast("The module is being set up. Please wait...", "alert-circle-outline");
+					this.presentToast("The module is being set up. Please wait...", "warning");
 				else if (await (this.presentQuestion("First-time setup", "Do you want to setup this module now?", "You will be notified when the module is ready."))) {
-					this.presentToast("The module setup has started. You will be notified of completion.", "alert-circle-outline");
+					this.presentToast("The module setup has started. You will be notified of completion.", "info", {}, true);
 					this.modulesData[id].notReady = 3;
 					this.refreshUI.next("refresh");
 					const data = { module:this.modulesData[id].module };
@@ -366,11 +367,21 @@ async presentAlert(hd, st, msg, key:string = "") {
 }
 
 dismissToast() {
-	this.toast.next({ show:false });
+	if (this.previousToastID)
+		this.toastr.remove(this.previousToastID);	
 }
 
-presentToast(message, icon, delay = 3000) {
-	this.toast.next({ show:true, message, icon, delay });
+presentToast(message:string);
+presentToast(message:string, type:string);
+presentToast(message:string, type:string, options:object);
+presentToast(message:string, type:string, options:object, toberemoved:boolean);
+presentToast(message, type:string = "info", options: object = {}, toberemoved: boolean = false) {
+	const o = { progressBar:true, ...options };
+	if (this.previousToastID)
+		this.toastr.remove(this.previousToastID);
+	const t = this.toastr[type](message, "", o);
+	if (toberemoved)
+		this.previousToastID = t.toastId;
 }
 
 async platform() {
@@ -567,7 +578,7 @@ async setup2Start(start) {
 		this.session.cloud.info.setup = "progress2";
 	}
 	appConnectToggle(true);
-	this.presentToast("First-time setup is under progress...", "help-outline");
+	this.presentToast("First-time setup is under progress...", "warning");
 	this.setupUIDesc = "initialization";
 	this.setupUIProgress = 1;
 	this.refreshUI.next("refresh");
@@ -591,14 +602,14 @@ async statusRefresh(data) {
 		this.setupUIProgress = 0;
 		this.setupUIDesc = "";
 		this.modulesData.forEach((data) => { data["notReady"] = 0; });
-		this.presentToast("First-time setup is now complete!", "help-outline", 0);
+		this.presentToast("First-time setup is now complete!", "success", { timeout:0 });
 	} else if (data.module && data.state === "start") {
 		this.setupUIDesc = "module: " + data.module;
 		this.modulesData[this.modulesDataFindId(data.module)]["notReady"] = 1;
 	} else if (data.module && data.state === "finish") {
 		this.modulesData[this.modulesDataFindId(data.module)]["notReady"] = 0;
 		if (!this.session.cloud.info.setup.startsWith("progress"))
-			this.presentToast("The module " + data.module + " is now ready.", "close-outline", 5000);
+			this.presentToast("The module " + data.module + " is now ready.", "sucess");
 	}
 	this.refreshUI.next("refresh");
 }

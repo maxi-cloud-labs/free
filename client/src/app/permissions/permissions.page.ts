@@ -56,14 +56,13 @@ private lastCtrlFPressTimestamp: number = 0;
 		const timeDifference = currentTime - this.lastCtrlFPressTimestamp;
 		if (timeDifference < 5000) {
 			this.lastCtrlFPressTimestamp = 0;
-			this.global.dismissToast();
 			this.searchTermE.nativeElement.blur();
 			return;
 		} else {
 			this.lastCtrlFPressTimestamp = currentTime;
 			event.preventDefault();
 			this.searchTermE.nativeElement.focus();
-			this.global.presentToast("Type Ctrl-F a second time for the browser search", "help-outline", 5000);
+			this.global.presentToast("Type Ctrl-F a second time for the browser search");
 		}
 	}
 }
@@ -213,12 +212,12 @@ filterCards(typing = false) {
 }
 
 async updateHits() {
-	this.global.presentToast("Data is being refreshed. Please wait...", "help-outline", 10000);
+	this.global.presentToast("Data is being refreshed. Please wait...", "info", {}, true);
 	const ret = await this.httpClient.get("/_app_/auth/refresh", {headers:{"content-type": "application/json"}}).toPromise();
 	this.global.consolelog(2, "Auth Refresh: ", ret);
 	await this.global.sleepms(3000);
 	await this.getData(true);
-	this.global.dismissToast();
+	this.global.presentToast("Data has been refreshed.", "success");
 }
 
 sortCards() {

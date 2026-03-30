@@ -118,7 +118,7 @@
 				</a>
 			</div>
 
-			<div joyrideStep="anchor8" title="Status" text="Watch the status of your dongle." stepPosition="right">
+			<div joyrideStep="anchor8" title="Status" text="Watch the status of your system." stepPosition="right">
 				<div class="px-3 text-s font-semibold text--gray-600 tracking-wider mt-6 md:mt-12 flex items-center">
 					{{LG("STATUS")}}<ion-icon name="remove-circle-outline" class="w-5 h-5 ml-3" [class]="global.statsPeriod <= 1 ? 'text--gray-200' : ' cursor-pointer'" (click)="global.statsPeriodChange(-1);"></ion-icon><ion-icon name="add-circle-outline" class="w-5 h-5 ml-2" [class]="global.statsPeriod >= 30 ? 'text--gray-200' : ' cursor-pointer'" (click)="global.statsPeriodChange(1);"></ion-icon><span class="ml-2 text-xs">{{global.statsPeriod}}s</span>
 				</div>

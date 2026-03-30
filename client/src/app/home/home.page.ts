@@ -108,7 +108,7 @@ private lastCtrlFPressTimestamp: number = 0;
 			this.lastCtrlFPressTimestamp = currentTime;
 			event.preventDefault();
 			this.searchTermE.nativeElement.focus();
-			this.global.presentToast("Type Ctrl-F a second time for the browser search", "help-outline", 5000);
+			this.global.presentToast("Type Ctrl-F a second time for the browser search", "info", {} , true);
 		}
 	}
 }
@@ -261,12 +261,12 @@ async settings(module) {
 async moduleReset() {
 	if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "Are you sure to reset this module?"))
 		if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "This is your last chance. All data of this module will be erased and won't be recoverable. Are you absolutely sure to reset this module?")) {
-			this.global.presentToast("The module is being resetted. Please wait...", "alert-circle-outline");
+			this.global.presentToast("The module is being resetted. Please wait...", "info", {}, true);
 			const data = { module:this.global.modulesData[this.cardIdCur].module };
 			this.global.modulesData[this.cardIdCur]["notReady"] = 1;
 			const ret = await this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
 			this.global.consolelog(2, "Auth module-reset: ", ret);
-			this.global.presentToast("The module has been resetted!", "alert-circle-outline");
+			this.global.presentToast("The module has been resetted!", "success");
 			this.modalModuleSettings.dismiss();
 		}
 }
@@ -275,7 +275,7 @@ async moduleRefresh() {
 	const data = { services:this.global.modulesData[this.cardIdCur].services };
 	const ret = await this.httpClient.post("/_app_/auth/module/refresh", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
 	this.global.consolelog(2, "Auth module-refresh: ", ret);
-	this.global.presentToast("The module service has been restarted!", "refresh-outline");
+	this.global.presentToast("The module service has been restarted!", "success");
 	this.modalModuleSettings.dismiss();
 }
 

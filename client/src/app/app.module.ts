@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { provideHttpClient, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { forkJoin, Observable, map } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { ComponentsModule } from './components/components.module';
 
 export class MultiHttpLoader implements TranslateLoader {
@@ -38,6 +40,8 @@ export function createMultiHttpLoader(http: HttpClient) {
 	imports: [
 		BrowserModule,
 		IonicModule.forRoot(),
+		BrowserAnimationsModule,
+		ToastrModule.forRoot(),
 		AppRoutingModule,
 		ComponentsModule,
 		TranslateModule.forRoot({

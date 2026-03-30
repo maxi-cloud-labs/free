@@ -34,7 +34,7 @@ async setEmail(userId, event) {
 		this.global.consolelog(2, "Auth admin/update-user: ", ret);
 	} catch(e) {
 		this.global.consolelog(1, e.error.message);
-		this.global.presentToast("An internal error has occured.", "alert-outline", 3000);
+		this.global.presentToast("An internal error has occured.", "error");
 	}
 }
 
@@ -47,7 +47,7 @@ async setUsername(userId, event) {
 		this.global.consolelog(2, "Auth admin/update-user: ", ret);
 	} catch(e) {
 		this.global.consolelog(1, e.error.message);
-		this.global.presentToast("An internal error has occured.", "alert-outline", 3000);
+		this.global.presentToast("An internal error has occured.", "error");
 	}
 }
 
@@ -60,7 +60,7 @@ async setRole(userId, event) {
 		this.global.consolelog(2, "Auth admin/set-role: ", ret);
 	} catch(e) {
 		this.global.consolelog(1, e.error.message);
-		this.global.presentToast("An internal error has occured.", "alert-outline", 3000);
+		this.global.presentToast("An internal error has occured.", "error");
 	}
 }
 
@@ -72,8 +72,8 @@ async resetPassword(userId) {
 		ret = await this.httpClient.post("/_app_/auth/admin/set-user-password", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
 		this.global.consolelog(2, "Auth admin/set-user-password: ", ret);
 	} catch(e) { this.global.consolelog(1, e.error.message);
-		this.global.presentToast("An internal error has occured.", "alert-outline", 3000); return; }
-	this.global.presentToast("The new password is:<br>" + newPassword, "alert-outline", 0);
+		this.global.presentToast("An internal error has occured.", "error"); return; }
+	this.global.presentToast("The new password is:<br>" + newPassword, "success", { timeout:0 } );
 }
 
 async setApproved(userId, event) {
@@ -85,7 +85,7 @@ async setApproved(userId, event) {
 		this.global.consolelog(2, "Auth admin/update-user: ", ret);
 	} catch(e) {
 		this.global.consolelog(1, e.error.message);
-		this.global.presentToast("An internal error has occured.", "alert-outline", 3000);
+		this.global.presentToast("An internal error has occured.", "error");
 	}
 }
 

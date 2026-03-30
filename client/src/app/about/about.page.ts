@@ -17,7 +17,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, public ble: B
 
 async longCopyright() {
 	this.global.developerSet();
-	this.global.presentToast(this.global.developer ? "You are in developer mode now." : "You are in standard mode now.", "bug-outline");
+	this.global.presentToast(this.global.developer ? "You are in developer mode now." : "You are in standard mode now.");
 }
 
 }
