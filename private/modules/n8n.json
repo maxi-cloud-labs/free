@@ -41,7 +41,7 @@
 			"post": [
 				{
 					"url": "/rest/login",
-					"arg1": "emailOrLdapLoginId",
+					"arg1": "email",
 					"arg2": "password",
 					"val1": 1,
 					"val2": 2
