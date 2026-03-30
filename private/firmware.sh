@@ -70,7 +70,6 @@ fi
 if [ -f /tmp/os${POSTNAME}.img ]; then
 	echo "No creation as /tmp/os${POSTNAME}.img already exists"
 else
-	NEWEST=
 	if [ ! -f ${PP}/client/src/assets/modulesmeta.json -o $(find ${PP}/private/modules -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d " " -f2-) -nt ${PP}/client/src/assets/modulesmeta.json ]; then
 		php ${PP}/private/modules-update.php
 	else
@@ -131,6 +130,14 @@ else
 	rm -rf ${ROOTFS}/usr/local/modules/apache2/web
 	cp -a ${PP}/login/web ${ROOTFS}/usr/local/modules/apache2
 	rm -rf ${PP}/login/web
+	if [ $FINAL = 1 ]; then
+		LIST=$(jq -r 'to_entries[] | select(.value.finished == false) | .key' ${ROOTFS}/usr/local/modules/apache2/web/assets/modulesmeta.json)
+		for ITEM in ${LIST}; do
+			if [ -d ${ROOTFS}/usr/local/modules/${ITEM} ]; then
+				rm -rf ${ROOTFS}/usr/local/modules/${ITEM}
+			fi
+		done
+	fi
 	rm -rf ${ROOTFS}/home/admin.default
 	cp -a ${ROOTFS}/disk/admin ${ROOTFS}/home/admin.default
 	rm -f /tmp/squashfs-exclude.txt
