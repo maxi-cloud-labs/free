@@ -33,10 +33,7 @@
 		"WARNING! DANGER! Account deletion cannot be undone.": "",
 		"Email address": "",
 		"Please enter a valid email address": "",
-		"Sending delete link...": "",
-		"Send delete link": "",
-		"This cloud has been deleted.": "",
-		"A delete link has been sent to": ""
+		"This cloud has been deleted.": ""
 	},
 	"find": {
 		"Email address": "",
@@ -186,16 +183,13 @@
 	},
 	"settings": {
 		"Admin account has sudo rights": "",
-		"AI Keys": "",
 		"A new user sign-up needs admin approval.": "",
 		"Apply": "",
 		"Approval Requirement": "",
 		"AutoLogin": "",
 		"AutoLogin button is present on login page (if any) of the modules.": "",
 		"Backend": "",
-		"Bearer key": "",
 		"BYO Domains (Bring Your Own Domains)": "",
-		"BYOK (Bring Your Own Keys)": "",
 		"Certificate": "",
 		"Cloud Name": "",
 		"Configuration": "",
@@ -206,19 +200,16 @@
 		"Don't show Transmission, qBittorrent and rr modules.": "",
 		"Enable": "",
 		"Enable AutoLogin": "",
-		"Free Usage": "",
 		"General": "",
 		"It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD.": "",
 		"Language": "",
 		"Module(s)": "",
-		"mAxI.cloud Keys": "",
 		"New User Sign-Up": "",
 		"Notification": "",
 		"Open the module": "",
 		"OpenVPN or WireGuard .conf": "",
 		"Password": "",
 		"Refresh": "",
-		"Remaining messages": "",
 		"Renew": "",
 		"Restart web app server.": "",
 		"Save": "",
@@ -246,8 +237,7 @@
 		"VPN Server": "",
 		"Warning!!!": "",
 		"Wi-Fi": "",
-		"You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...": "",
-		"Your keys are stored on the system and are not sent to the maxi.cloud servers. A request made with those keys doesn't transit via the maxi.cloud servers.": ""
+		"You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...": ""
 	},
 	"setup": {
 		"Admin": "",
