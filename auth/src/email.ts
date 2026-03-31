@@ -4,31 +4,27 @@ import nodemailer from "nodemailer";
 //Variables
 let transporter, APP_NAME, APP_URL, APP_ADMIN;
 
-//Run
-lazyInit();
-
 //Functions
-async function lazyInit() {
-    const { cloud } = await import("./auth");
-	APP_NAME = "mAxI.cloud " + cloud?.info?.name;
-	APP_URL = "https://app." + cloud?.info?.name + ".maxi.cloud";
-	APP_ADMIN = "admin@" + cloud?.info?.name + ".maxi.cloud";
-}
-
 async function transporterInit() {
 	if (transporter)
 		return;
 	const pf = JSON.parse(readFileSync("/disk/admin/modules/_config_/postfix.json", "utf-8"));
-	transporter = nodemailer.createTransport({
-		host: "127.0.0.1",
-		auth: {
-			user: APP_ADMIN,
-			pass: pf["password"]
-		},
-		port: 465,
-		secure: true,
-		tls: { rejectUnauthorized: false }
-	});
+	const { cloud } = await import("./auth");
+	if (cloud.info.name) {
+		APP_NAME = "mAxI.cloud " + cloud.info.name;
+		APP_URL = "https://app." + cloud.info.name + ".maxi.cloud";
+		APP_ADMIN = "admin@" + cloud.info.name + ".maxi.cloud";
+		transporter = nodemailer.createTransport({
+			host: "127.0.0.1",
+			auth: {
+				user: APP_ADMIN,
+				pass: pf["password"]
+			},
+			port: 465,
+			secure: true,
+			tls: { rejectUnauthorized: false }
+		});
+	}
 }
 
 export async function sendMagicLinkEmail(to, token, url) {
