@@ -105,12 +105,14 @@ else
 	fi
 	cp /etc/resolv.conf /tmp/2/etc/resolv.conf
 	if [ ! -d ${ROOTFS}/usr/local/modules/betterauth -o $(find ${PP}/auth/src/ -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d " " -f2-) -nt ${ROOTFS}/usr/local/modules/betterauth ]; then
+		echo "Updating auth"
 		rm -rf ${ROOTFS}/home/ai/auth
 		cp -a ${PP}/auth ${ROOTFS}/home/ai/
 		chroot ${ROOTFS} sh -c 'cd /home/ai/auth && ./prepare.sh -i'
 	else
 		echo "Nothing to update for auth"
 	fi
+	echo "Updating web"
 	rm -rf ${PP}/client/web
 	cd ${PP}/client
 	ionic --prod build
@@ -124,6 +126,7 @@ else
 	else
 		echo "Nothing to update for moduleApache2"
 	fi
+	echo "Updating login"
 	rm -rf ${PP}/login/web
 	cd ${PP}/login
 	ionic --prod build
