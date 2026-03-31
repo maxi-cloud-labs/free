@@ -62,9 +62,8 @@ cp -a apps/photos/out /usr/local/modules/entephotos
 #rm -rf /usr/local/modules/enteshare
 #cp -a apps/share/out /usr/local/modules/enteshare
 
-cd ..
-rm -rf apps
+#rm -rf apps
 
-cd cli
+cd ../cli
 go mod tidy
 go build -o /usr/local/bin/ente main.go
