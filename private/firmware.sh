@@ -57,7 +57,7 @@ DATESTART=`date +%s`
 
 umount ${DISK}*
 umount ${DISK}*
-rm -f ${PP}/build/img/maxicloud-arm64${POSTNAME}.img ${PP}/build/img/partition1.zip
+rm -f ${PP}/build/img/partition1.zip
 mount ${DISK}1 /tmp/1
 mount ${DISK}2 /tmp/2
 cd /tmp/1
@@ -168,6 +168,7 @@ sync
 umount ${DISK}*
 umount ${DISK}*
 
+rm -f ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
 #dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024))
 SIZEOS=$(stat -c %s /tmp/os${POSTNAME}.img)
 echo "Squashfs Size: $((SIZEOS / 1024 / 1024)) MiB = $((SIZEOS / 1024 / 1024 / 1024)) GiB"
