@@ -2,12 +2,14 @@
 
 helper() {
 echo "*******************************************************"
-echo "Usage for firmware [-c -d disk -f -h -l NB -r -z]"
+echo "Usage for firmware [-c -d disk -f -h -l NB -o -O -r -z]"
 echo "c:	Clean build"
 echo "d disk:	set /dev/disk[1-2] (sda or mmcblk0p)"
 echo "f:	Create final binaries"
 echo "h:	Print this usage and exit"
 echo "l:	Set loop number"
+echo "o:	Do cloud image"
+echo "O:	Do cloud images"
 echo "r:	Compress to the maximum"
 echo "z:	Force if disk size is not the usual"
 exit 0
@@ -20,13 +22,16 @@ FINAL=0
 CLEAN=0
 FORCE=0
 COMPRESSION=3
-while getopts cd:fhl:rz opt; do
+CLOUD=0
+while getopts cd:fhl:oOrz opt; do
 	case "$opt" in
 		c) CLEAN=1;;
 		d) DISK="/dev/${OPTARG}";;
 		f) POSTNAME="-final";FINAL=1;COMPRESSION=22;;
 		h) helper;;
 		l) LOSETUP=/dev/loop${OPTARG};;
+		o) CLOUD=1;;
+		O) CLOUD=2;;
 		r) COMPRESSION=22;;
 		z) FORCE=1;;
 	esac
@@ -61,7 +66,11 @@ rm -f ${PP}/build/img/partition1.zip
 mount ${DISK}1 /tmp/1
 mount ${DISK}2 /tmp/2
 cd /tmp/1
-zip -q -r ${PP}/build/img/partition1.zip ./bcm2712-rpi-5-b.dtb ./bcm2712-rpi-cm5-cm5io.dtb ./cmdline.txt ./config.txt ./kernel_2712.img ./overlays/overlay_map.dtb ./overlays/bcm2712d0.dtbo ./overlays/dwc2.dtbo ./overlays/dongle.dtbo ./overlays/st7735s.dtbo ./overlays/buttons.dtbo ./overlays/leds.dtbo ./overlays/uart0-pi5.dtbo ./overlays/uart2-pi5.dtbo ./Image ./mydonglecd.dtb
+if [ $CLOUD = 1 ]; then
+	zip -q -r ${PP}/build/img/partition1.zip ./EFI/
+else
+	zip -q -r ${PP}/build/img/partition1.zip ./bcm2712-rpi-5-b.dtb ./bcm2712-rpi-cm5-cm5io.dtb ./cmdline.txt ./config.txt ./kernel_2712.img ./overlays/overlay_map.dtb ./overlays/bcm2712d0.dtbo ./overlays/dwc2.dtbo ./overlays/dongle.dtbo ./overlays/st7735s.dtbo ./overlays/buttons.dtbo ./overlays/leds.dtbo ./overlays/uart0-pi5.dtbo ./overlays/uart2-pi5.dtbo ./Image ./mydonglecd.dtb
+fi
 cd ${PP}
 ROOTFS=/tmp/2
 if [ $CLEAN = 1 ]; then
@@ -168,28 +177,45 @@ sync
 umount ${DISK}*
 umount ${DISK}*
 
-rm -f ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
-#dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024))
+if [ $CLOUD = 1 ]; then
+	IMG=${PP}/build/img/maxicloud-arm64${POSTNAME}.raw
+else
+	IMG=${PP}/build/img/maxicloud-arm64${POSTNAME}.img
+fi
+rm -f ${IMG}
 SIZEOS=$(stat -c %s /tmp/os${POSTNAME}.img)
 echo "Squashfs Size: $((SIZEOS / 1024 / 1024)) MiB = $((SIZEOS / 1024 / 1024 / 1024)) GiB"
-SIZE=$(((SIZEOS + (1024 + 128 + 4) * 1024 * 1024) / 1024 / 1024 / 4))
-echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
-fallocate -l $((SIZE * 4 * 1024 * 1024)) ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
-dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024)) conv=notrunc
-#dd if=/dev/zero of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((4 * 1024 * 1024)) count=$SIZE seek=1 conv=notrunc status=progress
-echo -n '\061' | dd of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=1 seek=25599 conv=notrunc
-losetup --show ${LOSETUP} ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
-sfdisk -f ${LOSETUP} << EOF
+if [ $CLOUD = 1 ]; then
+	SIZE=$(((SIZEOS + (1024 + 32 + 1) * 1024 * 1024) / 1024 / 1024 / 4))
+	echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
+	fallocate -l $((SIZE * 4 * 1024 * 1024)) ${IMG}
+	dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${IMG} bs=$((1024 * 1024)) conv=notrunc
+	losetup --show ${LOSETUP} ${IMG}
+	sfdisk -f ${LOSETUP} << EOF
+label: gpt
+first-lba: 2048
+size=65536, type=U, name="bootfs"
+type=L, name="rootfs"
+EOF
+else
+	SIZE=$(((SIZEOS + (1024 + 128 + 4) * 1024 * 1024) / 1024 / 1024 / 4))
+	echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
+	fallocate -l $((SIZE * 4 * 1024 * 1024)) ${IMG}
+	dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${IMG} bs=$((1024 * 1024)) conv=notrunc
+	losetup --show ${LOSETUP} ${IMG}
+	sfdisk -f ${LOSETUP} << EOF
 8192,262144,c
 270336,
 EOF
+fi
+echo -n '\061' | dd of=${IMG} bs=1 seek=25599 conv=notrunc
 sync
 partprobe ${LOSETUP}
 sync
 losetup -d ${LOSETUP}
 sync
 sync
-losetup --partscan --show --direct-io=on ${LOSETUP} ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
+losetup --partscan --show --direct-io=on ${LOSETUP} ${IMG}
 if [ $? != 0 ]; then
 	echo "ERROR losetup"
 	exit 1
@@ -224,6 +250,18 @@ umount ${LOSETUP}*
 e2fsck -f -p ${LOSETUP}p2
 sync
 losetup -d ${LOSETUP}
+if [ $CLOUD != 0 ]; then
+	IMG_O=${PP}/build/img/maxicloud-arm64${POSTNAME}.qcow2
+	rm -f ${IMG_O}
+	qemu-img convert -f raw -O qcow2 -c -p ${IMG} ${IMG_O}
+	if [ $CLOUD = 2 ]; then
+		IMG_G=${PP}/build/img/maxicloud-arm64${POSTNAME}.tar.gz
+		rm -f ${IMG_G}
+		TOTAL=$(( $(stat -c%s "${IMG}") / 10240 ))
+		tar --checkpoint=1000 --checkpoint-action=ttyout="%u/${TOTAL} archive done\r" --format=oldgnu -Scvzf ${IMG_G} -C `dirname ${IMG}` `basename ${IMG}`
+	fi
+	rm -f ${IMG}
+fi
 
 if [ $FINAL = 1 ]; then
 	cd ${PP}/client
