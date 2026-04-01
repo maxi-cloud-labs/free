@@ -253,7 +253,7 @@ losetup -d ${LOSETUP}
 if [ $CLOUD != 0 ]; then
 	IMG_O=${PP}/build/img/maxicloud-arm64${POSTNAME}.qcow2
 	rm -f ${IMG_O}
-	qemu-img convert -f raw -O qcow2 -c -p ${IMG} ${IMG_O}
+	qemu-img convert -f raw -O qcow2 -p ${IMG} ${IMG_O}
 	if [ $CLOUD = 2 ]; then
 		IMG_G=${PP}/build/img/maxicloud-arm64${POSTNAME}.tar.gz
 		rm -f ${IMG_G}
