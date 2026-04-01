@@ -147,7 +147,7 @@ else
 		LIST=$(jq -r 'to_entries[] | select(.value.finished == false) | .key' ${ROOTFS}/usr/local/modules/_core_/web/assets/modulesmeta.json)
 		for ITEM in ${LIST}; do
 			if [ -d ${ROOTFS}/usr/local/modules/${ITEM} ]; then
-				rm -rf ${ROOTFS}/usr/local/modules/${ITEM}
+				mv ${ROOTFS}/usr/local/modules/${ITEM} ${ROOTFS}/usr/local/modules/trash/
 			fi
 		done
 	fi
