@@ -143,7 +143,8 @@ else
 	cp -a ${PP}/login/web ${ROOTFS}/usr/local/modules/apache2
 	rm -rf ${PP}/login/web
 	if [ $FINAL = 1 ]; then
-		LIST=$(jq -r 'to_entries[] | select(.value.finished == false) | .key' ${ROOTFS}/usr/local/modules/apache2/web/assets/modulesmeta.json)
+		mkdir -p ${ROOTFS}/usr/local/modules/trash/
+		LIST=$(jq -r 'to_entries[] | select(.value.finished == false) | .key' ${ROOTFS}/usr/local/modules/_core_/web/assets/modulesmeta.json)
 		for ITEM in ${LIST}; do
 			if [ -d ${ROOTFS}/usr/local/modules/${ITEM} ]; then
 				rm -rf ${ROOTFS}/usr/local/modules/${ITEM}
