@@ -22,9 +22,9 @@
  fi
  
 +DISK=`blkid -o device -l -t LABEL=rootfs | sed 's/p2$//'`
-+FIRSTTIME=`dd if=$DISK bs=1 skip=4194303 count=1 2>/dev/null`
++FIRSTTIME=`dd if=$DISK bs=1 skip=25599 count=1 2>/dev/null`
 +if [ $FIRSTTIME = '1' ]; then
-+	dd if=/dev/zero of=$DISK bs=1 seek=4194303 count=1 conv=notrunc
++	dd if=/dev/zero of=$DISK bs=1 seek=25599 count=1 conv=notrunc
 +	parted -s ${DISK} resizepart 2 100%
 +	sleep 1
 +	e2fsck -f -p ${DISK}p2

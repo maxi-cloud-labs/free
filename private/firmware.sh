@@ -177,7 +177,7 @@ echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
 fallocate -l $((SIZE * 4 * 1024 * 1024)) ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
 dd if=${PP}/build/img/sdcard-bootdelay1-m-s of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((1024 * 1024)) conv=notrunc
 #dd if=/dev/zero of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=$((4 * 1024 * 1024)) count=$SIZE seek=1 conv=notrunc status=progress
-echo -n '\061' | dd of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=1 seek=4194303 conv=notrunc
+echo -n '\061' | dd of=${PP}/build/img/maxicloud-arm64${POSTNAME}.img bs=1 seek=25599 conv=notrunc
 losetup --show ${LOSETUP} ${PP}/build/img/maxicloud-arm64${POSTNAME}.img
 sfdisk -f ${LOSETUP} << EOF
 8192,262144,c
