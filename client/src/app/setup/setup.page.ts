@@ -229,7 +229,7 @@ async doDomain() {
 			this.errorSt += this.shortname1.value + " is not available ; ";
 		if (ret["domain"] === "taken")
 			this.errorSt += this.domain1.value + " is not available ; ";
-		this.errorSt = this.errorSt.replace(/ ; $/, ". <a href='/delete' target='_blank' class='underline'>Delete</a> first if needed.");
+		this.errorSt = this.errorSt.replace(/ ; $/, ". <a href='https://app.maxi.cloud/delete' target='_blank' class='underline'>Delete</a> first if needed.");
 	}
 	this.progress = false;
 }
@@ -249,7 +249,7 @@ async doPassword() {
 	const ret = await this.httpClient.post(this.global.SERVERURL + "/master/setup-check-email.json", "email=" + encodeURIComponent(this.email2.value), { headers:{ "content-type":"application/x-www-form-urlencoded" } }).toPromise();
 	this.global.consolelog(2, "Master password", ret);
 	if (ret["status"] !== "success")
-		this.errorSt = this.email2.value + " is already in use. <a href='/delete' target='_blank' class='underline'>Delete</a> first if needed.";
+		this.errorSt = this.email2.value + " is already in use. <a href='https://app.maxi.cloud/delete' target='_blank' class='underline'>Delete</a> first if needed.";
 	else
 		this.show_WiFi();
 	this.progress = false;
