@@ -1,5 +1,4 @@
 import { Component, ViewChild, ChangeDetectorRef, HostListener } from '@angular/core';
-import { IonModal } from '@ionic/angular';
 import { Global } from '../env';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,9 +12,6 @@ export class Settings {
 L(st) { return this.global.mytranslate(st); }
 tabs = ["general", "domains", "connectivity", "vpn", "security"];
 activeTab = this.tabs[0];
-@ViewChild("modalAlert") modalAlert: IonModal;
-noNvme = false;
-lowRAM = false;
 adminSudo;
 sshKeys = "";
 dSshKeys = true;
@@ -48,10 +44,10 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 }
 
 ngAfterViewInit() {
-	this.noNvme = !this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/nvme");
-	this.lowRAM = this.global.session?.cloud?.hardware?.mem < 8;
-	if (this.noNvme || this.lowRAM)
-		this.modalAlert.present();
+	if (!this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/nvme"))
+		this.global.presentToast(this.L("It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD."), "warning", { timeOut:0 });
+	if (this.global.session?.cloud?.hardware?.mem < 8)
+		this.global.presentToast(this.L("This OS requires at least 8GB of RAM."), "warning", { timeOut:0 });
 }
 
 @HostListener("document:keydown", ["$event"]) handleKeyboardEvent(event: KeyboardEvent) {
