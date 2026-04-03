@@ -29,7 +29,7 @@ darkVal = false;
 
 constructor(public plt: Platform, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private translate: TranslateService, private httpClient: HttpClient) {
 	this.developer = window.location.hostname == "localhost" && window.location.port == "8100";
-	this.consolelog(0, "%c⛅ mAxI cloud: my data, my cloud, my sovereignty 🚀", "font-weight:bold; font-size:x-large;");
+	this.consolelog(0, "%c⛅ mAxI cloud: my Data, my AI, my Sovereignty 🚀", "font-weight:bold; font-size:x-large;");
 	this.consolelog(0, "%cDocs: https://docs.maxi.cloud", "font-weight:bold; font-size:large;");
 	this.consolelog(0, "%cVersion: " + this.VERSION, "background-color:#646464; border-radius:5px; padding:5px;");
 	this.consolelog(0, "%cPlease give a ⭐ to this project at:", "color:black; background-color:#fef9c2; border-radius:5px; padding:5px;");
