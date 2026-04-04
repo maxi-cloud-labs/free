@@ -376,7 +376,7 @@ presentToast(message:string, type:string);
 presentToast(message:string, type:string, options:object);
 presentToast(message:string, type:string, options:object, toberemoved:boolean);
 presentToast(message, type:string = "info", options: object = {}, toberemoved: boolean = false) {
-	const o = { progressBar:true, ...options };
+	const o = { progressBar:true, closeButton:true, ...options };
 	if (this.previousToastID)
 		this.toastr.remove(this.previousToastID);
 	const t = this.toastr[type](message, "", o);
