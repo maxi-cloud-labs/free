@@ -347,7 +347,7 @@
 	</div>
 </div>
 
-<ion-modal #modalWait>
+<ion-modal #modalWait [backdropDismiss]="false" [canDismiss]="false">
 	<ng-template>
 		<div class="flex flex-col w-full items-center justify-center" style="height:25vw;">
 			<ion-icon name="cog-outline" class="animate-spin w-8 h-8"></ion-icon>
