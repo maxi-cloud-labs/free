@@ -44,7 +44,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 }
 
 ngAfterViewInit() {
-	if (!this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/nvme"))
+	if (this.global.session?.cloud?.hardware?.disk?.startsWith("/dev/mmcblk"))
 		this.global.presentToast(this.L("It seems that you are using a micro SD card. This OS requires a high performance disk, so we recommend to use a NVMe SSD."), "warning", { timeOut:0 });
 	if (this.global.session?.cloud?.hardware?.mem < 8)
 		this.global.presentToast(this.L("This OS requires at least 8GB of RAM."), "warning", { timeOut:0 });
