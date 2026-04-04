@@ -287,8 +287,8 @@ void modulesSetup1(cJSON *elSetup1, int doSetup2) {
 		return;
 	}
 	cJSON *elCheck = jsonRead(ADMIN_PATH "_config_/_cloud_.json");
-	if (cJSON_GetArraySize(elCheck) > 0) {
-		PRINTF("modulesSetup1 not run because already setup\n");
+	if (cJSON_GetObjectItem(elCheck, "info") != NULL) {
+		PRINTF("modulesSetup1 not run because cloud.info exists\n");
 		cJSON_Delete(elCheck);
 		return;
 	}

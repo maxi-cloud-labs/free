@@ -36,6 +36,7 @@ errorSt = null;
 ssids = null;
 production = false;
 modalWaitMsg = "";
+isCloud = false;
 
 constructor(public global: Global, private router: Router, private httpClient: HttpClient, private cdr: ChangeDetectorRef, private fb: FormBuilder, public ble: BleService) {
 	global.refreshUI.subscribe(event => {
@@ -83,7 +84,9 @@ async handleBleMessage(data) {
 			} catch(e) {}
 			await this.global.presentAlert("Denial", "This hardware is already setup. You need to reset it.", "Press the two bottom buttons at the same time and follow the instructions on screen.");
 			this.router.navigate(["/find"]);
-		} else if (this.errorSt == "You need to connect to your hardware")
+		} else if (data?.hardware?.model === "Cloud")
+			this.isCloud = true;
+		else if (this.errorSt == "You need to connect to your hardware")
 			this.doDomain();
 	} else if (data.a === "setup") {
 		if (data.success === 1) {
@@ -250,8 +253,12 @@ async doPassword() {
 	this.global.consolelog(2, "Master password", ret);
 	if (ret["status"] !== "success")
 		this.errorSt = this.email2.value + " is already in use. <a href='https://app.maxi.cloud/delete' target='_blank' class='underline'>Delete</a> first if needed.";
-	else
-		this.show_WiFi();
+	else {
+		if (this.isCloud)
+			this.doWiFi();
+		else
+			this.show_WiFi();
+	}
 	this.progress = false;
 }
 

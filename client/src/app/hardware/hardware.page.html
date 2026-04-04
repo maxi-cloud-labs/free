@@ -32,7 +32,7 @@
 				<b>{{L("Device version:")}}</b> {{ble.firmwareDeviceVersion}}
 			</div>
 			<div class="-ml-5" style="position:relative;">
-				<img [src]="'assets/images/hardware-' + (global.session?.cloud?.hardware?.model == 'Raspberry Pi' ? 'raspberrypi5' : 'dongle') + '.png'" style="height:640px;" alt="Dongle" usemap="#buttonsMap">
+				<img [src]="'assets/images/hardware-' + (global.session?.cloud?.hardware?.model == 'Cloud' ? 'cloud' : global.session?.cloud?.hardware?.model == 'Raspberry Pi' ? 'raspberrypi5' : 'dongle') + '.png'" style="height:640px;" alt="Dongle" usemap="#buttonsMap">
 				<map name="buttonsMap">
 					<area shape="rect" coords="15,360,55,400" alt="Left" href="javascript:;" (click)="button(105, 0);" long-press (press)="button(105, 1)">
 					<area shape="rect" coords="15,80,55,130" alt="Right" href="javascript:;" (click)="button(103, 0);" long-press (press)="button(103, 1)">

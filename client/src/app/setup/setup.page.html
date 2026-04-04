@@ -2,10 +2,8 @@
 	<div class="max-w-md w-full">
 		<div class="text-center mb-8 flex items-center justify-center gap-2">
 			<ion-icon src="assets/images/1-circle.svg" class="text--blue-600 w-6 h-6"></ion-icon> <span class="text-sm font-medium text--blue-600">{{L("Domain")}}</span>
-			&nbsp;&nbsp;&nbsp;
-			<ion-icon src="assets/images/2-circle.svg" class="text--gray-400 w-6 h-6"></ion-icon> <span class="text-sm font-medium text--gray-400">{{L("Password")}}</span>
-			&nbsp;&nbsp;&nbsp;
-			<ion-icon src="assets/images/3-circle.svg" class="text--gray-400 w-6 h-6"></ion-icon> <span class="text-sm font-medium text--gray-400">{{L("Wi-Fi")}}</span>
+			<ion-icon src="assets/images/2-circle.svg" class="text--gray-400 w-6 h-6 ml-4"></ion-icon> <span class="text-sm font-medium text--gray-400">{{L("Password")}}</span>
+			<ion-icon src="assets/images/3-circle.svg" class="text--gray-400 w-6 h-6 ml-4" *ngIf="!isCloud"></ion-icon> <span class="text-sm font-medium text--gray-400" *ngIf="!isCloud">{{L("Wi-Fi")}}</span>
 		</div>
 		<div class="bg--main rounded-2xl shadow-xl border border--gray-300 p-8">
 			<div class="text-center mb-8 flex items-center flex-col">

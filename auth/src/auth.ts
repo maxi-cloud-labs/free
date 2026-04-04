@@ -35,17 +35,37 @@ let trustedOrigins;
 let watcher: FSWatcher | null = null;
 
 //Functions
+function isContainer() {
+	try {
+		const output = execSync("systemd-detect-virt -c", {
+			encoding: "utf8",
+			stdio: ["ignore", "pipe", "ignore"]
+		}).trim();
+
+		return output === "lxc";
+	} catch (err) {
+		return false;
+	}
+}
+
 async function initCloud() {
 	console.log("auth.ts: initCloud");
 	let needSave = false;
+	if (cloud.hardware === undefined)
+		cloud.hardware = { model:"" };
 	if (cloud?.hardware?.model == "") {
 		try {
+			needSave = true;
+			if (isContainer()) {
+				cloud.hardware.model = "Cloud";
+				cloud.hardware.serial = (Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2)).slice(0, 16);
+			} else {
+				cloud.hardware.model = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
+				cloud.hardware.serial = readFileSync("/dev/dongle_platform/serial", "utf-8").trimEnd();
+			}
 			const data = await fsSize();
 			cloud.hardware.disk = data.find(d => d.mount === "/disk")?.fs;
 			cloud.hardware.mem = Math.round(totalmem() / (1024 ** 3));
-			cloud.hardware.model = readFileSync("/dev/dongle_platform/model", "utf-8").trimEnd();
-			cloud.hardware.serial = readFileSync("/dev/dongle_platform/serial", "utf-8").trimEnd();
-			needSave = true;
 		} catch (e) {}
 	}
 	const internalIP = getinternalIP();
