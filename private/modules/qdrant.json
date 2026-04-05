@@ -3,7 +3,7 @@
 	"name": "Qdrant",
 	"title": "Vector Search",
 	"category": "Database",
-	"version": "v1.17.0",
+	"version": "v1.17.1",
 	"installMethod": "tar",
 	"web": false,
 	"essential": false,
