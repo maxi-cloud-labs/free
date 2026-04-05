@@ -60,7 +60,7 @@ function _app_Insert() {
 		if (_app_Arg1 !== null && _app_Arg3 === null)
 			_app_Arg3 = document.querySelector(_app_qS_Arg3);
 		if (_app_Arg1 !== null && (_app_qS_Arg2 == "" || _app_Arg2 !== null) && _app_Arg3 !== null)
-			document.body.insertAdjacentHTML('beforeend', `<div id="_app_ButtonID"; style="display:flex; flex-direction:column; align-items:end; position:absolute; z-index:10001; top:100px; right:50px;">
+			document.body.insertAdjacentHTML('beforeend', `<div id="_app_ButtonID"; style="display:flex; flex-direction:column; align-items:end; position:absolute; z-index:10001; top:100px; right:50px; font-size:14px;">
 	<div style="width:100%%; display:flex; justify-content:space-between;">
 		<div style="display:flex">
 			<a href="https://docs.maxi.cloud/#/autologin" title="Understand AutoLogin" target="_blank" style="color:black">
@@ -87,7 +87,7 @@ function _app_Insert() {
 		</a>
 	</div>
 	<div style="background-color:#000f4e; color:white; font-weight:bold; text-align:center; border:2px solid white; border-radius:15px; padding:10px;">
-		mAxI.cloud<br>
+		mAx<span style="font-family:monospace">I</span>.cloud<br>
 		<button style="text-align:center; background-color:#0092ce; color:white; margin-top:10px; border-radius:10px; padding:5px; cursor:pointer;" onclick="window._app_Credentials();">
 			Automatic<br>Login
 		</button>
