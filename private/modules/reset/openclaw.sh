@@ -16,6 +16,9 @@ mkdir /disk/admin/modules/openclaw/agents
 mkdir /disk/admin/modules/openclaw/workspace
 cat > /disk/admin/modules/openclaw/openclaw.json << EOF
 {
+  "update": {
+    "checkOnStart": false
+  },
   "meta": {
     "lastTouchedVersion": "2026.2.6-3",
     "lastTouchedAt": "2026-02-08T11:20:51.218Z"
