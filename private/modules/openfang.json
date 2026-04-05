@@ -22,7 +22,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9546,
+		"localPort": 9482,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

@@ -53,7 +53,7 @@
 		"config": true,
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9409,
+		"localPort": 9410,
 		"permissions": [
 			"user"
 		],

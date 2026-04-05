@@ -20,7 +20,7 @@
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9510,
+		"localPort": 9517,
 		"path": "/disk/admin/modules/redoc",
 		"permissions": [
 			"public"

@@ -43,7 +43,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/ui",
-		"localPort": 9458,
+		"localPort": 9461,
 		"permissions": [
 			"user"
 		],

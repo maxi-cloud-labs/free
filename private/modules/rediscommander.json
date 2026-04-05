@@ -27,7 +27,7 @@
 	"proprietary": [],
 	"default": {
 		"enabled": true,
-		"localPort": 9508,
+		"localPort": 9515,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reverseProxy": [

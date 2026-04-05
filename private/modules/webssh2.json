@@ -31,7 +31,7 @@
 		],
 		"enabled": true,
 		"homepage": "/access",
-		"localPort": 9537,
+		"localPort": 9544,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reservedToFirstUser": true,

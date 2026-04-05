@@ -53,7 +53,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9512,
+		"localPort": 9519,
 		"path": "/usr/share/roundcube",
 		"permissions": [
 			"user"

@@ -60,7 +60,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9480,
+		"localPort": 9486,
 		"permissions": [
 			"user"
 		],

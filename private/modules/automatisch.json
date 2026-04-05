@@ -25,7 +25,7 @@
 	"default": {
 		"enabled": true,
 		"indexes": true,
-		"localPort": 9405,
+		"localPort": 9406,
 		"multiViews": true,
 		"permissions": [
 			"user"

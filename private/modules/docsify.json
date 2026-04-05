@@ -26,7 +26,7 @@
 		],
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9418,
+		"localPort": 9419,
 		"path": "/disk/admin/modules/docsify",
 		"permissions": [
 			"public"
