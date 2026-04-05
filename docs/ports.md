@@ -64,6 +64,7 @@ This is the list of all used ports in the image, separated between listening por
 - promptfoo: 15500 (reverseproxy)
 - openclaw: 18789 (reverseproxy)
 - mongodb: 27017
+- zeroclaw: 42617 (reverseproxy)
 
 ### Listening ports (0.0.0.0)
 - ssh: 22

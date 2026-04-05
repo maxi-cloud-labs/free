@@ -1,0 +1,47 @@
+{
+	"module": "zeroclaw",
+	"name": "ZeroClaw",
+	"title": "AI Assistant Infrastructure",
+	"category": "Personal",
+	"version": "v0.6.8",
+	"installMethod": "wget",
+	"web": true,
+	"essential": false,
+	"finished": true,
+	"ai": true,
+	"database": "sqlite",
+	"github": "zeroclaw-labs/zeroclaw",
+	"description": "A fast, small, and fully autonomous AI personal assistant infrastructure.",
+	"keywords": [
+		"AI assistant",
+		"AI models",
+		"LLMs",
+		"Language",
+		"Language model"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9553,
+		"permissions": [],
+		"permissionsPublicForbidden": true,
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 42617,
+				"path": "/"
+			},
+			{
+				"type": "ws",
+				"port": 42617,
+				"path": "/"
+			}
+		],
+		"services": [
+			"zeroclaw"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}
