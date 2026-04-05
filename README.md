@@ -39,12 +39,14 @@ A **🄵🅁🄴🄴 🅅🄴🅁🅂🄸🄾🄽** is available. This [section]
 
 * a Raspberry Pi 5 with 8GB of RAM and 32 GB of storage. A NVMe SSD is highly recommended though a microSD card can work - but it will be slow.
 
-[![mAxI.cloud](https://maxi.cloud/images/pi5-small.png)](https://maxi.cloud/buy)
+[![mAxI.cloud](https://maxi.cloud/images/pi5-small.png)](https://maxi.cloud)
 * a dedicated and optimized ARM-based dongle sold by [https://maxi.cloud](https://maxi.cloud/buy).
 
-[![mAxI.cloud](https://maxi.cloud/images/dongle-hand-1-small.png)](https://maxi.cloud)
+[![mAxI.cloud](https://maxi.cloud/images/dongle-hand-1-small.png)](https://maxi.cloud/buy)
 * a x86 machine (coming soon).
-* a virtualized version of mAxI.cloud that can run in a server farm (coming soon).
+* in a server farm with a [virtualized version of mAxI.cloud](https://maxi.cloud/subscribe).
+
+[![mAxI.cloud](https://maxi.cloud/images/farm-small.jpg)](https://maxi.cloud/subscribe)
 
 
 # Install the free version
