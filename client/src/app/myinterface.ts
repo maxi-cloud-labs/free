@@ -9,11 +9,6 @@ export interface Settings {
 }
 
 export const Categories = {
-	"Essential": {
-		name: "Essential",
-		icon: "star-outline",
-		color: "yellow"
-	},
 	"Productivity": {
 		name: "Productivity",
 		icon: "attach-outline",
@@ -68,6 +63,11 @@ export const Categories = {
 
 export const CategoriesEx = {
 	...Categories,
+	"Essential": {
+		name: "Essential",
+		icon: "star-outline",
+		color: "yellow"
+	},
 	"AI": {
 		name: "AI",
 		icon: "bulb-outline",
