@@ -137,8 +137,6 @@ filterCards(typing = false) {
 				return false;
 			if (this.category == "All")
 				return true;
-			else if (this.category == "AI")
-				return card.ai;
 			else if (this.category == "Essential")
 				return card.essential;
 			else if (this.category == "Tag")
@@ -173,8 +171,6 @@ filterCards(typing = false) {
 				return false;
 			if (this.category == "All")
 				return ret;
-			else if (this.category == "AI")
-				return ret && card.ai;
 			else if (this.category == "Essential")
 				return ret && card.essential;
 			else if (this.category == "Tag")

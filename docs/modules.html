@@ -40,7 +40,7 @@ function fillTableHeader() {
 		const th = document.createElement("th");
 		th.scope = "col";
 		let tmp = header.charAt(0).toUpperCase() + header.slice(1);
-		if (header == "ai" || header == "web" || header == "finished" || header == "essential")
+		if (header == "web" || header == "finished" || header == "essential")
 			tmp = tmp + "&nbsp;<input type='checkbox' id='" + header + "ID' onchange='filterTable()' class='border rounded'>";
 		if (header == "module")
 			tmp = "<a href='javascript:sort(0);' title='Toggle Sort'>" + tmp + "&nbsp;&nbsp;&nbsp;<a href='javascript:sort(-1);' title='Sort Descending' data-class='sortDir != 1 ? \"\" : \"text-gray-700\"'>↓</a>&nbsp;&nbsp;&nbsp;<a href='javascript:sort(1)' title='Sort Ascending' data-class='sortDir == 1 ? \"\" : \"text-gray-700\"'>↑</a>";
@@ -96,8 +96,6 @@ function fillTableContent() {
 				tr.data_installMethod = vvalue;
 			if (kkey == "database")
 				tr.data_database = vvalue;
-			if (kkey == "ai")
-				tr.data_ai = vvalue;
 			if (kkey == "web")
 				tr.data_web = vvalue;
 			if (kkey == "finished")
@@ -129,11 +127,10 @@ function filterTable() {
 	const category = document.getElementById("categoryID").selectedIndex;
 	const installMethod = document.getElementById("installMethodID").selectedIndex;
 	const database = document.getElementById("databaseID").selectedIndex;
-	const ai = document.getElementById("aiID").checked;
 	const web = document.getElementById("webID").checked;
 	const finished = document.getElementById("finishedID").checked;
 	const essential = document.getElementById("essentialID").checked;
-	const dirty = search != "" || category != 0 || installMethod != 0 || database != 0 || ai || web || finished || essential;
+	const dirty = search != "" || category != 0 || installMethod != 0 || database != 0 || web || finished || essential;
 	document.getElementById("resetID").disabled = !dirty;
 
 	const tbody = document.getElementById("dataTbody");
@@ -149,10 +146,6 @@ function filterTable() {
 			return;
 		}
 		if (database != 0 && document.getElementById("databaseID").options[database].value != row.data_database) {
-			row.style.visibility = "collapse";
-			return;
-		}
-		if (ai && !row.data_ai) {
 			row.style.visibility = "collapse";
 			return;
 		}
@@ -196,7 +189,6 @@ function sort(dir) {
 
 function reset() {
 	document.getElementById("searchID").value = "";
-	document.getElementById("aiID").checked = false;
 	document.getElementById("webID").checked = false;
 	document.getElementById("finishedID").checked = false;
 	document.getElementById("essentialID").checked = false;
