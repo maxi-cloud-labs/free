@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "karakeep-app/karakeep",
 	"description": "A self-hostable bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "syncthing/syncthing",
 	"description": "A continuous peer-to-peer file synchronization tool.",

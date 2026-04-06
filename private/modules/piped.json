@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "PostgreSQL",
 	"github": "TeamPiped/Piped",
 	"description": "A YouTube front-end without ads.",

@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "pnpm/pnpm",
 	"description": "A fast, disk space efficient package manager.",

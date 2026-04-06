@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "Genymobile/scrcpy",
 	"description": "An executable to display and control your Android device.",

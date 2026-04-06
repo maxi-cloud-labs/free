@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": true,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "jitsi/jitsi-meet",
 	"description": "A secure, Simple and Scalable Video Conferences tools suite based on WebRTC.",

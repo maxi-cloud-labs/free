@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "PostgreSQL",
 	"github": "pgadmin-org/pgadmin4",
 	"description": "A feature rich administration and development platform for PostgreSQL.",

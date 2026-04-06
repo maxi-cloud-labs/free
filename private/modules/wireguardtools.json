@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "WireGuard/wireguard-tools",
 	"description": "The tools for the VPN integrated directly into the Linux kernel.",

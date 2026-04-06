@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "agendav/agendav",
 	"description": "A CalDAV web client similar to Google Calendar.",

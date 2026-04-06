@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "",
 	"description": "A mail transfer agent for routing and delivering electronic mail.",

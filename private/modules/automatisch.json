@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "PostgreSQL",
 	"github": "automatisch/automatisch",
 	"description": "A business automation tool that lets you connect different services like Twitter, Slack, and more to automate your business processes.",

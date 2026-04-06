@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "viveris/uMTP-Responder",
 	"description": "A manager for USB OTG file service.",

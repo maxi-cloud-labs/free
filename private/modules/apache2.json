@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": true,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "apache/httpd",
 	"description": "An HTTP Server Project built with security, efficiency and extensibility in mind.",

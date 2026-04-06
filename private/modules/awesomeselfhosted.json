@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "awesome-selfhosted/awesome-selfhosted-html",
 	"description": "An exhaustive list of selfhosted apps.",

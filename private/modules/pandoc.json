@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "jgm/pandoc",
 	"description": "A universal document converter.",

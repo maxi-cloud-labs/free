@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "meilisearch/meilisearch",
 	"description": "An ultra relevant, instant and typo-tolerant full-text search API, bringing AI-powered hybrid search to your sites and applications.",

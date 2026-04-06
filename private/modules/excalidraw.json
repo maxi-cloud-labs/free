@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "excalidraw/excalidraw",
 	"description": "A virtual whiteboard for sketching hand-drawn like diagrams.",

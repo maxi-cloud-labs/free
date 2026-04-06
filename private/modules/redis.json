@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "redis/redis",
 	"description": "A fast and feature-rich cache, data structure server, and document and vector query engine.",

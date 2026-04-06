@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "jelhan/croodle",
 	"description": "A simple scheduler tool for organizing meetings or to do polls on general topics.",

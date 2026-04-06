@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Koenkk/zigbee2mqtt",
 	"description": "A Zigbee to MQTT bridge to get rid of your proprietary Zigbee bridges.",

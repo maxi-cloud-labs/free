@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "jmbannon/ytdl-sub",
 	"description": "A syncer of YouTube channels and playlists to a locally hosted media server.",

@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "httpie/cli",
 	"description": "A modern, user-friendly command-line HTTP client for the API era.",

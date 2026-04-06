@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "SigNoz/signoz",
 	"description": "An observability platform native to OpenTelemetry with logs, traces and metrics in a single application.",

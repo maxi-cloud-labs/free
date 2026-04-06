@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "sharkdp/fd",
 	"description": "A simple, fast and user-friendly alternative to 'find'.",

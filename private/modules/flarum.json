@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "MySQL",
 	"github": "flarum/flarum",
 	"description": "The next-generation forum software that makes online discussion fun again.",

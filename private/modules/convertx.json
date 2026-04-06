@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "C4illin/ConvertX",
 	"description": "An online file converter which supports over a thousand different formats.",

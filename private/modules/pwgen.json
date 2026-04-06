@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "tytso/pwgen",
 	"description": "A random password generator with multiple options.",

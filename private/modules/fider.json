@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "getfider/fider",
 	"description": "An open platform to collect and prioritize feedback.",

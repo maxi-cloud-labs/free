@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "acmesh-official/acme.sh",
 	"description": "A pure Unix shell script implementing ACME client protocol.",

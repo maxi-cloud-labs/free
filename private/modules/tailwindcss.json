@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "ionic-team/ionic-framework",
 	"description": "A utility-first CSS framework for rapid UI development.",

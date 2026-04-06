@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Kinfe123/better-auth-studio",
 	"description": "A frontend for Better Auth, an authentication framework.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "filegator/filegator",
 	"description": "A powerful multi-user file manager with a single page front-end.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "PostgreSQL",
 	"github": "mastodon/mastodon",
 	"description": "A federated, globally interconnected microblogging community.",

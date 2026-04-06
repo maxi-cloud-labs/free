@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "qbittorrent/qBittorrent",
 	"description": "A free cross-platform bittorrent client with a feature rich Web UI for remote access.",

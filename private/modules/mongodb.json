@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "mongodb/mongo",
 	"description": "A general-purpose, document-based, distributed database.",

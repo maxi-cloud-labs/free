@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "mirror/busybox",
 	"description": "A lightweight set of Unix utilities in a single executable.",

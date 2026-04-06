@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "elixir-lang/elixir",
 	"description": "A notifications pusher that work with just about every platform.",

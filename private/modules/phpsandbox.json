@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "Corveda/PHPSandbox",
 	"description": "A PHP-based sandboxing library with a full suite of configuration and validation options.",

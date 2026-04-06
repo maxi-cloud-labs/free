@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "ente-io/ente",
 	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",

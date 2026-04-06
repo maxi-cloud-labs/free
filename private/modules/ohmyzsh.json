@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "ohmyzsh/ohmyzsh",
 	"description": "A manager for your zsh configuration.",

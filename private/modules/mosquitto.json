@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "eclipse-mosquitto/mosquitto",
 	"description": "A message broker that implements MQTT protocol.",

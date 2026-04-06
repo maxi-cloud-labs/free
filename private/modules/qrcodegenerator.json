@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "bizzycola/qrcode-generator",
 	"description": "A simple QR code generator.",

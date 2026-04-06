@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "alexta69/metube",
 	"description": "A web GUI for youtube-dl, with playlist support to download videos from dozens of websites.",

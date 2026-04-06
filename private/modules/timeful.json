@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "schej-it/timeful.app",
 	"description": "A scheduling platform helps you find the best time for a group to meet.",

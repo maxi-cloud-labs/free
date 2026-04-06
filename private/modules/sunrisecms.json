@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "cityssm/sunrise-cms",
 	"description": "An application to assist cemetery managers with managing their cemetery records.",

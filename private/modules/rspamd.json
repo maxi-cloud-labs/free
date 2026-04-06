@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "rspamd/rspamd",
 	"description": "A fast, free and open-source spam filtering system.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Stirling-Tools/Stirling-PDF",
 	"description": "A web app to perform merging, splitting, file conversions and OCR on PDF files.",

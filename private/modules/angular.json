@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "angular/angular",
 	"description": "A platform for building mobile and desktop web applications.",

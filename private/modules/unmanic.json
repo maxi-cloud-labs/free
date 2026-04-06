@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "Unmanic/unmanic",
 	"description": "A library optimizer for removing unused metadata from media files.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "stonith404/pingvin-share",
 	"description": "A file sharing platform that combines lightness and beauty, perfect for seamless and efficient file sharing.",

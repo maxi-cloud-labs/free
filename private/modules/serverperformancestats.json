@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "janisadhi/Server_Performance_Stats",
 	"description": "A script to get live server performance stats.",

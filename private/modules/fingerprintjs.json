@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "fingerprintjs/fingerprintjs",
 	"description": "A tool to get a unique fingerprint ID for each site visitor.",

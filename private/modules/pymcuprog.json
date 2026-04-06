@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "microchip-pic-avr-tools/pymcuprog",
 	"description": "A Python library for programming Microchip microcontrollers.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "MySQL",
 	"github": "YOURLS/YOURLS",
 	"description": "A powerful and customizable, URL shortener, featuring password protection, URL customization, bookmarklets, statistics, API, plugins.",

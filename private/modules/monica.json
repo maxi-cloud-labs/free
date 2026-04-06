@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "monicahq/monica",
 	"description": "A personal relationship manager, and a new kind of CRM to organize interactions with your friends and family.",

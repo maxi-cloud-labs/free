@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "joeferner/redis-commander",
 	"description": "A Redis management tool.",

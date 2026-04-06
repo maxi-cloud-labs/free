@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "getgrav/grav",
 	"description": "Modern, Crazy Fast, Ridiculously Easy and Amazingly Powerful Flat-File Content Management System.",

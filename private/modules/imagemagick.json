@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "ImageMagick/ImageMagick",
 	"description": "A software suite to create, edit, compose, or convert images in any format.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Prowlarr/Prowlarr",
 	"description": "A central collection manager for Usenet and BitTorrent users.",

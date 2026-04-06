@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "MySQL",
 	"github": "fisharebest/webtrees",
 	"description": "The web's leading online collaborative genealogy application.",

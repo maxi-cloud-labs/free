@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "Stremio/stremio-web",
 	"description": "A software system to manage and stream media.",

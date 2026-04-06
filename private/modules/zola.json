@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "getzola/zola",
 	"description": "A static site generator.",

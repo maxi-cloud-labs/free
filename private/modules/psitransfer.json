@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "psi-4ward/psitransfer",
 	"description": "A simple file sharing solution with robust up-/download-resume and password protection.",

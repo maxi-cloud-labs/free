@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "nginx/nginx",
 	"description": "A high-performance HTTP and reverse proxy server, mail proxy server, and generic TCP/UDP proxy server.",

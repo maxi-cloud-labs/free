@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "LibrePhotos/librephotos",
 	"description": "A photo management service with a slight focus on cool graphs.",

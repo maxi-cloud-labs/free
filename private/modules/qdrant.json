@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "qdrant/qdrant",
 	"description": "High-performance, massive-scale Vector Database and Vector Search Engine.",

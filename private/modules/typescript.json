@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "microsoft/TypeScript",
 	"description": "A superset of JavaScript that compiles to clean JavaScript output.",

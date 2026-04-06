@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "BoltDB",
 	"github": "portainer/portainer",
 	"description": "An utility to manage easily Dockers and Kubernetes.",

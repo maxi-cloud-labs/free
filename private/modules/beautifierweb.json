@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "beautifier/beautifier.io",
 	"description": "An online tool to reformat javascript.",

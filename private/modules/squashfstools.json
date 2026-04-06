@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "plougher/squashfs-tools",
 	"description": "A set of tools for compression disk.",

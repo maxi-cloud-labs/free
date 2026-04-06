@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "RocketChat/Rocket.Chat",
 	"description": "A communication platform that puts data protection first.",

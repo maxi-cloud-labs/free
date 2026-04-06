@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "CorentinTh/it-tools",
 	"description": "A collection of handy online tools for developers.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "ritz078/transform",
 	"description": "A polyglot tool to convert web.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "openobserve/openobserve",
 	"description": "A modern observability platform: 10x easier, 140x lower storage cost, petabyte scale.",

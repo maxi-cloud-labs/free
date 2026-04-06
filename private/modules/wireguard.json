@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "WireGuard/wireguard-linux",
 	"description": "A VPN implementation integrated directly into the Linux kernel with state-of-the-art cryptography.",

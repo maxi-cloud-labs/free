@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "rofl0r/ncdu",
 	"description": "A tool to calculate and visualize used disk space.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "apache/superset",
 	"description": "A modern data exploration and visualization platform.",

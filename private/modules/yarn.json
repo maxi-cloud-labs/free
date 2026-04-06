@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "yarnpkg/yarn",
 	"description": "An open-source package manager for JavaScript that automates the process of installing, updating, and managing project dependencies.",

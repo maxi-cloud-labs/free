@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "MySQL",
 	"github": "osTicket/osTicket",
 	"description": "A support ticketing ticket system.",

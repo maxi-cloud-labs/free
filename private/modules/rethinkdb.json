@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "rethinkdb/rethinkdb",
 	"description": "A database tailored for realtime web.",

@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "llvm/llvm-project",
 	"description": "A C language family frontend for LLVM.",

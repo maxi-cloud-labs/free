@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Bubka/2FAuth",
 	"description": "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes.",

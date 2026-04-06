@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "gchq/CyberChef",
 	"description": "A web app for encryption, encoding, compression and data analysis, such as AES, DES and Blowfish encryption and decryption, creating hexdumps, calculating hashes.",

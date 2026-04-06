@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "mattermost/mattermost",
 	"description": "A platform for secure collaboration across the entire software development lifecycle.",

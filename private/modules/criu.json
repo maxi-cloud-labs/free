@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "checkpoint-restore/criu",
 	"description": "A checkpoint and restore tool.",

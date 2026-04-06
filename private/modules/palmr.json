@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "kyantech/Palmr",
 	"description": "A file-sharing platform focused on privacy and security to upload, manage, and share files.",

@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "oven-sh/bun",
 	"description": "A JavaScript runtime, bundler, test runner, and package manager.",

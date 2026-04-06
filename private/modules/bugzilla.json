@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "bugzilla/bugzilla",
 	"description": "A web-based general-purpose bugtracker and testing tool.",

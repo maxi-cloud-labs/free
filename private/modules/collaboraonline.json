@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": true,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "",
 	"description": "An online office suite for collaborative editing.",

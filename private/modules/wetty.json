@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "butlerx/wetty",
 	"description": "A tool to access terminal in a browser over http/https.",

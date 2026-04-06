@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "billchurch/webssh2",
 	"description": "A web SSH Client in a browser.",

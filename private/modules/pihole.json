@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "pi-hole/pi-hole",
 	"description": "A network-wide ad blocking system creating a blackhole for Internet advertisements.",

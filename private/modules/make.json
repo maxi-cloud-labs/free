@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "mirror/make",
 	"description": "An utility for maintaining groups of programs from source code.",

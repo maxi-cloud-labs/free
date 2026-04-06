@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "docker/compose",
 	"description": "A platform for developing, shipping, and running applications in containers.",

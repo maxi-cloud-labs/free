@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "cockpit-project/cockpit",
 	"description": "A server health suite with graphical interface.",

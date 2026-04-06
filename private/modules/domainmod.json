@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "MySQL",
 	"github": "domainmod/domainmod",
 	"description": "A management tool for your domains and other internet assets in a central location.",

@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "prettier/prettier",
 	"description": "A tool to format and make prettier source code.",

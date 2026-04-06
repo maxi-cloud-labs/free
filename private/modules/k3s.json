@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "k3s-io/k3s",
 	"description": "The lightweight optimized Kubernetes for low-RAM hardware.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "opf/openproject",
 	"description": "A manager of your projects, tasks and goals, allowing to collaborate via work packages and link them to your pull requests on Github.",

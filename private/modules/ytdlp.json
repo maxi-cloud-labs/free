@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "yt-dlp/yt-dlp",
 	"description": "A feature-rich command-line audio/video downloader.",

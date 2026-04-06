@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "discourse/discourse",
 	"description": "A civilized discussion platform for your community.",

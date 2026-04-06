@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "gravitl/netmaker",
 	"description": "An automation tool for WireGuard.",

@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "eikek/sharry",
 	"description": "An app to share files easily over the internet between authenticated and anonymous users.",

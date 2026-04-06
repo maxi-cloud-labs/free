@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "go-gitea/gitea",
 	"description": "All-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",

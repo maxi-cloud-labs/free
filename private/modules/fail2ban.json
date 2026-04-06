@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "fail2ban/fail2ban",
 	"description": "A daemon to ban hosts that cause multiple authentication errors.",

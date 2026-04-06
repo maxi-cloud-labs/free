@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "novaspirit/rpi_zram",
 	"description": "A script to enable zram for raspberry pi.",

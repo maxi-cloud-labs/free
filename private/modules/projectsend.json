@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "MySQL",
 	"github": "projectsend/projectsend",
 	"description": "A tool to share files with clients, focused on ease of use and privacy.",

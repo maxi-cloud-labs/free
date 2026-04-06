@@ -8,7 +8,6 @@
 	"web": false,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "",
 	"github": "vi/websocat",
 	"description": "A tool for WebSockets, like netcat or curl, for ws:// with advanced socat-like functions.",

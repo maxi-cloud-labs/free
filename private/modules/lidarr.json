@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": true,
-	"ai": false,
 	"database": "SQLite",
 	"github": "Lidarr/Lidarr",
 	"description": "A music collection manager for Usenet and BitTorrent users.",

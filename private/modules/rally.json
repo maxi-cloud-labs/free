@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "lukevella/rallly",
 	"description": "A scheduling and collaboration tool designed to make organizing events and meetings easier.",

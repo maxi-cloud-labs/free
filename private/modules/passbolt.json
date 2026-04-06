@@ -8,7 +8,6 @@
 	"web": true,
 	"essential": false,
 	"finished": false,
-	"ai": false,
 	"database": "",
 	"github": "passbolt/passbolt_api",
 	"description": "A collaborative password manager for teams.",
