@@ -20,6 +20,15 @@
 		"autoLogin": {
 			"inject": [
 				{
+					"url": "/",
+					"form": "form",
+					"arg1": "input[id=username]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				},
+				{
 					"url": "/login",
 					"form": "form",
 					"arg1": "input[id=username]",
@@ -40,6 +49,7 @@
 			]
 		},
 		"autoLoginNoGzip": [
+			"^/$",
 			"^/login"
 		],
 		"config": true,
