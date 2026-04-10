@@ -68,7 +68,9 @@
 			"mastodon-sidekiq"
 		],
 		"setup": true,
-		"setupDependencies": [],
+		"setupDependencies": [
+			"postgresql"
+		],
 		"setupRoot": true
 	}
 }
