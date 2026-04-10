@@ -58,9 +58,9 @@
 			"litellm"
 		],
 		"setup": true,
-		"setupRoot": true,
 		"setupDependencies": [
 			"postgresql"
-		]
+		],
+		"setupRoot": true
 	}
 }
