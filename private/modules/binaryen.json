@@ -1,0 +1,26 @@
+{
+	"module": "binaryen",
+	"name": "Binaryen",
+	"title": "Webassembly Compiler",
+	"category": "Developer",
+	"version": "120",
+	"installMethod": "npm",
+	"web": false,
+	"essential": false,
+	"finished": true,
+	"database": "",
+	"github": "WebAssembly/binaryen",
+	"description": "A Optimizer and compiler/toolchain library for WebAssembly.",
+	"keywords": [
+		"Javascript",
+		"Runtime",
+		"WebAssembly"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/wasm-as",
+			"/usr/local/bin/extism-js"
+		]
+	}
+}
