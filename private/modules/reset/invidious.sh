@@ -6,7 +6,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset invidious##################"
-systemctl stop invidiouscompanion.service
+systemctl stop invidious-companion.service
 systemctl stop invidious.service
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 16)
 DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
@@ -45,9 +45,9 @@ echo "{\"dbname\":\"invidiousdb\", \"dbuser\":\"invidioususer\", \"dbpass\":\"${
 echo "SERVER_SECRET_KEY=${SALT}" > /disk/admin/modules/invidious/companion.env
 chown admin:admin /disk/admin/modules/_config_/invidious.json
 chown -R admin:admin /disk/admin/modules/invidious
-systemctl start invidiouscompanion.service
+systemctl start invidious-companion.service
 systemctl start invidious.service
-systemctl enable invidiouscompanion.service
+systemctl enable invidious-companion.service
 systemctl enable invidious.service
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 .sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
