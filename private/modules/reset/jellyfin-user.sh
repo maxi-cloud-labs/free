@@ -53,5 +53,6 @@ response=`curl -sS -X GET "$URL/Auth/Keys" -H "X-Emby-Token:$token"`
 APIKEY=`echo $response | jq -r ".Items[0].AccessToken"`
 
 echo "{\"username\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\", \"apikey\":\"${APIKEY}\"}" > /disk/admin/modules/_config_/jellyfin.json
+chown admin:admin /disk/admin/modules/_config_/jellyfin.json
 
 echo "{ \"a\":\"status\", \"module\":\"$(basename $0 -user.sh)\", \"state\":\"finish\" }" | websocat -1 ws://localhost:8094
