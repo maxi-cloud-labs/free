@@ -3,12 +3,12 @@
 	"name": "immich",
 	"title": "Photo Video Backup",
 	"category": "Media",
-	"version": "v1.135.3",
+	"version": "v2.7.2",
 	"installMethod": "clone",
 	"web": true,
 	"essential": false,
-	"finished": false,
-	"database": "",
+	"finished": true,
+	"database": "PostgreSQL",
 	"github": "immich-app/immich",
 	"description": "A photo and video management solution.",
 	"keywords": [
@@ -26,10 +26,68 @@
 		"Google Photos"
 	],
 	"default": {
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/",
+					"form": "form",
+					"arg1": "input[id=email]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 1,
+					"val2": 2
+				},
+				{
+					"url": "/auth/login",
+					"form": "form",
+					"arg1": "input[id=email]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 1,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/api/auth/login",
+					"arg1": "email",
+					"arg2": "password",
+					"val1": 1,
+					"val2": 2
+				}
+			]
+		},
+		"autoLoginNoGzip": [
+			"^/$",
+			"^/auth/login"
+		],
+		"config": true,
 		"enabled": true,
 		"localPort": 9445,
 		"permissions": [
 			"user"
-		]
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 2283,
+				"path": "/"
+			},
+			{
+				"type": "ws",
+				"port": 2283,
+				"path": "/"
+			}
+		],
+		"services": [
+			"immich",
+			"immich-machinelearning"
+		],
+		"setup": true,
+		"setupDependencies": [
+			"postgresql"
+		],
+		"setupRoot": true
 	}
 }
