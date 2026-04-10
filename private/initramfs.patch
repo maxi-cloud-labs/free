@@ -28,7 +28,7 @@
 +	parted -s ${DISK} resizepart 2 100%
 +	sleep 1
 +	e2fsck -f -p ${DISK}p2
-+	resize2fs ${DISK}p2
++	resize2fs -f ${DISK}p2
 +	tune2fs -m 0.5 ${DISK}p2
 +	e2fsck -f -p ${DISK}p2
 +fi
