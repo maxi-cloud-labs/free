@@ -57,7 +57,7 @@
 +if [ ! -d /root_/admin ]; then
 +	cp -a /root_/fs/lower/home/admin.default /root_/admin
 +fi
-+mount -t overlay -o lowerdir=/root_/fs/lower,upperdir=/root_/fs/upper,workdir=/root_/fs/work none /root
++mount -t overlay -o lowerdir=/root_/fs/lower,upperdir=/root_/fs/upper,workdir=/root_/fs/work,index=on,metacopy=on none /root
 +export rootmnt=/root
 +
  if read_fstab_entry /usr; then
