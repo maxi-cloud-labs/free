@@ -13,11 +13,11 @@ function _app_React(_app_El) {
 	}
 }
 
-function _app_Color(_app_Ele) {
-	const _app_Style = window.getComputedStyle(_app_Ele);
+function _app_Color(_app_Val) {
+	const _app_Style = window.getComputedStyle(_app_Val);
 	const _app_PrevColor = _app_Style.color;
-    _app_Ele.style.color = _app_Style.backgroundColor;
-	setTimeout(function() { _app_Ele.style.color = _app_PrevColor; }, 2000);
+    _app_Val.style.color = _app_Style.backgroundColor;
+	setTimeout(function() { _app_Val.style.color = _app_PrevColor; }, 2000);
 }
 
 function _app_Close() {
@@ -46,9 +46,20 @@ function _app_Credentials() {
 window._app_Credentials = _app_Credentials;
 
 let _app_Tries = 0;
+let _app_OriginalPushState = null;
 function _app_Insert() {
-	if (_app_Tries++ > 5)
+	if (_app_Tries++ > 5) {
+		if (_app_OriginalPushState == null) {
+			_app_OriginalPushState = window.history.pushState;
+			window.history.pushState = function() {
+				const result = _app_OriginalPushState.apply(this, arguments);
+				window.dispatchEvent(new Event('pushState'));
+				return result;
+			};
+			window.addEventListener('pushState', _app_Start);
+		}
 		return;
+	}
 	_app_Form = document.querySelector('%s');
 	if (_app_Form !== null) {
 		let _app_qS_Arg1 = '%s';
@@ -59,7 +70,7 @@ function _app_Insert() {
 		_app_Arg3 = _app_Form.querySelector(_app_qS_Arg3);
 		if (_app_Arg1 !== null && _app_Arg3 === null)
 			_app_Arg3 = document.querySelector(_app_qS_Arg3);
-		if (_app_Arg1 !== null && (_app_qS_Arg2 == "" || _app_Arg2 !== null) && _app_Arg3 !== null)
+		if (_app_Arg1 !== null && (_app_qS_Arg2 == "" || _app_Arg2 !== null) && _app_Arg3 !== null) {
 			document.body.insertAdjacentHTML('beforeend', `<div id="_app_ButtonID"; style="display:flex; flex-direction:column; align-items:end; position:absolute; z-index:10001; top:100px; right:50px; font-size:14px;">
 	<div style="width:100%%; display:flex; justify-content:space-between;">
 		<div style="display:flex">
@@ -92,10 +103,20 @@ function _app_Insert() {
 			Automatic<br>Login
 		</button>
 </div>`);
-		else
+			if (_app_OriginalPushState != null) {
+				window.history.pushState = _app_OriginalPushState;
+				_app_OriginalPushState = 0;
+				window.removeEventListener('pushState', _app_Start);
+			}
+		} else
 			setTimeout(_app_Insert, 1000);
 	} else
 		setTimeout(_app_Insert, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', (event) => { _app_Insert(); });
+function _app_Start() {
+	_app_Tries = 0;
+	_app_Insert();
+}
+
+document.addEventListener('DOMContentLoaded', _app_Start);
