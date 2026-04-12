@@ -18,10 +18,35 @@
 	],
 	"proprietary": [],
 	"default": {
+		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/index.php",
+					"form": "form[method=post]",
+					"arg1": "input[name=new_username]",
+					"arg2": "input[name=new_password]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/index.php",
+					"arg1": "username",
+					"arg2": "password",
+					"val1": 0,
+					"val2": 2
+				}
+			]
+		},
 		"config": true,
 		"enabled": true,
 		"localPort": 9421,
-		"permissions": [],
+		"permissions": [
+			"hardware"
+		],
 		"reset": true,
 		"setup": true,
 		"setupDependencies": [
