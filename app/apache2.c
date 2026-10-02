@@ -270,13 +270,18 @@ begin:
 						if (!path2_)
 							path2_ = path_;
 						int reversePort = (int)cJSON_GetNumberValue(cJSON_GetObjectItem(elReverseProxy, "port"));
+						char localhost[32];
+						if (cJSON_HasObjectItem(elModule, "containerized"))
+							sprintf(localhost, "169.254.10.%d", (int)cJSON_GetNumberValue_(elModule, "containerID"));
+						else
+							strcpy(localhost, "localhost");
 						if (strcmp(type_, "http") == 0) {
-							snprintf(sz, sizeof(sz), "\tProxyPass %s http://localhost:%d%s\n\tProxyPassReverse %s http://localhost:%d%s\n", path_, reversePort, path2_, path_, reversePort, path2_);
+							snprintf(sz, sizeof(sz), "\tProxyPass %s http://%s:%d%s\n\tProxyPassReverse %s http://%s:%d%s\n", path_, localhost, reversePort, path2_, path_, localhost, reversePort, path2_);
 							if (strcmp(path_, "/") == 0)
 								doDirectory = 0;
 						}
 						else if (strcmp(type_, "ws") == 0)
-							snprintf(sz, sizeof(sz), "\tRewriteCond %%{HTTP:Upgrade} websocket [NC]\n\tRewriteCond %%{HTTP:Connection} upgrade [NC]\n\tRewriteRule ^%s(.*) ws://localhost:%d%s$1 [P,L]\n", path_, reversePort, path_);
+							snprintf(sz, sizeof(sz), "\tRewriteCond %%{HTTP:Upgrade} websocket [NC]\n\tRewriteCond %%{HTTP:Connection} upgrade [NC]\n\tRewriteRule ^%s(.*) ws://%s:%d%s$1 [P,L]\n", path_, localhost, reversePort, path_);
 						fwrite(sz, strlen(sz), 1, pfM);
 					}
 					strcpy(sz, "\t<Proxy *>\n");
