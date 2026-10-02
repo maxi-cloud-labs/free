@@ -10,7 +10,7 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Radarr/Radarr",
-	"description": "A TVshows collection manager for Usenet and BitTorrent users.",
+	"description": "A movie collection manager for Usenet and BitTorrent users.",
 	"keywords": [
 		"Automation",
 		"BitTorrent",
