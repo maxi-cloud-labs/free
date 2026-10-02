@@ -65,8 +65,8 @@ Each module is described by an exhaustive json config file:
 			]
 		},
 		"config": "A boolean to indicate if the module has a user configuration.",
-		"enabled": "A boolean if the module web interface is enabled or not.",
-		"followSymlinks": "A boolean if Apache2 FollowSymlinks directive should be added or removed.",
+		"enabled": "A boolean to indicate if the module web interface is enabled or not.",
+		"followSymlinks": "A boolean to indicate if Apache2 FollowSymlinks directive should be added or removed.",
 		"indexes": "A boolean if Apache2 Indexes directive should be added or removed.",
 		"localPort": "The local port of the Apache2 module virtual host.",
 		"multiViews": "A boolean if Apache2 MultiViews directive should be added or removed.",
@@ -87,14 +87,13 @@ Each module is described by an exhaustive json config file:
 		"services": [
 			"The service name of the module."
 		],
-		"setup": "A boolean if the module needs setup.",
+		"setup": "A boolean to indicate if the module needs setup.",
 		"setupDependencies": [
 			"The module dependencies of the module itself."
 		],
 		"setupRoot": "A boolean if the setup should be run with root privileges."
 	}
 }
-
 ```
 
 The best way is to start from a similar module to the one in [https://github.com/maxi-cloud-labs/free/tree/master/private/modules](https://github.com/maxi-cloud-labs/free/tree/master/private/modules).
