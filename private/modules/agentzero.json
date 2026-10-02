@@ -1,0 +1,54 @@
+{
+	"module": "agentzero",
+	"name": "Agent Zero",
+	"title": "AI Agent",
+	"category": "Personal",
+	"version": "2.1.25",
+	"installMethod": "clone",
+	"web": true,
+	"essential": true,
+	"finished": true,
+	"database": "",
+	"github": "agent0ai/agent-zero",
+	"description": "An AI Agent framework.",
+	"keywords": [
+		"Agent"
+	],
+	"proprietary": [],
+	"default": {
+		"autoLogin": {
+			"inject": [
+				{
+					"url": "/login",
+					"form": "form[class=\\\"login-form\\\"]",
+					"arg1": "input[id=username]",
+					"arg2": "input[id=password]",
+					"arg3": "button[type=submit]",
+					"val1": 0,
+					"val2": 2
+				}
+			],
+			"post": [
+				{
+					"url": "/login",
+					"arg1": "username",
+					"arg2": "password",
+					"val1": 0,
+					"val2": 2
+				}
+			]
+		},
+		"config": true,
+		"enabled": true,
+		"localPort": 9554,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"setup": true,
+		"setupDependencies": [
+			"docker"
+		],
+		"setupRoot": true
+	}
+}
