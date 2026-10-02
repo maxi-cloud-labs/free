@@ -64,12 +64,12 @@ cd /tmp/1
 zip -q -r ${PP}/build/img/partition1.zip ./bcm2712-rpi-5-b.dtb ./bcm2712-rpi-cm5-cm5io.dtb ./cmdline.txt ./config.txt ./kernel_2712.img ./overlays/overlay_map.dtb ./overlays/bcm2712d0.dtbo ./overlays/dwc2.dtbo ./overlays/dongle.dtbo ./overlays/st7735s.dtbo ./overlays/buttons.dtbo ./overlays/leds.dtbo ./overlays/uart0-pi5.dtbo ./overlays/uart2-pi5.dtbo ./Image ./mydonglecd.dtb
 cd ${PP}
 ROOTFS=/tmp/2
-mkdir -p /tmp/_img/
 if [ $CLEAN = 1 ]; then
-	rm -f /tmp/_img/os${POSTNAME}.img
+	rm -rf /tmp/_img/
 fi
-if [ -f /tmp/_img/os${POSTNAME}.img ]; then
-	echo "No creation as /tmp/_img/os${POSTNAME}.img already exists"
+mkdir -p /tmp/_img/
+if [ -f /tmp/_img/_os${POSTNAME}_.img ]; then
+	echo "No creation as /tmp/_img/_os${POSTNAME}_.img already exists"
 else
 	if [ ! -f ${PP}/client/src/assets/modulesmeta.json -o $(find ${PP}/private/modules -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d " " -f2-) -nt ${PP}/client/src/assets/modulesmeta.json ]; then
 		php ${PP}/private/modules-update.php
@@ -147,21 +147,33 @@ else
 	cp -a ${ROOTFS}/disk/admin ${ROOTFS}/home/admin.default
 	rm -f /tmp/squashfs-exclude.txt
 	rm -f /tmp/squashfs-exclude.txt
-	cat >> /tmp/squashfs-exclude.txt <<EOF
+	cat > /tmp/squashfs-exclude.txt <<EOF
 ./disk/
 ./home/ai/build/
 ./home/gregoire/
 ./usr/local/modules/trash/
 EOF
+	LIST=$(jq -r 'to_entries[] | select(.value.containerID != null) | .key' ${ROOTFS}/usr/local/modules/_core_/web/assets/modulesdefault.json)
+	for MODULE in ${LIST}; do
+		echo ./usr/local/modules/${MODULE} >> /tmp/squashfs-exclude.txt
+	done
 	sed -i -e 's|#LABEL=rootfs  /disk|LABEL=rootfs  /disk|' ${ROOTFS}/etc/fstab
 	echo "######## WARNING ########"
 	echo "${ROOTFS}/etc/fstab has been modified. It will be reverted once squashfs is finished"
 	cd ${ROOTFS}
 	DATESTARTS=`date +%s`
-	mksquashfs . /tmp/_img/os${POSTNAME}.img -comp zstd -Xcompression-level $COMPRESSION -b 256K -ef /tmp/squashfs-exclude.txt
+	mksquashfs . /tmp/_img/_os${POSTNAME}_.img -comp zstd -Xcompression-level $COMPRESSION -b 256K -ef /tmp/squashfs-exclude.txt
 	DATEFINISHS=`date +%s`
 	DELTAS=$((DATEFINISHS - DATESTARTS))
 	echo "Squashfs done in $((DELTAS / 60))m $((DELTAS % 60))s"
+	LIST=$(jq -r 'to_entries[] | select(.value.containerID != null) | .key' ${ROOTFS}/usr/local/modules/_core_/web/assets/modulesdefault.json)
+	for MODULE in ${LIST}; do
+		mkdir -p /tmp/_stage/usr/local/modules/${MODULE}
+		mount --bind ${ROOTFS}/usr/local/modules/${MODULE} /tmp/_stage/usr/local/modules/${MODULE}
+		mksquashfs /tmp/_stage /tmp/_img/${MODULE}.img -comp gzip
+		umount /tmp/_stage/usr/local/modules/${MODULE}
+		rmdir /tmp/_stage/usr/local/modules/${MODULE}
+	done
 	cd ${PP}
 	sed -i -e 's|LABEL=rootfs  /disk|#LABEL=rootfs  /disk|' ${ROOTFS}/etc/fstab
 	rm -f /tmp/squashfs-exclude.txt
@@ -170,7 +182,7 @@ sync
 umount ${DISK}*
 umount ${DISK}*
 
-SIZEOS=$(stat -c %s /tmp/_img/os${POSTNAME}.img)
+SIZEOS=$(du -b /tmp/_img | cut -f1)
 echo "Squashfs Size: $((SIZEOS / 1024 / 1024)) MiB = $((SIZEOS / 1024 / 1024 / 1024)) GiB"
 SIZE=$(((SIZEOS + (1024 + 128 + 4) * 1024 * 1024) / 1024 / 1024 / 4))
 echo "Img Size: $((SIZE * 4)) MiB = $((SIZE * 4 / 1024)) GiB"
@@ -209,7 +221,10 @@ mount ${LOSETUP}p2 /tmp/2
 rm -rf /tmp/2/lost+found/
 mkdir -p /tmp/2/fs/upper/ /tmp/2/fs/lower/ /tmp/2/fs/overlay/ /tmp/2/fs/work/
 DATESTARTS=`date +%s`
-dd if=/tmp/_img/os${POSTNAME}.img of=/tmp/2/fs/os${POSTNAME}.img bs=16M oflag=direct status=progress
+LIST=$(ls /tmp/_img/)
+for FILE in ${LIST}; do
+	dd if=/tmp/_img/${FILE} of=/tmp/2/fs/${FILE} bs=16M oflag=direct status=progress
+done
 sync
 sync
 DATEFINISHS=`date +%s`

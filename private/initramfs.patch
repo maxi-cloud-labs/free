@@ -42,10 +42,10 @@
 +insmod /usr/lib/modules/*/kernel/fs/squashfs/squashfs.ko
 +insmod /usr/lib/modules/*/kernel/fs/overlayfs/overlay.ko
 +mount -o remount,rw /root_
-+if [ -f /root_/fs/os.new.img ]; then
-+	mv /root_/fs/os.new.img /root_/fs/os.img
++if [ -f /root_/fs/_os_.new.img ]; then
++	mv /root_/fs/_os_.new.img /root_/fs/_os_.img
 +fi
-+mount -t squashfs -o loop /root_/fs/os.img /root_/fs/lower
++mount -t squashfs -o loop /root_/fs/_os_.img /root_/fs/lower
 +if [ -f /root_/reset.overlay ]; then
 +	rm -rf /root_/fs/upper /root_/fs/work /root_/reset.overlay
 +	mkdir /root_/fs/upper
