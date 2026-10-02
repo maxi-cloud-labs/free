@@ -1,6 +1,6 @@
 {
 	"module": "firecracker",
-	"name": "Apache HTTP Server",
+	"name": "Firecracker",
 	"title": "Micro VM",
 	"category": "Server",
 	"version": "v1.17.0",
