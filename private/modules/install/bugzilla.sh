@@ -5,7 +5,7 @@ cd /usr/local/modules/bugzilla
 ln -sf /disk/admin/modules/bugzilla/data
 ln -sf /disk/admin/modules/bugzilla/localconfig
 cd /home/ai/build
-wget https://cpan.metacpan.org/authors/id/A/AB/ABW/Template-Toolkit-3.101.tar.gz
+ wget -nv --show-progress --progress=bar:force:noscroll https://cpan.metacpan.org/authors/id/A/AB/ABW/Template-Toolkit-3.101.tar.gz
 tar -xzf Template-Toolkit-3.101.tar.gz
 cd Template-Toolkit-3.101
 yes | perl Makefile.PL
