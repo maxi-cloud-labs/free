@@ -3,9 +3,9 @@
 	"name": "Ollama",
 	"title": "Chatbot backend",
 	"category": "AI",
-	"version": "v0.9.7-rc1",
+	"version": "0.34.2",
 	"installMethod": "clone",
-	"web": false,
+	"web": true,
 	"essential": false,
 	"finished": true,
 	"database": "",
@@ -25,6 +25,24 @@
 	],
 	"proprietary": [],
 	"default": {
-		"cmds": []
+		"cmds": [
+			"/usr/local/modules2/ollama/ollama"
+		],
+		"enabled": true,
+		"localPort": 9555,
+		"permissions": [],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 11434,
+				"path": "/"
+			}
+		],
+		"services": [
+			"ollama"
+		],
+		"setup": true,
+		"setupDependencies": []
 	}
 }
