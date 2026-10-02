@@ -9,7 +9,7 @@
 	"essential": false,
 	"finished": true,
 	"database": "MongoDB",
-	"github": "danny-avila/LibreChat",
+	"github": "LibreChat-AI/LibreChat",
 	"description": "An enhanced ChatGPT Clone.",
 	"keywords": [
 		"AI chatbot",
