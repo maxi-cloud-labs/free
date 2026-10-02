@@ -1,0 +1,20 @@
+[Unit]
+Description=OmniVoice
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=300s
+OnFailure=notify-failure@%n.service
+
+[Service]
+Restart=on-failure
+RestartMode=direct
+Type=simple
+StandardOutput=inherit
+StandardError=inherit
+RestartSec=5s
+User=admin
+ExecStart=/usr/local/modules/omnivoice/bin/omnivoice serve
+WorkingDirectory=/disk/admin
+
+[Install]
+WantedBy=multi-user.target

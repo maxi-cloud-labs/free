@@ -1,0 +1,41 @@
+{
+	"module": "omnivoice",
+	"name": "OmniVoice",
+	"title": "Voice Cloning",
+	"category": "Personal",
+	"version": "v2.26.2",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"database": "",
+	"github": "k2-fsa/OmniVoice",
+	"description": "A high-Quality Voice Cloning TTS for 600+ Languages.",
+	"keywords": [
+		"Audio content",
+		"Audio files",
+		"Clonage",
+		"Voice cloning"
+	],
+	"proprietary": [],
+	"default": {
+		"enabled": true,
+		"localPort": 9558,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"reverseProxy": [
+			{
+				"type": "http",
+				"port": 8880,
+				"path": "/"
+			}
+		],
+		"services": [
+			"omnivoice"
+		],
+		"setup": true,
+		"setupDependencies": []
+	}
+}
