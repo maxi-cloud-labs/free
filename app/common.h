@@ -17,7 +17,7 @@ void writeValueKeyPrintf(const char *path, const char *key, const char *fmt, ...
 int readTemperature();
 void enterInputMode();
 void leaveInputMode();
-void copyFile(char *from, char *to, void (*progresscallback)());
+void copyFile(char *from, char *to, void (*progresscallback)(int));
 void generateUniqueId(char sz[17]);
 void generateRandomHexString(char sz[33]);
 int killOtherPids(char *sz);

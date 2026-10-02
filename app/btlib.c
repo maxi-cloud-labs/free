@@ -3520,7 +3520,7 @@ int le_interval(int node)
   
 /******** MESH SERVER **********/ 
   
-void mesh_server(int(*callback)())
+void mesh_server(int(*callback)(int,unsigned char*,int))
   {
   int nread,retval,clientnode;
   unsigned char buf[32];
@@ -3628,7 +3628,7 @@ int le_server(int(*callback)(int clientnode,int operation,int cticn),int timerds
 #ifdef BTFPYTHON
   pycallback = py_lecallback;
 #else
-  gpar.lecallback = callback;
+  gpar.lecallback = (int (*)(void))callback;
 #endif
   
   gpar.serveractive = 1;
@@ -3946,7 +3946,7 @@ int universal_server(int(*callback)(int,int,int,unsigned char*,int),char endchar
 #ifdef BTFPYTHON
   pycallback = py_lecallback;
 #else
-  gpar.lecallback = callback;
+  gpar.lecallback = (int (*)(void))callback;
 #endif
 
   gpar.serveractive = 2;    
@@ -5438,7 +5438,7 @@ int write_ctic(int node,int cticn,unsigned char *data,int count)
   }
 
 
-int notify_ctic(int node,int cticn,int notifyflag,int (*callback)())
+int notify_ctic(int node,int cticn,int notifyflag,int (*callback)(int,int,unsigned char*,int))
   {
   unsigned char data[2];
    
@@ -5448,7 +5448,7 @@ int notify_ctic(int node,int cticn,int notifyflag,int (*callback)())
     return(0);
     }
    
-  if(writecticx(node,cticn,data,2,notifyflag,callback) == 0)
+  if(writecticx(node,cticn,data,2,notifyflag,(int (*)(void))callback) == 0)
     return(0);
   return(1);
   }
@@ -7767,7 +7767,7 @@ void immediate(long long lookflag)
           py_notify_callback(cp->pycallback,dp->node,cticn,insdat+n+3,bn);
 #else  
         if(cp->callback != NULL)
-          (*cp->callback)(dp->node,cticn,insdat+n+3,bn);
+          (*((int (*)(int, int, unsigned char *, int))cp->callback))(dp->node, cticn, insdat+n+3, bn);
 #endif
         }
       }
@@ -8812,7 +8812,7 @@ int leserver(int ndevice,int count,unsigned char *dat,int insn)
                 cmd[2] = (unsigned char)py_le_callback(py_lecallback,dev[ndevice]->node,LE_READ,cticn);
 #else
               if(gpar.lecallback != NULL)
-                cmd[2] = (unsigned char)gpar.lecallback(dev[ndevice]->node,LE_READ,cticn);
+                cmd[2] = (unsigned char)(*((int (*)(int, int, int))gpar.lecallback))(dev[ndevice]->node, LE_READ, cticn);
 #endif
 
               n = 0;

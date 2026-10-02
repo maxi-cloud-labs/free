@@ -969,7 +969,7 @@ static int do_handshake(struct ws_frame_data *wfd)
 	}
 
 	/* Advance our pointers before the first next_byte(). */
-	p = strstr((const char *)wfd->frm, "\r\n\r\n");
+	p = strstr(wfd->frm, "\r\n\r\n");
 	if (p == NULL)
 	{
 		DEBUG("An empty line with \\r\\n was expected!\n");
