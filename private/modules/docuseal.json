@@ -1,0 +1,31 @@
+{
+	"module": "docuseal",
+	"name": "DocuSeal",
+	"title": "Document Signature",
+	"category": "Productivity",
+	"version": "3.3.0",
+	"installMethod": "clone",
+	"web": true,
+	"essential": false,
+	"finished": false,
+	"database": "",
+	"github": "docusealco/docuseal",
+	"description": "An Open source app to create, fill, and sign digital documents.",
+	"keywords": [
+		"Document",
+		"Signature"
+	],
+	"proprietary": [
+		"DocuSign"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9556,
+		"permissions": [
+			"user"
+		],
+		"reset": true,
+		"setup": true,
+		"setupDependencies": []
+	}
+}
