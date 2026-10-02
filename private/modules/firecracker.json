@@ -1,0 +1,27 @@
+{
+	"module": "firecracker",
+	"name": "Apache HTTP Server",
+	"title": "Micro VM",
+	"category": "Server",
+	"version": "v1.17.0",
+	"installMethod": "wget",
+	"web": false,
+	"essential": true,
+	"finished": true,
+	"database": "",
+	"github": "firecracker-microvm/firecracker",
+	"description": "Secure and fast microVMs for serverless computing.",
+	"keywords": [
+		"Container",
+		"Virtualization",
+		"VM"
+	],
+	"proprietary": [
+		"VMWare"
+	],
+	"default": {
+		"cmds": [
+			"/usr/local/modules/firecracker/firecracker"
+		]
+	}
+}
