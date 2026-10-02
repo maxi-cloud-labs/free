@@ -7,13 +7,14 @@
 #include <getopt.h>
 #include <fcntl.h>
 #include <poll.h>
-#include <termio.h>
+#include <termios.h>
+#include <sys/ioctl.h>
 #include "macro.h"
 #include "sbl.h"
 #include "sbl2.h"
 
 //Private variables
-static struct termio termioOriginal;
+static struct termios termioOriginal;
 static struct pollfd pollfd[1];
 static char szUart[256];
 static char szFirmware[256];
@@ -60,18 +61,18 @@ static void writeValueKeyInt(const char *path, const char *key, int i) {
 
 static void enterInputMode() {
 	int fd = fileno(stdin);
-	struct termio zap;
-	ioctl(fd, TCGETA, &termioOriginal);
+	struct termios zap;
+	tcgetattr(fd, &termioOriginal);
 	zap = termioOriginal;
 	zap.c_cc[VMIN] = 0;
 	zap.c_cc[VTIME] = 0;
 	zap.c_lflag = 0;
-	ioctl(fd, TCSETA, &zap);
+	tcsetattr(fd, TCSANOW, &zap);
 }
 
 static void leaveInputMode() {
 	int fd = fileno(stdin);
-	ioctl(fd, TCSETA, &termioOriginal);
+	tcsetattr(fd, TCSANOW, &termioOriginal);
 }
 
 static void crc32(char *path) {

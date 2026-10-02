@@ -25,7 +25,7 @@
 
 //Private variables
 static int termioUsed = 0;
-static struct termio termioOriginal;
+static struct termios termioOriginal;
 static pid_t pidLog = 0;
 static int doLog = 1;
 static int fillSD = 0;
@@ -167,19 +167,19 @@ int readTemperature() {
 void enterInputMode() {
 	termioUsed = 1;
 	int fd = fileno(stdin);
-	struct termio zap;
-	ioctl(fd, TCGETA, &termioOriginal);
+	struct termios zap;
+	tcgetattr(fd, &termioOriginal);
 	zap = termioOriginal;
 	zap.c_cc[VMIN] = 0;
 	zap.c_cc[VTIME] = 0;
 	zap.c_lflag = 0;
-	ioctl(fd, TCSETA, &zap);
+	tcsetattr(fd, TCSANOW, &zap);
 }
 
 void leaveInputMode() {
 	if (termioUsed) {
 		int fd = fileno(stdin);
-		ioctl(fd, TCSETA, &termioOriginal);
+		tcsetattr(fd, TCSANOW, &termioOriginal);
 		termioUsed = 0;
 	}
 }
