@@ -9,7 +9,7 @@
 	"essential": false,
 	"finished": true,
 	"database": "",
-	"github": "ente-io/ente",
+	"github": "ente/ente",
 	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",
 	"keywords": [
 		"Cloud storage",
