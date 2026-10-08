@@ -27,7 +27,7 @@
 	"default": {
 		"bindingPort": 7000,
 		"enabled": true,
-		"localPort": 9438,
+		"localPort": 9440,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"protocols": {

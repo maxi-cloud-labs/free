@@ -31,7 +31,7 @@
 		"containerID": 1,
 		"containerRun": "OLLAMA_HOST=0.0.0.0:11434 /usr/local/modules/ollama/ollama serve",
 		"enabled": true,
-		"localPort": 9555,
+		"localPort": 9481,
 		"permissions": [],
 		"reset": true,
 		"reverseProxy": [

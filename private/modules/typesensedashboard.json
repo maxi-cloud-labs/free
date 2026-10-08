@@ -27,7 +27,7 @@
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,
-		"localPort": 9541,
+		"localPort": 9545,
 		"permissions": [
 			"user"
 		],

@@ -54,7 +54,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9539,
+		"localPort": 9543,
 		"permissions": [
 			"user"
 		],

@@ -49,7 +49,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9473,
+		"localPort": 9475,
 		"permissions": [
 			"user"
 		],

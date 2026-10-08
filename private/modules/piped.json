@@ -26,7 +26,7 @@
 	"default": {
 		"config": true,
 		"enabled": true,
-		"localPort": 9502,
+		"localPort": 9506,
 		"path": "/usr/local/modules/piped/dist",
 		"permissions": [
 			"user"

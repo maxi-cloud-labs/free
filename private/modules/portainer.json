@@ -50,7 +50,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9503,
+		"localPort": 9507,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

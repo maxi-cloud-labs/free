@@ -27,7 +27,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/health",
-		"localPort": 9540,
+		"localPort": 9544,
 		"permissions": [
 			"user"
 		],

@@ -43,7 +43,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9421,
+		"localPort": 9423,
 		"permissions": [
 			"hardware"
 		],

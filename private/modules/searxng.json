@@ -29,7 +29,7 @@
 			"search"
 		],
 		"enabled": true,
-		"localPort": 9521,
+		"localPort": 9525,
 		"permissions": [
 			"user"
 		],
