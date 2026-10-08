@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "denoland/deno",
 	"description": "A modern runtime for JavaScript and TypeScript.",
+	"hero": "a prehistoric dinosaur with a glowing circuit-board skin standing in rain under neon lights. cool, reborn, cinematic sci-fi",
 	"keywords": [
 		"Javascript",
 		"Runtime",

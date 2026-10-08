@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "the-tcpdump-group/tcpdump",
 	"description": "A network TCP dumper and dissector.",
+	"hero": "a glowing net catching data packets mid-air like butterflies, dissected under a lamp. entomologist-lab, analytical, delicate",
 	"keywords": [
 		"Dumper",
 		"Network",

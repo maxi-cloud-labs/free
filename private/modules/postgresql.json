@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "postgres/postgres",
 	"description": "A database management system.",
+	"hero": "a majestic elephant carved from glowing database tables, standing in a library of data. wise, enduring, trustworthy",
 	"keywords": [
 		"Documentation",
 		"Management system",

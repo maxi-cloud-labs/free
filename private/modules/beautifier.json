@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "beautifier/js-beautify",
 	"description": "A tool to reformat javascript.",
+	"hero": "a magic comb straightening tangled glowing curly braces into neat lines. satisfying, clean, makeover-transformation",
 	"keywords": [
 		"Beautifier",
 		"Cleanup code",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "advplyr/audiobookshelf",
 	"description": "An Audiobook and podcast server that streams all audio formats, keeps and syncs progress across devices.",
+	"hero": "a cozy old bookshelf with glowing sound waves rising from open books, headphones resting on top. warm, nostalgic, storytelling magic",
 	"keywords": [
 		"Audio content",
 		"Audio files",

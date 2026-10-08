@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "apache/httpd",
 	"description": "An HTTP Server Project built with security, efficiency and extensibility in mind.",
+	"hero": "a majestic feather-crowned warrior silhouette guarding a gate of glowing web servers. veteran, noble, enduring, legendary",
 	"keywords": [
 		"Apache",
 		"HTTP",

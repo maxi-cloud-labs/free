@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "TriliumNext/Trilium",
 	"description": "A cross-platform hierarchical note taking application with focus on building large personal knowledge bases.",
+	"hero": "a towering hierarchical tree whose leaves are glowing notes, a vast knowledge forest. mystical, arboreal, expansive",
 	"keywords": [
 		"Base",
 		"Documentation",

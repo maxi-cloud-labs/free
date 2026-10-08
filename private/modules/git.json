@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "git/git",
 	"description": "A distributed version control system.",
+	"hero": "a glowing branching tree of commits growing from a single trunk, leaves as commit hashes. organic, timeline, cosmic",
 	"keywords": [
 		"Code management",
 		"Control",

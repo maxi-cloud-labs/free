@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "",
 	"description": "The API server for MinIO S3.",
+	"hero": "a glowing S3-style bucket containing a miniature galaxy of objects, held up by one hand. cosmic, compact, majestic",
 	"keywords": [
 		"Cloud storage",
 		"Data storage",

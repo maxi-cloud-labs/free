@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "lvgl/lvgl",
 	"description": "An embedded graphics library to create beautiful UIs for any MCU, MPU and display type.",
+	"hero": "a tiny embedded display glowing with a beautiful interface, held in an engineer's hand. delicate, jewel-like, crisp",
 	"keywords": [
 		"Embedded graphics",
 		"Microcontroller",

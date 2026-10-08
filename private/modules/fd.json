@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "sharkdp/fd",
 	"description": "A simple, fast and user-friendly alternative to 'find'.",
+	"hero": "a swift greyhound dashing through a maze of folders, scattering light trails. fast, sleek, agile hunter",
 	"keywords": [
 		"Alternative to find",
 		"Directory search",

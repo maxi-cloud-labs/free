@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "passbolt/passbolt_api",
 	"description": "A collaborative password manager for teams.",
+	"hero": "a glowing bolt-shaped key being passed securely between team members' hands. high-stakes, collaborative, heist-like",
 	"keywords": [
 		"Browser extension",
 		"Encryption",

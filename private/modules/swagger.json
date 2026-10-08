@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "swagger-api/swagger-codegen",
 	"description": "A template-driven engine to generate API documentation.",
+	"hero": "a smiling green API swagger-man with a cane, tipping his hat at a glowing route map. dapper, charismatic, retro-cool",
 	"keywords": [
 		"API",
 		"Documentation"

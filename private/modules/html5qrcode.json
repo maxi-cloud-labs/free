@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mebjas/html5-qrcode",
 	"description": "A minimal QR code scanner using HTML5.",
+	"hero": "a phone camera scanning a glowing QR code, light beams reading its pixels into the air. scanner-spy thriller, crisp, minimal",
 	"keywords": [
 		"Barcode scanner",
 		"Camera scanning",

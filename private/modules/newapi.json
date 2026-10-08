@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "QuantumNous/new-api",
 	"description": "A unified AI model hub for aggregation & distribution, supporting cross-converting various LLMs.",
+	"hero": "a grand central hub with glowing portal gates, each leading to a different AI model. sci-fi hub, welcoming, majestic",
 	"keywords": [
 		"AI Gateway",
 		"AI Routing"

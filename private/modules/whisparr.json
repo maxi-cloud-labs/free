@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Whisparr/Whisparr",
 	"description": "An adult movie collection manager for Usenet and BitTorrent users.",
+	"hero": "a velvet theater curtain half-drawn with a glowing silhouette of a figure holding a finger to lips, hush. mysterious, stylish, noir, tasteful",
 	"keywords": [
 		"Automation",
 		"BitTorrent",

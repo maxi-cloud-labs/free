@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "roundcube/roundcubemail",
 	"description": "A browser-based multilingual mail client with an application-like user interface.",
+	"hero": "a glowing cube-shaped letterbox opening to reveal an email, sunlit window behind. gentle, domestic, clean",
 	"keywords": [
 		"Address book",
 		"Browser-based",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "websockets/wscat",
 	"description": "A tool for WebSockets.",
+	"hero": "a cat lounging on a glowing two-way wire, speech bubbles flying both directions. whimsical, minimal, neon",
 	"keywords": [
 		"Communication",
 		"Network",

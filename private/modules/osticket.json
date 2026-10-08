@@ -11,6 +11,7 @@
 	"database": "MySQL",
 	"github": "osTicket/osTicket",
 	"description": "A support ticketing ticket system.",
+	"hero": "a vintage ticket stub of glowing light, support agents stamping and routing them at a busy counter. retro, bustling, orderly",
 	"keywords": [
 		"Customer support",
 		"Helpdesk",

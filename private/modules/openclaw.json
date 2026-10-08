@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "openclaw/openclaw",
 	"description": "A user-friendly personal AI assistant.",
+	"hero": "a stylized red lobster claw holding a glowing terminal cursor. playful, mascot-driven, friendly but powerful",
 	"keywords": [
 		"AI assistant",
 		"AI models",

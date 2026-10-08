@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "rethinkdb/rethinkdb",
 	"description": "A database tailored for realtime web.",
+	"hero": "a glowing brain of live-updating data streams pushing changes outward in real time. neon, kinetic, living",
 	"keywords": [
 		"Distributed",
 		"High availability",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "nmap/nmap",
 	"description": "A network mapper tool to test networking.",
+	"hero": "a sonar radar sweep mapping a dark network of glowing nodes and open ports. submarine-thriller, green-blue glow, stealth",
 	"keywords": [
 		"Network",
 		"Network mapper",

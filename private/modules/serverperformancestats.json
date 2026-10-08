@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "janisadhi/Server_Performance_Stats",
 	"description": "A script to get live server performance stats.",
+	"hero": "a server rack with glowing heartbeat gauges and speedometers on its face. dashboard, sporty, vital",
 	"keywords": [
 		"CPU usage",
 		"Disk usage",

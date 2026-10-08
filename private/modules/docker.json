@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "docker/compose",
 	"description": "A platform for developing, shipping, and running applications in containers.",
+	"hero": "a friendly whale carrying a stack of shipping containers on its back across a starry ocean. playful, adventurous, iconic mascot",
 	"keywords": [
 		"Application Development",
 		"Containers",

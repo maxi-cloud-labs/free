@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "gravitl/netmaker",
 	"description": "An automation tool for WireGuard.",
+	"hero": "a glowing dragon-shaped mesh network weaving WireGuard tunnels between worlds. epic, interconnected, ambitious",
 	"keywords": [
 		"Privacy",
 		"Private",

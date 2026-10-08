@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "minio/mc",
 	"description": "A Unix-like utility for object store MinIO.",
+	"hero": "a tiny command-line client captain steering a fleet of glowing buckets. nautical, sleek, adventurous",
 	"keywords": [
 		"Cloud storage",
 		"Data storage",

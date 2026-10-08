@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "Sanster/IOPaint",
 	"description": "An image inpainting tool powered by AI models to remove or replace anything on pictures.",
+	"hero": "a paintbrush erasing an unwanted object from a photo, healing the gap with swirls of AI light. magical, painterly, surreal",
 	"keywords": [
 		"AI image editing",
 		"Background editing",

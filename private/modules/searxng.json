@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "searxng/searxng",
 	"description": "A free internet metasearch engine which aggregates results from various search services and databases.",
+	"hero": "a hooded detective with a giant magnifier meta-searching glowing orbs from many search engines. privacy-noir, curious, shadowy",
 	"keywords": [
 		"Engine",
 		"Free",

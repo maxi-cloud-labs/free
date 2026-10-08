@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "alexta69/metube",
 	"description": "A web GUI for youtube-dl, with playlist support to download videos from dozens of websites.",
+	"hero": "a retro TV screen with a glowing download arrow pulling video from the clouds into a cozy shelf. nostalgic, playful, homemade",
 	"keywords": [
 		"Download",
 		"Download manager",

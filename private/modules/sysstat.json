@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "sysstat/sysstat",
 	"description": "A performance monitoring tools.",
+	"hero": "a doctor's stethoscope on a server, tiny glowing performance graphs on the chest. diagnostic, clinical, calm",
 	"keywords": [
 		"CPU statistics",
 		"Data collection",

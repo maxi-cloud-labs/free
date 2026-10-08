@@ -11,6 +11,7 @@
 	"database": "BoltDB",
 	"github": "portainer/portainer",
 	"description": "An utility to manage easily Dockers and Kubernetes.",
+	"hero": "a harbor crane lifting glowing containers over a port at dusk. industrial, ordered, cinematic",
 	"keywords": [
 		"Containers",
 		"Containers Management",

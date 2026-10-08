@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "bugzilla/bugzilla",
 	"description": "A web-based general-purpose bugtracker and testing tool.",
+	"hero": "a giant monstrous lizard-like bug being hunted by a tiny glowing magnifying glass. kaiju-movie, retro, dramatic",
 	"keywords": [
 		"Bug",
 		"Bug tracking",

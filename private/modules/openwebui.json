@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "open-webui/open-webui",
 	"description": "A user-friendly AI Interface, supports Ollama, OpenAI API.",
+	"hero": "a glowing open window revealing a vivid AI conversation, curtains drifting in a breeze. airy, welcoming, user-friendly",
 	"keywords": [
 		"AI chatbot",
 		"AI models",

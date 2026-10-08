@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "pnpm/pnpm",
 	"description": "A fast, disk space efficient package manager.",
+	"hero": "a tidy pantry with one shared shelf of glowing packages linked to many projects by golden threads. efficient, orderly, elegant",
 	"keywords": [
 		"Dependency management",
 		"Disk space efficient",

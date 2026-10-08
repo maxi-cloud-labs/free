@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "WGDashboard/WGDashboard",
 	"description": "A web interface to manage WireGuard.",
+	"hero": "a futuristic dashboard of glowing VPN tunnels, a dragon-shaped WireGuard emblem at its center. neon, secure, command-room",
 	"keywords": [
 		"Privacy",
 		"Private",

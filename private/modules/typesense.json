@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "typesense/typesense",
 	"description": "A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.",
+	"hero": "a typewriter with keys that auto-complete into glowing search results at lightning speed. retro, instant, magical",
 	"keywords": [
 		"API",
 		"Cloud service",

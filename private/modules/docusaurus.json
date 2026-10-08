@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "facebook/docusaurus",
 	"description": "A live site for documentation.",
+	"hero": "a friendly green dinosaur reading a giant glowing documentation book. cute, wise, mascot-driven",
 	"keywords": [
 		"Community",
 		"Contributing",

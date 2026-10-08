@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "johncipponeri/jstinker",
 	"description": "A sandbox for Javascript.",
+	"hero": "a tinkerer with goggles at a workbench full of glowing JavaScript braces and gears, sparks flying. playful, steampunk, inventor-lab",
 	"keywords": [
 		"Code formatting",
 		"Code playground",

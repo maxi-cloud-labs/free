@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Sonarr/Sonarr",
 	"description": "A TVshows collection manager for Usenet and BitTorrent users.",
+	"hero": "a glowing sonar radar ping sweeping across a library of TV series screens. submarine, rhythmic, collector",
 	"keywords": [
 		"Automatic downloads",
 		"Automation",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "billchurch/webssh2",
 	"description": "A web SSH Client in a browser.",
+	"hero": "a browser window with a glowing secure tunnel descending into a dark server, cursor blinking. cyberpunk, stealthy, direct",
 	"keywords": [
 		"Browser terminal",
 		"Client",

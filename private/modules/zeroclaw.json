@@ -11,6 +11,7 @@
 	"database": "sqlite",
 	"github": "zeroclaw-labs/zeroclaw",
 	"description": "A fast, small, and fully autonomous AI personal assistant infrastructure.",
+	"hero": "a tiny but sharp mechanical claw with a zero-shaped glowing core, gripping a small flame. minimal, agile, precise, hardy",
 	"keywords": [
 		"AI assistant",
 		"AI models",

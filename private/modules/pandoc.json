@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "jgm/pandoc",
 	"description": "A universal document converter.",
+	"hero": "a polyglot translator surrounded by flying documents changing format mid-air like origami birds. magical, worldly, elegant",
 	"keywords": [
 		"Converter",
 		"Document",

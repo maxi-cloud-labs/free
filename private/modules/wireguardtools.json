@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "WireGuard/wireguard-tools",
 	"description": "The tools for the VPN integrated directly into the Linux kernel.",
+	"hero": "a dragon's claw holding glowing tunnel keys and a toolbelt of cryptographic gadgets. mythic, utilitarian, dark",
 	"keywords": [
 		"Privacy",
 		"Private",

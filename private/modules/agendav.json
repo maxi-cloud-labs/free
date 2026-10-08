@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "agendav/agendav",
 	"description": "A CalDAV web client similar to Google Calendar.",
+	"hero": "an ornate wall calendar page with golden hands of a clock pulling dates into place. classic, elegant, retro-office adventure",
 	"keywords": [
 		"CalDAV",
 		"Calendar",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "eclipse-mosquitto/mosquitto",
 	"description": "A message broker that implements MQTT protocol.",
+	"hero": "a glowing tiny mosquito carrying MQTT message packets between smart devices at night. whimsical, nature-tech, buzzing night scene",
 	"keywords": [
 		"Authentication",
 		"Broker",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "phpList/core",
 	"description": "A newsletter manager.",
+	"hero": "an old-fashioned mailbox opening with a flood of glowing newsletters flying out like paper doves. joyful, spreading, flutter",
 	"keywords": [
 		"Database access",
 		"Email",

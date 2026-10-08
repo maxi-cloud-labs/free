@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "ninja-build/ninja",
 	"description": "The Ninja Build System.",
+	"hero": "a swift shadowy ninja silhouette leaping across a rooftop of build steps, throwing shurikens. fast, minimal, action-packed",
 	"keywords": [
 		"Automation",
 		"Build",

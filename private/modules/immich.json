@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "immich-app/immich",
 	"description": "A photo and video management solution.",
+	"hero": "a glowing cloud-shaped photo vault with floating polaroids drifting upward, protected by a protective circle. nostalgic, bright, secure",
 	"keywords": [
 		"Album sharing",
 		"Auto backup",

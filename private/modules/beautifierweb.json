@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "beautifier/beautifier.io",
 	"description": "An online tool to reformat javascript.",
+	"hero": "a browser window with a magic wand turning messy code into neat glowing rows. playful, makeover, before-and-after",
 	"keywords": [
 		"Beautifier",
 		"Cleanup code",

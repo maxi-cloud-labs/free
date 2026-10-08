@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "checkpoint-restore/criu",
 	"description": "A checkpoint and restore tool.",
+	"hero": "a frozen time-stopped process inside an ice crystal, thawing back into motion. cryo-sleep sci-fi, calm, pause-and-resume",
 	"keywords": [
 		"Kernel",
 		"Linux",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "certbot/certbot",
 	"description": "A tool to obtain certs from Let's Encrypt on your server.",
+	"hero": "a robot bird guardian handing a glowing green padlock certificate to a server tower. friendly, protective, renewal ritual",
 	"keywords": [
 		"Automation",
 		"Certbot",

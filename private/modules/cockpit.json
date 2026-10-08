@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "cockpit-project/cockpit",
 	"description": "A server health suite with graphical interface.",
+	"hero": "a cockpit dashboard with glowing gauges and a server-rack view out of the windshield. pilot's-eye view, adventure, calm control",
 	"keywords": [
 		"Dashboard",
 		"Health",

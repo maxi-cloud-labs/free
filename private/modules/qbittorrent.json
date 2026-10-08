@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "qbittorrent/qBittorrent",
 	"description": "A free cross-platform bittorrent client with a feature rich Web UI for remote access.",
+	"hero": "a glowing magnet attracting swarms of data particles from a globe. sci-fi, swarm, collaborative",
 	"keywords": [
 		"BitTorrent",
 		"Client",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "ohmyzsh/ohmyzsh",
 	"description": "A manager for your zsh configuration.",
+	"hero": "a stylish terminal prompt wearing a top hat and sunglasses, colorful glowing themes behind. dazzling, flamboyant, party",
 	"keywords": [
 		"Community-driven",
 		"Developer tools",

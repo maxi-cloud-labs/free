@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mirror/make",
 	"description": "An utility for maintaining groups of programs from source code.",
+	"hero": "a classic anvil and hammer building a machine from glowing blueprints. old-school, steady, forge",
 	"keywords": [
 		"Automation",
 		"Build",

@@ -11,6 +11,7 @@
 	"database": "MySQL",
 	"github": "mantisbt/mantisbt",
 	"description": "A web-based bug tracking system for software development.",
+	"hero": "a praying mantis detective with a magnifying glass hunting a bug in a noir city. film-noir, quirky, suspenseful",
 	"keywords": [
 		"Bug",
 		"Bug tracking",

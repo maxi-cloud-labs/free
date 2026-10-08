@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "",
 	"description": "A parser of Postfix mail server logs.",
+	"hero": "a magnifying glass over a scrolling mail log, extracting glowing envelope metadata. detective, analytical, noir",
 	"keywords": [
 		"Email",
 		"Log",

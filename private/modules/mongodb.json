@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mongodb/mongo",
 	"description": "A general-purpose, document-based, distributed database.",
+	"hero": "a glowing green leaf holding a floating cloud of JSON documents. organic, expansive, nature-meets-tech",
 	"keywords": [
 		"Distributed",
 		"Document",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "opf/openproject",
 	"description": "A manager of your projects, tasks and goals, allowing to collaborate via work packages and link them to your pull requests on Github.",
+	"hero": "a mountain climbing team ascending a glowing work-package ladder to a flag of goals. adventurous, collaborative, summit",
 	"keywords": [
 		"Project Management",
 		"Project planning",

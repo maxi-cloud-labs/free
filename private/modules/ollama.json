@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "ollama/ollama",
 	"description": "A platform to get up and running with large language models locally.",
+	"hero": "a friendly llama sitting in a cozy laptop glow, a speech bubble with tiny neural lights. gentle, warm, local-hero mascot",
 	"keywords": [
 		"AI platform",
 		"CLI tool",

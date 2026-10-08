@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "prettier/prettier",
 	"description": "A sandbox to test code reformat.",
+	"hero": "a playground with colorful slides of messy code turning neat, glowing sparkles around. playful, fun, makeover",
 	"keywords": [
 		"Automatic formatting",
 		"Code",

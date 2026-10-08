@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "szabodanika/microbin",
 	"description": "A minimalist online pastebin with zero knowledge of pasted data.",
+	"hero": "a tiny glowing paste jar with a single note inside floating in a dark void. minimalist, tiny, mysterious",
 	"keywords": [
 		"Pastebin",
 		"Privacy",

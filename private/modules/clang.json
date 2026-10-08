@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "llvm/llvm-project",
 	"description": "A C language family frontend for LLVM.",
+	"hero": "a dragon's-claw hammer forging a glowing C-shaped ingot on a compiler anvil. fiery, industrial, precise",
 	"keywords": [
 		"C",
 		"C language",

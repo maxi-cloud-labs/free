@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "apache/maven",
 	"description": "A Java build system.",
+	"hero": "a wise old expert in a library selecting glowing Java jars from tall shelves. scholarly, steady, craft-master",
 	"keywords": [
 		"Automation",
 		"Build",

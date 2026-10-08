@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "oven-sh/bun",
 	"description": "A JavaScript runtime, bundler, test runner, and package manager.",
+	"hero": "a cute round steamed bun-shaped rabbit mascot sprinting at light speed, leaving a trail of sparks. fast, cheeky, high-energy",
 	"keywords": [
 		"Javascript",
 		"Runtime",

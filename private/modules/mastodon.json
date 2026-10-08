@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "mastodon/mastodon",
 	"description": "A federated, globally interconnected microblogging community.",
+	"hero": "a majestic woolly mastodon with glowing network lines in its tusks, marching in a herd across the horizon. epic, decentralized, mythic",
 	"keywords": [
 		"Community",
 		"Decentralized",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "nodejs/node",
 	"description": "A JavaScript runtime built on Chrome's V8 JavaScript engine.",
+	"hero": "a glowing green hexagonal gem with a lightning bolt inside, powering a bustling city of services. electric, energetic, ever-moving",
 	"keywords": [
 		"API documentation",
 		"Development environment",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "portkey-ai/gateway",
 	"description": "A blazing fast AI Gateway with integrated guardrails.",
+	"hero": "a magical glowing key-shaped portal transporting AI model rays through a gateway. wizardly, fast, shield-guarded",
 	"keywords": [
 		"AI Gateway",
 		"AI Routing"

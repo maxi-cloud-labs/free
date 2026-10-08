@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "WireGuard/wireguard-linux",
 	"description": "A VPN implementation integrated directly into the Linux kernel with state-of-the-art cryptography.",
+	"hero": "a glowing red dragon coiled around a secure tunnel of light cutting through a dark network. sleek, fast, mythical",
 	"keywords": [
 		"Privacy",
 		"Private",

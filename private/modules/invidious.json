@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "iv-org/invidious",
 	"description": "An alternative YouTube front-end with focus on privacy.",
+	"hero": "an elegant masked figure watching a video screen from the shadows, a shield-shaped play button. stealthy, private, noir",
 	"keywords": [
 		"Ads",
 		"No ads",

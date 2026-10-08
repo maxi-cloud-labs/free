@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Stirling-Tools/Stirling-PDF",
 	"description": "A web app to perform merging, splitting, file conversions and OCR on PDF files.",
+	"hero": "a muscular mechanic with a Stirling engine arm splitting and merging PDF pages like a blacksmith. industrial-retro, hardy, craft",
 	"keywords": [
 		"Convert PDF",
 		"Digital signatures",

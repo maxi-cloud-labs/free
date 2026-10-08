@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "firecracker-microvm/firecracker",
 	"description": "Secure and fast microVMs for serverless computing.",
+	"hero": "a tiny glowing microVM box sparking like a firework, launching off from a server rack. explosive, tiny but fast, celebration",
 	"keywords": [
 		"Container",
 		"Virtualization",

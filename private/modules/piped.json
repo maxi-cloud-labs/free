@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "TeamPiped/Piped",
 	"description": "A YouTube front-end without ads.",
+	"hero": "a bagpiper-like pipe organ shooting glowing play-button notes without ads, clear skies. musical, free, breezy",
 	"keywords": [
 		"Ad-free video",
 		"Ads",

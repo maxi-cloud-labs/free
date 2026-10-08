@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "microsoft/TypeScript",
 	"description": "A superset of JavaScript that compiles to clean JavaScript output.",
+	"hero": "a blue shield-like crest with typed braces holding back raw chaotic JS energy, calm authority. structured, reliable, clean",
 	"keywords": [
 		"Application development",
 		"Code compilation",

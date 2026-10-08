@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Koenkk/zigbee2mqtt",
 	"description": "A Zigbee to MQTT bridge to get rid of your proprietary Zigbee bridges.",
+	"hero": "a glowing bee-shaped zigbee hub linking tiny smart devices around a hive. industrious, cute, honeycomb network",
 	"keywords": [
 		"Bridge",
 		"Device integration",

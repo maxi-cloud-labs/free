@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "acmesh-official/acme.sh",
 	"description": "A pure Unix shell script implementing ACME client protocol.",
+	"hero": "a shell-shaped seal stamping a glowing green padlock certificate onto a wax scroll. ancient-scribe meets hacker terminal, trustworthy, ritualistic",
 	"keywords": [
 		"Automated certificate",
 		"Certificate",

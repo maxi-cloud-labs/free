@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "redmine/redmine",
 	"description": "A flexible project management web application.",
+	"hero": "a ruby gem locket opening to reveal a miniature Gantt chart. elegant, gem-themed, orderly",
 	"keywords": [
 		"Flexible",
 		"Organization",

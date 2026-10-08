@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "rspamd/rspamd",
 	"description": "A fast, free and open-source spam filtering system.",
+	"hero": "a sentinel at a gate with a glowing net catching spam envelopes as mischievous bugs. defender, comic, shield",
 	"keywords": [
 		"Anti-spam",
 		"Email",

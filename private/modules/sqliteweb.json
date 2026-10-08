@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "coleifer/sqlite-web",
 	"description": "A web-based SQLite database browser.",
+	"hero": "a browser window opening onto a small glowing feather-light database pearl. clean, simple, curious",
 	"keywords": [
 		"Embedded",
 		"SQL",

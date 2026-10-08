@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "torvalds/linux",
 	"description": "A Linux kernel for various architectures.",
+	"hero": "a blazing penguin warrior in armor standing atop a glowing circuit mountain. mythic, foundational, legendary",
 	"keywords": [
 		"Kernel",
 		"Linux",

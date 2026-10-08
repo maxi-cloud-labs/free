@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "fatedier/frp",
 	"description": "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.",
+	"hero": "a glowing tunnel piercing through a thick firewall brick wall, a small server on the far side shining out. escape-thriller, bold, clever",
 	"keywords": [
 		"Internet access",
 		"Local server",

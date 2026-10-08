@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "jqlang/jq",
 	"description": "A command-line parser for json files.",
+	"hero": "a precision sharp scalpel slicing a glowing JSON tree into clean ribbons. surgical, elegant, minimal",
 	"keywords": [
 		"Data filtering",
 		"Data transformation",

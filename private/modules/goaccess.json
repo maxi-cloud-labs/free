@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "allinurl/goaccess",
 	"description": "A real-time web log analyzer and interactive viewer that runs in a terminal.",
+	"hero": "a terminal window opening like a cinema, with real-time glowing bar charts rising as spotlights. neon, live, analytical",
 	"keywords": [
 		"Analytics",
 		"Data visualization",

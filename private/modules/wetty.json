@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "butlerx/wetty",
 	"description": "A tool to access terminal in a browser over http/https.",
+	"hero": "a retro terminal inside a web browser window, lit by a glowing green cursor in a dark room. nostalgic, cathode-glow, hacker",
 	"keywords": [
 		"Browser terminal",
 		"Client",

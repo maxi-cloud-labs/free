@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "openobserve/openobserve",
 	"description": "A modern observability platform: 10x easier, 140x lower storage cost, petabyte scale.",
+	"hero": "a giant all-seeing telescope observing a galaxy of logs, metrics and traces, petabyte-scale starfield. cosmic, vast, calm",
 	"keywords": [
 		"Observability",
 		"Platform"

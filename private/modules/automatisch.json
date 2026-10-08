@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "automatisch/automatisch",
 	"description": "A business automation tool that lets you connect different services like Twitter, Slack, and more to automate your business processes.",
+	"hero": "a clockwork automaton hand connecting glowing pipes between app icons like a train-switch operator. whimsical, steampunk, orderly",
 	"keywords": [
 		"Automation",
 		"Business",

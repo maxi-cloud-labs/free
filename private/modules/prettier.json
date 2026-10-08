@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "prettier/prettier",
 	"description": "A tool to format and make prettier source code.",
+	"hero": "a glamorous stylist with a comb and mirror straightening code into elegant lines. fashion-shoot, shiny, polished",
 	"keywords": [
 		"Automatic formatting",
 		"Code",

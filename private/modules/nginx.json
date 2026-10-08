@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "nginx/nginx",
 	"description": "A high-performance HTTP and reverse proxy server, mail proxy server, and generic TCP/UDP proxy server.",
+	"hero": "a mighty traffic conductor on a bridge directing glowing streams of web requests. orchestral, efficient, commanding",
 	"keywords": [
 		"Content caching",
 		"HTTP",

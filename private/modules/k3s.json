@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "k3s-io/k3s",
 	"description": "The lightweight optimized Kubernetes for low-RAM hardware.",
+	"hero": "a tiny but powerful ship's wheel helm steering a small sailboat of containers through stormy seas. brave, compact, nautical",
 	"keywords": [
 		"Container",
 		"Deployment",

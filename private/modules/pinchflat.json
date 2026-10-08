@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "kieraneglin/pinchflat",
 	"description": "A syncer of YouTube channels and playlists to a locally hosted media server.",
+	"hero": "a delicate pair of fingers pinching a glowing video frame from a stream, pulling into a local shelf. tactile, careful, collector",
 	"keywords": [
 		"Automatic downloads",
 		"Channel",

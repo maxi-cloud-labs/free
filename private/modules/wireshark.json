@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "wireshark/wireshark",
 	"description": "A network traffic analyzer and sniffer.",
+	"hero": "a menacing shark made of glowing packets circling a network of cables. predator, deep-sea, thriller",
 	"keywords": [
 		"Analyzer",
 		"Dumper",

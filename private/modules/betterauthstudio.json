@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Kinfe123/better-auth-studio",
 	"description": "A frontend for Better Auth, an authentication framework.",
+	"hero": "a control-room operator at a console, glowing identity badges floating above like holograms. studio lighting, command-center, sleek",
 	"keywords": [
 		"Access control",
 		"Account management",

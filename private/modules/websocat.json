@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "vi/websocat",
 	"description": "A tool for WebSockets, like netcat or curl, for ws:// with advanced socat-like functions.",
+	"hero": "a sleek cat leaping between two glowing sockets, linked by a bidirectional ribbon of light. agile, techy, playful",
 	"keywords": [
 		"Communication",
 		"Network",

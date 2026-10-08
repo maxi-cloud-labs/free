@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "BerriAI/litellm",
 	"description": "An AI proxy to call 100+ LLM APIs in OpenAI format, with cost tracking, guardrails, loadbalancing and logging.",
+	"hero": "a lightweight feather channeling a hundred glowing LLM streams into a single beam. weightless, universal, converging",
 	"keywords": [
 		"AI Gateway",
 		"AI Routing"

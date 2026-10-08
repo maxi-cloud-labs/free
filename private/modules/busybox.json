@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mirror/busybox",
 	"description": "A lightweight set of Unix utilities in a single executable.",
+	"hero": "a Swiss-army toolbox hero with dozens of tiny tools unfolding from a single small box. compact, resourceful, rugged",
 	"keywords": [
 		"Embedded",
 		"Embedded systems",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "meilisearch/meilisearch",
 	"description": "An ultra relevant, instant and typo-tolerant full-text search API, bringing AI-powered hybrid search to your sites and applications.",
+	"hero": "a tiny glowing searchlight beam finding a single needle in a galaxy of haystacks. lightning-fast, precise, awe-inspiring",
 	"keywords": [
 		"AI-powered search",
 		"Engine",

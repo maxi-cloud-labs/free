@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mkdocs/mkdocs",
 	"description": "A static docs generator.",
+	"hero": "a hand-lettered documentation book rising from a pile of markdown scrolls on a desk. cozy, studious, craft",
 	"keywords": [
 		"Docs",
 		"Documentation",

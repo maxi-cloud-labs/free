@@ -11,6 +11,7 @@
 	"database": "MySQL",
 	"github": "YOURLS/YOURLS",
 	"description": "A powerful and customizable, URL shortener, featuring password protection, URL customization, bookmarklets, statistics, API, plugins.",
+	"hero": "a long snaking link being cut and shortened by giant scissors, sparks flying. dramatic, snappy, comic",
 	"keywords": [
 		"Analytics",
 		"Link management",

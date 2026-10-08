@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "TabbyML/tabby",
 	"description": "An AI tool to better code.",
+	"hero": "a friendly tabby cat typing at a glowing keyboard with floating code completions. cozy, whimsical, coding-companion",
 	"keywords": [
 		"AI coding assistant",
 		"AI coding models",

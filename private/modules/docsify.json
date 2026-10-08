@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "docsifyjs/docsify",
 	"description": "A live site for documentation.",
+	"hero": "a glowing open book that lights up pages in a living web document with an unfolding sidebar. magical, scholarly, light and airy",
 	"keywords": [
 		"Community",
 		"Contributing",

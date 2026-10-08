@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "live-codes/livecodes",
 	"description": "A feature-rich client-side code playground for React, Vue, Svelte, Solid, Typescript, Python, Go, Ruby, PHP and 90+ other languages.",
+	"hero": "a code playground with colorful floating glowing languages orbiting a monitor like planets. cosmic, playful, laboratory",
 	"keywords": [
 		"Code playground",
 		"Code sharing",

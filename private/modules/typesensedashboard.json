@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "bfritscher/typesense-dashboard",
 	"description": "A tool to view Typesense.",
+	"hero": "a control panel dashboard of a typewriter-hybrid with glowing search indexes as dials. retro-futuristic, gauges, clean",
 	"keywords": [
 		"API",
 		"Cloud service",

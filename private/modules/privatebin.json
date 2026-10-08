@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "PrivateBin/PrivateBin",
 	"description": "A minimalist pastebin/discussion board where the server has zero knowledge of hosted data.",
+	"hero": "a glowing sealed bin with a lock, notes dissolving inside after reading. zero-knowledge, mysterious, secretive",
 	"keywords": [
 		"Anonymous sharing",
 		"Data security",

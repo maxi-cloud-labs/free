@@ -11,6 +11,7 @@
 	"database": "PostgreSQL",
 	"github": "pgadmin-org/pgadmin4",
 	"description": "A feature rich administration and development platform for PostgreSQL.",
+	"hero": "a stately elephant wearing an administrator badge, surrounded by glowing database tables. wise, grand, trustworthy",
 	"keywords": [
 		"Administration tool",
 		"Database management",

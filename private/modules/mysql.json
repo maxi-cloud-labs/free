@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "mysql/mysql-server",
 	"description": "A transactional relational database management system.",
+	"hero": "a leaping dolphin made of glowing database tables arcing across an ocean. classic, graceful, powerful",
 	"keywords": [
 		"Management",
 		"MySQL",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "ente/ente",
 	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",
+	"hero": "a glowing locked vault shaped like a cloud, photos and keys sealed inside. intimate, protective, end-to-end encrypted",
 	"keywords": [
 		"Cloud storage",
 		"Encryption",

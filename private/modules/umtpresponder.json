@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "viveris/uMTP-Responder",
 	"description": "A manager for USB OTG file service.",
+	"hero": "a USB OTG cable bridging a tiny device to a computer, files glowing along the cable. close-up, compact, circuit-board",
 	"keywords": [
 		"Device file sharing",
 		"Disk",

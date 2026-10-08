@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "maxi-cloud-labs/free",
 	"description": "The core application to manage the cloud.",
+	"hero": "a tiny glowing cloud floating above a Raspberry Pi board like a captured star, tethered by a thin light beam. heroic, intimate, sovereign",
 	"keywords": [
 		"Cloud",
 		"Collaborative tools",

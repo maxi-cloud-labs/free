@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "syncthing/syncthing",
 	"description": "A continuous peer-to-peer file synchronization tool.",
+	"hero": "two glowing devices linked by a synchronized loop of light, sync arrows circling endlessly. harmony, cyclical, calm",
 	"keywords": [
 		"Automatic sync",
 		"Backup",

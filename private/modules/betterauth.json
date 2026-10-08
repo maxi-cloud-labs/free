@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "better-auth/better-auth",
 	"description": "A comprehensive authentication framework for TypeScript.",
+	"hero": "a heroic knight holding a glowing key-shield with a lock emblem, standing before a gate. loyal, protective, modern fantasy",
 	"keywords": [
 		"Authentication",
 		"Backend",

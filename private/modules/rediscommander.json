@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "joeferner/redis-commander",
 	"description": "A Redis management tool.",
+	"hero": "a commander in a red coat at a console of glowing key-value cards. military-tactical, red-lit, control",
 	"keywords": [
 		"Data",
 		"Data server",

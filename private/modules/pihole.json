@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "pi-hole/pi-hole",
 	"description": "A network-wide ad blocking system creating a blackhole for Internet advertisements.",
+	"hero": "a black hole swallowing ad banners at the center of a home network, raspberry glow around. cosmic, dark, bold, satisfying",
 	"keywords": [
 		"Ad",
 		"Ad blocker",

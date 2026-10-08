@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "elixir-lang/elixir",
 	"description": "A notifications pusher that work with just about every platform.",
+	"hero": "a carrier pigeon releasing dozens of glowing notification bubbles in all directions. joyful, dynamic, messenger-hero",
 	"keywords": [
 		"Notifications",
 		"Platforms",

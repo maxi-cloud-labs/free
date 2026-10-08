@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "Corveda/PHPSandbox",
 	"description": "A PHP-based sandboxing library with a full suite of configuration and validation options.",
+	"hero": "a child's sandbox surrounded by glass walls, glowing PHP elephant building safely inside. contained, playful, protective",
 	"keywords": [
 		"Blacklisting",
 		"Code security",

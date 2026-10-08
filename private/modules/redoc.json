@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "Redocly/redoc",
 	"description": "A tool to generate reference documentation.",
+	"hero": "a glowing three-panel scroll of API documentation rising from the sea like a temple. serene, structured, majestic",
 	"keywords": [
 		"Open API",
 		"Reference Documentation"

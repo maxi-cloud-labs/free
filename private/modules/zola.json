@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "getzola/zola",
 	"description": "A static site generator.",
+	"hero": "a sculptor chiseling a glowing static website out of a block of marble, dust sparkling in the air. classical, precise, timeless",
 	"keywords": [
 		"Docs",
 		"Documentation",

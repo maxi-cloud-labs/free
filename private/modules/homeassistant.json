@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "home-assistant/core",
 	"description": "An home automation that puts local control and privacy first.",
+	"hero": "a glowing house with all its smart devices connected by light threads, a small heart-shaped hub in the center. warm, cozy, futuristic home",
 	"keywords": [
 		"Automation",
 		"Automation system",

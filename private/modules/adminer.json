@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "vrana/adminer",
 	"description": "A database management available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB and others.",
+	"hero": "a stoic librarian-guardian holding a giant key over a towering stack of glowing database cylinders. calm, orderly, powerful",
 	"keywords": [
 		"Administration tool",
 		"Database management",

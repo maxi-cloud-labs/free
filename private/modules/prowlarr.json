@@ -11,6 +11,7 @@
 	"database": "SQLite",
 	"github": "Prowlarr/Prowlarr",
 	"description": "A central collection manager for Usenet and BitTorrent users.",
+	"hero": "a prowling panther with glowing radar eyes sweeping through indexers in the dark. sleek, stalking, noir",
 	"keywords": [
 		"Automation",
 		"BitTorrent",

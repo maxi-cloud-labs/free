@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "minio/minio",
 	"description": "A high-performance object storage server compatible with Amazon S3 APIs.",
+	"hero": "a deep glowing blue ocean vault holding countless data buckets floating in the dark. massive, serene, abyssal",
 	"keywords": [
 		"Cloud storage",
 		"Data storage",

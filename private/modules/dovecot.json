@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "dovecot/core",
 	"description": "A secure IMAP and POP3 email server written primarily with security in mind.",
+	"hero": "a graceful white dove carrying a sealed glowing envelope, perched on a secure vault. peaceful, trustworthy, protective",
 	"keywords": [
 		"Email",
 		"IMAP",

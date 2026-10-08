@@ -11,6 +11,7 @@
 	"database": "MySQL",
 	"github": "domainmod/domainmod",
 	"description": "A management tool for your domains and other internet assets in a central location.",
+	"hero": "a world map made of glowing domain tags connected by threads, held by a large steady hand. strategic, collector's atlas, command-room",
 	"keywords": [
 		"Domain",
 		"Internet",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "gohugoio/hugo",
 	"description": "A fast and modern static site generator.",
+	"hero": "a giant stylized Viking-themed hammer smashing a mountain of content into glowing static pages. fast, heroic, mythic",
 	"keywords": [
 		"Blog creation",
 		"Content management",

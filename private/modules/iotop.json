@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "Tomas-M/iotop",
 	"description": "A top utility for IO.",
+	"hero": "a heartbeat monitor on a disk platter with a spiking pulse, dramatic red alarm lights. medical-drama, urgent, monitoring",
 	"keywords": [
 		"CPU usage",
 		"Disk access",

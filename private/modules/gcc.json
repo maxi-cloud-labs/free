@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "gcc-mirror/gcc",
 	"description": "A GNU Compiler Collection.",
+	"hero": "a majestic gnu antelope with a glowing compiler gear in its horns, charging across a plain of source code. epic, ancient, powerful",
 	"keywords": [
 		"C",
 		"C++",

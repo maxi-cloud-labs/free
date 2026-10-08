@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "golang/go",
 	"description": "A programming language that makes it easy to build simple, reliable, and efficient software.",
+	"hero": "a cute blue gopher mascot sprinting through a field of goroutines as glowing parallel lanes. speedy, cheerful, mascot-driven",
 	"keywords": [
 		"Go",
 		"Language",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "laurent22/joplin",
 	"description": "A note taking and to-do application with synchronization capabilities, with markdown editor and encryption support.",
+	"hero": "a handwritten notebook with a glowing blue feather pen, notes lifting like dust into the cloud. quiet, studious, cozy",
 	"keywords": [
 		"Markdown",
 		"Note taking",

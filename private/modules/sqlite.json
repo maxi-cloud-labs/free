@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "sqlite/sqlite",
 	"description": "A self-contained, serverless, zero-configuration, transactional SQL database engine.",
+	"hero": "a small, sturdy feather-light database file glowing in a pocket, cradled like a gem. tiny, ubiquitous, hidden strength",
 	"keywords": [
 		"Embedded",
 		"SQL",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "fishballapp/acme",
 	"description": "A Typescript ACME client.",
+	"hero": "a golden certificate scroll with a padlock seal, unfurling from a yellow JS-style tile. light, modern, sleek, magical",
 	"keywords": [
 		"Automated certificate",
 		"Certificates",

@@ -11,6 +11,7 @@
 	"database": "MySQL",
 	"github": "projectsend/projectsend",
 	"description": "A tool to share files with clients, focused on ease of use and privacy.",
+	"hero": "a courier handing a locked briefcase of files to a client in a modern office. professional, discreet, tidy",
 	"keywords": [
 		"Client management",
 		"File",

@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "ionic-team/ionic-framework",
 	"description": "A utility-first CSS framework for rapid UI development.",
+	"hero": "a surfer riding a glowing teal wave of utility classes. breezy, breathtaking, fast",
 	"keywords": [
 		"App development",
 		"CSS",

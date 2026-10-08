@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "yarnpkg/yarn",
 	"description": "An open-source package manager for JavaScript that automates the process of installing, updating, and managing project dependencies.",
+	"hero": "a colorful ball of yarn unraveling into glowing package threads linking a web of projects. cozy, textile, intertwined",
 	"keywords": [
 		"Manager",
 		"Monorepos",

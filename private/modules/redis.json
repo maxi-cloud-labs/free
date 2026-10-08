@@ -11,6 +11,7 @@
 	"database": "",
 	"github": "redis/redis",
 	"description": "A fast and feature-rich cache, data structure server, and document and vector query engine.",
+	"hero": "a bolt of crimson lightning striking a glowing memory chip, data keys flying. fast, vivid, electric",
 	"keywords": [
 		"Data",
 		"Data server",
