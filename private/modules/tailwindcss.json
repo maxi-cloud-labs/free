@@ -1,6 +1,6 @@
 {
 	"module": "tailwindcss",
-	"name": "tailwindlabs/tailwindcss",
+	"name": "tailwindcss",
 	"title": "CSS Toolkit",
 	"category": "Developer",
 	"version": "4.1.18",
@@ -9,7 +9,7 @@
 	"essential": false,
 	"finished": true,
 	"database": "",
-	"github": "ionic-team/ionic-framework",
+	"github": "tailwindlabs/tailwindcss",
 	"description": "A utility-first CSS framework for rapid UI development.",
 	"hero": "a surfer riding a glowing teal wave of utility classes. breezy, breathtaking, fast",
 	"keywords": [
