@@ -10,6 +10,7 @@ $pathkey = __DIR__ . "/password-githubkey.txt";
 $githubAPIKey = file_get_contents($pathkey);
 $modulesPath = __DIR__ . "/modules";
 $files = scandir($modulesPath);
+//usort($files, function($a, $b) use ($modulesPath) { $fileA = $modulesPath . DIRECTORY_SEPARATOR . $a; $fileB = $modulesPath . DIRECTORY_SEPARATOR . $b; return filemtime($fileB) - filemtime($fileA); }); //Sort by last date
 $starsTotal = 0;
 $modulesDefault = array();
 $modulesMeta = array();
