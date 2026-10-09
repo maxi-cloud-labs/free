@@ -84,6 +84,7 @@ This is the list of all used ports in the image, separated between listening por
 - audiobookshelf: 8092 (reverseproxy)
 - newapi: 8118 (reverseproxy)
 - cockpit: 9090 (reverseproxy)
+- ollama: 11434 (reverseproxy)
 
 ### Outgoing ports
 - frp: 7000 (main), xxx22 (ssh), xxx25 (mail), xx465 (smtp), xx993 (imap), xx995 (pop3)
