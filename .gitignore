@@ -5,8 +5,7 @@ build
 docs/web/
 kernel/password.h
 private/img
-private/password-upgrade.bin.txt
-private/password-githubkey.txt
+private/password-*
 rootfs/usr/local/modules/frp/token.txt
 rootfs/usr/local/modules/_core_/reset/
 client/.angular/

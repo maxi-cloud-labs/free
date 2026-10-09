@@ -1,0 +1,128 @@
+{
+  "9": {
+    "inputs": {
+      "filename_prefix": "Flux.1_Dev",
+      "images": [
+        "56:53",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "56:47": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "56:48": {
+    "inputs": {
+      "unet_name": "flux1-dev-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "56:49": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "Load CLIP (Dual)"
+    }
+  },
+  "56:50": {
+    "inputs": {
+      "width": 378,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "56:51": {
+    "inputs": {
+      "text": "Create a movie poster for a movie titled \\\"OmniVoice\\\". The title \\\"OmniVoice\\\" is the only text on the poster: no tagline, no credits, no other words, no logos. Professional theatrical one-sheet movie poster, key art with one clear focal point, matte finish: a classic hand-painted adventure movie poster, dramatic sky, a sense of journey and discovery, warm earthy colors, rich painterly brushwork. Premise: Voice Cloning. A high-Quality Voice Cloning TTS for 600+ Languages. Hero image: sound waves shaped like a human profile. Mood: cozy, intimate, private. Setting: soft warm window light. Palette: violet as the dominant color with magenta accents. Composition: a diagonal composition with the hero object in the lower right and a tilted horizon. Typography: the title in engraved serif capitals in a golden-brown tone, large at the bottom.",
+      "clip": [
+        "56:49",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "56:52": {
+    "inputs": {
+      "seed": 148676078596340,
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "56:48",
+        0
+      ],
+      "positive": [
+        "56:51",
+        0
+      ],
+      "negative": [
+        "56:54",
+        0
+      ],
+      "latent_image": [
+        "56:50",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "56:53": {
+    "inputs": {
+      "samples": [
+        "56:52",
+        0
+      ],
+      "vae": [
+        "56:47",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "56:54": {
+    "inputs": {
+      "conditioning": [
+        "56:51",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Conditioning Zero Out"
+    }
+  }
+}
