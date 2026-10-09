@@ -18,6 +18,11 @@ const routes: Routes = [
 		loadChildren: () => import('./backup/backup.module').then( m => m.BackupModule)
 	},
 	{
+		path: 'classic',
+		canActivate: [Global],
+		loadChildren: () => import('./classic/classic.module').then( m => m.ClassicModule)
+	},
+	{
 		path: 'delete',
 		loadChildren: () => import('./delete/delete.module').then( m => m.DeleteModule)
 	},
@@ -37,7 +42,7 @@ const routes: Routes = [
 	{
 		path: '',
 		canActivate: [Global],
-		loadChildren: () => import('./home/home.module').then( m => m.HomeModule)
+		loadChildren: () => import('./modern/modern.module').then( m => m.ModernModule)
 	},
 	{
 		path: 'login',

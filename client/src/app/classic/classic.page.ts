@@ -9,13 +9,13 @@ import { CategoriesBar } from '../myinterface';
 import { BleService } from '../ble';
 
 @Component({
-	selector: 'app-home',
-	templateUrl: './home.page.html',
+	selector: 'app-classic',
+	templateUrl: './classic.page.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: false
 })
 
-export class Home {
+export class Classic {
 L(st) { return this.global.mytranslate(st); }
 LG(st) { return this.global.mytranslateG(st); }
 LK(st) { return this.global.mytranslateK(st); }
@@ -63,10 +63,10 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 			this.cdr.detectChanges();
 		}
 	});
-	const data1 = localStorage.getItem("sortPropertyHome");
+	const data1 = localStorage.getItem("sortPropertyClassic");
 	if (data1)
 		this.sortProperty = data1;
-	const data2 = localStorage.getItem("sortDirectionHome");
+	const data2 = localStorage.getItem("sortDirectionClassic");
 	if (data2)
 		this.sortDirection = JSON.parse(data2);
 	global.sidebarFilterType = "";
@@ -215,8 +215,8 @@ toggleSortDirection(p) {
 		this.sortDirection[this.sortProperty] = this.sortDirection[this.sortProperty] === "asc" ? "desc" : "asc";
 	this.sortProperty = p;
 	this.sortCards();
-	localStorage.setItem("sortPropertyHome", this.sortProperty);
-	localStorage.setItem("sortDirectionHome", JSON.stringify(this.sortDirection));
+	localStorage.setItem("sortPropertyClassic", this.sortProperty);
+	localStorage.setItem("sortDirectionClassic", JSON.stringify(this.sortDirection));
 }
 
 tag(m) {

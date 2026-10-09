@@ -4,8 +4,8 @@ import { JoyrideModule } from 'ngx-joyride';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../components/components.module';
-import { HomeRoutingModule } from './home-routing.module';
-import { Home } from './home.page';
+import { ClassicRoutingModule } from './classic-routing.module';
+import { Classic } from './classic.page';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,9 +16,9 @@ import { FormsModule } from '@angular/forms';
 		FormsModule,
 		TranslateModule,
 		ComponentsModule,
-		HomeRoutingModule
+		ClassicRoutingModule
 	],
-	declarations: [Home]
+	declarations: [Classic]
 })
 
-export class HomeModule {}
+export class ClassicModule {}
