@@ -68,8 +68,8 @@ export const Categories = {
 
 export const CategoriesEx = {
 	...Categories,
-	"Essential": {
-		name: "Essential",
+	"Recommended": {
+		name: "Recommended",
 		icon: "star-outline",
 		color: "yellow"
 	},
@@ -88,7 +88,7 @@ export const CategoriesEx = {
 export const CategoriesBar = [
 	{ separator:false, value:CategoriesEx["All"] },
 	{ separator:true },
-	{ separator:false, value:CategoriesEx["Essential"] },
+	{ separator:false, value:CategoriesEx["Recommended"] },
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["AI"] },
 	{ separator:true },

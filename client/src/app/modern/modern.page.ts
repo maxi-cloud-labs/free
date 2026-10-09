@@ -137,8 +137,8 @@ filterCards(typing = false) {
 				return false;
 			if (this.category == "All")
 				return true;
-			else if (this.category == "Essential")
-				return card.essential;
+			else if (this.category == "Recommended")
+				return card.recommended;
 			else if (this.category == "Tag")
 				return this.global.settings.tags.includes(card.module);
 			else
@@ -171,8 +171,8 @@ filterCards(typing = false) {
 				return false;
 			if (this.category == "All")
 				return ret;
-			else if (this.category == "Essential")
-				return ret && card.essential;
+			else if (this.category == "Recommended")
+				return ret && card.recommended;
 			else if (this.category == "Tag")
 				return ret && this.global.settings.tags.includes(card.module);
 			else

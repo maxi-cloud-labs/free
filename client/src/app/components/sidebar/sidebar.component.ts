@@ -9,6 +9,7 @@ import { Global } from '../../env';
 
 export class SidebarComponent implements AfterViewInit, OnDestroy {
 LG(st) { return this.global.mytranslateG(st); }
+@Input() public showSideBarOnLargeScreen:boolean = true;
 showMobileMenu: boolean = false;
 @Input() public modulesTotal = null;
 private documentClickListener: (() => void) | null = null;
@@ -64,8 +65,8 @@ sidebarFilterCards() {
 	const isFinalized = retI ? false : input.endsWith(" ");
 	const tokens = retI ? [] : [...input.toLowerCase().matchAll(/"([^"]+)"|(\S+)/g)].map(m => m[1] || m[2]);
 	this.sidebarFilteredModules = this.cards.filter(card => {
-		if (this.global.sidebarFilterType == "essential")
-			return card.essential && card.web;
+		if (this.global.sidebarFilterType == "recommended")
+			return card.recommended && card.web;
 		else if (this.global.sidebarFilterType == "tag")
 			return this.global.settings.tags.includes(card.module);
 		else if (this.global.sidebarFilterType == "search")

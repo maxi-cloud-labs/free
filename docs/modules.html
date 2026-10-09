@@ -40,7 +40,7 @@ function fillTableHeader() {
 		const th = document.createElement("th");
 		th.scope = "col";
 		let tmp = header.charAt(0).toUpperCase() + header.slice(1);
-		if (header == "web" || header == "finished" || header == "essential")
+		if (header == "web" || header == "finished" || header == "recommended")
 			tmp = tmp + "&nbsp;<input type='checkbox' id='" + header + "ID' onchange='filterTable()' class='border rounded'>";
 		if (header == "module")
 			tmp = "<a href='javascript:sort(0);' title='Toggle Sort'>" + tmp + "&nbsp;&nbsp;&nbsp;<a href='javascript:sort(-1);' title='Sort Descending' data-class='sortDir != 1 ? \"\" : \"text-gray-700\"'>↓</a>&nbsp;&nbsp;&nbsp;<a href='javascript:sort(1)' title='Sort Ascending' data-class='sortDir == 1 ? \"\" : \"text-gray-700\"'>↑</a>";
@@ -100,8 +100,8 @@ function fillTableContent() {
 				tr.data_web = vvalue;
 			if (kkey == "finished")
 				tr.data_finished = vvalue;
-			if (kkey == "essential")
-				tr.data_essential = vvalue;
+			if (kkey == "recommended")
+				tr.data_recommended = vvalue;
 			if (kkey == "githubStars")
 				tr.data_githubStars	= vvalue;
 			tr.appendChild(td);
@@ -129,8 +129,8 @@ function filterTable() {
 	const database = document.getElementById("databaseID").selectedIndex;
 	const web = document.getElementById("webID").checked;
 	const finished = document.getElementById("finishedID").checked;
-	const essential = document.getElementById("essentialID").checked;
-	const dirty = search != "" || category != 0 || installMethod != 0 || database != 0 || web || finished || essential;
+	const recommended = document.getElementById("recommendedID").checked;
+	const dirty = search != "" || category != 0 || installMethod != 0 || database != 0 || web || finished || recommended;
 	document.getElementById("resetID").disabled = !dirty;
 
 	const tbody = document.getElementById("dataTbody");
@@ -157,7 +157,7 @@ function filterTable() {
 			row.style.visibility = "collapse";
 			return;
 		}
-		if (essential && !row.data_essential) {
+		if (recommended && !row.data_recommended) {
 			row.style.visibility = "collapse";
 			return;
 		}
@@ -191,7 +191,7 @@ function reset() {
 	document.getElementById("searchID").value = "";
 	document.getElementById("webID").checked = false;
 	document.getElementById("finishedID").checked = false;
-	document.getElementById("essentialID").checked = false;
+	document.getElementById("recommendedID").checked = false;
 	document.getElementById("categoryID").selectedIndex = 0;
 	document.getElementById("installMethodID").selectedIndex = 0;
 	document.getElementById("databaseID").selectedIndex = 0;

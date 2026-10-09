@@ -26,11 +26,11 @@
 			<div class="ml-2 flex flex-col rounded-lg border border--gray-200">
 				<div class="flex rounded-lg border border--gray-200 p-1">
 					<label class="relative flex cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
-						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('essential')" (change)="sidebarFilterCards()" value="essential" class="peer sr-only" checked/>
+						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('recommended')" (change)="sidebarFilterCards()" value="recommended" class="peer sr-only" checked/>
 						<span class="absolute inset-0 z-0 rounded-md bg--gray-200 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
 						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text--gray-900">
-							<ion-icon name="star-outline" class="w-5 h-5" [class]="global.colorWord('Essential', false)"></ion-icon>
-							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text--gray-900" [class]="global.colorWord('Essential', false)">{{LG("Essential")}}</span>
+							<ion-icon name="star-outline" class="w-5 h-5" [class]="global.colorWord('Recommended', false)"></ion-icon>
+							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text--gray-900" [class]="global.colorWord('Recommended', false)">{{LG("Recommended")}}</span>
 						</span>
 					</label>
 					<label class="relative flex grow cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">

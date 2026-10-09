@@ -50,7 +50,7 @@ for ($i = 1; $i < count($modules); $i++) {
 	$out = array();
 	for ($j = 0; $j < count($m); $j++)
 		$out[$names[$j]] = $m[$j];
-	$out["essential"] = $out["essential"] === "1";
+	$out["recommended"] = $out["recommended"] === "1";
 	$out["web"] = $out["web"] === "1";
 	$out["finished"] = $out["finished"] === "1";
 	$out["default"] = $modulesDefault[$m[0]];
