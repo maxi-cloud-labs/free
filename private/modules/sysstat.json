@@ -1,6 +1,6 @@
 {
 	"module": "sysstat",
-	"name": "System performance tools",
+	"name": "Sysstat",
 	"title": "Stats Tools",
 	"category": "Utils",
 	"version": "12.7.5",
