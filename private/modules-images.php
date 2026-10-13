@@ -175,13 +175,13 @@ function modulePrompt($module) {
 	$composition = pick(COMPOSITION, $key, "composition");
 	$titleTreatment = str_replace("{title}", $name, pick(TITLE, $key, "title"));
 	$posterPrompt = implode(" ", [
-		$titleTreatment,
 		$style,
 		"Hero image: {$hero}, a single clear focal point.",
-		"Composition: $composition",
+		"Title: ${titleTreatment}",
+		"Composition: ${composition}",
 		"Mood: {$mood}.",
 		"Color palette: {$palette}.",
-		"The only text on the entire poster is the word \"{$name}\". No tagline, no credits, no logos, no other words anywhere.",
+		"Remarks: The only text on the entire poster is the word \"{$name}\". No tagline, no credits, no logos, no other words anywhere.",
 	]);
 	return [
 		"module" => $module["module"],
@@ -192,14 +192,14 @@ function modulePrompt($module) {
 			"height" => POSTER["h"],
 			"ratio" => POSTER["ratio"],
 			"prompt" => $posterPrompt,
-			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".poster.png",
+			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".poster.jpg",
 		],
 		"backdrop" => [
 			"width" => BACKDROP["w"],
 			"height" => BACKDROP["h"],
 			"ratio" => BACKDROP["ratio"],
 			"prompt" => $posterPrompt,
-			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".backdrop.png",
+			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".backdrop.jpg",
 		]
 	];
 }
@@ -246,6 +246,57 @@ function generateImageCloudflare($model, $data, $kind, $div) {
 		echo "" . $data["module"] . ": " . $outputFile . "\n";
 	} else
 		echo "Cloudflare API Error (Status Code " . $result["status"] . "): " . $result["response"] . "\n";
+}
+
+function generateImageCodex($data, $kind) {
+	$prompt = "Generate a jpg image with aspect ratio " . $data[$kind]["ratio"] . " (" . $data[$kind]["width"] . "x" . $data[$kind]["height"] . "), quality 80 and save it to " . $data[$kind]["output"] .  ". " . $data[$kind]["prompt"];
+	$command = "codex exec --cd " . __DIR__ . " --sandbox workspace-write --json " . escapeshellarg($prompt);
+	echo "Generating " . $kind . ": " . $data["name"] . "\n";
+	$process = proc_open($command, [ 0 => ["pipe", "r"], 1 => ["pipe", "w"], 2 => ["pipe", "w"] ], $pipes);
+	if (!is_resource($process))
+		die("Failed to start Codex\n");
+	fclose($pipes[0]);
+	stream_set_blocking($pipes[1], false);
+	stream_set_blocking($pipes[2], false);
+	while (true) {
+		$read = [$pipes[1], $pipes[2]];
+		$write = null;
+		$except = null;
+		if (stream_select($read, $write, $except, 1) === false)
+			break;
+		foreach ($read as $stream) {
+			while (($line = fgets($stream)) !== false) {
+				if ($stream === $pipes[2]) {
+					echo "[stderr] $line";
+					continue;
+				}
+				$event = json_decode($line, true);
+				if (!$event) {
+					echo $line;
+					continue;
+				}
+				$type = $event["type"] ?? "";
+				if ($type === "item.completed") {
+					$item = $event["item"] ?? [];
+					echo "[Codex] " . ($item["text"] ?? $item["type"] ?? "Item completed") . "\n";
+				} elseif ($type === "turn.completed") {
+					//echo "[Codex] Completed\n";
+				} elseif ($type === "turn.failed" || $type === "error")
+					echo "[Codex] ERROR: $line";
+				elseif ($type === "turn.started") {
+					//echo "[Codex] Working...\n";
+				}
+			}
+		}
+		$status = proc_get_status($process);
+		if (!$status["running"])
+			break;
+	}
+	foreach ([$pipes[1], $pipes[2]] as $pipe) {
+		echo stream_get_contents($pipe);
+		fclose($pipe);
+	}
+	proc_close($process);
 }
 
 function generateImageAIHorde($data, $kind) {
@@ -430,7 +481,8 @@ function generateImageLocal($model, $data, $kind, $div) {
 function generateImage($data, $kind) {
 	//echo $data[$kind]["output"] . "\n";
 	//generateImageCloudflare("@cf/black-forest-labs/flux-2-dev", $data, $kind, 2);
-	generateImageLocal("z-image-turbo", $data, $kind, 2);
+	//generateImageLocal("z-image-turbo", $data, $kind, 2);
+	generateImageCodex($data, $kind);
 }
 
 function store($p, $o) {
