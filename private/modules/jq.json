@@ -6,7 +6,7 @@
 	"version": "1.7.1",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "jqlang/jq",

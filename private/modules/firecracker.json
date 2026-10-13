@@ -6,7 +6,7 @@
 	"version": "v1.17.0",
 	"installMethod": "wget",
 	"web": false,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "",
 	"github": "firecracker-microvm/firecracker",

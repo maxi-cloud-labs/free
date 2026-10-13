@@ -6,7 +6,7 @@
 	"version": "v2.5.2",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "silverbulletmd/silverbullet",

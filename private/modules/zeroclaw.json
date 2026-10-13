@@ -6,7 +6,7 @@
 	"version": "v0.6.8",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "sqlite",
 	"github": "zeroclaw-labs/zeroclaw",

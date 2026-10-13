@@ -6,7 +6,7 @@
 	"version": "v.6.3",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "pi-hole/pi-hole",

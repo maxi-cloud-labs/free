@@ -6,7 +6,7 @@
 	"version": "0.9.0",
 	"installMethod": "npm",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "joeferner/redis-commander",

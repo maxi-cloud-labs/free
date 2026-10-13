@@ -6,7 +6,7 @@
 	"version": "r1720",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "MySQL",
 	"github": "projectsend/projectsend",

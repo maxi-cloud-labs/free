@@ -6,7 +6,7 @@
 	"version": "2.1.25",
 	"installMethod": "clone",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "",
 	"github": "agent0ai/agent-zero",

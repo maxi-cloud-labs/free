@@ -6,7 +6,7 @@
 	"version": "337",
 	"installMethod": "apt",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "cockpit-project/cockpit",

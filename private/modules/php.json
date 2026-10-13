@@ -6,7 +6,7 @@
 	"version": "8.4.11",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "php/php-src",

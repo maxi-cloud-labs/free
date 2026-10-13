@@ -6,7 +6,7 @@
 	"version": "1.9.3",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "elixir-lang/elixir",

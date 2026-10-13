@@ -6,7 +6,7 @@
 	"version": "v1.24.3",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "go-gitea/gitea",

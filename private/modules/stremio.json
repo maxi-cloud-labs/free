@@ -6,7 +6,7 @@
 	"version": "v5.0.0-beta.29",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "Stremio/stremio-web",

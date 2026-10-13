@@ -6,7 +6,7 @@
 	"version": "v5.27.11",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "sebhildebrandt/systeminformation",

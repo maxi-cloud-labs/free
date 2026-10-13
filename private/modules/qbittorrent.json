@@ -6,7 +6,7 @@
 	"version": "5.1.2",
 	"installMethod": "deb",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "qbittorrent/qBittorrent",

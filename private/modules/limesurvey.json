@@ -6,7 +6,7 @@
 	"version": "6.15.3+250708",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "MySQL",
 	"github": "LimeSurvey/LimeSurvey",

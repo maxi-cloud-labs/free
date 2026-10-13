@@ -6,7 +6,7 @@
 	"version": "v1.143.2",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "lobehub/lobehub",

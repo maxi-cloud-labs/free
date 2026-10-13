@@ -6,7 +6,7 @@
 	"version": "29.0.0",
 	"installMethod": "apt (source)",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "docker/compose",

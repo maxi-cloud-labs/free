@@ -6,7 +6,7 @@
 	"version": "v1.9.3",
 	"installMethod": "apt",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "allinurl/goaccess",

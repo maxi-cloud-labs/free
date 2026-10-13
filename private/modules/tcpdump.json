@@ -6,7 +6,7 @@
 	"version": "4.99.5",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "the-tcpdump-group/tcpdump",

@@ -6,7 +6,7 @@
 	"version": "3.0.78",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "swagger-api/swagger-codegen",

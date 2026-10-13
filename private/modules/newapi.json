@@ -6,7 +6,7 @@
 	"version": "v0.11.0-alpha.9",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "QuantumNous/new-api",

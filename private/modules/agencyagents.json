@@ -6,7 +6,7 @@
 	"version": "4feb0cd7",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "msitarzewski/agency-agents",

@@ -6,7 +6,7 @@
 	"version": "8.2.1",
 	"installMethod": "apt (source)",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "mongodb/mongo",

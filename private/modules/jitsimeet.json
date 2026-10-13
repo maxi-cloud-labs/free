@@ -6,7 +6,7 @@
 	"version": "",
 	"installMethod": "apt (source)",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": false,
 	"database": "",
 	"github": "jitsi/jitsi-meet",

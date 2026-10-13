@@ -6,7 +6,7 @@
 	"version": "1.15.2",
 	"installMethod": "npm",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "portkey-ai/gateway",

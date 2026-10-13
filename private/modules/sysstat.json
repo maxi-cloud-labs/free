@@ -6,7 +6,7 @@
 	"version": "12.7.5",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "sysstat/sysstat",

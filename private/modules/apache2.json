@@ -6,7 +6,7 @@
 	"version": "2.4.65",
 	"installMethod": "apt",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "",
 	"github": "apache/httpd",

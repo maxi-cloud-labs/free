@@ -6,7 +6,7 @@
 	"version": "1.6.1",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "mkdocs/mkdocs",

@@ -6,7 +6,7 @@
 	"version": "v2.3.8",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "mebjas/html5-qrcode",

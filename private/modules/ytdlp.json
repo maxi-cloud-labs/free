@@ -6,7 +6,7 @@
 	"version": "2025.11.12",
 	"installMethod": "pip",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "yt-dlp/yt-dlp",

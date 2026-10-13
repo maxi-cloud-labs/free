@@ -6,7 +6,7 @@
 	"version": "v2.3.0.5236",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "Prowlarr/Prowlarr",

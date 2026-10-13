@@ -6,7 +6,7 @@
 	"version": "v0.6.41",
 	"installMethod": "pip",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "SQLite",
 	"github": "open-webui/open-webui",

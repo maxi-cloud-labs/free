@@ -6,7 +6,7 @@
 	"version": "v10.10.7",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "jellyfin/jellyfin",

@@ -6,7 +6,7 @@
 	"version": "v1.17.1",
 	"installMethod": "tar",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "qdrant/qdrant",

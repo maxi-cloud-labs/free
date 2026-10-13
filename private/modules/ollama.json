@@ -6,7 +6,7 @@
 	"version": "0.34.2",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "ollama/ollama",

@@ -6,7 +6,7 @@
 	"version": "v0.21.0",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "getzola/zola",

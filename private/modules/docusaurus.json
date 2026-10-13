@@ -6,7 +6,7 @@
 	"version": "v3.9.2",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "facebook/docusaurus",

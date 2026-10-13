@@ -6,7 +6,7 @@
 	"version": "umtprd-1.8.1",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "viveris/uMTP-Responder",

@@ -6,7 +6,7 @@
 	"version": "v4.23.0",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "MySQL",
 	"github": "domainmod/domainmod",

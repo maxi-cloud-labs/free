@@ -6,7 +6,7 @@
 	"version": "7.1.1.43",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "ImageMagick/ImageMagick",

@@ -6,7 +6,7 @@
 	"version": "1.18.2",
 	"installMethod": "deb",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "crystal-lang/crystal",

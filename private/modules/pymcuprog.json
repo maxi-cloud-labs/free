@@ -6,7 +6,7 @@
 	"version": "HEAD",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "microchip-pic-avr-tools/pymcuprog",

@@ -6,7 +6,7 @@
 	"version": "",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "mastodon/mastodon",

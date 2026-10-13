@@ -6,7 +6,7 @@
 	"version": "2.10.1",
 	"installMethod": "deb",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "",

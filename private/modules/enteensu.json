@@ -6,7 +6,7 @@
 	"version": "bbfb99f8",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "",

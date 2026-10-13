@@ -6,7 +6,7 @@
 	"version": "v1.3.0",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "projectdiscovery/katana",

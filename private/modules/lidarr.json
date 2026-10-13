@@ -6,7 +6,7 @@
 	"version": "v3.1.0.4875",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "Lidarr/Lidarr",

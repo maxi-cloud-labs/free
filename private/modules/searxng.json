@@ -6,7 +6,7 @@
 	"version": "74ec225a",
 	"installMethod": "clone",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "",
 	"github": "searxng/searxng",

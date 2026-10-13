@@ -6,7 +6,7 @@
 	"version": "becfdb62",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "awesome-selfhosted/awesome-selfhosted-html",

@@ -6,7 +6,7 @@
 	"version": "v0.50.3",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "openobserve/openobserve",

@@ -6,7 +6,7 @@
 	"version": "a1fa4975",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "beautifier/beautifier.io",

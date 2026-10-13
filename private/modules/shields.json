@@ -6,7 +6,7 @@
 	"version": "server-2025-12-06",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "badges/shields",

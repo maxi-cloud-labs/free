@@ -6,7 +6,7 @@
 	"version": "1.85.0",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "rust-lang/rust",

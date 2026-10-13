@@ -6,7 +6,7 @@
 	"version": "2.4.1",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "dovecot/core",

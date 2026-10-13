@@ -6,7 +6,7 @@
 	"version": "7.1.2",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "FFmpeg/FFmpeg",

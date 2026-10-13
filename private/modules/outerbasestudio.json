@@ -6,7 +6,7 @@
 	"version": "v0.10.2",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "outerbase/studio",

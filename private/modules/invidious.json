@@ -6,7 +6,7 @@
 	"version": "v2.20250913.0",
 	"installMethod": "clone",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "iv-org/invidious",

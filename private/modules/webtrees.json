@@ -6,7 +6,7 @@
 	"version": "2.1.25",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "MySQL",
 	"github": "fisharebest/webtrees",

@@ -6,7 +6,7 @@
 	"version": "10.26.0",
 	"installMethod": "npm",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "pnpm/pnpm",

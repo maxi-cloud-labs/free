@@ -6,7 +6,7 @@
 	"version": "v4.5.1",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "lukevella/rallly",

@@ -6,7 +6,7 @@
 	"version": "3.13.5",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "python/cpython",

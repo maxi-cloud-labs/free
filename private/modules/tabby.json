@@ -6,7 +6,7 @@
 	"version": "v0.31.2",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "TabbyML/tabby",

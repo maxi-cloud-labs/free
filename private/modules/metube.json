@@ -6,7 +6,7 @@
 	"version": "HEAD",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "alexta69/metube",

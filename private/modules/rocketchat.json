@@ -6,7 +6,7 @@
 	"version": "8.1.0",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "RocketChat/Rocket.Chat",

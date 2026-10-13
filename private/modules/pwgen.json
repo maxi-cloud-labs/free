@@ -6,7 +6,7 @@
 	"version": "v2.08",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "tytso/pwgen",

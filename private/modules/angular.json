@@ -6,7 +6,7 @@
 	"version": "20.3.9",
 	"installMethod": "npm",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "angular/angular",

@@ -6,7 +6,7 @@
 	"version": "29",
 	"installMethod": "deb",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "typesense/typesense",

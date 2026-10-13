@@ -6,7 +6,7 @@
 	"version": "5.2.1",
 	"installMethod": "apt",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "vrana/adminer",

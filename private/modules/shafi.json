@@ -6,7 +6,7 @@
 	"version": "e55e339f",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "dealfonso/shafi",

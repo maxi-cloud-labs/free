@@ -6,7 +6,7 @@
 	"version": "b7315",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "ggml-org/llama.cpp",

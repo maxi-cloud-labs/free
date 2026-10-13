@@ -6,7 +6,7 @@
 	"version": "REL-9_10",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "PostgreSQL",
 	"github": "pgadmin-org/pgadmin4",

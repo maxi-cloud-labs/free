@@ -6,7 +6,7 @@
 	"version": "1.0.25",
 	"installMethod": "npm",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "Kinfe123/better-auth-studio",

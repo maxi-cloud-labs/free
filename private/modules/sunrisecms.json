@@ -6,7 +6,7 @@
 	"version": "v1.0.0-alpha.19",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "cityssm/sunrise-cms",

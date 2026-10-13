@@ -6,7 +6,7 @@
 	"version": "v1.4.5",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "swissmakers/fail2ban-ui",

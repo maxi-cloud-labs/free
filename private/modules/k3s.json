@@ -6,7 +6,7 @@
 	"version": "v1.35.0+k3s1",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "k3s-io/k3s",

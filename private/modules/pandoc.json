@@ -6,7 +6,7 @@
 	"version": "3.1.11.1",
 	"installMethod": "apt",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "jgm/pandoc",

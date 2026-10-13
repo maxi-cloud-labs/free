@@ -6,7 +6,7 @@
 	"version": "6.8.3",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "WordPress/WordPress",

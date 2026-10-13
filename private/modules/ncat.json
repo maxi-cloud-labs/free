@@ -6,7 +6,7 @@
 	"version": "7.95",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "",

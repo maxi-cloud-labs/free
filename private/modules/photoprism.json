@@ -6,7 +6,7 @@
 	"version": "250707-d28b3101e",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "photoprism/photoprism",

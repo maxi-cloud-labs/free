@@ -6,7 +6,7 @@
 	"version": "v0.7.9",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "MongoDB",
 	"github": "LibreChat-AI/LibreChat",

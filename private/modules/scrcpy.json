@@ -6,7 +6,7 @@
 	"version": "v3.3.4",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "Genymobile/scrcpy",

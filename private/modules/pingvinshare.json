@@ -6,7 +6,7 @@
 	"version": "v1.13.0",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "stonith404/pingvin-share",

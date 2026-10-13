@@ -6,7 +6,7 @@
 	"version": "v0.5.0",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "maybe-finance/maybe",

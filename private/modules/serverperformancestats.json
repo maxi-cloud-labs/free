@@ -6,7 +6,7 @@
 	"version": "HEAD",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "janisadhi/Server_Performance_Stats",

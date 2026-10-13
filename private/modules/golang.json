@@ -6,7 +6,7 @@
 	"version": "1.25.5",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "golang/go",

@@ -6,7 +6,7 @@
 	"version": "46",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "live-codes/livecodes",

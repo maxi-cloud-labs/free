@@ -6,7 +6,7 @@
 	"version": "0.6.6",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "SQLite",
 	"github": "coleifer/sqlite-web",

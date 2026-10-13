@@ -6,7 +6,7 @@
 	"version": "v3.2.5-beta",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "kyantech/Palmr",

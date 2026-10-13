@@ -6,7 +6,7 @@
 	"version": "v2.6.4",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "denoland/deno",

@@ -6,7 +6,7 @@
 	"version": "2.33.6",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "BoltDB",
 	"github": "portainer/portainer",

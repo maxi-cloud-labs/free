@@ -6,7 +6,7 @@
 	"version": "1.6.11",
 	"installMethod": "apt",
 	"web": true,
-	"essential": true,
+	"recommended": true,
 	"finished": true,
 	"database": "SQLite",
 	"github": "roundcube/roundcubemail",

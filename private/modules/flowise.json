@@ -6,7 +6,7 @@
 	"version": "flowise@1.3.1",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "FlowiseAI/Flowise",

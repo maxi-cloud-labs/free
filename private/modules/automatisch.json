@@ -6,7 +6,7 @@
 	"version": "v5.6.1",
 	"installMethod": "clone",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "PostgreSQL",
 	"github": "automatisch/automatisch",

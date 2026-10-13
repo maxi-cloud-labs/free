@@ -6,7 +6,7 @@
 	"version": "3.31.6",
 	"installMethod": "apt",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "Kitware/CMake",

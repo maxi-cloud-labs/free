@@ -6,7 +6,7 @@
 	"version": "2025-11-11",
 	"installMethod": "",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": false,
 	"database": "",
 	"github": "",

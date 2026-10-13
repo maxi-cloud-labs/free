@@ -6,7 +6,7 @@
 	"version": "00a382d7",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "novaspirit/rpi_zram",

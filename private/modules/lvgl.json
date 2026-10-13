@@ -6,7 +6,7 @@
 	"version": "a78c4a476ebc58f5",
 	"installMethod": "clone",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "lvgl/lvgl",

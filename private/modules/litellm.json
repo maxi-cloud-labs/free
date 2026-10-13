@@ -6,7 +6,7 @@
 	"version": "1.81.15",
 	"installMethod": "pip",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "BerriAI/litellm",

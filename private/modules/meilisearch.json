@@ -6,7 +6,7 @@
 	"version": "",
 	"installMethod": "wget",
 	"web": false,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "",
 	"github": "meilisearch/meilisearch",

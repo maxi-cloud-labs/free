@@ -6,7 +6,7 @@
 	"version": "v4.0.16.2944",
 	"installMethod": "wget",
 	"web": true,
-	"essential": false,
+	"recommended": false,
 	"finished": true,
 	"database": "SQLite",
 	"github": "Whisparr/Whisparr",
