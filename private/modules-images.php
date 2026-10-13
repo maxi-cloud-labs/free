@@ -5,7 +5,7 @@ if (PHP_SAPI !== "cli")
 
 function moduleImageGH($module, $force) {
 	if (!$force) {
-		$ret = __DIR__ . "/../build/images/tmp/gh/" . $module["module"] . ".png";
+		$ret = __DIR__ . "/../build/images/gh/" . $module["module"] . ".png";
 		return file_exists($ret) ? $ret : null;
 	}
 	$ret = null;
@@ -28,7 +28,7 @@ function moduleImageGH($module, $force) {
 			print_r($data["errors"]);
 		} else if (isset($data["data"]["repository"]["openGraphImageUrl"])) {
 			$ogImageUrl = $data["data"]["repository"]["openGraphImageUrl"];
-			$ret = __DIR__ . "/../build/images/tmp/gh/" . $name . ".png";
+			$ret = __DIR__ . "/../build/images/gh/" . $name . ".png";
 			if (strpos($ogImageUrl, "://opengraph.githubassets.com") === false && !file_exists($ret)) {
 				system("wget -q -O " . $ret . " " . $ogImageUrl);
 				echo "\r\033[K" . $name . ": " . $ogImageUrl . "\n";
@@ -41,7 +41,7 @@ function moduleImageGH($module, $force) {
 }
 
 
-const BACKDROP = ["w" => 1024, "h" => 768, "ratio" => "4:3"];
+const BACKDROP = ["w" => 1280, "h" => 720, "ratio" => "16:9"];
 
 const POSTER = ["w" => 768, "h" => 1024, "ratio" => "3:4"];
 
@@ -175,7 +175,6 @@ function modulePrompt($module) {
 	$composition = pick(COMPOSITION, $key, "composition");
 	$titleTreatment = str_replace("{title}", $name, pick(TITLE, $key, "title"));
 	$posterPrompt = implode(" ", [
-		"\"" . $name . "\".",
 		$titleTreatment,
 		$style,
 		"Hero image: {$hero}, a single clear focal point.",
@@ -191,12 +190,14 @@ function modulePrompt($module) {
 		"poster" => [
 			"width" => POSTER["w"],
 			"height" => POSTER["h"],
+			"ratio" => POSTER["ratio"],
 			"prompt" => $posterPrompt,
 			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".poster.png",
 		],
 		"backdrop" => [
 			"width" => BACKDROP["w"],
 			"height" => BACKDROP["h"],
+			"ratio" => BACKDROP["ratio"],
 			"prompt" => $posterPrompt,
 			"output" => __DIR__ . "/modules/images/" . $module["module"] . ".backdrop.png",
 		]
@@ -255,8 +256,8 @@ function generateImageAIHorde($data, $kind) {
 		"prompt" => $data[$kind]["prompt"],
 		"params" => [
 			"steps" => 20,
-			"width" => 512,
-			"height" => 384,
+			"width" => $data[$kind]["width"] / $div,
+			"height" => $data[$kind]["height"] / $div,
 			"sampler_name" => "k_euler"
 		]
 	];
@@ -426,12 +427,10 @@ function generateImageLocal($model, $data, $kind, $div) {
 	}
 }
 
-function generateImage($data, $kind, $div) {
+function generateImage($data, $kind) {
 	//echo $data[$kind]["output"] . "\n";
-	//generateImageCloudflare("@cf/black-forest-labs/flux-2-dev", $data, $kind, $div);
-	//generateImageLocal("flux-2-klein", $data, $kind, $div);
-	generateImageLocal("z-image-turbo", $data, $kind, $div);
-
+	//generateImageCloudflare("@cf/black-forest-labs/flux-2-dev", $data, $kind, 2);
+	generateImageLocal("z-image-turbo", $data, $kind, 2);
 }
 
 function store($p, $o) {
@@ -443,7 +442,7 @@ function moduleImages($arg, $force) {
 	$name = str_replace(".json", "", $arg);
 	$fullPath = __DIR__ . "/modules/" . $name . ".json";
 	$module = json_decode(file_get_contents($fullPath), true);
-	$fullPath2 = __DIR__ . "/../build/images/tmp/$name.json";
+	$fullPath2 = __DIR__ . "/../build/images/$name.json";
 	if (!file_exists($fullPath2) || $force) {
 		$ret2 = null;
 		if ($module["github"] != "")
@@ -455,13 +454,13 @@ function moduleImages($arg, $force) {
 	} else
 		$ret = json_decode(file_get_contents($fullPath2), true);
 	if (!file_exists($ret["poster"]["output"]))
-		generateImage($ret, "poster", 2);
+		generateImage($ret, "poster");
 	if (!file_exists($ret["backdrop"]["output"]))
-		generateImage($ret, "backdrop", 2);
+		generateImage($ret, "backdrop");
 }
 
-if (!file_exists(__DIR__ . "/../build/images/tmp/gh/"))
-	mkdir(__DIR__ . "/../build/images/tmp/gh/", 0775, true);
+if (!file_exists(__DIR__ . "/../build/images/gh/"))
+	mkdir(__DIR__ . "/../build/images/gh/", 0775, true);
 if ($argc >= 2)
 	moduleImages($argv[1], true);
 else {
