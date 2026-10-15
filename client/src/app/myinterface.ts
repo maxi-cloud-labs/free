@@ -66,6 +66,14 @@ export const Categories = {
 	}
 };
 
+export const Superset = [
+	{ "name":"AI", "categories":["AI"] },
+	{ "name":"Work", "categories":["Productivity", "Knowledge", "Collaboration"] },
+	{ "name":"Entertainment", "categories":["Personal", "Media", "Torrent"] },
+	{ "name":"Infrastructure", "categories":["Utils", "Server"] },
+	{ "name":"Development", "categories":["Developer", "Database"] }
+];
+
 export const CategoriesEx = {
 	...Categories,
 	"Recommended": {

@@ -4,6 +4,7 @@
 		"Access rights, Hits": "Droits d'accès, Hits",
 		"Active Users": "Utilisateurs actifs",
 		"AI": "IA",
+		"Apps": "Apps",
 		"Backup & Restore": "Sauvegarde et restauration",
 		"CPU": "Proc",
 		"Dark": "Foncé",
@@ -54,6 +55,10 @@
 		"Server": "Serveur",
 		"Developer": "Développeur",
 		"Database": "Database",
+		"Work": "Travail",
+		"Entertainment": "Loisirs",
+		"Infrastructure": "Infrastructure",
+		"Development": "Développement",
 
 		"Public": "Public",
 		"Local Network": "Réseau local",
