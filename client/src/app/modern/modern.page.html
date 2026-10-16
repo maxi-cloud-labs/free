@@ -1,7 +1,7 @@
 <div class="flex bg-dark">
 	<app-sidebar #sidebar [showSideBarOnLargeScreen]=false [modulesTotal]="filteredCards?.length"></app-sidebar>
 	<div class="flex-1 flex flex-col overflow-x-auto">
-		<header class="relative flex items-center justify-between h-16 px-6 my-2" (window:keydown.escape)="showCategories = false">
+		<header class="relative flex items-center justify-between h-16 px-6 my-2">
 <!-- Logo -->
 			<a routerLink="/" (click)="global.openHome()" title="Dashboard" class="flex items-end cursor-pointer leading-none">
 				<span class="text-4xl font-extrabold text-white">m</span><span class="text-4xl font-extrabold text-red-600">A</span><span class="text-4xl font-extrabold text-white">x</span><span class="text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-4xl font-extrabold text-white">.</span>
@@ -9,7 +9,7 @@
 			</a>
 			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
 			<div class="flex-1"></div>
-			<div>
+			<div (window:keydown.escape)="showCategories = false">
 				<button type="button" class="hidden xl:block text-white cursor-pointer px-8" (click)="showCategories = !showCategories">
 					<div class="p-2 rounded-lg bg-white/15"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-50"></div>
 				</button>
@@ -61,7 +61,7 @@
 				</ng-container>
 			</div>
 			<div class="flex-1"></div>
-			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8 text-right">100% <span class="text-red-600">secure</span>, zero setup<br>fully maintained, 100% <span class="text-red-600">private</span></span>
+			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8 text-right">100% <span class="text-red-600">secure</span>, zero setup,<br>fully maintained, 100% <span class="text-red-600">private</span></span>
 <!-- User Menu -->
 			<div joyrideStep="anchor10" title="Profile" text="Access your profile settings including enabling 2FA." stepPosition="bottom" class="flex items-center gap-4 -mr-4 md:-mr-2">
 				<div class="relative bg-white/5 mt-2 rounded-xl">
@@ -121,7 +121,7 @@
 		<section class="px-4 md:px-8 pt-6 grid gap-4 lg:grid-cols-4">
 <!-- Hero -->
 			<div class="min-w-0" [class]="helperClosed ? 'lg:col-span-4' : 'lg:col-span-3'">
-				<div class="relative w-full aspect-video min-h-[300px] max-h-[72vh] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-mid" role="region" aria-roledescription="carousel" (mouseenter)="heroActive = true" (mouseleave)="heroActive = false" (focusin)="heroActive = true" (focusout)="heroActive = false" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
+				<div class="relative w-full aspect-video min-h-[300px] max-h-[72vh] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-mid" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
 					<div *ngFor="let card of heroCards; let i = index" class="absolute inset-0" [class]="i == heroIdx ? 'opacity-100' : 'opacity-0 pointer-events-none'">
 						<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-0 w-full h-full object-fill">
 						<div class="relative z-10 h-full flex flex-col justify-end gap-3 p-6 xl:p-10">
@@ -148,11 +148,39 @@
 							</div>
 						</div>
 					</div>
-					<div class="absolute bottom-4 right-4 md:bottom-6 md:right-8 z-20 flex items-center gap-2">
-						<button type="button" class="w-9 h-9 rounded-full text-white bg-black/40 hover:bg-black/60 backdrop-blur flex items-center justify-center cursor-pointer" (click)="heroPaused = !heroPaused"><ion-icon [name]="heroPaused ? 'play' : 'pause'"></ion-icon></button>
-						<button type="button" class="w-9 h-9 rounded-full text-white bg-black/40 hover:bg-black/60 backdrop-blur flex items-center justify-center cursor-pointer" (click)="heroPaused = true; heroStep(-1)"><ion-icon name="chevron-back-outline"></ion-icon></button>
-						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer" [class]="i == heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'" (click)="heroPaused = true; heroIdx = i"></button>
-						<button type="button" class="w-9 h-9 rounded-full text-white bg-black/40 hover:bg-black/60 backdrop-blur flex items-center justify-center cursor-pointer" (click)="heroPaused = true; heroStep(1)"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+<style>
+@property --progress {
+	syntax: '<angle>';
+	initial-value: 360deg;
+	inherits: false;
+}
+
+.hero-ring {
+	animation: hero-countdown 10s linear infinite;
+}
+
+.hero-ring.paused {
+	animation-play-state: paused;
+}
+
+@keyframes hero-countdown {
+	from { --progress: 360deg; }
+	to { --progress: 0deg; }
+}
+</style>
+					<div class="absolute bottom-4 right-4 z-20 flex items-center gap-2 md:bottom-6 md:right-8">
+						<button type="button" class="relative flex size-9 cursor-pointer items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" (click)="heroPaused = !heroPaused">
+							<span *ngFor="let key of [heroProgressKey]; trackBy: heroProgressTrack" class="absolute -inset-[3px] rounded-full pointer-events-none [background:conic-gradient(white_var(--progress),transparent_0)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),black_0)] hero-ring" [class.paused]="heroPaused" (animationiteration)="heroStep(1)"></span>
+							<ion-icon [name]="heroPaused ? 'play' : 'pause'"></ion-icon>
+						</button>
+						<button type="button" class="flex size-9 cursor-pointer items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" (click)="heroPaused = true; heroStep(-1)">
+							<ion-icon name="chevron-back-outline"></ion-icon>
+						</button>
+						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'" (click)="heroSelect(i)">
+						</button>
+						<button type="button" class="flex size-9 cursor-pointer items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" (click)="heroPaused = true; heroStep(1)">
+							<ion-icon name="chevron-forward-outline"></ion-icon>
+						</button>
 					</div>
 					<button *ngIf="helperClosed" type="button" class="absolute top-4 right-4 z-20 inline-flex items-center gap-2 rounded-full bg-red-700 text-white font-bold pl-3 pr-4 py-2 hover:bg-red-600 transition-colors cursor-pointer" (click)="helperClosed = false"><ion-icon name="sparkles-outline" class="w-5 h-5"></ion-icon></button>
 				</div>
@@ -228,7 +256,7 @@
 						</div>
 						<div class="pt-2">
 							<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-6">
-								<ng-container *ngFor="let card of visibleCards | slice:0:(first ? 21 : 13)">
+								<ng-container *ngFor="let card of visibleCards | slice:0:(first ? 21 : 20)">
 									<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[3/4]' }"></ng-container>
 								</ng-container>
 								<div *ngIf="!first" class="min-w-0 text-white">

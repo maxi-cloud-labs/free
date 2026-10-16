@@ -30,7 +30,7 @@ LMD(st) { return this.global.mytranslateMD(st); }
 cardIdCur = 0;
 cardConfig;
 cards = this.global.modulesData;
-filteredCards = this.global.modulesData;
+filteredCards = [];
 filteredGithubStars;
 searchTerm: string = "";
 sortProperty: string = "title";
@@ -73,7 +73,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 		this.sortDirection = JSON.parse(data2);
 	global.sidebarFilterType = "";
 	this.filterCards();
-	this.initModern();
+	this.modernInit();
 }
 
 ngAfterViewInit() {
@@ -363,31 +363,52 @@ protected async helperSearch(q: string): Promise<any[]> {
 }
 
 showCategories = false;
-heroes = ["openclaw", "n8n", "openwebui", "searxng", "homeassistant", "invidious"]; //Fixed heroes
-heroTimer: any;
+
+helperClosed = false;
+
 heroIdx = 0;
 heroPaused = false;
-helperClosed = false;
-heroActive = false;
-heroCards;
+heroCards = [];
+heroProgressKey = 0;
+
+heroProgressTrack = (_index, key) => key;
+
+heroKey(e, d) {
+    const t = e.target as HTMLElement;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(t?.tagName) || t?.isContentEditable)
+        return;
+
+    this.heroPaused = true;
+    this.heroStep(d);
+}
+
+heroStep(d) {
+    const n = this.heroCards.length;
+    if (!n) return;
+
+    this.heroIdx = (this.heroIdx + d + n) % n;
+    this.heroProgressKey++;
+    this.cdr.detectChanges();
+}
+
+heroInit() {
+    const heroes = ["openclaw", "n8n", "openwebui", "searxng", "homeassistant", "invidious", "mastodon"];
+    this.heroCards = heroes.map(hero =>
+        this.cards[this.global.modulesDataFindId(hero)]
+    );
+}
+
+heroSelect(i) {
+    this.heroPaused = true;
+    this.heroIdx = i;
+    this.heroProgressKey++;
+    this.cdr.detectChanges();
+}
+
 trendingCards;
 trendingShownCards;
 trendingIdx = 0;
 TrendingNbPerScreen = 5;
-
-heroKey(e, d) {
-	const t = e.target as HTMLElement;
-	if (!this.heroActive || /^(INPUT|TEXTAREA|SELECT)$/.test(t?.tagName) || t?.isContentEditable)
-		return;
-	this.heroPaused = true;
-	this.heroStep(d);
-}
-
-heroStep(d) {
-	const n = this.heroCards.length;
-	this.heroIdx = (this.heroIdx + d + n) % n;
-	this.cdr.detectChanges();
-}
 
 trendingStep(d) {
 	const n = this.trendingCards.length;
@@ -399,13 +420,14 @@ trendingStep(d) {
 	this.cdr.detectChanges();
 }
 
-initModern() {
-	this.heroTimer = setInterval(() => { if (!this.heroPaused) this.heroStep(1); }, 10000);
-	this.heroCards = [];
-	for(let i = 0; i < this.heroes.length; i++)
-		this.heroCards[i] = this.cards[this.global.modulesDataFindId(this.heroes[i])];
+trendingInit() {
 	this.trendingCards = this.cards.filter(c => c.web && (c.recommended || c.githubStars > 50000)).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0));
 	this.trendingShownCards = this.trendingCards.slice(this.trendingIdx, this.trendingIdx + this.TrendingNbPerScreen);
+}
+
+modernInit() {
+	this.heroInit();
+	this.trendingInit();
 }
 
 floor(a) {
