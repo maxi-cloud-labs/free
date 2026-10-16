@@ -10,7 +10,7 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Bubka/2FAuth",
-	"description": "A web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes.",
+	"description": "A manager of two-factor authentications and security codes.",
 	"hero": "a glowing six-digit code ring orbiting a sturdy padlock, countdown timer arc around it. tense, secretive, high-security thriller",
 	"keywords": [
 		"2FA",

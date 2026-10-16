@@ -14,7 +14,6 @@
 	"hero": "a Raspberry Pi board with compressed memory blocks squeezed like glowing springs. compact, tense, clever",
 	"keywords": [
 		"Kernel",
-		"zram",
 		"OS",
 		"RPI",
 		"Zram"
