@@ -248,10 +248,7 @@ function generateImageCloudflare($model, $data, $kind, $div) {
 		echo "Cloudflare API Error (Status Code " . $result["status"] . "): " . $result["response"] . "\n";
 }
 
-function generateImageCodex($data, $kind) {
-	$prompt = "Generate a jpg image with aspect ratio " . $data[$kind]["ratio"] . " (" . $data[$kind]["width"] . "x" . $data[$kind]["height"] . "), quality 80 and save it to " . $data[$kind]["output"] .  ". " . $data[$kind]["prompt"];
-	$command = "codex exec --cd " . __DIR__ . " --sandbox workspace-write --json " . escapeshellarg($prompt);
-	echo "Generating " . $kind . ": " . $data["name"] . "\n";
+function generateCodex($command) {
 	$process = proc_open($command, [ 0 => ["pipe", "r"], 1 => ["pipe", "w"], 2 => ["pipe", "w"] ], $pipes);
 	if (!is_resource($process))
 		die("Failed to start Codex\n");
@@ -297,6 +294,20 @@ function generateImageCodex($data, $kind) {
 		fclose($pipe);
 	}
 	proc_close($process);
+}
+
+function generateImageCodex($data, $kind) {
+	$prompt = "Generate a jpg image with aspect ratio " . $data[$kind]["ratio"] . " (" . $data[$kind]["width"] . "x" . $data[$kind]["height"] . "), quality 80 and save it to " . $data[$kind]["output"] .  ". " . $data[$kind]["prompt"];
+	$command = "codex exec --cd " . __DIR__ . " --sandbox workspace-write --json " . escapeshellarg($prompt);
+	echo "Generating " . $kind . ": " . $data["name"] . "\n";
+	generateCodex($command);
+}
+
+function generateIconCodex($module, $path) {
+	$prompt = "Generate a png icon image with aspect ratio 1:1 (512x512), fully transparent with only black RGB(0,0,0) color, and save it to " . $path . ". It should be a simple generic icon depicting a software project name \"" . $module["name"] . "\" which description is: " . $module["description"];
+	$command = "codex exec --cd " . __DIR__ . " --sandbox workspace-write --json " . escapeshellarg($prompt);
+	echo "Generating icon: " . $module["name"] . "\n";
+	generateCodex($command);
 }
 
 function generateImageAIHorde($data, $kind) {
@@ -479,10 +490,13 @@ function generateImageLocal($model, $data, $kind, $div) {
 }
 
 function generateImage($data, $kind) {
-	//echo $data[$kind]["output"] . "\n";
 	//generateImageCloudflare("@cf/black-forest-labs/flux-2-dev", $data, $kind, 2);
 	//generateImageLocal("z-image-turbo", $data, $kind, 2);
 	generateImageCodex($data, $kind);
+}
+
+function generateIcon($module, $fullPathIcon) {
+	generateIconCodex($module, $fullPathIcon);
 }
 
 function store($p, $o) {
@@ -490,11 +504,12 @@ function store($p, $o) {
 	file_put_contents($p, $oo);
 }
 
-function moduleImages($arg, $force) {
+function moduleImagesIcon($arg, $force) {
 	$name = str_replace(".json", "", $arg);
 	$fullPath = __DIR__ . "/modules/" . $name . ".json";
 	$module = json_decode(file_get_contents($fullPath), true);
 	$fullPath2 = __DIR__ . "/../build/images/$name.json";
+	$fullPathIcon = __DIR__ . "/modules/icons/" . $name . ".png";
 	if (!file_exists($fullPath2) || $force) {
 		$ret2 = null;
 		if ($module["github"] != "")
@@ -509,12 +524,14 @@ function moduleImages($arg, $force) {
 		generateImage($ret, "poster");
 	if (!file_exists($ret["backdrop"]["output"]))
 		generateImage($ret, "backdrop");
+	if (!file_exists($fullPathIcon))
+		generateIcon($module, $fullPathIcon);
 }
 
 if (!file_exists(__DIR__ . "/../build/images/gh/"))
 	mkdir(__DIR__ . "/../build/images/gh/", 0775, true);
 if ($argc >= 2)
-	moduleImages($argv[1], true);
+	moduleImagesIcon($argv[1], true);
 else {
 	$modulesPath = __DIR__ . "/modules";
 	$files = scandir($modulesPath);
@@ -523,7 +540,7 @@ else {
 		$fullPath = $modulesPath . "/" . $file;
 		if ($file == "." || $file == ".." || is_dir($fullPath))
 			continue;
-		moduleImages($file, true);
+		moduleImagesIcon($file, true);
 	}
 }
 echo "\n";
