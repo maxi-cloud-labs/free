@@ -29,11 +29,7 @@ cards = this.global.modulesData;
 filteredCards = [];
 filteredGithubStars;
 searchTerm: string = "";
-sortProperty: string = "title";
-sortDirection = { title:"asc", name:"asc", category:"asc" };
 category: string = "All";
-presentation: string = "cards";
-showDetails: boolean = false;
 showTerminal: boolean = true;
 showDone: boolean = true;
 showNotDone: boolean = false;
@@ -77,7 +73,7 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	this.filterCards();
 }
 
-modernInit() {
+pageInit() {
 	const sub = this.route.queryParams.subscribe(async (params) => {
 		if (params["category"]) {
 			this.CategoriesVisible = [];
@@ -208,31 +204,8 @@ filterCards(typing = false) {
 		}
 	}
 	this.filteredGithubStars = Object.values(this.filteredCards).reduce((sum, card) => { return sum + (card["githubStars"] ?? 0); }, 0);
-	this.sortCards();
 	if (this.searchTerm != "" && this.searchTermE)
 		this.searchTermE.nativeElement.focus();
-}
-
-filterCategory(c) {
-	this.category =  this.category == c.value.name ? "All" : c.value.name;
-	this.filterCards();
-}
-
-sortCards() {
-	this.filteredCards.sort((a, b) => {
-		const aValue = a[this.sortProperty];
-		const bValue = b[this.sortProperty];
-		return this.sortDirection[this.sortProperty] === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
-	});
-}
-
-toggleSortDirection(p) {
-	if (this.sortProperty == p)
-		this.sortDirection[this.sortProperty] = this.sortDirection[this.sortProperty] === "asc" ? "desc" : "asc";
-	this.sortProperty = p;
-	this.sortCards();
-	localStorage.setItem("sortPropertyModern", this.sortProperty);
-	localStorage.setItem("sortDirectionModern", JSON.stringify(this.sortDirection));
 }
 
 tag(m) {
@@ -244,20 +217,10 @@ tag(m) {
 	this.sidebarComponent.sidebarFilterCards();
 }
 
-firstWords(st) {
-	const words = st.split(" ");
-	return words.slice(0, -1).join(" ");
-}
-
-lastWord(st) {
-	const words = st.split(" ");
-	return words[words.length - 1];
-}
-
 async ngOnInit() {
 	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later, meanwhile each module will be automatically set up during first use.", "firsttimesetup"))
 		this.global.setup2Start(true);
-	this.modernInit();
+	this.pageInit();
 }
 
 showUserMenu:boolean = false;
