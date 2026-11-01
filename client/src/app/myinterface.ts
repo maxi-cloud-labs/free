@@ -9,8 +9,13 @@ export interface Settings {
 }
 
 export const Categories = {
-	"AI": {
-		name: "AI",
+	"Generative": {
+		name: "Generative AI",
+		icon: "bulb-outline",
+		color: "lime"
+	},
+	"Agentic": {
+		name: "Agentic AI",
 		icon: "bulb-outline",
 		color: "lime"
 	},
@@ -66,8 +71,8 @@ export const Categories = {
 	}
 };
 
-export const Superset = [
-	{ "name":"AI", "categories":["AI"] },
+export const CategoriesOrg = [
+	{ "name":"AI", "categories":["Generative", "Agentic"] },
 	{ "name":"Work", "categories":["Productivity", "Knowledge", "Collaboration"] },
 	{ "name":"Entertainment", "categories":["Personal", "Media", "Torrent"] },
 	{ "name":"Infrastructure", "categories":["Utils", "Server"] },
@@ -98,7 +103,8 @@ export const CategoriesBar = [
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Recommended"] },
 	{ separator:true },
-	{ separator:false, value:CategoriesEx["AI"] },
+	{ separator:false, value:CategoriesEx["Generative AI"] },
+	{ separator:false, value:CategoriesEx["Agentic AI"] },
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Productivity"] },
 	{ separator:false, value:CategoriesEx["Knowledge"] },
