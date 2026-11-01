@@ -1,12 +1,10 @@
 import { Component, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonModal } from '@ionic/angular';
-import { JoyrideService } from 'ngx-joyride';
 import { HttpClient } from '@angular/common/http';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { Global } from '../env';
-import { CategoriesBar, Superset } from '../myinterface';
+import { CategoriesBar, CategoriesOrg } from '../myinterface';
 import { BleService } from '../ble';
 
 @Component({
@@ -23,8 +21,6 @@ LK(st) { return this.global.mytranslateK(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 LMD(st) { return this.global.mytranslateMD(st); }
 @ViewChild(SidebarComponent) sidebarComponent;
-@ViewChild("modalModuleInfo") modalModuleInfo: IonModal;
-@ViewChild("modalModuleSettings") modalModuleSettings: IonModal;
 @ViewChild("searchTermE") searchTermE: ElementRef;
 @ViewChild("sidebar") sidebar: any;
 cardIdCur = 0;
@@ -42,9 +38,21 @@ showTerminal: boolean = true;
 showDone: boolean = true;
 showNotDone: boolean = false;
 CategoriesBar = CategoriesBar;
-Superset = Superset;
+CategoriesOrg = CategoriesOrg;
+CategoriesVisible = [];
+CategoriesVisibleAll = true;
+helperQuery = "";
+helperAsked = false;
+helperBusy = false;
+helperResults: any[] = [];
+showMenuCategories = false;
+showChatbot = true;
+heroIdx = 0;
+heroPaused = false;
+heroCards = [];
+heroProgressKey = 0;
 
-constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private joyrideService: JoyrideService, private route: ActivatedRoute, public ble: BleService) {
+constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private route: ActivatedRoute, public ble: BleService) {
 	if (this.global.demo)
 		this.showNotDone = true;
 	global.refreshUI.subscribe(event => {
@@ -65,34 +73,39 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 			this.cdr.detectChanges();
 		}
 	});
-	const data1 = localStorage.getItem("sortPropertyModern");
-	if (data1)
-		this.sortProperty = data1;
-	const data2 = localStorage.getItem("sortDirectionModern");
-	if (data2)
-		this.sortDirection = JSON.parse(data2);
 	global.sidebarFilterType = "";
 	this.filterCards();
-	this.modernInit();
 }
 
-ngAfterViewInit() {
-	this.parseQuery();
-}
-
-parseQuery() {
+modernInit() {
 	const sub = this.route.queryParams.subscribe(async (params) => {
-		if (!this.cards || this.cards.length === 0) {
-			setTimeout(() => { this.parseQuery(); }, 1000);
-			return;
-		}
-		if (params["search"]) {
-			this.searchTerm = params?.["search"];
+		if (params["category"]) {
+			this.CategoriesVisible = [];
+			for(let i = 0; i < CategoriesOrg.length; i++)
+				if (CategoriesOrg[i]["name"] == params?.["category"]) {
+					for(let ii = 0; ii < CategoriesOrg[i]["categories"].length; ii++)
+						this.CategoriesVisible[ii] = { name:CategoriesOrg[i]["categories"][ii], categories:[CategoriesOrg[i]["categories"][ii]] };
+					break;
+				} else {
+					for(let ii = 0; ii < CategoriesOrg[i]["categories"].length; ii++)
+						if (CategoriesOrg[i]["categories"][ii] == params?.["category"]) {
+							this.CategoriesVisible[0] = { name:CategoriesOrg[i]["categories"][ii], categories:[CategoriesOrg[i]["categories"][ii]] };
+							break;
+						}
+				}
 			this.filterCards();
-			this.cdr.detectChanges();
-			if (params["settings"] === "true")
-				this.settings(params["search"]);
+			this.CategoriesVisibleAll = false;
+		} else {
+			this.CategoriesVisible = CategoriesOrg;
+			this.filterCards();
+			this.CategoriesVisibleAll = true;
 		}
+		this.showChatbot = this.CategoriesVisibleAll;
+		window.scrollTo({ top:0, behavior:"smooth" });
+		this.heroInit(params["category"]);
+		this.showMenuCategories = false;
+		this.trendingInit();
+		this.cdr.detectChanges();
 	});
 }
 
@@ -241,71 +254,10 @@ lastWord(st) {
 	return words[words.length - 1];
 }
 
-async info(module) {
-	this.cardIdCur = this.global.modulesDataFindId(module);
-	await this.modalModuleInfo.present();
-}
-
-closeModuleInfo() {
-	this.modalModuleInfo.dismiss();
-}
-
-async settings(module) {
-	this.cardIdCur = this.global.modulesDataFindId(module);
-	if (this.cards[this.cardIdCur].config)
-		await this.config();
-	await this.modalModuleSettings.present();
-}
-
-async moduleReset() {
-	if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "Are you sure to reset this module?"))
-		if (await this.global.presentQuestion("Reset \"" + this.cards[this.cardIdCur].title + "\" (" + this.cards[this.cardIdCur].name + ")", "WARNING! All data will be lost", "This is your last chance. All data of this module will be erased and won't be recoverable. Are you absolutely sure to reset this module?")) {
-			this.global.presentToast("The module '" + this.cards[this.cardIdCur].name + "' is being resetted. You will be notified of completion.", "info", {}, true);
-			const data = { module:this.global.modulesData[this.cardIdCur].module };
-			this.global.modulesData[this.cardIdCur]["notReady"] = 1;
-			this.httpClient.post("/_app_/auth/module/reset", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
-			this.global.consolelog(2, "Auth module-reset");
-			this.modalModuleSettings.dismiss();
-		}
-}
-
-async moduleRefresh() {
-	const data = { services:this.global.modulesData[this.cardIdCur].services };
-	const ret = await this.httpClient.post("/_app_/auth/module/refresh", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
-	this.global.consolelog(2, "Auth module-refresh: ", ret);
-	this.global.presentToast("The service associated to the module '" + this.cards[this.cardIdCur].name + "' has been restarted!", "success");
-	this.modalModuleSettings.dismiss();
-}
-
-async config() {
-	const data = { module:this.global.modulesData[this.cardIdCur].module };
-	this.cardConfig = await this.httpClient.post("/_app_/auth/module/config", JSON.stringify(data), { headers:{ "content-type": "application/json" } }).toPromise();
-	this.global.consolelog(2, "Auth module-config: ", this.cardConfig);
-}
-
-closeModuleSettings() {
-	this.modalModuleSettings.dismiss();
-}
-
-ngOnInit() {
-	if (!this.global.settings.welcomeTourShown && !this.global.developer) {
-		setTimeout(() => {
-			if (!this.global.settings.welcomeTourShown) {
-				const steps = ["anchor1", "anchor2", "anchor3", "anchor4", "anchor5", "anchor6", "anchor7", "anchor8", "anchor9", "anchor10"];
-				this.joyrideService.startTour({ steps }).subscribe( (step) => {}, (error) => {}, () => { setTimeout(() => {
-					this.veryReady();
-					this.global.settings.welcomeTourShown = true;
-					this.global.settingsSave();
-				}, 1000) } );
-			}
-		}, 1000);
-	} else
-		this.veryReady();
-}
-
-async veryReady() {
+async ngOnInit() {
 	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later, meanwhile each module will be automatically set up during first use.", "firsttimesetup"))
 		this.global.setup2Start(true);
+	this.modernInit();
 }
 
 showUserMenu:boolean = false;
@@ -321,13 +273,8 @@ getInitials() {
 	return initials;
 }
 
-helperQuery = "";
-helperAsked = false;
-helperBusy = false;
-helperResults: any[] = [];
-
 helperKey(e: Event, el: HTMLTextAreaElement) {
-	if ((e as KeyboardEvent).shiftKey) return; // Shift+Enter = new line
+	if ((e as KeyboardEvent).shiftKey) return;
 	e.preventDefault();
 	this.helperSend(el.value);
 	el.value = '';
@@ -362,50 +309,49 @@ protected async helperSearch(q: string): Promise<any[]> {
 		.map(x => x.c);
 }
 
-showCategories = false;
-
-helperClosed = false;
-
-heroIdx = 0;
-heroPaused = false;
-heroCards = [];
-heroProgressKey = 0;
-
-heroProgressTrack = (_index, key) => key;
+heroProgressTrack(_index, key) {
+	return key;
+}
 
 heroKey(e, d) {
     const t = e.target as HTMLElement;
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(t?.tagName) || t?.isContentEditable)
         return;
-
-    this.heroPaused = true;
     this.heroStep(d);
 }
 
 heroStep(d) {
     const n = this.heroCards.length;
-    if (!n) return;
-
     this.heroIdx = (this.heroIdx + d + n) % n;
-    this.heroProgressKey++;
+    this.heroProgressKey ^= 1;
+    this.heroPaused = false;
     this.cdr.detectChanges();
 }
 
-heroInit() {
-    const heroes = ["openclaw", "n8n", "openwebui", "searxng", "homeassistant", "invidious", "mastodon"];
-    this.heroCards = heroes.map(hero =>
-        this.cards[this.global.modulesDataFindId(hero)]
-    );
+heroInit(arg) {
+	if (arg !== undefined) {
+		let cats = [];
+		for(let i = 0; i < CategoriesOrg.length; i++)
+			if (CategoriesOrg[i]["name"] == arg)
+				cats = CategoriesOrg[i].categories;
+		this.heroCards = this.cards.filter(c => c.web && (arg == c.category || cats.includes(c.category))).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 7);
+	} else {
+		const heroes = ["openclaw", "n8n", "openwebui", "searxng", "homeassistant", "invidious", "mastodon"];
+		this.heroCards = heroes.map(hero => this.cards[this.global.modulesDataFindId(hero)]);
+	}
+	this.heroIdx = 0;
+	this.heroProgressKey = 0;
+	this.heroPaused = false;
 }
 
 heroSelect(i) {
-    this.heroPaused = true;
     this.heroIdx = i;
-    this.heroProgressKey++;
+    this.heroProgressKey ^= 1;
+    this.heroPaused = false;
     this.cdr.detectChanges();
 }
 
-trendingCards;
+trendingCards = [];
 trendingShownCards;
 trendingIdx = 0;
 TrendingNbPerScreen = 5;
@@ -423,11 +369,6 @@ trendingStep(d) {
 trendingInit() {
 	this.trendingCards = this.cards.filter(c => c.web && (c.recommended || c.githubStars > 50000)).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0));
 	this.trendingShownCards = this.trendingCards.slice(this.trendingIdx, this.trendingIdx + this.TrendingNbPerScreen);
-}
-
-modernInit() {
-	this.heroInit();
-	this.trendingInit();
 }
 
 floor(a) {
