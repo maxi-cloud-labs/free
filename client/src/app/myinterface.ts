@@ -9,13 +9,13 @@ export interface Settings {
 }
 
 export const Categories = {
-	"Generative": {
-		name: "Generative AI",
+	"AI Generative": {
+		name: "AI Generative",
 		icon: "bulb-outline",
 		color: "lime"
 	},
-	"Agentic": {
-		name: "Agentic AI",
+	"AI Agentic": {
+		name: "AI Agentic",
 		icon: "bulb-outline",
 		color: "lime"
 	},
@@ -72,7 +72,7 @@ export const Categories = {
 };
 
 export const CategoriesOrg = [
-	{ "name":"AI", "categories":["Generative", "Agentic"] },
+	{ "name":"AI", "categories":["AI Generative", "AI Agentic"] },
 	{ "name":"Work", "categories":["Productivity", "Knowledge", "Collaboration"] },
 	{ "name":"Entertainment", "categories":["Personal", "Media", "Torrent"] },
 	{ "name":"Infrastructure", "categories":["Utils", "Server"] },
@@ -103,8 +103,8 @@ export const CategoriesBar = [
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Recommended"] },
 	{ separator:true },
-	{ separator:false, value:CategoriesEx["Generative AI"] },
-	{ separator:false, value:CategoriesEx["Agentic AI"] },
+	{ separator:false, value:CategoriesEx["AI Generative"] },
+	{ separator:false, value:CategoriesEx["AI Agentic"] },
 	{ separator:true },
 	{ separator:false, value:CategoriesEx["Productivity"] },
 	{ separator:false, value:CategoriesEx["Knowledge"] },
