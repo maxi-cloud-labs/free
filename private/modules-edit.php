@@ -57,11 +57,9 @@ for ($i = 1; $i < count($modules); $i++) {
 	unset($out["reverseProxy"]);
 	unset($out["services"]);
 	$out["keywords"] = explode(",", $out["keywords"]);
-	$out["keywords"] = array_map("ucfirst", $out["keywords"]);
 	sort($out["keywords"]);
 	$out["keywords"] = array_values(array_unique($out["keywords"], SORT_STRING));
 	$out["proprietary"] = explode(",", $out["proprietary"]);
-	$out["proprietary"] = array_map("ucfirst", $out["proprietary"]);
 	sort($out["proprietary"]);
 	$out["proprietary"] = array_values(array_unique($out["proprietary"], SORT_STRING));
 	if ($out["proprietary"][0] == "")
