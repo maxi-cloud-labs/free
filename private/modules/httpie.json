@@ -10,14 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "httpie/cli",
-	"description": "A modern, user-friendly command-line HTTP client for the API era.",
+	"description": "A friendly command-line HTTP client for API requests, JSON responses, and testing endpoints.",
 	"hero": "a friendly pie with HTTP request arrows shooting out like a pie-chart explosion. retro-cute, playful, colorful",
 	"keywords": [
-		"API",
-		"HTTP",
-		"TLS"
+		"Api",
+		"Headers",
+		"Httpclient",
+		"Json",
+		"Requests",
+		"Rest",
+		"Terminal",
+		"Testing"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Insomnia",
+		"Postman"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/httpie"

@@ -10,18 +10,19 @@
 	"finished": true,
 	"database": "",
 	"github": "checkpoint-restore/criu",
-	"description": "A checkpoint and restore tool.",
+	"description": "A Linux checkpoint-and-restore utility for saving and resuming running processes or containers.",
 	"hero": "a frozen time-stopped process inside an ice crystal, thawing back into motion. cryo-sleep sci-fi, calm, pause-and-resume",
 	"keywords": [
-		"Kernel",
+		"Checkpoint",
+		"Containers",
+		"Freezing",
 		"Linux",
-		"OS",
-		"Operating system",
-		"System core"
+		"Migration",
+		"Processes",
+		"Restore",
+		"Snapshots"
 	],
-	"proprietary": [
-		"Microsoft Windows"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": []
 	}

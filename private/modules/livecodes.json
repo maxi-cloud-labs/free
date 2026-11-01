@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "live-codes/livecodes",
-	"description": "A feature-rich client-side code playground for React, Vue, Svelte, Solid, Typescript, Python, Go, Ruby, PHP and 90+ other languages.",
+	"description": "An online code playground for experimenting with many languages and frontend frameworks.",
 	"hero": "a code playground with colorful floating glowing languages orbiting a monitor like planets. cosmic, playful, laboratory",
 	"keywords": [
-		"Code playground",
-		"Code sharing",
-		"Developer tools",
 		"Editor",
-		"Online editor",
+		"Javascript",
+		"Playground",
+		"Preview",
+		"Prototyping",
+		"Python",
 		"Sandbox",
-		"Web development"
+		"Snippets"
 	],
 	"proprietary": [
-		"JsFiddle"
+		"CodePen",
+		"JSFiddle",
+		"StackBlitz"
 	],
 	"default": {
 		"enabled": true,

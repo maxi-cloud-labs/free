@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "The API server for MinIO S3.",
+	"description": "An S3-compatible API endpoint for object storage, buckets, and programmatic file access.",
 	"hero": "a glowing S3-style bucket containing a miniature galaxy of objects, held up by one hand. cosmic, compact, majestic",
 	"keywords": [
-		"Cloud storage",
-		"Data storage",
-		"Object",
-		"Object storage",
-		"S3",
-		"S3 compatible",
-		"Storage"
+		"Blobs",
+		"Buckets",
+		"Compatibility",
+		"Downloads",
+		"Endpoints",
+		"Objectstorage",
+		"Restapi",
+		"Uploads"
 	],
 	"proprietary": [
-		"Amazon S3"
+		"Amazon S3",
+		"Azure Blob Storage",
+		"Google Cloud Storage"
 	],
 	"default": {
 		"enabled": true,

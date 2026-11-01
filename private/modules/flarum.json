@@ -10,19 +10,22 @@
 	"finished": false,
 	"database": "MySQL",
 	"github": "flarum/flarum",
-	"description": "The next-generation forum software that makes online discussion fun again.",
+	"description": "A streamlined discussion forum platform for building and moderating online communities.",
 	"hero": "a sparkling flame igniting speech bubbles in an open forum circle at dusk. warm, glowing, community rekindled",
 	"keywords": [
-		"Community",
-		"Community building",
-		"Discussion",
-		"Discussion platform",
-		"Easy to use",
-		"Forum",
-		"Simple forum"
+		"Communities",
+		"Discussions",
+		"Extensions",
+		"Forums",
+		"Moderation",
+		"Participation",
+		"Threads",
+		"Topics"
 	],
 	"proprietary": [
-		"Discourse"
+		"Circle",
+		"XenForo",
+		"vBulletin"
 	],
 	"default": {
 		"enabled": true,

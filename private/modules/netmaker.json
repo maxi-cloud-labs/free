@@ -10,17 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "gravitl/netmaker",
-	"description": "An automation tool for WireGuard.",
+	"description": "A network management platform for creating secure virtual networks using WireGuard.",
 	"hero": "a glowing dragon-shaped mesh network weaving WireGuard tunnels between worlds. epic, interconnected, ambitious",
 	"keywords": [
-		"Privacy",
-		"Private",
-		"Secure",
-		"Security",
-		"VPN",
-		"WireGuard"
+		"Connectivity",
+		"Encryption",
+		"Meshes",
+		"Networking",
+		"Peers",
+		"Tunnels",
+		"Vpn",
+		"Wireguard"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"NordLayer",
+		"Tailscale",
+		"ZeroTier"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/nmctl"

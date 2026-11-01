@@ -10,18 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "mattermost/mattermost",
-	"description": "A platform for secure collaboration across the entire software development lifecycle.",
+	"description": "A secure team collaboration platform for messaging, channels, and software development workflows.",
 	"hero": "a crew of engineers on a ship deck with glowing speech bubbles coordinating over the sea. teamwork, adventurous, secure",
 	"keywords": [
-		"Chat platform",
-		"Desktop apps",
-		"Mobile apps",
-		"Secure messaging",
-		"Software development",
-		"Team communication",
-		"Workflow automation"
+		"Channels",
+		"Chat",
+		"Collaboration",
+		"Integrations",
+		"Messaging",
+		"Notifications",
+		"Teams",
+		"Threads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Microsoft Teams",
+		"Slack"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9470,

@@ -10,15 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "debpalash/VoiceStudio",
-	"description": "A studio for voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+	"description": "A local AI audio studio for voice cloning, speech synthesis, transcription, and video dubbing.",
 	"hero": "a vintage recording studio mic glowing with waves that morph into many languages and faces. dramatic, musical, multilingual",
 	"keywords": [
-		"Audio content",
-		"Audio files",
-		"Clonage",
-		"Voice cloning"
+		"Audiobooks",
+		"Cloning",
+		"Dictation",
+		"Dubbing",
+		"Speech",
+		"Synthesis",
+		"Transcription",
+		"Tts"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Descript",
+		"ElevenLabs",
+		"Murf AI"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9548,

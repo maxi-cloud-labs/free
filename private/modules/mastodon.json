@@ -10,19 +10,23 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "mastodon/mastodon",
-	"description": "A federated, globally interconnected microblogging community.",
+	"description": "A federated social network for independent communities, short posts, and public conversations.",
 	"hero": "a majestic woolly mastodon with glowing network lines in its tusks, marching in a herd across the horizon. epic, decentralized, mythic",
 	"keywords": [
-		"Community",
-		"Decentralized",
-		"Federated",
+		"Communities",
+		"Federation",
+		"Fediverse",
+		"Followers",
 		"Microblogging",
-		"Moderation tools",
-		"Network",
+		"Posting",
 		"Social",
-		"Social network"
+		"Timelines"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Bluesky",
+		"Threads",
+		"X"
+	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
 		"alias": [

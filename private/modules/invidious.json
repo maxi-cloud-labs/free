@@ -10,17 +10,22 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "iv-org/invidious",
-	"description": "An alternative YouTube front-end with focus on privacy.",
+	"description": "A privacy-focused alternative YouTube interface for browsing and watching videos with less tracking.",
 	"hero": "an elegant masked figure watching a video screen from the shadows, a shield-shaped play button. stealthy, private, noir",
 	"keywords": [
-		"Ads",
-		"No ads",
+		"Frontend",
+		"Playlists",
 		"Privacy",
-		"Privacy-focused",
-		"Videos platform",
-		"YouTube alternative"
+		"Streaming",
+		"Subscriptions",
+		"Tracking",
+		"Videos",
+		"Youtube"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"YouTube",
+		"YouTube Premium"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

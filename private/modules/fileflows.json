@@ -10,23 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "",
-	"description": "An automation platform for processing and managing files.",
+	"description": "A workflow automation engine for processing, converting, and organizing files and media.",
 	"hero": "a conveyor belt carrying files through glowing gates, being transformed along the way. factory, rhythmic, automation ballet",
 	"keywords": [
-		"Automated tasks",
 		"Automation",
-		"Document workflow",
-		"File",
-		"File automation",
-		"File handling",
-		"File organization",
-		"File processing",
+		"Conversions",
+		"Media",
+		"Pipelines",
 		"Processing",
-		"Task automation",
-		"Workflow"
+		"Scheduling",
+		"Transcoding",
+		"Workflows"
 	],
 	"proprietary": [
-		"Zapier"
+		"Adobe Media Encoder",
+		"File Juggler",
+		"Hazel"
 	],
 	"default": {
 		"enabled": true,

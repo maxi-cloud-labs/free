@@ -10,20 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "ionic-team/ionic-framework",
-	"description": "A powerful cross-platform UI toolkit for building native-quality iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript.",
+	"description": "A cross-platform interface toolkit for mobile applications and progressive web apps.",
 	"hero": "a glowing atom made of overlapping app screens, orbiting a neon-lit smartphone. electric, cross-platform, futuristic",
 	"keywords": [
-		"App development",
-		"Framework",
-		"JavaScript",
-		"Mobile apps",
-		"Progressive Web Apps",
-		"UI",
-		"User interface",
-		"Web apps"
+		"Android",
+		"Capacitor",
+		"Components",
+		"Hybrid",
+		"Interfaces",
+		"Ios",
+		"Mobile",
+		"Pwa"
 	],
 	"proprietary": [
-		"Flutter"
+		"Flutter",
+		"React Native"
 	],
 	"default": {
 		"cmds": [

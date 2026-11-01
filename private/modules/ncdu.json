@@ -10,21 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "rofl0r/ncdu",
-	"description": "A tool to calculate and visualize used disk space.",
+	"description": "An interactive terminal disk usage analyzer for locating large files and directories.",
 	"hero": "a diver exploring a deep sea of disk blocks lit by a lantern, discovering giant hidden space hogs. adventurous, mapping, treasure-hunt",
 	"keywords": [
 		"Capacity",
-		"Disk",
-		"Disk space",
-		"Disk usage",
-		"File system",
-		"Space",
-		"Space analysis",
+		"Cleanup",
+		"Directories",
+		"Diskspace",
+		"Filesystem",
 		"Storage",
-		"Storage management",
+		"Terminal",
 		"Visualization"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"DaisyDisk",
+		"TreeSize Professional",
+		"WizTree"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/ncdu"

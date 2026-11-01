@@ -2,7 +2,7 @@
 	"module": "wgdashboard",
 	"name": "WGDashboard",
 	"title": "VPN Manager",
-	"category": "server",
+	"category": "Server",
 	"version": "v4.3.1",
 	"installMethod": "clone",
 	"web": true,
@@ -10,17 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "WGDashboard/WGDashboard",
-	"description": "A web interface to manage WireGuard.",
+	"description": "A web control panel for configuring WireGuard tunnels, peers, and VPN connections.",
 	"hero": "a futuristic dashboard of glowing VPN tunnels, a dragon-shaped WireGuard emblem at its center. neon, secure, command-room",
 	"keywords": [
-		"Privacy",
-		"Private",
-		"Secure",
-		"Security",
-		"VPN",
-		"WireGuard"
+		"Configuration",
+		"Connections",
+		"Keys",
+		"Monitoring",
+		"Peers",
+		"Tunnels",
+		"Vpn",
+		"Wireguard"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"NordLayer",
+		"Tailscale",
+		"Twingate"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

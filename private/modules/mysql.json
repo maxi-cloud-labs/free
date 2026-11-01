@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "mysql/mysql-server",
-	"description": "A transactional relational database management system.",
+	"description": "A relational SQL database server for storing application data and processing transactions.",
 	"hero": "a leaping dolphin made of glowing database tables arcing across an ocean. classic, graceful, powerful",
 	"keywords": [
-		"Management",
-		"MySQL",
-		"RDBMS",
+		"Indexing",
+		"Queries",
+		"Rdbms",
 		"Relational",
-		"SQL",
-		"System",
-		"Transactional"
+		"Replication",
+		"Schemas",
+		"Tables",
+		"Transactions"
 	],
 	"proprietary": [
+		"Amazon Aurora",
+		"Microsoft SQL Server",
 		"Oracle Database"
 	],
 	"default": {

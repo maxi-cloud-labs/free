@@ -10,14 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "langflow-ai/langflow",
-	"description": "A powerful tool for building and deploying AI-powered agents and workflows.",
+	"description": "A visual development platform for designing, testing, and deploying AI agents and LLM workflows.",
 	"hero": "a luminous river of connected glowing nodes forming a flowing waterfall of AI agents. serene, intricate, colorful",
 	"keywords": [
-		"AI agents",
-		"Deploy",
-		"Workflow"
+		"Agents",
+		"Deployment",
+		"Dragdrop",
+		"Llm",
+		"Pipelines",
+		"Rag",
+		"Visual",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon Bedrock Agents",
+		"Google Vertex AI Agent Builder",
+		"Microsoft Copilot Studio"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9457,

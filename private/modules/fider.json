@@ -10,15 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "getfider/fider",
-	"description": "An open platform to collect and prioritize feedback.",
+	"description": "A feedback portal for collecting product ideas, voting on requests, and prioritizing improvements.",
 	"hero": "a glowing suggestion-box with ideas as light bulbs floating upward, being voted on by a crowd. community, democratic, hopeful",
 	"keywords": [
-		"Collect",
-		"Feed-back",
-		"Platform",
-		"Prioritize"
+		"Customers",
+		"Feedback",
+		"Ideas",
+		"Prioritization",
+		"Requests",
+		"Roadmap",
+		"Suggestions",
+		"Voting"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Canny",
+		"Productboard",
+		"UserVoice"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9433,

@@ -10,21 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "yt-dlp/yt-dlp",
-	"description": "A feature-rich command-line audio/video downloader.",
+	"description": "A command-line downloader for videos, audio, and playlists from YouTube and other websites.",
 	"hero": "a glowing yo-yo-shaped play button on a string pulling videos out of a TV screen into a satchel. mischievous, heist, retro",
 	"keywords": [
-		"Audio downloader",
-		"Download",
-		"Format selection",
-		"Media extraction",
-		"Playlist download",
+		"Audio",
+		"Downloads",
+		"Extraction",
+		"Formats",
+		"Playlists",
+		"Subtitles",
 		"Video",
-		"Video downloader",
-		"YouTube",
-		"YouTube downloader"
+		"Youtube"
 	],
 	"proprietary": [
-		"4K Video Downloader"
+		"4K Video Downloader Plus",
+		"Internet Download Manager"
 	],
 	"default": {
 		"cmds": [

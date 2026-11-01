@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "mebjas/html5-qrcode",
-	"description": "A minimal QR code scanner using HTML5.",
+	"description": "A browser-based QR code and barcode scanner using a device camera.",
 	"hero": "a phone camera scanning a glowing QR code, light beams reading its pixels into the air. scanner-spy thriller, crisp, minimal",
 	"keywords": [
-		"Barcode scanner",
-		"Camera scanning",
-		"File scanning",
-		"QR",
-		"QR code scanner",
-		"Scanner"
+		"Barcodes",
+		"Camera",
+		"Decoding",
+		"Qrcodes",
+		"Reader",
+		"Recognition",
+		"Scanning",
+		"Smartphone"
 	],
 	"proprietary": [
-		"QR Code Scanner"
+		"Dynamsoft Barcode Reader",
+		"Scanbot Barcode Scanner SDK"
 	],
 	"default": {
 		"enabled": true,

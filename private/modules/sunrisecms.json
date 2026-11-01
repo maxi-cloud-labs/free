@@ -10,19 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "cityssm/sunrise-cms",
-	"description": "An application to assist cemetery managers with managing their cemetery records.",
+	"description": "A cemetery records system for managing burial plots, interments, and cemetery administration.",
 	"hero": "a serene cemetery at sunrise with glowing digital record tablets at each headstone. peaceful, respectful, golden-hour",
 	"keywords": [
-		"Burial site tracking",
-		"CMS",
-		"Cemetery management",
-		"Low system requirements",
-		"Municipal",
-		"Municipal application",
-		"Record keeping"
+		"Administration",
+		"Burials",
+		"Cemetery",
+		"Deceased",
+		"Graves",
+		"Interments",
+		"Plots",
+		"Records"
 	],
 	"proprietary": [
-		"WordPress"
+		"Byond by OpusXenta",
+		"PlotBox"
 	],
 	"default": {
 		"enabled": true,

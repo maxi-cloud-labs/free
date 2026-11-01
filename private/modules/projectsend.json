@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "projectsend/projectsend",
-	"description": "A tool to share files with clients, focused on ease of use and privacy.",
+	"description": "A private client file portal for uploading, organizing, and distributing shared documents.",
 	"hero": "a courier handing a locked briefcase of files to a client in a modern office. professional, discreet, tidy",
 	"keywords": [
-		"Client management",
-		"File",
-		"File sharing",
-		"Multi-language",
-		"Privacy",
-		"Secure sharing",
+		"Clients",
+		"Distribution",
+		"Downloads",
+		"Files",
+		"Permissions",
 		"Sharing",
-		"Upload",
-		"Upload files"
+		"Transfers",
+		"Uploads"
 	],
 	"proprietary": [
-		"Dropbox"
+		"Box",
+		"Dropbox",
+		"WeTransfer"
 	],
 	"default": {
 		"autoLogin": {

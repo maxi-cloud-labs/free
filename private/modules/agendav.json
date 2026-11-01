@@ -10,15 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "agendav/agendav",
-	"description": "A CalDAV web client similar to Google Calendar.",
+	"description": "A browser-based CalDAV calendar for scheduling events and coordinating shared agendas.",
 	"hero": "an ornate wall calendar page with golden hands of a clock pulling dates into place. classic, elegant, retro-office adventure",
 	"keywords": [
-		"CalDAV",
+		"Agendas",
+		"Appointments",
+		"Caldav",
 		"Calendar",
+		"Events",
+		"Invitations",
 		"Scheduling",
-		"Shared calendar"
+		"Synchronization"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Apple Calendar",
+		"Google Calendar",
+		"Microsoft Outlook Calendar"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9404,

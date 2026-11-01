@@ -10,18 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "openjdk/jdk",
-	"description": "A general-purpose programming language designed for portability and security.",
+	"description": "An object-oriented programming language and runtime for cross-platform applications.",
 	"hero": "a steaming cup of coffee emitting a glowing ring of code, sitting on a cosmic table. warm, classic, enduring legend",
 	"keywords": [
-		"Development",
-		"JDK",
-		"JVM",
-		"Java",
-		"Language",
-		"OOP",
-		"OpenJDK",
-		"Programming",
-		"Programming language"
+		"Backend",
+		"Bytecode",
+		"Compilation",
+		"Jvm",
+		"Libraries",
+		"Openjdk",
+		"Portability",
+		"Programming"
 	],
 	"proprietary": [
 		"Oracle JDK"

@@ -10,15 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "excalidraw/excalidraw",
-	"description": "A virtual whiteboard for sketching hand-drawn like diagrams.",
+	"description": "A collaborative digital whiteboard for hand-drawn diagrams, sketches, and visual brainstorming.",
 	"hero": "a hand-drawn sketch of a rough boxy diagram being drawn by a glowing pencil on a whiteboard. sketchbook, playful, handcrafted",
 	"keywords": [
+		"Brainstorming",
 		"Canvas",
-		"Diagram",
-		"Hand-drawn",
-		"Sketching"
+		"Collaboration",
+		"Diagrams",
+		"Drawing",
+		"Flowcharts",
+		"Sketches",
+		"Whiteboard"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Microsoft Whiteboard",
+		"Miro",
+		"Mural"
+	],
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,

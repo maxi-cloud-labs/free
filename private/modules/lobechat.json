@@ -10,18 +10,23 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "lobehub/lobehub",
-	"description": "A modern design AI Agent Workspace.",
+	"description": "An AI agent workspace for chatting with models, managing assistants, and coordinating AI tasks.",
 	"hero": "a modern glowing lobe-shaped chat bubble wearing a tiny crown, surrounded by agent avatars. sleek, premium, elegant",
 	"keywords": [
-		"AI chatbot",
-		"AI models",
-		"Chat",
-		"Chatbot",
-		"LLMs",
-		"Language",
-		"Language model"
+		"Agents",
+		"Assistants",
+		"Chatbots",
+		"Conversations",
+		"Llm",
+		"Orchestration",
+		"Prompts",
+		"Scheduling"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ChatGPT",
+		"Claude",
+		"Microsoft Copilot"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

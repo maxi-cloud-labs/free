@@ -10,20 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "maybe-finance/maybe",
-	"description": "A personal finance tool for everyone.",
+	"description": "A personal finance dashboard for tracking accounts, budgets, transactions, and net worth.",
 	"hero": "a coin balanced on a thin edge, golden light casting a path of growing finances behind it. contemplative, hopeful, new-beginning",
 	"keywords": [
-		"App setup",
-		"Budget",
-		"Budget tool",
-		"Finance",
-		"Finance app",
-		"Financial tracking",
-		"Money management",
-		"Personal finance"
+		"Accounts",
+		"Budgeting",
+		"Expenses",
+		"Finances",
+		"Income",
+		"Investments",
+		"Networth",
+		"Transactions"
 	],
 	"proprietary": [
-		"Mint",
+		"Monarch Money",
+		"Quicken Simplifi",
 		"YNAB"
 	],
 	"default": {

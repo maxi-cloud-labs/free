@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "openclaw/openclaw",
-	"description": "A user-friendly personal AI assistant.",
+	"description": "A personal AI assistant platform for taking actions, using tools, and automating everyday tasks.",
 	"hero": "a stylized red lobster claw holding a glowing terminal cursor. playful, mascot-driven, friendly but powerful",
 	"keywords": [
-		"AI assistant",
-		"AI models",
-		"LLMs",
-		"Language",
-		"Language model"
+		"Agents",
+		"Automation",
+		"Autonomous",
+		"Integrations",
+		"Messaging",
+		"Personalassistant",
+		"Tasks",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ChatGPT",
+		"Manus"
+	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
 		"autoLogin": {

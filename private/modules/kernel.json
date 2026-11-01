@@ -10,18 +10,19 @@
 	"finished": true,
 	"database": "",
 	"github": "torvalds/linux",
-	"description": "A Linux kernel for various architectures.",
+	"description": "The core Linux operating system software for hardware control, processes, and device drivers.",
 	"hero": "a blazing penguin warrior in armor standing atop a glowing circuit mountain. mythic, foundational, legendary",
 	"keywords": [
-		"Kernel",
-		"Linux",
-		"OS",
-		"Operating system",
-		"System core"
+		"Drivers",
+		"Hardware",
+		"Modules",
+		"Operating",
+		"Processes",
+		"Scheduling",
+		"Syscalls",
+		"Unix"
 	],
-	"proprietary": [
-		"Microsoft Windows"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": []
 	}

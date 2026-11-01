@@ -10,19 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",
+	"description": "A private AI chat assistant with locally running language models on your device.",
 	"hero": "a quiet glowing orb of private chat bubbles inside a locked cloud bubble. intimate, secret, whispered conversation",
 	"keywords": [
-		"Cloud storage",
-		"Encryption",
-		"Free storage",
-		"Photo backup",
-		"Photos",
-		"Privacy",
-		"Secure sharing",
-		"Two-factor authentication"
+		"Assistant",
+		"Chatbots",
+		"Conversations",
+		"Inference",
+		"Llm",
+		"Offline",
+		"Private",
+		"Prompts"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ChatGPT",
+		"Claude",
+		"Google Gemini"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9428,

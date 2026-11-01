@@ -10,16 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "louislam/uptime-kuma",
-	"description": "\"A fancy monitoring tool like \"\"Uptime Robot\"\".\"",
+	"description": "A self-hosted uptime monitor with service checks, downtime alerts, and public status pages.",
 	"hero": "a cute bear mascot standing proudly on a glowing green status board of uptime bars. heroic, cheerful, steadfast",
 	"keywords": [
+		"Availability",
+		"Downtime",
+		"Healthchecks",
 		"Monitoring",
-		"Monitoring tool",
 		"Notifications",
-		"Status pages",
-		"Website uptime"
+		"Outages",
+		"Ping",
+		"Statuspages"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Better Stack",
+		"Pingdom",
+		"UptimeRobot"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9547,

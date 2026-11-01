@@ -10,12 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "Tomas-M/iotop",
-	"description": "A top utility for IO.",
+	"description": "A Linux command-line monitor for per-process disk input and output activity.",
 	"hero": "a heartbeat monitor on a disk platter with a spiking pulse, dramatic red alarm lights. medical-drama, urgent, monitoring",
 	"keywords": [
-		"CPU usage",
-		"Disk access",
-		"Processor"
+		"Disks",
+		"Iops",
+		"Linux",
+		"Monitoring",
+		"Processes",
+		"Reads",
+		"Throughput",
+		"Writes"
 	],
 	"proprietary": [],
 	"default": {

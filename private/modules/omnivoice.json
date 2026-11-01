@@ -10,15 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "k2-fsa/OmniVoice",
-	"description": "A high-Quality Voice Cloning TTS for 600+ Languages.",
+	"description": "A multilingual text-to-speech engine for high-quality synthetic speech and voice cloning.",
 	"hero": "a glowing sound-wave mask shifting into many languages' faces, mouth open mid-speech. surreal, multilingual, mesmerizing",
 	"keywords": [
-		"Audio content",
-		"Audio files",
-		"Clonage",
-		"Voice cloning"
+		"Audio",
+		"Cloning",
+		"Dubbing",
+		"Multilingual",
+		"Speech",
+		"Synthesis",
+		"Tts",
+		"Voices"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ElevenLabs",
+		"Murf AI"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9482,

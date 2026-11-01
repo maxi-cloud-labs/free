@@ -10,20 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "monicahq/monica",
-	"description": "A personal relationship manager, and a new kind of CRM to organize interactions with your friends and family.",
+	"description": "A personal relationship manager for contacts, life events, interactions, and reminders.",
 	"hero": "a warm glowing contact book with portraits of friends and family reaching out with thin golden threads. heartfelt, nostalgic, caring",
 	"keywords": [
-		"Contact organizer",
-		"Family and friends tracker",
-		"Life documentation",
-		"Notes and activities",
-		"Personal CRM",
-		"Privacy",
-		"Privacy-focused",
-		"Relationship management",
+		"Birthdays",
+		"Contacts",
+		"Crm",
+		"Family",
+		"Friends",
+		"Interactions",
+		"Relationships",
 		"Reminders"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Clay",
+		"Dex"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9477,

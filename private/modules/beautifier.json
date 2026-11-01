@@ -10,19 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "beautifier/js-beautify",
-	"description": "A tool to reformat javascript.",
+	"description": "A source-code formatter for readable JavaScript, HTML, and CSS with consistent indentation.",
 	"hero": "a magic comb straightening tangled glowing curly braces into neat lines. satisfying, clean, makeover-transformation",
 	"keywords": [
-		"Beautifier",
-		"Cleanup code",
-		"Code",
-		"Formatter",
+		"Css",
+		"Formatting",
+		"Html",
 		"Indentation",
-		"JavaScript formatter",
 		"Javascript",
-		"Obfuscate",
-		"Optimization",
-		"Refactor"
+		"Prettify",
+		"Readability",
+		"Sourcecode"
 	],
 	"proprietary": [],
 	"default": {

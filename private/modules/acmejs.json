@@ -10,24 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "fishballapp/acme",
-	"description": "A Typescript ACME client.",
+	"description": "A TypeScript ACME client for automated HTTPS certificate creation and domain validation.",
 	"hero": "a golden certificate scroll with a padlock seal, unfurling from a yellow JS-style tile. light, modern, sleek, magical",
 	"keywords": [
-		"Automated certificate",
 		"Certificates",
-		"Domain validation",
-		"Free SSL",
-		"JavaScript",
-		"Let's Encrypt",
-		"LetsEncrypt",
-		"Online demo",
-		"SSL",
-		"SSL certificate",
-		"TLS",
-		"Web security"
+		"Https",
+		"Issuance",
+		"Letsencrypt",
+		"Ssl",
+		"Tls",
+		"Typescript",
+		"Validation"
 	],
 	"proprietary": [
-		"Sectigo"
+		"DigiCert CertCentral",
+		"Sectigo Certificate Manager"
 	],
 	"default": {
 		"cmds": []

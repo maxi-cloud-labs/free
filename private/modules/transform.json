@@ -10,20 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "ritz078/transform",
-	"description": "A polyglot tool to convert web.",
+	"description": "An online developer converter for transforming data, formats, and code representations.",
 	"hero": "a metamorphosing butterfly made of glowing data formats emerging from a chrysalis. magical, transformative, delicate",
 	"keywords": [
-		"Code",
-		"Code conversion",
-		"Contributors",
-		"Converter",
-		"Developer tool",
-		"Format transformation",
-		"Online tool",
-		"Polyglot tool",
-		"Web converter"
+		"Conversion",
+		"Developers",
+		"Encodings",
+		"Formats",
+		"Json",
+		"Schemas",
+		"Xml",
+		"Yaml"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Altova MapForce"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9541,

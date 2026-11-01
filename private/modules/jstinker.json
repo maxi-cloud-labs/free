@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "johncipponeri/jstinker",
-	"description": "A sandbox for Javascript.",
+	"description": "An online JavaScript playground for editing and previewing HTML, CSS, and JavaScript snippets.",
 	"hero": "a tinkerer with goggles at a workbench full of glowing JavaScript braces and gears, sparks flying. playful, steampunk, inventor-lab",
 	"keywords": [
-		"Code formatting",
-		"Code playground",
-		"Editor",
-		"HTML/CSS/JS preview",
-		"JavaScript sandbox",
-		"Sandbox",
-		"Syntax checking",
-		"Web development tools"
+		"Css",
+		"Experimentation",
+		"Frontend",
+		"Html",
+		"Javascript",
+		"Playground",
+		"Preview",
+		"Snippets"
 	],
 	"proprietary": [
-		"JsFiddle"
+		"CodePen",
+		"JSFiddle",
+		"StackBlitz"
 	],
 	"default": {
 		"enabled": true,

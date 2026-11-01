@@ -10,20 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "vrana/adminer",
-	"description": "A database management available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB and others.",
+	"description": "A lightweight web interface for browsing, querying, and administering SQL databases.",
 	"hero": "a stoic librarian-guardian holding a giant key over a towering stack of glowing database cylinders. calm, orderly, powerful",
 	"keywords": [
-		"Administration tool",
-		"Database management",
-		"Database viewer",
-		"Development platform",
-		"MySQL",
-		"MySQL viewer",
-		"PostgreSQL",
-		"SQL",
-		"Viewer"
+		"Administration",
+		"Database",
+		"Mariadb",
+		"Mysql",
+		"Postgresql",
+		"Queries",
+		"Sql",
+		"Tables"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"JetBrains DataGrip",
+		"Navicat Premium",
+		"TablePlus"
+	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
 		"autoLogin": {

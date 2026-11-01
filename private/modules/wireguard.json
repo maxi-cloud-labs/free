@@ -10,18 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "WireGuard/wireguard-linux",
-	"description": "A VPN implementation integrated directly into the Linux kernel with state-of-the-art cryptography.",
+	"description": "A modern encrypted VPN protocol and implementation for secure private network connections.",
 	"hero": "a glowing red dragon coiled around a secure tunnel of light cutting through a dark network. sleek, fast, mythical",
 	"keywords": [
-		"Privacy",
-		"Private",
-		"Protected connection",
-		"Remote access",
-		"Secure",
-		"Security",
-		"VPN"
+		"Cryptography",
+		"Encryption",
+		"Networking",
+		"Peers",
+		"Remote",
+		"Routing",
+		"Tunnels",
+		"Vpn"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ExpressVPN",
+		"NordVPN",
+		"Tailscale"
+	],
 	"default": {
 		"cmds": []
 	}

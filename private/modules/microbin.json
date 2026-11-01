@@ -10,17 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "szabodanika/microbin",
-	"description": "A minimalist online pastebin with zero knowledge of pasted data.",
+	"description": "A lightweight pastebin for sharing text snippets, files, and short links privately.",
 	"hero": "a tiny glowing paste jar with a single note inside floating in a dark void. minimalist, tiny, mysterious",
 	"keywords": [
+		"Expiration",
+		"Links",
 		"Pastebin",
 		"Privacy",
-		"Private",
-		"Secure",
-		"Security"
+		"Secrets",
+		"Sharing",
+		"Snippets",
+		"Uploads"
 	],
 	"proprietary": [
-		"Pastebin"
+		"Pastebin.com"
 	],
 	"default": {
 		"enabled": true,

@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "wireshark/wireshark",
-	"description": "A network traffic analyzer and sniffer.",
+	"description": "A network protocol analyzer for capturing, filtering, and examining packet traffic.",
 	"hero": "a menacing shark made of glowing packets circling a network of cables. predator, deep-sea, thriller",
 	"keywords": [
-		"Analyzer",
-		"Dumper",
-		"Network",
-		"Networking",
-		"TCP",
-		"Test",
-		"UDP",
-		"Watch"
+		"Capture",
+		"Filtering",
+		"Inspection",
+		"Packets",
+		"Pcap",
+		"Protocols",
+		"Sniffing",
+		"Troubleshooting"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Omnipeek",
+		"Riverbed Packet Analyzer"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/tshark"

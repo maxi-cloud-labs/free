@@ -10,18 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "tailwindlabs/tailwindcss",
-	"description": "A utility-first CSS framework for rapid UI development.",
+	"description": "A utility-first CSS framework for styling responsive websites and interfaces with reusable classes.",
 	"hero": "a surfer riding a glowing teal wave of utility classes. breezy, breathtaking, fast",
 	"keywords": [
-		"App development",
-		"CSS",
-		"Framework",
-		"JavaScript",
-		"Mobile apps",
-		"Progressive Web Apps",
-		"UI",
-		"User interface",
-		"Web apps"
+		"Classes",
+		"Components",
+		"Frontend",
+		"Layouts",
+		"Responsive",
+		"Stylesheets",
+		"Styling",
+		"Utilities"
 	],
 	"proprietary": [],
 	"default": {

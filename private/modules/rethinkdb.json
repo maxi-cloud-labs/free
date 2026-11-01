@@ -10,18 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "rethinkdb/rethinkdb",
-	"description": "A database tailored for realtime web.",
+	"description": "A real-time document database for JSON data, live queries, and responsive applications.",
 	"hero": "a glowing brain of live-updating data streams pushing changes outward in real time. neon, kinetic, living",
 	"keywords": [
+		"Changefeeds",
 		"Distributed",
-		"High availability",
-		"JSON documents",
-		"NoSQL",
-		"Quickstart guide",
+		"Documents",
+		"Json",
+		"Nosql",
+		"Queries",
 		"Realtime",
-		"Scalable"
+		"Synchronization"
 	],
 	"proprietary": [
+		"Azure Cosmos DB",
 		"Firebase Realtime Database"
 	],
 	"default": {

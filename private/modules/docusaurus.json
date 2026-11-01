@@ -10,16 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "facebook/docusaurus",
-	"description": "A live site for documentation.",
+	"description": "A static website generator for versioned documentation, technical guides, and project sites.",
 	"hero": "a friendly green dinosaur reading a giant glowing documentation book. cute, wise, mascot-driven",
 	"keywords": [
-		"Community",
-		"Contributing",
-		"Docs",
 		"Documentation",
-		"Website generator"
+		"Guides",
+		"Markdown",
+		"Publishing",
+		"React",
+		"Static",
+		"Versioning",
+		"Websites"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"GitBook",
+		"Mintlify",
+		"ReadMe"
+	],
 	"default": {
 		"alias": [
 			"docs_static"

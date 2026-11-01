@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "bizzycola/qrcode-generator",
-	"description": "A simple QR code generator.",
+	"description": "A simple web utility for generating downloadable QR codes from links and text.",
 	"hero": "a magical pixel stone forming a QR code in a glowing forge. crisp, graphic, alchemical",
 	"keywords": [
-		"Generator",
-		"Image",
-		"QR",
-		"QR code",
-		"Simple",
-		"URL"
+		"Creation",
+		"Encoding",
+		"Links",
+		"Matrix",
+		"Printable",
+		"Qrcodes",
+		"Scanning",
+		"Urls"
 	],
 	"proprietary": [
-		"QR Code Generator"
+		"QR Code Generator PRO",
+		"QR TIGER"
 	],
 	"default": {
 		"enabled": true,

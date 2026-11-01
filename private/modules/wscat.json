@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "websockets/wscat",
-	"description": "A tool for WebSockets.",
+	"description": "A command-line WebSocket client for sending messages and testing live socket connections.",
 	"hero": "a cat lounging on a glowing two-way wire, speech bubbles flying both directions. whimsical, minimal, neon",
 	"keywords": [
-		"Communication",
-		"Network",
-		"WebSocket",
-		"Ws",
-		"Wss"
+		"Connections",
+		"Debugging",
+		"Messages",
+		"Realtime",
+		"Sockets",
+		"Terminal",
+		"Testing",
+		"Websocket"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Insomnia",
+		"Postman"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/wscat"

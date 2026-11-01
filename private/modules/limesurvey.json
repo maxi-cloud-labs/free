@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "LimeSurvey/LimeSurvey",
-	"description": "A powerful, feature-rich web-based survey platform, supporting extensive survey logic.",
+	"description": "A flexible online survey platform for questionnaires, response collection, and research analysis.",
 	"hero": "a juicy lime wedge with a glowing questionnaire checklist floating above it. fresh, zesty, playful",
 	"keywords": [
-		"Customizable surveys",
-		"Data analysis",
-		"Feedback collection",
-		"Online questionnaires",
-		"Questionnaire",
+		"Analytics",
+		"Branching",
+		"Forms",
+		"Polls",
+		"Questionnaires",
 		"Research",
-		"Survey",
-		"Survey platform"
+		"Responses",
+		"Surveys"
 	],
 	"proprietary": [
-		"SurveyMonkey"
+		"Qualtrics",
+		"SurveyMonkey",
+		"Typeform"
 	],
 	"default": {
 		"autoLogin": {

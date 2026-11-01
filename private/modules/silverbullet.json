@@ -10,19 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "silverbulletmd/silverbullet",
-	"description": "A personal productivity platform built on Markdown.",
+	"description": "A customizable Markdown knowledge base for linked notes, documents, and personal workflows.",
 	"hero": "a gleaming silver bullet engraved with markdown symbols, frozen in slow motion mid-flight. monster-hunter-film, dramatic, sleek",
 	"keywords": [
-		"Browser-based",
-		"Customizable platform",
-		"Knowledge management",
-		"Markdown editor",
-		"Personal notes",
-		"Productivity tools",
-		"Programming integration",
-		"Wiki-style linking"
+		"Backlinks",
+		"Documents",
+		"Knowledgebase",
+		"Markdown",
+		"Notes",
+		"Organization",
+		"Scripting",
+		"Wiki"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Evernote",
+		"Notion",
+		"Obsidian"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9530,

@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "ggml-org/llama.cpp",
-	"description": "A tool to enable LLM inference with minial setup and outstanding performance.",
+	"description": "An efficient local inference engine for running large language models on everyday hardware.",
 	"hero": "a shaggy llama sprinting with a glowing C++ circuit mane across mountain terrain. wild, speedy, endearing mascot",
 	"keywords": [
-		"AI tool",
-		"Chatbot",
-		"LLM",
-		"Language",
-		"Language model",
-		"Local AI",
-		"Machine learning",
-		"Model inference"
+		"Cpu",
+		"Gguf",
+		"Gpu",
+		"Inference",
+		"Llm",
+		"Models",
+		"Offline",
+		"Quantization"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"LM Studio",
+		"NVIDIA NIM"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9465,

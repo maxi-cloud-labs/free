@@ -10,24 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Stirling-Tools/Stirling-PDF",
-	"description": "A web app to perform merging, splitting, file conversions and OCR on PDF files.",
+	"description": "An all-in-one PDF editor for merging, splitting, converting, securing, and processing documents.",
 	"hero": "a muscular mechanic with a Stirling engine arm splitting and merging PDF pages like a blacksmith. industrial-retro, hardy, craft",
 	"keywords": [
-		"Convert PDF",
-		"Digital signatures",
-		"Document management",
-		"Manipulation",
-		"Merge PDFs",
-		"Online PDF tool",
-		"PDF",
-		"PDF compression",
-		"PDF editor",
-		"PDF manipulation",
-		"PDF security",
-		"Split PDFs"
+		"Compression",
+		"Conversion",
+		"Documents",
+		"Merging",
+		"Ocr",
+		"Redaction",
+		"Signing",
+		"Splitting"
 	],
 	"proprietary": [
-		"Adobe Acrobat"
+		"Adobe Acrobat",
+		"Foxit PDF Editor",
+		"Nitro PDF Pro"
 	],
 	"default": {
 		"enabled": true,

@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "fisharebest/webtrees",
-	"description": "The web's leading online collaborative genealogy application.",
+	"description": "An online genealogy platform for organizing family trees, relatives, and historical records.",
 	"hero": "a sprawling ancestral family tree with glowing portraits as leaves and roots deep in the earth. timeless, genealogical, cinematic sepia",
 	"keywords": [
-		"Collaborative",
-		"Family",
-		"Family tree",
-		"GEDCOM",
-		"GEDCOM files",
+		"Ancestors",
+		"Ancestry",
+		"Familytree",
+		"Gedcom",
 		"Genealogy",
-		"Online application",
-		"Privacy settings",
-		"Tree"
+		"Heritage",
+		"Lineage",
+		"Relatives"
 	],
 	"proprietary": [
-		"Ancestry.com"
+		"Ancestry",
+		"Findmypast",
+		"MyHeritage"
 	],
 	"default": {
 		"autoLogin": {

@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "Redocly/redoc",
-	"description": "A tool to generate reference documentation.",
+	"description": "An API reference documentation renderer for clear, browsable OpenAPI specifications.",
 	"hero": "a glowing three-panel scroll of API documentation rising from the sea like a temple. serene, structured, majestic",
 	"keywords": [
-		"Open API",
-		"Reference Documentation"
+		"Apis",
+		"Documentation",
+		"Endpoints",
+		"Openapi",
+		"Reference",
+		"Rendering",
+		"Specifications",
+		"Swagger"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ReadMe",
+		"Stoplight",
+		"SwaggerHub"
+	],
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,

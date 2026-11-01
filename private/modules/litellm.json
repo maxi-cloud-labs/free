@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "BerriAI/litellm",
-	"description": "An AI proxy to call 100+ LLM APIs in OpenAI format, with cost tracking, guardrails, loadbalancing and logging.",
+	"description": "A unified LLM API gateway for routing model requests, monitoring costs, and applying guardrails.",
 	"hero": "a lightweight feather channeling a hundred glowing LLM streams into a single beam. weightless, universal, converging",
 	"keywords": [
-		"AI Gateway",
-		"AI Routing"
+		"Compatibility",
+		"Gateway",
+		"Inference",
+		"Loadbalancing",
+		"Providers",
+		"Quotas",
+		"Routing",
+		"Tokens"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Cloudflare AI Gateway",
+		"OpenRouter",
+		"Vercel AI Gateway"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

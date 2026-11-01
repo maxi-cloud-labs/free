@@ -10,20 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "nocobase/nocobase",
-	"description": "An extensible AI-powered no-code/low-code platform for building business applications and enterprise solutions.",
+	"description": "An AI-assisted no-code platform for building customizable business apps and data workflows.",
 	"hero": "a glowing building-block workshop assembling a business app from colorful modular pieces, AI assistant spark above. creative, empowering, playful",
 	"keywords": [
-		"AI-powered tools",
-		"Business applications",
-		"Data management",
-		"Easy customization",
-		"Enterprise solutions",
-		"No Code",
-		"No-code platform",
-		"Quick deployment",
-		"Workflow automation"
+		"Automation",
+		"Builders",
+		"Business",
+		"Databases",
+		"Forms",
+		"Lowcode",
+		"Nocode",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Airtable",
+		"Microsoft Power Apps",
+		"Retool"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9480,

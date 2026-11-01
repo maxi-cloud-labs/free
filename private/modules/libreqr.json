@@ -10,17 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "A tool for generating and managing QR codes.",
+	"description": "A simple QR code utility for creating and managing scannable codes.",
 	"hero": "a bold, glowing QR code shape that unfolds into a open book, light spilling out. clean, graphic, crisp",
 	"keywords": [
-		"Codes",
+		"Barcodes",
+		"Encoding",
 		"Generator",
-		"QR",
-		"QR code",
-		"Scan"
+		"Links",
+		"Printable",
+		"Qrcodes",
+		"Scanning",
+		"Sharing"
 	],
 	"proprietary": [
-		"QR Code Generator"
+		"QR Code Generator PRO",
+		"QR TIGER"
 	],
 	"default": {
 		"enabled": true,

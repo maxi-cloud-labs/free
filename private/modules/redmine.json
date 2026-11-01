@@ -10,19 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "redmine/redmine",
-	"description": "A flexible project management web application.",
+	"description": "A project tracking platform for managing tasks, issues, milestones, and team schedules.",
 	"hero": "a ruby gem locket opening to reveal a miniature Gantt chart. elegant, gem-themed, orderly",
 	"keywords": [
-		"Flexible",
-		"Organization",
-		"Planning",
-		"Project management",
-		"Software",
+		"Gantt",
+		"Issues",
+		"Milestones",
+		"Projects",
 		"Tasks",
-		"Teamwork",
-		"Web application"
+		"Tickets",
+		"Tracking",
+		"Wiki"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Asana",
+		"Jira",
+		"YouTrack"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9520,

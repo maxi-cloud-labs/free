@@ -10,22 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "maxi-cloud-labs/free",
-	"description": "The core application to manage the cloud.",
+	"description": "A central dashboard for configuring and managing your personal cloud and self-hosted applications.",
 	"hero": "a tiny glowing cloud floating above a Raspberry Pi board like a captured star, tethered by a thin light beam. heroic, intimate, sovereign",
 	"keywords": [
-		"Cloud",
-		"Collaborative tools",
-		"Data sovereignty",
-		"Dongle",
-		"Personal cloud",
-		"Privacy",
-		"Raspberry",
-		"Raspberry Pi",
-		"Self-hosted",
-		"Self-hosting",
-		"Selfhosted"
+		"Administration",
+		"Configuration",
+		"Dashboard",
+		"Hosting",
+		"Infrastructure",
+		"Orchestration",
+		"Provisioning",
+		"Sovereignty"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Cloudron",
+		"Umbrel"
+	],
 	"default": {
 		"addLineInDirectory": "RewriteBase /\n\t\tRewriteRule ^index\\.html$ - [L]\n\t\tRewriteCond %{REQUEST_FILENAME} !-f\n\t\tRewriteCond %{REQUEST_FILENAME} !-d\n\t\tRewriteRule . /index.html [L]",
 		"alias": [

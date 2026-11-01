@@ -10,16 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "meilisearch/meilisearch",
-	"description": "An ultra relevant, instant and typo-tolerant full-text search API, bringing AI-powered hybrid search to your sites and applications.",
+	"description": "A fast, typo-tolerant search engine for full-text and AI-assisted searches in applications.",
 	"hero": "a tiny glowing searchlight beam finding a single needle in a galaxy of haystacks. lightning-fast, precise, awe-inspiring",
 	"keywords": [
-		"AI-powered search",
-		"Engine",
-		"Fast search",
-		"Search",
-		"Search engine"
+		"Fulltext",
+		"Fuzzy",
+		"Hybrid",
+		"Indexing",
+		"Queries",
+		"Relevance",
+		"Retrieval",
+		"Typo"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Algolia",
+		"Azure AI Search",
+		"Elastic Cloud"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/meilisearch"

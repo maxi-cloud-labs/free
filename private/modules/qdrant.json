@@ -10,23 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "qdrant/qdrant",
-	"description": "High-performance, massive-scale Vector Database and Vector Search Engine.",
+	"description": "A vector database and similarity search engine for embeddings and AI-powered retrieval.",
 	"hero": "a gleaming vector arrow piercing through a field of glowing dots, a compass needle snapping to nearest neighbor. cosmic, precise, constellation",
 	"keywords": [
-		"AI applications",
-		"Cloud service",
-		"Data filtering",
-		"Engine",
-		"High performance",
-		"Machine learning",
-		"Neural networks",
-		"Search",
+		"Embeddings",
+		"Indexing",
+		"Nearest",
+		"Rag",
+		"Retrieval",
+		"Semantic",
 		"Similarity",
-		"Similarity search",
-		"Vector",
-		"Vector search"
+		"Vectors"
 	],
 	"proprietary": [
+		"Azure AI Search",
 		"Pinecone"
 	],
 	"default": {

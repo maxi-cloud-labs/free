@@ -10,16 +10,21 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Lidarr/Lidarr",
-	"description": "A music collection manager for Usenet and BitTorrent users.",
+	"description": "An automated music collection manager for tracking artists, releases, and downloads.",
 	"hero": "a vinyl record spinning with a glowing radar-sweep line collecting albums into a library shelf. retro, musical, hunter-collector",
 	"keywords": [
-		"Automation",
-		"BitTorrent",
-		"Manager",
-		"PVR",
-		"Rr apps"
+		"Albums",
+		"Artists",
+		"Downloads",
+		"Library",
+		"Music",
+		"Releases",
+		"Torrents",
+		"Usenet"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Roon"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

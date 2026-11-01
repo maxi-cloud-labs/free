@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "docsifyjs/docsify",
-	"description": "A live site for documentation.",
+	"description": "A documentation website generator with live rendering of Markdown files.",
 	"hero": "a glowing open book that lights up pages in a living web document with an unfolding sidebar. magical, scholarly, light and airy",
 	"keywords": [
-		"Community",
-		"Contributing",
-		"Docs",
 		"Documentation",
-		"Website generator"
+		"Guides",
+		"Markdown",
+		"Navigation",
+		"Publishing",
+		"Rendering",
+		"Sidebar",
+		"Websites"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"GitBook",
+		"Mintlify"
+	],
 	"default": {
 		"alias": [
 			"docs"

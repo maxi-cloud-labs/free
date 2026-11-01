@@ -10,14 +10,17 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Whisparr/Whisparr",
-	"description": "An adult movie collection manager for Usenet and BitTorrent users.",
+	"description": "An automated adult-video library manager for monitoring releases and organizing downloads.",
 	"hero": "a velvet theater curtain half-drawn with a glowing silhouette of a figure holding a finger to lips, hush. mysterious, stylish, noir, tasteful",
 	"keywords": [
+		"Adult",
 		"Automation",
-		"BitTorrent",
-		"Manager",
-		"PVR",
-		"Rr apps"
+		"Downloads",
+		"Library",
+		"Movies",
+		"Releases",
+		"Torrents",
+		"Usenet"
 	],
 	"proprietary": [],
 	"default": {

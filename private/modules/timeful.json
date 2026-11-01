@@ -10,21 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "schej-it/timeful.app",
-	"description": "A scheduling platform helps you find the best time for a group to meet.",
+	"description": "A calendar-integrated scheduling tool for finding shared meeting times through availability polls.",
 	"hero": "a glowing hourglass whose sand forms overlapping calendar blocks of many friends. harmonious, warm, serene",
 	"keywords": [
-		"Availability poll",
-		"Calendar integration",
-		"Email notifications",
-		"Free tool",
-		"Group meetings",
-		"Meeting planner",
-		"Scheduler",
+		"Availability",
+		"Calendar",
+		"Coordination",
+		"Invitations",
+		"Meetings",
+		"Polls",
 		"Scheduling",
-		"Time management",
-		"Time zones"
+		"Timeslots"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Calendly",
+		"Doodle"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9540,

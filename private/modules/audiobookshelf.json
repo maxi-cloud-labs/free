@@ -10,19 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "advplyr/audiobookshelf",
-	"description": "An Audiobook and podcast server that streams all audio formats, keeps and syncs progress across devices.",
+	"description": "A personal server for streaming audiobooks and podcasts with synchronized listening progress.",
 	"hero": "a cozy old bookshelf with glowing sound waves rising from open books, headphones resting on top. warm, nostalgic, storytelling magic",
 	"keywords": [
-		"Audio content",
-		"Audio files",
-		"Audiobooks",
-		"Digital library",
+		"Bookmarks",
+		"Chapters",
+		"Library",
 		"Listening",
+		"Playback",
 		"Podcasts",
+		"Spokenword",
 		"Streaming"
 	],
 	"proprietary": [
-		"Audible"
+		"Apple Books",
+		"Audible",
+		"Spotify"
 	],
 	"default": {
 		"enabled": true,

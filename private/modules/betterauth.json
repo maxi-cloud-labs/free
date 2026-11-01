@@ -10,18 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "better-auth/better-auth",
-	"description": "A comprehensive authentication framework for TypeScript.",
+	"description": "A TypeScript authentication framework for user sign-in, sessions, and account security.",
 	"hero": "a heroic knight holding a glowing key-shield with a lock emblem, standing before a gate. loyal, protective, modern fantasy",
 	"keywords": [
-		"Authentication",
-		"Backend",
+		"Credentials",
 		"Identity",
-		"Security",
-		"Two-factor authentication",
-		"TypeScript",
-		"User identity"
+		"Login",
+		"Oauth",
+		"Permissions",
+		"Sessions",
+		"Sso",
+		"Typescript"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Auth0",
+		"Clerk",
+		"Firebase Authentication"
+	],
 	"default": {
 		"cmds": []
 	}

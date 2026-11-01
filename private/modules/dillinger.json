@@ -10,21 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "joemccann/dillinger",
-	"description": "A markdown writer.",
+	"description": "A browser-based Markdown editor with live preview and document export.",
 	"hero": "an old typewriter with a glowing markdown hash symbol floating above its keys, paper turning into a web page. noir writer, vintage, charming",
 	"keywords": [
-		"Collaborative writing",
-		"Document creation",
+		"Documents",
 		"Editor",
-		"In-browser editor",
+		"Export",
+		"Formatting",
+		"Html",
 		"Markdown",
-		"Markdown editor",
-		"Online text editor",
-		"Writing",
-		"Writing tool"
+		"Preview",
+		"Writing"
 	],
 	"proprietary": [
-		"Typora"
+		"Typora",
+		"iA Writer"
 	],
 	"default": {
 		"enabled": true,

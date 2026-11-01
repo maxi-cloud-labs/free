@@ -10,24 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "",
-	"description": "A service for generating temporary, disposable email addresses.",
+	"description": "A temporary inbox service for disposable email addresses and one-time registrations.",
 	"hero": "an envelope that dissolves into glowing ash as it's opened, a ticking timer behind. spy-thriller, self-destructing, tense",
 	"keywords": [
-		"Anonymous email",
+		"Addresses",
+		"Anonymous",
 		"Disposable",
-		"Disposable email",
-		"Email",
-		"Fake email",
-		"One-time email",
-		"Privacy",
-		"Privacy email",
-		"Short-term email",
+		"Inbox",
+		"Registration",
+		"Spam",
 		"Temporary",
-		"Temporary email",
-		"Throwaway email"
+		"Throwaway"
 	],
 	"proprietary": [
-		"Temp-Mail"
+		"Temp Mail"
 	],
 	"default": {
 		"enabled": true,

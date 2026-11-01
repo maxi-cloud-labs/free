@@ -10,20 +10,19 @@
 	"finished": false,
 	"database": "",
 	"github": "ohmyzsh/ohmyzsh",
-	"description": "A manager for your zsh configuration.",
+	"description": "A Zsh configuration framework with terminal themes, plugins, and shell productivity shortcuts.",
 	"hero": "a stylish terminal prompt wearing a top hat and sunglasses, colorful glowing themes behind. dazzling, flamboyant, party",
 	"keywords": [
-		"Community-driven",
-		"Developer tools",
+		"Aliases",
+		"Customization",
+		"Plugins",
+		"Productivity",
+		"Prompts",
 		"Shell",
-		"Shell framework",
-		"Terminal customization",
-		"Zsh",
-		"Zsh configuration"
+		"Terminal",
+		"Themes"
 	],
-	"proprietary": [
-		"PowerShell"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": []
 	}

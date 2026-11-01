@@ -10,20 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "FFmpeg/FFmpeg",
-	"description": "A complete solution to record, convert and stream audio and video.",
+	"description": "A multimedia toolkit for converting, recording, processing, and streaming audio and video.",
 	"hero": "an antique film projector with a glowing prismatic beam splitting into sound waves and video frames. cinematic, mechanical, powerful, retro",
 	"keywords": [
 		"Audio",
-		"Audio processing",
-		"Conversion",
-		"Media player",
-		"Multimedia",
+		"Codecs",
+		"Decoding",
+		"Encoding",
 		"Streaming",
-		"Video",
-		"Video processing"
+		"Subtitles",
+		"Transcoding",
+		"Video"
 	],
 	"proprietary": [
-		"Adobe Media Encoder"
+		"Adobe Media Encoder",
+		"Wondershare UniConverter"
 	],
 	"default": {
 		"cmds": [

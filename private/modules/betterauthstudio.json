@@ -10,24 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Kinfe123/better-auth-studio",
-	"description": "A frontend for Better Auth, an authentication framework.",
+	"description": "A graphical management interface for Better Auth users, sessions, and authentication settings.",
 	"hero": "a control-room operator at a console, glowing identity badges floating above like holograms. studio lighting, command-center, sleek",
 	"keywords": [
-		"Access control",
-		"Account management",
-		"Authentication",
-		"Backend",
+		"Access",
+		"Accounts",
+		"Administration",
+		"Dashboard",
 		"Identity",
-		"Identity management",
-		"Login system",
-		"Security",
-		"Two-factor authentication",
-		"TypeScript",
-		"User",
-		"User authentication",
-		"User identity"
+		"Roles",
+		"Sessions",
+		"Users"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Auth0 Dashboard",
+		"Clerk Dashboard",
+		"Firebase Console"
+	],
 	"default": {
 		"alias": [
 			"identities",

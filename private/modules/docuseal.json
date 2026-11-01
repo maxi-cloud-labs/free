@@ -10,14 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "docusealco/docuseal",
-	"description": "An Open source app to create, fill, and sign digital documents.",
+	"description": "An electronic document signing platform for preparing forms, collecting signatures, and tracking completion.",
 	"hero": "a wax seal stamp pressing a glowing signature onto a contract floating in mid-air. formal, certified, dramatic close-up",
 	"keywords": [
-		"Document",
-		"Signature"
+		"Approvals",
+		"Contracts",
+		"Documents",
+		"Esignatures",
+		"Forms",
+		"Signatures",
+		"Signing",
+		"Templates"
 	],
 	"proprietary": [
-		"DocuSign"
+		"Adobe Acrobat Sign",
+		"DocuSign",
+		"Dropbox Sign"
 	],
 	"default": {
 		"enabled": true,

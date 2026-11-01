@@ -10,14 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "msitarzewski/agency-agents",
-	"description": "A complete AI agency at your fingertips, each agent being a specialized expert with personality, processes, and proven deliverables.",
+	"description": "A collection of specialized AI agents for creative, technical, marketing, and business tasks.",
 	"hero": "a squad of five diverse stylized agent silhouettes in sharp suits, each with a different glowing tool icon. ensemble heist-crew energy, stylish, confident",
 	"keywords": [
-		"Agency",
-		"Agents",
-		"Specialized expert"
+		"Assistants",
+		"Brainstorming",
+		"Copywriting",
+		"Delegation",
+		"Marketing",
+		"Research",
+		"Specialists",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Microsoft Copilot Studio",
+		"Relevance AI",
+		"Salesforce Agentforce"
+	],
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,

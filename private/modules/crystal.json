@@ -10,16 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "crystal-lang/crystal",
-	"description": "A general-purpose, object-oriented programming language.",
+	"description": "A compiled, statically typed programming language with Ruby-inspired syntax.",
 	"hero": "a radiant faceted crystal gem with a ruby-like glow, subtle code reflections inside. elegant, mineral, precious, gleaming",
 	"keywords": [
-		"Compile-time evaluation",
-		"Language",
-		"Native code",
-		"Object-oriented",
-		"Programming language",
-		"Ruby-like",
-		"Type-checked"
+		"Compiler",
+		"Concurrency",
+		"Development",
+		"Native",
+		"Programming",
+		"Ruby",
+		"Statictyping",
+		"Syntax"
 	],
 	"proprietary": [],
 	"default": {

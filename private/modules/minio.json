@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "minio/minio",
-	"description": "A high-performance object storage server compatible with Amazon S3 APIs.",
+	"description": "A high-performance S3-compatible object storage server for application files and large datasets.",
 	"hero": "a deep glowing blue ocean vault holding countless data buckets floating in the dark. massive, serene, abyssal",
 	"keywords": [
-		"Cloud storage",
-		"Data storage",
-		"Object",
-		"Object storage",
+		"Backups",
+		"Blobs",
+		"Buckets",
+		"Objectstorage",
+		"Replication",
 		"S3",
-		"S3 compatible",
-		"Storage"
+		"Storage",
+		"Uploads"
 	],
 	"proprietary": [
-		"Amazon S3"
+		"Amazon S3",
+		"Azure Blob Storage",
+		"Google Cloud Storage"
 	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",

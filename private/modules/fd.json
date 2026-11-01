@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "sharkdp/fd",
-	"description": "A simple, fast and user-friendly alternative to 'find'.",
+	"description": "A fast command-line file and directory finder with intuitive search filters.",
 	"hero": "a swift greyhound dashing through a maze of folders, scattering light trails. fast, sleek, agile hunter",
 	"keywords": [
-		"Alternative to find",
-		"Directory search",
-		"Disk",
-		"Fast search",
-		"File finder",
-		"File search",
+		"Cli",
+		"Directories",
 		"Files",
 		"Filesystem",
-		"Find",
-		"Folders"
+		"Filtering",
+		"Finding",
+		"Folders",
+		"Globbing"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Everything",
+		"Listary"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/fdfind"

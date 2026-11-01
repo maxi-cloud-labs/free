@@ -10,15 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "promptfoo/promptfoo",
-	"description": "A tester for your prompts, agents, and RAGs.",
+	"description": "An AI evaluation toolkit for testing prompts, agents, RAG pipelines, and model security.",
 	"hero": "a lab technician testing glowing prompt vials against AI test subjects, red-team lights. scientific, rigorous, adversarial",
 	"keywords": [
-		"Agent",
-		"Prompt",
-		"RAG",
-		"Tester"
+		"Benchmarks",
+		"Evaluation",
+		"Llm",
+		"Prompts",
+		"Rag",
+		"Redteaming",
+		"Testing",
+		"Vulnerabilities"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Braintrust",
+		"LangSmith"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9512,

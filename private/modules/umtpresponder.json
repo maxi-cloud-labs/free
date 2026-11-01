@@ -10,22 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "viveris/uMTP-Responder",
-	"description": "A manager for USB OTG file service.",
+	"description": "A lightweight Linux USB MTP responder for transferring files to connected devices.",
 	"hero": "a USB OTG cable bridging a tiny device to a computer, files glowing along the cable. close-up, compact, circuit-board",
 	"keywords": [
-		"Device file sharing",
-		"Disk",
-		"File operations",
-		"Linux file manager",
-		"MTP",
-		"MTP protocol",
-		"Protocol",
-		"Transfer",
-		"USB",
-		"USB OTG",
-		"USB file transfer"
+		"Android",
+		"Devices",
+		"Files",
+		"Linux",
+		"Media",
+		"Otg",
+		"Transfers",
+		"Usb"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Samsung Smart Switch"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/umtprd"

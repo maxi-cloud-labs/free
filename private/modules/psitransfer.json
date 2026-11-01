@@ -10,19 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "psi-4ward/psitransfer",
-	"description": "A simple file sharing solution with robust up-/download-resume and password protection.",
+	"description": "A self-hosted file transfer service with resumable uploads and password-protected sharing.",
 	"hero": "a glowing psi symbol bridging two devices with a resilient stream of files. psychic, mystical, uninterrupted",
 	"keywords": [
-		"File",
-		"File sharing",
-		"Multi-language",
-		"Privacy",
-		"Secure sharing",
-		"Sharing",
-		"Upload",
-		"Upload files"
+		"Downloads",
+		"Expiration",
+		"Files",
+		"Links",
+		"Passwords",
+		"Resumes",
+		"Transfers",
+		"Uploads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Dropbox Transfer",
+		"WeTransfer"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9514,

@@ -10,13 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "novaspirit/rpi_zram",
-	"description": "A script to enable zram for raspberry pi.",
+	"description": "A Raspberry Pi memory optimization script for compressed RAM swap using zram.",
 	"hero": "a Raspberry Pi board with compressed memory blocks squeezed like glowing springs. compact, tense, clever",
 	"keywords": [
-		"Kernel",
-		"OS",
-		"RPI",
-		"Zram"
+		"Compressedswap",
+		"Compression",
+		"Linux",
+		"Memory",
+		"Optimization",
+		"Performance",
+		"Raspberrypi",
+		"Swap"
 	],
 	"proprietary": [],
 	"default": {

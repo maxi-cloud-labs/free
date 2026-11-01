@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "eclipse-mosquitto/mosquitto",
-	"description": "A message broker that implements MQTT protocol.",
+	"description": "A lightweight MQTT message broker for exchanging data between connected devices and services.",
 	"hero": "a glowing tiny mosquito carrying MQTT message packets between smart devices at night. whimsical, nature-tech, buzzing night scene",
 	"keywords": [
-		"Authentication",
 		"Broker",
-		"IoT",
-		"IoT messaging",
-		"Message broker",
+		"Iot",
 		"Messaging",
-		"Publish-subscribe"
+		"Mqtt",
+		"Pubsub",
+		"Subscribers",
+		"Telemetry",
+		"Topics"
 	],
 	"proprietary": [
-		"HiveMQ"
+		"AWS IoT Core",
+		"EMQX Cloud",
+		"HiveMQ Cloud"
 	],
 	"default": {
 		"cmds": [

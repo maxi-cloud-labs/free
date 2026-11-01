@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "openobserve/openobserve",
-	"description": "A modern observability platform: 10x easier, 140x lower storage cost, petabyte scale.",
+	"description": "An observability dashboard for analyzing logs, metrics, traces, and application performance.",
 	"hero": "a giant all-seeing telescope observing a galaxy of logs, metrics and traces, petabyte-scale starfield. cosmic, vast, calm",
 	"keywords": [
+		"Dashboards",
+		"Logs",
+		"Metrics",
+		"Monitoring",
 		"Observability",
-		"Platform"
+		"Pipelines",
+		"Telemetry",
+		"Traces"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog",
+		"New Relic",
+		"Splunk"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

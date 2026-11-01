@@ -10,20 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "passbolt/passbolt_api",
-	"description": "A collaborative password manager for teams.",
+	"description": "A team password manager for securely storing, organizing, and sharing credentials.",
 	"hero": "a glowing bolt-shaped key being passed securely between team members' hands. high-stakes, collaborative, heist-like",
 	"keywords": [
-		"Browser extension",
+		"Access",
+		"Credentials",
 		"Encryption",
-		"Password",
-		"Password manager",
-		"Password sharing",
-		"Privacy",
-		"Security",
-		"Team collaboration",
-		"Teams"
+		"Passwords",
+		"Secrets",
+		"Sharing",
+		"Teams",
+		"Vault"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"1Password",
+		"Dashlane",
+		"Keeper Security"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9495,

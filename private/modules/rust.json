@@ -10,20 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "rust-lang/rust",
-	"description": "A systems programming language that runs blazingly fast.",
+	"description": "A systems programming language for fast, reliable software with memory safety.",
 	"hero": "a rusted but glowing gear and crab-shaped mech armor crushing a pile of bugs, sparks flying. gritty, robust, safety-first",
 	"keywords": [
-		"Coding productivity",
-		"Community support",
-		"Developer tools",
-		"Fast performance",
-		"Language",
-		"Memory efficiency",
+		"Cargo",
+		"Compiler",
+		"Concurrency",
+		"Memorysafety",
+		"Ownership",
+		"Performance",
 		"Programming",
-		"Programming language",
-		"Reliable software",
-		"Systems",
-		"Systems programming"
+		"Systems"
 	],
 	"proprietary": [],
 	"default": {

@@ -10,17 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "awesome-selfhosted/awesome-selfhosted-html",
-	"description": "An exhaustive list of selfhosted apps.",
+	"description": "A curated directory of self-hosted software for discovering apps and independent services.",
 	"hero": "a giant treasure chest overflowing with glowing app icons and gems, house-shaped lid. adventurous, abundant, explorer's-map feel",
 	"keywords": [
-		"Awesome",
-		"Docs",
-		"Documentation",
-		"List",
-		"Self-hosted",
-		"Selfhosted"
+		"Alternatives",
+		"Catalog",
+		"Directory",
+		"Discovery",
+		"Hosting",
+		"Projects",
+		"Recommendations",
+		"Resources"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"AlternativeTo"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9408,

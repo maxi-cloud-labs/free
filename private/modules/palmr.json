@@ -10,20 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "kyantech/Palmr",
-	"description": "A file-sharing platform focused on privacy and security to upload, manage, and share files.",
+	"description": "A private file-sharing platform with secure links, password protection, and access controls.",
 	"hero": "an open palm with a glowing file hovering above it, protected by a shield of light. gentle, trusting, minimalist",
 	"keywords": [
-		"File",
-		"File management",
-		"File sharing",
-		"File transfer",
+		"Downloads",
+		"Links",
+		"Passwords",
+		"Permissions",
 		"Privacy",
-		"Security",
 		"Sharing",
-		"Upload",
-		"User-friendly"
+		"Transfers",
+		"Uploads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Box",
+		"Dropbox Transfer",
+		"WeTransfer"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9493,

@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "A tool to access, manipulate and mount disks and storage devices",
+	"description": "A Linux storage management service for detecting, mounting, and administering disk devices.",
 	"hero": "a hand plugging a glowing USB drive that auto-mounts like a bridge appearing in mid-air. satisfying, smooth, tech-magic",
 	"keywords": [
-		"Auto-mount",
-		"Disk",
-		"Harddisk",
-		"Harddrive",
-		"Mount",
-		"Rules",
-		"USB",
-		"Udev",
-		"Umount"
+		"Automount",
+		"Drives",
+		"Filesystems",
+		"Hotplug",
+		"Mounting",
+		"Partitions",
+		"Storage",
+		"Usb"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Acronis Disk Director",
+		"Paragon Hard Disk Manager"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/udisksctl"

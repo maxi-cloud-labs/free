@@ -10,14 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "ruby/ruby",
-	"description": "A systems programming language.",
+	"description": "A dynamic, object-oriented programming language for scripting and web application development.",
 	"hero": "a radiant red ruby gem refracting glowing code lines into many facets. luxurious, precious, vivid",
 	"keywords": [
-		"Coding productivity",
-		"Developer tools",
-		"Language",
-		"Memory efficiency",
-		"Programming language"
+		"Backend",
+		"Dynamic",
+		"Gems",
+		"Interpreter",
+		"Objectoriented",
+		"Programming",
+		"Rails",
+		"Scripting"
 	],
 	"proprietary": [],
 	"default": {

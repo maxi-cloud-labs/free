@@ -10,12 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "WebAssembly/binaryen",
-	"description": "A Optimizer and compiler/toolchain library for WebAssembly.",
+	"description": "A compiler toolchain for optimizing, generating, and transforming WebAssembly modules.",
 	"hero": "a crystalline binary-coded gem being polished by laser beams inside a forge. precise, tiny but powerful, sci-fi craftsmanship",
 	"keywords": [
-		"Javascript",
-		"Runtime",
-		"WebAssembly"
+		"Binaries",
+		"Bytecode",
+		"Compiler",
+		"Optimization",
+		"Toolchain",
+		"Transformations",
+		"Wasm",
+		"Webassembly"
 	],
 	"proprietary": [],
 	"default": {

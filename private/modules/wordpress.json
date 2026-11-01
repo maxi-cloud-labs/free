@@ -10,24 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "WordPress/WordPress",
-	"description": "A Content Management System for creating websites and blogs.",
+	"description": "A website content management system for publishing blogs, pages, and customizable online sites.",
 	"hero": "a giant glowing W-shaped lighthouse over a sea of websites and blogs. iconic, widely welcoming, warm sunrise",
 	"keywords": [
-		"Blog",
-		"Blog creation",
-		"Blogging platform",
-		"CMS",
-		"Content management",
-		"Digital publishing",
-		"Online content",
+		"Blogging",
+		"Cms",
+		"Content",
+		"Pages",
+		"Plugins",
 		"Publishing",
-		"User-friendly",
-		"Web publishing",
-		"Website builder",
-		"Website creator"
+		"Themes",
+		"Websites"
 	],
 	"proprietary": [
 		"Squarespace",
+		"Webflow",
 		"Wix"
 	],
 	"default": {

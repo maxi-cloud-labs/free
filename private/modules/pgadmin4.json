@@ -10,20 +10,23 @@
 	"finished": false,
 	"database": "PostgreSQL",
 	"github": "pgadmin-org/pgadmin4",
-	"description": "A feature rich administration and development platform for PostgreSQL.",
+	"description": "A graphical PostgreSQL administration tool for querying databases and managing server objects.",
 	"hero": "a stately elephant wearing an administrator badge, surrounded by glowing database tables. wise, grand, trustworthy",
 	"keywords": [
-		"Administration tool",
-		"Database management",
-		"Database viewer",
-		"Development platform",
-		"MySQL",
-		"MySQL viewer",
-		"PostgreSQL",
-		"SQL",
-		"Viewer"
+		"Administration",
+		"Backups",
+		"Postgresql",
+		"Queries",
+		"Roles",
+		"Schemas",
+		"Sql",
+		"Tables"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"JetBrains DataGrip",
+		"Navicat Premium",
+		"dbForge Studio for PostgreSQL"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9497,

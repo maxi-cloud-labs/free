@@ -10,21 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "phpbb/phpbb",
-	"description": "A flat-forum bulletin board software solution that can be used to stay in touch with a group of people.",
+	"description": "A traditional online bulletin board for threaded discussions and community forums.",
 	"hero": "an old-school bulletin board pinned with glowing notes and posts in a retro community hall. nostalgic, warm, 90s-forum vibe",
 	"keywords": [
-		"Board",
 		"Bulletin",
-		"Bulletin board",
-		"Contribution",
-		"Development",
-		"Documentation",
-		"Forum",
-		"Forum software",
-		"PHP"
+		"Communities",
+		"Discussions",
+		"Forums",
+		"Members",
+		"Moderation",
+		"Threads",
+		"Topics"
 	],
 	"proprietary": [
-		"VBulletin"
+		"XenForo",
+		"vBulletin"
 	],
 	"default": {
 		"enabled": true,

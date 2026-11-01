@@ -10,19 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "photoview/photoview",
-	"description": "A simple and user-friendly photo gallery personal server, aiming to provide an easy and fast way to navigate thousands of high resolution photos.",
+	"description": "A self-hosted photo gallery for browsing large image libraries, albums, and shared collections.",
 	"hero": "a panoramic window view of a family photo gallery in warm evening light. peaceful, nostalgic, gentle",
 	"keywords": [
-		"File system organization",
+		"Albums",
+		"Browsing",
 		"Gallery",
-		"Media scanner",
-		"Photo",
-		"Photo gallery",
-		"Photo management",
-		"RAW photo support",
-		"Sharing photos"
+		"Metadata",
+		"Photos",
+		"Raw",
+		"Sharing",
+		"Thumbnails"
 	],
 	"proprietary": [
+		"Amazon Photos",
+		"Apple Photos",
 		"Google Photos"
 	],
 	"default": {

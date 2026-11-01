@@ -10,19 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "postgres/postgres",
-	"description": "A database management system.",
+	"description": "An extensible relational database server for SQL queries, structured data, and transactions.",
 	"hero": "a majestic elephant carved from glowing database tables, standing in a library of data. wise, enduring, trustworthy",
 	"keywords": [
-		"Documentation",
-		"Management system",
-		"PostgreSQL",
-		"RDBMS",
-		"SQL",
-		"Software",
-		"Source code",
+		"Indexing",
+		"Jsonb",
+		"Queries",
+		"Rdbms",
+		"Relational",
+		"Replication",
+		"Schemas",
 		"Transactions"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon Aurora",
+		"Microsoft SQL Server",
+		"Oracle Database"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/psql \"postgresql://postgres:$(jq -r .password /disk/admin/modules/_config_/postgresql.json)@localhost\""

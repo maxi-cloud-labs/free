@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "ollama/ollama",
-	"description": "A platform to get up and running with large language models locally.",
+	"description": "A local AI model runtime for downloading, serving, and chatting with large language models.",
 	"hero": "a friendly llama sitting in a cozy laptop glow, a speech bubble with tiny neural lights. gentle, warm, local-hero mascot",
 	"keywords": [
-		"AI platform",
-		"CLI tool",
-		"Chatbot backend",
-		"Customize models",
-		"LLMs",
-		"Language",
-		"Language models",
-		"Local",
-		"Local AI",
-		"Model library"
+		"Chatbots",
+		"Embeddings",
+		"Inference",
+		"Llm",
+		"Models",
+		"Offline",
+		"Prompts",
+		"Quantization"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"LM Studio",
+		"NVIDIA NIM"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/modules2/ollama/ollama"

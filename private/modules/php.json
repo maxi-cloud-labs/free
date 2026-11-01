@@ -10,14 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "php/php-src",
-	"description": "A popular general-purpose scripting language.",
+	"description": "A server-side scripting language for creating dynamic websites and web applications.",
 	"hero": "a friendly purple elephant mascot made of code symbols trumpeting over the web. nostalgic, sturdy, quirky",
 	"keywords": [
-		"Language",
+		"Backend",
+		"Composer",
+		"Interpreter",
 		"Programming",
+		"Runtime",
 		"Scripting",
-		"Scripting language",
-		"Web development"
+		"Serverside",
+		"Websites"
 	],
 	"proprietary": [
 		"Zend PHP"

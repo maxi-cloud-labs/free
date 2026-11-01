@@ -10,18 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "opf/openproject",
-	"description": "A manager of your projects, tasks and goals, allowing to collaborate via work packages and link them to your pull requests on Github.",
+	"description": "A collaborative project management platform for tasks, roadmaps, agile boards, and timelines.",
 	"hero": "a mountain climbing team ascending a glowing work-package ladder to a flag of goals. adventurous, collaborative, summit",
 	"keywords": [
-		"Project Management",
-		"Project planning",
-		"Project tracking",
-		"Task organization",
-		"Team collaboration",
-		"Team productivity",
-		"Work planning"
+		"Gantt",
+		"Kanban",
+		"Milestones",
+		"Planning",
+		"Projects",
+		"Roadmaps",
+		"Tasks",
+		"Timelines"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Asana",
+		"Jira",
+		"Microsoft Project"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9488,

@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "apache/maven",
-	"description": "A Java build system.",
+	"description": "A Java project build and dependency management tool based on reusable project configurations.",
 	"hero": "a wise old expert in a library selecting glowing Java jars from tall shelves. scholarly, steady, craft-master",
 	"keywords": [
-		"Automation",
-		"Build",
-		"Build system",
-		"Coding",
+		"Artifacts",
+		"Builds",
 		"Compilation",
+		"Dependencies",
 		"Java",
-		"Software development"
+		"Packaging",
+		"Pom",
+		"Repositories"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Gradle"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/mvn"

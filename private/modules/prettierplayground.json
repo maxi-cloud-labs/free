@@ -10,18 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "prettier/prettier",
-	"description": "A sandbox to test code reformat.",
+	"description": "An interactive online sandbox for testing Prettier formatting rules and code styles.",
 	"hero": "a playground with colorful slides of messy code turning neat, glowing sparkles around. playful, fun, makeover",
 	"keywords": [
-		"Automatic formatting",
-		"Code",
-		"Code formatter",
-		"Code quality",
-		"Code review",
-		"Consistent style",
-		"Developer tool",
-		"Sandbox",
-		"Source code"
+		"Editor",
+		"Experimentation",
+		"Formatting",
+		"Indentation",
+		"Javascript",
+		"Preview",
+		"Snippets",
+		"Typescript"
 	],
 	"proprietary": [],
 	"default": {

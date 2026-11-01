@@ -10,20 +10,21 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "TeamPiped/Piped",
-	"description": "A YouTube front-end without ads.",
+	"description": "An alternative YouTube frontend for privacy-conscious video browsing and ad-free playback.",
 	"hero": "a bagpiper-like pipe organ shooting glowing play-button notes without ads, clear skies. musical, free, breezy",
 	"keywords": [
-		"Ad-free video",
-		"Ads",
-		"Lightweight streaming",
-		"No tracking",
+		"Adblocking",
+		"Playlists",
 		"Privacy",
-		"Privacy-friendly",
-		"User-friendly interface",
-		"Videos platform",
-		"YouTube alternative"
+		"Streaming",
+		"Subscriptions",
+		"Tracking",
+		"Videos",
+		"Youtube"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"YouTube Premium"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

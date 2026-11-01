@@ -10,23 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "photoprism/photoprism",
-	"description": "A personal photo management system to browse, organize, and share your personal photo collection, using the latest technologies to automatically tag and find pictures.",
+	"description": "An AI-assisted photo library for organizing, tagging, browsing, and searching personal pictures.",
 	"hero": "a prism splitting a photo into a rainbow of AI-tagged faces, places and colors. radiant, discovery, kaleidoscopic",
 	"keywords": [
-		"AI photos",
-		"AI-powered",
-		"Decentralized",
-		"Decentralized web",
-		"Digital photos",
+		"Albums",
+		"Classification",
 		"Gallery",
-		"Photo gallery",
-		"Photo management",
-		"Photo organization",
+		"Geolocation",
 		"Photos",
-		"Smart photo app",
-		"Web-based gallery"
+		"Recognition",
+		"Search",
+		"Tagging"
 	],
 	"proprietary": [
+		"Adobe Lightroom",
+		"Apple Photos",
 		"Google Photos"
 	],
 	"default": {

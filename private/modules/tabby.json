@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "TabbyML/tabby",
-	"description": "An AI tool to better code.",
+	"description": "A self-hosted AI coding assistant for code completions, developer chat, and programming help.",
 	"hero": "a friendly tabby cat typing at a glowing keyboard with floating code completions. cozy, whimsical, coding-companion",
 	"keywords": [
-		"AI coding assistant",
-		"AI coding models",
-		"Code",
-		"Code completion",
+		"Autocomplete",
+		"Chat",
 		"Coding",
-		"Community-driven",
-		"Developer productivity"
+		"Completions",
+		"Developer",
+		"Inference",
+		"Programming",
+		"Suggestions"
 	],
 	"proprietary": [
-		"Github Copilot"
+		"Cursor",
+		"GitHub Copilot",
+		"JetBrains AI Assistant"
 	],
 	"default": {
 		"addConfigEnd": "Header unset Content-Security-Policy",

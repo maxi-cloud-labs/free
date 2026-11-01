@@ -10,15 +10,17 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "jellyfin/jellyfin",
-	"description": "A media server for audio, video, books, comics, and photos with a sleek interface and robust transcoding capabilities.",
+	"description": "A personal media server for organizing and streaming movies, TV shows, music, and photos.",
 	"hero": "a bioluminescent jellyfish glowing in the deep ocean, a movie reel inside its translucent bell. dreamy, cinematic, mesmerizing",
 	"keywords": [
-		"Home server",
-		"Media management",
-		"Media streaming",
+		"Library",
+		"Movies",
+		"Music",
+		"Playback",
+		"Playlists",
 		"Streaming",
-		"Video",
-		"Video streaming"
+		"Television",
+		"Transcoding"
 	],
 	"proprietary": [
 		"Emby",

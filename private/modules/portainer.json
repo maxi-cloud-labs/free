@@ -10,18 +10,23 @@
 	"finished": true,
 	"database": "BoltDB",
 	"github": "portainer/portainer",
-	"description": "An utility to manage easily Dockers and Kubernetes.",
+	"description": "A graphical management console for deploying and administering Docker and Kubernetes containers.",
 	"hero": "a harbor crane lifting glowing containers over a port at dusk. industrial, ordered, cinematic",
 	"keywords": [
+		"Administration",
 		"Containers",
-		"Containers Management",
+		"Dashboards",
+		"Deployment",
 		"Docker",
-		"K3s",
-		"K8s",
 		"Kubernetes",
-		"Virtualization"
+		"Orchestration",
+		"Stacks"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Docker Desktop",
+		"Rancher Prime",
+		"Red Hat OpenShift"
+	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
 		"autoLogin": {

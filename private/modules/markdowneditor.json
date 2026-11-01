@@ -10,19 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "jbt/markdown-editor",
-	"description": "An editor for Markdown files.",
+	"description": "A live Markdown editor with instant previews of GitHub-flavored text and formatting.",
 	"hero": "a glowing markdown hash and asterisk symbols writing themselves onto a parchment page. calm, minimal, writer's desk",
 	"keywords": [
-		"Code Attribution",
-		"Editor",
-		"GitHub-Flavored",
-		"Markdown",
-		"Markdown Guide",
-		"Writing",
-		"Writing Tool"
+		"Documents",
+		"Formatting",
+		"Githubflavored",
+		"Html",
+		"Liveediting",
+		"Livepreview",
+		"Markup",
+		"Writing"
 	],
 	"proprietary": [
-		"Typora"
+		"Typora",
+		"iA Writer"
 	],
 	"default": {
 		"enabled": true,

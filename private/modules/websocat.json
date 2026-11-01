@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "vi/websocat",
-	"description": "A tool for WebSockets, like netcat or curl, for ws:// with advanced socat-like functions.",
+	"description": "A command-line WebSocket client for connecting to endpoints and relaying socket data.",
 	"hero": "a sleek cat leaping between two glowing sockets, linked by a bidirectional ribbon of light. agile, techy, playful",
 	"keywords": [
-		"Communication",
-		"Network",
-		"WebSocket",
-		"Ws",
-		"Wss"
+		"Debugging",
+		"Messaging",
+		"Networking",
+		"Relay",
+		"Sockets",
+		"Streams",
+		"Terminal",
+		"Websocket"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Insomnia",
+		"Postman"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/websocat"

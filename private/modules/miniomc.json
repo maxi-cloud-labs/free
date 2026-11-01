@@ -10,19 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "minio/mc",
-	"description": "A Unix-like utility for object store MinIO.",
+	"description": "A command-line manager for browsing, copying, and administering S3-compatible object storage.",
 	"hero": "a tiny command-line client captain steering a fleet of glowing buckets. nautical, sleek, adventurous",
 	"keywords": [
-		"Cloud storage",
-		"Data storage",
-		"Object",
-		"Object storage",
+		"Administration",
+		"Buckets",
+		"Copying",
+		"Mirroring",
+		"Objects",
 		"S3",
-		"S3 compatible",
-		"Storage"
+		"Synchronization",
+		"Terminal"
 	],
 	"proprietary": [
-		"Amazon S3"
+		"AWS CLI",
+		"S3 Browser"
 	],
 	"default": {
 		"cmds": [

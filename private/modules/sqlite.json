@@ -10,17 +10,19 @@
 	"finished": true,
 	"database": "",
 	"github": "sqlite/sqlite",
-	"description": "A self-contained, serverless, zero-configuration, transactional SQL database engine.",
+	"description": "A self-contained SQL database engine for embedded applications and local data storage.",
 	"hero": "a small, sturdy feather-light database file glowing in a pocket, cradled like a gem. tiny, ubiquitous, hidden strength",
 	"keywords": [
+		"Databases",
 		"Embedded",
-		"SQL",
-		"SQLite",
-		"Serverless"
+		"Localstorage",
+		"Portable",
+		"Queries",
+		"Rdbms",
+		"Relational",
+		"Transactions"
 	],
-	"proprietary": [
-		"Microsoft SQL Server Compact"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/bin/sqlite3"

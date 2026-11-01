@@ -10,26 +10,19 @@
 	"finished": false,
 	"database": "",
 	"github": "gchq/CyberChef",
-	"description": "A web app for encryption, encoding, compression and data analysis, such as AES, DES and Blowfish encryption and decryption, creating hexdumps, calculating hashes.",
+	"description": "A browser-based toolkit for encoding, decoding, encrypting, hashing, and analyzing data.",
 	"hero": "a stylish chef in a chef's hat decrypting glowing ciphertext with kitchen knives and spices. quirky, culinary-hacker, whimsical",
 	"keywords": [
-		"AES",
-		"Analysis",
-		"Blowfish",
-		"Browser tool",
+		"Base64",
 		"Compression",
-		"DES",
-		"Data",
-		"Data analysis",
+		"Decoding",
 		"Decryption",
 		"Encoding",
 		"Encryption",
-		"Hashes",
+		"Hashing",
 		"Hexdump"
 	],
-	"proprietary": [
-		"Kryptel"
-	],
+	"proprietary": [],
 	"default": {
 		"enabled": true,
 		"localPort": 9417,

@@ -10,18 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "mkdocs/mkdocs",
-	"description": "A static docs generator.",
+	"description": "A Markdown-based static website generator for clear, navigable project documentation.",
 	"hero": "a hand-lettered documentation book rising from a pile of markdown scrolls on a desk. cozy, studious, craft",
 	"keywords": [
-		"Docs",
 		"Documentation",
-		"Easy to use",
-		"HTML files",
+		"Guides",
 		"Markdown",
-		"Project docs",
-		"Static site generator"
+		"Navigation",
+		"Publishing",
+		"Python",
+		"Static",
+		"Themes"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"GitBook",
+		"Mintlify",
+		"ReadMe"
+	],
 	"default": {
 		"cmds": []
 	}

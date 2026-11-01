@@ -10,21 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "",
-	"description": "An online office suite for collaborative editing.",
+	"description": "A collaborative online office suite for editing documents, spreadsheets, and presentations.",
 	"hero": "a bright open-air office desk with floating shared documents and cursors of different colors working together. sunny, collaborative, optimistic",
 	"keywords": [
-		"Cloud office suite",
-		"Collaborative editing",
-		"Document collaboration",
+		"Collaboration",
+		"Documents",
+		"Docx",
+		"Editing",
+		"Odt",
 		"Office",
-		"Office tools online",
-		"Online office suite",
-		"Real-time editing",
-		"Shared document",
-		"Suite",
-		"Teamwork"
+		"Presentations",
+		"Spreadsheets"
 	],
 	"proprietary": [
+		"Google Workspace",
 		"Microsoft 365"
 	],
 	"default": {

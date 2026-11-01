@@ -10,22 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "joomla/joomla-cms",
-	"description": "An advanced Content Management System for publishing web content.",
+	"description": "A content management system for building websites, managing pages, and publishing online content.",
 	"hero": "a swirling constellation of four interlinked circles forming a joyful flower made of web pages. friendly, bright, community-driven",
 	"keywords": [
-		"CMS",
+		"Articles",
+		"Blogging",
+		"Cms",
 		"Content",
-		"Content creation",
-		"Content management",
-		"Digital content",
-		"Online publishing",
+		"Extensions",
 		"Publishing",
-		"Web content",
-		"Web publishing",
-		"Website content"
+		"Templates",
+		"Websites"
 	],
 	"proprietary": [
-		"WordPress"
+		"Squarespace",
+		"Webflow",
+		"Wix"
 	],
 	"default": {
 		"enabled": true,

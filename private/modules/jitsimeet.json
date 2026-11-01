@@ -10,20 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "jitsi/jitsi-meet",
-	"description": "A secure, Simple and Scalable Video Conferences tools suite based on WebRTC.",
+	"description": "A secure online meeting platform with video conferencing, screen sharing, and group calls.",
 	"hero": "a sparkling video call grid of diverse faces floating like constellation windows over a night city. warm, connected, global",
 	"keywords": [
+		"Calls",
+		"Collaboration",
 		"Conferencing",
-		"HD audio and video",
-		"Mobile apps",
-		"Online collaboration",
-		"Screen sharing",
-		"Secure meetings",
-		"Video",
-		"Video conferencing",
-		"WebRTC"
+		"Meetings",
+		"Rooms",
+		"Screensharing",
+		"Videocalls",
+		"Webrtc"
 	],
 	"proprietary": [
+		"Google Meet",
 		"Microsoft Teams",
 		"Zoom"
 	],

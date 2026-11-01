@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "sqlite",
 	"github": "RightNow-AI/openfang",
-	"description": "An agent operating system.",
+	"description": "An autonomous AI agent operating system for scheduling, coordinating, and running assistants.",
 	"hero": "a sleek wolf-fang shaped emblem glowing over a circuit dashboard, agents as shadows beneath it. fierce, dark-fantasy, tactical",
 	"keywords": [
-		"AI assistant",
-		"AI models",
-		"LLMs",
-		"Language",
-		"Language model"
+		"Agents",
+		"Assistants",
+		"Autonomy",
+		"Execution",
+		"Orchestration",
+		"Runtime",
+		"Scheduling",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Microsoft Copilot Studio",
+		"Salesforce Agentforce"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9486,

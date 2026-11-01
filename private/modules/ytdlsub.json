@@ -10,22 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "jmbannon/ytdl-sub",
-	"description": "A syncer of YouTube channels and playlists to a locally hosted media server.",
+	"description": "An automated subscription downloader for archiving YouTube channels and playlists with media metadata.",
 	"hero": "a tidy hand arranging YouTube channels into a library shelf with subscription bells ringing softly. collector, cozy, organized",
 	"keywords": [
-		"Automatic downloads",
-		"Channel",
-		"Download",
-		"Local media server",
-		"Media organization",
-		"Playlist manager",
-		"Plex integration",
-		"Video",
-		"Video synchronization",
-		"YouTube",
-		"YouTube downloader"
+		"Archiving",
+		"Automation",
+		"Channels",
+		"Downloads",
+		"Metadata",
+		"Playlists",
+		"Subscriptions",
+		"Youtube"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"4K Video Downloader Plus"
+	],
 	"default": {
 		"enabled": true,
 		"cmds": [

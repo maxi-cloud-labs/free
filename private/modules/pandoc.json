@@ -10,23 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "jgm/pandoc",
-	"description": "A universal document converter.",
+	"description": "A universal document converter for transforming Markdown, HTML, Word, and other text formats.",
 	"hero": "a polyglot translator surrounded by flying documents changing format mid-air like origami birds. magical, worldly, elegant",
 	"keywords": [
-		"Converter",
-		"Document",
-		"Document converter",
-		"Documentation",
-		"File formats",
-		"Format",
-		"Format transformation",
+		"Conversion",
+		"Documents",
+		"Docx",
+		"Epub",
+		"Latex",
+		"Markdown",
 		"Markup",
-		"Markup conversion",
-		"Text processing",
-		"Universal tool"
+		"Typesetting"
 	],
 	"proprietary": [
-		"Adobe Acrobat"
+		"CloudConvert",
+		"Zamzar"
 	],
 	"default": {
 		"enabled": true,

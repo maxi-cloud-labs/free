@@ -10,13 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "penpot/penpot",
-	"description": "An open-source design tool for design and code collaboration.",
+	"description": "A collaborative interface design platform for UI mockups, prototypes, and developer handoff.",
 	"hero": "a glowing pen nib drawing a living interface from design to code, brush strokes becoming components. artistic, creative, vibrant",
 	"keywords": [
-		"Code",
-		"Design"
+		"Collaboration",
+		"Components",
+		"Design",
+		"Interfaces",
+		"Mockups",
+		"Prototyping",
+		"Svg",
+		"Wireframes"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Figma",
+		"Sketch"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9496,

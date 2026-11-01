@@ -10,23 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "Unmanic/unmanic",
-	"description": "A library optimizer for removing unused metadata from media files.",
+	"description": "An automated media library optimizer for transcoding files and streamlining media storage.",
 	"hero": "a wise gardener pruning unused metadata from a vine of media reels with glowing shears. zen, tidy, satisfying",
 	"keywords": [
-		"Automated tool",
-		"Custom commands",
-		"File conversion",
-		"File optimizer",
-		"File processing",
-		"Library",
-		"Library management",
-		"Media library",
-		"Media organization",
-		"Metadata",
-		"Metadata removal",
-		"Optimizer"
+		"Automation",
+		"Compression",
+		"Formats",
+		"Libraries",
+		"Media",
+		"Optimization",
+		"Transcoding",
+		"Video"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Tdarr"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9546,

@@ -10,24 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "dgtlmoon/changedetection.io",
-	"description": "A tool for tracking changes and stay up-to-date with web-site content changes.",
+	"description": "A website monitoring service for content changes, price drops, and restock alerts.",
 	"hero": "a giant watching eye above a web page, red glowing highlights marking tiny changes. noir surveillance, vigilant, suspenseful",
 	"keywords": [
-		"Automatic notifications",
-		"Browser automation",
-		"Change",
-		"Change detection",
-		"Content changes",
-		"Detection",
-		"Price tracking",
-		"Real-time alerts",
-		"Stock notifications",
-		"Tracking",
-		"Visual selector tool",
-		"Web page updates",
-		"Website monitoring"
+		"Alerts",
+		"Diff",
+		"Monitoring",
+		"Prices",
+		"Restocks",
+		"Snapshots",
+		"Updates",
+		"Websites"
 	],
 	"proprietary": [
+		"Distill.io",
 		"Visualping"
 	],
 	"default": {

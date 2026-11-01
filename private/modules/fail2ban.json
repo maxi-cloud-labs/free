@@ -10,16 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "fail2ban/fail2ban",
-	"description": "A daemon to ban hosts that cause multiple authentication errors.",
+	"description": "A server protection service against repeated failed logins and malicious IP addresses.",
 	"hero": "a stern nightclub bouncer silhouette blocking a hooded intruder at a velvet rope, red security light. noir, no-nonsense, protective",
 	"keywords": [
-		"Ban",
-		"Check",
-		"Connection",
-		"Diagnose",
-		"Networking"
+		"Attackers",
+		"Authentication",
+		"Bans",
+		"Brute-force",
+		"Firewall",
+		"Intrusion",
+		"Iptables",
+		"Security"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"BitNinja",
+		"Imunify360"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/fail2ban-client"

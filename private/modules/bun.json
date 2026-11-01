@@ -10,11 +10,16 @@
 	"finished": true,
 	"database": "",
 	"github": "oven-sh/bun",
-	"description": "A JavaScript runtime, bundler, test runner, and package manager.",
+	"description": "An all-in-one JavaScript and TypeScript runtime, bundler, test runner, and package manager.",
 	"hero": "a cute round steamed bun-shaped rabbit mascot sprinting at light speed, leaving a trail of sparks. fast, cheeky, high-energy",
 	"keywords": [
+		"Bundling",
+		"Dependencies",
 		"Javascript",
+		"Packages",
 		"Runtime",
+		"Scripts",
+		"Testing",
 		"Typescript"
 	],
 	"proprietary": [],

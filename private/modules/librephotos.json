@@ -10,19 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "LibrePhotos/librephotos",
-	"description": "A photo management service with a slight focus on cool graphs.",
+	"description": "A private photo management service for organizing albums, recognizing faces, and searching pictures.",
 	"hero": "a photo album with a glowing graph constellation of faces and places connecting memories. data-art, nostalgic, curious",
 	"keywords": [
-		"Face recognition",
+		"Albums",
+		"Faces",
 		"Gallery",
-		"Location-based photos",
-		"Photo albums",
-		"Photo management",
-		"Photo organization",
-		"Photo search",
-		"Photos"
+		"Metadata",
+		"Organization",
+		"Pictures",
+		"Recognition",
+		"Search"
 	],
 	"proprietary": [
+		"Apple Photos",
 		"Google Photos"
 	],
 	"default": {

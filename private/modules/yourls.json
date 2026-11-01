@@ -10,17 +10,22 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "YOURLS/YOURLS",
-	"description": "A powerful and customizable, URL shortener, featuring password protection, URL customization, bookmarklets, statistics, API, plugins.",
+	"description": "A self-hosted URL shortening service with custom links, click statistics, and link management.",
 	"hero": "a long snaking link being cut and shortened by giant scissors, sparks flying. dramatic, snappy, comic",
 	"keywords": [
 		"Analytics",
-		"Link management",
+		"Clicktracking",
+		"Customurls",
+		"Links",
+		"Qr",
+		"Redirects",
 		"Shortener",
-		"URL",
-		"URL shortener"
+		"Statistics"
 	],
 	"proprietary": [
-		"Bitly"
+		"Bitly",
+		"Rebrandly",
+		"TinyURL"
 	],
 	"default": {
 		"addLineInDirectory": "RewriteBase /\n\t\tRewriteCond %{REQUEST_FILENAME} !-f\n\t\tRewriteCond %{REQUEST_FILENAME} !-d\n\t\tRewriteRule ^.*$ /yourls-loader.php [L]",

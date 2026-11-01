@@ -10,23 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "projectdiscovery/katana",
-	"description": "A crawling and spidering engine.",
+	"description": "A web crawling engine for discovering URLs, endpoints, and linked website content.",
 	"hero": "a gleaming samurai katana slicing through glowing web page nodes, spider-webs of links falling. ninja-film, precise, dramatic",
 	"keywords": [
 		"Crawling",
-		"Customizable output",
-		"Headless browsing",
-		"JavaScript parsing",
-		"Scope control",
-		"Search",
-		"Search Engine",
-		"Spider",
-		"Spidering engine",
-		"URL discovery",
-		"Web crawling",
-		"Website crawler"
+		"Discovery",
+		"Enumeration",
+		"Headless",
+		"Reconnaissance",
+		"Spidering",
+		"Urls",
+		"Websites"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Burp Suite Professional",
+		"Screaming Frog SEO Spider"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/katana"

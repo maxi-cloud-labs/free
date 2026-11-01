@@ -10,15 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "outerbase/studio",
-	"description": "A multi-type database Viewer.",
+	"description": "A browser-based database editor for exploring tables and querying PostgreSQL, MySQL, and SQLite.",
 	"hero": "a futuristic observatory dome opening to reveal stacked database tables like stars. modern, spacious, curious",
 	"keywords": [
-		"MySQL",
-		"MySQL viewer",
-		"SQL",
-		"Viewer"
+		"Browsing",
+		"Database",
+		"Mysql",
+		"Postgresql",
+		"Queries",
+		"Sql",
+		"Sqlite",
+		"Tables"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"JetBrains DataGrip",
+		"Navicat Premium",
+		"TablePlus"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9492,

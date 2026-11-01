@@ -10,16 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "k3s-io/k3s",
-	"description": "The lightweight optimized Kubernetes for low-RAM hardware.",
+	"description": "A lightweight Kubernetes distribution for deploying containers on resource-constrained servers and devices.",
 	"hero": "a tiny but powerful ship's wheel helm steering a small sailboat of containers through stormy seas. brave, compact, nautical",
 	"keywords": [
-		"Container",
+		"Clusters",
+		"Containers",
 		"Deployment",
-		"DevOps",
-		"Orchestration",
-		"Virtualization"
+		"Edge",
+		"Edgecomputing",
+		"Embedded",
+		"K8s",
+		"Orchestration"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon EKS",
+		"Azure Kubernetes Service",
+		"Google Kubernetes Engine"
+	],
 	"default": {
 		"cmds": [
 			""

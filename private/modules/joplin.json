@@ -10,20 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "laurent22/joplin",
-	"description": "A note taking and to-do application with synchronization capabilities, with markdown editor and encryption support.",
+	"description": "A private note-taking and task manager with Markdown editing, encryption, and device synchronization.",
 	"hero": "a handwritten notebook with a glowing blue feather pen, notes lifting like dust into the cloud. quiet, studious, cozy",
 	"keywords": [
+		"Attachments",
+		"Encryption",
 		"Markdown",
-		"Note taking",
+		"Notebooks",
 		"Notes",
-		"Organization",
-		"Sync",
 		"Synchronization",
-		"To-do"
+		"Tasks",
+		"Todo"
 	],
 	"proprietary": [
 		"Evernote",
-		"OneNote"
+		"Microsoft OneNote",
+		"Notion"
 	],
 	"default": {
 		"enabled": true,

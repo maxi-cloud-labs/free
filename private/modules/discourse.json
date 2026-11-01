@@ -10,16 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "discourse/discourse",
-	"description": "A civilized discussion platform for your community.",
+	"description": "A community discussion platform for organized forums, conversations, and member support.",
 	"hero": "a round table of diverse glowing speech bubbles in lively conversation under warm lamp light. civilized, welcoming, community feel",
 	"keywords": [
-		"Discussion",
-		"Forum",
-		"Real-time chat",
-		"Support"
+		"Communities",
+		"Conversations",
+		"Discussions",
+		"Forums",
+		"Members",
+		"Moderation",
+		"Threads",
+		"Topics"
 	],
 	"proprietary": [
-		"VBulletin"
+		"Bettermode",
+		"Circle",
+		"vBulletin"
 	],
 	"default": {
 		"enabled": true,

@@ -10,21 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "pnpm/pnpm",
-	"description": "A fast, disk space efficient package manager.",
+	"description": "A fast, space-efficient JavaScript package manager for projects and monorepos.",
 	"hero": "a tidy pantry with one shared shelf of glowing packages linked to many projects by golden threads. efficient, orderly, elegant",
 	"keywords": [
-		"Dependency management",
-		"Disk space efficient",
-		"Fast installation",
-		"JavaScript tools",
-		"Manager",
+		"Caching",
+		"Dependencies",
+		"Installation",
+		"Javascript",
 		"Monorepos",
-		"Node.js",
-		"Npm",
-		"Package",
-		"Package manager"
+		"Nodejs",
+		"Packages",
+		"Workspaces"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"npm"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/pnpm"

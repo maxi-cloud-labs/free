@@ -10,16 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "apache/httpd",
-	"description": "An HTTP Server Project built with security, efficiency and extensibility in mind.",
+	"description": "A configurable HTTP web server for hosting websites and delivering web content.",
 	"hero": "a majestic feather-crowned warrior silhouette guarding a gate of glowing web servers. veteran, noble, enduring, legendary",
 	"keywords": [
-		"Apache",
-		"HTTP",
-		"HTTP Server",
-		"Web server",
-		"Website"
+		"Hosting",
+		"Modules",
+		"Requests",
+		"Routing",
+		"Staticfiles",
+		"Virtualhosts",
+		"Webhosting",
+		"Websites"
 	],
 	"proprietary": [
+		"LiteSpeed Web Server",
 		"Microsoft IIS"
 	],
 	"default": {

@@ -10,15 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "Genymobile/scrcpy",
-	"description": "An executable to display and control your Android device.",
+	"description": "A desktop utility for mirroring and controlling an Android device over USB or a network.",
 	"hero": "a smartphone mirrored on a desktop monitor by a glowing beam, like a ghost clone. sci-fi duplication, crisp, clever",
 	"keywords": [
+		"Adb",
 		"Android",
-		"Control",
-		"Remote",
-		"Remote control"
+		"Debugging",
+		"Desktop",
+		"Mirroring",
+		"Remotecontrol",
+		"Screen",
+		"Usb"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"AirDroid Cast",
+		"Samsung DeX",
+		"Vysor"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/scrcpy"

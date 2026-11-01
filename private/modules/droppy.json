@@ -10,19 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "droppyjs/droppy",
-	"description": "A file storage.",
+	"description": "A self-hosted web file manager for uploading, organizing, and sharing files.",
 	"hero": "a glowing water droplet falling into an open file folder, ripples spreading as documents. serene, minimal, clean",
 	"keywords": [
-		"File",
-		"File sharing",
-		"Multi-language",
-		"Privacy",
-		"Secure sharing",
+		"Browsing",
+		"Downloads",
+		"Files",
+		"Folders",
 		"Sharing",
-		"Upload",
-		"Upload files"
+		"Storage",
+		"Transfer",
+		"Uploads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Box",
+		"Dropbox",
+		"Google Drive"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9424,

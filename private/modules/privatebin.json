@@ -10,22 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "PrivateBin/PrivateBin",
-	"description": "A minimalist pastebin/discussion board where the server has zero knowledge of hosted data.",
+	"description": "An encrypted online pastebin for confidential text and links with client-side privacy.",
 	"hero": "a glowing sealed bin with a lock, notes dissolving inside after reading. zero-knowledge, mysterious, secretive",
 	"keywords": [
-		"Anonymous sharing",
-		"Data security",
+		"Anonymity",
 		"Encryption",
-		"Minimalist tool",
-		"Online storage",
-		"Password protection",
+		"Expiration",
+		"Passwords",
 		"Pastebin",
-		"Privacy",
-		"Secure sharing",
-		"Zero-knowledge"
+		"Secrets",
+		"Sharing",
+		"Snippets"
 	],
 	"proprietary": [
-		"Pastebin"
+		"Pastebin.com"
 	],
 	"default": {
 		"enabled": true,

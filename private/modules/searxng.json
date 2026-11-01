@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "searxng/searxng",
-	"description": "A free internet metasearch engine which aggregates results from various search services and databases.",
+	"description": "A privacy-focused metasearch engine for combining results from multiple search providers.",
 	"hero": "a hooded detective with a giant magnifier meta-searching glowing orbs from many search engines. privacy-noir, curious, shadowy",
 	"keywords": [
-		"Engine",
-		"Free",
+		"Aggregation",
+		"Anonymity",
+		"Engines",
 		"Metasearch",
-		"Online search",
 		"Privacy",
+		"Queries",
 		"Search",
-		"Search engine",
-		"Secure search"
+		"Tracking"
 	],
 	"proprietary": [
-		"Google"
+		"Bing",
+		"Brave Search",
+		"Google Search"
 	],
 	"default": {
 		"alias": [

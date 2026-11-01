@@ -10,19 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "phpList/core",
-	"description": "A newsletter manager.",
+	"description": "An email newsletter management platform for subscriber lists, campaigns, and bulk mailing.",
 	"hero": "an old-fashioned mailbox opening with a flood of glowing newsletters flying out like paper doves. joyful, spreading, flutter",
 	"keywords": [
-		"Database access",
-		"Email",
-		"Email marketing",
-		"Email sending",
-		"Logging",
+		"Bulkmail",
+		"Campaigns",
+		"Deliverability",
+		"Mailing",
 		"Marketing",
-		"Newsletter",
-		"Newsletter manager"
+		"Newsletters",
+		"Segmentation",
+		"Subscribers"
 	],
 	"proprietary": [
+		"Brevo",
+		"Constant Contact",
 		"Mailchimp"
 	],
 	"default": {

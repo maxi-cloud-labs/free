@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "redis/redis",
-	"description": "A fast and feature-rich cache, data structure server, and document and vector query engine.",
+	"description": "An in-memory data store for application caching, queues, and fast key-value access.",
 	"hero": "a bolt of crimson lightning striking a glowing memory chip, data keys flying. fast, vivid, electric",
 	"keywords": [
-		"Data",
-		"Data server",
-		"Data structures",
-		"Document storage",
-		"Fast cache",
-		"In-memory",
-		"Query engine",
-		"Server software",
-		"Structure",
-		"Vector search"
+		"Caching",
+		"Inmemory",
+		"Keyvalue",
+		"Persistence",
+		"Pubsub",
+		"Queues",
+		"Sessions",
+		"Streams"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon ElastiCache",
+		"Google Cloud Memorystore"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/redis-cli"

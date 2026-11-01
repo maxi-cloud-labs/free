@@ -10,19 +10,20 @@
 	"finished": false,
 	"database": "",
 	"github": "dealfonso/shafi",
-	"description": "A platform to share files similar to WeTransfer.",
+	"description": "A private self-hosted file transfer service for sharing downloads through simple links.",
 	"hero": "two silhouettes passing a glowing parcel across a bridge of light. minimal, travelers, handoff",
 	"keywords": [
-		"File",
-		"File sharing",
-		"Multi-language",
-		"Privacy",
-		"Secure sharing",
+		"Downloads",
+		"Files",
+		"Hosting",
+		"Links",
+		"Recipients",
 		"Sharing",
-		"Upload",
-		"Upload files"
+		"Transfers",
+		"Uploads"
 	],
 	"proprietary": [
+		"Dropbox Transfer",
 		"WeTransfer"
 	],
 	"default": {

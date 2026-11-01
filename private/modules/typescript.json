@@ -10,16 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "microsoft/TypeScript",
-	"description": "A superset of JavaScript that compiles to clean JavaScript output.",
+	"description": "A statically typed JavaScript superset for developing maintainable web and server applications.",
 	"hero": "a blue shield-like crest with typed braces holding back raw chaotic JS energy, calm authority. structured, reliable, clean",
 	"keywords": [
-		"Application development",
-		"Code compilation",
+		"Annotations",
+		"Compilation",
+		"Interfaces",
 		"Javascript",
-		"Language",
-		"Microsoft",
-		"Programming language",
-		"Web development"
+		"Programming",
+		"Statictyping",
+		"Transpilation",
+		"Typechecking"
 	],
 	"proprietary": [],
 	"default": {

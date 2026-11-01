@@ -10,18 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Bubka/2FAuth",
-	"description": "A manager of two-factor authentications and security codes.",
+	"description": "A web-based manager for two-factor authentication accounts and one-time login codes.",
 	"hero": "a glowing six-digit code ring orbiting a sturdy padlock, countdown timer arc around it. tense, secretive, high-security thriller",
 	"keywords": [
-		"2FA",
-		"Authentication",
-		"Codes",
-		"Security",
-		"Two",
-		"Two-factor authentication"
+		"Authenticator",
+		"Login",
+		"Mfa",
+		"Otp",
+		"Passcodes",
+		"Tokens",
+		"Totp",
+		"Verification"
 	],
 	"proprietary": [
-		"Google Authenticator"
+		"Authy",
+		"Google Authenticator",
+		"Microsoft Authenticator"
 	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",

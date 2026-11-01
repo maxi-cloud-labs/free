@@ -10,15 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "A tool to test networking.",
+	"description": "A command-line networking utility for testing TCP/UDP connections and sending data between hosts.",
 	"hero": "a sleek cat with glowing network tendrils prowling across a network cable street at night. stealthy, cunning, cyberpunk",
 	"keywords": [
-		"Check",
-		"Connection",
-		"Diagnose",
-		"Network",
+		"Connectivity",
+		"Diagnostics",
+		"Listeners",
 		"Networking",
-		"Tester"
+		"Ports",
+		"Sockets",
+		"Tcp",
+		"Udp"
 	],
 	"proprietary": [],
 	"default": {

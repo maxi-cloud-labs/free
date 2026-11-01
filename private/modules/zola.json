@@ -10,19 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "getzola/zola",
-	"description": "A static site generator.",
+	"description": "A fast static website generator with templates, Markdown content, and built-in site tools.",
 	"hero": "a sculptor chiseling a glowing static website out of a block of marble, dust sparkling in the air. classical, precise, timeless",
 	"keywords": [
-		"Docs",
-		"Documentation",
-		"Documentation tool",
-		"Live reload",
-		"Multilingual support",
-		"Static site generator",
-		"Template engine",
-		"Website builder"
+		"Blogs",
+		"Generation",
+		"Markdown",
+		"Publishing",
+		"Sass",
+		"Static",
+		"Templates",
+		"Websites"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Squarespace",
+		"Webflow",
+		"Wix"
+	],
 	"default": {
 		"cmds": []
 	}

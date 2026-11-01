@@ -10,12 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "n8n-io/n8n",
-	"description": "A fair-code workflow automation platform with native AI capabilities.",
+	"description": "A visual automation platform for connecting apps, orchestrating workflows, and building AI integrations.",
 	"hero": "an octopus with eight glowing arms linking apps together into a workflow. clever, whimsical, multi-tasking",
 	"keywords": [
-		"N8n"
+		"Agents",
+		"Automation",
+		"Integrations",
+		"Nodes",
+		"Orchestration",
+		"Triggers",
+		"Webhooks",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Make",
+		"Microsoft Power Automate",
+		"Zapier"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

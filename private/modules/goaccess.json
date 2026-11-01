@@ -10,21 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "allinurl/goaccess",
-	"description": "A real-time web log analyzer and interactive viewer that runs in a terminal.",
+	"description": "A real-time web server log analyzer with traffic statistics and interactive dashboards.",
 	"hero": "a terminal window opening like a cinema, with real-time glowing bar charts rising as spotlights. neon, live, analytical",
 	"keywords": [
 		"Analytics",
-		"Data visualization",
-		"Interactive dashboard",
-		"Log analysis",
-		"Logs",
-		"Real-time monitoring",
-		"Server statistics",
-		"Web analytics",
-		"Web log viewer",
-		"Website traffic"
+		"Apache",
+		"Dashboards",
+		"Nginx",
+		"Requests",
+		"Traffic",
+		"Visitors",
+		"Weblogs"
 	],
 	"proprietary": [
+		"Datadog Log Management",
 		"Splunk"
 	],
 	"default": {

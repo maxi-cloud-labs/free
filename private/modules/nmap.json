@@ -10,17 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "nmap/nmap",
-	"description": "A network mapper tool to test networking.",
+	"description": "A network discovery and security scanner for identifying hosts, services, and open ports.",
 	"hero": "a sonar radar sweep mapping a dark network of glowing nodes and open ports. submarine-thriller, green-blue glow, stealth",
 	"keywords": [
+		"Discovery",
+		"Enumeration",
+		"Fingerprinting",
+		"Hosts",
 		"Network",
-		"Network mapper",
-		"Network scanning",
-		"Network testing",
-		"Security tool",
-		"Tester"
+		"Ports",
+		"Probes",
+		"Scanning"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Rapid7 InsightVM",
+		"Tenable Nessus"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/nmap"

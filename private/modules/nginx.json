@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "nginx/nginx",
-	"description": "A high-performance HTTP and reverse proxy server, mail proxy server, and generic TCP/UDP proxy server.",
+	"description": "A high-performance web server and reverse proxy for hosting sites and balancing traffic.",
 	"hero": "a mighty traffic conductor on a bridge directing glowing streams of web requests. orchestral, efficient, commanding",
 	"keywords": [
-		"Content caching",
-		"HTTP",
-		"HTTP proxy",
-		"Load balancer",
-		"Proxy",
-		"Reverse proxy",
-		"TLS encryption",
-		"Web server"
+		"Caching",
+		"Http",
+		"Loadbalancing",
+		"Reverseproxy",
+		"Routing",
+		"Serving",
+		"Tls",
+		"Websites"
 	],
 	"proprietary": [
-		"F5 BIG-IP"
+		"F5 BIG-IP",
+		"LiteSpeed Web Server",
+		"Microsoft IIS"
 	],
 	"default": {
 		"cmds": []

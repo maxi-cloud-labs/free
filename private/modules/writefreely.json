@@ -10,19 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "writefreely/writefreely",
-	"description": "A clean minimalist, privacy-focused blogging platform.",
+	"description": "A minimalist Markdown blogging platform for focused writing, publishing, and federated posts.",
 	"hero": "a free-flying quill pen scattering glowing words as it goes, no walls. calm, liberating, literary",
 	"keywords": [
-		"Blog",
 		"Blogging",
-		"Community",
+		"Federation",
+		"Fediverse",
+		"Markdown",
 		"Minimalist",
-		"Privacy",
+		"Posts",
 		"Publishing",
 		"Writing"
 	],
 	"proprietary": [
-		"Medium"
+		"Ghost(Pro)",
+		"Medium",
+		"Substack"
 	],
 	"default": {
 		"enabled": true,

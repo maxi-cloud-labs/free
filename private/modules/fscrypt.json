@@ -10,21 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "google/fscrypt",
-	"description": "A tool for managing Linux filesystem encryption.",
+	"description": "A Linux filesystem encryption manager for protecting files and directories at rest.",
 	"hero": "a sealed treasure chest with layers of glowing encryption runes etched around the lock. ancient vault, mystical, dense",
 	"keywords": [
-		"Data protection",
-		"Directory",
+		"Directories",
 		"Encryption",
+		"Ext4",
 		"Filesystem",
+		"Keys",
 		"Linux",
-		"Password",
-		"Privacy",
-		"Security",
-		"Storage"
+		"Passwords",
+		"Protection"
 	],
 	"proprietary": [
-		"BitLocker"
+		"Apple FileVault",
+		"Microsoft BitLocker"
 	],
 	"default": {
 		"cmds": [

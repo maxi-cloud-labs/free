@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "swagger-api/swagger-ui",
-	"description": "A collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation.",
+	"description": "An interactive API documentation viewer for exploring and testing OpenAPI endpoints.",
 	"hero": "a glowing interactive API doc page with green and blue endpoint chips opening like a stage curtain. theatrical, clean, inviting",
 	"keywords": [
-		"API",
-		"Documentation"
+		"Documentation",
+		"Endpoints",
+		"Explorer",
+		"Interactive",
+		"Openapi",
+		"Requests",
+		"Specifications",
+		"Testing"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Postman",
+		"ReadMe",
+		"SwaggerHub"
+	],
 	"default": {
 		"alias": [
 			"apidocs"

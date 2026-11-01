@@ -10,19 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "transmission/transmission",
-	"description": "A fast, easy, and free BitTorrent client.",
+	"description": "A lightweight BitTorrent client for downloading and managing peer-to-peer files.",
 	"hero": "a glowing gear shift lever with data streams flowing along a road of light. mechanical, speedy, lean",
 	"keywords": [
-		"BitTorrent",
-		"BitTorrent client",
-		"Client",
-		"Download",
-		"Download manager",
-		"File sharing",
-		"P2P"
+		"Downloads",
+		"Lightweight",
+		"Magnet",
+		"P2p",
+		"Peers",
+		"Seeding",
+		"Torrents",
+		"Trackers"
 	],
 	"proprietary": [
-		"QBittorrent"
+		"BitTorrent Classic",
+		"\u00b5Torrent"
 	],
 	"default": {
 		"enabled": true,

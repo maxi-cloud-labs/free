@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Koenkk/zigbee2mqtt",
-	"description": "A Zigbee to MQTT bridge to get rid of your proprietary Zigbee bridges.",
+	"description": "A Zigbee-to-MQTT bridge for connecting smart-home devices without proprietary hubs.",
 	"hero": "a glowing bee-shaped zigbee hub linking tiny smart devices around a hive. industrious, cute, honeycomb network",
 	"keywords": [
-		"Bridge",
-		"Device integration",
-		"Home Assistant",
-		"Home automation",
-		"IoT",
-		"MQTT",
-		"Smart home",
-		"Supported devices",
-		"Zigbee"
+		"Automation",
+		"Devices",
+		"Iot",
+		"Pairing",
+		"Pubsub",
+		"Sensors",
+		"Smarthome",
+		"Wireless"
 	],
 	"proprietary": [
-		"Philips Hue Bridge"
+		"Aqara Hub",
+		"Philips Hue Bridge",
+		"Samsung SmartThings"
 	],
 	"default": {
 		"enabled": true,

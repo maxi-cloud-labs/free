@@ -10,17 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "cockpit-project/cockpit",
-	"description": "A server health suite with graphical interface.",
+	"description": "A browser-based administration console for Linux servers, services, and system health.",
 	"hero": "a cockpit dashboard with glowing gauges and a server-rack view out of the windshield. pilot's-eye view, adventure, calm control",
 	"keywords": [
+		"Administration",
+		"Daemons",
 		"Dashboard",
-		"Health",
-		"Linux administration",
-		"Server management",
-		"Sysadmin tools",
-		"System monitoring"
+		"Linux",
+		"Monitoring",
+		"Networking",
+		"Storage",
+		"Sysadmin"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Plesk",
+		"cPanel"
+	],
 	"default": {
 		"addConfigBegin": "Alias /access /usr/local/modules/cockpit/access\n\t<Directory /usr/local/modules/cockpit/access>\n\t\tRequire all granted\n\t</Directory>\n\tProxyPass /access !",
 		"enabled": true,

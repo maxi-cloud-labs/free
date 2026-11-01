@@ -10,16 +10,21 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "qbittorrent/qBittorrent",
-	"description": "A free cross-platform bittorrent client with a feature rich Web UI for remote access.",
+	"description": "A full-featured BitTorrent client for downloading, organizing, and remotely managing torrents.",
 	"hero": "a glowing magnet attracting swarms of data particles from a globe. sci-fi, swarm, collaborative",
 	"keywords": [
-		"BitTorrent",
-		"Client",
-		"Download",
-		"P2P"
+		"Downloads",
+		"Magnet",
+		"P2p",
+		"Peers",
+		"Seeding",
+		"Torrents",
+		"Trackers",
+		"Webui"
 	],
 	"proprietary": [
-		"QBittorrent"
+		"BitTorrent Classic",
+		"\u00b5Torrent"
 	],
 	"default": {
 		"autoLogin": {

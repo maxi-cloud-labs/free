@@ -10,13 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "FlowiseAI/Flowise",
-	"description": "A visual AI agents builder.",
+	"description": "A visual drag-and-drop builder for AI agents, LLM workflows, and chatbot pipelines.",
 	"hero": "a visual flow of glowing nodes and wires forming a robot brain, being assembled by tiny hands. magical LEGO-like building, colorful, playful",
 	"keywords": [
-		"AI agents",
-		"Builder"
+		"Agents",
+		"Chatbots",
+		"Dragdrop",
+		"Orchestration",
+		"Pipelines",
+		"Prompts",
+		"Rag",
+		"Visual"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Google Vertex AI Agent Builder",
+		"Microsoft Copilot Studio"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9437,

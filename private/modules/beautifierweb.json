@@ -10,19 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "beautifier/beautifier.io",
-	"description": "An online tool to reformat javascript.",
+	"description": "An online editor for beautifying and formatting JavaScript, HTML, and CSS code.",
 	"hero": "a browser window with a magic wand turning messy code into neat glowing rows. playful, makeover, before-and-after",
 	"keywords": [
-		"Beautifier",
-		"Cleanup code",
-		"Code",
-		"Formatter",
+		"Browser",
+		"Css",
+		"Editor",
+		"Formatting",
+		"Html",
 		"Indentation",
-		"JavaScript formatter",
 		"Javascript",
-		"Obfuscate",
-		"Optimization",
-		"Refactor"
+		"Prettify"
 	],
 	"proprietary": [],
 	"default": {

@@ -10,18 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "dovecot/core",
-	"description": "A secure IMAP and POP3 email server written primarily with security in mind.",
+	"description": "A secure IMAP and POP3 server for accessing and retrieving email mailboxes.",
 	"hero": "a graceful white dove carrying a sealed glowing envelope, perched on a secure vault. peaceful, trustworthy, protective",
 	"keywords": [
+		"Authentication",
+		"Delivery",
 		"Email",
-		"IMAP",
-		"Mailing list",
-		"POP3",
-		"Secure",
-		"Security"
+		"Imap",
+		"Mailboxes",
+		"Pop3",
+		"Retrieval",
+		"Storage"
 	],
 	"proprietary": [
-		"Microsoft Exchange"
+		"Microsoft Exchange Server"
 	],
 	"default": {
 		"cmds": []

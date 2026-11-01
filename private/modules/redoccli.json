@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "The reference documentation based on OpenAPI/Swagger-generated API.",
+	"description": "A command-line generator for publishing static API documentation from OpenAPI specifications.",
 	"hero": "a terminal prompt opening into a tall glowing documentation scroll, a wizard at the keyboard. command-line, scholarly, sleek",
 	"keywords": [
-		"Open API",
-		"Reference Documentation"
+		"Documentation",
+		"Generation",
+		"Html",
+		"Openapi",
+		"Publishing",
+		"Reference",
+		"Static",
+		"Swagger"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Mintlify",
+		"ReadMe",
+		"Stoplight"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/modules/redoc/node_modules/.bin/redocly"

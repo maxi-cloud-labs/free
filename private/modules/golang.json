@@ -10,17 +10,19 @@
 	"finished": true,
 	"database": "",
 	"github": "golang/go",
-	"description": "A programming language that makes it easy to build simple, reliable, and efficient software.",
+	"description": "A compiled programming language for efficient backend services, command-line tools, and concurrent applications.",
 	"hero": "a cute blue gopher mascot sprinting through a field of goroutines as glowing parallel lanes. speedy, cheerful, mascot-driven",
 	"keywords": [
-		"Go",
-		"Language",
-		"Programming",
-		"Programming language"
+		"Backend",
+		"Binaries",
+		"Compiler",
+		"Concurrency",
+		"Goroutines",
+		"Microservices",
+		"Modules",
+		"Programming"
 	],
-	"proprietary": [
-		"(No direct proprietary equivalent)"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/go"

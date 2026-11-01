@@ -10,19 +10,20 @@
 	"finished": true,
 	"database": "",
 	"github": "llvm/llvm-project",
-	"description": "A C language family frontend for LLVM.",
+	"description": "A C-family compiler frontend for C, C++, and Objective-C using LLVM.",
 	"hero": "a dragon's-claw hammer forging a glowing C-shaped ingot on a compiler anvil. fiery, industrial, precise",
 	"keywords": [
-		"C",
-		"C language",
-		"Clang",
+		"Compilation",
 		"Compiler",
-		"Development",
-		"LLVM",
-		"Libraries",
-		"Source code"
+		"Cpp",
+		"Diagnostics",
+		"Llvm",
+		"Objc",
+		"Syntax",
+		"Toolchain"
 	],
 	"proprietary": [
+		"Intel oneAPI C++ Compiler",
 		"Microsoft Visual C++"
 	],
 	"default": {

@@ -10,23 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "janisadhi/Server_Performance_Stats",
-	"description": "A script to get live server performance stats.",
+	"description": "A lightweight Linux script for live CPU, memory, disk, and server performance statistics.",
 	"hero": "a server rack with glowing heartbeat gauges and speedometers on its face. dashboard, sporty, vital",
 	"keywords": [
-		"CPU usage",
-		"Disk usage",
-		"Health",
-		"Linux script",
-		"Live stats",
-		"Memory usage",
-		"Monitoring",
-		"Server health",
-		"Server performance",
-		"Stats",
-		"System resources",
-		"Top processes"
+		"Cpu",
+		"Disk",
+		"Linux",
+		"Load",
+		"Memory",
+		"Metrics",
+		"Processes",
+		"Resources"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog Infrastructure Monitoring",
+		"New Relic Infrastructure",
+		"SolarWinds Server & Application Monitor"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/serverperformancestats.sh"

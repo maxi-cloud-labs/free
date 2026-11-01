@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "PostgreSQL",
 	"github": "immich-app/immich",
-	"description": "A photo and video management solution.",
+	"description": "A self-hosted photo and video library with automatic backup, browsing, and album sharing.",
 	"hero": "a glowing cloud-shaped photo vault with floating polaroids drifting upward, protected by a protective circle. nostalgic, bright, secure",
 	"keywords": [
-		"Album sharing",
-		"Auto backup",
-		"Backup",
-		"Media management",
-		"Photo",
-		"Photo backup",
-		"Photo organization",
-		"Video",
-		"Video backup"
+		"Albums",
+		"Backups",
+		"Gallery",
+		"Geolocation",
+		"Memories",
+		"Mobile",
+		"Photos",
+		"Videos"
 	],
 	"proprietary": [
-		"Google Photos"
+		"Amazon Photos",
+		"Google Photos",
+		"iCloud Photos"
 	],
 	"default": {
 		"autoLogin": {

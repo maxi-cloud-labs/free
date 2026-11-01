@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "A parser of Postfix mail server logs.",
+	"description": "A mail log parser for inspecting Postfix message delivery, errors, and SMTP activity.",
 	"hero": "a magnifying glass over a scrolling mail log, extracting glowing envelope metadata. detective, analytical, noir",
 	"keywords": [
-		"Email",
-		"Log",
+		"Deliveries",
+		"Diagnostics",
+		"Errors",
 		"Logs",
-		"Mail",
-		"Mail logs",
-		"Mail server",
-		"Parser",
-		"Postfix",
-		"SMTP",
-		"Server logs"
+		"Parsing",
+		"Queues",
+		"Smtp",
+		"Statistics"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog Log Management",
+		"Splunk"
+	],
 	"default": {
 		"cmds": []
 	}

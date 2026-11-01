@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "alexta69/metube",
-	"description": "A web GUI for youtube-dl, with playlist support to download videos from dozens of websites.",
+	"description": "A browser-based video downloader for YouTube and other sites, including playlists.",
 	"hero": "a retro TV screen with a glowing download arrow pulling video from the clouds into a cozy shelf. nostalgic, playful, homemade",
 	"keywords": [
-		"Download",
-		"Download manager",
+		"Archiving",
+		"Audio",
+		"Browser",
+		"Downloads",
+		"Playlists",
 		"Video",
-		"Video downloader",
-		"YouTube",
-		"YouTube downloader"
+		"Youtube",
+		"Yt-dlp"
 	],
 	"proprietary": [
-		"4K Video Downloader"
+		"4K Video Downloader Plus",
+		"Internet Download Manager"
 	],
 	"default": {
 		"enabled": true,

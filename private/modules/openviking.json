@@ -10,14 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "volcengine/OpenViking",
-	"description": "A context database designed specifically for AI Agents.",
+	"description": "A context database for AI agent memory, knowledge retrieval, and reusable skills.",
 	"hero": "a stern Viking longship carrying a glowing memory crystal across a sea of data, AI agents as shield warriors. epic, mythic, saga",
 	"keywords": [
-		"Agency",
 		"Agents",
-		"Specialized expert"
+		"Context",
+		"Embeddings",
+		"Indexing",
+		"Knowledge",
+		"Memory",
+		"Rag",
+		"Retrieval"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon Bedrock Knowledge Bases",
+		"Mem0",
+		"Zep"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9489,

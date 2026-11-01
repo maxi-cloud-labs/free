@@ -10,15 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "mongodb/mongo",
-	"description": "A general-purpose, document-based, distributed database.",
+	"description": "A document-oriented NoSQL database for storing and querying flexible JSON-like records.",
 	"hero": "a glowing green leaf holding a floating cloud of JSON documents. organic, expansive, nature-meets-tech",
 	"keywords": [
-		"Distributed",
-		"Document",
-		"Document-based",
-		"NoSQL"
+		"Aggregation",
+		"Bson",
+		"Collections",
+		"Documents",
+		"Indexing",
+		"Nosql",
+		"Queries",
+		"Replication"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Amazon DocumentDB",
+		"Azure Cosmos DB"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

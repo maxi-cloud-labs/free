@@ -10,22 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "git/git",
-	"description": "A distributed version control system.",
+	"description": "A distributed version control system for tracking code changes and collaborating on software projects.",
 	"hero": "a glowing branching tree of commits growing from a single trunk, leaves as commit hashes. organic, timeline, cosmic",
 	"keywords": [
-		"Code management",
-		"Control",
-		"Distributed system",
-		"Documentation",
-		"Git",
-		"SCM",
-		"Software development",
-		"Tutorial",
-		"Version",
-		"Version control"
+		"Branching",
+		"Collaboration",
+		"Commits",
+		"Diffs",
+		"Merging",
+		"Repository",
+		"Revisions",
+		"Scm"
 	],
 	"proprietary": [
-		"Microsoft Team Foundation Version Control"
+		"Azure DevOps Server",
+		"Perforce Helix Core"
 	],
 	"default": {
 		"cmds": [

@@ -10,17 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "ErugoOSS/Erugo",
-	"description": "A file-sharing platform.",
+	"description": "A self-hosted file transfer platform for secure uploads, download links, and private sharing.",
 	"hero": "a shiny parcel with a glowing tag being passed hand to hand between two silhouettes. simple, sleek, friendly handoff",
 	"keywords": [
-		"Data sharing",
-		"File",
-		"File sharing",
-		"Secure transfer",
+		"Downloads",
+		"Expiration",
+		"Links",
+		"Protection",
+		"Recipients",
 		"Sharing",
-		"Upload files"
+		"Transfers",
+		"Uploads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Dropbox Transfer",
+		"Smash",
+		"WeTransfer"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9430,

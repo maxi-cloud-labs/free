@@ -10,12 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "agent0ai/agent-zero",
-	"description": "An AI Agent framework.",
+	"description": "An autonomous AI agent framework for task execution, tool use, and multi-step workflows.",
 	"hero": "a lone robot agent made of a single glowing zero ring, standing in a vast empty void. minimalist, mysterious, origin-story",
 	"keywords": [
-		"Agent"
+		"Agents",
+		"Autonomous",
+		"Delegation",
+		"Execution",
+		"Planning",
+		"Reasoning",
+		"Toolcalling",
+		"Workflows"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"ChatGPT",
+		"Microsoft Copilot Studio",
+		"Salesforce Agentforce"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

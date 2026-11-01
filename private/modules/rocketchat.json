@@ -10,21 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "RocketChat/Rocket.Chat",
-	"description": "A communication platform that puts data protection first.",
+	"description": "A secure workplace messaging platform for team chat, collaboration, and customer conversations.",
 	"hero": "a sleek rocket made of speech bubbles launching from a chat window into orbit. exuberant, space-race, optimistic",
 	"keywords": [
-		"Communication",
-		"Communication platform",
-		"Customer engagement",
-		"Customizable workspace",
-		"Data protection",
-		"Mobile and desktop apps",
-		"Privacy compliance",
-		"Real-time conversations",
-		"Secure messaging",
-		"Team collaboration"
+		"Channels",
+		"Collaboration",
+		"Conversations",
+		"Inbox",
+		"Messaging",
+		"Notifications",
+		"Support",
+		"Teams"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Google Chat",
+		"Microsoft Teams",
+		"Slack"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9522,

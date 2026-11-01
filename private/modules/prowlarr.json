@@ -10,14 +10,17 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "Prowlarr/Prowlarr",
-	"description": "A central collection manager for Usenet and BitTorrent users.",
+	"description": "A centralized indexer manager for configuring Usenet and torrent sources across media apps.",
 	"hero": "a prowling panther with glowing radar eyes sweeping through indexers in the dark. sleek, stalking, noir",
 	"keywords": [
 		"Automation",
-		"BitTorrent",
-		"Manager",
-		"PVR",
-		"Rr apps"
+		"Indexers",
+		"Integration",
+		"Nzb",
+		"Searching",
+		"Torrents",
+		"Trackers",
+		"Usenet"
 	],
 	"proprietary": [],
 	"default": {

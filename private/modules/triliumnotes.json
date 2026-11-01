@@ -10,22 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "TriliumNext/Trilium",
-	"description": "A cross-platform hierarchical note taking application with focus on building large personal knowledge bases.",
+	"description": "A hierarchical note-taking application for building structured personal knowledge bases.",
 	"hero": "a towering hierarchical tree whose leaves are glowing notes, a vast knowledge forest. mystical, arboreal, expansive",
 	"keywords": [
-		"Base",
-		"Documentation",
-		"Encryption",
-		"Hierarchical",
-		"Hierarchical notes",
-		"Mobile-friendly",
-		"Note-taking",
-		"Notes",
+		"Backlinks",
+		"Hierarchy",
+		"Journaling",
+		"Knowledgebase",
+		"Markdown",
+		"Notebooks",
 		"Organization",
-		"Synchronization"
+		"Outlines"
 	],
 	"proprietary": [
-		"Evernote"
+		"Evernote",
+		"Notion",
+		"Obsidian"
 	],
 	"default": {
 		"autoLogin": {

@@ -10,15 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "yarnpkg/yarn",
-	"description": "An open-source package manager for JavaScript that automates the process of installing, updating, and managing project dependencies.",
+	"description": "A JavaScript package manager for installing dependencies and maintaining application projects.",
 	"hero": "a colorful ball of yarn unraveling into glowing package threads linking a web of projects. cozy, textile, intertwined",
 	"keywords": [
-		"Manager",
+		"Dependencies",
+		"Installation",
+		"Javascript",
+		"Lockfiles",
 		"Monorepos",
-		"Package",
-		"Yarn"
+		"Npm",
+		"Packages",
+		"Workspaces"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"npm"
+	],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/yarn"

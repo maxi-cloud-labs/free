@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "bfritscher/typesense-dashboard",
-	"description": "A tool to view Typesense.",
+	"description": "A web dashboard for browsing, searching, and administering Typesense collections.",
 	"hero": "a control panel dashboard of a typewriter-hybrid with glowing search indexes as dials. retro-futuristic, gauges, clean",
 	"keywords": [
-		"API",
-		"Cloud service",
-		"Documentation",
-		"Engine",
-		"Fast search",
-		"Search",
-		"Search engine",
-		"Search tool",
-		"Typo tolerance",
-		"Viewer"
+		"Administration",
+		"Collections",
+		"Documents",
+		"Indexing",
+		"Inspection",
+		"Queries",
+		"Schemas",
+		"Searching"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Algolia Dashboard",
+		"Elastic Cloud Console"
+	],
 	"default": {
 		"enabled": true,
 		"followSymLinks": true,

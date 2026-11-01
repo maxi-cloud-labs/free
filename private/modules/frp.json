@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "fatedier/frp",
-	"description": "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.",
+	"description": "A reverse proxy and tunneling service for remote access to servers behind NAT or firewalls.",
 	"hero": "a glowing tunnel piercing through a thick firewall brick wall, a small server on the far side shining out. escape-thriller, bold, clever",
 	"keywords": [
-		"Internet access",
-		"Local server",
-		"NAT",
-		"Proxy",
-		"Remote access",
-		"Reverse",
-		"Reverse proxy",
-		"Tunnel"
+		"Exposure",
+		"Firewall",
+		"Forwarding",
+		"Nat",
+		"Ports",
+		"Remote",
+		"Reverseproxy",
+		"Tunneling"
 	],
 	"proprietary": [
-		"Ngrok"
+		"Cloudflare Tunnel",
+		"Tailscale Funnel",
+		"ngrok"
 	],
 	"default": {
 		"bindingPort": 7000,

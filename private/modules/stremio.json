@@ -10,18 +10,17 @@
 	"finished": false,
 	"database": "",
 	"github": "Stremio/stremio-web",
-	"description": "A software system to manage and stream media.",
+	"description": "A media hub for discovering and streaming movies, series, and other video content through add-ons.",
 	"hero": "a glowing cinema curtain opening to a stream of films and shows, popcorn-shaped planets floating. dreamy, vibrant, cinematic",
 	"keywords": [
-		"Discover videos",
-		"Free entertainment",
-		"Media center",
-		"Organize content",
+		"Addons",
+		"Catalog",
+		"Discovery",
+		"Movies",
+		"Playback",
 		"Streaming",
-		"Streaming addons",
-		"Video",
-		"Video streaming",
-		"Watch movies"
+		"Subtitles",
+		"Television"
 	],
 	"proprietary": [
 		"Emby",

@@ -10,19 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "gcc-mirror/gcc",
-	"description": "A GNU Compiler Collection.",
+	"description": "A compiler collection for C, C++, and other programming languages.",
 	"hero": "a majestic gnu antelope with a glowing compiler gear in its horns, charging across a plain of source code. epic, ancient, powerful",
 	"keywords": [
-		"C",
-		"C++",
-		"Code",
+		"Binaries",
+		"Compilation",
 		"Compiler",
-		"Development",
-		"GNU",
-		"Programming"
+		"Cpp",
+		"Fortran",
+		"Gnu",
+		"Optimization",
+		"Toolchain"
 	],
 	"proprietary": [
-		"Intel C++ Compiler"
+		"Intel oneAPI C++ Compiler",
+		"Microsoft Visual C++"
 	],
 	"default": {
 		"cmds": [

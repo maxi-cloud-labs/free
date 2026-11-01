@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "gohugoio/hugo",
-	"description": "A fast and modern static site generator.",
+	"description": "A fast static website generator for blogs, documentation, and content-driven sites.",
 	"hero": "a giant stylized Viking-themed hammer smashing a mountain of content into glowing static pages. fast, heroic, mythic",
 	"keywords": [
-		"Blog creation",
-		"Content management",
-		"Documentation sites",
+		"Blogs",
 		"Generator",
-		"Multilingual support",
-		"Site",
+		"Markdown",
+		"Publishing",
 		"Static",
-		"Static site generator",
-		"Website builder"
+		"Templates",
+		"Themes",
+		"Websites"
 	],
 	"proprietary": [
-		"Squarespace"
+		"Squarespace",
+		"Webflow",
+		"Wix"
 	],
 	"default": {
 		"cmds": [

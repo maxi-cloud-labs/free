@@ -10,20 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "lukevella/rallly",
-	"description": "A scheduling and collaboration tool designed to make organizing events and meetings easier.",
+	"description": "A group scheduling tool for coordinating meetings and finding dates through availability polls.",
 	"hero": "a group of friends converging on a glowing calendar pin from different directions, colors blending. dynamic, social, ensemble",
 	"keywords": [
-		"Availability checker",
-		"Collaboration software",
-		"Event planner",
-		"Group meetings",
-		"Meeting organizer",
-		"Meeting polls",
-		"Scheduler",
-		"Scheduling tool",
-		"Team coordination"
+		"Availability",
+		"Coordination",
+		"Events",
+		"Invitations",
+		"Meetings",
+		"Polls",
+		"Scheduling",
+		"Voting"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Calendly",
+		"Doodle"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9518,

@@ -10,20 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "butlerx/wetty",
-	"description": "A tool to access terminal in a browser over http/https.",
+	"description": "A web-based terminal for secure shell access and server command-line sessions.",
 	"hero": "a retro terminal inside a web browser window, lit by a glowing green cursor in a dark room. nostalgic, cathode-glow, hacker",
 	"keywords": [
-		"Browser terminal",
-		"Client",
-		"Remote access",
-		"SSH",
-		"SSH connection",
-		"Secure shell",
-		"Terminal",
-		"Web SSH client",
-		"Web-based terminal"
+		"Browser",
+		"Commandline",
+		"Console",
+		"Remote",
+		"Sessions",
+		"Shell",
+		"Ssh",
+		"Terminal"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"SecureCRT",
+		"Termius"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9551,

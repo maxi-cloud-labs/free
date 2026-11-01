@@ -10,21 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "mermaid-js/mermaid",
-	"description": "A generation tool for diagrams like flowcharts or sequence diagrams from text in a similar manner as markdown.",
+	"description": "A text-based diagram generator for flowcharts, sequence diagrams, and technical visualizations.",
 	"hero": "a graceful mermaid whose tail flows into a glowing flowchart diagram. mythical, elegant, underwater-dreamlike",
 	"keywords": [
 		"Charts",
-		"Diagram",
-		"Diagram tool",
+		"Diagrams",
 		"Documentation",
 		"Flowcharts",
-		"Live editor",
-		"Markdown",
-		"Text-based diagrams",
+		"Markup",
+		"Sequence",
+		"Textbased",
 		"Visualization"
 	],
 	"proprietary": [
-		"Lucidchart"
+		"Lucidchart",
+		"Microsoft Visio",
+		"Miro"
 	],
 	"default": {
 		"enabled": true,

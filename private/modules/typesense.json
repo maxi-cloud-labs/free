@@ -10,20 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "typesense/typesense",
-	"description": "A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.",
+	"description": "A fast search API for typo-tolerant full-text, fuzzy, and hybrid search experiences.",
 	"hero": "a typewriter with keys that auto-complete into glowing search results at lightning speed. retro, instant, magical",
 	"keywords": [
-		"API",
-		"Cloud service",
-		"Documentation",
-		"Engine",
-		"Fast search",
-		"Search",
-		"Search engine",
-		"Search tool",
-		"Typo tolerance"
+		"Autocomplete",
+		"Fulltext",
+		"Fuzzy",
+		"Hybrid",
+		"Indexing",
+		"Relevance",
+		"Retrieval",
+		"Typo"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Algolia",
+		"Azure AI Search",
+		"Elastic Cloud"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

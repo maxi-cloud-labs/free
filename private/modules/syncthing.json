@@ -10,24 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "syncthing/syncthing",
-	"description": "A continuous peer-to-peer file synchronization tool.",
+	"description": "A private peer-to-peer file synchronization service for keeping folders consistent across devices.",
 	"hero": "two glowing devices linked by a synchronized loop of light, sync arrows circling endlessly. harmony, cyclical, calm",
 	"keywords": [
-		"Automatic sync",
-		"Backup",
-		"Continuous sync",
-		"Data backup",
-		"File",
-		"File synchronization",
-		"P2P",
-		"Peer-to-peer",
-		"Privacy protection",
-		"Secure file sharing",
-		"Sync"
+		"Continuous",
+		"Devices",
+		"Encrypted",
+		"Folders",
+		"P2p",
+		"Replication",
+		"Synchronization",
+		"Transfers"
 	],
 	"proprietary": [
 		"Dropbox",
-		"Google Drive"
+		"Google Drive",
+		"OneDrive"
 	],
 	"default": {
 		"addConfigBegin": "RequestHeader set Host localhost",

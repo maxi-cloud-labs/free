@@ -10,16 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "angular/angular",
-	"description": "A platform for building mobile and desktop web applications.",
+	"description": "A TypeScript web application framework for interactive websites and single-page applications.",
 	"hero": "a bold red geometric shield with a letter A forged in metal, sparks flying. epic, heraldic, engineered, powerful",
 	"keywords": [
-		"Community",
-		"Framework",
-		"JavaScript",
-		"Mobile application",
-		"SPA",
-		"TypeScript",
-		"Web development"
+		"Components",
+		"Development",
+		"Frontend",
+		"Interfaces",
+		"Routing",
+		"Spa",
+		"Templates",
+		"Typescript"
 	],
 	"proprietary": [
 		"React"

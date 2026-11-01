@@ -10,14 +10,22 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "domainmod/domainmod",
-	"description": "A management tool for your domains and other internet assets in a central location.",
+	"description": "A centralized dashboard for domain registrations, renewals, DNS details, and internet assets.",
 	"hero": "a world map made of glowing domain tags connected by threads, held by a large steady hand. strategic, collector's atlas, command-room",
 	"keywords": [
-		"Domain",
-		"Internet",
-		"Registry"
+		"Dns",
+		"Domains",
+		"Expiration",
+		"Inventory",
+		"Portfolios",
+		"Registrar",
+		"Registration",
+		"Renewals"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"GoDaddy",
+		"MarkMonitor"
+	],
 	"default": {
 		"addConfigBegin": "Header set Content-Security-Policy \"script-src 'self' 'unsafe-inline';\"",
 		"autoLogin": {

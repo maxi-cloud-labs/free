@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "QuantumNous/new-api",
-	"description": "A unified AI model hub for aggregation & distribution, supporting cross-converting various LLMs.",
+	"description": "A centralized AI model gateway for routing and translating requests across different LLM providers.",
 	"hero": "a grand central hub with glowing portal gates, each leading to a different AI model. sci-fi hub, welcoming, majestic",
 	"keywords": [
-		"AI Gateway",
-		"AI Routing"
+		"Aggregation",
+		"Billing",
+		"Compatibility",
+		"Gateway",
+		"Llm",
+		"Providers",
+		"Routing",
+		"Tokens"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Cloudflare AI Gateway",
+		"OpenRouter",
+		"Vercel AI Gateway"
+	],
 	"default": {
 		"autoLogin": {
 			"inject": [

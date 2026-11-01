@@ -10,22 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "",
-	"description": "A mail transfer agent for routing and delivering electronic mail.",
+	"description": "An SMTP mail transfer server for routing, sending, and delivering email messages.",
 	"hero": "a vintage postal clerk sorting glowing envelopes into pigeonholes at lightning speed. old-world, precise, charming",
 	"keywords": [
-		"Electronic mail",
+		"Delivery",
 		"Email",
-		"Mail",
-		"Mail agent",
-		"Mail delivery",
-		"Mail transfer",
-		"Postfix",
+		"Mailboxes",
+		"Queue",
+		"Relay",
 		"Routing",
-		"SMTP",
-		"SMTP server"
+		"Smtp",
+		"Transport"
 	],
 	"proprietary": [
-		"Microsoft Exchange"
+		"Amazon SES",
+		"Microsoft Exchange Server",
+		"SendGrid"
 	],
 	"default": {
 		"config": true,

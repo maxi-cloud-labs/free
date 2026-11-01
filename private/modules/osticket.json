@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "MySQL",
 	"github": "osTicket/osTicket",
-	"description": "A support ticketing ticket system.",
+	"description": "A help desk ticketing system for organizing customer requests and support conversations.",
 	"hero": "a vintage ticket stub of glowing light, support agents stamping and routing them at a busy counter. retro, bustling, orderly",
 	"keywords": [
-		"Customer support",
+		"Customers",
+		"Escalations",
 		"Helpdesk",
-		"Helpdesk software",
+		"Queues",
+		"Replies",
+		"Requests",
 		"Support",
-		"Support ticket system",
-		"Ticket",
-		"Ticket management"
+		"Tickets"
 	],
 	"proprietary": [
+		"Freshdesk",
+		"Jira Service Management",
 		"Zendesk"
 	],
 	"default": {

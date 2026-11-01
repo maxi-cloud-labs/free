@@ -10,19 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "hudikhq/hoodik",
-	"description": "An easy to install end to end encrypted storage drive.",
+	"description": "A self-hosted encrypted cloud drive for private file storage and sharing.",
 	"hero": "a hooded figure guarding a glowing encrypted drive-shaped vault. mysterious, protective, stealthy",
 	"keywords": [
-		"File",
-		"File sharing",
-		"Multi-language",
+		"Downloads",
+		"Encryption",
+		"Files",
 		"Privacy",
-		"Secure sharing",
 		"Sharing",
-		"Upload",
-		"Upload files"
+		"Storage",
+		"Uploads",
+		"Vault"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Dropbox",
+		"Google Drive",
+		"Proton Drive"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9445,

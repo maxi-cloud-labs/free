@@ -10,22 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "rspamd/rspamd",
-	"description": "A fast, free and open-source spam filtering system.",
+	"description": "An email filtering engine for detecting spam, phishing, and suspicious messages.",
 	"hero": "a sentinel at a gate with a glowing net catching spam envelopes as mischievous bugs. defender, comic, shield",
 	"keywords": [
-		"Anti-spam",
+		"Antispam",
+		"Detection",
 		"Email",
-		"Email processing",
-		"Email security",
-		"Fast spam detection",
-		"Filter",
-		"MTA integration",
-		"Message analysis",
-		"Security",
-		"Spam",
-		"Spam filter"
+		"Filtering",
+		"Junkmail",
+		"Phishing",
+		"Reputation",
+		"Scoring"
 	],
 	"proprietary": [
+		"Mimecast",
+		"Proofpoint Email Protection",
 		"SpamTitan"
 	],
 	"default": {

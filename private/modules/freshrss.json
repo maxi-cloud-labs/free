@@ -10,20 +10,21 @@
 	"finished": false,
 	"database": "",
 	"github": "FreshRSS/FreshRSS",
-	"description": "An RSS feed aggregator.",
+	"description": "A self-hosted RSS reader for following news feeds, blogs, and website updates.",
 	"hero": "a fresh stream of glowing RSS feed icons flowing from a drinking glass of orange juice. refreshing, summery, lively",
 	"keywords": [
-		"Aggregator",
-		"Content aggregation",
-		"Feed",
-		"News aggregator",
-		"News reader",
-		"Personalized news",
-		"RSS",
-		"RSS feed"
+		"Aggregation",
+		"Articles",
+		"Atom",
+		"Feeds",
+		"Headlines",
+		"Opml",
+		"Reading",
+		"Subscriptions"
 	],
 	"proprietary": [
-		"Feedly"
+		"Feedly",
+		"Inoreader"
 	],
 	"default": {
 		"addLineInDirectory": "AllowOverride AuthConfig FileInfo Indexes Limit",

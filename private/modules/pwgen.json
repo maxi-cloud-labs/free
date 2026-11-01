@@ -10,17 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "tytso/pwgen",
-	"description": "A random password generator with multiple options.",
+	"description": "A command-line generator for random, memorable, and secure passwords.",
 	"hero": "a magician pulling a random glowing password from a hat, lock symbols swirling. whimsical, secretive, chaotic",
 	"keywords": [
+		"Credentials",
+		"Entropy",
 		"Generator",
-		"Password",
-		"Random",
-		"Secure",
-		"Strong",
-		"Udev"
+		"Passphrases",
+		"Passwords",
+		"Randomness",
+		"Security",
+		"Strength"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"1Password Password Generator",
+		"Dashlane Password Generator"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/pwgen"

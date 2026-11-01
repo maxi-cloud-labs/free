@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "mirror/wget",
-	"description": "A tool to download any url.",
+	"description": "A command-line downloader for retrieving web pages, files, and remote resources over HTTP or FTP.",
 	"hero": "a loyal retriever dog bringing a glowing web page back across a cable bridge. friendly, faithful, determined",
 	"keywords": [
-		"Download",
-		"Download URL",
-		"Fetch",
-		"File",
-		"Internet",
-		"Retrieve",
-		"URL"
+		"Crawling",
+		"Downloads",
+		"Ftp",
+		"Http",
+		"Https",
+		"Mirroring",
+		"Recursion",
+		"Retrieval"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Internet Download Manager"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/wget"

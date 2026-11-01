@@ -10,20 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "sysstat/sysstat",
-	"description": "A performance monitoring tools.",
+	"description": "A Linux performance monitoring suite for CPU, memory, disk, and network activity statistics.",
 	"hero": "a doctor's stethoscope on a server, tiny glowing performance graphs on the chest. diagnostic, clinical, calm",
 	"keywords": [
-		"CPU statistics",
-		"Data collection",
-		"Disk activity",
-		"Linux utilities",
-		"Network analysis",
-		"Performance tools",
-		"Stats Tools",
-		"System activity reports",
-		"System monitoring"
+		"Cpu",
+		"Iostat",
+		"Monitoring",
+		"Mpstat",
+		"Performance",
+		"Processes",
+		"Sar",
+		"Telemetry"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog Infrastructure Monitoring",
+		"SolarWinds Server & Application Monitor"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/iostat",

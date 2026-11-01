@@ -10,21 +10,22 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "bugzilla/bugzilla",
-	"description": "A web-based general-purpose bugtracker and testing tool.",
+	"description": "A web-based issue tracker for reporting bugs, managing defects, and coordinating software fixes.",
 	"hero": "a giant monstrous lizard-like bug being hunted by a tiny glowing magnifying glass. kaiju-movie, retro, dramatic",
 	"keywords": [
-		"Bug",
-		"Bug tracking",
-		"Error reporting",
-		"Issue tracker",
-		"Project management",
-		"Quality assurance",
-		"Testing",
-		"Tracker",
-		"User feedback"
+		"Bugs",
+		"Defects",
+		"Issues",
+		"Qa",
+		"Regressions",
+		"Tickets",
+		"Tracking",
+		"Triage"
 	],
 	"proprietary": [
-		"Jira"
+		"Jira",
+		"Linear",
+		"YouTrack"
 	],
 	"default": {
 		"addLineInDirectory": "AddHandler cgi-script .cgi\n\t\tOptions +ExecCGI",

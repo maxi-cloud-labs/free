@@ -10,19 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "filegator/filegator",
-	"description": "A powerful multi-user file manager with a single page front-end.",
+	"description": "A multi-user web file manager for browsing, uploading, organizing, and sharing files.",
 	"hero": "a tall gator-shaped mascot holding a folder tree in its jaws, standing on a tower of files. quirky, powerful, mascot-driven",
 	"keywords": [
-		"File",
-		"File sharing",
-		"Multi-language",
-		"Privacy",
-		"Secure sharing",
+		"Accounts",
+		"Browsing",
+		"Directories",
+		"Downloads",
+		"Folders",
+		"Permissions",
 		"Sharing",
-		"Upload",
-		"Upload files"
+		"Uploads"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Box",
+		"Dropbox",
+		"Google Drive"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9435,

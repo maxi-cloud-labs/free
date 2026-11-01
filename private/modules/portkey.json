@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "portkey-ai/gateway",
-	"description": "A blazing fast AI Gateway with integrated guardrails.",
+	"description": "An AI gateway for accessing multiple LLMs through one API with routing and safety controls.",
 	"hero": "a magical glowing key-shaped portal transporting AI model rays through a gateway. wizardly, fast, shield-guarded",
 	"keywords": [
-		"AI Gateway",
-		"AI Routing"
+		"Gateway",
+		"Guardrails",
+		"Inference",
+		"Llm",
+		"Observability",
+		"Providers",
+		"Ratelimits",
+		"Routing"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Cloudflare AI Gateway",
+		"OpenRouter",
+		"Vercel AI Gateway"
+	],
 	"default": {
 		"enabled": true,
 		"homepage": "/public",

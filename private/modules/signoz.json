@@ -10,13 +10,23 @@
 	"finished": true,
 	"database": "SQLite",
 	"github": "SigNoz/signoz",
-	"description": "An observability platform native to OpenTelemetry with logs, traces and metrics in a single application.",
+	"description": "An OpenTelemetry-based observability platform for logs, metrics, traces, and application monitoring.",
 	"hero": "a glowing signal telescope capturing logs, traces and metrics as light rays in a dark sky. cosmic, observational, clean",
 	"keywords": [
+		"Apm",
+		"Dashboards",
+		"Logs",
+		"Metrics",
+		"Monitoring",
 		"Observability",
-		"Platform"
+		"Opentelemetry",
+		"Tracing"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog",
+		"Dynatrace",
+		"New Relic"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

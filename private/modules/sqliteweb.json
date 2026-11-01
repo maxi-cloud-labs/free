@@ -10,17 +10,22 @@
 	"finished": false,
 	"database": "SQLite",
 	"github": "coleifer/sqlite-web",
-	"description": "A web-based SQLite database browser.",
+	"description": "A browser-based SQLite database viewer for exploring tables, editing records, and running queries.",
 	"hero": "a browser window opening onto a small glowing feather-light database pearl. clean, simple, curious",
 	"keywords": [
-		"Embedded",
-		"SQL",
-		"SQLite",
-		"SQLite Viewer",
-		"Serverless",
-		"Viewer"
+		"Browsing",
+		"Database",
+		"Editing",
+		"Queries",
+		"Records",
+		"Relational",
+		"Schemas",
+		"Tables"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Navicat for SQLite",
+		"TablePlus"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9532,

@@ -10,13 +10,22 @@
 	"finished": false,
 	"database": "",
 	"github": "formbricks/formbricks",
-	"description": "A platform to build and distribute surveys, analyze data, and generate actionable insights.",
+	"description": "A survey and feedback platform for creating forms, collecting responses, and analyzing user insights.",
 	"hero": "a stack of glowing building bricks shaped like survey forms, assembled into a tall tower. constructive, playful, insightful",
 	"keywords": [
-		"Workflow automation"
+		"Analytics",
+		"Feedback",
+		"Forms",
+		"Polls",
+		"Questionnaires",
+		"Responses",
+		"Satisfaction",
+		"Surveys"
 	],
 	"proprietary": [
-		"Qualtrics"
+		"Qualtrics",
+		"SurveyMonkey",
+		"Typeform"
 	],
 	"default": {
 		"enabled": true,

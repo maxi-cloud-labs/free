@@ -10,22 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "ImageMagick/ImageMagick",
-	"description": "A software suite to create, edit, compose, or convert images in any format.",
+	"description": "An image processing suite for resizing, editing, converting, and composing graphics.",
 	"hero": "a wizard with a glowing wand transforming one photo into many forms, swirling colors around. magical, painterly, transformation",
 	"keywords": [
+		"Compositing",
 		"Conversion",
-		"Digital images",
-		"Editing",
-		"File conversion",
-		"Graphic design",
+		"Cropping",
 		"Graphics",
-		"Image",
-		"Image editing",
-		"Image formats",
-		"Photo manipulation"
+		"Images",
+		"Processing",
+		"Resizing",
+		"Thumbnails"
 	],
 	"proprietary": [
-		"Adobe Photoshop"
+		"Adobe Photoshop",
+		"Affinity Photo"
 	],
 	"default": {
 		"cmds": [

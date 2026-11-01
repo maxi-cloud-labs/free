@@ -10,19 +10,17 @@
 	"finished": true,
 	"database": "",
 	"github": "badges/shields",
-	"description": "A polyglot tool to convert web.",
+	"description": "A badge generation service for displaying project status, versions, and metrics in documentation.",
 	"hero": "a bold row of glowing metallic shield badges forming a crest wall. heraldic, compact, colorful",
 	"keywords": [
 		"Badges",
-		"Code",
-		"Community",
-		"Customization",
-		"Development",
-		"Documentation",
-		"GitHub",
-		"Project status",
-		"SVG",
-		"Web tools"
+		"Github",
+		"Labels",
+		"Metrics",
+		"Readme",
+		"Status",
+		"Svg",
+		"Versions"
 	],
 	"proprietary": [],
 	"default": {

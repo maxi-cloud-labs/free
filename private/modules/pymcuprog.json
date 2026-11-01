@@ -10,22 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "microchip-pic-avr-tools/pymcuprog",
-	"description": "A Python library for programming Microchip microcontrollers.",
+	"description": "A Python-based programming utility for flashing firmware to supported Microchip microcontrollers.",
 	"hero": "a tiny microcontroller chip being flashed with lightning by a Python snake coiled around it. electric, circuit-board close-up, snake-hero",
 	"keywords": [
-		"CLI tool",
-		"Debugger",
-		"Development board",
+		"Avr",
+		"Debugging",
+		"Embedded",
 		"Firmware",
+		"Flashing",
 		"Microchip",
-		"Microcontroller",
-		"Programmer",
-		"Programming",
-		"Serial port",
-		"UPDI"
+		"Microcontrollers",
+		"Updi"
 	],
 	"proprietary": [
-		"MPLAB X IDE"
+		"MPLAB IPE",
+		"Microchip Studio"
 	],
 	"default": {
 		"cmds": [

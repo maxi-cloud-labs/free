@@ -10,19 +10,23 @@
 	"finished": true,
 	"database": "",
 	"github": "ente/ente",
-	"description": "An end-to-end encrypted cloud for photos, videos and 2FA secrets.",
+	"description": "A privacy-focused encrypted cloud service for personal photos, videos, and authentication data.",
 	"hero": "a glowing locked vault shaped like a cloud, photos and keys sealed inside. intimate, protective, end-to-end encrypted",
 	"keywords": [
-		"Cloud storage",
+		"Backups",
 		"Encryption",
-		"Free storage",
-		"Photo backup",
 		"Photos",
 		"Privacy",
-		"Secure sharing",
-		"Two-factor authentication"
+		"Storage",
+		"Synchronization",
+		"Vault",
+		"Videos"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Google One",
+		"Proton Drive",
+		"iCloud"
+	],
 	"default": {
 		"config": true,
 		"enabled": true,

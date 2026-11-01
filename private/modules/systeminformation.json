@@ -10,19 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "sebhildebrandt/systeminformation",
-	"description": "A system Information Library.",
+	"description": "A Node.js library for reading hardware details and operating system performance metrics.",
 	"hero": "a detailed anatomical blueprint of a computer, every component labeled in glowing lines. technical-illustration, exploded view, precise",
 	"keywords": [
-		"CPU stats",
-		"Disk details",
-		"Hardware monitoring",
-		"Memory usage",
-		"Network data",
-		"Operating system",
-		"Stats Library",
-		"System information"
+		"Cpu",
+		"Diagnostics",
+		"Hardware",
+		"Metrics",
+		"Monitoring",
+		"Nodejs",
+		"Ram",
+		"Temperature"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Datadog Agent",
+		"New Relic Infrastructure Agent"
+	],
 	"default": {
 		"cmds": []
 	}

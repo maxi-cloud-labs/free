@@ -10,18 +10,23 @@
 	"finished": false,
 	"database": "",
 	"github": "karakeep-app/karakeep",
-	"description": "A self-hostable bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search.",
+	"description": "A bookmark manager for saving links, notes, and images with AI tags and full-text search.",
 	"hero": "a shiny magpie bird collecting links, notes, and photos into a glowing nest. curious, hoarder-hero, whimsical",
 	"keywords": [
-		"AI tagging",
-		"Bookmark",
-		"Bookmark manager",
-		"Full text search",
-		"Mobile apps",
-		"Notes and images",
-		"Save links"
+		"Archiving",
+		"Bookmarks",
+		"Collections",
+		"Links",
+		"Notes",
+		"Saving",
+		"Search",
+		"Tagging"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Raindrop.io",
+		"Readwise Reader",
+		"mymind"
+	],
 	"default": {
 		"enabled": true,
 		"localPort": 9456,

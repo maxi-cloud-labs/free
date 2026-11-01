@@ -10,20 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "certbot/certbot",
-	"description": "A tool to obtain certs from Let's Encrypt on your server.",
+	"description": "An automated certificate management client for enabling HTTPS with Let's Encrypt.",
 	"hero": "a robot bird guardian handing a glowing green padlock certificate to a server tower. friendly, protective, renewal ritual",
 	"keywords": [
-		"Automation",
-		"Certbot",
 		"Certificates",
-		"HTTPS",
-		"Let's Encrypt",
-		"LetsEncrypt",
-		"SSL",
-		"Security"
+		"Https",
+		"Issuance",
+		"Letsencrypt",
+		"Renewal",
+		"Ssl",
+		"Tls",
+		"Validation"
 	],
 	"proprietary": [
-		"DigiCert CertCentral"
+		"DigiCert CertCentral",
+		"Sectigo Certificate Manager"
 	],
 	"default": {
 		"cmds": [

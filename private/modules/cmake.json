@@ -10,18 +10,21 @@
 	"finished": true,
 	"database": "",
 	"github": "Kitware/CMake",
-	"description": "A Cross-platform open-source build system.",
+	"description": "A cross-platform build configuration system for compiling and packaging software projects.",
 	"hero": "a master architect unrolling a blueprint of glowing construction lines that assemble themselves into a machine. grand, orchestral, engineering",
 	"keywords": [
-		"Automation",
-		"Build",
-		"Build system",
-		"Coding",
+		"Builds",
 		"Compilation",
-		"Software development"
+		"Configuration",
+		"Cpp",
+		"Crossplatform",
+		"Dependencies",
+		"Generators",
+		"Toolchains"
 	],
 	"proprietary": [
-		"Microsoft Visual Studio"
+		"Incredibuild",
+		"Microsoft MSBuild"
 	],
 	"default": {
 		"cmds": [

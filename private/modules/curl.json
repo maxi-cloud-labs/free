@@ -10,15 +10,22 @@
 	"finished": true,
 	"database": "",
 	"github": "curl/curl",
-	"description": "An advanced tool to download url.",
+	"description": "A command-line HTTP and network client for transferring data, downloading files, and testing APIs.",
 	"hero": "a sleek spiraling curl-shaped arrow shooting between two glowing globes carrying data packets. swift, minimal, retro-futuristic",
 	"keywords": [
-		"Data transfer",
-		"Download",
-		"URL download",
-		"Web protocols"
+		"Api",
+		"Downloads",
+		"Headers",
+		"Http",
+		"Https",
+		"Requests",
+		"Rest",
+		"Transfers"
 	],
-	"proprietary": [],
+	"proprietary": [
+		"Insomnia",
+		"Postman"
+	],
 	"default": {
 		"cmds": [
 			"/usr/bin/curl"
