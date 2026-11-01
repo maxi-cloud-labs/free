@@ -2,7 +2,7 @@
 	"module": "fingerprintjs",
 	"name": "FingerprintJS",
 	"title": "Unique Fingerprint Visitor",
-	"category": "Server",
+	"category": "Developer",
 	"version": "5.0.1",
 	"installMethod": "npm",
 	"web": false,

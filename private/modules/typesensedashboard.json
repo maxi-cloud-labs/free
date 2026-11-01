@@ -2,7 +2,7 @@
 	"module": "typesensedashboard",
 	"name": "Typesense Dashboard",
 	"title": "Search API Viewer",
-	"category": "Knowledge",
+	"category": "Database",
 	"version": "v2.4.1",
 	"installMethod": "clone",
 	"web": true,

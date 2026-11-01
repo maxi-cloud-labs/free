@@ -2,7 +2,7 @@
 	"module": "photoprism",
 	"name": "PhotoPrism",
 	"title": "AI Photo",
-	"category": "AI",
+	"category": "Media",
 	"version": "250707-d28b3101e",
 	"installMethod": "clone",
 	"web": true,

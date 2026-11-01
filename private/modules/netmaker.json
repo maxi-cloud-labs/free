@@ -2,7 +2,7 @@
 	"module": "netmaker",
 	"name": "Netmaker",
 	"title": "WireGuard Manager",
-	"category": "Developer",
+	"category": "Server",
 	"version": "v1.4.0",
 	"installMethod": "wget",
 	"web": false,

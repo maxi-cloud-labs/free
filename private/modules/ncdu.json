@@ -2,7 +2,7 @@
 	"module": "ncdu",
 	"name": "NCurses Disk Usage",
 	"title": "Disk Usage",
-	"category": "Server",
+	"category": "Utils",
 	"version": "1.22",
 	"installMethod": "apt",
 	"web": false,

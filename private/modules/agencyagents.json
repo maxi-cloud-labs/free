@@ -2,7 +2,7 @@
 	"module": "agencyagents",
 	"name": "The Agency",
 	"title": "Agency Agents",
-	"category": "AI",
+	"category": "AI Agentic",
 	"version": "4feb0cd7",
 	"installMethod": "clone",
 	"web": true,

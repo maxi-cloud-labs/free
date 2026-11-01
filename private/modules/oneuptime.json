@@ -2,7 +2,7 @@
 	"module": "oneuptime",
 	"name": "OneUptime",
 	"title": "Monitor",
-	"category": "Utils",
+	"category": "Server",
 	"version": "v4.0.0.2",
 	"installMethod": "clone",
 	"web": true,

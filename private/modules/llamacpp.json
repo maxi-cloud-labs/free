@@ -2,7 +2,7 @@
 	"module": "llamacpp",
 	"name": "llama.cpp",
 	"title": "LLM Inference",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "b7315",
 	"installMethod": "clone",
 	"web": true,

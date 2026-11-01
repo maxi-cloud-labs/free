@@ -2,7 +2,7 @@
 	"module": "apprise",
 	"name": "Apprise",
 	"title": "Javascript Bundler",
-	"category": "Developer",
+	"category": "Utils",
 	"version": "1.9.3",
 	"installMethod": "apt",
 	"web": false,

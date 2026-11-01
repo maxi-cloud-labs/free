@@ -2,7 +2,7 @@
 	"module": "agentzero",
 	"name": "Agent Zero",
 	"title": "AI Agent",
-	"category": "Personal",
+	"category": "AI Agentic",
 	"version": "2.1.25",
 	"installMethod": "clone",
 	"web": true,

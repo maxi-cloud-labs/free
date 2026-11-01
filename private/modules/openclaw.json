@@ -2,7 +2,7 @@
 	"module": "openclaw",
 	"name": "Open Claw",
 	"title": "AI Assistant Engine",
-	"category": "AI",
+	"category": "AI Agentic",
 	"version": "2026.2.6-3",
 	"installMethod": "npm",
 	"web": true,

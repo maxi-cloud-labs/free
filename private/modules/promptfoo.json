@@ -2,7 +2,7 @@
 	"module": "promptfoo",
 	"name": "Promptfoo",
 	"title": "Prompt Tester",
-	"category": "AI",
+	"category": "Developer",
 	"version": "0.121.3",
 	"installMethod": "npm",
 	"web": true,

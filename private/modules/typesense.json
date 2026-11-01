@@ -2,7 +2,7 @@
 	"module": "typesense",
 	"name": "Typesense",
 	"title": "Search API",
-	"category": "Knowledge",
+	"category": "Database",
 	"version": "29",
 	"installMethod": "deb",
 	"web": true,

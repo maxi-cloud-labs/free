@@ -2,7 +2,7 @@
 	"module": "lvgl",
 	"name": "LVGL",
 	"title": "Embedded UI",
-	"category": "Server",
+	"category": "Developer",
 	"version": "a78c4a476ebc58f5",
 	"installMethod": "clone",
 	"web": false,

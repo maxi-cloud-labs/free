@@ -2,7 +2,7 @@
 	"module": "wireshark",
 	"name": "Wireshark",
 	"title": "Traffic Analyzer",
-	"category": "Server",
+	"category": "Utils",
 	"version": "4.4.7",
 	"installMethod": "apt",
 	"web": false,

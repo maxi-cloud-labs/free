@@ -2,7 +2,7 @@
 	"module": "yourls",
 	"name": "YOURLS",
 	"title": "URL Shortener",
-	"category": "Collaboration",
+	"category": "Utils",
 	"version": "1.10.2",
 	"installMethod": "clone",
 	"web": true,

@@ -2,7 +2,7 @@
 	"module": "zeroclaw",
 	"name": "ZeroClaw",
 	"title": "AI Assistant Infrastructure",
-	"category": "AI",
+	"category": "AI Agentic",
 	"version": "v0.6.8",
 	"installMethod": "wget",
 	"web": true,

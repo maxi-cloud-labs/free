@@ -2,7 +2,7 @@
 	"module": "jitsimeet",
 	"name": "Jitsi Meet",
 	"title": "Conferencing",
-	"category": "Productivity",
+	"category": "Collaboration",
 	"version": "",
 	"installMethod": "apt (source)",
 	"web": true,

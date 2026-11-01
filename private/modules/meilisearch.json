@@ -2,7 +2,7 @@
 	"module": "meilisearch",
 	"name": "Meilisearch",
 	"title": "Fast Search",
-	"category": "Knowledge",
+	"category": "Database",
 	"version": "",
 	"installMethod": "wget",
 	"web": false,

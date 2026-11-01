@@ -2,7 +2,7 @@
 	"module": "rediscommander",
 	"name": "Redis Commander",
 	"title": "In-memory Data Server Commander",
-	"category": "Server",
+	"category": "Database",
 	"version": "0.9.0",
 	"installMethod": "npm",
 	"web": true,

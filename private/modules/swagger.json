@@ -2,7 +2,7 @@
 	"module": "swagger",
 	"name": "Swagger",
 	"title": "API Doc Builder",
-	"category": "Knowledge",
+	"category": "Developer",
 	"version": "3.0.78",
 	"installMethod": "wget",
 	"web": false,

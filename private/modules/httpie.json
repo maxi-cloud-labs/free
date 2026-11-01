@@ -2,7 +2,7 @@
 	"module": "httpie",
 	"name": "HTTPie",
 	"title": "Http Tool",
-	"category": "Server",
+	"category": "Developer",
 	"version": "3.2.4",
 	"installMethod": "deb",
 	"web": false,

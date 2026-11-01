@@ -2,7 +2,7 @@
 	"module": "redis",
 	"name": "Redis",
 	"title": "In-memory Data Server",
-	"category": "Server",
+	"category": "Database",
 	"version": "8.0.2",
 	"installMethod": "apt",
 	"web": false,

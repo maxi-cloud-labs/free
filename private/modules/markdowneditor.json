@@ -2,7 +2,7 @@
 	"module": "markdowneditor",
 	"name": "Markdown Editor",
 	"title": "Markdown Editor",
-	"category": "Developer",
+	"category": "Knowledge",
 	"version": "v2",
 	"installMethod": "clone",
 	"web": true,

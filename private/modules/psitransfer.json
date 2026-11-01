@@ -2,7 +2,7 @@
 	"module": "psitransfer",
 	"name": "PsiTransfer",
 	"title": "File Sharing",
-	"category": "Utils",
+	"category": "Collaboration",
 	"version": "v2.3.1",
 	"installMethod": "clone",
 	"web": true,

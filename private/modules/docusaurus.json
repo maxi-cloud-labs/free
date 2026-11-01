@@ -2,7 +2,7 @@
 	"module": "docusaurus",
 	"name": "Docusaurus",
 	"title": "Static Docs",
-	"category": "Developer",
+	"category": "Knowledge",
 	"version": "v3.9.2",
 	"installMethod": "clone",
 	"web": true,

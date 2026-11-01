@@ -2,7 +2,7 @@
 	"module": "litellm",
 	"name": "LiteLLM",
 	"title": "AI Proxy",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "1.81.15",
 	"installMethod": "pip",
 	"web": true,

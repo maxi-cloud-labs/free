@@ -2,7 +2,7 @@
 	"module": "ohmyzsh",
 	"name": "Oh My Zsh",
 	"title": "Command-line Enhancer",
-	"category": "Server",
+	"category": "Developer",
 	"version": "",
 	"installMethod": "wget",
 	"web": false,

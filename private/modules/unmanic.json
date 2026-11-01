@@ -2,7 +2,7 @@
 	"module": "unmanic",
 	"name": "Unmanic",
 	"title": "Media Library",
-	"category": "Utils",
+	"category": "Media",
 	"version": "HEAD",
 	"installMethod": "pip",
 	"web": true,

@@ -2,7 +2,7 @@
 	"module": "lobechat",
 	"name": "Lobe Chat",
 	"title": "Lobe Chatbot",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "v1.143.2",
 	"installMethod": "clone",
 	"web": true,

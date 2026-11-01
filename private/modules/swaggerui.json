@@ -2,7 +2,7 @@
 	"module": "swaggerui",
 	"name": "Swagger UI",
 	"title": "API Docs",
-	"category": "Knowledge",
+	"category": "Developer",
 	"version": "5.31.2",
 	"installMethod": "npm",
 	"web": true,

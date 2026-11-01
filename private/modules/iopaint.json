@@ -2,7 +2,7 @@
 	"module": "iopaint",
 	"name": "IOPaint",
 	"title": "AI Image",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "iopaint-1.5.3",
 	"installMethod": "clone",
 	"web": true,

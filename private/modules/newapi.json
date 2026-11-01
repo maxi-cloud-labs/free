@@ -2,7 +2,7 @@
 	"module": "newapi",
 	"name": "New API",
 	"title": "AI Model Hub",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "v0.11.0-alpha.9",
 	"installMethod": "clone",
 	"web": true,

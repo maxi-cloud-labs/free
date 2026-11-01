@@ -2,7 +2,7 @@
 	"module": "ollama",
 	"name": "Ollama",
 	"title": "Chatbot backend",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "0.34.2",
 	"installMethod": "clone",
 	"web": true,

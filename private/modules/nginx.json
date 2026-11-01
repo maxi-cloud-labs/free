@@ -2,7 +2,7 @@
 	"module": "nginx",
 	"name": "NGINX",
 	"title": "Proxy Server",
-	"category": "Developer",
+	"category": "Server",
 	"version": "1.26.3",
 	"installMethod": "apt",
 	"web": false,

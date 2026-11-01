@@ -2,7 +2,7 @@
 	"module": "timeful",
 	"name": "timeful",
 	"title": "Scheduler",
-	"category": "Collaboration",
+	"category": "Productivity",
 	"version": "HEAD",
 	"installMethod": "clone",
 	"web": true,

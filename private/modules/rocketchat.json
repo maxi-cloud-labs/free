@@ -2,7 +2,7 @@
 	"module": "rocketchat",
 	"name": "Rocket.Chat",
 	"title": "Communication",
-	"category": "Productivity",
+	"category": "Collaboration",
 	"version": "8.1.0",
 	"installMethod": "wget",
 	"web": true,

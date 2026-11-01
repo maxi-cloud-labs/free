@@ -2,7 +2,7 @@
 	"module": "librechat",
 	"name": "LibreChat",
 	"title": "Libre Chatbot",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "v0.7.9",
 	"installMethod": "clone",
 	"web": true,

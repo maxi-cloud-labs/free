@@ -2,7 +2,7 @@
 	"module": "fd",
 	"name": "fd",
 	"title": "Advanced Find",
-	"category": "Server",
+	"category": "Utils",
 	"version": "10.2.0",
 	"installMethod": "apt",
 	"web": false,

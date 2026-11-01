@@ -2,7 +2,7 @@
 	"module": "openwebui",
 	"name": "Open WebUI",
 	"title": "Chatbot",
-	"category": "AI",
+	"category": "AI Generative",
 	"version": "v0.6.41",
 	"installMethod": "pip",
 	"web": true,
