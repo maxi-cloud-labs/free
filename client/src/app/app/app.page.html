@@ -1,0 +1,315 @@
+<div class="flex bg-dark">
+	<app-sidebar #sidebar [showSideBarOnLargeScreen]=false [modulesTotal]="filteredCards?.length"></app-sidebar>
+	<div class="flex-1 flex flex-col overflow-x-auto">
+		<header class="relative flex items-center justify-between h-16 mx-12 my-2">
+<!-- Logo -->
+			<a routerLink="/" [queryParams]="{}" title="Home" class="flex items-end cursor-pointer leading-none">
+				<span class="text-4xl font-extrabold text-white">m</span><span class="text-4xl font-extrabold text-red-600">A</span><span class="text-4xl font-extrabold text-white">x</span><span class="text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-4xl font-extrabold text-white">.</span>
+				<span class="text-3xl font-extrabold text-red-600 inline-block pt-0 pr-4" style="background-image:url('assets/images/logo-cloud2.png'); background-repeat:no-repeat; background-size:55px 30px; background-position:right 0px top 0px;">C<span class="text-xs">loud</span></span>
+			</a>
+			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
+			<div class="flex-1"></div>
+<!-- Categories -->
+			<div (window:keydown.escape)="showMenuCategories = false">
+				<button type="button" class="hidden xl:block cursor-pointer pr-4" (click)="showMenuCategories = !showMenuCategories">
+					<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-50"></div>
+				</button>
+				<ng-container *ngIf="showMenuCategories">
+					<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
+					<nav class="absolute top-full z-50 rounded-xl bg-modernsecond text-white border border-gray-700 px-4 py-3 gap-x-4 gap-y-3 flex flex-col">
+						<div *ngFor="let supset of CategoriesOrg; let i = index" class="flex flex-col">
+							<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
+								<div class="flex items-center gap-2">
+									<img [src]="('assets/images/category-' + supset.name + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(supset.categories[0])">
+									<span class="text-lg font-bold" [class]="global.colorWord(supset.categories[0], false)">{{LG(supset.name)}}</span>
+								</div>
+								<div *ngIf="supset.categories.length > 1" class="flex flex-col gap-1 pl-7">
+									<div *ngFor="let category of supset.categories" class="flex items-center gap-2 text-sm cursor-pointer">
+										<img [src]="('assets/images/category-' + category.replace(' ', '_') + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(category)">
+										<span class="text-lg font-bold" [class]="global.colorWord(category, false)">{{LG(category)}}</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</nav>
+				</ng-container>
+			</div>
+<!-- Search -->
+			<div class="relative">
+				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{L('Search app...')}}" class="w-full h-10 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
+				<button type="button" (click)="searchTerm = ''; filterCards()" *ngIf="searchTerm != ''" class="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 cursor-pointer">
+					<ion-icon name="close-outline" class="w-4 h-4"></ion-icon>
+				</button>
+				<ion-icon name="search-outline" class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white"></ion-icon>
+				<ng-container *ngIf="searchTerm">
+					<div class="fixed inset-0 z-40" (click)="searchTerm = ''; filterCards()"></div>
+					<div class="absolute -right-26 top-full mt-2 z-50 w-[26rem] max-w-[calc(100vw-2rem)] rounded-xl bg-dark/95 backdrop-blur-md ring-1 ring-white/15 shadow-2xl overflow-hidden text-white">
+						<ul class="p-2">
+							<li *ngFor="let card of filteredCards | slice:0:8">
+								<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
+									<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden ring-1 ring-white/10 bg-mid">
+										<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
+									</span>
+									<span class="min-w-0">
+										<span class="block font-bold leading-tight truncate">{{card.name}}</span>
+										<span class="block text-xs font-bold truncate text-red-600">{{LMT(card.title)}}</span>
+										<span class="block text-xs" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
+									</span>
+								</a>
+							</li>
+						</ul>
+						<p *ngIf="!filteredCards?.length" class="p-4 text-sm text-white/70">{{L("No app found. Try other words.")}}</p>
+						<p *ngIf="filteredCards?.length > 8" class="px-4 py-2 text-xs text-white/50 border-t border-white/10">{{L("Showing the first 8 of")}} {{filteredCards.length}} {{L("apps. Type more to narrow down.")}}</p>
+					</div>
+				</ng-container>
+			</div>
+			<div class="flex-1"></div>
+			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8 text-right"><span class="text-red-600">Premium Concierge:</span> all apps are setup,<br> secured, configured and maintained</span>
+<!-- User Menu -->
+			<div class="flex items-center gap-4 -mr-4 md:-mr-2">
+				<div class="relative bg-modernsecond mt-2 rounded-xl">
+					<button (click)="toggleUserMenu()" class="flex items-center gap-3 p-2 rounded-lg hover:bg--gray-100 transition-colors user-menu-button">
+						<div class="w-8 h-8 bg--red-700 rounded-full flex items-center justify-center cursor-pointer">
+							<span class="text-sm font-medium text-white">{{getInitials()}}</span>
+						</div>
+						<div class="hidden md:block text-left cursor-pointer">
+							<p class="text-sm font-medium text-white">{{global.session?.user?.name}} <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ml-1 mr-1" [class]="global.colorWord(global.session?.user?.role)">{{LG( (global.session?.user?.role?.charAt(0)?.toUpperCase()) + (global.session?.user?.role?.slice(1)) )}}</span></p>
+							<p class="text-xs mt-1 text--gray-500">{{global.session?.user?.email}}</p>
+						</div>
+						<ion-icon name="chevron-down-outline" class="h-4 w-4 text--gray-400 cursor-pointer"></ion-icon>
+					</button>
+					@if (showUserMenu) {
+					<div class="absolute bg--main right-0 mt-2 w-56 rounded-lg shadow-lg border border--gray-200 z-50 user-menu-dropdown">
+						<div class="p-4 border-b border--gray-200 md:hidden">
+							<p class="text-sm font-medium text--gray-900">{{global.session?.user?.name}}</p>
+							<p class="text-sm text--gray-500">{{global.session?.user?.email}}</p>
+						</div>
+						<div class="px-4 py-2">
+							<a routerLink="/" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+								<ion-icon name="apps-outline" class="h-4 w-4"></ion-icon>
+								{{LG("Dashboard")}}
+							</a>
+							<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+								<ion-icon name="person-outline" class="h-4 w-4"></ion-icon>
+								{{LG("Profile")}}
+							</a>
+							<a routerLink="/help" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+								<ion-icon name="help-outline" class="h-4 w-4"></ion-icon>
+								{{LG("Help")}}
+							</a>
+							<a routerLink="/about" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+								<ion-icon name="information-outline" class="h-4 w-4"></ion-icon>
+								{{LG("About")}}
+							</a>
+						</div>
+						<div class="border-t border--gray-200 flex gap-3 px-4 py-2 pb-1 text--gray-900">
+							<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border--gray-900' : ''"></ion-icon></a>
+							<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border--gray-900' : ''"></ion-icon></a>
+							<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border--gray-900' : ''"></ion-icon></a>
+							<div class="ml-3 -mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
+								<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border--gray-900' : ''">🇺🇸</span></a>
+								<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border--gray-900' : ''">🇫🇷</span></a></div>
+							</div>
+						<div class="border-t border--gray-200 px-4 py-2">
+							<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text--red-600 hover:bg--red-50 transition-colors w-full text-left cursor-pointer">
+								<ion-icon name="log-out-outline" class="h-4 w-4"></ion-icon>
+								{{LG("Log out")}}
+							</button>
+						</div>
+					</div>
+					}
+				</div>
+			</div>
+		</header>
+		<ng-container *ngIf="cards[cardIdCur] as card">
+			<div class="text-white">
+				<div class="relative overflow-hidden">
+					<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-x-0 top-0 -z-10 w-full h-[70vh] object-cover blur-3xl opacity-30 scale-110 pointer-events-none" (error)="$any($event.target).style.display = 'none'">
+					<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 my-8">
+						<div class="relative w-full aspect-video max-h-[75vh] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-mid">
+							<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
+							<div class="absolute inset-0 flex items-center justify-center">
+								<a class="flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-2xl border-2 border-white/70 bg-white/10 backdrop-blur-sm text-white hover:bg-white/25 hover:border-white transition cursor-pointer focus-visible:ring-2 focus-visible:ring-white" [class.opacity-60]="!card.enabled || card.notReady != 0" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" [title]="L('Open')">
+									<ion-icon name="rocket-outline" class="w-9 h-9 md:w-12 md:h-12"></ion-icon>
+								</a>
+							</div>
+						</div>
+						<div class="flex flex-wrap items-center gap-2 py-4">
+							<button *ngIf="card.web" type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="tag(card.module)">
+								<ion-icon [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'" class="w-5 h-5"></ion-icon>{{card?.tag ? L("Bookmarked") : L("Add bookmark")}}
+							</button>
+							<button type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsEl.scrollIntoView({behavior: 'smooth'})">
+								<ion-icon name="chatbubbles-outline" class="w-5 h-5"></ion-icon>{{L("Reviews")}}<span class="rounded-full bg-white/15 px-2 text-xs">{{reviews.length}}</span>
+							</button>
+							<button *ngIf="card.config || card.services || card.reset" type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="settingsEl.scrollIntoView({behavior: 'smooth'})">
+								<ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>{{L("Settings")}}
+							</button>
+							<a *ngIf="card.github != ''" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" [href]="'https://github.com/' + card.github" target="_blank" rel="noopener">
+								<ion-icon name="logo-github" class="w-5 h-5"></ion-icon>GitHub
+							</a>
+						</div>
+					</div>
+				</div>
+		<!-- Details (left) + Settings (right) -->
+				<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 pb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+					<section class="min-w-0 flex flex-col sm:flex-row gap-6">
+						<div class="relative shrink-0 w-40 sm:w-48 lg:w-56 self-start mx-auto sm:mx-0 aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-white/10 bg-mid">
+							<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
+						</div>
+						<div class="min-w-0 flex-1">
+							<div class="flex items-center gap-2 text-sm">
+								<span class="flex text-yellow-400"><ion-icon *ngFor="let n of [1,2,3,4,5]" [name]="n <= floor(reviewsAvg + 0.5) ? 'star' : 'star-outline'" class="w-4 h-4"></ion-icon></span>
+								<span *ngIf="reviews.length; else noRating" class="text-white/70">{{reviewsAvg | number:'1.1-1'}} {{L("of 5")}} ({{reviews.length}})</span>
+								<ng-template #noRating><span class="text-white/50">{{L("No rating yet")}}</span></ng-template>
+							</div>
+							<h1 class="mt-2 text-3xl md:text-4xl font-extrabold leading-tight">{{card.name}}</h1>
+							<p class="text-lg font-bold text-red-600">{{LMT(card.title)}}</p>
+							<div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
+								<span class="inline-flex items-center px-3 py-1 rounded-full font-medium" [class]="global.colorWord(card.category)">{{LG(card.category)}}</span>
+								<span class="rounded bg-white/15 px-2 py-0.5 font-bold">{{card.web ? "WEB" : "CLI"}}</span>
+								<span *ngIf="!card.enabled" class="inline-flex items-center px-3 py-1 rounded-full font-medium" [class]="global.colorWord('_disabled_')">{{L("Disabled")}}</span>
+								<span *ngIf="card.enabled && card.notReady != 0" class="rounded-full bg-red-700/30 text-red-300 px-3 py-1 font-medium">{{card.notReady == 2 ? L("Setup needed") : L("Reset in progress")}}</span>
+								<span *ngIf="card.enabled && card.notReady == 0 && card.finished === false" class="rounded-full bg-yellow-700/30 text-yellow-300 px-3 py-1 font-medium">{{L("Module not yet finished")}}</span>
+								<span *ngIf="card.enabled && card.notReady == 0 && card.finished !== false" class="rounded-full bg-green-700/30 text-green-300 px-3 py-1 font-medium">{{L("Ready")}}</span>
+								<span *ngIf="card.github != ''" class="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1"><ion-icon name="logo-github"></ion-icon>{{global.formatCount(card.githubStars)}} ⭐</span>
+							</div>
+							<p class="mt-4 leading-relaxed text-white/85">{{LMD(card.description)}}</p>
+							<dl class="mt-6 grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 text-sm">
+								<dt class="text-white/50">{{L("Type")}}</dt>
+								<dd>{{card.web ? L("Web app") : L("Command line")}}</dd>
+								<dt class="text-white/50">{{card.web ? L("Links") : L("Cmds")}}</dt>
+								<dd class="min-w-0 flex flex-col gap-1">
+									<ng-container *ngIf="card.web">
+										<a *ngIf="card.link2" [href]="card.link2" [title]="card.link2" target="_blank" rel="noopener" class="text-red-400 hover:underline break-all">{{card.link2}}</a>
+										<a *ngIf="card.link" [href]="card.link" [title]="card.link" target="_blank" rel="noopener" class="text-red-400 hover:underline break-all">{{card.link}}</a>
+									</ng-container>
+									<ng-container *ngIf="!card.web">
+										<span *ngIf="card.finished === false">{{L("Module not yet finished")}}</span>
+										<ng-container *ngIf="card.finished !== false"><code *ngFor="let cmd of card.cmds" class="w-fit max-w-full rounded bg-black/40 px-2 py-0.5 text-xs break-all">{{cmd}}</code></ng-container>
+									</ng-container>
+								</dd>
+								<ng-container *ngIf="card.github != ''">
+									<dt class="text-white/50">GitHub</dt>
+									<dd><a [href]="'https://github.com/' + card.github" target="_blank" rel="noopener" class="text-red-400 hover:underline break-all">{{card.github}}</a> {{global.formatCount(card.githubStars)}}&nbsp;⭐</dd>
+									<ng-container *ngIf="card.githubLanguage">
+										<dt class="text-white/50">{{L("Language")}}</dt>
+										<dd>{{card.githubLanguage}}</dd>
+									</ng-container>
+									<ng-container *ngIf="card.githubLicense">
+										<dt class="text-white/50">{{L("License")}}</dt>
+										<dd>{{card.githubLicense}}</dd>
+									</ng-container>
+								</ng-container>
+								<ng-container *ngIf="card.proprietary?.length">
+									<dt class="text-white/50">{{L("Proprietary")}}</dt>
+									<dd>{{card.proprietary.join(", ")}}</dd>
+								</ng-container>
+								<ng-container *ngIf="card.keywords?.length">
+									<dt class="text-white/50">{{L("Keywords")}}</dt>
+									<dd class="flex flex-wrap gap-1.5"><span *ngFor="let kw of card.keywords" class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs">{{LK(kw)}}</span></dd>
+								</ng-container>
+							</dl>
+						</div>
+					</section>
+					<aside #settingsEl class="self-start scroll-mt-4 rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
+						<h2 class="flex items-center gap-2 text-lg font-bold"><ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>{{L("Settings")}}</h2>
+						<div class="mt-4 flex flex-col gap-5 text-sm">
+							<div>
+								<div class="mb-1 text-white/50">{{L("Access")}}</div>
+								<span *ngIf="!card.enabled" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" [class]="global.colorWord('_disabled_')">{{L("Disabled")}}</span>
+								<a *ngIf="card.enabled" routerLink="/permissions" class="flex flex-wrap gap-1 cursor-pointer"><span *ngFor="let pm of card.permissions" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" [class]="global.colorWord(pm)">{{LG(global.permissions(pm))}}</span></a>
+							</div>
+							<div *ngIf="card.config">
+								<div class="mb-1 text-white/50">{{L("Config")}}</div>
+								<pre class="whitespace-pre-wrap break-words rounded-lg bg-black/40 p-3 text-xs">{{ cardConfig | json }}</pre>
+							</div>
+							<div *ngIf="card.services">
+								<div class="mb-1 text-white/50">{{L("Refresh")}}</div>
+								<button type="button" (click)="moduleRefresh()" [disabled]="card.notReady != 0" class="inline-flex items-center gap-2 rounded-lg bg-yellow-600 hover:bg-yellow-700 px-4 py-2 text-sm font-medium transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-default"><ion-icon name="refresh-outline" class="w-5 h-5"></ion-icon>{{L("Refresh")}}</button>
+							</div>
+							<div *ngIf="card.reset">
+								<div class="mb-1 text-white/50">{{L("Reset")}}</div>
+								<button type="button" (click)="moduleReset()" [disabled]="card.notReady != 0" class="inline-flex items-center gap-2 rounded-lg bg-red-700 hover:bg-red-600 px-4 py-2 text-sm font-medium transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-default"><ion-icon name="alert-circle-outline" class="w-5 h-5"></ion-icon>{{L("Reset")}}</button>
+							</div>
+						</div>
+					</aside>
+				</div>
+		<!-- Community reviews (left) + Similar apps (right) -->
+				<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 pb-24 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+					<section #reviewsEl class="min-w-0 scroll-mt-4 rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 md:p-6">
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<div class="flex items-center gap-3">
+								<span class="w-10 h-10 shrink-0 rounded-xl bg-red-700 flex items-center justify-center"><ion-icon name="chatbubbles-outline" class="w-5 h-5"></ion-icon></span>
+								<div>
+									<div class="flex flex-wrap items-center gap-2">
+										<h2 class="text-xl font-bold">{{L("Community reviews")}}</h2>
+										<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs"><strong>{{reviews.length}}</strong> {{L("reviews")}}</span>
+									</div>
+									<p class="text-sm text-white/60">{{L("Share your thoughts about")}} {{card.name}}.</p>
+								</div>
+							</div>
+							<label class="flex items-center gap-2 text-sm text-white/70">{{L("Sort")}}
+								<select [(ngModel)]="reviewSort" class="rounded-lg bg-white/10 px-2 py-1 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
+									<option class="bg-dark" value="newest">{{L("Newest first")}}</option>
+									<option class="bg-dark" value="oldest">{{L("Oldest first")}}</option>
+									<option class="bg-dark" value="top">{{L("Top rated")}}</option>
+								</select>
+							</label>
+						</div>
+						<div class="mt-5 flex gap-3 rounded-xl bg-white/5 p-3">
+							<div class="w-9 h-9 shrink-0 rounded-full bg-red-700 flex items-center justify-center text-sm font-medium">{{getInitials()}}</div>
+							<div class="min-w-0 flex-1">
+								<div class="mb-2 flex items-center gap-1 text-yellow-400" role="radiogroup">
+									<button *ngFor="let n of [1,2,3,4,5]" type="button" class="cursor-pointer" (click)="reviewRating = n" (mouseenter)="reviewHover = n" (mouseleave)="reviewHover = 0"><ion-icon [name]="n <= (reviewHover || reviewRating) ? 'star' : 'star-outline'" class="w-6 h-6"></ion-icon></button>
+								</div>
+								<textarea #rv rows="3" maxlength="1000" class="w-full resize-none rounded-lg bg-white/10 p-3 text-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/60" placeholder="{{L('Write your review...')}}"></textarea>
+								<div class="mt-2 flex items-center justify-between gap-3">
+									<span class="text-xs text-white/40">{{rv.value.length}} / 1000</span>
+									<button type="button" class="rounded-full bg-red-700 hover:bg-red-600 px-5 py-2 text-sm font-bold transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-default" [disabled]="!reviewRating || !rv.value.trim()" (click)="reviewSubmit(rv.value); rv.value = ''">{{L("Post review")}}</button>
+								</div>
+							</div>
+						</div>
+						<div class="mt-6 flex flex-col gap-5">
+							<article *ngFor="let r of reviewsView" class="flex gap-3">
+								<div class="w-9 h-9 shrink-0 rounded-full bg-modernsecond flex items-center justify-center text-sm font-bold">{{r.author?.charAt(0)?.toUpperCase()}}</div>
+								<div class="min-w-0">
+									<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+										<span class="font-bold">{{r.author}}</span>
+										<span class="flex text-yellow-400"><ion-icon *ngFor="let n of [1,2,3,4,5]" [name]="n <= r.rating ? 'star' : 'star-outline'" class="w-3.5 h-3.5"></ion-icon></span>
+										<time class="text-xs text-white/50" [attr.datetime]="r.date" [title]="r.date | date:'medium'">{{timeAgo(r.date)}}</time>
+									</div>
+									<p class="mt-1 text-sm text-white/85 whitespace-pre-line break-words">{{r.text}}</p>
+								</div>
+							</article>
+							<p *ngIf="!reviews.length" class="text-sm text-white/60">{{L("No review yet. Be the first to share your thoughts.")}}</p>
+						</div>
+						<div *ngIf="reviews.length > reviewsShown" class="mt-6 text-center">
+							<button type="button" class="rounded-full bg-white/10 hover:bg-white/20 px-5 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsShown = reviewsShown + 5">{{L("Load more reviews")}}</button>
+						</div>
+					</section>
+					<aside>
+						<div class="relative hidden xl:block text-white bg-modernsecond rounded-xl flex flex-col px-2 py-4 mx-2" *ngIf="relatedCards.length">
+							<h2 class="text-xl md:text-2xl font-bold ml-2 mb-3">{{L("Similar Apps")}}</h2>
+							<ol class="flex-1 min-h-0 flex flex-col flex-wrap content-start overflow-hidden">
+								<li *ngFor="let card of relatedCards; let i = index" class="w-full">
+									<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
+										<span class="w-8 shrink-0 text-center text-2xl font-extrabold tabular-nums group-hover:text-white transition-colors">{{i + 1}}</span>
+										<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden flex items-center justify-center ring-1 ring-white/10">
+											<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
+										</span>
+										<span class="min-w-0 text-white">
+											<span class="block font-bold leading-tight truncate">{{card.name}}</span>
+											<span class="block text-xs font-bold truncate text-red-600">{{LMT(card.title)}}</span>
+											<span class="block text-xs" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
+										</span>
+									</a>
+								</li>
+							</ol>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</ng-container>
+		<app-footer></app-footer>
+	</div>
+</div>

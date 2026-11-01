@@ -13,6 +13,11 @@ const routes: Routes = [
 		loadChildren: () => import('./ai/ai.module').then( m => m.AIModule)
 	},
 	{
+		path: 'app',
+		canActivate: [Global],
+		loadChildren: () => import('./app/app.module').then( m => m.AppModule)
+	},
+	{
 		path: 'backup',
 		canActivate: [Global],
 		loadChildren: () => import('./backup/backup.module').then( m => m.BackupModule)
