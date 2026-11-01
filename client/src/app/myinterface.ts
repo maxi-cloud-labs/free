@@ -37,17 +37,17 @@ export const Categories = {
 	"Personal": {
 		name: "Personal",
 		icon: "person-outline",
-		color: "blue"
+		color: "teal"
 	},
 	"Media": {
 		name: "Media",
 		icon: "play-outline",
-		color: "blue"
+		color: "teal"
 	},
 	"Torrent": {
 		name: "Torrent",
 		icon: "magnet-outline",
-		color: "blue"
+		color: "teal"
 	},
 	"Utils": {
 		name: "Utils",

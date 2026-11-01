@@ -470,6 +470,7 @@ colorWord(st, bckgd = true) {
 bg--yellow-100 text--yellow-600
 bg--purple-100 text--purple-600
 bg--blue-100 text--blue-600
+bg--teal-100 text--teal-600
 bg--cyan-100 text--cyan-600
 bg--orange-100 text--orange-600
 bg--lime-100 text--lime-600
@@ -480,14 +481,15 @@ bg--lime-100 text--lime-600
 
 colorWord2(st) {
 	if (CategoriesEx[st])
-		return "translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--" + CategoriesEx[st].color + "-600)]";
+		return "translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--" + CategoriesEx[st].color + "-600)]";
 /*
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--yellow-600)]
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--purple-600)]
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--blue-600)]
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--cyan-600)]
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--orange-600)]
-translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--lime-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--yellow-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--purple-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--blue-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--teal-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--cyan-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--orange-600)]
+translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--lime-600)]
 */
 	return "translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--gray-600)]";
 }
