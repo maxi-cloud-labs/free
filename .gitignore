@@ -15,7 +15,9 @@ client/src/assets/js/app.js
 client/src/assets/i18n/keywords-en.json
 client/src/assets/i18n/modules-en.json
 client/src/assets/modulesdefault.json
+client/src/assets/modulesdefault.json.br
 client/src/assets/modulesmeta.json
+client/src/assets/modulesmeta.json.br
 login/.angular/
 login/node_modules/
 login/web/

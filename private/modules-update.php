@@ -1,6 +1,22 @@
 <?php
 function store($p, $o) {
-	file_put_contents(__DIR__ . $p, str_replace("\\/", "/", str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT))));
+	file_put_contents(__DIR__ . $p, str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)));
+}
+function storeC($p, $o) {
+	$json = json_encode($o, JSON_UNESCAPED_SLASHES);
+	$descriptorspec = [
+		0 => ["pipe", "r"], // stdin
+		1 => ["pipe", "w"], // stdout
+	];
+	$process = proc_open("brotli -q 11 -c", $descriptorspec, $pipes);
+	if (is_resource($process)) {
+		fwrite($pipes[0], $json);
+		fclose($pipes[0]);
+		$compressed = stream_get_contents($pipes[1]);
+		fclose($pipes[1]);
+		proc_close($process);
+		file_put_contents(__DIR__ . $p, $compressed);
+	}
 }
 
 if (PHP_SAPI !== "cli")
@@ -83,7 +99,9 @@ foreach ($files as $file) {
 }
 echo "\n\nSetup (" . count($modulesSetup) . "): " . implode(", ", $modulesSetup) . "\n\nReset (" . count($modulesReset) . "): " . implode(", ", $modulesReset) . "\n\n" . $count . " modules for " . $starsTotal . " ⭐\n";
 store("/../client/src/assets/modulesmeta.json", $modulesMeta);
+storeC("/../client/src/assets/modulesmeta.json.br", $modulesMeta);
 store("/../client/src/assets/modulesdefault.json", $modulesDefault);
+storeC("/../client/src/assets/modulesdefault.json.br", $modulesDefault);
 store("/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
 ksort($modulesKeywords);
 store("/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
