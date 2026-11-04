@@ -52,16 +52,16 @@
 }
 </style>
 					<div class="absolute bottom-4 right-4 z-20 flex items-center gap-2 md:bottom-6 md:right-8">
-						<button type="button" class="relative w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="heroPaused = !heroPaused">
+						<button type="button" class="relative w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroPaused=!heroPaused">
 							<span *ngFor="let key of [heroProgressKey]; trackBy: heroProgressTrack" class="absolute -inset-[3px] rounded-full pointer-events-none [background:conic-gradient(white_var(--progress),transparent_0)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),black_0)] hero-ring" [class.paused]="heroPaused" (animationiteration)="heroStep(1)"></span>
 							<ion-icon [name]="heroPaused ? 'play' : 'pause'"></ion-icon>
 						</button>
-						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="heroPaused = true; heroStep(-1)">
+						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroStep(-1)">
 							<ion-icon name="chevron-back-outline"></ion-icon>
 						</button>
-						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="heroSelect(i)">
+						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all focus:outline-none" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="heroSelect(i)">
 						</button>
-						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="heroPaused = true; heroStep(1)">
+						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroStep(1)">
 							<ion-icon name="chevron-forward-outline"></ion-icon>
 						</button>
 					</div>
@@ -111,9 +111,9 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 			<div class="flex items-center justify-between mb-3">
 				<h2 class="text-xl md:text-2xl font-bold text-white">{{LG("Recommended")}}</h2>
 				<div class="flex items-center gap-2">
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="trendingStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
-					<button *ngFor="let dummy of [].constructor(ceil(trendingCards.length / TrendingNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer" [class]="i == floor(trendingIdx / TrendingNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="trendingIdx = i * TrendingNbPerScreen; trendingStep(0)"></button>
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="trendingStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="trendingStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
+					<button *ngFor="let dummy of [].constructor(ceil(trendingCards.length / TrendingNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer focus:outline-none" [class]="i == floor(trendingIdx / TrendingNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="trendingIdx = i * TrendingNbPerScreen; trendingStep(0)"></button>
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="trendingStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
 				</div>
 			</div>
 			<div class="grid grid-cols-2 sm:grid-cols-5 gap-3 md:gap-4">
