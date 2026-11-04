@@ -46,6 +46,9 @@ themeSel = "system";
 darkVal = false;
 setupUIProgress = 0;
 setupUIDesc = "";
+showTerminal: boolean = true;
+showDone: boolean = true;
+showNotDone: boolean = false;
 
 constructor(public plt: Platform, private toastr: ToastrService, private router: Router, private navCtrl: NavController, private alertCtrl: AlertController, private menu: MenuController, private translate: TranslateService, public popoverController: PopoverController, private httpClient: HttpClient) {
 	if (!this.splashDone) {
@@ -136,8 +139,10 @@ async getExternalIP() {
 
 async AuthStatus() {
 	const ret = await this.httpClient.get("/_app_/auth/status", {headers:{"content-type": "application/json"}}).toPromise();
-	if (ret["demo"] === true)
+	if (ret["demo"] === true) {
 		this.demo = true;
+		this.showNotDone = true;
+	}
 	this.consolelog(2, "Auth Status: ", ret);
 }
 

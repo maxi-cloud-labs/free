@@ -1,126 +1,6 @@
 <div class="flex bg-dark">
-	<app-sidebar #sidebar [showSideBarOnLargeScreen]=false [modulesTotal]="filteredCards?.length"></app-sidebar>
 	<div class="flex-1 flex flex-col overflow-x-auto">
-		<header class="relative flex items-center justify-between h-16 mx-12 my-2">
-<!-- Logo -->
-			<a routerLink="/" [queryParams]="{}" title="Home" class="flex items-end cursor-pointer leading-none">
-				<span class="text-4xl font-extrabold text-white">m</span><span class="text-4xl font-extrabold text-red-600">A</span><span class="text-4xl font-extrabold text-white">x</span><span class="text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-4xl font-extrabold text-white">.</span>
-				<span class="text-3xl font-extrabold text-red-600 inline-block pt-0 pr-4" style="background-image:url('assets/images/logo-cloud2.png'); background-repeat:no-repeat; background-size:55px 30px; background-position:right 0px top 0px;">C<span class="text-xs">loud</span></span>
-			</a>
-			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
-			<div class="flex-1"></div>
-<!-- Categories -->
-			<div (window:keydown.escape)="showMenuCategories = false">
-				<button type="button" class="hidden xl:block cursor-pointer pr-4" (click)="showMenuCategories = !showMenuCategories">
-					<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-50"></div>
-				</button>
-				<ng-container *ngIf="showMenuCategories">
-					<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
-					<nav class="absolute top-full z-50 rounded-xl bg-modernsecond text-white border border-gray-700 px-4 py-3 gap-x-4 gap-y-3 flex flex-col">
-						<div *ngFor="let supset of CategoriesOrg; let i = index" class="flex flex-col">
-							<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
-								<div class="flex items-center gap-2">
-									<img [src]="('assets/images/category-' + supset.name + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(supset.categories[0])">
-									<span class="text-lg font-bold" [class]="global.colorWord(supset.categories[0], false)">{{LG(supset.name)}}</span>
-								</div>
-								<div *ngIf="supset.categories.length > 1" class="flex flex-col gap-1 pl-7">
-									<div *ngFor="let category of supset.categories" class="flex items-center gap-2 text-sm cursor-pointer">
-										<img [src]="('assets/images/category-' + category.replace(' ', '_') + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(category)">
-										<span class="text-lg font-bold" [class]="global.colorWord(category, false)">{{LG(category)}}</span>
-									</div>
-								</div>
-							</a>
-						</div>
-					</nav>
-				</ng-container>
-			</div>
-<!-- Search -->
-			<div class="relative">
-				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{L('Search app...')}}" class="w-full h-10 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
-				<button type="button" (click)="searchTerm = ''; filterCards()" *ngIf="searchTerm != ''" class="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 cursor-pointer">
-					<ion-icon name="close-outline" class="w-4 h-4"></ion-icon>
-				</button>
-				<ion-icon name="search-outline" class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white"></ion-icon>
-				<ng-container *ngIf="searchTerm">
-					<div class="fixed inset-0 z-40" (click)="searchTerm = ''; filterCards()"></div>
-					<div class="absolute -right-26 top-full mt-2 z-50 w-[26rem] max-w-[calc(100vw-2rem)] rounded-xl bg-dark/95 backdrop-blur-md ring-1 ring-white/15 shadow-2xl overflow-hidden text-white">
-						<ul class="p-2">
-							<li *ngFor="let card of filteredCards | slice:0:8">
-								<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-									<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden ring-1 ring-white/10 bg-mid">
-										<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
-									</span>
-									<span class="min-w-0">
-										<span class="block font-bold leading-tight truncate">{{card.name}}</span>
-										<span class="block text-xs font-bold truncate text-red-600">{{LMT(card.title)}}</span>
-										<span class="block text-xs" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
-									</span>
-								</a>
-							</li>
-						</ul>
-						<p *ngIf="!filteredCards?.length" class="p-4 text-sm text-white/70">{{L("No app found. Try other words.")}}</p>
-						<p *ngIf="filteredCards?.length > 8" class="px-4 py-2 text-xs text-white/50 border-t border-white/10">{{L("Showing the first 8 of")}} {{filteredCards.length}} {{L("apps. Type more to narrow down.")}}</p>
-					</div>
-				</ng-container>
-			</div>
-			<div class="flex-1"></div>
-			<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8 text-right"><span class="text-red-600">Premium Concierge:</span> all apps are setup,<br> secured, configured and maintained</span>
-<!-- User Menu -->
-			<div class="flex items-center gap-4 -mr-4 md:-mr-2">
-				<div class="relative bg-modernsecond mt-2 rounded-xl">
-					<button (click)="toggleUserMenu()" class="flex items-center gap-3 p-2 rounded-lg hover:bg--gray-100 transition-colors user-menu-button">
-						<div class="w-8 h-8 bg--red-700 rounded-full flex items-center justify-center cursor-pointer">
-							<span class="text-sm font-medium text-white">{{getInitials()}}</span>
-						</div>
-						<div class="hidden md:block text-left cursor-pointer">
-							<p class="text-sm font-medium text-white">{{global.session?.user?.name}} <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ml-1 mr-1" [class]="global.colorWord(global.session?.user?.role)">{{LG( (global.session?.user?.role?.charAt(0)?.toUpperCase()) + (global.session?.user?.role?.slice(1)) )}}</span></p>
-							<p class="text-xs mt-1 text--gray-500">{{global.session?.user?.email}}</p>
-						</div>
-						<ion-icon name="chevron-down-outline" class="h-4 w-4 text--gray-400 cursor-pointer"></ion-icon>
-					</button>
-					@if (showUserMenu) {
-					<div class="absolute bg--main right-0 mt-2 w-56 rounded-lg shadow-lg border border--gray-200 z-50 user-menu-dropdown">
-						<div class="p-4 border-b border--gray-200 md:hidden">
-							<p class="text-sm font-medium text--gray-900">{{global.session?.user?.name}}</p>
-							<p class="text-sm text--gray-500">{{global.session?.user?.email}}</p>
-						</div>
-						<div class="px-4 py-2">
-							<a routerLink="/" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
-								<ion-icon name="apps-outline" class="h-4 w-4"></ion-icon>
-								{{LG("Dashboard")}}
-							</a>
-							<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
-								<ion-icon name="person-outline" class="h-4 w-4"></ion-icon>
-								{{LG("Profile")}}
-							</a>
-							<a routerLink="/help" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
-								<ion-icon name="help-outline" class="h-4 w-4"></ion-icon>
-								{{LG("Help")}}
-							</a>
-							<a routerLink="/about" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
-								<ion-icon name="information-outline" class="h-4 w-4"></ion-icon>
-								{{LG("About")}}
-							</a>
-						</div>
-						<div class="border-t border--gray-200 flex gap-3 px-4 py-2 pb-1 text--gray-900">
-							<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-							<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-							<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-							<div class="ml-3 -mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
-								<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border--gray-900' : ''">🇺🇸</span></a>
-								<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border--gray-900' : ''">🇫🇷</span></a></div>
-							</div>
-						<div class="border-t border--gray-200 px-4 py-2">
-							<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text--red-600 hover:bg--red-50 transition-colors w-full text-left cursor-pointer">
-								<ion-icon name="log-out-outline" class="h-4 w-4"></ion-icon>
-								{{LG("Log out")}}
-							</button>
-						</div>
-					</div>
-					}
-				</div>
-			</div>
-		</header>
+		<app-modernbar #modernbar></app-modernbar>
 		<ng-container *ngIf="cards[cardIdCur] as card">
 			<div class="text-white">
 				<div class="relative overflow-hidden">
@@ -148,7 +28,7 @@
 						</div>
 					</div>
 				</div>
-		<!-- Details (left) + Settings (right) -->
+<!-- Details (left) + Settings (right) -->
 				<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 pb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
 					<section class="min-w-0 flex flex-col sm:flex-row gap-6">
 						<div class="relative shrink-0 w-40 sm:w-48 lg:w-56 self-start mx-auto sm:mx-0 aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-white/10 bg-mid">
@@ -232,7 +112,7 @@
 						</div>
 					</aside>
 				</div>
-		<!-- Community reviews (left) + Similar apps (right) -->
+<!-- Community reviews (left) + Similar apps (right) -->
 				<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 pb-24 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
 					<section #reviewsEl class="min-w-0 scroll-mt-4 rounded-2xl bg-modernsecond p-4 md:p-6">
 						<div class="flex flex-wrap items-center justify-between gap-3">

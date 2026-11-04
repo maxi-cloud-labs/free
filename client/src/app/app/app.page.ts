@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStr
 import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { SidebarComponent } from '../components/sidebar/sidebar.component';
+import { ModernbarComponent } from '../components/modernbar/modernbar.component';
 import { Global } from '../env';
 import { CategoriesBar, CategoriesOrg } from '../myinterface';
 import { BleService } from '../ble';
@@ -20,48 +20,35 @@ LG(st) { return this.global.mytranslateG(st); }
 LK(st) { return this.global.mytranslateK(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 LMD(st) { return this.global.mytranslateMD(st); }
-@ViewChild(SidebarComponent) sidebarComponent;
-@ViewChild("searchTermE") searchTermE: ElementRef;
-@ViewChild("sidebar") sidebar: any;
+@ViewChild(ModernbarComponent) modernbar;
 cardIdCur = 0;
 cardConfig;
 cards = this.global.modulesData;
-filteredCards = [];
-filteredGithubStars;
-searchTerm: string = "";
 category: string = "All";
 presentation: string = "cards";
-showTerminal: boolean = true;
-showDone: boolean = true;
-showNotDone: boolean = false;
 CategoriesBar = CategoriesBar;
 CategoriesOrg = CategoriesOrg;
-showMenuCategories = false;
-showChatbot = true;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private route: ActivatedRoute, public ble: BleService) {
-	if (this.global.demo)
-		this.showNotDone = true;
 	global.refreshUI.subscribe(event => {
-		if (event === "onlySidebar")
-			this.sidebar.refresh();
+		if (event === "onlybar")
+			this.modernbar.refresh();
 		else if (event === "refresh")
 			this.cdr.detectChanges();
 		else if (event === "reset") {
-			if (this.searchTerm != "" || this.category != "All") {
-				this.searchTerm = "";
+			if (this.modernbar.searchTerm != "" || this.category != "All") {
+				this.modernbar.searchTerm = "";
 				this.category = "All";
-				this.filterCards();
+				this.modernbar.filterCards();
 				this.cdr.detectChanges();
 			}
 		}
 		else if (event === "modules") {
-			this.filterCards();
+			this.modernbar.filterCards();
 			this.cdr.detectChanges();
 		}
 	});
 	global.sidebarFilterType = "";
-	this.filterCards();
 }
 
 pageInit() {
@@ -69,140 +56,15 @@ pageInit() {
 		if (params["name"])
 			this.cardIdCur = this.global.modulesDataFindId(params["name"]);
 		window.scrollTo({ top:0, behavior:"smooth" });
-		this.showMenuCategories = false;
+		this.modernbar.showMenuCategories = false;
 		this.cdr.detectChanges();
 	});
-}
-
-private lastCtrlFPressTimestamp: number = 0;
-@HostListener("document:keydown", ["$event"]) handleKeyboardEvent(event: KeyboardEvent) {
-	const isCtrlF = (event.ctrlKey || event.metaKey) && event.key === "f";
-	if (isCtrlF) {
-		const currentTime = Date.now();
-		const timeDifference = currentTime - this.lastCtrlFPressTimestamp;
-		if (timeDifference < 5000) {
-			this.lastCtrlFPressTimestamp = 0;
-			this.global.dismissToast();
-			this.searchTermE.nativeElement.blur();
-			return;
-		} else {
-			this.lastCtrlFPressTimestamp = currentTime;
-			event.preventDefault();
-			this.searchTermE.nativeElement.focus();
-			this.global.presentToast("Type Ctrl-F a second time for the browser search", "info", {} , true);
-		}
-	}
-}
-
-validation(input, isFinalized, tokens, keywords) {
-	return tokens.every((token, index) => {
-		const isLastToken = index === tokens.length - 1;
-		const isQuoted = input.includes(`"${token}"`);
-		return keywords.some(kw => {
-			if (isQuoted || !isLastToken || isFinalized)
-				return kw === token || kw.split(" ").some(word => word === token);
-			return kw.split(" ").some(word => word.startsWith(token));
-		});
-	});
-}
-
-filterCards(typing = false) {
-	const input = this.searchTerm.toLowerCase();
-	if (!input.trim()) {
-		this.filteredCards = this.cards.filter(card => {
-			if (this.showTerminal == false && card.web == false)
-				return false;
-			if (this.showDone == false && card.finished)
-				return false;
-			if (this.showNotDone == false && !card.finished)
-				return false;
-			if (this.category == "All")
-				return true;
-			else if (this.category == "Recommended")
-				return card.recommended;
-			else if (this.category == "Tag")
-				return this.global.settings.tags.includes(card.module);
-			else
-				return card.category.includes(this.category);
-		});
-	} else {
-		const isFinalized = input.endsWith(" ");
-		const tokens = [...input.toLowerCase().matchAll(/"([^"]+)"|(\S+)/g)].map(m => m[1] || m[2]);
-		let retAtLeastOnceTerminal = false;
-		let retAtLeastOnceDone = false;
-		let retAtLeastOnceNotDone = false;
-		let retAtLeastOnceCategory = false;
-		this.filteredCards = this.cards.filter(card => {
-			const ret = this.validation(input, isFinalized, tokens, card.hayStack);
-			if (ret) {
-				if (this.showTerminal == false && card.web == false)
-					retAtLeastOnceTerminal = true;
-				if (this.showDone == false && card.finished)
-					retAtLeastOnceDone = true;
-				if (this.showNotDone == false && !card.finished)
-					retAtLeastOnceNotDone = true;
-				if (this.category != "All")
-					retAtLeastOnceCategory = true;
-			}
-			if (this.showTerminal == false && card.web == false)
-				return false;
-			if (this.showDone == false && card.finished)
-				return false;
-			if (this.showNotDone == false && !card.finished)
-				return false;
-			if (this.category == "All")
-				return ret;
-			else if (this.category == "Recommended")
-				return ret && card.recommended;
-			else if (this.category == "Tag")
-				return ret && this.global.settings.tags.includes(card.module);
-			else
-				return ret && card.category.includes(this.category);
-		});
-		if (typing && this.filteredCards.length == 0 && (retAtLeastOnceTerminal || retAtLeastOnceDone || retAtLeastOnceNotDone || retAtLeastOnceCategory)) {
-			if (retAtLeastOnceTerminal)
-				this.showTerminal = true;
-			if (retAtLeastOnceDone)
-				this.showDone = true;
-			if (retAtLeastOnceNotDone)
-				this.showNotDone = true;
-			if (retAtLeastOnceCategory)
-				this.category = "All";
-			this.filterCards();
-			return;
-		}
-	}
-	this.filteredGithubStars = Object.values(this.filteredCards).reduce((sum, card) => { return sum + (card["githubStars"] ?? 0); }, 0);
-	if (this.searchTerm != "" && this.searchTermE)
-		this.searchTermE.nativeElement.focus();
-}
-
-tag(m) {
-	this.cards[this.global.modulesDataFindId(m)]["tag"] = !this.cards[this.global.modulesDataFindId(m)]["tag"];
-	this.global.settings.tags = this.cards.filter(card => card.tag === true).map(card => card.module);//.join("|");
-	this.global.settingsSave();
-	if (this.category == "Tag")
-		this.filterCards();
-	this.sidebarComponent.sidebarFilterCards();
 }
 
 async ngOnInit() {
 	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later, meanwhile each module will be automatically set up during first use.", "firsttimesetup"))
 		this.global.setup2Start(true);
 	this.pageInit();
-}
-
-showUserMenu:boolean = false;
-
-toggleUserMenu() {
-	this.showUserMenu = !this.showUserMenu;
-}
-
-getInitials() {
-	const st = this.global.session?.user?.name ?? "";
-	const nameParts = st.trim().split(" ");
-	const initials = nameParts.map(name => name.charAt(0)).join("").toUpperCase();
-	return initials;
 }
 
 floor(a) {
