@@ -520,8 +520,8 @@ formatCount(count) {
 }
 
 async modulesDataPrepare() {
-	const modules = await this.httpClient.get("/_app_/auth/modules/data").toPromise();
 	this.modulesData.length = 0;
+	const modules = await this.httpClient.get("/_app_/auth/modules/data").toPromise();
 	Object.entries(this.modulesMeta).forEach(([key, value]) => {
 		if (this.modulesDefault[key] === undefined)
 			this.consolelog(1, "Error: " + key + " not in modulesdefault");
