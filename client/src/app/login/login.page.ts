@@ -119,6 +119,7 @@ async init() {
 		this.formLogin.get("password1").setValue("demodemo");
 		if (window.self === window.top)
 			setTimeout(() => { this.submit1E.nativeElement.focus(); }, 100);
+		this.doLogin();
 		return;
 	}
 	let email = this.global.getCookie("email");
