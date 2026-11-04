@@ -18,12 +18,17 @@ constructor(public global: Global, private router: Router, private bleService: B
 }
 
 async forwardWhenReady() {
-	this.global.splashDone = true;
+	if (this.global.activateUrl === undefined || this.global.activateUrl == "/splash")
+		this.global.activateUrl = "/";
 	let count = 20;
 	while (this.global.session === undefined && count-- > 0)
 		await this.global.sleepms(100);
-	if (this.global.activateUrl === undefined || this.global.activateUrl == "/splash")
-		this.global.activateUrl = "/";
+	if (this.global.session != null && this.global.activateUrl == "/") {
+		count = 20;
+		while (this.global.modulesData.length == 0 && count-- > 0)
+			await this.global.sleepms(100);
+	}
+	this.global.splashDone = true;
 	this.router.navigateByUrl(this.global.session != null ? this.global.activateUrl : "/login");
 }
 
