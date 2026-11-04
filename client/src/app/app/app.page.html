@@ -129,22 +129,20 @@
 						<div class="relative w-full aspect-video max-h-[75vh] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-mid">
 							<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
 							<div class="absolute inset-0 flex items-center justify-center">
-								<a class="flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-2xl border-2 border-white/70 bg-white/10 backdrop-blur-sm text-white hover:bg-white/25 hover:border-white transition cursor-pointer focus-visible:ring-2 focus-visible:ring-white" [class.opacity-60]="!card.enabled || card.notReady != 0" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" [title]="L('Open')">
-									<ion-icon name="rocket-outline" class="w-9 h-9 md:w-12 md:h-12"></ion-icon>
-								</a>
+								<ion-icon name="rocket-outline" class="w-20 h-20 shrink-0 rounded-xl bg-black/50 p-2 text-white mb-4 cursor-pointer"></ion-icon>
 							</div>
 						</div>
 						<div class="flex flex-wrap items-center gap-2 py-4">
-							<button *ngIf="card.web" type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="tag(card.module)">
+							<button *ngIf="card.web" type="button" class="inline-flex items-center gap-2 rounded-full bg-modernsecond hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="modernbar.tag(card.module)">
 								<ion-icon [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'" class="w-5 h-5"></ion-icon>{{card?.tag ? L("Bookmarked") : L("Add bookmark")}}
 							</button>
-							<button type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsEl.scrollIntoView({behavior: 'smooth'})">
+							<button type="button" class="inline-flex items-center gap-2 rounded-full bg-modernsecond hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsEl.scrollIntoView({behavior: 'smooth'})">
 								<ion-icon name="chatbubbles-outline" class="w-5 h-5"></ion-icon>{{L("Reviews")}}<span class="rounded-full bg-white/15 px-2 text-xs">{{reviews.length}}</span>
 							</button>
-							<button *ngIf="card.config || card.services || card.reset" type="button" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="settingsEl.scrollIntoView({behavior: 'smooth'})">
+							<button *ngIf="card.config || card.services || card.reset" type="button" class="inline-flex items-center gap-2 rounded-full bg-modernsecond hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="settingsEl.scrollIntoView({behavior: 'smooth'})">
 								<ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>{{L("Settings")}}
 							</button>
-							<a *ngIf="card.github != ''" class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" [href]="'https://github.com/' + card.github" target="_blank" rel="noopener">
+							<a *ngIf="card.github != ''" class="inline-flex items-center gap-2 rounded-full bg-modernsecond hover:bg-white/20 px-4 py-2 text-sm font-medium transition-colors cursor-pointer" [href]="'https://github.com/' + card.github" target="_blank" rel="noopener">
 								<ion-icon name="logo-github" class="w-5 h-5"></ion-icon>GitHub
 							</a>
 						</div>
@@ -171,7 +169,7 @@
 								<span *ngIf="card.enabled && card.notReady != 0" class="rounded-full bg-red-700/30 text-red-300 px-3 py-1 font-medium">{{card.notReady == 2 ? L("Setup needed") : L("Reset in progress")}}</span>
 								<span *ngIf="card.enabled && card.notReady == 0 && card.finished === false" class="rounded-full bg-yellow-700/30 text-yellow-300 px-3 py-1 font-medium">{{L("Module not yet finished")}}</span>
 								<span *ngIf="card.enabled && card.notReady == 0 && card.finished !== false" class="rounded-full bg-green-700/30 text-green-300 px-3 py-1 font-medium">{{L("Ready")}}</span>
-								<span *ngIf="card.github != ''" class="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1"><ion-icon name="logo-github"></ion-icon>{{global.formatCount(card.githubStars)}} ⭐</span>
+								<span *ngIf="card.github != ''" class="inline-flex items-center gap-1 rounded-full bg-modernsecond px-3 py-1"><ion-icon name="logo-github"></ion-icon>{{global.formatCount(card.githubStars)}} ⭐</span>
 							</div>
 							<p class="mt-4 leading-relaxed text-white/85">{{LMD(card.description)}}</p>
 							<dl class="mt-6 grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 text-sm">
@@ -206,13 +204,13 @@
 								</ng-container>
 								<ng-container *ngIf="card.keywords?.length">
 									<dt class="text-white/50">{{L("Keywords")}}</dt>
-									<dd class="flex flex-wrap gap-1.5"><span *ngFor="let kw of card.keywords" class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs">{{LK(kw)}}</span></dd>
+									<dd class="flex flex-wrap gap-1.5"><span *ngFor="let kw of card.keywords" class="rounded-full bg-modernsecond px-2.5 py-0.5 text-xs">{{LK(kw)}}</span></dd>
 								</ng-container>
 							</dl>
 						</div>
 					</section>
-					<aside #settingsEl class="self-start scroll-mt-4 rounded-2xl bg-white/5 ring-1 ring-white/10 p-4">
-						<h2 class="flex items-center gap-2 text-lg font-bold"><ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>{{L("Settings")}}</h2>
+					<aside #settingsEl class="text-white bg-modernsecond rounded-xl p-4  px-2 py-4 mx-2">
+						<h2 class="flex items-center text-xl md:text-2xl font-bold ml-2 mb-3"><ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>{{L("App Settings")}}</h2>
 						<div class="mt-4 flex flex-col gap-5 text-sm">
 							<div>
 								<div class="mb-1 text-white/50">{{L("Access")}}</div>
@@ -236,20 +234,20 @@
 				</div>
 		<!-- Community reviews (left) + Similar apps (right) -->
 				<div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 pb-24 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
-					<section #reviewsEl class="min-w-0 scroll-mt-4 rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 md:p-6">
+					<section #reviewsEl class="min-w-0 scroll-mt-4 rounded-2xl bg-modernsecond p-4 md:p-6">
 						<div class="flex flex-wrap items-center justify-between gap-3">
 							<div class="flex items-center gap-3">
 								<span class="w-10 h-10 shrink-0 rounded-xl bg-red-700 flex items-center justify-center"><ion-icon name="chatbubbles-outline" class="w-5 h-5"></ion-icon></span>
 								<div>
 									<div class="flex flex-wrap items-center gap-2">
 										<h2 class="text-xl font-bold">{{L("Community reviews")}}</h2>
-										<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs"><strong>{{reviews.length}}</strong> {{L("reviews")}}</span>
+										<span class="rounded-full bg-modernthird px-2.5 py-0.5 text-xs"><strong>{{reviews.length}}</strong> {{L("reviews")}}</span>
 									</div>
 									<p class="text-sm text-white/60">{{L("Share your thoughts about")}} {{card.name}}.</p>
 								</div>
 							</div>
 							<label class="flex items-center gap-2 text-sm text-white/70">{{L("Sort")}}
-								<select [(ngModel)]="reviewSort" class="rounded-lg bg-white/10 px-2 py-1 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
+								<select [(ngModel)]="reviewSort" class="rounded-lg bg-modernthird px-2 py-1 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
 									<option class="bg-dark" value="newest">{{L("Newest first")}}</option>
 									<option class="bg-dark" value="oldest">{{L("Oldest first")}}</option>
 									<option class="bg-dark" value="top">{{L("Top rated")}}</option>
@@ -257,12 +255,12 @@
 							</label>
 						</div>
 						<div class="mt-5 flex gap-3 rounded-xl bg-white/5 p-3">
-							<div class="w-9 h-9 shrink-0 rounded-full bg-red-700 flex items-center justify-center text-sm font-medium">{{getInitials()}}</div>
+							<div class="w-9 h-9 shrink-0 rounded-full bg-red-700 flex items-center justify-center text-sm font-medium">{{modernbar.getInitials()}}</div>
 							<div class="min-w-0 flex-1">
 								<div class="mb-2 flex items-center gap-1 text-yellow-400" role="radiogroup">
 									<button *ngFor="let n of [1,2,3,4,5]" type="button" class="cursor-pointer" (click)="reviewRating = n" (mouseenter)="reviewHover = n" (mouseleave)="reviewHover = 0"><ion-icon [name]="n <= (reviewHover || reviewRating) ? 'star' : 'star-outline'" class="w-6 h-6"></ion-icon></button>
 								</div>
-								<textarea #rv rows="3" maxlength="1000" class="w-full resize-none rounded-lg bg-white/10 p-3 text-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/60" placeholder="{{L('Write your review...')}}"></textarea>
+								<textarea #rv rows="3" maxlength="1000" class="w-full resize-none rounded-lg bg-modernsecond p-3 text-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/60" placeholder="{{L('Write your review...')}}"></textarea>
 								<div class="mt-2 flex items-center justify-between gap-3">
 									<span class="text-xs text-white/40">{{rv.value.length}} / 1000</span>
 									<button type="button" class="rounded-full bg-red-700 hover:bg-red-600 px-5 py-2 text-sm font-bold transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-default" [disabled]="!reviewRating || !rv.value.trim()" (click)="reviewSubmit(rv.value); rv.value = ''">{{L("Post review")}}</button>
@@ -281,10 +279,10 @@
 									<p class="mt-1 text-sm text-white/85 whitespace-pre-line break-words">{{r.text}}</p>
 								</div>
 							</article>
-							<p *ngIf="!reviews.length" class="text-sm text-white/60">{{L("No review yet. Be the first to share your thoughts.")}}</p>
+							<p *ngIf="!reviews.length" class="text-sm text-white">{{L("No review yet. Be the first to share your thoughts.")}}</p>
 						</div>
 						<div *ngIf="reviews.length > reviewsShown" class="mt-6 text-center">
-							<button type="button" class="rounded-full bg-white/10 hover:bg-white/20 px-5 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsShown = reviewsShown + 5">{{L("Load more reviews")}}</button>
+							<button type="button" class="rounded-full bg-modernsecond hover:bg-white/20 px-5 py-2 text-sm font-medium transition-colors cursor-pointer" (click)="reviewsShown = reviewsShown + 5">{{L("Load more reviews")}}</button>
 						</div>
 					</section>
 					<aside>
@@ -292,7 +290,7 @@
 							<h2 class="text-xl md:text-2xl font-bold ml-2 mb-3">{{L("Similar Apps")}}</h2>
 							<ol class="flex-1 min-h-0 flex flex-col flex-wrap content-start overflow-hidden">
 								<li *ngFor="let card of relatedCards; let i = index" class="w-full">
-									<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
+									<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-modernsecond focus-visible:bg-modernsecond transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
 										<span class="w-8 shrink-0 text-center text-2xl font-extrabold tabular-nums group-hover:text-white transition-colors">{{i + 1}}</span>
 										<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden flex items-center justify-center ring-1 ring-white/10">
 											<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
