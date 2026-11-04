@@ -9,7 +9,6 @@ import { Global } from '../../env';
 
 export class SidebarComponent implements AfterViewInit, OnDestroy {
 LG(st) { return this.global.mytranslateG(st); }
-@Input() public showSideBarOnLargeScreen:boolean = true;
 showMobileMenu: boolean = false;
 @Input() public modulesTotal = null;
 private documentClickListener: (() => void) | null = null;
