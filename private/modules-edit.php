@@ -1,6 +1,6 @@
 <?php
 function store($p, $o) {
-	file_put_contents(__DIR__ . $p, str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)));
+	file_put_contents($p, str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) . "\n");
 }
 
 if (PHP_SAPI !== "cli")
@@ -64,6 +64,6 @@ for ($i = 1; $i < count($modules); $i++) {
 	$out["proprietary"] = array_values(array_unique($out["proprietary"], SORT_STRING));
 	if ($out["proprietary"][0] == "")
 		$out["proprietary"] = array();
-	store("/modules/" . $m[0] . ".json", $out);
+	store(__DIR__ . "/modules/" . $m[0] . ".json", $out);
 }
 ?>

@@ -1,9 +1,10 @@
 <?php
 function store($p, $o) {
-	file_put_contents(__DIR__ . $p, str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)));
+	file_put_contents($p, str_replace("    ", "\t", json_encode($o, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) . "\n");
 }
+
 function storeC($p, $o) {
-	$json = json_encode($o, JSON_UNESCAPED_SLASHES);
+	$json = json_encode($o, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 	$descriptorspec = [
 		0 => ["pipe", "r"], // stdin
 		1 => ["pipe", "w"], // stdout
@@ -15,7 +16,7 @@ function storeC($p, $o) {
 		$compressed = stream_get_contents($pipes[1]);
 		fclose($pipes[1]);
 		proc_close($process);
-		file_put_contents(__DIR__ . $p, $compressed);
+		file_put_contents($p, $compressed);
 	}
 }
 
@@ -98,15 +99,15 @@ foreach ($files as $file) {
 	$count++;
 }
 echo "\n\nSetup (" . count($modulesSetup) . "): " . implode(", ", $modulesSetup) . "\n\nReset (" . count($modulesReset) . "): " . implode(", ", $modulesReset) . "\n\n" . $count . " modules for " . $starsTotal . " ⭐\n";
-store("/../client/src/assets/modulesmeta.json", $modulesMeta);
-storeC("/../client/src/assets/modulesmeta.json.br", $modulesMeta);
-store("/../client/src/assets/modulesdefault.json", $modulesDefault);
-storeC("/../client/src/assets/modulesdefault.json.br", $modulesDefault);
+store(__DIR__ . "/../client/src/assets/modulesmeta.json", $modulesMeta);
+storeC(__DIR__ . "/../client/src/assets/modulesmeta.json.br", $modulesMeta);
+store(__DIR__ . "/../client/src/assets/modulesdefault.json", $modulesDefault);
+storeC(__DIR__ . "/../client/src/assets/modulesdefault.json.br", $modulesDefault);
 ksort($modulesTranslationTitle);
 ksort($modulesTranslationDescription);
-store("/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
+store(__DIR__ . "/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
 ksort($modulesKeywords);
-store("/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
+store(__DIR__ . "/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
 $modulesMarkdownHeader="|Module|Title|Description|⭐|Type|Category|\n|-|-|-|:-:|-|:-:|\n";
 $modulesMarkdownFooter="\n||||" . number_format($starsTotal / 1000 / 1000, 2) . "M ⭐|||";
 if (!is_dir(__DIR__ . "/../build"))
