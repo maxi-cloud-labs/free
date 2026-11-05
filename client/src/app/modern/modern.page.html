@@ -78,25 +78,29 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 						<div class="flex-1"></div>
 						<button type="button" class="w-8 h-8 -mr-2 rounded-full flex items-center justify-center text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="helperShown=false"><ion-icon name="close-circle-outline" class="w-6 h-6"></ion-icon></button>
 					</div>
-					<p class="text-sm leading-snug text-white rounded-xl bg-modernthird px-3 py-2"><span class="font-extrabold underline">Premium concierge:</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
-					<p class="text-sm leading-snug text-white rounded-xl bg-modernthird px-3 py-2"><span class="font-extrabold underline">Your sovereingty:</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
-					<p class="text-sm leading-snug text-white rounded-xl bg-modernthird px-3 py-2">{{L("Which app do you want to use now?")}}</p>
+					<p class="text-sm leading-snug text-white rounded-xl px-3 pt-2"><span class="font-extrabold underline">Premium concierge:</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
+					<p class="text-sm leading-snug text-white rounded-xl px-3"><span class="font-extrabold underline">Your sovereingty:</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
+					<p class="text-sm leading-snug text-white rounded-xl px-3">{{L("Which app do you want to use now?")}}</p>
 					<div class="self-end max-w-[85%] rounded-xl rounded-tr-sm bg-blue-200/20 px-3 py-2 text-sm line-clamp-2" *ngIf="helperAsked">{{helperQuery}}</div>
-					<div class="flex-1 min-h-0 flex flex-col flex-wrap content-start gap-2 overflow-hidden" *ngIf="helperAsked">
-						<p class="w-full text-sm text-white" *ngIf="helperBusy">{{L("Searching...")}}</p>
-						<a *ngFor="let card of helperResults" class="w-full flex items-center gap-3 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-							<span class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center"><img src="assets/icons/{{card.module}}.png" alt="" class="w-7 h-7 object-contain"></span>
+					<div class="flex-1 flex flex-col gap-2" *ngIf="helperAsked">
+						<p class="w-full flex items-center gap-2 text-sm text-white" *ngIf="helperBusy">
+							<ion-icon name="sync-outline" class="w-4 h-4 animate-spin"></ion-icon>
+							{{L("Thinking. Please wait...")}}
+						</p>
+						<p class="text-sm leading-snug text-white rounded-xl px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
+						<a *ngFor="let card of helperResults" class="w-full shrink-0 flex items-center gap-3 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
+							<span class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center"><img src="assets/icons/{{card.module}}.png" alt="card.name" [class]="global.colorWord2(card.category)" class="w-7 h-7 object-contain"></span>
 							<span class="min-w-0 flex-1">
-								<span class="block font-bold leading-tight truncate">{{LMT(card.title)}}</span>
-								<span class="block text-xs text-white/60 truncate">{{card.name}}</span>
+								<span class="block font-bold leading-tight truncate" [class]="global.colorWord(card.category, false)">{{LMT(card.title)}}</span>
+								<span class="block text-xs truncate" [class]="global.colorWord(card.category, false)">{{card.name}}</span>
 							</span>
-							<ion-icon name="play" class="w-4 h-4 shrink-0 text-white/70"></ion-icon>
+							<ion-icon name="open-outline" class="w-5 h-5 mr-3" [class]="global.colorWord(card.category, false)"></ion-icon>
 						</a>
-						<p class="w-full text-sm text-white/70" *ngIf="!helperBusy && !helperResults.length">{{L("No app matches yet. Try describing what you want to do with other words.")}}</p>
+						<p class="w-full text-sm text-white/70" *ngIf="!helperBusy && !helperAnswer && !helperResults.length">{{L("No app matches yet. Try describing what you want to do with other words.")}}</p>
 					</div>
 					<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden" *ngIf="!helperAsked">
 						<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden">
-							<button type="button" *ngFor="let s of ['Store and share my files', 'Chat with an AI assistant', 'Manage my passwords']" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" (click)="helperSend(LG(s))">{{L(s)}}</button>
+							<button type="button" *ngFor="let s of ['Create an AI agent', 'Chat with an AI assistant', 'Merge some PDF files']" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" (click)="helperSend(L(s))">{{L(s)}}</button>
 						</div>
 					</div>
 					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
