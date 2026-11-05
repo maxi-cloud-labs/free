@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, OnDestroy, ChangeDetectorRef, Input } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
 import { Global } from '../../env';
 
 @Component({
@@ -7,27 +7,16 @@ import { Global } from '../../env';
 	standalone: false
 })
 
-export class SidebarComponent implements AfterViewInit, OnDestroy {
+export class SidebarComponent {
 LG(st) { return this.global.mytranslateG(st); }
-showMobileMenu: boolean = false;
+showSidebar: boolean = true;
 @Input() public modulesTotal = null;
 private documentClickListener: (() => void) | null = null;
 cards = this.global.modulesData;
 sidebarFilteredModules;
 
-constructor(public global: Global, private cdr: ChangeDetectorRef, private elRef: ElementRef, private renderer: Renderer2) {
+constructor(public global: Global, private cdr: ChangeDetectorRef) {
 	this.sidebarFilterCards();
-}
-
-ngAfterViewInit() {
-	this.documentClickListener = this.renderer.listen('document', 'click', (event: Event) => {
-		const userMobileMenu = this.elRef.nativeElement.querySelector(".user-mobile-menu");
-		const userMobileButton = this.elRef.nativeElement.querySelector(".user-mobile-button");
-		if (this.showMobileMenu && userMobileMenu && userMobileButton && !userMobileMenu.contains(event.target) && !userMobileButton.contains(event.target)) {
-			this.showMobileMenu = false;
-			this.cdr.markForCheck();
-		}
-	});
 }
 
 ngOnDestroy() {

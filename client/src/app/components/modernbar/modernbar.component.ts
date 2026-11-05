@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, Renderer2, AfterViewInit, OnDestroy, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, Input } from '@angular/core';
 import { CategoriesOrg } from '../../myinterface';
 import { Global } from '../../env';
 
@@ -8,29 +8,18 @@ import { Global } from '../../env';
 	standalone: false
 })
 
-export class ModernbarComponent implements AfterViewInit, OnDestroy {
+export class ModernbarComponent {
 LG(st) { return this.global.mytranslateG(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
-showMobileMenu: boolean = false;
+showSidebar: boolean = false;
 private documentClickListener: (() => void) | null = null;
 cards = this.global.modulesData;
 sidebarFilteredModules;
 
-constructor(public global: Global, private cdr: ChangeDetectorRef, private elRef: ElementRef, private renderer: Renderer2) {
+constructor(public global: Global, private cdr: ChangeDetectorRef) {
 	this.filterCards();
 	this.showMenuCategories = false;
 	this.sidebarFilterCards();
-}
-
-ngAfterViewInit() {
-	this.documentClickListener = this.renderer.listen('document', 'click', (event: Event) => {
-		const userMobileMenu = this.elRef.nativeElement.querySelector(".user-mobile-menu");
-		const userMobileButton = this.elRef.nativeElement.querySelector(".user-mobile-button");
-		if (this.showMobileMenu && userMobileMenu && userMobileButton && !userMobileMenu.contains(event.target) && !userMobileButton.contains(event.target)) {
-			this.showMobileMenu = false;
-			this.cdr.markForCheck();
-		}
-	});
 }
 
 ngOnDestroy() {
