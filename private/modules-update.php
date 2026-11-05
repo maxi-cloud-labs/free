@@ -102,6 +102,8 @@ store("/../client/src/assets/modulesmeta.json", $modulesMeta);
 storeC("/../client/src/assets/modulesmeta.json.br", $modulesMeta);
 store("/../client/src/assets/modulesdefault.json", $modulesDefault);
 storeC("/../client/src/assets/modulesdefault.json.br", $modulesDefault);
+ksort($modulesTranslationTitle);
+ksort($modulesTranslationDescription);
 store("/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
 ksort($modulesKeywords);
 store("/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
