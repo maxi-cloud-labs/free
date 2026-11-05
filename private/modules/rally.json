@@ -13,14 +13,14 @@
 	"description": "A group scheduling tool for coordinating meetings and finding dates through availability polls.",
 	"hero": "a group of friends converging on a glowing calendar pin from different directions, colors blending. dynamic, social, ensemble",
 	"keywords": [
-		"Availability",
-		"Coordination",
-		"Events",
-		"Invitations",
-		"Meetings",
-		"Polls",
-		"Scheduling",
-		"Voting"
+		"availability",
+		"coordination",
+		"event",
+		"invitation",
+		"meeting",
+		"poll",
+		"scheduling",
+		"voting"
 	],
 	"proprietary": [
 		"Calendly",

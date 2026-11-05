@@ -13,14 +13,14 @@
 	"description": "A self-hosted file conversion service for documents, images, media, and numerous file formats.",
 	"hero": "a glowing alchemy transmutation circle turning one file icon into many different formats. mystical, shape-shifting, endless possibilities",
 	"keywords": [
-		"Audio",
-		"Batch",
-		"Conversions",
-		"Documents",
-		"Formats",
-		"Images",
-		"Transcoding",
-		"Video"
+		"audio",
+		"batch",
+		"conversion",
+		"document",
+		"format",
+		"image",
+		"transcoding",
+		"video"
 	],
 	"proprietary": [
 		"CloudConvert",

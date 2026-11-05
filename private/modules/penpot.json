@@ -13,14 +13,14 @@
 	"description": "A collaborative interface design platform for UI mockups, prototypes, and developer handoff.",
 	"hero": "a glowing pen nib drawing a living interface from design to code, brush strokes becoming components. artistic, creative, vibrant",
 	"keywords": [
-		"Collaboration",
-		"Components",
-		"Design",
-		"Interfaces",
-		"Mockups",
-		"Prototyping",
-		"Svg",
-		"Wireframes"
+		"collaboration",
+		"component",
+		"design",
+		"interface",
+		"mockup",
+		"prototyping",
+		"svg",
+		"wireframe"
 	],
 	"proprietary": [
 		"Figma",

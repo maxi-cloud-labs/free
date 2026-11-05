@@ -13,14 +13,14 @@
 	"description": "A server-side scripting language for creating dynamic websites and web applications.",
 	"hero": "a friendly purple elephant mascot made of code symbols trumpeting over the web. nostalgic, sturdy, quirky",
 	"keywords": [
-		"Backend",
-		"Composer",
-		"Interpreter",
-		"Programming",
-		"Runtime",
-		"Scripting",
-		"Serverside",
-		"Websites"
+		"backend",
+		"composer",
+		"interpreter",
+		"programming",
+		"runtime",
+		"scripting",
+		"serverside",
+		"website"
 	],
 	"proprietary": [
 		"Zend PHP"

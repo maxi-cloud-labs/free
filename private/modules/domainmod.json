@@ -13,14 +13,14 @@
 	"description": "A centralized dashboard for domain registrations, renewals, DNS details, and internet assets.",
 	"hero": "a world map made of glowing domain tags connected by threads, held by a large steady hand. strategic, collector's atlas, command-room",
 	"keywords": [
-		"Dns",
-		"Domains",
-		"Expiration",
-		"Inventory",
-		"Portfolios",
-		"Registrar",
-		"Registration",
-		"Renewals"
+		"dns",
+		"domain",
+		"expiration",
+		"inventory",
+		"portfolio",
+		"registrar",
+		"registration",
+		"renewal"
 	],
 	"proprietary": [
 		"GoDaddy",

@@ -13,14 +13,14 @@
 	"description": "A compiled programming language for efficient backend services, command-line tools, and concurrent applications.",
 	"hero": "a cute blue gopher mascot sprinting through a field of goroutines as glowing parallel lanes. speedy, cheerful, mascot-driven",
 	"keywords": [
-		"Backend",
-		"Binaries",
-		"Compiler",
-		"Concurrency",
-		"Goroutines",
-		"Microservices",
-		"Modules",
-		"Programming"
+		"backend",
+		"binary",
+		"compiler",
+		"concurrency",
+		"goroutine",
+		"microservice",
+		"module",
+		"programming"
 	],
 	"proprietary": [],
 	"default": {

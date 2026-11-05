@@ -13,14 +13,14 @@
 	"description": "A command-line generator for random, memorable, and secure passwords.",
 	"hero": "a magician pulling a random glowing password from a hat, lock symbols swirling. whimsical, secretive, chaotic",
 	"keywords": [
-		"Credentials",
-		"Entropy",
-		"Generator",
-		"Passphrases",
-		"Passwords",
-		"Randomness",
-		"Security",
-		"Strength"
+		"credential",
+		"entropy",
+		"generator",
+		"passphrase",
+		"password",
+		"randomness",
+		"security",
+		"strength"
 	],
 	"proprietary": [
 		"1Password Password Generator",

@@ -13,14 +13,14 @@
 	"description": "A relational SQL database server for storing application data and processing transactions.",
 	"hero": "a leaping dolphin made of glowing database tables arcing across an ocean. classic, graceful, powerful",
 	"keywords": [
-		"Indexing",
-		"Queries",
-		"Rdbms",
-		"Relational",
-		"Replication",
-		"Schemas",
-		"Tables",
-		"Transactions"
+		"indexing",
+		"query",
+		"rdbm",
+		"relational",
+		"replication",
+		"schema",
+		"table",
+		"transaction"
 	],
 	"proprietary": [
 		"Amazon Aurora",

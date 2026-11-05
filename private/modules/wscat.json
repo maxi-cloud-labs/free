@@ -13,14 +13,14 @@
 	"description": "A command-line WebSocket client for sending messages and testing live socket connections.",
 	"hero": "a cat lounging on a glowing two-way wire, speech bubbles flying both directions. whimsical, minimal, neon",
 	"keywords": [
-		"Connections",
-		"Debugging",
-		"Messages",
-		"Realtime",
-		"Sockets",
-		"Terminal",
-		"Testing",
-		"Websocket"
+		"connection",
+		"debugging",
+		"message",
+		"realtime",
+		"socket",
+		"terminal",
+		"testing",
+		"websocket"
 	],
 	"proprietary": [
 		"Insomnia",

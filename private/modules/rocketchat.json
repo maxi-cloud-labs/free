@@ -13,14 +13,14 @@
 	"description": "A secure workplace messaging platform for team chat, collaboration, and customer conversations.",
 	"hero": "a sleek rocket made of speech bubbles launching from a chat window into orbit. exuberant, space-race, optimistic",
 	"keywords": [
-		"Channels",
-		"Collaboration",
-		"Conversations",
-		"Inbox",
-		"Messaging",
-		"Notifications",
-		"Support",
-		"Teams"
+		"channel",
+		"collaboration",
+		"conversation",
+		"inbox",
+		"messaging",
+		"notification",
+		"support",
+		"team"
 	],
 	"proprietary": [
 		"Google Chat",

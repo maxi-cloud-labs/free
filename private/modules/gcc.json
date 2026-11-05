@@ -13,14 +13,14 @@
 	"description": "A compiler collection for C, C++, and other programming languages.",
 	"hero": "a majestic gnu antelope with a glowing compiler gear in its horns, charging across a plain of source code. epic, ancient, powerful",
 	"keywords": [
-		"Binaries",
-		"Compilation",
-		"Compiler",
-		"Cpp",
-		"Fortran",
-		"Gnu",
-		"Optimization",
-		"Toolchain"
+		"binary",
+		"compilation",
+		"compiler",
+		"cpp",
+		"fortran",
+		"gnu",
+		"optimization",
+		"toolchain"
 	],
 	"proprietary": [
 		"Intel oneAPI C++ Compiler",

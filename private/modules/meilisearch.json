@@ -13,14 +13,14 @@
 	"description": "A fast, typo-tolerant search engine for full-text and AI-assisted searches in applications.",
 	"hero": "a tiny glowing searchlight beam finding a single needle in a galaxy of haystacks. lightning-fast, precise, awe-inspiring",
 	"keywords": [
-		"Fulltext",
-		"Fuzzy",
-		"Hybrid",
-		"Indexing",
-		"Queries",
-		"Relevance",
-		"Retrieval",
-		"Typo"
+		"fulltext",
+		"fuzzy",
+		"hybrid",
+		"indexing",
+		"query",
+		"relevance",
+		"retrieval",
+		"typo"
 	],
 	"proprietary": [
 		"Algolia",

@@ -13,14 +13,14 @@
 	"description": "A browser-based QR code and barcode scanner using a device camera.",
 	"hero": "a phone camera scanning a glowing QR code, light beams reading its pixels into the air. scanner-spy thriller, crisp, minimal",
 	"keywords": [
-		"Barcodes",
-		"Camera",
-		"Decoding",
-		"Qrcodes",
-		"Reader",
-		"Recognition",
-		"Scanning",
-		"Smartphone"
+		"barcode",
+		"camera",
+		"decoding",
+		"qrcode",
+		"reader",
+		"recognition",
+		"scanning",
+		"smartphone"
 	],
 	"proprietary": [
 		"Dynamsoft Barcode Reader",

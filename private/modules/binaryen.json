@@ -13,14 +13,14 @@
 	"description": "A compiler toolchain for optimizing, generating, and transforming WebAssembly modules.",
 	"hero": "a crystalline binary-coded gem being polished by laser beams inside a forge. precise, tiny but powerful, sci-fi craftsmanship",
 	"keywords": [
-		"Binaries",
-		"Bytecode",
-		"Compiler",
-		"Optimization",
-		"Toolchain",
-		"Transformations",
-		"Wasm",
-		"Webassembly"
+		"binary",
+		"bytecode",
+		"compiler",
+		"optimization",
+		"toolchain",
+		"transformation",
+		"wasm",
+		"webassembly"
 	],
 	"proprietary": [],
 	"default": {

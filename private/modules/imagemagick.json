@@ -13,14 +13,14 @@
 	"description": "An image processing suite for resizing, editing, converting, and composing graphics.",
 	"hero": "a wizard with a glowing wand transforming one photo into many forms, swirling colors around. magical, painterly, transformation",
 	"keywords": [
-		"Compositing",
-		"Conversion",
-		"Cropping",
-		"Graphics",
-		"Images",
-		"Processing",
-		"Resizing",
-		"Thumbnails"
+		"compositing",
+		"conversion",
+		"cropping",
+		"graphic",
+		"image",
+		"processing",
+		"resizing",
+		"thumbnail"
 	],
 	"proprietary": [
 		"Adobe Photoshop",

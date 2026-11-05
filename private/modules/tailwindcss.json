@@ -13,14 +13,14 @@
 	"description": "A utility-first CSS framework for styling responsive websites and interfaces with reusable classes.",
 	"hero": "a surfer riding a glowing teal wave of utility classes. breezy, breathtaking, fast",
 	"keywords": [
-		"Classes",
-		"Components",
-		"Frontend",
-		"Layouts",
-		"Responsive",
-		"Stylesheets",
-		"Styling",
-		"Utilities"
+		"classe",
+		"component",
+		"frontend",
+		"layout",
+		"responsive",
+		"stylesheet",
+		"styling",
+		"utility"
 	],
 	"proprietary": [],
 	"default": {

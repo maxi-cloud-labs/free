@@ -13,14 +13,14 @@
 	"description": "An object-oriented programming language and runtime for cross-platform applications.",
 	"hero": "a steaming cup of coffee emitting a glowing ring of code, sitting on a cosmic table. warm, classic, enduring legend",
 	"keywords": [
-		"Backend",
-		"Bytecode",
-		"Compilation",
-		"Jvm",
-		"Libraries",
-		"Openjdk",
-		"Portability",
-		"Programming"
+		"backend",
+		"bytecode",
+		"compilation",
+		"jvm",
+		"library",
+		"openjdk",
+		"portability",
+		"programming"
 	],
 	"proprietary": [
 		"Oracle JDK"

@@ -13,14 +13,14 @@
 	"description": "A command-line processor for filtering, querying, and transforming JSON data.",
 	"hero": "a precision sharp scalpel slicing a glowing JSON tree into clean ribbons. surgical, elegant, minimal",
 	"keywords": [
-		"Filtering",
-		"Json",
-		"Parsing",
-		"Queries",
-		"Scripting",
-		"Structured",
-		"Terminal",
-		"Transformation"
+		"filtering",
+		"json",
+		"parsing",
+		"query",
+		"scripting",
+		"structured",
+		"terminal",
+		"transformation"
 	],
 	"proprietary": [],
 	"default": {

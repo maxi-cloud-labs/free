@@ -13,14 +13,14 @@
 	"description": "A lightweight Linux script for live CPU, memory, disk, and server performance statistics.",
 	"hero": "a server rack with glowing heartbeat gauges and speedometers on its face. dashboard, sporty, vital",
 	"keywords": [
-		"Cpu",
-		"Disk",
-		"Linux",
-		"Load",
-		"Memory",
-		"Metrics",
-		"Processes",
-		"Resources"
+		"cpu",
+		"disk",
+		"linux",
+		"load",
+		"memory",
+		"metric",
+		"process",
+		"resource"
 	],
 	"proprietary": [
 		"Datadog Infrastructure Monitoring",

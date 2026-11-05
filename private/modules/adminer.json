@@ -13,14 +13,14 @@
 	"description": "A lightweight web interface for browsing, querying, and administering SQL databases.",
 	"hero": "a stoic librarian-guardian holding a giant key over a towering stack of glowing database cylinders. calm, orderly, powerful",
 	"keywords": [
-		"Administration",
-		"Database",
-		"Mariadb",
-		"Mysql",
-		"Postgresql",
-		"Queries",
-		"Sql",
-		"Tables"
+		"administration",
+		"database",
+		"mariadb",
+		"mysql",
+		"postgresql",
+		"query",
+		"sql",
+		"table"
 	],
 	"proprietary": [
 		"JetBrains DataGrip",

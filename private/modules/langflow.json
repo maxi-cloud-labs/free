@@ -13,14 +13,14 @@
 	"description": "A visual development platform for designing, testing, and deploying AI agents and LLM workflows.",
 	"hero": "a luminous river of connected glowing nodes forming a flowing waterfall of AI agents. serene, intricate, colorful",
 	"keywords": [
-		"Agents",
-		"Deployment",
-		"Dragdrop",
-		"Llm",
-		"Pipelines",
-		"Rag",
-		"Visual",
-		"Workflows"
+		"agent",
+		"deployment",
+		"dragdrop",
+		"llm",
+		"pipeline",
+		"rag",
+		"visual",
+		"workflow"
 	],
 	"proprietary": [
 		"Amazon Bedrock Agents",

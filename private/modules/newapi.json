@@ -13,14 +13,14 @@
 	"description": "A centralized AI model gateway for routing and translating requests across different LLM providers.",
 	"hero": "a grand central hub with glowing portal gates, each leading to a different AI model. sci-fi hub, welcoming, majestic",
 	"keywords": [
-		"Aggregation",
-		"Billing",
-		"Compatibility",
-		"Gateway",
-		"Llm",
-		"Providers",
-		"Routing",
-		"Tokens"
+		"aggregation",
+		"billing",
+		"compatibility",
+		"gateway",
+		"llm",
+		"provider",
+		"routing",
+		"token"
 	],
 	"proprietary": [
 		"Cloudflare AI Gateway",

@@ -13,14 +13,14 @@
 	"description": "An automated TV series collection manager for tracking episodes, downloads, and media libraries.",
 	"hero": "a glowing sonar radar ping sweeping across a library of TV series screens. submarine, rhythmic, collector",
 	"keywords": [
-		"Downloads",
-		"Episodes",
-		"Library",
-		"Releases",
-		"Series",
-		"Television",
-		"Torrents",
-		"Usenet"
+		"download",
+		"episode",
+		"library",
+		"release",
+		"series",
+		"television",
+		"torrent",
+		"usenet"
 	],
 	"proprietary": [],
 	"default": {

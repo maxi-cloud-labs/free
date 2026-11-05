@@ -13,14 +13,14 @@
 	"description": "A private note-taking and task manager with Markdown editing, encryption, and device synchronization.",
 	"hero": "a handwritten notebook with a glowing blue feather pen, notes lifting like dust into the cloud. quiet, studious, cozy",
 	"keywords": [
-		"Attachments",
-		"Encryption",
-		"Markdown",
-		"Notebooks",
-		"Notes",
-		"Synchronization",
-		"Tasks",
-		"Todo"
+		"attachment",
+		"encryption",
+		"markdown",
+		"notebook",
+		"note",
+		"synchronization",
+		"task",
+		"todo"
 	],
 	"proprietary": [
 		"Evernote",

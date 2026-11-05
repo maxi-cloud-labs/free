@@ -13,14 +13,14 @@
 	"description": "A multimedia toolkit for converting, recording, processing, and streaming audio and video.",
 	"hero": "an antique film projector with a glowing prismatic beam splitting into sound waves and video frames. cinematic, mechanical, powerful, retro",
 	"keywords": [
-		"Audio",
-		"Codecs",
-		"Decoding",
-		"Encoding",
-		"Streaming",
-		"Subtitles",
-		"Transcoding",
-		"Video"
+		"audio",
+		"codec",
+		"decoding",
+		"encoding",
+		"streaming",
+		"subtitle",
+		"transcoding",
+		"video"
 	],
 	"proprietary": [
 		"Adobe Media Encoder",

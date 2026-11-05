@@ -13,14 +13,14 @@
 	"description": "A desktop utility for mirroring and controlling an Android device over USB or a network.",
 	"hero": "a smartphone mirrored on a desktop monitor by a glowing beam, like a ghost clone. sci-fi duplication, crisp, clever",
 	"keywords": [
-		"Adb",
-		"Android",
-		"Debugging",
-		"Desktop",
-		"Mirroring",
-		"Remotecontrol",
-		"Screen",
-		"Usb"
+		"adb",
+		"android",
+		"debugging",
+		"desktop",
+		"mirroring",
+		"remotecontrol",
+		"screen",
+		"usb"
 	],
 	"proprietary": [
 		"AirDroid Cast",

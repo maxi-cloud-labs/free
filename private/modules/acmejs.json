@@ -13,14 +13,14 @@
 	"description": "A TypeScript ACME client for automated HTTPS certificate creation and domain validation.",
 	"hero": "a golden certificate scroll with a padlock seal, unfurling from a yellow JS-style tile. light, modern, sleek, magical",
 	"keywords": [
-		"Certificates",
-		"Https",
-		"Issuance",
-		"Letsencrypt",
-		"Ssl",
-		"Tls",
-		"Typescript",
-		"Validation"
+		"certificate",
+		"https",
+		"issuance",
+		"letsencrypt",
+		"ssl",
+		"tls",
+		"typescript",
+		"validation"
 	],
 	"proprietary": [
 		"DigiCert CertCentral",

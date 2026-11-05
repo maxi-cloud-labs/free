@@ -13,14 +13,14 @@
 	"description": "A privacy-focused encrypted cloud service for personal photos, videos, and authentication data.",
 	"hero": "a glowing locked vault shaped like a cloud, photos and keys sealed inside. intimate, protective, end-to-end encrypted",
 	"keywords": [
-		"Backups",
-		"Encryption",
-		"Photos",
-		"Privacy",
-		"Storage",
-		"Synchronization",
-		"Vault",
-		"Videos"
+		"backup",
+		"encryption",
+		"photo",
+		"privacy",
+		"storage",
+		"synchronization",
+		"vault",
+		"video"
 	],
 	"proprietary": [
 		"Google One",

@@ -13,14 +13,14 @@
 	"description": "An interactive API documentation viewer for exploring and testing OpenAPI endpoints.",
 	"hero": "a glowing interactive API doc page with green and blue endpoint chips opening like a stage curtain. theatrical, clean, inviting",
 	"keywords": [
-		"Documentation",
-		"Endpoints",
-		"Explorer",
-		"Interactive",
-		"Openapi",
-		"Requests",
-		"Specifications",
-		"Testing"
+		"documentation",
+		"endpoint",
+		"explorer",
+		"interactive",
+		"openapi",
+		"request",
+		"specification",
+		"testing"
 	],
 	"proprietary": [
 		"Postman",

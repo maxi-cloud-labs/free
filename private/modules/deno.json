@@ -13,14 +13,14 @@
 	"description": "A modern JavaScript and TypeScript runtime with built-in development tooling.",
 	"hero": "a prehistoric dinosaur with a glowing circuit-board skin standing in rain under neon lights. cool, reborn, cinematic sci-fi",
 	"keywords": [
-		"Javascript",
-		"Packages",
-		"Permissions",
-		"Runtime",
-		"Scripting",
-		"Serverless",
-		"Tooling",
-		"Typescript"
+		"javascript",
+		"package",
+		"permission",
+		"runtime",
+		"scripting",
+		"serverless",
+		"tooling",
+		"typescript"
 	],
 	"proprietary": [],
 	"default": {

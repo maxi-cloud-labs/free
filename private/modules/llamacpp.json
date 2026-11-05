@@ -13,14 +13,14 @@
 	"description": "An efficient local inference engine for running large language models on everyday hardware.",
 	"hero": "a shaggy llama sprinting with a glowing C++ circuit mane across mountain terrain. wild, speedy, endearing mascot",
 	"keywords": [
-		"Cpu",
-		"Gguf",
-		"Gpu",
-		"Inference",
-		"Llm",
-		"Models",
-		"Offline",
-		"Quantization"
+		"cpu",
+		"gguf",
+		"gpu",
+		"inference",
+		"llm",
+		"model",
+		"offline",
+		"quantization"
 	],
 	"proprietary": [
 		"LM Studio",

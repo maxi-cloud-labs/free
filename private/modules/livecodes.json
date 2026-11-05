@@ -13,14 +13,14 @@
 	"description": "An online code playground for experimenting with many languages and frontend frameworks.",
 	"hero": "a code playground with colorful floating glowing languages orbiting a monitor like planets. cosmic, playful, laboratory",
 	"keywords": [
-		"Editor",
-		"Javascript",
-		"Playground",
-		"Preview",
-		"Prototyping",
-		"Python",
-		"Sandbox",
-		"Snippets"
+		"editor",
+		"javascript",
+		"playground",
+		"preview",
+		"prototyping",
+		"python",
+		"sandbox",
+		"snippet"
 	],
 	"proprietary": [
 		"CodePen",

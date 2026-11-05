@@ -13,14 +13,14 @@
 	"description": "A privacy-focused metasearch engine for combining results from multiple search providers.",
 	"hero": "a hooded detective with a giant magnifier meta-searching glowing orbs from many search engines. privacy-noir, curious, shadowy",
 	"keywords": [
-		"Aggregation",
-		"Anonymity",
-		"Engines",
-		"Metasearch",
-		"Privacy",
-		"Queries",
-		"Search",
-		"Tracking"
+		"aggregation",
+		"anonymity",
+		"engine",
+		"metasearch",
+		"privacy",
+		"query",
+		"search",
+		"tracking"
 	],
 	"proprietary": [
 		"Bing",

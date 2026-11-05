@@ -13,14 +13,14 @@
 	"description": "A network management platform for creating secure virtual networks using WireGuard.",
 	"hero": "a glowing dragon-shaped mesh network weaving WireGuard tunnels between worlds. epic, interconnected, ambitious",
 	"keywords": [
-		"Connectivity",
-		"Encryption",
-		"Meshes",
-		"Networking",
-		"Peers",
-		"Tunnels",
-		"Vpn",
-		"Wireguard"
+		"connectivity",
+		"encryption",
+		"meshe",
+		"networking",
+		"peer",
+		"tunnel",
+		"vpn",
+		"wireguard"
 	],
 	"proprietary": [
 		"NordLayer",

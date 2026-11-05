@@ -13,14 +13,14 @@
 	"description": "An online genealogy platform for organizing family trees, relatives, and historical records.",
 	"hero": "a sprawling ancestral family tree with glowing portraits as leaves and roots deep in the earth. timeless, genealogical, cinematic sepia",
 	"keywords": [
-		"Ancestors",
-		"Ancestry",
-		"Familytree",
-		"Gedcom",
-		"Genealogy",
-		"Heritage",
-		"Lineage",
-		"Relatives"
+		"ancestor",
+		"ancestry",
+		"familytree",
+		"gedcom",
+		"genealogy",
+		"heritage",
+		"lineage",
+		"relative"
 	],
 	"proprietary": [
 		"Ancestry",

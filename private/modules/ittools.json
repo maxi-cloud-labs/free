@@ -13,14 +13,14 @@
 	"description": "A collection of browser-based developer utilities for formatting, encoding, converting, and generating data.",
 	"hero": "a giant Swiss-army toolbox with glowing gadgets floating around, each tool icon unique. handy, bright, workshop adventure",
 	"keywords": [
-		"Converters",
-		"Debugging",
-		"Developer",
-		"Encoders",
-		"Generators",
-		"Hashing",
-		"Timestamps",
-		"Utilities"
+		"converter",
+		"debugging",
+		"developer",
+		"encoder",
+		"generator",
+		"hashing",
+		"timestamp",
+		"utility"
 	],
 	"proprietary": [],
 	"default": {

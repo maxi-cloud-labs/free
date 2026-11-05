@@ -13,14 +13,14 @@
 	"description": "A simple QR code utility for creating and managing scannable codes.",
 	"hero": "a bold, glowing QR code shape that unfolds into a open book, light spilling out. clean, graphic, crisp",
 	"keywords": [
-		"Barcodes",
-		"Encoding",
-		"Generator",
-		"Links",
-		"Printable",
-		"Qrcodes",
-		"Scanning",
-		"Sharing"
+		"barcode",
+		"encoding",
+		"generator",
+		"link",
+		"printable",
+		"qrcode",
+		"scanning",
+		"sharing"
 	],
 	"proprietary": [
 		"QR Code Generator PRO",

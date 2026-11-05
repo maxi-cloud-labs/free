@@ -13,14 +13,14 @@
 	"description": "A graphical management console for deploying and administering Docker and Kubernetes containers.",
 	"hero": "a harbor crane lifting glowing containers over a port at dusk. industrial, ordered, cinematic",
 	"keywords": [
-		"Administration",
-		"Containers",
-		"Dashboards",
-		"Deployment",
-		"Docker",
-		"Kubernetes",
-		"Orchestration",
-		"Stacks"
+		"administration",
+		"container",
+		"dashboard",
+		"deployment",
+		"docker",
+		"kubernetes",
+		"orchestration",
+		"stack"
 	],
 	"proprietary": [
 		"Docker Desktop",

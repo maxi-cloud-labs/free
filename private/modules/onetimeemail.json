@@ -13,14 +13,14 @@
 	"description": "A temporary inbox service for disposable email addresses and one-time registrations.",
 	"hero": "an envelope that dissolves into glowing ash as it's opened, a ticking timer behind. spy-thriller, self-destructing, tense",
 	"keywords": [
-		"Addresses",
-		"Anonymous",
-		"Disposable",
-		"Inbox",
-		"Registration",
-		"Spam",
-		"Temporary",
-		"Throwaway"
+		"address",
+		"anonymous",
+		"disposable",
+		"inbox",
+		"registration",
+		"spam",
+		"temporary",
+		"throwaway"
 	],
 	"proprietary": [
 		"Temp Mail"

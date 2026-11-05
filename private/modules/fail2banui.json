@@ -13,14 +13,14 @@
 	"description": "A centralized web dashboard for reviewing Fail2Ban bans, jails, and protected servers.",
 	"hero": "a security guard at a bank of glowing monitors, red banned-IP markers lighting up on a map. surveillance control-room, tense",
 	"keywords": [
-		"Bans",
-		"Dashboard",
-		"Filters",
-		"Firewall",
-		"Intrusion",
-		"Ips",
-		"Jails",
-		"Unban"
+		"ban",
+		"dashboard",
+		"filter",
+		"firewall",
+		"intrusion",
+		"ip",
+		"jail",
+		"unban"
 	],
 	"proprietary": [
 		"BitNinja",

@@ -13,14 +13,14 @@
 	"description": "A unified LLM API gateway for routing model requests, monitoring costs, and applying guardrails.",
 	"hero": "a lightweight feather channeling a hundred glowing LLM streams into a single beam. weightless, universal, converging",
 	"keywords": [
-		"Compatibility",
-		"Gateway",
-		"Inference",
-		"Loadbalancing",
-		"Providers",
-		"Quotas",
-		"Routing",
-		"Tokens"
+		"compatibility",
+		"gateway",
+		"inference",
+		"loadbalancing",
+		"provider",
+		"quota",
+		"routing",
+		"token"
 	],
 	"proprietary": [
 		"Cloudflare AI Gateway",

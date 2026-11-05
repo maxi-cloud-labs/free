@@ -13,14 +13,14 @@
 	"description": "A JavaScript runtime for backend services, command-line applications, and web development.",
 	"hero": "a glowing green hexagonal gem with a lightning bolt inside, powering a bustling city of services. electric, energetic, ever-moving",
 	"keywords": [
-		"Asynchronous",
-		"Backend",
-		"Javascript",
-		"Npm",
-		"Packages",
-		"Runtime",
-		"Servers",
-		"V8"
+		"asynchronou",
+		"backend",
+		"javascript",
+		"npm",
+		"package",
+		"runtime",
+		"server",
+		"v8"
 	],
 	"proprietary": [],
 	"default": {

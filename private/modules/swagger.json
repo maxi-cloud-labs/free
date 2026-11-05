@@ -13,14 +13,14 @@
 	"description": "An OpenAPI code generation tool for producing API clients, server stubs, and reference documentation.",
 	"hero": "a smiling green API swagger-man with a cane, tipping his hat at a glowing route map. dapper, charismatic, retro-cool",
 	"keywords": [
-		"Apis",
-		"Clients",
-		"Codegen",
-		"Documentation",
-		"Endpoints",
-		"Openapi",
-		"Specifications",
-		"Stubs"
+		"api",
+		"client",
+		"codegen",
+		"documentation",
+		"endpoint",
+		"openapi",
+		"specification",
+		"stub"
 	],
 	"proprietary": [
 		"Postman",

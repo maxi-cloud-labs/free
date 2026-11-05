@@ -13,14 +13,14 @@
 	"description": "A lightweight Linux USB MTP responder for transferring files to connected devices.",
 	"hero": "a USB OTG cable bridging a tiny device to a computer, files glowing along the cable. close-up, compact, circuit-board",
 	"keywords": [
-		"Android",
-		"Devices",
-		"Files",
-		"Linux",
-		"Media",
-		"Otg",
-		"Transfers",
-		"Usb"
+		"android",
+		"device",
+		"file",
+		"linux",
+		"media",
+		"otg",
+		"transfer",
+		"usb"
 	],
 	"proprietary": [
 		"Samsung Smart Switch"

@@ -13,14 +13,14 @@
 	"description": "A network protocol analyzer for capturing, filtering, and examining packet traffic.",
 	"hero": "a menacing shark made of glowing packets circling a network of cables. predator, deep-sea, thriller",
 	"keywords": [
-		"Capture",
-		"Filtering",
-		"Inspection",
-		"Packets",
-		"Pcap",
-		"Protocols",
-		"Sniffing",
-		"Troubleshooting"
+		"capture",
+		"filtering",
+		"inspection",
+		"packet",
+		"pcap",
+		"protocol",
+		"sniffing",
+		"troubleshooting"
 	],
 	"proprietary": [
 		"Omnipeek",

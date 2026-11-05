@@ -13,14 +13,14 @@
 	"description": "A private client file portal for uploading, organizing, and distributing shared documents.",
 	"hero": "a courier handing a locked briefcase of files to a client in a modern office. professional, discreet, tidy",
 	"keywords": [
-		"Clients",
-		"Distribution",
-		"Downloads",
-		"Files",
-		"Permissions",
-		"Sharing",
-		"Transfers",
-		"Uploads"
+		"client",
+		"distribution",
+		"download",
+		"file",
+		"permission",
+		"sharing",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Box",

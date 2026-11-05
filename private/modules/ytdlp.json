@@ -13,14 +13,14 @@
 	"description": "A command-line downloader for videos, audio, and playlists from YouTube and other websites.",
 	"hero": "a glowing yo-yo-shaped play button on a string pulling videos out of a TV screen into a satchel. mischievous, heist, retro",
 	"keywords": [
-		"Audio",
-		"Downloads",
-		"Extraction",
-		"Formats",
-		"Playlists",
-		"Subtitles",
-		"Video",
-		"Youtube"
+		"audio",
+		"download",
+		"extraction",
+		"format",
+		"playlist",
+		"subtitle",
+		"video",
+		"youtube"
 	],
 	"proprietary": [
 		"4K Video Downloader Plus",

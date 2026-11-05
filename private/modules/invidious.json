@@ -13,14 +13,14 @@
 	"description": "A privacy-focused alternative YouTube interface for browsing and watching videos with less tracking.",
 	"hero": "an elegant masked figure watching a video screen from the shadows, a shield-shaped play button. stealthy, private, noir",
 	"keywords": [
-		"Frontend",
-		"Playlists",
-		"Privacy",
-		"Streaming",
-		"Subscriptions",
-		"Tracking",
-		"Videos",
-		"Youtube"
+		"frontend",
+		"playlist",
+		"privacy",
+		"streaming",
+		"subscription",
+		"tracking",
+		"video",
+		"youtube"
 	],
 	"proprietary": [
 		"YouTube",

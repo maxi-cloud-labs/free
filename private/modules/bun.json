@@ -13,14 +13,14 @@
 	"description": "An all-in-one JavaScript and TypeScript runtime, bundler, test runner, and package manager.",
 	"hero": "a cute round steamed bun-shaped rabbit mascot sprinting at light speed, leaving a trail of sparks. fast, cheeky, high-energy",
 	"keywords": [
-		"Bundling",
-		"Dependencies",
-		"Javascript",
-		"Packages",
-		"Runtime",
-		"Scripts",
-		"Testing",
-		"Typescript"
+		"bundling",
+		"dependency",
+		"javascript",
+		"package",
+		"runtime",
+		"script",
+		"testing",
+		"typescript"
 	],
 	"proprietary": [],
 	"default": {

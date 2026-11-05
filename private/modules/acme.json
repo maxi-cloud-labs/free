@@ -13,14 +13,14 @@
 	"description": "A lightweight command-line ACME client for automated SSL/TLS certificate issuance and renewal.",
 	"hero": "a shell-shaped seal stamping a glowing green padlock certificate onto a wax scroll. ancient-scribe meets hacker terminal, trustworthy, ritualistic",
 	"keywords": [
-		"Automation",
-		"Certificates",
-		"Https",
-		"Issuance",
-		"Letsencrypt",
-		"Renewal",
-		"Ssl",
-		"Tls"
+		"automation",
+		"certificate",
+		"http",
+		"issuance",
+		"letsencrypt",
+		"renewal",
+		"ssl",
+		"tls"
 	],
 	"proprietary": [
 		"DigiCert CertCentral",

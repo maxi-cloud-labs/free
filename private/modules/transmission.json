@@ -13,14 +13,14 @@
 	"description": "A lightweight BitTorrent client for downloading and managing peer-to-peer files.",
 	"hero": "a glowing gear shift lever with data streams flowing along a road of light. mechanical, speedy, lean",
 	"keywords": [
-		"Downloads",
-		"Lightweight",
-		"Magnet",
-		"P2p",
-		"Peers",
-		"Seeding",
-		"Torrents",
-		"Trackers"
+		"download",
+		"lightweight",
+		"magnet",
+		"p2p",
+		"peer",
+		"seeding",
+		"torrent",
+		"tracker"
 	],
 	"proprietary": [
 		"BitTorrent Classic",

@@ -13,14 +13,14 @@
 	"description": "A browser-based SSH terminal for remotely accessing and administering servers.",
 	"hero": "a browser window with a glowing secure tunnel descending into a dark server, cursor blinking. cyberpunk, stealthy, direct",
 	"keywords": [
-		"Administration",
-		"Console",
-		"Login",
-		"Remote",
-		"Servers",
-		"Shell",
-		"Sshclient",
-		"Terminal"
+		"administration",
+		"console",
+		"login",
+		"remote",
+		"server",
+		"shell",
+		"sshclient",
+		"terminal"
 	],
 	"proprietary": [
 		"SecureCRT",

@@ -13,14 +13,14 @@
 	"description": "A business intelligence platform for exploring data, building charts, and sharing interactive dashboards.",
 	"hero": "a majestic glowing dashboard of charts forming a mountain range, the sun rising behind. data-landscape, vivid, grand",
 	"keywords": [
-		"Analytics",
-		"Businessintelligence",
-		"Charts",
-		"Dashboards",
-		"Datasets",
-		"Reporting",
-		"Sql",
-		"Visualization"
+		"analytic",
+		"businessintelligence",
+		"chart",
+		"dashboard",
+		"dataset",
+		"reporting",
+		"sql",
+		"visualization"
 	],
 	"proprietary": [
 		"Looker",

@@ -13,14 +13,14 @@
 	"description": "A curated directory of self-hosted software for discovering apps and independent services.",
 	"hero": "a giant treasure chest overflowing with glowing app icons and gems, house-shaped lid. adventurous, abundant, explorer's-map feel",
 	"keywords": [
-		"Alternatives",
-		"Catalog",
-		"Directory",
-		"Discovery",
-		"Hosting",
-		"Projects",
-		"Recommendations",
-		"Resources"
+		"alternative",
+		"catalog",
+		"directory",
+		"discovery",
+		"hosting",
+		"project",
+		"recommendation",
+		"resource"
 	],
 	"proprietary": [
 		"AlternativeTo"

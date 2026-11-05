@@ -13,14 +13,14 @@
 	"description": "A high-performance S3-compatible object storage server for application files and large datasets.",
 	"hero": "a deep glowing blue ocean vault holding countless data buckets floating in the dark. massive, serene, abyssal",
 	"keywords": [
-		"Backups",
-		"Blobs",
-		"Buckets",
-		"Objectstorage",
-		"Replication",
-		"S3",
-		"Storage",
-		"Uploads"
+		"backup",
+		"blob",
+		"bucket",
+		"objectstorage",
+		"replication",
+		"s3",
+		"storage",
+		"upload"
 	],
 	"proprietary": [
 		"Amazon S3",

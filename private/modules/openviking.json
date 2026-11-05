@@ -13,14 +13,14 @@
 	"description": "A context database for AI agent memory, knowledge retrieval, and reusable skills.",
 	"hero": "a stern Viking longship carrying a glowing memory crystal across a sea of data, AI agents as shield warriors. epic, mythic, saga",
 	"keywords": [
-		"Agents",
-		"Context",
-		"Embeddings",
-		"Indexing",
-		"Knowledge",
-		"Memory",
-		"Rag",
-		"Retrieval"
+		"agent",
+		"context",
+		"embedding",
+		"indexing",
+		"knowledge",
+		"memory",
+		"rag",
+		"retrieval"
 	],
 	"proprietary": [
 		"Amazon Bedrock Knowledge Bases",

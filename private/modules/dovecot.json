@@ -13,14 +13,14 @@
 	"description": "A secure IMAP and POP3 server for accessing and retrieving email mailboxes.",
 	"hero": "a graceful white dove carrying a sealed glowing envelope, perched on a secure vault. peaceful, trustworthy, protective",
 	"keywords": [
-		"Authentication",
-		"Delivery",
-		"Email",
-		"Imap",
-		"Mailboxes",
-		"Pop3",
-		"Retrieval",
-		"Storage"
+		"authentication",
+		"delivery",
+		"email",
+		"imap",
+		"mailbox",
+		"pop3",
+		"retrieval",
+		"storage"
 	],
 	"proprietary": [
 		"Microsoft Exchange Server"

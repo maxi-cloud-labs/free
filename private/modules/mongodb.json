@@ -13,14 +13,14 @@
 	"description": "A document-oriented NoSQL database for storing and querying flexible JSON-like records.",
 	"hero": "a glowing green leaf holding a floating cloud of JSON documents. organic, expansive, nature-meets-tech",
 	"keywords": [
-		"Aggregation",
-		"Bson",
-		"Collections",
-		"Documents",
-		"Indexing",
-		"Nosql",
-		"Queries",
-		"Replication"
+		"aggregation",
+		"bson",
+		"collection",
+		"document",
+		"indexing",
+		"nosql",
+		"query",
+		"replication"
 	],
 	"proprietary": [
 		"Amazon DocumentDB",

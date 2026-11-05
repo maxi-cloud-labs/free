@@ -13,14 +13,14 @@
 	"description": "A web-based bug tracking system for software issues, defect reports, and project teams.",
 	"hero": "a praying mantis detective with a magnifying glass hunting a bug in a noir city. film-noir, quirky, suspenseful",
 	"keywords": [
-		"Bugs",
-		"Defects",
-		"Issues",
-		"Qa",
-		"Regressions",
-		"Tickets",
-		"Tracking",
-		"Triage"
+		"bug",
+		"defect",
+		"issue",
+		"qa",
+		"regression",
+		"ticket",
+		"tracking",
+		"triage"
 	],
 	"proprietary": [
 		"Jira",

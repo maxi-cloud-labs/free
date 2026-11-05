@@ -13,14 +13,14 @@
 	"description": "A browser-based SQLite database viewer for exploring tables, editing records, and running queries.",
 	"hero": "a browser window opening onto a small glowing feather-light database pearl. clean, simple, curious",
 	"keywords": [
-		"Browsing",
-		"Database",
-		"Editing",
-		"Queries",
-		"Records",
-		"Relational",
-		"Schemas",
-		"Tables"
+		"browsing",
+		"database",
+		"editing",
+		"query",
+		"record",
+		"relational",
+		"schema",
+		"table"
 	],
 	"proprietary": [
 		"Navicat for SQLite",

@@ -13,14 +13,14 @@
 	"description": "A secure team collaboration platform for messaging, channels, and software development workflows.",
 	"hero": "a crew of engineers on a ship deck with glowing speech bubbles coordinating over the sea. teamwork, adventurous, secure",
 	"keywords": [
-		"Channels",
-		"Chat",
-		"Collaboration",
-		"Integrations",
-		"Messaging",
-		"Notifications",
-		"Teams",
-		"Threads"
+		"channel",
+		"chat",
+		"collaboration",
+		"integration",
+		"messaging",
+		"notification",
+		"team",
+		"thread"
 	],
 	"proprietary": [
 		"Microsoft Teams",

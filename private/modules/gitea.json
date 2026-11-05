@@ -13,14 +13,14 @@
 	"description": "A self-hosted Git development platform for repositories, pull requests, issues, and CI/CD.",
 	"hero": "a friendly teacup holding a tiny glowing branching tree of git commits. cozy, minimal, charming mascot",
 	"keywords": [
-		"Cicd",
-		"Codehosting",
-		"Collaboration",
-		"Commits",
-		"Issues",
-		"Pullrequests",
-		"Repositories",
-		"Reviews"
+		"cicd",
+		"codehosting",
+		"collaboration",
+		"commit",
+		"issue",
+		"pullrequest",
+		"repository",
+		"review"
 	],
 	"proprietary": [
 		"Bitbucket",

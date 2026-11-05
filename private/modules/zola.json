@@ -13,14 +13,14 @@
 	"description": "A fast static website generator with templates, Markdown content, and built-in site tools.",
 	"hero": "a sculptor chiseling a glowing static website out of a block of marble, dust sparkling in the air. classical, precise, timeless",
 	"keywords": [
-		"Blogs",
-		"Generation",
-		"Markdown",
-		"Publishing",
-		"Sass",
-		"Static",
-		"Templates",
-		"Websites"
+		"blog",
+		"generation",
+		"markdown",
+		"publishing",
+		"sas",
+		"static",
+		"template",
+		"website"
 	],
 	"proprietary": [
 		"Squarespace",

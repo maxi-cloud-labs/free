@@ -13,14 +13,14 @@
 	"description": "A content management system for building websites, managing pages, and publishing online content.",
 	"hero": "a swirling constellation of four interlinked circles forming a joyful flower made of web pages. friendly, bright, community-driven",
 	"keywords": [
-		"Articles",
-		"Blogging",
-		"Cms",
-		"Content",
-		"Extensions",
-		"Publishing",
-		"Templates",
-		"Websites"
+		"article",
+		"blogging",
+		"cms",
+		"content",
+		"extension",
+		"publishing",
+		"template",
+		"website"
 	],
 	"proprietary": [
 		"Squarespace",

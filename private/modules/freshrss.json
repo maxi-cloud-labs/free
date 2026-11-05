@@ -13,14 +13,14 @@
 	"description": "A self-hosted RSS reader for following news feeds, blogs, and website updates.",
 	"hero": "a fresh stream of glowing RSS feed icons flowing from a drinking glass of orange juice. refreshing, summery, lively",
 	"keywords": [
-		"Aggregation",
-		"Articles",
-		"Atom",
-		"Feeds",
-		"Headlines",
-		"Opml",
-		"Reading",
-		"Subscriptions"
+		"aggregation",
+		"article",
+		"atom",
+		"feed",
+		"headline",
+		"opml",
+		"reading",
+		"subscription"
 	],
 	"proprietary": [
 		"Feedly",

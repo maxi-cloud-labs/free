@@ -13,14 +13,14 @@
 	"description": "A compact autonomous AI assistant runtime for cross-platform task automation and agent deployment.",
 	"hero": "a tiny but sharp mechanical claw with a zero-shaped glowing core, gripping a small flame. minimal, agile, precise, hardy",
 	"keywords": [
-		"Agents",
-		"Assistants",
-		"Autonomous",
-		"Integrations",
-		"Orchestration",
-		"Runtime",
-		"Tasks",
-		"Workflows"
+		"agent",
+		"assistant",
+		"autonomous",
+		"integration",
+		"orchestration",
+		"runtime",
+		"task",
+		"workflow"
 	],
 	"proprietary": [
 		"ChatGPT",

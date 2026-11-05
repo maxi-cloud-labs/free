@@ -13,14 +13,14 @@
 	"description": "An opinionated code formatter for consistent styling across JavaScript and other source files.",
 	"hero": "a glamorous stylist with a comb and mirror straightening code into elegant lines. fashion-shoot, shiny, polished",
 	"keywords": [
-		"Consistency",
-		"Css",
-		"Formatting",
-		"Indentation",
-		"Javascript",
-		"Linting",
-		"Sourcecode",
-		"Typescript"
+		"consistency",
+		"css",
+		"formatting",
+		"indentation",
+		"javascript",
+		"linting",
+		"sourcecode",
+		"typescript"
 	],
 	"proprietary": [],
 	"default": {

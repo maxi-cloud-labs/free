@@ -13,14 +13,14 @@
 	"description": "A unified notification service for sending alerts across messaging, email, and push platforms.",
 	"hero": "a carrier pigeon releasing dozens of glowing notification bubbles in all directions. joyful, dynamic, messenger-hero",
 	"keywords": [
-		"Alerts",
-		"Broadcasts",
-		"Email",
-		"Integrations",
-		"Messaging",
-		"Notifications",
-		"Push",
-		"Webhooks"
+		"alert",
+		"broadcast",
+		"email",
+		"integration",
+		"messaging",
+		"notification",
+		"push",
+		"webhook"
 	],
 	"proprietary": [
 		"OneSignal",

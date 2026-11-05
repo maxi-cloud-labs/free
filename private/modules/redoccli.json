@@ -13,14 +13,14 @@
 	"description": "A command-line generator for publishing static API documentation from OpenAPI specifications.",
 	"hero": "a terminal prompt opening into a tall glowing documentation scroll, a wizard at the keyboard. command-line, scholarly, sleek",
 	"keywords": [
-		"Documentation",
-		"Generation",
-		"Html",
-		"Openapi",
-		"Publishing",
-		"Reference",
-		"Static",
-		"Swagger"
+		"documentation",
+		"generation",
+		"html",
+		"openapi",
+		"publishing",
+		"reference",
+		"static",
+		"swagger"
 	],
 	"proprietary": [
 		"Mintlify",

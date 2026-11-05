@@ -13,14 +13,14 @@
 	"description": "An observability dashboard for analyzing logs, metrics, traces, and application performance.",
 	"hero": "a giant all-seeing telescope observing a galaxy of logs, metrics and traces, petabyte-scale starfield. cosmic, vast, calm",
 	"keywords": [
-		"Dashboards",
-		"Logs",
-		"Metrics",
-		"Monitoring",
-		"Observability",
-		"Pipelines",
-		"Telemetry",
-		"Traces"
+		"dashboard",
+		"log",
+		"metric",
+		"monitoring",
+		"observability",
+		"pipeline",
+		"telemetry",
+		"trace"
 	],
 	"proprietary": [
 		"Datadog",

@@ -13,14 +13,14 @@
 	"description": "A hierarchical note-taking application for building structured personal knowledge bases.",
 	"hero": "a towering hierarchical tree whose leaves are glowing notes, a vast knowledge forest. mystical, arboreal, expansive",
 	"keywords": [
-		"Backlinks",
-		"Hierarchy",
-		"Journaling",
-		"Knowledgebase",
-		"Markdown",
-		"Notebooks",
-		"Organization",
-		"Outlines"
+		"backlink",
+		"hierarchy",
+		"journaling",
+		"knowledgebase",
+		"markdown",
+		"notebook",
+		"organization",
+		"outline"
 	],
 	"proprietary": [
 		"Evernote",

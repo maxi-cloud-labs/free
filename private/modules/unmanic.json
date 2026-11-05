@@ -13,14 +13,14 @@
 	"description": "An automated media library optimizer for transcoding files and streamlining media storage.",
 	"hero": "a wise gardener pruning unused metadata from a vine of media reels with glowing shears. zen, tidy, satisfying",
 	"keywords": [
-		"Automation",
-		"Compression",
-		"Formats",
-		"Libraries",
-		"Media",
-		"Optimization",
-		"Transcoding",
-		"Video"
+		"automation",
+		"compression",
+		"format",
+		"library",
+		"media",
+		"optimization",
+		"transcoding",
+		"video"
 	],
 	"proprietary": [
 		"Tdarr"

@@ -13,14 +13,14 @@
 	"description": "A web-based terminal for secure shell access and server command-line sessions.",
 	"hero": "a retro terminal inside a web browser window, lit by a glowing green cursor in a dark room. nostalgic, cathode-glow, hacker",
 	"keywords": [
-		"Browser",
-		"Commandline",
-		"Console",
-		"Remote",
-		"Sessions",
-		"Shell",
-		"Ssh",
-		"Terminal"
+		"browser",
+		"commandline",
+		"console",
+		"remote",
+		"session",
+		"shell",
+		"ssh",
+		"terminal"
 	],
 	"proprietary": [
 		"SecureCRT",

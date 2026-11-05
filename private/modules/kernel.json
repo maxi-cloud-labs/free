@@ -13,14 +13,14 @@
 	"description": "The core Linux operating system software for hardware control, processes, and device drivers.",
 	"hero": "a blazing penguin warrior in armor standing atop a glowing circuit mountain. mythic, foundational, legendary",
 	"keywords": [
-		"Drivers",
-		"Hardware",
-		"Modules",
-		"Operating",
-		"Processes",
-		"Scheduling",
-		"Syscalls",
-		"Unix"
+		"driver",
+		"hardware",
+		"module",
+		"operating",
+		"process",
+		"scheduling",
+		"syscall",
+		"unix"
 	],
 	"proprietary": [],
 	"default": {

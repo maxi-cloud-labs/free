@@ -13,14 +13,14 @@
 	"description": "A text-based diagram generator for flowcharts, sequence diagrams, and technical visualizations.",
 	"hero": "a graceful mermaid whose tail flows into a glowing flowchart diagram. mythical, elegant, underwater-dreamlike",
 	"keywords": [
-		"Charts",
-		"Diagrams",
-		"Documentation",
-		"Flowcharts",
-		"Markup",
-		"Sequence",
-		"Textbased",
-		"Visualization"
+		"chart",
+		"diagram",
+		"documentation",
+		"flowchart",
+		"markup",
+		"sequence",
+		"textbased",
+		"visualization"
 	],
 	"proprietary": [
 		"Lucidchart",

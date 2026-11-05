@@ -13,14 +13,14 @@
 	"description": "A private self-hosted file transfer service for sharing downloads through simple links.",
 	"hero": "two silhouettes passing a glowing parcel across a bridge of light. minimal, travelers, handoff",
 	"keywords": [
-		"Downloads",
-		"Files",
-		"Hosting",
-		"Links",
-		"Recipients",
-		"Sharing",
-		"Transfers",
-		"Uploads"
+		"download",
+		"file",
+		"hosting",
+		"link",
+		"recipient",
+		"sharing",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Dropbox Transfer",

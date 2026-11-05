@@ -13,14 +13,14 @@
 	"description": "An AI evaluation toolkit for testing prompts, agents, RAG pipelines, and model security.",
 	"hero": "a lab technician testing glowing prompt vials against AI test subjects, red-team lights. scientific, rigorous, adversarial",
 	"keywords": [
-		"Benchmarks",
-		"Evaluation",
-		"Llm",
-		"Prompts",
-		"Rag",
-		"Redteaming",
-		"Testing",
-		"Vulnerabilities"
+		"benchmark",
+		"evaluation",
+		"llm",
+		"prompt",
+		"rag",
+		"redteaming",
+		"testing",
+		"vulnerability"
 	],
 	"proprietary": [
 		"Braintrust",

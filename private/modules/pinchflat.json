@@ -13,14 +13,14 @@
 	"description": "An automated YouTube channel and playlist downloader for maintaining a local media library.",
 	"hero": "a delicate pair of fingers pinching a glowing video frame from a stream, pulling into a local shelf. tactile, careful, collector",
 	"keywords": [
-		"Archiving",
-		"Channels",
-		"Downloading",
-		"Metadata",
-		"Playlists",
-		"Subscriptions",
-		"Synchronization",
-		"Youtube"
+		"archiving",
+		"channel",
+		"downloading",
+		"metadata",
+		"playlist",
+		"subscription",
+		"synchronization",
+		"youtube"
 	],
 	"proprietary": [
 		"4K Video Downloader Plus"

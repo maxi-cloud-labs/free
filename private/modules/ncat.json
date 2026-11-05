@@ -13,14 +13,14 @@
 	"description": "A command-line networking utility for testing TCP/UDP connections and sending data between hosts.",
 	"hero": "a sleek cat with glowing network tendrils prowling across a network cable street at night. stealthy, cunning, cyberpunk",
 	"keywords": [
-		"Connectivity",
-		"Diagnostics",
-		"Listeners",
-		"Networking",
-		"Ports",
-		"Sockets",
-		"Tcp",
-		"Udp"
+		"connectivity",
+		"diagnostic",
+		"listener",
+		"networking",
+		"port",
+		"socket",
+		"tcp",
+		"udp"
 	],
 	"proprietary": [],
 	"default": {

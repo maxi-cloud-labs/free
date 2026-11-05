@@ -13,14 +13,14 @@
 	"description": "A graphical PostgreSQL administration tool for querying databases and managing server objects.",
 	"hero": "a stately elephant wearing an administrator badge, surrounded by glowing database tables. wise, grand, trustworthy",
 	"keywords": [
-		"Administration",
-		"Backups",
-		"Postgresql",
-		"Queries",
-		"Roles",
-		"Schemas",
-		"Sql",
-		"Tables"
+		"administration",
+		"backup",
+		"postgresql",
+		"query",
+		"role",
+		"schema",
+		"sql",
+		"table"
 	],
 	"proprietary": [
 		"JetBrains DataGrip",

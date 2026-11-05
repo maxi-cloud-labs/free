@@ -13,14 +13,14 @@
 	"description": "A self-hosted photo and video library with automatic backup, browsing, and album sharing.",
 	"hero": "a glowing cloud-shaped photo vault with floating polaroids drifting upward, protected by a protective circle. nostalgic, bright, secure",
 	"keywords": [
-		"Albums",
-		"Backups",
-		"Gallery",
-		"Geolocation",
-		"Memories",
-		"Mobile",
-		"Photos",
-		"Videos"
+		"album",
+		"backup",
+		"gallery",
+		"geolocation",
+		"memory",
+		"mobile",
+		"photo",
+		"video"
 	],
 	"proprietary": [
 		"Amazon Photos",

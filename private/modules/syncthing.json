@@ -13,14 +13,14 @@
 	"description": "A private peer-to-peer file synchronization service for keeping folders consistent across devices.",
 	"hero": "two glowing devices linked by a synchronized loop of light, sync arrows circling endlessly. harmony, cyclical, calm",
 	"keywords": [
-		"Continuous",
-		"Devices",
-		"Encrypted",
-		"Folders",
-		"P2p",
-		"Replication",
-		"Synchronization",
-		"Transfers"
+		"continuou",
+		"device",
+		"encrypted",
+		"folder",
+		"p2p",
+		"replication",
+		"synchronization",
+		"transfer"
 	],
 	"proprietary": [
 		"Dropbox",

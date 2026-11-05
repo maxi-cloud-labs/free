@@ -13,14 +13,14 @@
 	"description": "A fast command-line file and directory finder with intuitive search filters.",
 	"hero": "a swift greyhound dashing through a maze of folders, scattering light trails. fast, sleek, agile hunter",
 	"keywords": [
-		"Cli",
-		"Directories",
-		"Files",
-		"Filesystem",
-		"Filtering",
-		"Finding",
-		"Folders",
-		"Globbing"
+		"cli",
+		"directory",
+		"file",
+		"filesystem",
+		"filtering",
+		"finding",
+		"folder",
+		"globbing"
 	],
 	"proprietary": [
 		"Everything",

@@ -13,14 +13,14 @@
 	"description": "A web crawling engine for discovering URLs, endpoints, and linked website content.",
 	"hero": "a gleaming samurai katana slicing through glowing web page nodes, spider-webs of links falling. ninja-film, precise, dramatic",
 	"keywords": [
-		"Crawling",
-		"Discovery",
-		"Enumeration",
-		"Headless",
-		"Reconnaissance",
-		"Spidering",
-		"Urls",
-		"Websites"
+		"crawling",
+		"discovery",
+		"enumeration",
+		"headless",
+		"reconnaissance",
+		"spidering",
+		"url",
+		"website"
 	],
 	"proprietary": [
 		"Burp Suite Professional",

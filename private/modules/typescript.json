@@ -13,14 +13,14 @@
 	"description": "A statically typed JavaScript superset for developing maintainable web and server applications.",
 	"hero": "a blue shield-like crest with typed braces holding back raw chaotic JS energy, calm authority. structured, reliable, clean",
 	"keywords": [
-		"Annotations",
-		"Compilation",
-		"Interfaces",
-		"Javascript",
-		"Programming",
-		"Statictyping",
-		"Transpilation",
-		"Typechecking"
+		"annotation",
+		"compilation",
+		"interface",
+		"javascript",
+		"programming",
+		"statictyping",
+		"transpilation",
+		"typechecking"
 	],
 	"proprietary": [],
 	"default": {

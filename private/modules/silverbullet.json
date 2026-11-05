@@ -13,14 +13,14 @@
 	"description": "A customizable Markdown knowledge base for linked notes, documents, and personal workflows.",
 	"hero": "a gleaming silver bullet engraved with markdown symbols, frozen in slow motion mid-flight. monster-hunter-film, dramatic, sleek",
 	"keywords": [
-		"Backlinks",
-		"Documents",
-		"Knowledgebase",
-		"Markdown",
-		"Notes",
-		"Organization",
-		"Scripting",
-		"Wiki"
+		"backlink",
+		"document",
+		"knowledgebase",
+		"markdown",
+		"note",
+		"organization",
+		"scripting",
+		"wiki"
 	],
 	"proprietary": [
 		"Evernote",

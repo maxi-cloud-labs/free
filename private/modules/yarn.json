@@ -13,14 +13,14 @@
 	"description": "A JavaScript package manager for installing dependencies and maintaining application projects.",
 	"hero": "a colorful ball of yarn unraveling into glowing package threads linking a web of projects. cozy, textile, intertwined",
 	"keywords": [
-		"Dependencies",
-		"Installation",
-		"Javascript",
-		"Lockfiles",
-		"Monorepos",
-		"Npm",
-		"Packages",
-		"Workspaces"
+		"dependency",
+		"installation",
+		"javascript",
+		"lockfile",
+		"monorepo",
+		"npm",
+		"package",
+		"workspace"
 	],
 	"proprietary": [
 		"npm"

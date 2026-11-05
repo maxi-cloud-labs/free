@@ -13,14 +13,14 @@
 	"description": "A browser-based toolkit for encoding, decoding, encrypting, hashing, and analyzing data.",
 	"hero": "a stylish chef in a chef's hat decrypting glowing ciphertext with kitchen knives and spices. quirky, culinary-hacker, whimsical",
 	"keywords": [
-		"Base64",
-		"Compression",
-		"Decoding",
-		"Decryption",
-		"Encoding",
-		"Encryption",
-		"Hashing",
-		"Hexdump"
+		"base64",
+		"compression",
+		"decoding",
+		"decryption",
+		"encoding",
+		"encryption",
+		"hashing",
+		"hexdump"
 	],
 	"proprietary": [],
 	"default": {

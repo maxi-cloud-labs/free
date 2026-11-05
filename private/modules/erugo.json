@@ -13,14 +13,14 @@
 	"description": "A self-hosted file transfer platform for secure uploads, download links, and private sharing.",
 	"hero": "a shiny parcel with a glowing tag being passed hand to hand between two silhouettes. simple, sleek, friendly handoff",
 	"keywords": [
-		"Downloads",
-		"Expiration",
-		"Links",
-		"Protection",
-		"Recipients",
-		"Sharing",
-		"Transfers",
-		"Uploads"
+		"download",
+		"expiration",
+		"link",
+		"protection",
+		"recipient",
+		"sharing",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Dropbox Transfer",

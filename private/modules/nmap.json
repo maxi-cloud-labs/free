@@ -13,14 +13,14 @@
 	"description": "A network discovery and security scanner for identifying hosts, services, and open ports.",
 	"hero": "a sonar radar sweep mapping a dark network of glowing nodes and open ports. submarine-thriller, green-blue glow, stealth",
 	"keywords": [
-		"Discovery",
-		"Enumeration",
-		"Fingerprinting",
-		"Hosts",
-		"Network",
-		"Ports",
-		"Probes",
-		"Scanning"
+		"discovery",
+		"enumeration",
+		"fingerprinting",
+		"host",
+		"network",
+		"port",
+		"probe",
+		"scanning"
 	],
 	"proprietary": [
 		"Rapid7 InsightVM",

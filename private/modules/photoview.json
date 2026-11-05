@@ -13,14 +13,14 @@
 	"description": "A self-hosted photo gallery for browsing large image libraries, albums, and shared collections.",
 	"hero": "a panoramic window view of a family photo gallery in warm evening light. peaceful, nostalgic, gentle",
 	"keywords": [
-		"Albums",
-		"Browsing",
-		"Gallery",
-		"Metadata",
-		"Photos",
-		"Raw",
-		"Sharing",
-		"Thumbnails"
+		"album",
+		"browsing",
+		"gallery",
+		"metadata",
+		"photo",
+		"raw",
+		"sharing",
+		"thumbnail"
 	],
 	"proprietary": [
 		"Amazon Photos",

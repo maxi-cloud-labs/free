@@ -13,14 +13,14 @@
 	"description": "An alternative YouTube frontend for privacy-conscious video browsing and ad-free playback.",
 	"hero": "a bagpiper-like pipe organ shooting glowing play-button notes without ads, clear skies. musical, free, breezy",
 	"keywords": [
-		"Adblocking",
-		"Playlists",
-		"Privacy",
-		"Streaming",
-		"Subscriptions",
-		"Tracking",
-		"Videos",
-		"Youtube"
+		"adblocking",
+		"playlist",
+		"privacy",
+		"streaming",
+		"subscription",
+		"tracking",
+		"video",
+		"youtube"
 	],
 	"proprietary": [
 		"YouTube Premium"

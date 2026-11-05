@@ -13,14 +13,14 @@
 	"description": "A visual workflow automation platform for connecting online services and streamlining business processes.",
 	"hero": "a clockwork automaton hand connecting glowing pipes between app icons like a train-switch operator. whimsical, steampunk, orderly",
 	"keywords": [
-		"Connectors",
-		"Integrations",
-		"No-code",
-		"Processes",
-		"Scheduling",
-		"Triggers",
-		"Workflows",
-		"Zapier"
+		"connector",
+		"integration",
+		"no-code",
+		"processe",
+		"scheduling",
+		"trigger",
+		"workflow",
+		"zapier"
 	],
 	"proprietary": [
 		"Make",

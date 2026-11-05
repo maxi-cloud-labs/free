@@ -13,14 +13,14 @@
 	"description": "A universal document converter for transforming Markdown, HTML, Word, and other text formats.",
 	"hero": "a polyglot translator surrounded by flying documents changing format mid-air like origami birds. magical, worldly, elegant",
 	"keywords": [
-		"Conversion",
-		"Documents",
-		"Docx",
-		"Epub",
-		"Latex",
-		"Markdown",
-		"Markup",
-		"Typesetting"
+		"conversion",
+		"document",
+		"docx",
+		"epub",
+		"latex",
+		"markdown",
+		"markup",
+		"typesetting"
 	],
 	"proprietary": [
 		"CloudConvert",

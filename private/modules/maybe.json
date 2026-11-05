@@ -13,14 +13,14 @@
 	"description": "A personal finance dashboard for tracking accounts, budgets, transactions, and net worth.",
 	"hero": "a coin balanced on a thin edge, golden light casting a path of growing finances behind it. contemplative, hopeful, new-beginning",
 	"keywords": [
-		"Accounts",
-		"Budgeting",
-		"Expenses",
-		"Finances",
-		"Income",
-		"Investments",
-		"Networth",
-		"Transactions"
+		"account",
+		"budgeting",
+		"expense",
+		"finance",
+		"income",
+		"investment",
+		"networth",
+		"transaction"
 	],
 	"proprietary": [
 		"Monarch Money",

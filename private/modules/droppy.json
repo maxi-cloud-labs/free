@@ -13,14 +13,14 @@
 	"description": "A self-hosted web file manager for uploading, organizing, and sharing files.",
 	"hero": "a glowing water droplet falling into an open file folder, ripples spreading as documents. serene, minimal, clean",
 	"keywords": [
-		"Browsing",
-		"Downloads",
-		"Files",
-		"Folders",
-		"Sharing",
-		"Storage",
-		"Transfer",
-		"Uploads"
+		"browsing",
+		"download",
+		"file",
+		"folder",
+		"sharing",
+		"storage",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Box",

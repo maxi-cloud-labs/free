@@ -13,14 +13,14 @@
 	"description": "An AI gateway for accessing multiple LLMs through one API with routing and safety controls.",
 	"hero": "a magical glowing key-shaped portal transporting AI model rays through a gateway. wizardly, fast, shield-guarded",
 	"keywords": [
-		"Gateway",
-		"Guardrails",
-		"Inference",
-		"Llm",
-		"Observability",
-		"Providers",
-		"Ratelimits",
-		"Routing"
+		"gateway",
+		"guardrail",
+		"inference",
+		"llm",
+		"observability",
+		"provider",
+		"ratelimit",
+		"routing"
 	],
 	"proprietary": [
 		"Cloudflare AI Gateway",

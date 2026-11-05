@@ -13,14 +13,14 @@
 	"description": "A federated social network for independent communities, short posts, and public conversations.",
 	"hero": "a majestic woolly mastodon with glowing network lines in its tusks, marching in a herd across the horizon. epic, decentralized, mythic",
 	"keywords": [
-		"Communities",
-		"Federation",
-		"Fediverse",
-		"Followers",
-		"Microblogging",
-		"Posting",
-		"Social",
-		"Timelines"
+		"community",
+		"federation",
+		"fediverse",
+		"follower",
+		"microblogging",
+		"posting",
+		"social",
+		"timeline"
 	],
 	"proprietary": [
 		"Bluesky",

@@ -13,14 +13,14 @@
 	"description": "An in-memory data store for application caching, queues, and fast key-value access.",
 	"hero": "a bolt of crimson lightning striking a glowing memory chip, data keys flying. fast, vivid, electric",
 	"keywords": [
-		"Caching",
-		"Inmemory",
-		"Keyvalue",
-		"Persistence",
-		"Pubsub",
-		"Queues",
-		"Sessions",
-		"Streams"
+		"caching",
+		"inmemory",
+		"keyvalue",
+		"persistence",
+		"pubsub",
+		"queue",
+		"session",
+		"stream"
 	],
 	"proprietary": [
 		"Amazon ElastiCache",

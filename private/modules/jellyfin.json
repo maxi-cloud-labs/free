@@ -13,14 +13,14 @@
 	"description": "A personal media server for organizing and streaming movies, TV shows, music, and photos.",
 	"hero": "a bioluminescent jellyfish glowing in the deep ocean, a movie reel inside its translucent bell. dreamy, cinematic, mesmerizing",
 	"keywords": [
-		"Library",
-		"Movies",
-		"Music",
-		"Playback",
-		"Playlists",
-		"Streaming",
-		"Television",
-		"Transcoding"
+		"library",
+		"movie",
+		"music",
+		"playback",
+		"playlist",
+		"streaming",
+		"television",
+		"transcoding"
 	],
 	"proprietary": [
 		"Emby",

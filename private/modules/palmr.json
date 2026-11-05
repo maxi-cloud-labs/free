@@ -13,14 +13,14 @@
 	"description": "A private file-sharing platform with secure links, password protection, and access controls.",
 	"hero": "an open palm with a glowing file hovering above it, protected by a shield of light. gentle, trusting, minimalist",
 	"keywords": [
-		"Downloads",
-		"Links",
-		"Passwords",
-		"Permissions",
-		"Privacy",
-		"Sharing",
-		"Transfers",
-		"Uploads"
+		"download",
+		"link",
+		"password",
+		"permission",
+		"privacy",
+		"sharing",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Box",

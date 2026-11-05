@@ -13,14 +13,14 @@
 	"description": "A self-hosted AI chat workspace with multiple language models, agents, and conversation tools.",
 	"hero": "a friendly open-door chat window with many different glowing AI faces gathered inside. welcoming, freedom-themed, vibrant",
 	"keywords": [
-		"Agents",
-		"Assistants",
-		"Chatbots",
-		"Conversations",
-		"Inference",
-		"Llm",
-		"Multimodel",
-		"Prompts"
+		"agent",
+		"assistant",
+		"chatbot",
+		"conversation",
+		"inference",
+		"llm",
+		"multimodel",
+		"prompt"
 	],
 	"proprietary": [
 		"ChatGPT",

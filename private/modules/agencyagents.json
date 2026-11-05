@@ -13,14 +13,14 @@
 	"description": "A collection of specialized AI agents for creative, technical, marketing, and business tasks.",
 	"hero": "a squad of five diverse stylized agent silhouettes in sharp suits, each with a different glowing tool icon. ensemble heist-crew energy, stylish, confident",
 	"keywords": [
-		"Assistants",
-		"Brainstorming",
-		"Copywriting",
-		"Delegation",
-		"Marketing",
-		"Research",
-		"Specialists",
-		"Workflows"
+		"assistant",
+		"brainstorming",
+		"copywriting",
+		"delegation",
+		"marketing",
+		"research",
+		"specialist",
+		"workflow"
 	],
 	"proprietary": [
 		"Microsoft Copilot Studio",

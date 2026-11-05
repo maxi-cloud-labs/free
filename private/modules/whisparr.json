@@ -13,14 +13,14 @@
 	"description": "An automated adult-video library manager for monitoring releases and organizing downloads.",
 	"hero": "a velvet theater curtain half-drawn with a glowing silhouette of a figure holding a finger to lips, hush. mysterious, stylish, noir, tasteful",
 	"keywords": [
-		"Adult",
-		"Automation",
-		"Downloads",
-		"Library",
-		"Movies",
-		"Releases",
-		"Torrents",
-		"Usenet"
+		"adult",
+		"automation",
+		"download",
+		"library",
+		"movie",
+		"release",
+		"torrent",
+		"usenet"
 	],
 	"proprietary": [],
 	"default": {

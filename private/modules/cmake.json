@@ -13,14 +13,14 @@
 	"description": "A cross-platform build configuration system for compiling and packaging software projects.",
 	"hero": "a master architect unrolling a blueprint of glowing construction lines that assemble themselves into a machine. grand, orchestral, engineering",
 	"keywords": [
-		"Builds",
-		"Compilation",
-		"Configuration",
-		"Cpp",
-		"Crossplatform",
-		"Dependencies",
-		"Generators",
-		"Toolchains"
+		"build",
+		"compilation",
+		"configuration",
+		"cpp",
+		"crossplatform",
+		"dependency",
+		"generator",
+		"toolchain"
 	],
 	"proprietary": [
 		"Incredibuild",

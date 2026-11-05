@@ -13,14 +13,14 @@
 	"description": "A secure online meeting platform with video conferencing, screen sharing, and group calls.",
 	"hero": "a sparkling video call grid of diverse faces floating like constellation windows over a night city. warm, connected, global",
 	"keywords": [
-		"Calls",
-		"Collaboration",
-		"Conferencing",
-		"Meetings",
-		"Rooms",
-		"Screensharing",
-		"Videocalls",
-		"Webrtc"
+		"call",
+		"collaboration",
+		"conferencing",
+		"meeting",
+		"room",
+		"screensharing",
+		"videocall",
+		"webrtc"
 	],
 	"proprietary": [
 		"Google Meet",

@@ -13,14 +13,14 @@
 	"description": "A Zsh configuration framework with terminal themes, plugins, and shell productivity shortcuts.",
 	"hero": "a stylish terminal prompt wearing a top hat and sunglasses, colorful glowing themes behind. dazzling, flamboyant, party",
 	"keywords": [
-		"Aliases",
-		"Customization",
-		"Plugins",
-		"Productivity",
-		"Prompts",
-		"Shell",
-		"Terminal",
-		"Themes"
+		"alias",
+		"customization",
+		"plugin",
+		"productivity",
+		"prompt",
+		"shell",
+		"terminal",
+		"theme"
 	],
 	"proprietary": [],
 	"default": {

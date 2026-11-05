@@ -13,14 +13,14 @@
 	"description": "An autonomous AI agent operating system for scheduling, coordinating, and running assistants.",
 	"hero": "a sleek wolf-fang shaped emblem glowing over a circuit dashboard, agents as shadows beneath it. fierce, dark-fantasy, tactical",
 	"keywords": [
-		"Agents",
-		"Assistants",
-		"Autonomy",
-		"Execution",
-		"Orchestration",
-		"Runtime",
-		"Scheduling",
-		"Workflows"
+		"agent",
+		"assistant",
+		"autonomy",
+		"execution",
+		"orchestration",
+		"runtime",
+		"scheduling",
+		"workflow"
 	],
 	"proprietary": [
 		"Microsoft Copilot Studio",

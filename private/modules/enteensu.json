@@ -13,14 +13,14 @@
 	"description": "A private AI chat assistant with locally running language models on your device.",
 	"hero": "a quiet glowing orb of private chat bubbles inside a locked cloud bubble. intimate, secret, whispered conversation",
 	"keywords": [
-		"Assistant",
-		"Chatbots",
-		"Conversations",
-		"Inference",
-		"Llm",
-		"Offline",
-		"Private",
-		"Prompts"
+		"assistant",
+		"chatbot",
+		"conversation",
+		"inference",
+		"llm",
+		"offline",
+		"private",
+		"prompt"
 	],
 	"proprietary": [
 		"ChatGPT",

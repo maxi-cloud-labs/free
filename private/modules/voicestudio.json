@@ -13,14 +13,14 @@
 	"description": "A local AI audio studio for voice cloning, speech synthesis, transcription, and video dubbing.",
 	"hero": "a vintage recording studio mic glowing with waves that morph into many languages and faces. dramatic, musical, multilingual",
 	"keywords": [
-		"Audiobooks",
-		"Cloning",
-		"Dictation",
-		"Dubbing",
-		"Speech",
-		"Synthesis",
-		"Transcription",
-		"Tts"
+		"audiobook",
+		"cloning",
+		"dictation",
+		"dubbing",
+		"speech",
+		"synthesis",
+		"transcription",
+		"tts"
 	],
 	"proprietary": [
 		"Descript",

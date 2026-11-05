@@ -13,14 +13,14 @@
 	"description": "An SMTP mail transfer server for routing, sending, and delivering email messages.",
 	"hero": "a vintage postal clerk sorting glowing envelopes into pigeonholes at lightning speed. old-world, precise, charming",
 	"keywords": [
-		"Delivery",
-		"Email",
-		"Mailboxes",
-		"Queue",
-		"Relay",
-		"Routing",
-		"Smtp",
-		"Transport"
+		"delivery",
+		"email",
+		"mailbox",
+		"queue",
+		"relay",
+		"routing",
+		"smtp",
+		"transport"
 	],
 	"proprietary": [
 		"Amazon SES",

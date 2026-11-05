@@ -13,14 +13,14 @@
 	"description": "A project tracking platform for managing tasks, issues, milestones, and team schedules.",
 	"hero": "a ruby gem locket opening to reveal a miniature Gantt chart. elegant, gem-themed, orderly",
 	"keywords": [
-		"Gantt",
-		"Issues",
-		"Milestones",
-		"Projects",
-		"Tasks",
-		"Tickets",
-		"Tracking",
-		"Wiki"
+		"gantt",
+		"issue",
+		"milestone",
+		"project",
+		"task",
+		"ticket",
+		"tracking",
+		"wiki"
 	],
 	"proprietary": [
 		"Asana",

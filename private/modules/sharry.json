@@ -13,14 +13,14 @@
 	"description": "A web-based file sharing service for uploading and exchanging files with registered or guest users.",
 	"hero": "a glowing file as a paper airplane flying between authenticated and anonymous hands. friendly, light, whimsical",
 	"keywords": [
-		"Authentication",
-		"Downloads",
-		"Files",
-		"Guests",
-		"Links",
-		"Sharing",
-		"Transfers",
-		"Uploads"
+		"authentication",
+		"download",
+		"file",
+		"guest",
+		"link",
+		"sharing",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Dropbox Transfer",

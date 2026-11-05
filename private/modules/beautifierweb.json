@@ -13,14 +13,14 @@
 	"description": "An online editor for beautifying and formatting JavaScript, HTML, and CSS code.",
 	"hero": "a browser window with a magic wand turning messy code into neat glowing rows. playful, makeover, before-and-after",
 	"keywords": [
-		"Browser",
-		"Css",
-		"Editor",
-		"Formatting",
-		"Html",
-		"Indentation",
-		"Javascript",
-		"Prettify"
+		"browser",
+		"css",
+		"editor",
+		"formatting",
+		"html",
+		"indentation",
+		"javascript",
+		"prettify"
 	],
 	"proprietary": [],
 	"default": {

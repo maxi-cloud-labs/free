@@ -13,14 +13,14 @@
 	"description": "A Linux storage management service for detecting, mounting, and administering disk devices.",
 	"hero": "a hand plugging a glowing USB drive that auto-mounts like a bridge appearing in mid-air. satisfying, smooth, tech-magic",
 	"keywords": [
-		"Automount",
-		"Drives",
-		"Filesystems",
-		"Hotplug",
-		"Mounting",
-		"Partitions",
-		"Storage",
-		"Usb"
+		"automount",
+		"drive",
+		"filesystem",
+		"hotplug",
+		"mounting",
+		"partition",
+		"storage",
+		"usb"
 	],
 	"proprietary": [
 		"Acronis Disk Director",

@@ -13,14 +13,14 @@
 	"description": "A container platform for packaging, deploying, and running isolated applications and services.",
 	"hero": "a friendly whale carrying a stack of shipping containers on its back across a starry ocean. playful, adventurous, iconic mascot",
 	"keywords": [
-		"Compose",
-		"Containers",
-		"Deployment",
-		"Devops",
-		"Images",
-		"Isolation",
-		"Orchestration",
-		"Virtualization"
+		"compose",
+		"container",
+		"deployment",
+		"devop",
+		"image",
+		"isolation",
+		"orchestration",
+		"virtualization"
 	],
 	"proprietary": [
 		"Amazon ECS",

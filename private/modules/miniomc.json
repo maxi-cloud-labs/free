@@ -13,14 +13,14 @@
 	"description": "A command-line manager for browsing, copying, and administering S3-compatible object storage.",
 	"hero": "a tiny command-line client captain steering a fleet of glowing buckets. nautical, sleek, adventurous",
 	"keywords": [
-		"Administration",
-		"Buckets",
-		"Copying",
-		"Mirroring",
-		"Objects",
-		"S3",
-		"Synchronization",
-		"Terminal"
+		"administration",
+		"bucket",
+		"copying",
+		"mirroring",
+		"object",
+		"s3",
+		"synchronization",
+		"terminal"
 	],
 	"proprietary": [
 		"AWS CLI",

@@ -13,14 +13,14 @@
 	"description": "A live Markdown editor with instant previews of GitHub-flavored text and formatting.",
 	"hero": "a glowing markdown hash and asterisk symbols writing themselves onto a parchment page. calm, minimal, writer's desk",
 	"keywords": [
-		"Documents",
-		"Formatting",
-		"Githubflavored",
-		"Html",
-		"Liveediting",
-		"Livepreview",
-		"Markup",
-		"Writing"
+		"document",
+		"formatting",
+		"githubflavored",
+		"html",
+		"liveediting",
+		"livepreview",
+		"markup",
+		"writing"
 	],
 	"proprietary": [
 		"Typora",

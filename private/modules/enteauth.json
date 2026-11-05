@@ -13,14 +13,14 @@
 	"description": "An end-to-end encrypted authenticator for generating and syncing two-factor login codes.",
 	"hero": "a shield-shaped phone showing glowing rotating codes, sealed with a golden key. secure, minimal, guardian vibe",
 	"keywords": [
-		"Authenticator",
-		"Encryption",
-		"Login",
-		"Otp",
-		"Passcodes",
-		"Synchronization",
-		"Totp",
-		"Verification"
+		"authenticator",
+		"encryption",
+		"login",
+		"otp",
+		"passcode",
+		"synchronization",
+		"totp",
+		"verification"
 	],
 	"proprietary": [
 		"Authy",

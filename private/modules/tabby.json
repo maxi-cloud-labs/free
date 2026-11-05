@@ -13,14 +13,14 @@
 	"description": "A self-hosted AI coding assistant for code completions, developer chat, and programming help.",
 	"hero": "a friendly tabby cat typing at a glowing keyboard with floating code completions. cozy, whimsical, coding-companion",
 	"keywords": [
-		"Autocomplete",
-		"Chat",
-		"Coding",
-		"Completions",
-		"Developer",
-		"Inference",
-		"Programming",
-		"Suggestions"
+		"autocomplete",
+		"chat",
+		"coding",
+		"completion",
+		"developer",
+		"inference",
+		"programming",
+		"suggestion"
 	],
 	"proprietary": [
 		"Cursor",

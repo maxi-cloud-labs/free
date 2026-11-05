@@ -13,14 +13,14 @@
 	"description": "A Linux performance monitoring suite for CPU, memory, disk, and network activity statistics.",
 	"hero": "a doctor's stethoscope on a server, tiny glowing performance graphs on the chest. diagnostic, clinical, calm",
 	"keywords": [
-		"Cpu",
-		"Iostat",
-		"Monitoring",
-		"Mpstat",
-		"Performance",
-		"Processes",
-		"Sar",
-		"Telemetry"
+		"cpu",
+		"iostat",
+		"monitoring",
+		"mpstat",
+		"performance",
+		"process",
+		"sar",
+		"telemetry"
 	],
 	"proprietary": [
 		"Datadog Infrastructure Monitoring",

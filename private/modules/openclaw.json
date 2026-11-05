@@ -13,14 +13,14 @@
 	"description": "A personal AI assistant platform for taking actions, using tools, and automating everyday tasks.",
 	"hero": "a stylized red lobster claw holding a glowing terminal cursor. playful, mascot-driven, friendly but powerful",
 	"keywords": [
-		"Agents",
-		"Automation",
-		"Autonomous",
-		"Integrations",
-		"Messaging",
-		"Personalassistant",
-		"Tasks",
-		"Workflows"
+		"agent",
+		"automation",
+		"autonomous",
+		"integration",
+		"messaging",
+		"personalassistant",
+		"task",
+		"workflow"
 	],
 	"proprietary": [
 		"ChatGPT",

@@ -13,14 +13,14 @@
 	"description": "A multi-user web file manager for browsing, uploading, organizing, and sharing files.",
 	"hero": "a tall gator-shaped mascot holding a folder tree in its jaws, standing on a tower of files. quirky, powerful, mascot-driven",
 	"keywords": [
-		"Accounts",
-		"Browsing",
-		"Directories",
-		"Downloads",
-		"Folders",
-		"Permissions",
-		"Sharing",
-		"Uploads"
+		"account",
+		"browsing",
+		"directory",
+		"download",
+		"folder",
+		"permission",
+		"sharing",
+		"upload"
 	],
 	"proprietary": [
 		"Box",

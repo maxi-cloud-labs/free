@@ -13,14 +13,14 @@
 	"description": "A friendly command-line HTTP client for API requests, JSON responses, and testing endpoints.",
 	"hero": "a friendly pie with HTTP request arrows shooting out like a pie-chart explosion. retro-cute, playful, colorful",
 	"keywords": [
-		"Api",
-		"Headers",
-		"Httpclient",
-		"Json",
-		"Requests",
-		"Rest",
-		"Terminal",
-		"Testing"
+		"api",
+		"header",
+		"httpclient",
+		"json",
+		"request",
+		"rest",
+		"terminal",
+		"testing"
 	],
 	"proprietary": [
 		"Insomnia",

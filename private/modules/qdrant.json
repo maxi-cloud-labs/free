@@ -13,14 +13,14 @@
 	"description": "A vector database and similarity search engine for embeddings and AI-powered retrieval.",
 	"hero": "a gleaming vector arrow piercing through a field of glowing dots, a compass needle snapping to nearest neighbor. cosmic, precise, constellation",
 	"keywords": [
-		"Embeddings",
-		"Indexing",
-		"Nearest",
-		"Rag",
-		"Retrieval",
-		"Semantic",
-		"Similarity",
-		"Vectors"
+		"embedding",
+		"indexing",
+		"nearest",
+		"rag",
+		"retrieval",
+		"semantic",
+		"similarity",
+		"vector"
 	],
 	"proprietary": [
 		"Azure AI Search",

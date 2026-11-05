@@ -13,14 +13,14 @@
 	"description": "A lightweight self-hosted service for uploading and sharing files through download links.",
 	"hero": "a cute penguin pushing a glowing file across the ice to another penguin. charming, snowy, light-hearted",
 	"keywords": [
-		"Downloads",
-		"Expiration",
-		"Files",
-		"Links",
-		"Passwords",
-		"Recipients",
-		"Transfers",
-		"Uploads"
+		"download",
+		"expiration",
+		"file",
+		"link",
+		"password",
+		"recipient",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Dropbox Transfer",

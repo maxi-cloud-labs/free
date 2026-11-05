@@ -13,14 +13,14 @@
 	"description": "A configurable PHP code execution sandbox with restrictions and validation controls.",
 	"hero": "a child's sandbox surrounded by glass walls, glowing PHP elephant building safely inside. contained, playful, protective",
 	"keywords": [
-		"Code",
-		"Execution",
-		"Isolation",
-		"Restrictions",
-		"Scripting",
-		"Security",
-		"Validation",
-		"Whitelisting"
+		"code",
+		"execution",
+		"isolation",
+		"restriction",
+		"scripting",
+		"security",
+		"validation",
+		"whitelisting"
 	],
 	"proprietary": [],
 	"default": {

@@ -13,14 +13,14 @@
 	"description": "An automated movie collection manager for monitoring releases, downloads, and library organization.",
 	"hero": "a radar dish sweeping a cinema skyline, pulling movie reels toward a library. retro sci-fi, film-noir, collector",
 	"keywords": [
-		"Downloads",
-		"Films",
-		"Library",
-		"Movies",
-		"Quality",
-		"Releases",
-		"Torrents",
-		"Usenet"
+		"download",
+		"film",
+		"library",
+		"movie",
+		"quality",
+		"release",
+		"torrent",
+		"usenet"
 	],
 	"proprietary": [],
 	"default": {

@@ -13,14 +13,14 @@
 	"description": "A bookmark manager for saving links, notes, and images with AI tags and full-text search.",
 	"hero": "a shiny magpie bird collecting links, notes, and photos into a glowing nest. curious, hoarder-hero, whimsical",
 	"keywords": [
-		"Archiving",
-		"Bookmarks",
-		"Collections",
-		"Links",
-		"Notes",
-		"Saving",
-		"Search",
-		"Tagging"
+		"archiving",
+		"bookmark",
+		"collection",
+		"link",
+		"note",
+		"saving",
+		"search",
+		"tagging"
 	],
 	"proprietary": [
 		"Raindrop.io",

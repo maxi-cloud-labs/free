@@ -13,14 +13,14 @@
 	"description": "A Linux checkpoint-and-restore utility for saving and resuming running processes or containers.",
 	"hero": "a frozen time-stopped process inside an ice crystal, thawing back into motion. cryo-sleep sci-fi, calm, pause-and-resume",
 	"keywords": [
-		"Checkpoint",
-		"Containers",
-		"Freezing",
-		"Linux",
-		"Migration",
-		"Processes",
-		"Restore",
-		"Snapshots"
+		"checkpoint",
+		"container",
+		"freezing",
+		"linux",
+		"migration",
+		"process",
+		"restore",
+		"snapshot"
 	],
 	"proprietary": [],
 	"default": {

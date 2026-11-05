@@ -13,14 +13,14 @@
 	"description": "A visual drag-and-drop builder for AI agents, LLM workflows, and chatbot pipelines.",
 	"hero": "a visual flow of glowing nodes and wires forming a robot brain, being assembled by tiny hands. magical LEGO-like building, colorful, playful",
 	"keywords": [
-		"Agents",
-		"Chatbots",
-		"Dragdrop",
-		"Orchestration",
-		"Pipelines",
-		"Prompts",
-		"Rag",
-		"Visual"
+		"agent",
+		"chatbot",
+		"dragdrop",
+		"orchestration",
+		"pipeline",
+		"prompt",
+		"rag",
+		"visual"
 	],
 	"proprietary": [
 		"Google Vertex AI Agent Builder",

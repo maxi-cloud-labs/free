@@ -13,14 +13,14 @@
 	"description": "A Java project build and dependency management tool based on reusable project configurations.",
 	"hero": "a wise old expert in a library selecting glowing Java jars from tall shelves. scholarly, steady, craft-master",
 	"keywords": [
-		"Artifacts",
-		"Builds",
-		"Compilation",
-		"Dependencies",
-		"Java",
-		"Packaging",
-		"Pom",
-		"Repositories"
+		"artifact",
+		"build",
+		"compilation",
+		"dependency",
+		"java",
+		"packaging",
+		"pom",
+		"repository"
 	],
 	"proprietary": [
 		"Gradle"

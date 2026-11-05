@@ -13,14 +13,14 @@
 	"description": "An automated certificate management client for enabling HTTPS with Let's Encrypt.",
 	"hero": "a robot bird guardian handing a glowing green padlock certificate to a server tower. friendly, protective, renewal ritual",
 	"keywords": [
-		"Certificates",
-		"Https",
-		"Issuance",
-		"Letsencrypt",
-		"Renewal",
-		"Ssl",
-		"Tls",
-		"Validation"
+		"certificate",
+		"http",
+		"issuance",
+		"letsencrypt",
+		"renewal",
+		"ssl",
+		"tls",
+		"validation"
 	],
 	"proprietary": [
 		"DigiCert CertCentral",

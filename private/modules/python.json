@@ -13,14 +13,14 @@
 	"description": "A versatile programming language for automation, web services, data processing, and AI.",
 	"hero": "a coiled glowing snake forming a friendly double-serpent logo-like shape, in a field of code. friendly, wise, versatile",
 	"keywords": [
-		"Automation",
-		"Backend",
-		"Dataanalysis",
-		"Interpreter",
-		"Notebooks",
-		"Packages",
-		"Programming",
-		"Scripting"
+		"automation",
+		"backend",
+		"dataanalysi",
+		"interpreter",
+		"notebook",
+		"package",
+		"programming",
+		"scripting"
 	],
 	"proprietary": [
 		"ActivePython"

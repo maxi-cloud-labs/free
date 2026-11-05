@@ -13,14 +13,14 @@
 	"description": "A lightweight build executor focused on fast, incremental software compilation.",
 	"hero": "a swift shadowy ninja silhouette leaping across a rooftop of build steps, throwing shurikens. fast, minimal, action-packed",
 	"keywords": [
-		"Automation",
-		"Builds",
-		"Compilation",
-		"Dependencies",
-		"Incremental",
-		"Parallelism",
-		"Speed",
-		"Toolchains"
+		"automation",
+		"build",
+		"compilation",
+		"dependency",
+		"incremental",
+		"parallelism",
+		"speed",
+		"toolchain"
 	],
 	"proprietary": [
 		"Incredibuild",

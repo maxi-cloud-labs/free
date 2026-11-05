@@ -13,14 +13,14 @@
 	"description": "A static website generator for versioned documentation, technical guides, and project sites.",
 	"hero": "a friendly green dinosaur reading a giant glowing documentation book. cute, wise, mascot-driven",
 	"keywords": [
-		"Documentation",
-		"Guides",
-		"Markdown",
-		"Publishing",
-		"React",
-		"Static",
-		"Versioning",
-		"Websites"
+		"documentation",
+		"guide",
+		"markdown",
+		"publishing",
+		"react",
+		"static",
+		"versioning",
+		"website"
 	],
 	"proprietary": [
 		"GitBook",

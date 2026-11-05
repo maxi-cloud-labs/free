@@ -13,14 +13,14 @@
 	"description": "A browser-based Redis dashboard for viewing, editing, and managing keys and stored data.",
 	"hero": "a commander in a red coat at a console of glowing key-value cards. military-tactical, red-lit, control",
 	"keywords": [
-		"Browsing",
-		"Cache",
-		"Dashboard",
-		"Database",
-		"Editing",
-		"Inspection",
-		"Keys",
-		"Values"
+		"browsing",
+		"cache",
+		"dashboard",
+		"database",
+		"editing",
+		"inspection",
+		"key",
+		"value"
 	],
 	"proprietary": [
 		"Redis Insight"

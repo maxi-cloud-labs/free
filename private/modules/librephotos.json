@@ -13,14 +13,14 @@
 	"description": "A private photo management service for organizing albums, recognizing faces, and searching pictures.",
 	"hero": "a photo album with a glowing graph constellation of faces and places connecting memories. data-art, nostalgic, curious",
 	"keywords": [
-		"Albums",
-		"Faces",
-		"Gallery",
-		"Metadata",
-		"Organization",
-		"Pictures",
-		"Recognition",
-		"Search"
+		"album",
+		"face",
+		"gallery",
+		"metadata",
+		"organization",
+		"picture",
+		"recognition",
+		"search"
 	],
 	"proprietary": [
 		"Apple Photos",

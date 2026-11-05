@@ -13,14 +13,14 @@
 	"description": "A self-hosted conversational AI interface for local and cloud-based language models.",
 	"hero": "a glowing open window revealing a vivid AI conversation, curtains drifting in a breeze. airy, welcoming, user-friendly",
 	"keywords": [
-		"Assistants",
-		"Chatbots",
-		"Conversations",
-		"Llm",
-		"Multimodel",
-		"Ollama",
-		"Prompts",
-		"Rag"
+		"assistant",
+		"chatbot",
+		"conversation",
+		"llm",
+		"multimodel",
+		"ollama",
+		"prompt",
+		"rag"
 	],
 	"proprietary": [
 		"ChatGPT",

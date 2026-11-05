@@ -13,14 +13,14 @@
 	"description": "A browser-based video downloader for YouTube and other sites, including playlists.",
 	"hero": "a retro TV screen with a glowing download arrow pulling video from the clouds into a cozy shelf. nostalgic, playful, homemade",
 	"keywords": [
-		"Archiving",
-		"Audio",
-		"Browser",
-		"Downloads",
-		"Playlists",
-		"Video",
-		"Youtube",
-		"Yt-dlp"
+		"archiving",
+		"audio",
+		"browser",
+		"download",
+		"playlist",
+		"video",
+		"youtube",
+		"yt-dlp"
 	],
 	"proprietary": [
 		"4K Video Downloader Plus",

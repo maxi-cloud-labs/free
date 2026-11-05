@@ -13,14 +13,14 @@
 	"description": "A lightweight MQTT message broker for exchanging data between connected devices and services.",
 	"hero": "a glowing tiny mosquito carrying MQTT message packets between smart devices at night. whimsical, nature-tech, buzzing night scene",
 	"keywords": [
-		"Broker",
-		"Iot",
-		"Messaging",
-		"Mqtt",
-		"Pubsub",
-		"Subscribers",
-		"Telemetry",
-		"Topics"
+		"broker",
+		"iot",
+		"messaging",
+		"mqtt",
+		"pubsub",
+		"subscriber",
+		"telemetry",
+		"topic"
 	],
 	"proprietary": [
 		"AWS IoT Core",

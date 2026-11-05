@@ -13,14 +13,14 @@
 	"description": "A browser-based CalDAV calendar for scheduling events and coordinating shared agendas.",
 	"hero": "an ornate wall calendar page with golden hands of a clock pulling dates into place. classic, elegant, retro-office adventure",
 	"keywords": [
-		"Agendas",
-		"Appointments",
-		"Caldav",
-		"Calendar",
-		"Events",
-		"Invitations",
-		"Scheduling",
-		"Synchronization"
+		"agenda",
+		"appointment",
+		"caldav",
+		"calendar",
+		"event",
+		"invitation",
+		"scheduling",
+		"synchronization"
 	],
 	"proprietary": [
 		"Apple Calendar",

@@ -13,14 +13,14 @@
 	"description": "A Python-based programming utility for flashing firmware to supported Microchip microcontrollers.",
 	"hero": "a tiny microcontroller chip being flashed with lightning by a Python snake coiled around it. electric, circuit-board close-up, snake-hero",
 	"keywords": [
-		"Avr",
-		"Debugging",
-		"Embedded",
-		"Firmware",
-		"Flashing",
-		"Microchip",
-		"Microcontrollers",
-		"Updi"
+		"avr",
+		"debugging",
+		"embedded",
+		"firmware",
+		"flashing",
+		"microchip",
+		"microcontroller",
+		"updi"
 	],
 	"proprietary": [
 		"MPLAB IPE",

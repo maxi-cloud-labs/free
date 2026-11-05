@@ -13,14 +13,14 @@
 	"description": "A badge generation service for displaying project status, versions, and metrics in documentation.",
 	"hero": "a bold row of glowing metallic shield badges forming a crest wall. heraldic, compact, colorful",
 	"keywords": [
-		"Badges",
-		"Github",
-		"Labels",
-		"Metrics",
-		"Readme",
-		"Status",
-		"Svg",
-		"Versions"
+		"badge",
+		"github",
+		"label",
+		"metric",
+		"readme",
+		"status",
+		"svg",
+		"version"
 	],
 	"proprietary": [],
 	"default": {

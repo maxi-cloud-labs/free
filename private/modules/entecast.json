@@ -13,14 +13,14 @@
 	"description": "A secure photo casting application for viewing Ente albums and slideshows on a TV.",
 	"hero": "a TV screen casting a glowing cloud of family photos in a cozy living room at night. warm, nostalgic, shared memories",
 	"keywords": [
-		"Albums",
-		"Casting",
-		"Chromecast",
-		"Display",
-		"Photos",
-		"Slideshow",
-		"Streaming",
-		"Television"
+		"album",
+		"casting",
+		"chromecast",
+		"display",
+		"photo",
+		"slideshow",
+		"streaming",
+		"television"
 	],
 	"proprietary": [
 		"Apple Photos",

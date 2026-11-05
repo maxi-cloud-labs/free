@@ -13,14 +13,14 @@
 	"description": "A Raspberry Pi memory optimization script for compressed RAM swap using zram.",
 	"hero": "a Raspberry Pi board with compressed memory blocks squeezed like glowing springs. compact, tense, clever",
 	"keywords": [
-		"Compressedswap",
-		"Compression",
-		"Linux",
-		"Memory",
-		"Optimization",
-		"Performance",
-		"Raspberrypi",
-		"Swap"
+		"compressedswap",
+		"compression",
+		"linux",
+		"memory",
+		"optimization",
+		"performance",
+		"raspberrypi",
+		"swap"
 	],
 	"proprietary": [],
 	"default": {

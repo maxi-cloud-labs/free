@@ -13,14 +13,14 @@
 	"description": "An email filtering engine for detecting spam, phishing, and suspicious messages.",
 	"hero": "a sentinel at a gate with a glowing net catching spam envelopes as mischievous bugs. defender, comic, shield",
 	"keywords": [
-		"Antispam",
-		"Detection",
-		"Email",
-		"Filtering",
-		"Junkmail",
-		"Phishing",
-		"Reputation",
-		"Scoring"
+		"antispam",
+		"detection",
+		"email",
+		"filtering",
+		"junkmail",
+		"phishing",
+		"reputation",
+		"scoring"
 	],
 	"proprietary": [
 		"Mimecast",

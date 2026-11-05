@@ -13,14 +13,14 @@
 	"description": "A self-hosted file transfer service with resumable uploads and password-protected sharing.",
 	"hero": "a glowing psi symbol bridging two devices with a resilient stream of files. psychic, mystical, uninterrupted",
 	"keywords": [
-		"Downloads",
-		"Expiration",
-		"Files",
-		"Links",
-		"Passwords",
-		"Resumes",
-		"Transfers",
-		"Uploads"
+		"download",
+		"expiration",
+		"file",
+		"link",
+		"password",
+		"resume",
+		"transfer",
+		"upload"
 	],
 	"proprietary": [
 		"Dropbox Transfer",

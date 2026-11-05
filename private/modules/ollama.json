@@ -13,14 +13,14 @@
 	"description": "A local AI model runtime for downloading, serving, and chatting with large language models.",
 	"hero": "a friendly llama sitting in a cozy laptop glow, a speech bubble with tiny neural lights. gentle, warm, local-hero mascot",
 	"keywords": [
-		"Chatbots",
-		"Embeddings",
-		"Inference",
-		"Llm",
-		"Models",
-		"Offline",
-		"Prompts",
-		"Quantization"
+		"chatbot",
+		"embedding",
+		"inference",
+		"llm",
+		"model",
+		"offline",
+		"prompt",
+		"quantization"
 	],
 	"proprietary": [
 		"LM Studio",

@@ -13,14 +13,14 @@
 	"description": "A systems programming language for fast, reliable software with memory safety.",
 	"hero": "a rusted but glowing gear and crab-shaped mech armor crushing a pile of bugs, sparks flying. gritty, robust, safety-first",
 	"keywords": [
-		"Cargo",
-		"Compiler",
-		"Concurrency",
-		"Memorysafety",
-		"Ownership",
-		"Performance",
-		"Programming",
-		"Systems"
+		"cargo",
+		"compiler",
+		"concurrency",
+		"memorysafety",
+		"ownership",
+		"performance",
+		"programming",
+		"system"
 	],
 	"proprietary": [],
 	"default": {

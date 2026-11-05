@@ -13,14 +13,14 @@
 	"description": "A personal relationship manager for contacts, life events, interactions, and reminders.",
 	"hero": "a warm glowing contact book with portraits of friends and family reaching out with thin golden threads. heartfelt, nostalgic, caring",
 	"keywords": [
-		"Birthdays",
-		"Contacts",
-		"Crm",
-		"Family",
-		"Friends",
-		"Interactions",
-		"Relationships",
-		"Reminders"
+		"birthday",
+		"contact",
+		"crm",
+		"family",
+		"friend",
+		"interaction",
+		"relationship",
+		"reminder"
 	],
 	"proprietary": [
 		"Clay",

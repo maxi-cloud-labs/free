@@ -13,14 +13,14 @@
 	"description": "A C-family compiler frontend for C, C++, and Objective-C using LLVM.",
 	"hero": "a dragon's-claw hammer forging a glowing C-shaped ingot on a compiler anvil. fiery, industrial, precise",
 	"keywords": [
-		"Compilation",
-		"Compiler",
-		"Cpp",
-		"Diagnostics",
-		"Llvm",
-		"Objc",
-		"Syntax",
-		"Toolchain"
+		"compilation",
+		"compiler",
+		"cpp",
+		"diagnostic",
+		"llvm",
+		"objc",
+		"syntax",
+		"toolchain"
 	],
 	"proprietary": [
 		"Intel oneAPI C++ Compiler",

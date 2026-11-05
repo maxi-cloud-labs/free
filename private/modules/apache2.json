@@ -13,14 +13,13 @@
 	"description": "A configurable HTTP web server for hosting websites and delivering web content.",
 	"hero": "a majestic feather-crowned warrior silhouette guarding a gate of glowing web servers. veteran, noble, enduring, legendary",
 	"keywords": [
-		"Hosting",
-		"Modules",
-		"Requests",
-		"Routing",
-		"Staticfiles",
-		"Virtualhosts",
-		"Webhosting",
-		"Websites"
+		"hosting",
+		"module",
+		"request",
+		"routing",
+		"virtualhost",
+		"webhosting",
+		"website"
 	],
 	"proprietary": [
 		"LiteSpeed Web Server",

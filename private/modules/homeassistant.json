@@ -13,14 +13,14 @@
 	"description": "A private home automation hub for controlling smart devices, routines, and connected sensors.",
 	"hero": "a glowing house with all its smart devices connected by light threads, a small heart-shaped hub in the center. warm, cozy, futuristic home",
 	"keywords": [
-		"Automation",
-		"Dashboards",
-		"Devices",
-		"Integrations",
-		"Iot",
-		"Routines",
-		"Sensors",
-		"Smarthome"
+		"automation",
+		"dashboard",
+		"device",
+		"integration",
+		"iot",
+		"routine",
+		"sensor",
+		"smarthome"
 	],
 	"proprietary": [
 		"Apple Home",

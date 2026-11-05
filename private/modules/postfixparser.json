@@ -13,14 +13,14 @@
 	"description": "A mail log parser for inspecting Postfix message delivery, errors, and SMTP activity.",
 	"hero": "a magnifying glass over a scrolling mail log, extracting glowing envelope metadata. detective, analytical, noir",
 	"keywords": [
-		"Deliveries",
-		"Diagnostics",
-		"Errors",
-		"Logs",
-		"Parsing",
-		"Queues",
-		"Smtp",
-		"Statistics"
+		"delivery",
+		"diagnostic",
+		"error",
+		"log",
+		"parsing",
+		"queue",
+		"smtp",
+		"statistic"
 	],
 	"proprietary": [
 		"Datadog Log Management",

@@ -13,14 +13,14 @@
 	"description": "A calendar-integrated scheduling tool for finding shared meeting times through availability polls.",
 	"hero": "a glowing hourglass whose sand forms overlapping calendar blocks of many friends. harmonious, warm, serene",
 	"keywords": [
-		"Availability",
-		"Calendar",
-		"Coordination",
-		"Invitations",
-		"Meetings",
-		"Polls",
-		"Scheduling",
-		"Timeslots"
+		"availability",
+		"calendar",
+		"coordination",
+		"invitation",
+		"meeting",
+		"poll",
+		"scheduling",
+		"timeslot"
 	],
 	"proprietary": [
 		"Calendly",

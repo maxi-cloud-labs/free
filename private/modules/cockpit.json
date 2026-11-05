@@ -13,14 +13,14 @@
 	"description": "A browser-based administration console for Linux servers, services, and system health.",
 	"hero": "a cockpit dashboard with glowing gauges and a server-rack view out of the windshield. pilot's-eye view, adventure, calm control",
 	"keywords": [
-		"Administration",
-		"Daemons",
-		"Dashboard",
-		"Linux",
-		"Monitoring",
-		"Networking",
-		"Storage",
-		"Sysadmin"
+		"administration",
+		"daemon",
+		"dashboard",
+		"linux",
+		"monitoring",
+		"networking",
+		"storage",
+		"sysadmin"
 	],
 	"proprietary": [
 		"Plesk",

@@ -13,14 +13,14 @@
 	"description": "A multilingual text-to-speech engine for high-quality synthetic speech and voice cloning.",
 	"hero": "a glowing sound-wave mask shifting into many languages' faces, mouth open mid-speech. surreal, multilingual, mesmerizing",
 	"keywords": [
-		"Audio",
-		"Cloning",
-		"Dubbing",
-		"Multilingual",
-		"Speech",
-		"Synthesis",
-		"Tts",
-		"Voices"
+		"audio",
+		"cloning",
+		"dubbing",
+		"multilingual",
+		"speech",
+		"synthesis",
+		"tts",
+		"voice"
 	],
 	"proprietary": [
 		"ElevenLabs",

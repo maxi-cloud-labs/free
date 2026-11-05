@@ -13,14 +13,14 @@
 	"description": "An online JavaScript playground for editing and previewing HTML, CSS, and JavaScript snippets.",
 	"hero": "a tinkerer with goggles at a workbench full of glowing JavaScript braces and gears, sparks flying. playful, steampunk, inventor-lab",
 	"keywords": [
-		"Css",
-		"Experimentation",
-		"Frontend",
-		"Html",
-		"Javascript",
-		"Playground",
-		"Preview",
-		"Snippets"
+		"cs",
+		"experimentation",
+		"frontend",
+		"html",
+		"javascript",
+		"playground",
+		"preview",
+		"snippet"
 	],
 	"proprietary": [
 		"CodePen",

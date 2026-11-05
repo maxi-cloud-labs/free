@@ -13,14 +13,14 @@
 	"description": "A traditional online bulletin board for threaded discussions and community forums.",
 	"hero": "an old-school bulletin board pinned with glowing notes and posts in a retro community hall. nostalgic, warm, 90s-forum vibe",
 	"keywords": [
-		"Bulletin",
-		"Communities",
-		"Discussions",
-		"Forums",
-		"Members",
-		"Moderation",
-		"Threads",
-		"Topics"
+		"bulletin",
+		"community",
+		"discussion",
+		"forum",
+		"member",
+		"moderation",
+		"thread",
+		"topic"
 	],
 	"proprietary": [
 		"XenForo",

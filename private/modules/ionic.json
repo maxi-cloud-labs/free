@@ -13,14 +13,14 @@
 	"description": "A cross-platform interface toolkit for mobile applications and progressive web apps.",
 	"hero": "a glowing atom made of overlapping app screens, orbiting a neon-lit smartphone. electric, cross-platform, futuristic",
 	"keywords": [
-		"Android",
-		"Capacitor",
-		"Components",
-		"Hybrid",
-		"Interfaces",
-		"Ios",
-		"Mobile",
-		"Pwa"
+		"android",
+		"capacitor",
+		"component",
+		"hybrid",
+		"interface",
+		"io",
+		"mobile",
+		"pwa"
 	],
 	"proprietary": [
 		"Flutter",

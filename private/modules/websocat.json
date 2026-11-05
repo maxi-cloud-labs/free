@@ -13,14 +13,14 @@
 	"description": "A command-line WebSocket client for connecting to endpoints and relaying socket data.",
 	"hero": "a sleek cat leaping between two glowing sockets, linked by a bidirectional ribbon of light. agile, techy, playful",
 	"keywords": [
-		"Debugging",
-		"Messaging",
-		"Networking",
-		"Relay",
-		"Sockets",
-		"Streams",
-		"Terminal",
-		"Websocket"
+		"debugging",
+		"messaging",
+		"networking",
+		"relay",
+		"socket",
+		"stream",
+		"terminal",
+		"websocket"
 	],
 	"proprietary": [
 		"Insomnia",

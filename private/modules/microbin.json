@@ -13,14 +13,14 @@
 	"description": "A lightweight pastebin for sharing text snippets, files, and short links privately.",
 	"hero": "a tiny glowing paste jar with a single note inside floating in a dark void. minimalist, tiny, mysterious",
 	"keywords": [
-		"Expiration",
-		"Links",
-		"Pastebin",
-		"Privacy",
-		"Secrets",
-		"Sharing",
-		"Snippets",
-		"Uploads"
+		"expiration",
+		"link",
+		"pastebin",
+		"privacy",
+		"secret",
+		"sharing",
+		"snippet",
+		"upload"
 	],
 	"proprietary": [
 		"Pastebin.com"

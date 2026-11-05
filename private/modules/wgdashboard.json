@@ -13,14 +13,14 @@
 	"description": "A web control panel for configuring WireGuard tunnels, peers, and VPN connections.",
 	"hero": "a futuristic dashboard of glowing VPN tunnels, a dragon-shaped WireGuard emblem at its center. neon, secure, command-room",
 	"keywords": [
-		"Configuration",
-		"Connections",
-		"Keys",
-		"Monitoring",
-		"Peers",
-		"Tunnels",
-		"Vpn",
-		"Wireguard"
+		"configuration",
+		"connection",
+		"key",
+		"monitoring",
+		"peer",
+		"tunnel",
+		"vpn",
+		"wireguard"
 	],
 	"proprietary": [
 		"NordLayer",

@@ -13,14 +13,14 @@
 	"description": "A Node.js library for reading hardware details and operating system performance metrics.",
 	"hero": "a detailed anatomical blueprint of a computer, every component labeled in glowing lines. technical-illustration, exploded view, precise",
 	"keywords": [
-		"Cpu",
-		"Diagnostics",
-		"Hardware",
-		"Metrics",
-		"Monitoring",
-		"Nodejs",
-		"Ram",
-		"Temperature"
+		"cpu",
+		"diagnostic",
+		"hardware",
+		"metric",
+		"monitoring",
+		"nodejs",
+		"ram",
+		"temperature"
 	],
 	"proprietary": [
 		"Datadog Agent",

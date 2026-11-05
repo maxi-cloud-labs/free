@@ -13,14 +13,14 @@
 	"description": "An electronic document signing platform for preparing forms, collecting signatures, and tracking completion.",
 	"hero": "a wax seal stamp pressing a glowing signature onto a contract floating in mid-air. formal, certified, dramatic close-up",
 	"keywords": [
-		"Approvals",
-		"Contracts",
-		"Documents",
-		"Esignatures",
-		"Forms",
-		"Signatures",
-		"Signing",
-		"Templates"
+		"approval",
+		"contract",
+		"document",
+		"esignature",
+		"form",
+		"signature",
+		"signing",
+		"template"
 	],
 	"proprietary": [
 		"Adobe Acrobat Sign",

@@ -13,14 +13,14 @@
 	"description": "A compact collection of essential Unix command-line utilities in a single executable.",
 	"hero": "a Swiss-army toolbox hero with dozens of tiny tools unfolding from a single small box. compact, resourceful, rugged",
 	"keywords": [
-		"Cli",
-		"Commands",
-		"Embedded",
-		"Linux",
-		"Minimal",
-		"Shell",
-		"Unix",
-		"Utilities"
+		"cli",
+		"command",
+		"embedded",
+		"linux",
+		"minimal",
+		"shell",
+		"unix",
+		"utility"
 	],
 	"proprietary": [],
 	"default": {

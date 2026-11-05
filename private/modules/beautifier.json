@@ -13,14 +13,14 @@
 	"description": "A source-code formatter for readable JavaScript, HTML, and CSS with consistent indentation.",
 	"hero": "a magic comb straightening tangled glowing curly braces into neat lines. satisfying, clean, makeover-transformation",
 	"keywords": [
-		"Css",
-		"Formatting",
-		"Html",
-		"Indentation",
-		"Javascript",
-		"Prettify",
-		"Readability",
-		"Sourcecode"
+		"css",
+		"formatting",
+		"html",
+		"indentation",
+		"javascript",
+		"prettify",
+		"readability",
+		"sourcecode"
 	],
 	"proprietary": [],
 	"default": {

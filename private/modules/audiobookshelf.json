@@ -13,14 +13,14 @@
 	"description": "A personal server for streaming audiobooks and podcasts with synchronized listening progress.",
 	"hero": "a cozy old bookshelf with glowing sound waves rising from open books, headphones resting on top. warm, nostalgic, storytelling magic",
 	"keywords": [
-		"Bookmarks",
-		"Chapters",
-		"Library",
-		"Listening",
-		"Playback",
-		"Podcasts",
-		"Spokenword",
-		"Streaming"
+		"bookmark",
+		"chapter",
+		"library",
+		"listening",
+		"playback",
+		"podcast",
+		"spokenword",
+		"streaming"
 	],
 	"proprietary": [
 		"Apple Books",

@@ -13,14 +13,14 @@
 	"description": "A self-hosted encrypted cloud drive for private file storage and sharing.",
 	"hero": "a hooded figure guarding a glowing encrypted drive-shaped vault. mysterious, protective, stealthy",
 	"keywords": [
-		"Downloads",
-		"Encryption",
-		"Files",
-		"Privacy",
-		"Sharing",
-		"Storage",
-		"Uploads",
-		"Vault"
+		"download",
+		"encryption",
+		"file",
+		"privacy",
+		"sharing",
+		"storage",
+		"upload",
+		"vault"
 	],
 	"proprietary": [
 		"Dropbox",

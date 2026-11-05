@@ -13,14 +13,14 @@
 	"description": "A command-line bridge for Android device debugging, application installation, and file transfer.",
 	"hero": "an Android robot figure on a surgical table, connected to a glowing USB cable bridge. debugging operation, sci-fi lab, curious and technical",
 	"keywords": [
-		"Android",
-		"Apk",
-		"Debugging",
-		"Devices",
-		"Emulator",
-		"Logcat",
-		"Sideloading",
-		"Usb"
+		"android",
+		"apk",
+		"debugging",
+		"device",
+		"emulator",
+		"logcat",
+		"sideloading",
+		"usb"
 	],
 	"proprietary": [],
 	"default": {

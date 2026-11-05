@@ -13,14 +13,14 @@
 	"description": "A modern encrypted VPN protocol and implementation for secure private network connections.",
 	"hero": "a glowing red dragon coiled around a secure tunnel of light cutting through a dark network. sleek, fast, mythical",
 	"keywords": [
-		"Cryptography",
-		"Encryption",
-		"Networking",
-		"Peers",
-		"Remote",
-		"Routing",
-		"Tunnels",
-		"Vpn"
+		"cryptography",
+		"encryption",
+		"networking",
+		"peer",
+		"remote",
+		"routing",
+		"tunnel",
+		"vpn"
 	],
 	"proprietary": [
 		"ExpressVPN",

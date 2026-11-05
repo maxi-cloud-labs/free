@@ -13,14 +13,14 @@
 	"description": "A TypeScript authentication framework for user sign-in, sessions, and account security.",
 	"hero": "a heroic knight holding a glowing key-shield with a lock emblem, standing before a gate. loyal, protective, modern fantasy",
 	"keywords": [
-		"Credentials",
-		"Identity",
-		"Login",
-		"Oauth",
-		"Permissions",
-		"Sessions",
-		"Sso",
-		"Typescript"
+		"credential",
+		"identity",
+		"login",
+		"oauth",
+		"permission",
+		"session",
+		"sso",
+		"typescript"
 	],
 	"proprietary": [
 		"Auth0",

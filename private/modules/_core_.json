@@ -13,14 +13,14 @@
 	"description": "A central dashboard for configuring and managing your personal cloud and self-hosted applications.",
 	"hero": "a tiny glowing cloud floating above a Raspberry Pi board like a captured star, tethered by a thin light beam. heroic, intimate, sovereign",
 	"keywords": [
-		"Administration",
-		"Configuration",
-		"Dashboard",
-		"Hosting",
-		"Infrastructure",
-		"Orchestration",
-		"Provisioning",
-		"Sovereignty"
+		"administration",
+		"configuration",
+		"dashboard",
+		"hosting",
+		"infrastructure",
+		"orchestration",
+		"provisioning",
+		"sovereignty"
 	],
 	"proprietary": [
 		"Cloudron",

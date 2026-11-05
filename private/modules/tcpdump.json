@@ -13,14 +13,14 @@
 	"description": "A command-line network packet capture utility for inspecting TCP/IP and other traffic.",
 	"hero": "a glowing net catching data packets mid-air like butterflies, dissected under a lamp. entomologist-lab, analytical, delicate",
 	"keywords": [
-		"Capture",
-		"Ethernet",
-		"Network",
-		"Packets",
-		"Pcap",
-		"Sniffing",
-		"Troubleshooting",
-		"Udp"
+		"capture",
+		"ethernet",
+		"network",
+		"packet",
+		"pcap",
+		"sniffing",
+		"troubleshooting",
+		"udp"
 	],
 	"proprietary": [
 		"Omnipeek",

@@ -13,14 +13,14 @@
 	"description": "A TypeScript web application framework for interactive websites and single-page applications.",
 	"hero": "a bold red geometric shield with a letter A forged in metal, sparks flying. epic, heraldic, engineered, powerful",
 	"keywords": [
-		"Components",
-		"Development",
-		"Frontend",
-		"Interfaces",
-		"Routing",
-		"Spa",
-		"Templates",
-		"Typescript"
+		"component",
+		"development",
+		"frontend",
+		"interface",
+		"routing",
+		"spa",
+		"template",
+		"typescript"
 	],
 	"proprietary": [
 		"React"

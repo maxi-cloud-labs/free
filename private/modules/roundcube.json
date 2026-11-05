@@ -13,14 +13,14 @@
 	"description": "A browser-based email client for reading, composing, and organizing IMAP mailboxes.",
 	"hero": "a glowing cube-shaped letterbox opening to reveal an email, sunlit window behind. gentle, domestic, clean",
 	"keywords": [
-		"Attachments",
-		"Composing",
-		"Contacts",
-		"Folders",
-		"Imap",
-		"Inbox",
-		"Messages",
-		"Webmail"
+		"attachment",
+		"composing",
+		"contact",
+		"folder",
+		"imap",
+		"inbox",
+		"message",
+		"webmail"
 	],
 	"proprietary": [
 		"Gmail",

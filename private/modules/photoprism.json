@@ -13,14 +13,14 @@
 	"description": "An AI-assisted photo library for organizing, tagging, browsing, and searching personal pictures.",
 	"hero": "a prism splitting a photo into a rainbow of AI-tagged faces, places and colors. radiant, discovery, kaleidoscopic",
 	"keywords": [
-		"Albums",
-		"Classification",
-		"Gallery",
-		"Geolocation",
-		"Photos",
-		"Recognition",
-		"Search",
-		"Tagging"
+		"album",
+		"classification",
+		"gallery",
+		"geolocation",
+		"photo",
+		"recognition",
+		"search",
+		"tagging"
 	],
 	"proprietary": [
 		"Adobe Lightroom",

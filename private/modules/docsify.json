@@ -13,14 +13,14 @@
 	"description": "A documentation website generator with live rendering of Markdown files.",
 	"hero": "a glowing open book that lights up pages in a living web document with an unfolding sidebar. magical, scholarly, light and airy",
 	"keywords": [
-		"Documentation",
-		"Guides",
-		"Markdown",
-		"Navigation",
-		"Publishing",
-		"Rendering",
-		"Sidebar",
-		"Websites"
+		"documentation",
+		"guide",
+		"markdown",
+		"navigation",
+		"publishing",
+		"rendering",
+		"sidebar",
+		"website"
 	],
 	"proprietary": [
 		"GitBook",

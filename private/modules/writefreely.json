@@ -13,14 +13,14 @@
 	"description": "A minimalist Markdown blogging platform for focused writing, publishing, and federated posts.",
 	"hero": "a free-flying quill pen scattering glowing words as it goes, no walls. calm, liberating, literary",
 	"keywords": [
-		"Blogging",
-		"Federation",
-		"Fediverse",
-		"Markdown",
-		"Minimalist",
-		"Posts",
-		"Publishing",
-		"Writing"
+		"blogging",
+		"federation",
+		"fediverse",
+		"markdown",
+		"minimalist",
+		"post",
+		"publishing",
+		"writing"
 	],
 	"proprietary": [
 		"Ghost(Pro)",

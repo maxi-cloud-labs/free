@@ -13,14 +13,14 @@
 	"description": "A help desk ticketing system for organizing customer requests and support conversations.",
 	"hero": "a vintage ticket stub of glowing light, support agents stamping and routing them at a busy counter. retro, bustling, orderly",
 	"keywords": [
-		"Customers",
-		"Escalations",
-		"Helpdesk",
-		"Queues",
-		"Replies",
-		"Requests",
-		"Support",
-		"Tickets"
+		"customer",
+		"escalation",
+		"helpdesk",
+		"queue",
+		"reply",
+		"request",
+		"support",
+		"ticket"
 	],
 	"proprietary": [
 		"Freshdesk",

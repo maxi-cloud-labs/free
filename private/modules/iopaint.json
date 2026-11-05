@@ -13,14 +13,14 @@
 	"description": "An AI-powered image inpainting editor for removing objects, fixing defects, and replacing image content.",
 	"hero": "a paintbrush erasing an unwanted object from a photo, healing the gap with swirls of AI light. magical, painterly, surreal",
 	"keywords": [
-		"Backgrounds",
-		"Diffusion",
-		"Erasing",
-		"Images",
-		"Inpainting",
-		"Removal",
-		"Restoration",
-		"Retouching"
+		"background",
+		"diffusion",
+		"erasing",
+		"image",
+		"inpainting",
+		"removal",
+		"restoration",
+		"retouching"
 	],
 	"proprietary": [
 		"Adobe Photoshop",

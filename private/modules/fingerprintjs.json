@@ -13,14 +13,14 @@
 	"description": "A browser fingerprinting library for recognizing visitors through device and browser characteristics.",
 	"hero": "a giant glowing fingerprint made of data lines, scanned by a spotlight across a crowd silhouette. forensic, detective-noir, cold blue light",
 	"keywords": [
-		"Antifraud",
-		"Browsers",
-		"Devices",
-		"Identification",
-		"Signals",
-		"Tracking",
-		"Uniqueness",
-		"Visitors"
+		"antifraud",
+		"browser",
+		"device",
+		"identification",
+		"signal",
+		"tracking",
+		"uniqueness",
+		"visitor"
 	],
 	"proprietary": [
 		"SEON",

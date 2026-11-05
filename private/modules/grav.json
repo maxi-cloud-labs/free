@@ -13,14 +13,14 @@
 	"description": "A flat-file content management system for creating and maintaining Markdown-based websites.",
 	"hero": "a gravity-bent flat-file stack floating in space, light beams bending around it like a black hole. cosmic, elegant, minimal",
 	"keywords": [
-		"Cms",
-		"Content",
-		"Flatfile",
-		"Markdown",
-		"Publishing",
-		"Templates",
-		"Themes",
-		"Websites"
+		"cm",
+		"content",
+		"flatfile",
+		"markdown",
+		"publishing",
+		"template",
+		"theme",
+		"website"
 	],
 	"proprietary": [
 		"Squarespace",

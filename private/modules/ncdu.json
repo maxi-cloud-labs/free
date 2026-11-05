@@ -13,14 +13,14 @@
 	"description": "An interactive terminal disk usage analyzer for locating large files and directories.",
 	"hero": "a diver exploring a deep sea of disk blocks lit by a lantern, discovering giant hidden space hogs. adventurous, mapping, treasure-hunt",
 	"keywords": [
-		"Capacity",
-		"Cleanup",
-		"Directories",
-		"Diskspace",
-		"Filesystem",
-		"Storage",
-		"Terminal",
-		"Visualization"
+		"capacity",
+		"cleanup",
+		"directory",
+		"diskspace",
+		"filesystem",
+		"storage",
+		"terminal",
+		"visualization"
 	],
 	"proprietary": [
 		"DaisyDisk",

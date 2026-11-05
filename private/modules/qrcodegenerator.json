@@ -13,14 +13,14 @@
 	"description": "A simple web utility for generating downloadable QR codes from links and text.",
 	"hero": "a magical pixel stone forming a QR code in a glowing forge. crisp, graphic, alchemical",
 	"keywords": [
-		"Creation",
-		"Encoding",
-		"Links",
-		"Matrix",
-		"Printable",
-		"Qrcodes",
-		"Scanning",
-		"Urls"
+		"creation",
+		"encoding",
+		"link",
+		"matrix",
+		"printable",
+		"qrcode",
+		"scanning",
+		"url"
 	],
 	"proprietary": [
 		"QR Code Generator PRO",

@@ -13,14 +13,14 @@
 	"description": "A real-time document database for JSON data, live queries, and responsive applications.",
 	"hero": "a glowing brain of live-updating data streams pushing changes outward in real time. neon, kinetic, living",
 	"keywords": [
-		"Changefeeds",
-		"Distributed",
-		"Documents",
-		"Json",
-		"Nosql",
-		"Queries",
-		"Realtime",
-		"Synchronization"
+		"changefeed",
+		"distributed",
+		"document",
+		"json",
+		"nosql",
+		"query",
+		"realtime",
+		"synchronization"
 	],
 	"proprietary": [
 		"Azure Cosmos DB",

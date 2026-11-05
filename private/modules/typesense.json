@@ -13,14 +13,14 @@
 	"description": "A fast search API for typo-tolerant full-text, fuzzy, and hybrid search experiences.",
 	"hero": "a typewriter with keys that auto-complete into glowing search results at lightning speed. retro, instant, magical",
 	"keywords": [
-		"Autocomplete",
-		"Fulltext",
-		"Fuzzy",
-		"Hybrid",
-		"Indexing",
-		"Relevance",
-		"Retrieval",
-		"Typo"
+		"autocomplete",
+		"fulltext",
+		"fuzzy",
+		"hybrid",
+		"indexing",
+		"relevance",
+		"retrieval",
+		"typo"
 	],
 	"proprietary": [
 		"Algolia",

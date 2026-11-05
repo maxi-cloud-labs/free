@@ -13,14 +13,14 @@
 	"description": "A web dashboard for browsing, searching, and administering Typesense collections.",
 	"hero": "a control panel dashboard of a typewriter-hybrid with glowing search indexes as dials. retro-futuristic, gauges, clean",
 	"keywords": [
-		"Administration",
-		"Collections",
-		"Documents",
-		"Indexing",
-		"Inspection",
-		"Queries",
-		"Schemas",
-		"Searching"
+		"administration",
+		"collection",
+		"document",
+		"indexing",
+		"inspection",
+		"query",
+		"schema",
+		"searching"
 	],
 	"proprietary": [
 		"Algolia Dashboard",

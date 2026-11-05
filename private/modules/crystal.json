@@ -13,14 +13,14 @@
 	"description": "A compiled, statically typed programming language with Ruby-inspired syntax.",
 	"hero": "a radiant faceted crystal gem with a ruby-like glow, subtle code reflections inside. elegant, mineral, precious, gleaming",
 	"keywords": [
-		"Compiler",
-		"Concurrency",
-		"Development",
-		"Native",
-		"Programming",
-		"Ruby",
-		"Statictyping",
-		"Syntax"
+		"compiler",
+		"concurrency",
+		"development",
+		"native",
+		"programming",
+		"ruby",
+		"statictyping",
+		"syntax"
 	],
 	"proprietary": [],
 	"default": {

@@ -13,14 +13,14 @@
 	"description": "Command-line tools for configuring and administering WireGuard VPN interfaces and peers.",
 	"hero": "a dragon's claw holding glowing tunnel keys and a toolbelt of cryptographic gadgets. mythic, utilitarian, dark",
 	"keywords": [
-		"Commandline",
-		"Configuration",
-		"Interfaces",
-		"Keys",
-		"Networking",
-		"Peers",
-		"Tunnels",
-		"Vpn"
+		"commandline",
+		"configuration",
+		"interface",
+		"key",
+		"networking",
+		"peer",
+		"tunnel",
+		"vpn"
 	],
 	"proprietary": [
 		"NordLayer",

@@ -13,14 +13,14 @@
 	"description": "A Markdown-based static website generator for clear, navigable project documentation.",
 	"hero": "a hand-lettered documentation book rising from a pile of markdown scrolls on a desk. cozy, studious, craft",
 	"keywords": [
-		"Documentation",
-		"Guides",
-		"Markdown",
-		"Navigation",
-		"Publishing",
-		"Python",
-		"Static",
-		"Themes"
+		"documentation",
+		"guide",
+		"markdown",
+		"navigation",
+		"publishing",
+		"python",
+		"static",
+		"theme"
 	],
 	"proprietary": [
 		"GitBook",

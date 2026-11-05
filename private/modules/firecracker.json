@@ -13,14 +13,14 @@
 	"description": "A lightweight microVM runtime for securely isolated workloads and serverless applications.",
 	"hero": "a tiny glowing microVM box sparking like a firework, launching off from a server rack. explosive, tiny but fast, celebration",
 	"keywords": [
-		"Booting",
-		"Hypervisor",
-		"Isolation",
-		"Microvms",
-		"Sandboxing",
-		"Serverless",
-		"Virtualization",
-		"Workloads"
+		"booting",
+		"hypervisor",
+		"isolation",
+		"microvm",
+		"sandboxing",
+		"serverless",
+		"virtualization",
+		"workload"
 	],
 	"proprietary": [
 		"Microsoft Hyper-V",

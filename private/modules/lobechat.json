@@ -13,14 +13,14 @@
 	"description": "An AI agent workspace for chatting with models, managing assistants, and coordinating AI tasks.",
 	"hero": "a modern glowing lobe-shaped chat bubble wearing a tiny crown, surrounded by agent avatars. sleek, premium, elegant",
 	"keywords": [
-		"Agents",
-		"Assistants",
-		"Chatbots",
-		"Conversations",
-		"Llm",
-		"Orchestration",
-		"Prompts",
-		"Scheduling"
+		"agent",
+		"assistant",
+		"chatbot",
+		"conversation",
+		"llm",
+		"orchestration",
+		"prompt",
+		"scheduling"
 	],
 	"proprietary": [
 		"ChatGPT",

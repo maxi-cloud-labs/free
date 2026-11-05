@@ -13,14 +13,14 @@
 	"description": "A functional programming language for concurrent, scalable, and fault-tolerant applications.",
 	"hero": "a luminous purple potion bottle with a swirling flame inside, scientist-lab style. alchemical, mystical, scalable power",
 	"keywords": [
-		"Beam",
-		"Concurrency",
-		"Erlang",
-		"Faulttolerance",
-		"Functional",
-		"Phoenix",
-		"Programming",
-		"Scalability"
+		"beam",
+		"concurrency",
+		"erlang",
+		"faulttolerance",
+		"functional",
+		"phoenix",
+		"programming",
+		"scalability"
 	],
 	"proprietary": [],
 	"default": {

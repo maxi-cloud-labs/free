@@ -13,14 +13,14 @@
 	"description": "A survey and feedback platform for creating forms, collecting responses, and analyzing user insights.",
 	"hero": "a stack of glowing building bricks shaped like survey forms, assembled into a tall tower. constructive, playful, insightful",
 	"keywords": [
-		"Analytics",
-		"Feedback",
-		"Forms",
-		"Polls",
-		"Questionnaires",
-		"Responses",
-		"Satisfaction",
-		"Surveys"
+		"analytic",
+		"feedback",
+		"form",
+		"poll",
+		"questionnaire",
+		"response",
+		"satisfaction",
+		"survey"
 	],
 	"proprietary": [
 		"Qualtrics",

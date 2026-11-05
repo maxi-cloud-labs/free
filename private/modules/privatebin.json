@@ -13,14 +13,14 @@
 	"description": "An encrypted online pastebin for confidential text and links with client-side privacy.",
 	"hero": "a glowing sealed bin with a lock, notes dissolving inside after reading. zero-knowledge, mysterious, secretive",
 	"keywords": [
-		"Anonymity",
-		"Encryption",
-		"Expiration",
-		"Passwords",
-		"Pastebin",
-		"Secrets",
-		"Sharing",
-		"Snippets"
+		"anonymity",
+		"encryption",
+		"expiration",
+		"password",
+		"pastebin",
+		"secret",
+		"sharing",
+		"snippet"
 	],
 	"proprietary": [
 		"Pastebin.com"

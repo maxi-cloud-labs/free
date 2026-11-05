@@ -13,14 +13,14 @@
 	"description": "An all-in-one observability platform for uptime checks, incidents, alerts, and service status.",
 	"hero": "a vigilant lighthouse beaming a green pulse over stormy server seas. heroic, protective, ever-watchful",
 	"keywords": [
-		"Alerts",
-		"Apm",
-		"Availability",
-		"Incidents",
-		"Monitoring",
-		"Observability",
-		"Statuspages",
-		"Telemetry"
+		"alert",
+		"apm",
+		"availability",
+		"incident",
+		"monitoring",
+		"observability",
+		"statuspage",
+		"telemetry"
 	],
 	"proprietary": [
 		"Better Stack",

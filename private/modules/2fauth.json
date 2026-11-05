@@ -13,14 +13,14 @@
 	"description": "A web-based manager for two-factor authentication accounts and one-time login codes.",
 	"hero": "a glowing six-digit code ring orbiting a sturdy padlock, countdown timer arc around it. tense, secretive, high-security thriller",
 	"keywords": [
-		"Authenticator",
-		"Login",
-		"Mfa",
-		"Otp",
-		"Passcodes",
-		"Tokens",
-		"Totp",
-		"Verification"
+		"authenticator",
+		"login",
+		"mfa",
+		"otp",
+		"passcode",
+		"token",
+		"totp",
+		"verification"
 	],
 	"proprietary": [
 		"Authy",

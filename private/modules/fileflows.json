@@ -13,14 +13,14 @@
 	"description": "A workflow automation engine for processing, converting, and organizing files and media.",
 	"hero": "a conveyor belt carrying files through glowing gates, being transformed along the way. factory, rhythmic, automation ballet",
 	"keywords": [
-		"Automation",
-		"Conversions",
-		"Media",
-		"Pipelines",
-		"Processing",
-		"Scheduling",
-		"Transcoding",
-		"Workflows"
+		"automation",
+		"conversion",
+		"media",
+		"pipeline",
+		"processing",
+		"scheduling",
+		"transcoding",
+		"workflow"
 	],
 	"proprietary": [
 		"Adobe Media Encoder",

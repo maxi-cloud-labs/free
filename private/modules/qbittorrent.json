@@ -13,14 +13,14 @@
 	"description": "A full-featured BitTorrent client for downloading, organizing, and remotely managing torrents.",
 	"hero": "a glowing magnet attracting swarms of data particles from a globe. sci-fi, swarm, collaborative",
 	"keywords": [
-		"Downloads",
-		"Magnet",
-		"P2p",
-		"Peers",
-		"Seeding",
-		"Torrents",
-		"Trackers",
-		"Webui"
+		"download",
+		"magnet",
+		"p2p",
+		"peer",
+		"seeding",
+		"torrent",
+		"tracker",
+		"webui"
 	],
 	"proprietary": [
 		"BitTorrent Classic",

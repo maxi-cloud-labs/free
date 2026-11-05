@@ -13,14 +13,14 @@
 	"description": "A fast, space-efficient JavaScript package manager for projects and monorepos.",
 	"hero": "a tidy pantry with one shared shelf of glowing packages linked to many projects by golden threads. efficient, orderly, elegant",
 	"keywords": [
-		"Caching",
-		"Dependencies",
-		"Installation",
-		"Javascript",
-		"Monorepos",
-		"Nodejs",
-		"Packages",
-		"Workspaces"
+		"caching",
+		"dependency",
+		"installation",
+		"javascript",
+		"monorepo",
+		"nodej",
+		"package",
+		"workspace"
 	],
 	"proprietary": [
 		"npm"

@@ -13,14 +13,14 @@
 	"description": "A distributed version control system for tracking code changes and collaborating on software projects.",
 	"hero": "a glowing branching tree of commits growing from a single trunk, leaves as commit hashes. organic, timeline, cosmic",
 	"keywords": [
-		"Branching",
-		"Collaboration",
-		"Commits",
-		"Diffs",
-		"Merging",
-		"Repository",
-		"Revisions",
-		"Scm"
+		"branching",
+		"collaboration",
+		"commit",
+		"diff",
+		"merging",
+		"repository",
+		"revision",
+		"scm"
 	],
 	"proprietary": [
 		"Azure DevOps Server",

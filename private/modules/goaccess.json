@@ -13,14 +13,14 @@
 	"description": "A real-time web server log analyzer with traffic statistics and interactive dashboards.",
 	"hero": "a terminal window opening like a cinema, with real-time glowing bar charts rising as spotlights. neon, live, analytical",
 	"keywords": [
-		"Analytics",
-		"Apache",
-		"Dashboards",
-		"Nginx",
-		"Requests",
-		"Traffic",
-		"Visitors",
-		"Weblogs"
+		"analytic",
+		"apache",
+		"dashboard",
+		"nginx",
+		"request",
+		"traffic",
+		"visitor",
+		"weblog"
 	],
 	"proprietary": [
 		"Datadog Log Management",

@@ -13,14 +13,14 @@
 	"description": "An automated subscription downloader for archiving YouTube channels and playlists with media metadata.",
 	"hero": "a tidy hand arranging YouTube channels into a library shelf with subscription bells ringing softly. collector, cozy, organized",
 	"keywords": [
-		"Archiving",
-		"Automation",
-		"Channels",
-		"Downloads",
-		"Metadata",
-		"Playlists",
-		"Subscriptions",
-		"Youtube"
+		"archiving",
+		"automation",
+		"channel",
+		"download",
+		"metadata",
+		"playlist",
+		"subscription",
+		"youtube"
 	],
 	"proprietary": [
 		"4K Video Downloader Plus"

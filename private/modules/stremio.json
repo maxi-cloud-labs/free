@@ -13,14 +13,14 @@
 	"description": "A media hub for discovering and streaming movies, series, and other video content through add-ons.",
 	"hero": "a glowing cinema curtain opening to a stream of films and shows, popcorn-shaped planets floating. dreamy, vibrant, cinematic",
 	"keywords": [
-		"Addons",
-		"Catalog",
-		"Discovery",
-		"Movies",
-		"Playback",
-		"Streaming",
-		"Subtitles",
-		"Television"
+		"addon",
+		"catalog",
+		"discovery",
+		"movie",
+		"playback",
+		"streaming",
+		"subtitle",
+		"television"
 	],
 	"proprietary": [
 		"Emby",

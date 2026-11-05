@@ -13,14 +13,14 @@
 	"description": "A server protection service against repeated failed logins and malicious IP addresses.",
 	"hero": "a stern nightclub bouncer silhouette blocking a hooded intruder at a velvet rope, red security light. noir, no-nonsense, protective",
 	"keywords": [
-		"Attackers",
-		"Authentication",
-		"Bans",
-		"Brute-force",
-		"Firewall",
-		"Intrusion",
-		"Iptables",
-		"Security"
+		"attacker",
+		"authentication",
+		"ban",
+		"brute-force",
+		"firewall",
+		"intrusion",
+		"iptable",
+		"security"
 	],
 	"proprietary": [
 		"BitNinja",

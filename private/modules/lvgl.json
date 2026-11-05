@@ -13,14 +13,14 @@
 	"description": "A lightweight graphics library for creating embedded device interfaces, screens, and interactive widgets.",
 	"hero": "a tiny embedded display glowing with a beautiful interface, held in an engineer's hand. delicate, jewel-like, crisp",
 	"keywords": [
-		"Displays",
-		"Embedded",
-		"Graphics",
-		"Interfaces",
-		"Microcontrollers",
-		"Rendering",
-		"Touchscreen",
-		"Widgets"
+		"display",
+		"embedded",
+		"graphic",
+		"interface",
+		"microcontroller",
+		"rendering",
+		"touchscreen",
+		"widget"
 	],
 	"proprietary": [
 		"Embedded Wizard",

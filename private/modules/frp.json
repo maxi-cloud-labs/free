@@ -13,14 +13,14 @@
 	"description": "A reverse proxy and tunneling service for remote access to servers behind NAT or firewalls.",
 	"hero": "a glowing tunnel piercing through a thick firewall brick wall, a small server on the far side shining out. escape-thriller, bold, clever",
 	"keywords": [
-		"Exposure",
-		"Firewall",
-		"Forwarding",
-		"Nat",
-		"Ports",
-		"Remote",
-		"Reverseproxy",
-		"Tunneling"
+		"exposure",
+		"firewall",
+		"forwarding",
+		"nat",
+		"port",
+		"remote",
+		"reverseproxy",
+		"tunneling"
 	],
 	"proprietary": [
 		"Cloudflare Tunnel",

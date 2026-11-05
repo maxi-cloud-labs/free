@@ -13,14 +13,14 @@
 	"description": "A dynamic, object-oriented programming language for scripting and web application development.",
 	"hero": "a radiant red ruby gem refracting glowing code lines into many facets. luxurious, precious, vivid",
 	"keywords": [
-		"Backend",
-		"Dynamic",
-		"Gems",
-		"Interpreter",
-		"Objectoriented",
-		"Programming",
-		"Rails",
-		"Scripting"
+		"backend",
+		"dynamic",
+		"gem",
+		"interpreter",
+		"objectoriented",
+		"programming",
+		"rail",
+		"scripting"
 	],
 	"proprietary": [],
 	"default": {

@@ -13,14 +13,14 @@
 	"description": "A browser-based database editor for exploring tables and querying PostgreSQL, MySQL, and SQLite.",
 	"hero": "a futuristic observatory dome opening to reveal stacked database tables like stars. modern, spacious, curious",
 	"keywords": [
-		"Browsing",
-		"Database",
-		"Mysql",
-		"Postgresql",
-		"Queries",
-		"Sql",
-		"Sqlite",
-		"Tables"
+		"browsing",
+		"database",
+		"mysql",
+		"postgresql",
+		"query",
+		"sql",
+		"sqlite",
+		"table"
 	],
 	"proprietary": [
 		"JetBrains DataGrip",

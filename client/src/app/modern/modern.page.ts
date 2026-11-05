@@ -28,16 +28,6 @@ cards = this.global.modulesData;
 CategoriesOrg = CategoriesOrg;
 CategoriesVisible = [];
 CategoriesVisibleAll = true;
-helperShown = true;
-helperQuery = "";
-helperAsked = false;
-helperRequestId = 0;
-helperBusy = false;
-helperResults: any[] = [];
-heroIdx = 0;
-heroPaused = false;
-heroCards = [];
-heroProgressKey = 0;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private route: ActivatedRoute, public ble: BleService) {
 	global.refreshUI.subscribe(event => {
@@ -96,35 +86,99 @@ async ngOnInit() {
 	this.pageInit();
 }
 
+helperShown = true;
+helperQuery = "";
+helperAsked = false;
+helperRequestId = 0;
+helperBusy = false;
+helperResults: any[] = [];
+helperMessages: { role:string; content:string }[] = [];
+helperAnswer;
+
 helperKey(e: Event, el: HTMLTextAreaElement) {
-	if ((e as KeyboardEvent).shiftKey) return;
-	e.preventDefault();
-	this.helperSend(el.value);
-	el.value = '';
+	const event = e as KeyboardEvent;
+	if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+		event.preventDefault();
+		const value = el.value.trim();
+		if (!value || this.helperBusy)
+			return;
+		el.value = "";
+		void this.helperSend(value);
+	}
 }
 
-async helperSend(text: string) {
-	const q = (text ?? '').trim();
-	if (!q || this.helperBusy) return;
-	this.helperQuery = q; this.helperAsked = true; this.helperBusy = true; this.helperResults = [];
-	try { this.helperResults = await this.helperSearch(q); } catch { this.helperResults = []; }
-	this.helperBusy = false;
+async helperSend(query: string): Promise<void> {
+	query = (query || "").trim();
+	if (!query || this.helperBusy)
+		return;
+	this.helperQuery = query;
+	this.helperAsked = true;
+	this.helperBusy = true;
+	this.helperAnswer = "";
+	this.helperResults = [];
+	const requestId = ++this.helperRequestId;
+	const messages = [
+		...this.helperMessages.slice(-8),
+		{ role: "user", content: query }
+	];
+	const data = { messages };
+	let modules: string[] = [];
+	let answer = "";
+	let results: any[] = [];
+	try {
+		const token = this.global.session.sessionID;
+		const ret = await this.httpClient.post(this.global.SERVERURL + "/master/helper.php", JSON.stringify(data), { headers:{ "Content-Type": "application/json", "Authorization": "Bearer " + token } }).toPromise();
+		if (requestId !== this.helperRequestId)
+			return;
+		const parsed = ret as { apps?: unknown; answer?: unknown; error?: unknown } | undefined;
+		if (!parsed || parsed.error || !Array.isArray(parsed.apps) || typeof parsed.answer !== "string")
+			throw new Error("Invalid App Finder response");
+		modules = parsed.apps.filter((m): m is string => typeof m === "string");
+		answer = parsed.answer;
+		results = modules.map(module => this.cards.find(m => m.module === module)).filter(Boolean).slice(0, 5);
+	} catch (err) {
+		console.error("App Finder failed:", err);
+		if (requestId !== this.helperRequestId)
+			return;
+		results = await this.helperSearchFallback(query);
+		modules = results.map(m => m.module);
+		answer = "AI unavailable. Showing local matches.";
+	} finally {
+		if (requestId === this.helperRequestId)
+			this.helperBusy = false;
+	}
+	if (requestId !== this.helperRequestId)
+		return;
+	this.helperResults = results;
+	this.helperAnswer = answer;
+	this.helperMessages = [...messages, { role:"assistant", content:JSON.stringify({ apps:modules, answer }) }];
 }
 
-protected async helperSearch(q: string): Promise<any[]> {
-	const norm = (s: any) => String(s ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-	const stop = new Set(['the','and','for','with','that','this','want','need','use','app','apps','can','how','from','into','have','like','some','get','make','find','you','your','are','any','which','what','who','about','something','tool','please']);
-	const stem = (t: string) => (t.length > 4 ? t.replace(/(ing|ed|es|s)$/, '') : t);
+protected async helperSearchFallback(q: string): Promise<any[]> {
+	const norm = (s: any) => String(s ?? "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	const stop = new Set(["the","and","for","with","that","this","want","need","use","app","apps","can","how","from","into","have","like","some","get","make","find","you","your","are","any","which","what","who","about","something","tool","please"]);
+	const stem = (t: string) => (t.length > 4 ? t.replace(/(ing|ed|es|s)$/, "") : t);
 	const tokens = norm(q).split(/[^a-z0-9]+/).filter(t => t.length > 2 && !stop.has(t)).map(stem);
-	if (!tokens.length) return [];
+
+	if (!tokens.length)
+		return [];
+
 	return (this.cards ?? [])
 		.map((c: any) => {
 			const fields: [string, number][] = [
-				[norm(this.LMT(c.title)), 4], [norm(c.name), 4], [norm((c.keywords ?? []).join(' ')), 3],
-				[norm(c.proprietary), 3], [norm(c.category), 2], [norm(this.LMD(c.description)), 1],
+				[norm(this.LMT(c.title)), 4],
+				[norm(c.name), 4],
+				[norm((c.keywords ?? []).join(" ")), 3],
+				[norm(c.proprietary), 3],
+				[norm(c.category), 2],
+				[norm(this.LMD(c.description)), 1]
 			];
 			let score = 0;
-			for (const t of tokens) for (const [text, w] of fields) if (text.includes(t)) score += w;
+			for (const t of tokens)
+				for (const [text, w] of fields)
+					if (text.includes(t))
+						score += w;
+
 			return { c, score };
 		})
 		.filter(x => x.score > 0)
@@ -132,6 +186,11 @@ protected async helperSearch(q: string): Promise<any[]> {
 		.slice(0, 3)
 		.map(x => x.c);
 }
+
+heroIdx = 0;
+heroPaused = false;
+heroCards = [];
+heroProgressKey = 0;
 
 heroProgressTrack(_index, key) {
 	return key;
@@ -204,17 +263,6 @@ ceil(a) {
 }
 
 }
-
-export interface HelperResponse {
-    choices: Array<{
-        message: {
-            role: string;
-            content: string;
-        };
-        finish_reason: string;
-    }>;
-}
-
 
 @Pipe({
   name: "filterByCategories",

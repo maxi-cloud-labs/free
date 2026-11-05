@@ -13,14 +13,14 @@
 	"description": "A fast cross-platform build system for configuring and compiling software.",
 	"hero": "a glowing subatomic particle trail in a cloud chamber, forming a structured build pattern. physics, cool, ultra-fast",
 	"keywords": [
-		"Builds",
-		"Compilation",
-		"Configuration",
-		"Crossplatform",
-		"Dependencies",
-		"Ninja",
-		"Tests",
-		"Toolchains"
+		"build",
+		"compilation",
+		"configuration",
+		"crossplatform",
+		"dependency",
+		"ninja",
+		"test",
+		"toolchain"
 	],
 	"proprietary": [
 		"Incredibuild",

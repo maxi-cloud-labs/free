@@ -13,14 +13,14 @@
 	"description": "A self-hosted uptime monitor with service checks, downtime alerts, and public status pages.",
 	"hero": "a cute bear mascot standing proudly on a glowing green status board of uptime bars. heroic, cheerful, steadfast",
 	"keywords": [
-		"Availability",
-		"Downtime",
-		"Healthchecks",
-		"Monitoring",
-		"Notifications",
-		"Outages",
-		"Ping",
-		"Statuspages"
+		"availability",
+		"downtime",
+		"healthcheck",
+		"monitoring",
+		"notification",
+		"outage",
+		"ping",
+		"statuspage"
 	],
 	"proprietary": [
 		"Better Stack",

@@ -13,14 +13,14 @@
 	"description": "A command-line build automation utility for compiling projects from dependency-based rules.",
 	"hero": "a classic anvil and hammer building a machine from glowing blueprints. old-school, steady, forge",
 	"keywords": [
-		"Automation",
-		"Builds",
-		"Compilation",
-		"Dependencies",
-		"Makefiles",
-		"Recipes",
-		"Targets",
-		"Toolchain"
+		"automation",
+		"build",
+		"compilation",
+		"dependency",
+		"makefile",
+		"recipe",
+		"target",
+		"toolchain"
 	],
 	"proprietary": [
 		"Incredibuild",

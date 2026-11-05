@@ -13,14 +13,14 @@
 	"description": "An autonomous AI agent framework for task execution, tool use, and multi-step workflows.",
 	"hero": "a lone robot agent made of a single glowing zero ring, standing in a vast empty void. minimalist, mysterious, origin-story",
 	"keywords": [
-		"Agents",
-		"Autonomous",
-		"Delegation",
-		"Execution",
-		"Planning",
-		"Reasoning",
-		"Toolcalling",
-		"Workflows"
+		"agent",
+		"autonomous",
+		"delegation",
+		"execution",
+		"planning",
+		"reasoning",
+		"toolcalling",
+		"workflow"
 	],
 	"proprietary": [
 		"ChatGPT",

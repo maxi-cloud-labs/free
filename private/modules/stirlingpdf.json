@@ -13,14 +13,14 @@
 	"description": "An all-in-one PDF editor for merging, splitting, converting, securing, and processing documents.",
 	"hero": "a muscular mechanic with a Stirling engine arm splitting and merging PDF pages like a blacksmith. industrial-retro, hardy, craft",
 	"keywords": [
-		"Compression",
-		"Conversion",
-		"Documents",
-		"Merging",
-		"Ocr",
-		"Redaction",
-		"Signing",
-		"Splitting"
+		"compression",
+		"conversion",
+		"document",
+		"merging",
+		"ocr",
+		"redaction",
+		"signing",
+		"splitting"
 	],
 	"proprietary": [
 		"Adobe Acrobat",

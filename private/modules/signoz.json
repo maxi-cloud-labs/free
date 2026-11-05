@@ -13,14 +13,14 @@
 	"description": "An OpenTelemetry-based observability platform for logs, metrics, traces, and application monitoring.",
 	"hero": "a glowing signal telescope capturing logs, traces and metrics as light rays in a dark sky. cosmic, observational, clean",
 	"keywords": [
-		"Apm",
-		"Dashboards",
-		"Logs",
-		"Metrics",
-		"Monitoring",
-		"Observability",
-		"Opentelemetry",
-		"Tracing"
+		"apm",
+		"dashboard",
+		"log",
+		"metric",
+		"monitoring",
+		"observability",
+		"opentelemetry",
+		"tracing"
 	],
 	"proprietary": [
 		"Datadog",

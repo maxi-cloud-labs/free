@@ -13,14 +13,14 @@
 	"description": "A lightweight Kubernetes distribution for deploying containers on resource-constrained servers and devices.",
 	"hero": "a tiny but powerful ship's wheel helm steering a small sailboat of containers through stormy seas. brave, compact, nautical",
 	"keywords": [
-		"Clusters",
-		"Containers",
-		"Deployment",
-		"Edge",
-		"Edgecomputing",
-		"Embedded",
-		"K8s",
-		"Orchestration"
+		"cluster",
+		"container",
+		"deployment",
+		"edge",
+		"edgecomputing",
+		"embedded",
+		"k8",
+		"orchestration"
 	],
 	"proprietary": [
 		"Amazon EKS",

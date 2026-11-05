@@ -13,14 +13,14 @@
 	"description": "A collaborative online office suite for editing documents, spreadsheets, and presentations.",
 	"hero": "a bright open-air office desk with floating shared documents and cursors of different colors working together. sunny, collaborative, optimistic",
 	"keywords": [
-		"Collaboration",
-		"Documents",
-		"Docx",
-		"Editing",
-		"Odt",
-		"Office",
-		"Presentations",
-		"Spreadsheets"
+		"collaboration",
+		"document",
+		"docx",
+		"editing",
+		"odt",
+		"office",
+		"presentation",
+		"spreadsheet"
 	],
 	"proprietary": [
 		"Google Workspace",

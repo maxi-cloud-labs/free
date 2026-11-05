@@ -13,14 +13,14 @@
 	"description": "A command-line toolkit for creating, compressing, and extracting SquashFS filesystem images.",
 	"hero": "a hydraulic press compressing a stack of files into a glowing dense block. industrial, crushing, tight",
 	"keywords": [
-		"Archives",
-		"Compression",
-		"Extraction",
-		"Filesystem",
-		"Images",
-		"Packaging",
-		"Readonly",
-		"Unpacking"
+		"archive",
+		"compression",
+		"extraction",
+		"filesystem",
+		"image",
+		"packaging",
+		"readonly",
+		"unpacking"
 	],
 	"proprietary": [],
 	"default": {

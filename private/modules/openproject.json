@@ -13,14 +13,14 @@
 	"description": "A collaborative project management platform for tasks, roadmaps, agile boards, and timelines.",
 	"hero": "a mountain climbing team ascending a glowing work-package ladder to a flag of goals. adventurous, collaborative, summit",
 	"keywords": [
-		"Gantt",
-		"Kanban",
-		"Milestones",
-		"Planning",
-		"Projects",
-		"Roadmaps",
-		"Tasks",
-		"Timelines"
+		"gantt",
+		"kanban",
+		"milestone",
+		"planning",
+		"project",
+		"roadmap",
+		"task",
+		"timeline"
 	],
 	"proprietary": [
 		"Asana",

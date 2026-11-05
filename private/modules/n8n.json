@@ -13,14 +13,14 @@
 	"description": "A visual automation platform for connecting apps, orchestrating workflows, and building AI integrations.",
 	"hero": "an octopus with eight glowing arms linking apps together into a workflow. clever, whimsical, multi-tasking",
 	"keywords": [
-		"Agents",
-		"Automation",
-		"Integrations",
-		"Nodes",
-		"Orchestration",
-		"Triggers",
-		"Webhooks",
-		"Workflows"
+		"agent",
+		"automation",
+		"integration",
+		"node",
+		"orchestration",
+		"trigger",
+		"webhook",
+		"workflow"
 	],
 	"proprietary": [
 		"Make",

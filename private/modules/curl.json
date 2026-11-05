@@ -13,14 +13,14 @@
 	"description": "A command-line HTTP and network client for transferring data, downloading files, and testing APIs.",
 	"hero": "a sleek spiraling curl-shaped arrow shooting between two glowing globes carrying data packets. swift, minimal, retro-futuristic",
 	"keywords": [
-		"Api",
-		"Downloads",
-		"Headers",
-		"Http",
-		"Https",
-		"Requests",
-		"Rest",
-		"Transfers"
+		"api",
+		"download",
+		"header",
+		"http",
+		"http",
+		"request",
+		"rest",
+		"transfer"
 	],
 	"proprietary": [
 		"Insomnia",

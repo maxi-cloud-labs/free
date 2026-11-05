@@ -13,14 +13,14 @@
 	"description": "An AI-assisted no-code platform for building customizable business apps and data workflows.",
 	"hero": "a glowing building-block workshop assembling a business app from colorful modular pieces, AI assistant spark above. creative, empowering, playful",
 	"keywords": [
-		"Automation",
-		"Builders",
-		"Business",
-		"Databases",
-		"Forms",
-		"Lowcode",
-		"Nocode",
-		"Workflows"
+		"automation",
+		"builder",
+		"business",
+		"database",
+		"form",
+		"lowcode",
+		"nocode",
+		"workflow"
 	],
 	"proprietary": [
 		"Airtable",

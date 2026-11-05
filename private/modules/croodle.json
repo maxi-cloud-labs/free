@@ -13,14 +13,14 @@
 	"description": "A simple event scheduling and polling service for finding convenient group meeting times.",
 	"hero": "a group of friends around a table with a glowing poll-card choosing meeting times from a floating calendar. friendly, ensemble comedy, warm",
 	"keywords": [
-		"Availability",
-		"Coordination",
-		"Dates",
-		"Invitations",
-		"Meetings",
-		"Polls",
-		"Scheduling",
-		"Voting"
+		"availability",
+		"coordination",
+		"date",
+		"invitation",
+		"meeting",
+		"poll",
+		"scheduling",
+		"voting"
 	],
 	"proprietary": [
 		"Calendly",

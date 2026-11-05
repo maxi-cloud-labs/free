@@ -13,14 +13,14 @@
 	"description": "An S3-compatible API endpoint for object storage, buckets, and programmatic file access.",
 	"hero": "a glowing S3-style bucket containing a miniature galaxy of objects, held up by one hand. cosmic, compact, majestic",
 	"keywords": [
-		"Blobs",
-		"Buckets",
-		"Compatibility",
-		"Downloads",
-		"Endpoints",
-		"Objectstorage",
-		"Restapi",
-		"Uploads"
+		"blob",
+		"bucket",
+		"compatibility",
+		"download",
+		"endpoint",
+		"objectstorage",
+		"restapi",
+		"upload"
 	],
 	"proprietary": [
 		"Amazon S3",

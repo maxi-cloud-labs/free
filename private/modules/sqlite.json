@@ -13,14 +13,14 @@
 	"description": "A self-contained SQL database engine for embedded applications and local data storage.",
 	"hero": "a small, sturdy feather-light database file glowing in a pocket, cradled like a gem. tiny, ubiquitous, hidden strength",
 	"keywords": [
-		"Databases",
-		"Embedded",
-		"Localstorage",
-		"Portable",
-		"Queries",
-		"Rdbms",
-		"Relational",
-		"Transactions"
+		"database",
+		"embedded",
+		"localstorage",
+		"portable",
+		"query",
+		"rdbm",
+		"relational",
+		"transaction"
 	],
 	"proprietary": [],
 	"default": {

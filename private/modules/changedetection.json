@@ -13,14 +13,14 @@
 	"description": "A website monitoring service for content changes, price drops, and restock alerts.",
 	"hero": "a giant watching eye above a web page, red glowing highlights marking tiny changes. noir surveillance, vigilant, suspenseful",
 	"keywords": [
-		"Alerts",
-		"Diff",
-		"Monitoring",
-		"Prices",
-		"Restocks",
-		"Snapshots",
-		"Updates",
-		"Websites"
+		"alert",
+		"diff",
+		"monitoring",
+		"price",
+		"restock",
+		"snapshot",
+		"update",
+		"website"
 	],
 	"proprietary": [
 		"Distill.io",

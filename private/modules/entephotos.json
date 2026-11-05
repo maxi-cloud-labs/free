@@ -13,14 +13,14 @@
 	"description": "An end-to-end encrypted photo and video library for backup, organization, and private sharing.",
 	"hero": "a polaroid-style photo floating inside a glowing locked cloud vault. nostalgic, protective, treasured memories",
 	"keywords": [
-		"Albums",
-		"Backups",
-		"Camera",
-		"Encryption",
-		"Gallery",
-		"Memories",
-		"Synchronization",
-		"Videos"
+		"album",
+		"backup",
+		"camera",
+		"encryption",
+		"gallery",
+		"memory",
+		"synchronization",
+		"video"
 	],
 	"proprietary": [
 		"Google Photos",

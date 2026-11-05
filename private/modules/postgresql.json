@@ -13,14 +13,14 @@
 	"description": "An extensible relational database server for SQL queries, structured data, and transactions.",
 	"hero": "a majestic elephant carved from glowing database tables, standing in a library of data. wise, enduring, trustworthy",
 	"keywords": [
-		"Indexing",
-		"Jsonb",
-		"Queries",
-		"Rdbms",
-		"Relational",
-		"Replication",
-		"Schemas",
-		"Transactions"
+		"indexing",
+		"jsonb",
+		"query",
+		"rdbm",
+		"relational",
+		"replication",
+		"schema",
+		"transaction"
 	],
 	"proprietary": [
 		"Amazon Aurora",
