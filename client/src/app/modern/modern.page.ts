@@ -94,6 +94,7 @@ helperQuery;
 helperAnswer = "";
 helperResults = [];
 helperMessages: { role:string; content:string }[] = [];
+helper2Abort?: AbortController;
 
 helperKey(e: Event, el: HTMLTextAreaElement) {
 	const event = e as KeyboardEvent;
@@ -133,6 +134,174 @@ async helperSend(query: string) {
 		this.helperBusy = false;
 		this.helperMessages = [...messages, { role:"assistant", content:JSON.stringify({ apps:this.helperResults.map(c => c.name), answer:this.helperAnswer }) }];
 		this.cdr.detectChanges();
+	}
+}
+
+helper2PreviewAnswer(raw: string): string {
+	const match = /"answer"\s*:\s*"/.exec(raw);
+	if (!match)
+		return "";
+	const start = match.index + match[0].length;
+	let end = start;
+	while (end < raw.length) {
+		if (raw[end] === "\\") {
+			if (end + 1 >= raw.length)
+				break;
+			if (raw[end + 1] === "u") {
+				if (!/^[0-9a-f]{4}$/i.test(raw.slice(end + 2, end + 6)))
+					break;
+				end += 6;
+				continue;
+			}
+			end += 2;
+			continue;
+		}
+		if (raw[end] === '"')
+			break;
+		end++;
+	}
+	try {
+		return JSON.parse('"' + raw.slice(start, end) + '"');
+	} catch {
+		return "";
+	}
+}
+
+helper2PreviewApps(raw: string): string[] {
+	const match = /"apps"\s*:\s*\[/.exec(raw);
+	if (!match)
+		return [];
+	const apps: string[] = [];
+	let pos = match.index + match[0].length;
+	while (pos < raw.length) {
+		while (pos < raw.length && /[\s,]/.test(raw[pos]))
+			pos++;
+		if (raw[pos] !== '"')
+			break;
+		const start = pos++;
+		while (pos < raw.length) {
+			if (raw[pos] === "\\") {
+				pos += 2;
+				continue;
+			}
+			if (raw[pos] === '"')
+				break;
+			pos++;
+		}
+		if (pos >= raw.length)
+			break;
+		try {
+			apps.push(JSON.parse(raw.slice(start, ++pos)));
+		} catch {
+			break;
+		}
+	}
+	return apps;
+}
+
+async helper2Send(query: string, stream = true) {
+	this.helper2Abort?.abort();
+	this.helperQuery = query.trim();
+	this.helperAsked = true;
+	this.helperBusy = true;
+	this.helperAnswer = "";
+	this.helperResults = [];
+	const requestId = ++this.helperRequestId;
+	const messages = [...this.helperMessages.slice(-8), { role:"user", content:query }];
+	const abort = new AbortController();
+	this.helper2Abort = abort;
+	const applyApps = (apps: string[]) => {
+		this.helperResults = apps.map(name => this.cards[this.global.modulesDataFindId(name)]).filter(Boolean);
+	};
+	const applyResult = (ret: { apps:string[]; answer:string }) => {
+		applyApps(ret.apps);
+		this.helperAnswer = ret.answer;
+		this.cdr.detectChanges();
+	};
+	try {
+		const response = await fetch(this.global.SERVERURL + "/master/helper2.json", { method:"POST", headers:{ "Content-Type":"application/json", "Authorization":"Bearer " + this.global.session.sessionID }, body:JSON.stringify({ messages, stream }), signal:abort.signal});
+		if (!response.ok)
+			throw new Error("HTTP " + response.status);
+		if (requestId != this.helperRequestId)
+			return;
+		const contentType = response.headers.get("Content-Type") || "";
+		if (!contentType.includes("application/x-ndjson")) {
+			const ret = await response.json();
+			if (requestId != this.helperRequestId)
+				return;
+			if (!Array.isArray(ret.apps) || typeof ret.answer !== "string")
+				throw new Error("Invalid response");
+			applyResult(ret);
+		} else {
+			if (!response.body)
+				throw new Error("Missing response body");
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+			let buffer = "";
+			let raw = "";
+			let completed = false;
+			let lastApps: string[] = [];
+			const processLine = (line: string) => {
+				if (!line.trim() || requestId != this.helperRequestId)
+					return;
+				const event = JSON.parse(line);
+				if (event.type === "error")
+					throw new Error(event.message || "AI generation failed");
+				if (event.type === "delta" || event.type === "reset") {
+					raw = event.type === "reset" ? (event.text || "") : raw + (event.text || "");
+					const apps = this.helper2PreviewApps(raw);
+					if (apps.length !== lastApps.length || apps.some((name, i) => name !== lastApps[i])) {
+						lastApps = apps;
+						applyApps(apps);
+					}
+					this.helperAnswer = this.helper2PreviewAnswer(raw);
+					this.cdr.detectChanges();
+				} else if (event.type === "done") {
+					if (!Array.isArray(event.apps) || typeof event.answer !== "string")
+						throw new Error("Invalid result");
+					applyResult(event);
+					completed = true;
+				}
+			};
+			while (true) {
+				const { value, done } = await reader.read();
+				if (done)
+					break;
+
+				buffer += decoder.decode(value, { stream:true });
+
+				let pos: number;
+				while ((pos = buffer.indexOf("\n")) !== -1) {
+					processLine(buffer.slice(0, pos));
+					buffer = buffer.slice(pos + 1);
+				}
+			}
+			buffer += decoder.decode();
+			if (buffer.trim())
+				processLine(buffer);
+			if (!completed)
+				throw new Error("Streaming response ended early");
+		}
+	} catch (err) {
+		if (requestId != this.helperRequestId)
+			return;
+		console.error("App Finder failed:", err);
+		this.helperResults = this.helperSearchFallback(query);
+		this.helperAnswer = "I found those apps.";
+	} finally {
+		abort.abort();
+		if (requestId === this.helperRequestId) {
+			this.helperBusy = false;
+			this.helper2Abort = undefined;
+			this.helperMessages = [...messages, {
+				role:"assistant",
+				content:JSON.stringify({
+					apps:this.helperResults.map(c => c.name),
+					answer:this.helperAnswer
+				})
+			}];
+			this.cdr.detectChanges();
+		}
 	}
 }
 
