@@ -89,7 +89,7 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 						</p>
 						<p class="text-sm leading-snug text-white rounded-xl px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
 						<a *ngFor="let card of helperResults" class="w-full shrink-0 flex items-center gap-3 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-							<span class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center"><img src="assets/icons/{{card.module}}.png" alt="card.name" [class]="global.colorWord2(card.category)" class="w-7 h-7 object-contain"></span>
+							<div class="w-7 h-7 m-2" [class]="global.colorWord3(card.category)" [style]="'mask:url(assets/icons/' + card.module + '.png) center / contain no-repeat'"></div>
 							<span class="min-w-0 flex-1">
 								<span class="block font-bold leading-tight truncate" [class]="global.colorWord(card.category, false)">{{LMT(card.title)}}</span>
 								<span class="block text-xs truncate" [class]="global.colorWord(card.category, false)">{{card.name}}</span>

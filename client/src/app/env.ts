@@ -483,20 +483,19 @@ bg--lime-100 text--lime-600
 	return (bckgd ? "bg--gray-100 " : "") + "text--gray-600";
 }
  
-
-colorWord2(st) {
+colorWord3(st) {
 	if (CategoriesEx[st])
-		return "translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--" + CategoriesEx[st].color + "-600)]";
+		return "bg--" + CategoriesEx[st].color + "-600";
 /*
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--yellow-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--purple-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--blue-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--teal-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--cyan-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--orange-600)]
-translate-y-[-1256px] drop-shadow-[0px_1256px_0_var(--color--lime-600)]
+bg--yellow-600
+bg--purple-600
+bg--blue-600
+bg--teal-600
+bg--cyan-600
+bg--orange-600
+bg--lime-600
 */
-	return "translate-y-[-256px] drop-shadow-[0px_256px_0_var(--color--gray-600)]";
+	return "bg--gray-600";
 }
 
 colorPercent(p, limits = [ 80, 50 ]) {

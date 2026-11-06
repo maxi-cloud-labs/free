@@ -52,9 +52,7 @@
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
 					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
-						<div class="w-5 h-5 flex items-center justify-center">
-							<div class="overflow-hidden"><img src="assets/icons/{{data.module}}.png" class="w-5 h-5" [class]="global.colorWord2(data.category)"></div>
-						</div>
+						<div class="w-5 h-5" [class]="global.colorWord3(data.category)" [style]="'mask:url(assets/icons/' + data.module + '.png) center / contain no-repeat'"></div>
 						<span>{{data['title']}}</span>
 					</a>
 				</div>
@@ -216,12 +214,12 @@
 				<div *ngFor="let supset of CategoriesOrg; let i = index" class="flex flex-col">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
-							<img [src]="('assets/images/category-' + supset.name + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(supset.categories[0])">
+							<div class="w-6 h-6" [class]="global.colorWord3(supset.categories[0])" [style]="'mask:url(assets/images/category-' + supset.name.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
 							<span class="text-lg font-bold" [class]="global.colorWord(supset.categories[0], false)">{{LG(supset.name)}}</span>
 						</div>
 						<div *ngIf="supset.categories.length > 1" class="flex flex-col gap-1 pl-7">
 							<div *ngFor="let category of supset.categories" class="flex items-center gap-2 text-sm cursor-pointer">
-								<img [src]="('assets/images/category-' + category.replace(' ', '_') + '.png').toLowerCase()" class="w-6 h-6" [class]="global.colorWord2(category)">
+								<div class="w-6 h-6" [class]="global.colorWord3(category)" [style]="'mask:url(assets/images/category-' + category.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
 								<span class="text-lg font-bold" [class]="global.colorWord(category, false)">{{LG(category)}}</span>
 							</div>
 						</div>

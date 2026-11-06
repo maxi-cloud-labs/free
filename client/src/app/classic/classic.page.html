@@ -99,7 +99,7 @@
 							<div class="flex-1"></div>
 							<div class="ml-3 flex flex-col items-end">
 								<a class="w-16 h-16 rounded-lg flex items-center justify-center" [href]="global.openModuleHref(card.module)" [target]="global.openModuleTarget(card.module)" (click)="global.openModuleClick($event, card.module, this);" title="">
-									<img src="assets/icons/{{card.module}}.png" class="w-14 h-14" [class]="global.colorWord2(card.category)">
+									<div class="w-14 h-14" [class]="global.colorWord3(card.category)" [style]="'mask:url(assets/icons/' + card.module + '.png) center / contain no-repeat'"></div>
 								</a>
 							</div>
 						</div>
