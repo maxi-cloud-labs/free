@@ -92,6 +92,7 @@ foreach ($files as $file) {
 	foreach($module["keywords"] as $k)
 		$modulesKeywords[$k] =  "";
 	$modulesMeta[$name] = $module;
+	unset($modulesMeta[$name]["default"]);
 	$modulesTranslationTitle[$module["title"]] = "";
 	$modulesTranslationDescription[$module["description"]] = "";
 	$modulesMarkdown[$count] = "|" . implode("|", array($module["github"] != "" ? ("[" . $module["name"] . "](https://github.com/" . $module["github"] . ")") : $module["name"], $module["title"], $module["description"], "" . number_format(intval($github["stargazers_count"] ?? 0) / 1000, 1) . "k", $module["web"] ? "web" : "terminal", $module["category"])) . "|";
