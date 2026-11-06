@@ -107,11 +107,8 @@ helperKey(e: Event, el: HTMLTextAreaElement) {
 	}
 }
 
-async helperSend(query: string): Promise<void> {
-	query = (query || "").trim();
-	if (!query || this.helperBusy)
-		return;
-	this.helperQuery = query;
+async helperSend(query: string) {
+	this.helperQuery = query.trim();
 	this.helperAsked = true;
 	this.helperBusy = true;
 	this.helperAnswer = "";
@@ -134,7 +131,7 @@ async helperSend(query: string): Promise<void> {
 		this.helperAnswer = "I found those apps.";
 	} finally {
 		this.helperBusy = false;
-		this.helperMessages = [...messages, { role:"assistant", content:JSON.stringify({ apps:this.helperResults, answer:this.helperAnswer }) }];
+		this.helperMessages = [...messages, { role:"assistant", content:JSON.stringify({ apps:this.helperResults.map(c => c.name), answer:this.helperAnswer }) }];
 		this.cdr.detectChanges();
 	}
 }
@@ -146,7 +143,7 @@ helperSearchFallback(q: string) {
 	const tokens = norm(q).split(/[^a-z0-9]+/).filter(t => t.length > 2 && !stop.has(t)).map(stem);
 	if (!tokens.length)
 		return [];
-	return (this.cards ?? []).map((c: any) => {
+	return this.cards.map((c) => {
 		const fields: [string, number][] = [
 			[norm(this.LMT(c.title)), 4],
 			[norm(c.name), 4],
@@ -160,8 +157,8 @@ helperSearchFallback(q: string) {
 			for (const [text, w] of fields)
 				if (text.includes(t))
 					score += w;
-		return { c, score };
-	}).filter(x => x.score > 0).sort((a, b) => b.score - a.score || (b.c.githubStars ?? 0) - (a.c.githubStars ?? 0)).slice(0, 3).map(x => x.c);
+		return { ...c, score };
+	}).filter(x => x.score > 0).sort((a, b) => b.score - a.score || (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 3);
 }
 
 heroIdx = 0;
