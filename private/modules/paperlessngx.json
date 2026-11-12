@@ -1,0 +1,37 @@
+{
+	"module": "paperlessngx",
+	"name": "Paperless-ngx",
+	"title": "Document Archive",
+	"category": "Productivity",
+	"version": "v3.4.2",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "paperless-ngx/paperless-ngx",
+	"description": "A document management system for scanning, recognizing, indexing, and searching paper archives.",
+	"hero": "a stack of paper dissolving into glowing searchable pages inside a meticulous archive. scholarly, transformative, orderly",
+	"keywords": [
+		"archiving",
+		"document",
+		"indexing",
+		"invoice",
+		"ocr",
+		"paper",
+		"scanning",
+		"search"
+	],
+	"proprietary": [
+		"Adobe Acrobat",
+		"DocuWare",
+		"Evernote"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9561,
+		"permissions": [
+			"user"
+		]
+	}
+}
