@@ -1,0 +1,35 @@
+{
+	"module": "caddy",
+	"name": "Caddy",
+	"title": "HTTPS Web Server",
+	"category": "Server",
+	"version": "v2.11.9",
+	"installMethod": "apt",
+	"web": false,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "caddyserver/caddy",
+	"description": "A web server and reverse proxy with automatic HTTPS certificate issuance and renewal.",
+	"hero": "a dependable porter carrying glowing certificates to the doors of a bustling web server hotel. courteous, reliable, warm",
+	"keywords": [
+		"automation",
+		"certificate",
+		"hosting",
+		"http",
+		"https",
+		"reverseproxy",
+		"tls",
+		"webserver"
+	],
+	"proprietary": [
+		"F5 BIG-IP",
+		"LiteSpeed Web Server",
+		"Microsoft IIS"
+	],
+	"default": {
+		"cmds": [
+			"/usr/bin/caddy"
+		]
+	}
+}
