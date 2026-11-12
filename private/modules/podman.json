@@ -1,0 +1,35 @@
+{
+	"module": "podman",
+	"name": "Podman",
+	"title": "Container",
+	"category": "Server",
+	"version": "5.4.2",
+	"installMethod": "apt",
+	"web": false,
+	"recommended": false,
+	"finished": true,
+	"database": "SQLite",
+	"github": "podman-container-tools/podman",
+	"description": "A daemonless container engine for building, running, and managing OCI containers and pods with rootless support.",
+	"hero": "a friendly pod of seals guiding shipping containers across a glowing ocean without a captain. playful, independent, nautical",
+	"keywords": [
+		"container",
+		"daemonless",
+		"deployment",
+		"devops",
+		"image",
+		"oci",
+		"pods",
+		"rootless"
+	],
+	"proprietary": [
+		"Amazon ECS",
+		"Red Hat OpenShift",
+		"VMware Tanzu"
+	],
+	"default": {
+		"cmds": [
+			"/usr/bin/podman"
+		]
+	}
+}
