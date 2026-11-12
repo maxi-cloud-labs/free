@@ -1,0 +1,36 @@
+{
+	"module": "kopia",
+	"name": "Kopia",
+	"title": "Backup Snapshots",
+	"category": "Utils",
+	"version": "v0.23.1",
+	"installMethod": "deb",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "kopia/kopia",
+	"description": "An encrypted backup application with incremental snapshots, compression, deduplication, and a graphical interface.",
+	"hero": "a glowing mirror preserving successive versions of a miniature world inside a fortified archive. reflective, resilient, reassuring",
+	"keywords": [
+		"backup",
+		"compression",
+		"deduplication",
+		"encryption",
+		"recovery",
+		"repository",
+		"snapshot",
+		"storage"
+	],
+	"proprietary": [
+		"Acronis Cyber Protect",
+		"Backblaze",
+		"Veeam"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9582,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
