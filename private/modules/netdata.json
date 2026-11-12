@@ -1,0 +1,36 @@
+{
+	"module": "netdata",
+	"name": "Netdata",
+	"title": "Live Infrastructure Monitor",
+	"category": "Server",
+	"version": "v2.12.3",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "netdata/netdata",
+	"description": "A real-time infrastructure monitoring service with detailed resource metrics, dashboards, and health alerts.",
+	"hero": "a living network of servers pulsing with colorful heartbeat lines across an intricate control wall. immediate, vibrant, diagnostic",
+	"keywords": [
+		"alert",
+		"cpu",
+		"dashboard",
+		"disk",
+		"memory",
+		"metric",
+		"monitoring",
+		"realtime"
+	],
+	"proprietary": [
+		"Datadog Infrastructure Monitoring",
+		"New Relic Infrastructure",
+		"PRTG"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9598,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
