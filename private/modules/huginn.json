@@ -1,0 +1,37 @@
+{
+	"module": "huginn",
+	"name": "Huginn",
+	"title": "Event Automation",
+	"category": "Collaboration",
+	"version": "v2026.11.09",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "huginn/huginn",
+	"description": "An event automation platform with agents for monitoring services, transforming data, and triggering actions.",
+	"hero": "a wise raven carrying glowing event messages between clockwork mechanisms above a sleeping city. resourceful, vigilant, mysterious",
+	"keywords": [
+		"agent",
+		"automation",
+		"event",
+		"integration",
+		"monitoring",
+		"scheduling",
+		"trigger",
+		"workflow"
+	],
+	"proprietary": [
+		"IFTTT",
+		"Make",
+		"Zapier"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9599,
+		"permissions": [
+			"user"
+		]
+	}
+}
