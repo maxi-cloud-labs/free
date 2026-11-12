@@ -1,0 +1,37 @@
+{
+	"module": "appsmith",
+	"name": "Appsmith",
+	"title": "Internal App Builder",
+	"category": "Developer",
+	"version": "v2.6.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MongoDB",
+	"github": "appsmithorg/appsmith",
+	"description": "A low-code application builder for creating internal dashboards and admin panels connected to databases and APIs.",
+	"hero": "a skilled craftsperson assembling an application dashboard from luminous widgets and database blocks. practical, inventive, workshop",
+	"keywords": [
+		"adminpanel",
+		"api",
+		"builder",
+		"dashboard",
+		"database",
+		"form",
+		"internaltools",
+		"lowcode"
+	],
+	"proprietary": [
+		"Microsoft Power Apps",
+		"Retool",
+		"UI Bakery"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9590,
+		"permissions": [
+			"user"
+		]
+	}
+}
