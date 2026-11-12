@@ -1,0 +1,36 @@
+{
+	"module": "prometheus",
+	"name": "Prometheus",
+	"title": "Metrics Collection",
+	"category": "Server",
+	"version": "v3.16.0",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "prometheus/prometheus",
+	"description": "A metrics monitoring system with time-series storage, a query language, and alerting rules.",
+	"hero": "a mythic figure carrying a glowing flame that illuminates a constellation of server metrics. vigilant, foundational, epic",
+	"keywords": [
+		"alert",
+		"exporter",
+		"metric",
+		"monitoring",
+		"promql",
+		"scraping",
+		"telemetry",
+		"timeseries"
+	],
+	"proprietary": [
+		"Amazon CloudWatch",
+		"Datadog Infrastructure Monitoring",
+		"New Relic"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9597,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
