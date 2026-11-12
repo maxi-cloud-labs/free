@@ -1,0 +1,37 @@
+{
+	"module": "anythingllm",
+	"name": "AnythingLLM",
+	"title": "Private AI Workspace",
+	"category": "AI Generative",
+	"version": "v1.19.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "Mintplex-Labs/anything-llm",
+	"description": "A private AI workspace for chatting with documents and running agents using local or remote language models.",
+	"hero": "a cozy private study where books gather around a luminous conversational orb on a desk. intimate, curious, intelligent",
+	"keywords": [
+		"agent",
+		"assistant",
+		"chatbot",
+		"document",
+		"embedding",
+		"llm",
+		"offline",
+		"rag"
+	],
+	"proprietary": [
+		"ChatGPT",
+		"Claude",
+		"Google NotebookLM"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9569,
+		"permissions": [
+			"user"
+		]
+	}
+}
