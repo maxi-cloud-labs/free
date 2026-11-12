@@ -1,0 +1,36 @@
+{
+	"module": "adguardhome",
+	"name": "AdGuard Home",
+	"title": "DNS Filtering",
+	"category": "Server",
+	"version": "v0.107.80",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "AdguardTeam/AdGuardHome",
+	"description": "A network-wide DNS filtering server for blocking advertisements, trackers, and unwanted domains.",
+	"hero": "a luminous shield above a small house catching a storm of advertising banners before they reach the windows. protective, clean, peaceful",
+	"keywords": [
+		"adblocking",
+		"dns",
+		"domain",
+		"filtering",
+		"network",
+		"privacy",
+		"tracker",
+		"upstream"
+	],
+	"proprietary": [
+		"AdGuard DNS",
+		"Control D",
+		"NextDNS"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9578,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
