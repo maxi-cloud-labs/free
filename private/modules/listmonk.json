@@ -1,0 +1,37 @@
+{
+	"module": "listmonk",
+	"name": "listmonk",
+	"title": "Newsletter Manager",
+	"category": "Productivity",
+	"version": "v7.0.0-beta.2",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "knadh/listmonk",
+	"description": "A self-hosted newsletter manager for maintaining subscriber lists, designing campaigns, and sending bulk email.",
+	"hero": "a quiet monk releasing neatly folded newsletters that become a flock of paper birds at dawn. composed, abundant, purposeful",
+	"keywords": [
+		"campaign",
+		"email",
+		"list",
+		"marketing",
+		"newsletter",
+		"segmentation",
+		"subscriber",
+		"template"
+	],
+	"proprietary": [
+		"Brevo",
+		"Constant Contact",
+		"Mailchimp"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9602,
+		"permissions": [
+			"user"
+		]
+	}
+}
