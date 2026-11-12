@@ -1,0 +1,37 @@
+{
+	"module": "vaultwarden",
+	"name": "Vaultwarden",
+	"title": "Password Vault",
+	"category": "Utils",
+	"version": "1.37.5",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "SQLite",
+	"github": "dani-garcia/vaultwarden",
+	"description": "A lightweight Bitwarden-compatible server for storing, synchronizing, and sharing encrypted passwords.",
+	"hero": "a steadfast armored guardian holding a glowing key before a circular vault door. protective, secretive, cinematic",
+	"keywords": [
+		"credential",
+		"encryption",
+		"password",
+		"secret",
+		"sharing",
+		"synchronization",
+		"totp",
+		"vault"
+	],
+	"proprietary": [
+		"1Password",
+		"Dashlane",
+		"Keeper Security"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9559,
+		"permissions": [
+			"user"
+		]
+	}
+}
