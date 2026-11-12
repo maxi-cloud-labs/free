@@ -1,0 +1,37 @@
+{
+	"module": "tooljet",
+	"name": "ToolJet",
+	"title": "AI Internal Tools",
+	"category": "Developer",
+	"version": "v3.20.256-lts",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "ToolJet/ToolJet",
+	"description": "An AI-assisted internal application builder for assembling dashboards, business tools, and connected workflows.",
+	"hero": "a compact jet-powered toolbox assembling glowing business dashboards from modular parts. energetic, ingenious, industrial",
+	"keywords": [
+		"ai",
+		"api",
+		"builder",
+		"dashboard",
+		"database",
+		"internaltools",
+		"lowcode",
+		"workflow"
+	],
+	"proprietary": [
+		"Microsoft Power Apps",
+		"Retool",
+		"Superblocks"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9591,
+		"permissions": [
+			"user"
+		]
+	}
+}
