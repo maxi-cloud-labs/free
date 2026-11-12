@@ -1,0 +1,37 @@
+{
+	"module": "memos",
+	"name": "Memos",
+	"title": "Personal Notes",
+	"category": "Personal",
+	"version": "26.11.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "usememos/memos",
+	"description": "A lightweight personal note-taking service with Markdown, tags, search, and a chronological journal.",
+	"hero": "small handwritten notes forming a glowing constellation above a quiet personal writing desk. intimate, reflective, simple",
+	"keywords": [
+		"journal",
+		"markdown",
+		"memo",
+		"note",
+		"privacy",
+		"search",
+		"tag",
+		"timeline"
+	],
+	"proprietary": [
+		"Apple Notes",
+		"Google Keep",
+		"Microsoft OneNote"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9588,
+		"permissions": [
+			"user"
+		]
+	}
+}
