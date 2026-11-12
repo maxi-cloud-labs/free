@@ -1,0 +1,37 @@
+{
+	"module": "affine",
+	"name": "AFFiNE",
+	"title": "Knowledge Workspace",
+	"category": "Knowledge",
+	"version": "v0.27.4",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "toeverything/AFFiNE",
+	"description": "A collaborative workspace combining documents, whiteboards, and structured information for knowledge management.",
+	"hero": "a folded sheet transforming from handwritten notes into a whiteboard and structured grid. tactile, versatile, creative",
+	"keywords": [
+		"canvas",
+		"collaboration",
+		"database",
+		"document",
+		"knowledgebase",
+		"note",
+		"whiteboard",
+		"workspace"
+	],
+	"proprietary": [
+		"Miro",
+		"Notion",
+		"Obsidian Sync"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9586,
+		"permissions": [
+			"user"
+		]
+	}
+}
