@@ -1,0 +1,35 @@
+{
+	"module": "headscale",
+	"name": "Headscale",
+	"title": "Mesh VPN Controller",
+	"category": "Server",
+	"version": "v0.29.7",
+	"installMethod": "deb",
+	"web": false,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "juanfont/headscale",
+	"description": "A self-hosted implementation of the Tailscale control server for coordinating private mesh VPN networks.",
+	"hero": "a constellation of private islands connected by secure threads beneath a watchful central compass. expansive, sheltered, nautical",
+	"keywords": [
+		"controlplane",
+		"mesh",
+		"network",
+		"peer",
+		"routing",
+		"tailscale",
+		"vpn",
+		"wireguard"
+	],
+	"proprietary": [
+		"NordLayer",
+		"Tailscale",
+		"Twingate"
+	],
+	"default": {
+		"cmds": [
+			"/usr/bin/headscale"
+		]
+	}
+}
