@@ -1,0 +1,37 @@
+{
+	"module": "actualbudget",
+	"name": "Actual Budget",
+	"title": "Personal Budget",
+	"category": "Personal",
+	"version": "v26.11.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "SQLite",
+	"github": "actualbudget/actual",
+	"description": "A local-first personal budgeting application with envelope budgets, account tracking, and device synchronization.",
+	"hero": "a row of paper envelopes filled with golden coins arranged into a balanced household budget. cozy, practical, hopeful",
+	"keywords": [
+		"account",
+		"budgeting",
+		"envelope",
+		"expense",
+		"finance",
+		"localfirst",
+		"synchronization",
+		"transaction"
+	],
+	"proprietary": [
+		"Monarch Money",
+		"Quicken Simplifi",
+		"YNAB"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9565,
+		"permissions": [
+			"user"
+		]
+	}
+}
