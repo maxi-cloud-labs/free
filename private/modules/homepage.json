@@ -1,0 +1,35 @@
+{
+	"module": "homepage",
+	"name": "Homepage",
+	"title": "Service Dashboard",
+	"category": "Server",
+	"version": "v2.8.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "",
+	"github": "gethomepage/homepage",
+	"description": "A customizable service dashboard with application links, status widgets, and container integrations.",
+	"hero": "a welcoming doorway opening onto a miniature city of connected service windows and glowing status lights. organized, inviting, panoramic",
+	"keywords": [
+		"dashboard",
+		"docker",
+		"homepage",
+		"integration",
+		"monitoring",
+		"service",
+		"startpage",
+		"widget"
+	],
+	"proprietary": [
+		"Netvibes",
+		"start.me"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9566,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
