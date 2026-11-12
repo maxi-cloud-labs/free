@@ -1,0 +1,37 @@
+{
+	"module": "plane",
+	"name": "Plane",
+	"title": "Project Planning",
+	"category": "Collaboration",
+	"version": "v1.4.3",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "makeplane/plane",
+	"description": "A project management platform for tracking issues, planning work cycles, and organizing team roadmaps.",
+	"hero": "a paper airplane soaring over an organized landscape of project boards and milestone flags. purposeful, agile, optimistic",
+	"keywords": [
+		"issue",
+		"kanban",
+		"milestone",
+		"planning",
+		"project",
+		"roadmap",
+		"sprint",
+		"task"
+	],
+	"proprietary": [
+		"Asana",
+		"Jira",
+		"Linear"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9587,
+		"permissions": [
+			"user"
+		]
+	}
+}
