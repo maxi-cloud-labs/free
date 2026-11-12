@@ -1,0 +1,37 @@
+{
+	"module": "umami",
+	"name": "Umami",
+	"title": "Website Analytics",
+	"category": "Server",
+	"version": "v3.4.1",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "umami-software/umami",
+	"description": "A privacy-focused analytics platform for measuring website traffic, events, campaigns, and conversions.",
+	"hero": "a delicate garden of visitor paths growing into balanced charts beneath a privacy canopy. subtle, clear, calm",
+	"keywords": [
+		"analytics",
+		"campaign",
+		"conversion",
+		"dashboard",
+		"event",
+		"privacy",
+		"traffic",
+		"visitor"
+	],
+	"proprietary": [
+		"Adobe Analytics",
+		"Google Analytics",
+		"Mixpanel"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9594,
+		"permissions": [
+			"user"
+		]
+	}
+}
