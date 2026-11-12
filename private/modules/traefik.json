@@ -1,0 +1,35 @@
+{
+	"module": "traefik",
+	"name": "Traefik",
+	"title": "Application Proxy",
+	"category": "Server",
+	"version": "v3.7.18",
+	"installMethod": "wget",
+	"web": false,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "traefik/traefik",
+	"description": "An application reverse proxy with automatic service discovery, traffic routing, and container integration.",
+	"hero": "a traffic conductor guiding many streams of glowing containers through a perfectly ordered intersection. dynamic, precise, metropolitan",
+	"keywords": [
+		"container",
+		"discovery",
+		"docker",
+		"gateway",
+		"kubernetes",
+		"loadbalancing",
+		"reverseproxy",
+		"routing"
+	],
+	"proprietary": [
+		"AWS Application Load Balancer",
+		"F5 BIG-IP",
+		"NGINX Plus"
+	],
+	"default": {
+		"cmds": [
+			"/usr/local/bin/traefik"
+		]
+	}
+}
