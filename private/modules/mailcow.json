@@ -1,0 +1,36 @@
+{
+	"module": "mailcow",
+	"name": "mailcow",
+	"title": "Mail Server Suite",
+	"category": "Server",
+	"version": "2026-11",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "mailcow/mailcow-dockerized",
+	"description": "An integrated mail server suite with mailbox administration, spam filtering, webmail, and groupware.",
+	"hero": "a friendly cow tending a village of mailboxes as luminous letters travel safely between homes. welcoming, dependable, pastoral",
+	"keywords": [
+		"antispam",
+		"calendar",
+		"contact",
+		"domain",
+		"email",
+		"imap",
+		"smtp",
+		"webmail"
+	],
+	"proprietary": [
+		"Google Workspace",
+		"Microsoft Exchange Online",
+		"Zoho Mail"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9600,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
