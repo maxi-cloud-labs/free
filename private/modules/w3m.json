@@ -1,0 +1,31 @@
+{
+	"module": "w3m",
+	"name": "w3m",
+	"title": "Text Browser",
+	"category": "Utils",
+	"version": "0.5.3+git20230121",
+	"installMethod": "apt",
+	"web": false,
+	"recommended": false,
+	"finished": true,
+	"database": "",
+	"github": "tats/w3m",
+	"description": "A text-based web browser and pager for viewing websites, tables, and HTML documents in the terminal.",
+	"hero": "a glowing terminal window unfolding into a paper web of linked pages and neatly arranged tables. lightweight, geometric, exploratory",
+	"keywords": [
+		"browser",
+		"html",
+		"http",
+		"navigation",
+		"pager",
+		"tables",
+		"terminal",
+		"text"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/w3m"
+		]
+	}
+}
