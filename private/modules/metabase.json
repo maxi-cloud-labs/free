@@ -1,0 +1,37 @@
+{
+	"module": "metabase",
+	"name": "Metabase",
+	"title": "Business Intelligence",
+	"category": "Productivity",
+	"version": "v0.65.3",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "metabase/metabase",
+	"description": "A business intelligence platform for querying databases, exploring data, and sharing reports and dashboards.",
+	"hero": "a researcher lifting a crystal lens over database tables to reveal a vivid landscape of charts. insightful, approachable, expansive",
+	"keywords": [
+		"analytics",
+		"businessintelligence",
+		"chart",
+		"dashboard",
+		"query",
+		"report",
+		"sql",
+		"visualization"
+	],
+	"proprietary": [
+		"Looker",
+		"Microsoft Power BI",
+		"Tableau"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9593,
+		"permissions": [
+			"user"
+		]
+	}
+}
