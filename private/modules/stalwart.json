@@ -1,0 +1,36 @@
+{
+	"module": "stalwart",
+	"name": "Stalwart",
+	"title": "Mail and Collaboration",
+	"category": "Server",
+	"version": "v1.1.0",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "stalwartlabs/stalwart",
+	"description": "A mail and collaboration server supporting email, calendars, contacts, and modern messaging protocols.",
+	"hero": "a steadfast armored messenger guarding envelopes and calendar scrolls inside a grand postal fortress. resilient, noble, protective",
+	"keywords": [
+		"calendar",
+		"carddav",
+		"email",
+		"imap",
+		"jmap",
+		"mailbox",
+		"smtp",
+		"webdav"
+	],
+	"proprietary": [
+		"Google Workspace",
+		"Microsoft Exchange Server",
+		"Zoho Mail"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9601,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
