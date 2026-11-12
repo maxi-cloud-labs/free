@@ -1,0 +1,37 @@
+{
+	"module": "ntfy",
+	"name": "ntfy",
+	"title": "Push Notifications",
+	"category": "Utils",
+	"version": "v2.37.2",
+	"installMethod": "deb",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "SQLite",
+	"github": "binwiederhier/ntfy",
+	"description": "A self-hosted notification service for sending push messages to phones and desktops over HTTP.",
+	"hero": "a glowing bell sending concentric waves of messages toward phones scattered across a night sky. immediate, connected, bright",
+	"keywords": [
+		"alert",
+		"http",
+		"messaging",
+		"notification",
+		"publish",
+		"push",
+		"subscription",
+		"topic"
+	],
+	"proprietary": [
+		"OneSignal",
+		"Pushbullet",
+		"Pushover"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9564,
+		"permissions": [
+			"user"
+		]
+	}
+}
