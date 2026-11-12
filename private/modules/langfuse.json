@@ -1,0 +1,37 @@
+{
+	"module": "langfuse",
+	"name": "Langfuse",
+	"title": "AI Observability",
+	"category": "Developer",
+	"version": "v4.78.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "langfuse/langfuse",
+	"description": "An AI engineering platform for tracing model calls, managing prompts, and evaluating application behavior.",
+	"hero": "a scientist following glowing traces through a transparent artificial brain with gauges for each decision. analytical, exacting, luminous",
+	"keywords": [
+		"evaluation",
+		"llm",
+		"monitoring",
+		"observability",
+		"prompt",
+		"telemetry",
+		"testing",
+		"tracing"
+	],
+	"proprietary": [
+		"Braintrust",
+		"LangSmith",
+		"Weights & Biases Weave"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9575,
+		"permissions": [
+			"user"
+		]
+	}
+}
