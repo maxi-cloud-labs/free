@@ -1,0 +1,36 @@
+{
+	"module": "vllm",
+	"name": "vLLM",
+	"title": "LLM Serving Engine",
+	"category": "AI Generative",
+	"version": "v0.33.0rc3",
+	"installMethod": "pip",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "vllm-project/vllm",
+	"description": "A high-throughput language model inference server with efficient batching and compatible API endpoints.",
+	"hero": "a luminous express train carrying streams of language tokens through a precision engine of parallel rails. fast, industrial, futuristic",
+	"keywords": [
+		"api",
+		"batching",
+		"gpu",
+		"inference",
+		"llm",
+		"model",
+		"serving",
+		"throughput"
+	],
+	"proprietary": [
+		"Amazon SageMaker",
+		"NVIDIA NIM",
+		"Together AI"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9574,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
