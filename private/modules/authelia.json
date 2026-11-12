@@ -1,0 +1,37 @@
+{
+	"module": "authelia",
+	"name": "Authelia",
+	"title": "Authentication Gateway",
+	"category": "Server",
+	"version": "v4.39.28",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "authelia/authelia",
+	"description": "An authentication gateway with single sign-on and multifactor protection for reverse-proxied web applications.",
+	"hero": "a vigilant guardian checking a glowing two-part key before an elegant gateway of protected applications. regal, secure, watchful",
+	"keywords": [
+		"authentication",
+		"gateway",
+		"identity",
+		"mfa",
+		"oidc",
+		"reverseproxy",
+		"sso",
+		"totp"
+	],
+	"proprietary": [
+		"Auth0",
+		"Cisco Duo",
+		"Okta"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9576,
+		"permissions": [
+			"user"
+		]
+	}
+}
