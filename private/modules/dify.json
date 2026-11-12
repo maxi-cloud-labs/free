@@ -1,0 +1,37 @@
+{
+	"module": "dify",
+	"name": "Dify",
+	"title": "AI Workflow Builder",
+	"category": "AI Agentic",
+	"version": "1.19.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "langgenius/dify",
+	"description": "A visual AI application platform for building agents, retrieval pipelines, and automated language model workflows.",
+	"hero": "a conductor assembling luminous agent nodes into an intricate orchestral score of branching workflows. intelligent, creative, kinetic",
+	"keywords": [
+		"agent",
+		"automation",
+		"chatbot",
+		"llm",
+		"orchestration",
+		"pipeline",
+		"rag",
+		"workflow"
+	],
+	"proprietary": [
+		"Google Vertex AI Agent Builder",
+		"Microsoft Copilot Studio",
+		"Relevance AI"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9567,
+		"permissions": [
+			"user"
+		]
+	}
+}
