@@ -1,0 +1,36 @@
+{
+	"module": "localai",
+	"name": "LocalAI",
+	"title": "Local AI Server",
+	"category": "AI Generative",
+	"version": "v4.12.1",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "mudler/LocalAI",
+	"description": "A self-hosted AI server for running language, image, and speech models through compatible APIs.",
+	"hero": "a tiny private power station feeding a constellation of speech, image and language models inside a home. resourceful, sovereign, futuristic",
+	"keywords": [
+		"api",
+		"audio",
+		"embedding",
+		"image",
+		"inference",
+		"llm",
+		"local",
+		"model"
+	],
+	"proprietary": [
+		"Amazon Bedrock",
+		"Azure AI Foundry",
+		"OpenAI API"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9573,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
