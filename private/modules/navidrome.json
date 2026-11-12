@@ -1,0 +1,37 @@
+{
+	"module": "navidrome",
+	"name": "Navidrome",
+	"title": "Music Streaming",
+	"category": "Media",
+	"version": "v0.64.2",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "navidrome/navidrome",
+	"description": "A personal music server for organizing audio libraries and streaming to browsers and compatible mobile clients.",
+	"hero": "a miniature concert hall inside a glowing record player sending musical ribbons toward distant headphones. warm, immersive, melodic",
+	"keywords": [
+		"album",
+		"artist",
+		"library",
+		"music",
+		"playlist",
+		"streaming",
+		"subsonic",
+		"transcoding"
+	],
+	"proprietary": [
+		"Apple Music",
+		"Roon",
+		"Spotify"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9604,
+		"permissions": [
+			"user"
+		]
+	}
+}
