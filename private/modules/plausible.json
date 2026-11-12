@@ -1,0 +1,37 @@
+{
+	"module": "plausible",
+	"name": "Plausible Analytics",
+	"title": "Private Web Analytics",
+	"category": "Server",
+	"version": "v3.2.1",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "plausible/analytics",
+	"description": "A privacy-focused web analytics service with lightweight tracking, traffic reports, and conversion goals.",
+	"hero": "a simple luminous chart rising from an anonymous crowd of silhouettes with no identifying shadows. clear, restrained, thoughtful",
+	"keywords": [
+		"analytics",
+		"campaign",
+		"conversion",
+		"dashboard",
+		"event",
+		"privacy",
+		"traffic",
+		"website"
+	],
+	"proprietary": [
+		"Adobe Analytics",
+		"Fathom Analytics",
+		"Google Analytics"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9595,
+		"permissions": [
+			"user"
+		]
+	}
+}
