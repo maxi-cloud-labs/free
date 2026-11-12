@@ -1,0 +1,36 @@
+{
+	"module": "nginxproxymanager",
+	"name": "Nginx Proxy Manager",
+	"title": "Reverse Proxy Manager",
+	"category": "Server",
+	"version": "v2.16.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "NginxProxyManager/nginx-proxy-manager",
+	"description": "A web control panel for managing NGINX reverse proxy hosts, access rules, and TLS certificates.",
+	"hero": "an architect arranging secure gateways on a luminous map of domain names from a command desk. deliberate, tidy, strategic",
+	"keywords": [
+		"certificate",
+		"dashboard",
+		"domain",
+		"hosting",
+		"https",
+		"nginx",
+		"reverseproxy",
+		"routing"
+	],
+	"proprietary": [
+		"Cloudflare Application Services",
+		"F5 BIG-IP",
+		"NGINX Plus"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9579,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
