@@ -1,0 +1,37 @@
+{
+	"module": "ragflow",
+	"name": "RAGFlow",
+	"title": "AI Document Retrieval",
+	"category": "AI Generative",
+	"version": "v1.0.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "infiniflow/ragflow",
+	"description": "An AI retrieval platform for parsing documents, indexing knowledge, and grounding answers in source content.",
+	"hero": "a river of documents passing through a crystal prism and emerging as a single grounded answer. scholarly, flowing, revelatory",
+	"keywords": [
+		"document",
+		"embedding",
+		"indexing",
+		"knowledge",
+		"llm",
+		"parsing",
+		"rag",
+		"retrieval"
+	],
+	"proprietary": [
+		"Amazon Bedrock Knowledge Bases",
+		"Azure AI Search",
+		"Google Vertex AI Search"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9568,
+		"permissions": [
+			"user"
+		]
+	}
+}
