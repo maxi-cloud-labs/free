@@ -1,0 +1,37 @@
+{
+	"module": "keycloak",
+	"name": "Keycloak",
+	"title": "Identity Management",
+	"category": "Server",
+	"version": "26.8.2",
+	"installMethod": "tar",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "keycloak/keycloak",
+	"description": "An identity and access management server with single sign-on, identity federation, and role-based authorization.",
+	"hero": "a cloaked keeper wearing a ring of golden identity keys before a grand fortress gate. authoritative, protective, mythic",
+	"keywords": [
+		"authentication",
+		"federation",
+		"identity",
+		"oauth",
+		"oidc",
+		"role",
+		"saml",
+		"sso"
+	],
+	"proprietary": [
+		"Auth0",
+		"Microsoft Entra ID",
+		"Okta"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9577,
+		"permissions": [
+			"user"
+		]
+	}
+}
