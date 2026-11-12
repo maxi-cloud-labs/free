@@ -1,0 +1,37 @@
+{
+	"module": "comfyui",
+	"name": "ComfyUI",
+	"title": "AI Media Workflows",
+	"category": "AI Generative",
+	"version": "v0.45.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "Comfy-Org/ComfyUI",
+	"description": "A node-based interface and execution engine for generative image, video, and other AI media workflows.",
+	"hero": "a cozy artist workshop where luminous node cables weave sketches into vivid moving canvases. inventive, colorful, tactile",
+	"keywords": [
+		"diffusion",
+		"generation",
+		"image",
+		"inference",
+		"node",
+		"pipeline",
+		"video",
+		"workflow"
+	],
+	"proprietary": [
+		"Adobe Firefly",
+		"Midjourney",
+		"Runway"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9572,
+		"permissions": [
+			"user"
+		]
+	}
+}
