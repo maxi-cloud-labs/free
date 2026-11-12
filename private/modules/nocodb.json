@@ -1,0 +1,37 @@
+{
+	"module": "nocodb",
+	"name": "NocoDB",
+	"title": "Database Spreadsheet",
+	"category": "Productivity",
+	"version": "2026.10.1",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "nocodb/nocodb",
+	"description": "A spreadsheet-style database platform for organizing records, building forms, and sharing structured data.",
+	"hero": "a spreadsheet unfolding into a three-dimensional city of linked database tables. structured, accessible, inventive",
+	"keywords": [
+		"api",
+		"database",
+		"form",
+		"nocode",
+		"record",
+		"spreadsheet",
+		"table",
+		"view"
+	],
+	"proprietary": [
+		"Airtable",
+		"Microsoft Lists",
+		"Smartsheet"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9589,
+		"permissions": [
+			"user"
+		]
+	}
+}
