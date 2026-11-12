@@ -1,0 +1,37 @@
+{
+	"module": "outline",
+	"name": "Outline",
+	"title": "Collaborative Wiki",
+	"category": "Knowledge",
+	"version": "v1.12.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "outline/outline",
+	"description": "A collaborative knowledge base for writing, organizing, and searching team documentation and internal guides.",
+	"hero": "a luminous outline of a mountain formed from shared documents with tiny collaborators along its ridge. clear, collaborative, elevated",
+	"keywords": [
+		"collaboration",
+		"document",
+		"editor",
+		"knowledgebase",
+		"markdown",
+		"search",
+		"team",
+		"wiki"
+	],
+	"proprietary": [
+		"Confluence",
+		"Notion",
+		"Slab"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9584,
+		"permissions": [
+			"user"
+		]
+	}
+}
