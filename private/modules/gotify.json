@@ -1,0 +1,37 @@
+{
+	"module": "gotify",
+	"name": "Gotify",
+	"title": "Notification Server",
+	"category": "Utils",
+	"version": "v3.1.1",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "gotify/server",
+	"description": "A simple self-hosted notification server for delivering application messages to web and Android clients.",
+	"hero": "a swift messenger catching a glowing notification and delivering it to a waiting phone across a bridge. direct, lively, reliable",
+	"keywords": [
+		"alert",
+		"android",
+		"application",
+		"message",
+		"notification",
+		"push",
+		"subscription",
+		"websocket"
+	],
+	"proprietary": [
+		"OneSignal",
+		"Pushbullet",
+		"Pushover"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9605,
+		"permissions": [
+			"user"
+		]
+	}
+}
