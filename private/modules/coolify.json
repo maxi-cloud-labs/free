@@ -1,0 +1,36 @@
+{
+	"module": "coolify",
+	"name": "Coolify",
+	"title": "App Deployment",
+	"category": "Server",
+	"version": "v4.7.5",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "coollabsio/coolify",
+	"description": "A self-hosted deployment platform for publishing applications, databases, and services from code repositories.",
+	"hero": "a launch tower lifting colorful application capsules toward a private cloud while an engineer watches. ambitious, empowering, cinematic",
+	"keywords": [
+		"application",
+		"container",
+		"database",
+		"deployment",
+		"docker",
+		"git",
+		"hosting",
+		"paas"
+	],
+	"proprietary": [
+		"Heroku",
+		"Netlify",
+		"Vercel"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9580,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
