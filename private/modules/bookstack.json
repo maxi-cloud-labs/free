@@ -1,0 +1,37 @@
+{
+	"module": "bookstack",
+	"name": "BookStack",
+	"title": "Team Documentation",
+	"category": "Knowledge",
+	"version": "v26.09.3",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "BookStackApp/BookStack",
+	"description": "A team documentation platform for organizing shared knowledge into books, chapters, and searchable pages.",
+	"hero": "a tall stack of illuminated books opening into a carefully organized library of shared knowledge. scholarly, warm, inviting",
+	"keywords": [
+		"book",
+		"chapter",
+		"documentation",
+		"editor",
+		"knowledgebase",
+		"manual",
+		"permission",
+		"wiki"
+	],
+	"proprietary": [
+		"Confluence",
+		"GitBook",
+		"Notion"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9583,
+		"permissions": [
+			"user"
+		]
+	}
+}
