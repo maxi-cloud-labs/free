@@ -1,0 +1,37 @@
+{
+	"module": "authentik",
+	"name": "authentik",
+	"title": "Single Sign-On",
+	"category": "Server",
+	"version": "version/2026.8.5",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "goauthentik/authentik",
+	"description": "An identity provider for centralized authentication, single sign-on, and access management across applications.",
+	"hero": "a gatekeeper holding one radiant identity badge that opens a corridor of many doors. confident, secure, ceremonial",
+	"keywords": [
+		"authentication",
+		"identity",
+		"ldap",
+		"mfa",
+		"oauth",
+		"oidc",
+		"saml",
+		"sso"
+	],
+	"proprietary": [
+		"Auth0",
+		"Microsoft Entra ID",
+		"Okta"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9562,
+		"permissions": [
+			"user"
+		]
+	}
+}
