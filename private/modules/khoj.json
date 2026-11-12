@@ -1,0 +1,37 @@
+{
+	"module": "khoj",
+	"name": "Khoj",
+	"title": "AI Second Brain",
+	"category": "AI Agentic",
+	"version": "2.0.0-beta.28",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "khoj-ai/khoj",
+	"description": "A personal AI assistant for searching notes, researching questions, and automating tasks with connected knowledge.",
+	"hero": "an explorer carrying a glowing compass through a forest of notes and interconnected memories. adventurous, thoughtful, personal",
+	"keywords": [
+		"agent",
+		"assistant",
+		"automation",
+		"document",
+		"knowledge",
+		"note",
+		"research",
+		"search"
+	],
+	"proprietary": [
+		"ChatGPT",
+		"Google NotebookLM",
+		"Microsoft Copilot"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9571,
+		"permissions": [
+			"user"
+		]
+	}
+}
