@@ -1,0 +1,36 @@
+{
+	"module": "beszel",
+	"name": "Beszel",
+	"title": "Server Monitoring",
+	"category": "Server",
+	"version": "v0.21.1",
+	"installMethod": "wget",
+	"web": true,
+	"recommended": true,
+	"finished": false,
+	"database": "SQLite",
+	"github": "henrygd/beszel",
+	"description": "A lightweight server monitoring dashboard with resource history, container statistics, and alerts.",
+	"hero": "a compact observatory with glowing server heartbeat gauges watched by a tiny vigilant sentinel. precise, calm, watchful",
+	"keywords": [
+		"alert",
+		"container",
+		"cpu",
+		"dashboard",
+		"disk",
+		"history",
+		"memory",
+		"monitoring"
+	],
+	"proprietary": [
+		"Datadog Infrastructure Monitoring",
+		"New Relic Infrastructure",
+		"PRTG"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9563,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
