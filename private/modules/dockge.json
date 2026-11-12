@@ -1,0 +1,36 @@
+{
+	"module": "dockge",
+	"name": "Dockge",
+	"title": "Compose Stack Manager",
+	"category": "Server",
+	"version": "1.5.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "",
+	"github": "louislam/dockge",
+	"description": "A web-based Docker Compose stack manager for editing configurations and controlling container services.",
+	"hero": "a harbor master arranging neatly labeled shipping containers on a glowing dockside control panel. practical, calm, industrial",
+	"keywords": [
+		"compose",
+		"container",
+		"dashboard",
+		"deployment",
+		"docker",
+		"management",
+		"service",
+		"stack"
+	],
+	"proprietary": [
+		"Docker Desktop",
+		"Portainer Business Edition",
+		"Rancher Prime"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9581,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
