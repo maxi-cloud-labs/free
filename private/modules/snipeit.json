@@ -1,0 +1,37 @@
+{
+	"module": "snipeit",
+	"name": "Snipe-IT",
+	"title": "IT Asset Management",
+	"category": "Productivity",
+	"version": "v8.8.3",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "grokability/snipe-it",
+	"description": "An IT asset management system for tracking hardware, software licenses, assignments, and equipment history.",
+	"hero": "a meticulous quartermaster cataloging laptops and tools with glowing inventory tags in an orderly depot. precise, dependable, methodical",
+	"keywords": [
+		"asset",
+		"audit",
+		"equipment",
+		"hardware",
+		"inventory",
+		"license",
+		"tracking",
+		"warranty"
+	],
+	"proprietary": [
+		"Asset Panda",
+		"Lansweeper",
+		"ManageEngine AssetExplorer"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9592,
+		"permissions": [
+			"user"
+		]
+	}
+}
