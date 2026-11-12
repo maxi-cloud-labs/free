@@ -1,0 +1,35 @@
+{
+	"module": "restic",
+	"name": "restic",
+	"title": "Encrypted Backup",
+	"category": "Utils",
+	"version": "v0.19.1",
+	"installMethod": "apt",
+	"web": false,
+	"recommended": true,
+	"finished": false,
+	"database": "",
+	"github": "restic/restic",
+	"description": "An encrypted backup tool with deduplication, snapshots, and support for local and remote storage.",
+	"hero": "a locked treasure chest preserving miniature snapshots of a world beneath layers of protective glass. resilient, reassuring, timeless",
+	"keywords": [
+		"backup",
+		"deduplication",
+		"encryption",
+		"recovery",
+		"repository",
+		"snapshot",
+		"storage",
+		"versioning"
+	],
+	"proprietary": [
+		"Acronis Cyber Protect",
+		"Backblaze",
+		"Veeam"
+	],
+	"default": {
+		"cmds": [
+			"/usr/bin/restic"
+		]
+	}
+}
