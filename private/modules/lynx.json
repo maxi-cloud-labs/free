@@ -1,0 +1,31 @@
+{
+	"module": "lynx",
+	"name": "Lynx",
+	"title": "Text Browser",
+	"category": "Utils",
+	"version": "2.9.2",
+	"installMethod": "apt",
+	"web": false,
+	"recommended": false,
+	"finished": true,
+	"database": "",
+	"github": "ThomasDickey/lynx-snapshots",
+	"description": "A text-based web browser for navigating websites and reading HTML documents directly in the terminal.",
+	"hero": "a sharp-eyed lynx following glowing hyperlinks through a forest of terminal text. curious, minimal, nocturnal",
+	"keywords": [
+		"browser",
+		"html",
+		"http",
+		"https",
+		"keyboard",
+		"navigation",
+		"terminal",
+		"text"
+	],
+	"proprietary": [],
+	"default": {
+		"cmds": [
+			"/usr/bin/lynx"
+		]
+	}
+}
