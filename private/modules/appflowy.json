@@ -1,0 +1,37 @@
+{
+	"module": "appflowy",
+	"name": "AppFlowy",
+	"title": "AI Team Workspace",
+	"category": "Collaboration",
+	"version": "0.15.0",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "AppFlowy-IO/AppFlowy",
+	"description": "An AI-assisted collaborative workspace for documents, databases, project boards, and shared team knowledge.",
+	"hero": "a flowing ribbon of documents and project boards weaving between desks in a bright creative studio. fluid, collaborative, imaginative",
+	"keywords": [
+		"ai",
+		"collaboration",
+		"database",
+		"document",
+		"kanban",
+		"note",
+		"project",
+		"workspace"
+	],
+	"proprietary": [
+		"Coda",
+		"Microsoft Loop",
+		"Notion"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9585,
+		"permissions": [
+			"user"
+		]
+	}
+}
