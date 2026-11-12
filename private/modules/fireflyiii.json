@@ -1,0 +1,37 @@
+{
+	"module": "fireflyiii",
+	"name": "Firefly III",
+	"title": "Personal Finance",
+	"category": "Personal",
+	"version": "v6.7.9",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "MySQL",
+	"github": "firefly-iii/firefly-iii",
+	"description": "A personal finance manager for tracking accounts, transactions, budgets, and recurring expenses.",
+	"hero": "a glowing firefly illuminating a household ledger as golden transaction trails form a balanced constellation. warm, careful, hopeful",
+	"keywords": [
+		"account",
+		"budget",
+		"expense",
+		"finance",
+		"income",
+		"report",
+		"rule",
+		"transaction"
+	],
+	"proprietary": [
+		"Monarch Money",
+		"Quicken Simplifi",
+		"YNAB"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9603,
+		"permissions": [
+			"user"
+		]
+	}
+}
