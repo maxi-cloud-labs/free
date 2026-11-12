@@ -1,0 +1,36 @@
+{
+	"module": "grafana",
+	"name": "Grafana",
+	"title": "Metrics Dashboard",
+	"category": "Server",
+	"version": "v13.3.1",
+	"installMethod": "deb",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "SQLite",
+	"github": "grafana/grafana",
+	"description": "An observability dashboard platform for visualizing metrics, logs, and traces from multiple data sources.",
+	"hero": "a panoramic observatory filled with vivid graphs tracking the pulse of a sleeping city of servers. watchful, radiant, panoramic",
+	"keywords": [
+		"alert",
+		"dashboard",
+		"datasource",
+		"log",
+		"metric",
+		"monitoring",
+		"observability",
+		"visualization"
+	],
+	"proprietary": [
+		"Datadog",
+		"New Relic",
+		"Splunk"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9596,
+		"permissions": [],
+		"permissionsPublicForbidden": true
+	}
+}
