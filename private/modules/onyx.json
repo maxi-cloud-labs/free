@@ -1,0 +1,37 @@
+{
+	"module": "onyx",
+	"name": "Onyx",
+	"title": "AI Knowledge Search",
+	"category": "AI Generative",
+	"version": "v5.1.1",
+	"installMethod": "clone",
+	"web": true,
+	"recommended": false,
+	"finished": false,
+	"database": "PostgreSQL",
+	"github": "onyx-dot-app/onyx",
+	"description": "An AI chat and knowledge search platform that connects language models to organizational documents and applications.",
+	"hero": "a polished onyx gemstone illuminating a branching library of knowledge with a focused beam. dark, precise, insightful",
+	"keywords": [
+		"assistant",
+		"connector",
+		"document",
+		"enterprise",
+		"knowledge",
+		"llm",
+		"rag",
+		"search"
+	],
+	"proprietary": [
+		"Glean",
+		"Google Cloud Search",
+		"Microsoft 365 Copilot"
+	],
+	"default": {
+		"enabled": true,
+		"localPort": 9570,
+		"permissions": [
+			"user"
+		]
+	}
+}
