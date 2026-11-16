@@ -1,4 +1,4 @@
-	@use "tailwindcss";
+@use "tailwindcss";
 @use "lightdark.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -15,15 +15,6 @@
 	--color-blue-800: #011f5d;
 	--color-blue-900: #000f4e;
 	--color-blue-950: #000827;
-
-	--color-dark: var(--color--blue-950);
-	--color-mid: var(--color--blue-600);
-	--color-accent: #d20017;
-	--color-lightgray: var(--color-gray-200);
-	--color-white_: var(--color-white);
-	--color-clear: var(--color-stone-100);
-	--color-darkgray: var(--color-gray-400);
-	--color-black_: var(--color-black);
 
 	--color-modernsecond: #14243c;
 	--color-modernthird: #284c70;
