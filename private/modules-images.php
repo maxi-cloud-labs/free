@@ -116,7 +116,8 @@ const MOOD = [
 	"developer" => "precise, technical, inventive",
 	"utils" => "handy, compact, clever",
 	"knowledge" => "calm, scholarly, curious",
-	"ai" => "futuristic, intelligent, mysterious",
+	"ai agentic" => "futuristic, intelligent, mysterious",
+	"ai generative" => "futuristic, intelligent, mysterious",
 	"collaboration" => "warm, connected, human",
 	"productivity" => "focused, efficient, clean",
 	"media" => "cinematic, immersive, dramatic",
@@ -277,7 +278,11 @@ function generateCodex($command) {
 					$item = $event["item"] ?? [];
 					echo "[Codex] " . ($item["text"] ?? $item["type"] ?? "Item completed") . "\n";
 				} elseif ($type === "turn.completed") {
-					//echo "[Codex] Completed\n";
+					$usage = $event["usage"] ?? [];
+					$input = $usage["input_tokens"] ?? 0;
+					$cached = $usage["cached_input_tokens"] ?? 0;
+					$output = $usage["output_tokens"] ?? 0;
+					echo "[Codex] Completed. Tokens: input=$input (cached=$cached), output=$output, total=" . ($input + $output) . "\n";
 				} elseif ($type === "turn.failed" || $type === "error")
 					echo "[Codex] ERROR: $line";
 				elseif ($type === "turn.started") {
