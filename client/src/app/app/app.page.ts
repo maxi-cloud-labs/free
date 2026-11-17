@@ -55,7 +55,6 @@ pageInit() {
 		if (params["name"])
 			this.cardIdCur = this.global.modulesDataFindId(params["name"]);
 		window.scrollTo({ top:0, behavior:"smooth" });
-		this.modernbar.showMenuCategories = false;
 		this.cdr.detectChanges();
 	});
 }

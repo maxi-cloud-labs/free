@@ -1,4 +1,6 @@
 import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, Input } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
 import { CategoriesOrg } from '../../myinterface';
 import { Global } from '../../env';
 
@@ -12,14 +14,30 @@ export class ModernbarComponent {
 LG(st) { return this.global.mytranslateG(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 showSidebar: boolean = false;
+@ViewChild("searchTermE") searchTermE: ElementRef;
 private documentClickListener: (() => void) | null = null;
 cards = this.global.modulesData;
 sidebarFilteredModules;
+category: string = "All";
+showUserMenu = false;
+filteredCards = [];
+filteredGithubStars;
+CategoriesOrg = CategoriesOrg;
+showMenuCategories = false;
+searchTerm: string = "";
 
-constructor(public global: Global, private cdr: ChangeDetectorRef) {
+constructor(public global: Global, private cdr: ChangeDetectorRef, private router: Router) {
 	this.filterCards();
 	this.showMenuCategories = false;
 	this.sidebarFilterCards();
+	this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
+		if (event instanceof NavigationEnd) {
+			this.searchTerm = "";
+			this.showMenuCategories = false;
+			this.filterCards();
+			this.cdr.markForCheck();
+		}
+	});
 }
 
 ngOnDestroy() {
@@ -67,17 +85,6 @@ sidebarFilterCards() {
 	});
 }
 
-
-
-
-
-
-
-
-category: string = "All";
-
-showUserMenu:boolean = false;
-
 toggleUserMenu() {
 	this.showUserMenu = !this.showUserMenu;
 }
@@ -88,22 +95,6 @@ getInitials() {
 	const initials = nameParts.map(name => name.charAt(0)).join("").toUpperCase();
 	return initials;
 }
-
-
-
-
-
-
-
-
-
-
-filteredCards = [];
-filteredGithubStars;
-CategoriesOrg = CategoriesOrg;
-showMenuCategories = false;
-@ViewChild("searchTermE") searchTermE: ElementRef;
-searchTerm: string = "";
 
 private lastCtrlFPressTimestamp: number = 0;
 @HostListener("document:keydown", ["$event"]) handleKeyboardEvent(event: KeyboardEvent) {
