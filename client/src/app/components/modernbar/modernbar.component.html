@@ -297,10 +297,7 @@
 					</a>
 				</div>
 				<div class="border-t border-white/10 flex gap-3 px-4 py-2 pb-1 text-white">
-					<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border-white' : ''"></ion-icon></a>
-					<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border-white' : ''"></ion-icon></a>
-					<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border-white' : ''"></ion-icon></a>
-					<div class="ml-3 -mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
+					<div class="-mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
 						<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border-white' : ''">🇺🇸</span></a>
 						<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border-white' : ''">🇫🇷</span></a></div>
 					</div>
