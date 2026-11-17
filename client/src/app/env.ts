@@ -500,11 +500,11 @@ bg--lime-600
 
 colorPercent(p, limits = [ 80, 50 ]) {
 	if (p >= limits[0])
-		return "bg--red-400";
+		return "bg--red-600";
 	else if (p >= limits[1])
-		return "bg--yellow-400";
+		return "bg--yellow-600";
 	else
-		return "bg--green-400";
+		return "bg--green-600";
 }
 
 formatCount(count) {
