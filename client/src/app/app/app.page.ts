@@ -2,7 +2,6 @@ import { Component, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStr
 import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ModernbarComponent } from '../components/modernbar/modernbar.component';
 import { Global } from '../env';
 import { CategoriesBar, CategoriesOrg } from '../myinterface';
 import { BleService } from '../ble';
@@ -20,7 +19,7 @@ LG(st) { return this.global.mytranslateG(st); }
 LK(st) { return this.global.mytranslateK(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 LMD(st) { return this.global.mytranslateMD(st); }
-@ViewChild(ModernbarComponent) modernbar;
+@ViewChild("modernbar") modernbar: any;
 cardIdCur = 0;
 cardConfig;
 cards = this.global.modulesData;
