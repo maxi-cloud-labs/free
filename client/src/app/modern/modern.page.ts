@@ -419,9 +419,20 @@ ceil(a) {
   standalone: false
 })
 export class FilterByCategoriesPipe implements PipeTransform {
-transform(cards: any[], categories: string[]): any[] {
+transform(cards: any[], categories: string[], sortBy: string): any[] {
 	const categorySet = new Set(categories);
-	return cards.filter(card => categorySet.has(card.category));
+	const filtered = cards.filter(card => categorySet.has(card.category));
+	if (sortBy === "azn")
+		return filtered.sort((a, b) => a.name.localeCompare(b.name));
+	if (sortBy === "zan")
+		return filtered.sort((a, b) => b.name.localeCompare(a.name));
+	if (sortBy === "azt")
+		return filtered.sort((a, b) => a.title.localeCompare(b.title));
+	if (sortBy === "zat")
+		return filtered.sort((a, b) => b.title.localeCompare(a.title));
+	if (sortBy ===  "stars")
+		return filtered.sort((a, b) => b.githubStars - a.githubStars);
+	return filtered;
 }
 
 }

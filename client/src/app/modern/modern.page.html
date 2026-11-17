@@ -136,13 +136,23 @@
 		<main class="mt-12 grid min-w-0 gap-8 px-4 pb-12 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
 			<div>
 				<div *ngFor="let supercat of CategoriesVisible; let first = first" class="pb-10 scroll-mt-6">
-					<ng-container *ngIf="(cards | filterByCategories:supercat.categories) as visibleCards">
+					<input #sortMode type="hidden" value="azn">
+					<ng-container *ngIf="(cards | filterByCategories:supercat.categories:sortMode.value) as visibleCards">
 						<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
-							<a routerLink="/" [queryParams]="{ category:supercat.name }" class="flex min-w-0 flex-1 flex-wrap gap-x-2 gap-y-1">
-								<h2 *ngIf="supercat.name != supercat.categories[0]" class="text-xl md:text-2xl font-bold" [class]="global.colorWord(supercat.categories[0], false)">{{LG(supercat.name)}}:</h2>
+							<a routerLink="/" [queryParams]="{ category:supercat.name }" class="flex min-w-0 flex-wrap gap-x-2 gap-y-1">
+								<h2 *ngIf="supercat.name != supercat.categories" class="text-xl md:text-2xl font-bold" [class]="global.colorWord(supercat.categories[0], false)">{{LG(supercat.name)}}:</h2>
 								<h2 *ngFor="let subcat of supercat.categories; let last = last" class="text-xl md:text-2xl font-bold cursor-pointer" [class]="global.colorWord(subcat, false)">{{LG(subcat)}}{{!last ? ', ' : ''}}</h2>
 							</a>
-							<span class="text-lg text-white">{{visibleCards.length}} {{LG("Apps")}}</span>
+							<div class="flex items-center gap-6">
+								<select #sort_Mode (change)="sortMode.value = sort_Mode.value" [class]="sortMode.value == 'azt' || sortMode.value == 'zat' ? 'text-red-600' : 'text-white'" class="rounded-lg bg-modernsecond px-1 py-1 text-sm focus:outline-none">
+									<option value="azn" class="text-white">A↓</option>
+									<option value="zan" class="text-white">Z↑</option>
+									<option value="azt" class="text-red-600">A↓</option>
+									<option value="zat" class="text-red-600">Z↑</option>
+									<option value="stars" class="text-white">⭐</option>
+								</select>
+								<span class="text-lg text-white">{{visibleCards.length}} {{LG("Apps")}}</span>
+							</div>
 						</div>
 						<div class="pt-2">
 							<div class="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6">
