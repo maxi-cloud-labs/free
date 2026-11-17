@@ -1,46 +1,47 @@
-<aside [class]="showSidebar ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-modernsecond border-r border--gray-200 transform transition-transform duration-300 ease-in-out user-mobile-menu h-full -translate-x-full">
-	<div class="flex flex-col h-full border-r border--gray-200 w-64">
-		<div class="h-16 flex items-center justify-between px-6 border-b border--gray-200 sticky top-0 z-10">
+<aside [class]="showSidebar ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-72 max-w-[90vw] border-r border-white/10 bg-modernsecond text-white shadow-2xl transition-transform duration-300 ease-in-out -translate-x-full">
+	<div class="flex h-full min-h-0 flex-col">
+		<div class="h-16 flex items-center justify-between px-6 border-b border-white/10 sticky top-0 z-10">
 			<div class="flex items-center gap-2">
-			<a routerLink="/" (click)="global.openHome()" title="Dashboard" class="-ml-2 cursor-pointer">
-				<span class="text-3xl font-extrabold text-blue-200">m</span><span class="text-3xl font-extrabold text-blue-600">A</span><span class="text-3xl font-extrabold text-blue-200">x</span><span class="text-3xl font-extrabold text-blue-600 font-[monospace]">I</span><span class="text-3xl font-extrabold text-blue-200">.</span><img src="assets/images/logo-cloud.png" class="h-8" alt="mAxI.cloud" style="display:inline-block; vertical-align:baseline;">
-			</a>
-			<button (click)="showSidebar = false" class="ml-2 rounded-md hover:bg--gray-100 transition-colors">
-				<ion-icon name="close-circle-outline" class="w-5 h-5 text--gray-600"></ion-icon>
-			</button>
+				<a (click)="showSidebar = false" class="mr-auto flex shrink-0 items-end cursor-pointer leading-none">
+					<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
+					<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
+				</a>
+				<button (click)="showSidebar = false" class="ml-2 rounded-md hover:bg-white/10 transition-colors cursor-pointer">
+					<ion-icon name="close-circle-outline" class="w-5 h-5 text-white/60"></ion-icon>
+				</button>
 			</div>
 		</div>
-		<nav class="flex-1 py-6 px-3 space-y-1 overflow-y-hide">
-			<div class="px-3 text-s font-semibold text--gray-600 tracking-wider">{{LG("MODULES")}}</div>
-			<a routerLink="/" (click)="global.openHome()" title="Dashboard" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group cursor-pointer">
+		<nav class="flex-1 py-6 px-3 space-y-1 min-h-0 overflow-y-auto overscroll-contain">
+			<div class="px-3 text-xs font-semibold text-white/60 tracking-wider">{{LG("MODULES")}}</div>
+			<a routerLink="/" (click)="global.openHome()" title="Dashboard" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 group cursor-pointer">
 					<ion-icon name="apps-outline" class="h-5 w-5"></ion-icon>
 				<span>{{LG("Dashboard")}}</span>
-				<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{global.modulesData.length}}</span>
+				<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.modulesData.length}}</span>
 			</a>
-			<div class="ml-2 flex flex-col rounded-lg border border--gray-200">
-				<div class="flex rounded-lg border border--gray-200 p-1">
+			<div class="ml-2 flex flex-col rounded-lg ring-1 ring-white/10">
+				<div class="flex rounded-lg ring-1 ring-white/10 p-1">
 					<label class="relative flex cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('recommended')" (change)="sidebarFilterCards()" value="recommended" class="peer sr-only" checked/>
-						<span class="absolute inset-0 z-0 rounded-md bg--gray-200 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
-						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text--gray-900">
+						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
+						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text-white">
 							<ion-icon name="star-outline" class="w-5 h-5" [class]="global.colorWord('Recommended', false)"></ion-icon>
-							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text--gray-900" [class]="global.colorWord('Recommended', false)">{{LG("Recommended")}}</span>
+							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text-white" [class]="global.colorWord('Recommended', false)">{{LG("Recommended")}}</span>
 						</span>
 					</label>
 					<label class="relative flex grow cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('tag')" (change)="sidebarFilterCards()" value="tag" class="peer sr-only"/>
-						<span class="absolute inset-0 z-0 rounded-md bg--gray-200 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
-						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text--gray-900">
+						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
+						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text-white">
 							<ion-icon name="bookmarks-outline" class="w-5 h-5"></ion-icon>
-							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text--gray-900">{{LG("Tag")}}</span>
+							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text-white">{{LG("Tag")}}</span>
 						</span>
 					</label>
 					<label class="relative flex grow cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('search')" (change)="sidebarFilterCards()" value="search" class="peer sr-only"/>
-						<span class="absolute inset-0 z-0 rounded-md bg--gray-200 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
-						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text--gray-900">
+						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
+						<span class="relative flex flex-col items-center z-10 text-sm font-medium transition-all duration-300 peer-checked:text-white">
 							<ion-icon name="search-outline" class="w-5 h-5"></ion-icon>
-							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text--gray-900">{{LG("Find")}}</span>
+							<span class="relative z-10 text-xs font-medium transition-all duration-300 peer-checked:text-white">{{LG("Find")}}</span>
 						</span>
 					</label>
 				</div>
@@ -48,169 +49,167 @@
 					{{LG("No tagged module.")}}
 				</div>
 				<div [class]="global.sidebarFilterType == 'search' ? '' : 'hidden'">
-					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 border border--gray-300 text--gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring--blue-600 focus:border-transparent transition-colors">
+					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 ring-1 ring-white/15 text-white/60 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:ring-2 focus:ring-white/40 transition-colors">
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
-					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
-						<div class="w-5 h-5" [class]="global.colorWord3(data.category)" [style]="'mask:url(assets/icons/' + data.module + '.png) center / contain no-repeat'"></div>
+					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
+						<img class="w-5 h-5 shrink-0 object-contain" [src]="'assets/icons/' + data.module + '.png'" alt="">
 						<span>{{data['title']}}</span>
 					</a>
 				</div>
 			</div>
-
-			<div joyrideStep="anchor7" title="System" text="Tune the system." stepPosition="right" *ngIf="global.session?.user?.role == 'admin'">
-				<div class="px-3 text-s text--black font-semibold text--gray-600 tracking-wider mt-6 md:mt-12">{{LG("SYSTEM")}}</div>
-				<a routerLink="/settings" title="Settings" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
+			<div *ngIf="global.session?.user?.role == 'admin'">
+				<div class="px-3 text-xs text-white font-semibold text-white/60 tracking-wider mt-6 md:mt-12">{{LG("SYSTEM")}}</div>
+				<a routerLink="/settings" title="Settings" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="settings-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Settings")}}<br><span class="text-xs text-gray-500">{{LG("Wi-Fi, VPN, SSH")}}</span></span>
 				</a>
-				<a routerLink="/ai" title="AI" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/ai" title="AI" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="bulb-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("AI")}}<br><span class="text-xs text-gray-500">{{LG("Keys, Routing")}}</span></span>
 				</a>
-				<a routerLink="/permissions" title="Permissions" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/permissions" title="Permissions" class="flex items-center gap-3 rounded-lg px-3 py-1 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="lock-closed-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Permissions")}}<br><span class="text-xs text-gray-500">{{LG("Access rights, Hits")}}</span></span>
 				</a>
-				<a routerLink="/users" title="Users" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/users" title="Users" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="people-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Users")}}</span>
 				</a>
-				<a routerLink="/hardware" title="Hardware" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="!global.demo || global.developer">
+				<a routerLink="/hardware" title="Hardware" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/85 group cursor-pointer" *ngIf="!global.demo || global.developer">
 					<div class="w-5 h-5 flex items-center justify-center overflow-hidden">
 						<ion-icon name="tv-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Hardware")}}</span>
 				</a>
-				<a [href]="global.openModuleHref('webssh2')" (click)="global.openModuleClick($event, 'webssh2');" title="" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
+				<a [href]="global.openModuleHref('webssh2')" (click)="global.openModuleClick($event, 'webssh2');" title="" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/85 group cursor-pointer" *ngIf="global.session?.user?.username && global.session?.user?.username == global.session?.cloud?.info?.name">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="terminal-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Terminal")}}</span>
 				</a>
-				<a routerLink="/serverlog" title="System Logs" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/serverlog" title="System Logs" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="document-text-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("System Logs")}}</span>
 				</a>
-				<a routerLink="/backup" title="Backup & Restore" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text--gray-800 group cursor-pointer">
+				<a routerLink="/backup" title="Backup & Restore" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/85 group cursor-pointer">
 					<div class="w-5 h-5 flex items-center justify-center">
 						<ion-icon name="download-outline" class="w-5 h-5"></ion-icon>
 					</div>
 					<span>{{LG("Backup & Restore")}}</span>
 				</a>
 			</div>
-
-			<div joyrideStep="anchor8" title="Status" text="Watch the status of your system." stepPosition="right">
-				<div class="px-3 text-s font-semibold text--gray-600 tracking-wider mt-6 md:mt-12 flex items-center">
-					{{LG("STATUS")}}<ion-icon name="remove-circle-outline" class="w-5 h-5 ml-3" [class]="global.statsPeriod <= 1 ? 'text--gray-200' : ' cursor-pointer'" (click)="global.statsPeriodChange(-1);"></ion-icon><ion-icon name="add-circle-outline" class="w-5 h-5 ml-2" [class]="global.statsPeriod >= 30 ? 'text--gray-200' : ' cursor-pointer'" (click)="global.statsPeriodChange(1);"></ion-icon><span class="ml-2 text-xs">{{global.statsPeriod}}s</span>
+			<div>
+				<div class="px-3 text-xs font-semibold text-white/60 tracking-wider mt-6 md:mt-12 flex items-center">
+					{{LG("STATUS")}}<ion-icon name="remove-circle-outline" class="w-5 h-5 ml-3" [class]="global.statsPeriod <= 1 ? 'text-white/30' : ' cursor-pointer'" (click)="global.statsPeriodChange(-1);"></ion-icon><ion-icon name="add-circle-outline" class="w-5 h-5 ml-2" [class]="global.statsPeriod >= 30 ? 'text-white/30' : ' cursor-pointer'" (click)="global.statsPeriodChange(1);"></ion-icon><span class="ml-2 text-xs">{{global.statsPeriod}}s</span>
 				</div>
 				<div class="px-3 py-2">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("Storage")}} ({{(global.statsData?.storage?.available / 1024)?.toFixed(0)}} GB {{LG("free")}})</span>
+						<span class="text-white/60">{{LG("Storage")}} ({{(global.statsData?.storage?.available / 1024)?.toFixed(0)}} GB {{LG("free")}})</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent(global.statsData?.storage?.usage)" ></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{global.statsData?.storage?.usage?.toFixed(0)}}%</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.statsData?.storage?.usage?.toFixed(0)}}%</span>
 						</div>
 					</div>
-					<div class="mt-2 w-full bg--gray-200 rounded-full h-1 flex">
-						<div class="h-1 rounded-full" [class]="global.colorPercent(global.statsData?.storage?.usage)" style="width:{{global.statsData?.storage?.usage}}%"></div>
+					<div class="mt-2 w-full bg-white/10 rounded-full h-1 flex">
+						<div class="h-1 shrink-0 rounded-full" [class]="global.colorPercent(global.statsData?.storage?.usage)" [style.width.%]="global.statsData?.storage?.usage"></div>
 					</div>
 				</div>
 				<div class="px-3 py-2">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("CPU")}}</span>
+						<span class="text-white/60">{{LG("CPU")}}</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system, [ 50, 20 ])"></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system)?.toFixed(0)}}%</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system)?.toFixed(0)}}%</span>
 						</div>
 					</div>
-					<div class="mt-2 w-full bg--gray-200 rounded-full h-1 flex">
-						<div class="h-1 rounded-full" [class]="global.colorPercent(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system, [ 50, 20 ])" style="width:{{global.statsData?.cpu?.current?.user}}%"></div>
-						<div class="bg--gray-200 h-1 rounded-full" style="width:1px"></div>
-						<div class="h-1 rounded-full" [class]="global.colorPercent(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system, [ 50, 20 ])" style="width:{{global.statsData?.cpu?.current?.system}}%"></div>
+					<div class="mt-2 w-full bg-white/10 rounded-full h-1 flex">
+						<div class="h-1 shrink-0 rounded-full" [class]="global.colorPercent(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system, [ 50, 20 ])" [style.width.%]="global.statsData?.cpu?.current?.user"></div>
+						<div class="h-1 w-px bg-white/10"></div>
+						<div class="h-1 shrink-0 rounded-full" [class]="global.colorPercent(global.statsData?.cpu?.current?.user + global.statsData?.cpu?.current?.system, [ 50, 20 ])" [style.width.%]="global.statsData?.cpu?.current?.system"></div>
 					</div>
 				</div>
 				<div class="px-3 py-2" *ngIf="global.developer">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("Mem")}}</span>
+						<span class="text-white/60">{{LG("Mem")}}</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)"></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)?.toFixed(0)}}%</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)?.toFixed(0)}}%</span>
 						</div>
 					</div>
-					<div class="mt-2 w-full bg--gray-200 rounded-full h-1 flex">
-						<div class="h-1 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)"  style="width:{{(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)?.toFixed(0)}}%"></div>
+					<div class="mt-2 w-full bg-white/10 rounded-full h-1 flex">
+						<div class="h-1 shrink-0 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)" [style.width.%]="(global.statsData?.mem?.used * 100 / global.statsData?.mem?.total)?.toFixed(0)"></div>
 					</div>
 				</div>
 				<div class="px-3 py-2" *ngIf="global.developer">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("Swap")}}</span>
+						<span class="text-white/60">{{LG("Swap")}}</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)"></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)?.toFixed(0)}}%</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)?.toFixed(0)}}%</span>
 						</div>
 					</div>
-					<div class="mt-2 w-full bg--gray-200 rounded-full h-1 flex">
-						<div class="h-1 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)"  style="width:{{(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)?.toFixed(0)}}%"></div>
+					<div class="mt-2 w-full bg-white/10 rounded-full h-1 flex">
+						<div class="h-1 shrink-0 rounded-full" [class]="global.colorPercent(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)" [style.width.%]="(global.statsData?.mem?.swap?.used * 100 / global.statsData?.mem?.swap?.total)?.toFixed(0)"></div>
 					</div>
 				</div>
 				<div class="px-3 py-2">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("Network")}}</span>
+						<span class="text-white/60">{{LG("Network")}}</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent((global.statsData?.network?.current?.rx + global.statsData?.network?.current?.tx) / 1024, [ 1024, 512 ])" ></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{((global.statsData?.network?.current?.rx + global.statsData?.network?.current?.tx) / 1024)?.toFixed(0)}} kB/s</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{((global.statsData?.network?.current?.rx + global.statsData?.network?.current?.tx) / 1024)?.toFixed(0)}} kB/s</span>
 						</div>
 					</div>
 				</div>
 				<div class="px-3 py-2">
 					<div class="flex items-center justify-between text-xs">
-						<span class="text--gray-600">{{LG("Users")}}</span>
+						<span class="text-white/60">{{LG("Users")}}</span>
 						<div class="flex items-center gap-1">
 							<div class="w-2 h-2 rounded-full" [class]="global.colorPercent(global.statsData?.users.count, [ 1000, 100 ])" ></div>
-							<span class="ml-auto text--gray-600 text-xs px-2 py-0.5 rounded-full font-medium">{{global.statsData?.users.count}}</span>
+							<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.statsData?.users.count}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</nav>
-		<div class="flex gap-3 px-4 mb-2 text--gray-900">
-			<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-			<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-			<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border--gray-900' : ''"></ion-icon></a>
+		<div class="flex gap-3 px-4 mb-2 text-white">
+			<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border-white' : ''"></ion-icon></a>
+			<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border-white' : ''"></ion-icon></a>
+			<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border-white' : ''"></ion-icon></a>
 		</div>
 	</div>
 </aside>
-<header class="relative flex items-center justify-between h-16 mx-6 my-2">
-	<button (click)="showSidebar = !showSidebar" class="-ml-4 mr-2 mt-3 p-2 rounded-md transition-colors user-mobile-button cursor-pointer">
+<header (window:keydown.escape)="showSidebar = false; showUserMenu = false" class="relative flex flex-wrap items-center gap-2 sm:gap-3 px-4 py-4 text-white sm:px-6 lg:flex-nowrap lg:px-8">
+	<button type="button" (click)="showSidebar = !showSidebar" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-modernsecond transition-colors hover:bg-modernthird cursor-pointer">
 		<ion-icon name="menu-outline" class="w-6 h-6 text-white"></ion-icon>
 	</button>
-	<div *ngIf="showSidebar" (click)="showSidebar = false" class="fixed inset-0 bg-white/20 z-40"></div>
+	<div *ngIf="showSidebar" (click)="showSidebar = false" class="fixed inset-0 bg-black/50 z-40"></div>
 <!-- Logo -->
-	<a routerLink="/" [queryParams]="{}" title="Home" class="flex items-end cursor-pointer leading-none">
-		<span class="text-4xl font-extrabold text-white">m</span><span class="text-4xl font-extrabold text-red-600">A</span><span class="text-4xl font-extrabold text-white">x</span><span class="text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-4xl font-extrabold text-white">.</span>
-		<span class="text-3xl font-extrabold text-red-600 inline-block pt-0 pr-4" style="background-image:url('assets/images/logo-cloud2.png'); background-repeat:no-repeat; background-size:55px 30px; background-position:right 0px top 0px;">C<span class="text-xs">loud</span></span>
+	<a routerLink="/" [queryParams]="{}" title="Home" class="mr-auto flex shrink-0 items-end cursor-pointer leading-none">
+		<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
+		<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 	</a>
-	<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
+	<span class="hidden 2xl:block text-sm font-bold text-white/60 leading-relaxed px-2">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
 	<div class="flex-1"></div>
 <!-- Categories -->
 	<div (window:keydown.escape)="showMenuCategories = false">
-		<button type="button" class="hidden xl:block cursor-pointer pr-4" (click)="showMenuCategories = !showMenuCategories">
-			<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-50"></div>
+		<button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl bg-modernsecond hover:bg-modernthird cursor-pointer" (click)="showMenuCategories = !showMenuCategories">
+			<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 ring-1 ring-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-75" alt=""></div>
 		</button>
 		<ng-container *ngIf="showMenuCategories">
 			<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
-			<nav class="absolute top-full z-50 rounded-xl bg-modernsecond text-white border border-gray-700 px-4 py-3 gap-x-4 gap-y-3 flex flex-col">
+			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl ring-1 ring-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
 				<div *ngFor="let supset of CategoriesOrg; let i = index" class="flex flex-col">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
@@ -229,19 +228,19 @@
 		</ng-container>
 	</div>
 <!-- Search -->
-	<div class="relative">
-		<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{LG('Search app...')}}" class="w-full h-10 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
+	<div class="relative order-last w-full lg:order-none lg:min-w-0 lg:flex-4 lg:max-w-md">
+		<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{LG('Search app...')}}" class="w-full h-11 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 ring-1 ring-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
 		<button type="button" (click)="searchTerm = ''; filterCards()" *ngIf="searchTerm != ''" class="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 cursor-pointer">
 			<ion-icon name="close-outline" class="w-4 h-4"></ion-icon>
 		</button>
 		<ion-icon name="search-outline" class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white"></ion-icon>
 		<ng-container *ngIf="searchTerm">
 			<div class="fixed inset-0 z-40" (click)="searchTerm = ''; filterCards()"></div>
-			<div class="absolute -right-26 top-full mt-2 z-50 w-[26rem] max-w-[calc(100vw-2rem)] rounded-xl bg-dark/95 backdrop-blur-md ring-1 ring-white/15 shadow-2xl overflow-hidden text-white">
+			<div class="absolute -right-0 top-full mt-2 z-50 w-full max-h-[75dvh] overflow-y-auto rounded-xl bg-slate-950/95 backdrop-blur-md ring-1 ring-white/50 shadow-2xl text-white">
 				<ul class="p-2">
 					<li *ngFor="let card of filteredCards | slice:0:8">
 						<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-							<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden ring-1 ring-white/10 bg-mid">
+							<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden ring-1 ring-white/10 bg-modernsecond">
 								<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
 							</span>
 							<span class="min-w-0">
@@ -258,54 +257,55 @@
 		</ng-container>
 	</div>
 	<div class="flex-1"></div>
-	<span class="hidden xl:block text-sm text-lightgray font-bold leading-tight mt-0.5 px-8 text-right"><span class="text-red-600">Premium Concierge:</span> all apps are setup,<br> secured, configured and maintained</span>
+	<span class="hidden 2xl:block text-sm font-bold text-white/60 leading-relaxed px-2 text-right"><span class="text-red-600">Premium Concierge:</span> all apps are setup,<br> secured, configured and maintained</span>
 <!-- User Menu -->
-	<div class="flex items-center gap-4 -mr-4 md:-mr-2">
-		<div class="relative bg-modernsecond mt-2 rounded-xl">
-			<button (click)="toggleUserMenu()" class="flex items-center gap-3 p-2 rounded-lg hover:bg--gray-100 transition-colors user-menu-button">
-				<div class="w-8 h-8 bg--red-700 rounded-full flex items-center justify-center cursor-pointer">
+	<div class="flex shrink-0 items-center">
+		<div class="relative rounded-xl bg-modernsecond">
+			<button type="button" (click)="toggleUserMenu()" class="flex min-h-11 items-center gap-3 p-2 rounded-lg hover:bg-white/10 transition-colors ">
+				<div class="w-8 h-8 bg-red-700 rounded-full flex items-center justify-center cursor-pointer">
 					<span class="text-sm font-medium text-white">{{getInitials()}}</span>
 				</div>
-				<div class="hidden md:block text-left cursor-pointer">
+				<div class="hidden xl:block max-w-48 truncate text-left cursor-pointer">
 					<p class="text-sm font-medium text-white">{{global.session?.user?.name}} <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ml-1 mr-1" [class]="global.colorWord(global.session?.user?.role)">{{LG( (global.session?.user?.role?.charAt(0)?.toUpperCase()) + (global.session?.user?.role?.slice(1)) )}}</span></p>
-					<p class="text-xs mt-1 text--gray-500">{{global.session?.user?.email}}</p>
+					<p class="text-xs mt-1 text-white/60">{{global.session?.user?.email}}</p>
 				</div>
-				<ion-icon name="chevron-down-outline" class="h-4 w-4 text--gray-400 cursor-pointer"></ion-icon>
+				<ion-icon name="chevron-down-outline" class="hidden sm:block h-4 w-4 text-white/50 cursor-pointer"></ion-icon>
 			</button>
 			@if (showUserMenu) {
-			<div class="absolute bg--main right-0 mt-2 w-56 rounded-lg shadow-lg border border--gray-200 z-50 user-menu-dropdown">
-				<div class="p-4 border-b border--gray-200 md:hidden">
-					<p class="text-sm font-medium text--gray-900">{{global.session?.user?.name}}</p>
-					<p class="text-sm text--gray-500">{{global.session?.user?.email}}</p>
+			<div class="fixed inset-0 z-40" (click)="showUserMenu = false"></div>
+			<div class="absolute bg-modernsecond right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] max-h-[75dvh] overflow-y-auto rounded-2xl shadow-2xl ring-1 ring-white/50 z-50">
+				<div class="p-4 border-b border-white/10 xl:hidden">
+					<p class="text-sm font-medium text-white">{{global.session?.user?.name}}</p>
+					<p class="break-all text-sm text-white/60">{{global.session?.user?.email}}</p>
 				</div>
 				<div class="px-4 py-2">
-					<a routerLink="/" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+					<a routerLink="/" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="apps-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Dashboard")}}
 					</a>
-					<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+					<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="person-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Profile")}}
 					</a>
-					<a routerLink="/help" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+					<a routerLink="/help" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="help-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Help")}}
 					</a>
-					<a routerLink="/about" class="flex items-center gap-3 py-2 text-sm text--gray-700 hover:bg--gray-100 transition-colors cursor-pointer">
+					<a routerLink="/about" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="information-outline" class="h-4 w-4"></ion-icon>
 						{{LG("About")}}
 					</a>
 				</div>
-				<div class="border-t border--gray-200 flex gap-3 px-4 py-2 pb-1 text--gray-900">
-					<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-					<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border--gray-900' : ''"></ion-icon></a>
-					<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border--gray-900' : ''"></ion-icon></a>
+				<div class="border-t border-white/10 flex gap-3 px-4 py-2 pb-1 text-white">
+					<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border-white' : ''"></ion-icon></a>
+					<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border-white' : ''"></ion-icon></a>
+					<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border-white' : ''"></ion-icon></a>
 					<div class="ml-3 -mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
-						<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border--gray-900' : ''">🇺🇸</span></a>
-						<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border--gray-900' : ''">🇫🇷</span></a></div>
+						<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border-white' : ''">🇺🇸</span></a>
+						<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border-white' : ''">🇫🇷</span></a></div>
 					</div>
-				<div class="border-t border--gray-200 px-4 py-2">
-					<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text--red-600 hover:bg--red-50 transition-colors w-full text-left cursor-pointer">
+				<div class="border-t border-white/10 px-4 py-2">
+					<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text-red-600 hover:bg-red-600/10 transition-colors w-full text-left cursor-pointer">
 						<ion-icon name="log-out-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Log out")}}
 					</button>
@@ -315,4 +315,3 @@
 		</div>
 	</div>
 </header>
-

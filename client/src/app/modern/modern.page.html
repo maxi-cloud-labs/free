@@ -1,23 +1,23 @@
-<div class="flex bg-dark">
-	<div class="flex-1 flex flex-col overflow-x-auto">
+<div class="min-h-screen bg-slate-950 text-white">
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col">
 		<app-modernbar #modernbar></app-modernbar>
-		<section class="px-4 md:px-8 pt-6 grid gap-4 lg:grid-cols-4 mb-8">
+		<section class="mx-auto grid w-full grid-cols-1 gap-5 px-4 pt-6 sm:px-6 lg:grid-cols-4 lg:px-8 mb-8">
 <!-- Hero -->
 			<div class="flex justify-center min-w-0" [class]="helperShown ? 'lg:col-span-3' : 'lg:col-span-4'">
-				<div class="relative w-full max-w-[125vh] aspect-video min-h-[300px] max-h-[72vh] rounded-xl overflow-hidden" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
-					<a routerLink="/app" [queryParams]="{ name:card.module }" *ngFor="let card of heroCards; let i = index" class="absolute inset-0" [class]="i == heroIdx ? 'opacity-100' : 'opacity-0'">
+				<div class="relative w-full max-w-[125vh] aspect-video min-h-[300px] max-h-[72vh] rounded-2xl ring-1 ring-white/10 overflow-hidden" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
+					<div *ngFor="let card of heroCards; let i = index" class="absolute inset-0 transition-opacity duration-500" [class]="i == heroIdx ? 'opacity-100' : 'invisible pointer-events-none opacity-0'" [attr.aria-hidden]="i != heroIdx">
 						<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-0 w-full h-full object-fill">
-						<div class="relative z-10 h-full flex flex-col justify-end gap-3 p-6 xl:p-10">
-							<span class="inline-flex items-center py-0.5 gap-2 rounded-full text-sm font-bold ml-1 mr-1 text-white">
+						<div class="relative z-10 flex h-full flex-col justify-end gap-3 p-5 pb-20 sm:p-8 sm:pb-20 bg-gradient-to-t from-slate-950/50 via-slate-950/15 to-transparent">
+							<span class="hidden md:inline-flex items-center py-0.5 gap-2 rounded-full text-sm font-bold ml-1 mr-1 text-white">
 								<ion-icon name="flame-outline" class="w-4 h-4"></ion-icon>{{L('Best of the best')}} #{{i + 1}}<ion-icon name="flame-outline" class="w-4 h-4"></ion-icon>
 							</span>
-							<h1 class="text-3xl xl:text-5xl font-extrabold leading-none tracking-tight text-red-600 [text-shadow:_2px_2px_0px_rgba(0,0,0,1)]">{{LMT(card.title)}}</h1>
+							<h1 class="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl xl:text-5xl">{{LMT(card.title)}}</h1>
 							<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
 								<span class="inline-flex items-center gap-1 font-bold text-xl rounded-full bg-white/15 text-white backdrop-blur px-3 py-0.5">{{card.name}}</span>
-								<span [class]="global.colorWord(card.category)" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium">{{LG(card.category)}}</span>
-								<span *ngIf="card.github != ''" class="inline-flex items-center gap-1 rounded-full bg-white/15 text-white backdrop-blur px-3 py-0.5 border-0 border-red-500"><ion-icon name="logo-github"></ion-icon>{{global.formatCount(card.githubStars)}} ⭐</span>
+								<span [class]="global.colorWord(card.category)" class="hidden md:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium">{{LG(card.category)}}</span>
+								<span *ngIf="card.github != ''" class="hidden md:inline-flex items-center gap-1 rounded-full bg-white/15 text-white backdrop-blur px-3 py-0.5"><ion-icon name="logo-github"></ion-icon>{{global.formatCount(card.githubStars)}} ⭐</span>
 							</div>
-							<p class="hidden sm:block text-white line-clamp-3 text-white [text-shadow:_1px_1px_0px_rgba(0,0,0,1)]">{{LMD(card.description)}}</p>
+							<p class="hidden text-sm leading-relaxed text-white sm:line-clamp-2">{{LMD(card.description)}}</p>
 							<div class="flex flex-wrap items-center gap-3 pt-2">
 								<a routerLink="/app" [queryParams]="{ name:card.module }" class="inline-flex items-center gap-2 rounded-full bg-red-700 text-white font-bold px-6 py-2.5 hover:bg-red-600 transition-colors cursor-pointer">
 									<ion-icon name="open-outline" class="w-6 h-6"></ion-icon>{{L("Open")}}
@@ -26,11 +26,11 @@
 									<ion-icon [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'" class="w-5 h-5"></ion-icon>
 								</button>
 							</div>
-							<div class="-ml-2 mt-2 max-w-2xl">
+							<div class="-ml-2 mt-2 hidden max-w-2xl sm:block">
 								<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-sm font-bold ml-1 mr-1 text-white [text-shadow:_1px_1px_0px_rgba(0,0,0,1)]" *ngFor="let kw of card.keywords | slice:0:6">{{LK(kw)}}</span>
 							</div>
 						</div>
-					</a>
+					</div>
 <style>
 @property --progress {
 	syntax: '<angle>';
@@ -51,17 +51,17 @@
 	to { --progress: 360deg; }
 }
 </style>
-					<div class="absolute bottom-4 right-4 z-20 flex items-center gap-2 md:bottom-6 md:right-8">
-						<button type="button" class="relative w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroPaused=!heroPaused">
+					<div class="absolute bottom-4 right-4 z-20 flex items-center gap-1 sm:gap-2 md:bottom-6 md:right-8">
+						<button type="button" class="relative w-11 h-11 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [attr.aria-label]="heroPaused ? L('Play') : L('Pause')" (click)="heroPaused=!heroPaused">
 							<span *ngFor="let key of [heroProgressKey]; trackBy: heroProgressTrack" class="absolute -inset-[3px] rounded-full pointer-events-none [background:conic-gradient(white_var(--progress),transparent_0)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),black_0)] hero-ring" [class.paused]="heroPaused" (animationiteration)="heroStep(1)"></span>
 							<ion-icon [name]="heroPaused ? 'play' : 'pause'"></ion-icon>
 						</button>
-						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroStep(-1)">
+						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [attr.aria-label]="L('Previous')" (click)="heroStep(-1)">
 							<ion-icon name="chevron-back-outline"></ion-icon>
 						</button>
-						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all focus:outline-none" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="heroSelect(i)">
+						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" [attr.aria-label]="c.name" [attr.aria-current]="i === heroIdx ? 'true' : null" (click)="heroSelect(i)">
 						</button>
-						<button type="button" class="flex w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="heroStep(1)">
+						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [attr.aria-label]="L('Next')" (click)="heroStep(1)">
 							<ion-icon name="chevron-forward-outline"></ion-icon>
 						</button>
 					</div>
@@ -69,82 +69,88 @@
 				</div>
 			</div>
 <!-- Chatbot -->
-			<aside *ngIf="helperShown" class="relative min-w-0 h-[460px] lg:h-auto lg:min-h-[420px] lg:col-span-1">
-				<div class="absolute inset-0 flex flex-col gap-3 p-4 overflow-hidden
-rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
+			<aside *ngIf="helperShown" class="relative min-w-0 h-[560px] lg:h-auto lg:col-span-1">
+				<div class="absolute inset-0 flex flex-col gap-3 rounded-2xl ring-1 ring-white/10 bg-modernsecond p-5 text-white">
 					<div class="flex items-center gap-2">
 						<span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center"><ion-icon name="sparkles-outline" class="w-4 h-4"></ion-icon></span>
 						<h2 class="font-bold text-white">{{L('App finder')}}</h2>
 						<div class="flex-1"></div>
 						<button type="button" class="w-8 h-8 -mr-2 rounded-full flex items-center justify-center text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="helperShown=false"><ion-icon name="close-circle-outline" class="w-6 h-6"></ion-icon></button>
 					</div>
-					<p class="text-sm leading-snug text-white rounded-xl px-3 pt-2"><span class="font-extrabold underline">Premium concierge:</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
-					<p class="text-sm leading-snug text-white rounded-xl px-3"><span class="font-extrabold underline">Your sovereingty:</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
-					<p class="text-sm leading-snug text-white rounded-xl px-3">{{L("Which app do you want to use now?")}}</p>
-					<div class="self-end max-w-[85%] rounded-xl rounded-tr-sm bg-blue-200/20 px-3 py-2 text-sm line-clamp-2" *ngIf="helperAsked">{{helperQuery}}</div>
-					<div class="flex-1 flex flex-col gap-2" *ngIf="helperAsked">
-						<p class="w-full flex items-center gap-2 text-sm text-white" *ngIf="helperBusy">
-							<ion-icon name="sync-outline" class="w-4 h-4 animate-spin"></ion-icon>
-							{{L("Thinking. Please wait...")}}
-						</p>
-						<a *ngFor="let card of helperResults" class="w-full shrink-0 flex items-center gap-3 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-							<div class="w-7 h-7 m-2" [class]="global.colorWord3(card.category)" [style]="'mask:url(assets/icons/' + card.module + '.png) center / contain no-repeat'"></div>
-							<span class="min-w-0 flex-1">
-								<span class="block font-bold leading-tight truncate" [class]="global.colorWord(card.category, false)">{{LMT(card.title)}}</span>
-								<span class="block text-xs truncate" [class]="global.colorWord(card.category, false)">{{card.name}}</span>
-							</span>
-							<ion-icon name="open-outline" class="w-5 h-5 mr-3" [class]="global.colorWord(card.category, false)"></ion-icon>
-						</a>
-						<p class="text-sm leading-snug text-white rounded-xl px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
-						<p class="w-full text-sm text-white/70" *ngIf="!helperBusy && !helperAnswer && !helperResults.length">{{L("No app matches yet. Try describing what you want to do with other words.")}}</p>
-					</div>
+					<div class="flex min-h-0 flex-col gap-3 pr-2 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/35">
+						<p class="text-sm leading-snug text-white rounded-xl px-3 pt-2"><span class="font-extrabold underline">Premium concierge:</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
+						<p class="text-sm leading-snug text-white rounded-xl px-3"><span class="font-extrabold underline">Your sovereignty:</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
+						<p class="text-sm leading-snug text-white rounded-xl px-3">{{L("Which app do you want to use now?")}}</p>
+						<div class="self-end max-w-[85%] rounded-xl rounded-tr-sm bg-blue-200/20 px-3 py-2 text-sm line-clamp-2" *ngIf="helperAsked">{{helperQuery}}</div>
+						<div class="min-h-0 flex-1 flex flex-col gap-2" *ngIf="helperAsked">
+							<p class="w-full flex items-center gap-2 text-sm text-white" *ngIf="helperBusy">
+								<span class="w-4 h-4 shrink-0 flex items-center justify-center overflow-hidden">
+									<ion-icon name="sync-outline" class="w-4 h-4 animate-spin"></ion-icon>
+								</span>
+								{{L("Thinking. Please wait...")}}
+							</p>
+							<a *ngFor="let card of helperResults" class="w-full shrink-0 flex items-center gap-3 rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
+								<div class="w-7 h-7 m-2" [class]="global.colorWord3(card.category)" [style]="'mask:url(assets/icons/' + card.module + '.png) center / contain no-repeat'"></div>
+								<span class="min-w-0 flex-1">
+									<span class="block font-bold leading-tight truncate" [class]="global.colorWord(card.category, false)">{{LMT(card.title)}}</span>
+									<span class="block text-xs truncate" [class]="global.colorWord(card.category, false)">{{card.name}}</span>
+								</span>
+								<ion-icon name="open-outline" class="w-5 h-5 mr-3" [class]="global.colorWord(card.category, false)"></ion-icon>
+							</a>
+							<p class="text-sm leading-snug text-white rounded-xl px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
+							<p class="w-full text-sm text-white/70" *ngIf="!helperBusy && !helperAnswer && !helperResults.length">{{L("No app matches yet. Try describing what you want to do with other words.")}}</p>
+						</div>
+						</div>
 					<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden" *ngIf="!helperAsked">
 						<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden">
-							<button type="button" *ngFor="let s of ['Create an AI agent', 'Chat with an AI assistant', 'Merge some PDF files']" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" (click)="helper2Send(L(s))">{{L(s)}}</button>
+							<button type="button" *ngFor="let s of ['Create an AI agent', 'Chat with an AI assistant', 'Merge some PDF files']" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors cursor-pointer" (click)="helper2Send(L(s))">{{L(s)}}</button>
 						</div>
 					</div>
-					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
-						<textarea #hq rows="2" maxlength="300" class="flex-1 resize-none text-sm text-white placeholder-gray-400 focus:outline-none focus:bg-modernthird transition-colors" placeholder="{{L('I want to...')}}" (keydown.enter)="helperKey($event, hq)"></textarea>
-						<button type="button" class="w-9 h-9 shrink-0 rounded-xl bg-modernthird text-white flex items-center justify-center cursor-pointer" (click)="helperSend(hq.value); hq.value = ''"><ion-icon name="send-outline" class="w-5 h-5"></ion-icon></button>
+					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 ring-1 ring-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
+						<textarea #hq rows="2" maxlength="300" class="min-w-0 flex-1 resize-none bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird transition-colors" placeholder="{{L('I want to...')}}" (keydown.enter)="helperKey($event, hq)"></textarea>
+						<button type="button" class="w-9 h-9 shrink-0 rounded-xl bg-modernthird text-white flex items-center justify-center cursor-pointer" (click)="helper2Send(hq.value); hq.value = ''"><ion-icon name="send-outline" class="w-5 h-5"></ion-icon></button>
 					</div>
 				</div>
 			</aside>
 		</section>
 <!-- Recommended -->
-		<section *ngIf="CategoriesVisibleAll" class="mt-8 px-4 md:px-8">
-			<div class="flex items-center justify-between mb-3">
+		<section *ngIf="CategoriesVisibleAll" class="mt-4 px-4 sm:px-6 lg:px-8">
+			<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
 				<h2 class="text-xl md:text-2xl font-bold text-white">{{LG("Recommended")}}</h2>
-				<div class="flex items-center gap-2">
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="trendingStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
-					<button *ngFor="let dummy of [].constructor(ceil(trendingCards.length / TrendingNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer focus:outline-none" [class]="i == floor(trendingIdx / TrendingNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="trendingIdx = i * TrendingNbPerScreen; trendingStep(0)"></button>
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none" (click)="trendingStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
+				<div class="flex max-w-full flex-wrap items-center gap-2">
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="trendingStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
+					<button *ngFor="let dummy of [].constructor(ceil(trendingCards.length / TrendingNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [class]="i == floor(trendingIdx / TrendingNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="trendingIdx = i * TrendingNbPerScreen; trendingStep(0)"></button>
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="trendingStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
 				</div>
 			</div>
-			<div class="grid grid-cols-2 sm:grid-cols-5 gap-3 md:gap-4">
-				<div *ngFor="let card of trendingShownCards">
+			<div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+				<div class="lg:hidden" *ngFor="let card of trendingShownCards">
+					<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[2/3]' }"></ng-container>
+				</div>
+				<div class="hidden lg:block" *ngFor="let card of trendingShownCards">
 					<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'backdrop', aspectClass:'aspect-video' }"></ng-container>
 				</div>
 			</div>
 		</section>
 <!-- All -->
-		<main class="mt-16 px-4 md:pl-8 pb-24 xl:grid xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-4">
+		<main class="mt-12 grid min-w-0 gap-8 px-4 pb-12 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
 			<div>
-				<div *ngFor="let supercat of CategoriesVisible; let first = first" class="pb-16 scroll-mt-4">
+				<div *ngFor="let supercat of CategoriesVisible; let first = first" class="pb-10 scroll-mt-6">
 					<ng-container *ngIf="(cards | filterByCategories:supercat.categories) as visibleCards">
-						<div class="flex items-end justify-between mb-3">
-							<a routerLink="/" [queryParams]="{ category:supercat.name }" class="flex gap-2">
+						<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+							<a routerLink="/" [queryParams]="{ category:supercat.name }" class="flex min-w-0 flex-1 flex-wrap gap-x-2 gap-y-1">
 								<h2 *ngIf="supercat.name != supercat.categories[0]" class="text-xl md:text-2xl font-bold" [class]="global.colorWord(supercat.categories[0], false)">{{LG(supercat.name)}}:</h2>
 								<h2 *ngFor="let subcat of supercat.categories; let last = last" class="text-xl md:text-2xl font-bold cursor-pointer" [class]="global.colorWord(subcat, false)">{{LG(subcat)}}{{!last ? ', ' : ''}}</h2>
 							</a>
 							<span class="text-lg text-white">{{visibleCards.length}} {{LG("Apps")}}</span>
 						</div>
 						<div class="pt-2">
-							<div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-6">
+							<div class="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6">
 								<ng-container *ngFor="let card of visibleCards | slice:0:(CategoriesVisibleAll ? 20 : 999)">
 									<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[3/4]' }"></ng-container>
 								</ng-container>
-								<a *ngIf="CategoriesVisibleAll && visibleCards.length > 20" routerLink="/" [queryParams]="{ category:supercat.name }" class="min-w-0 text-white">
-									<div class="group relative aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-white/25 shadow-lg transition duration-300 hover:ring-white/50 focus-within:ring-2 focus-within:ring-white text-center flex items-center justify-center cursor-pointer">
+								<a *ngIf="CategoriesVisibleAll && visibleCards.length > 20" routerLink="/" [queryParams]="{ category:supercat.name }" class="min-w-0 flex-1 text-white">
+									<div class="group relative aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg transition duration-300 hover:ring-white/50 focus-within:ring-2 focus-within:ring-white text-center flex items-center justify-center cursor-pointer">
 										<span>more</span>
 										<ion-icon name="ellipsis-horizontal-outline" class="pl-2 block w-5 h-5 mt-2"></ion-icon>
 									</div>
@@ -155,7 +161,7 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 				</div>
 			</div>
 			<aside>
-				<div class="relative hidden xl:block text-white bg-modernsecond rounded-xl flex flex-col px-2 py-4 mx-2">
+				<div class="relative flex flex-col rounded-2xl ring-1 ring-white/10 bg-modernsecond p-4 text-white">
 					<h2 class="text-xl md:text-2xl font-bold ml-2 mb-3">{{L("Trending Now")}}</h2>
 					<ol class="flex-1 min-h-0 flex flex-col flex-wrap content-start overflow-hidden">
 						<li *ngFor="let card of trendingCards; let i = index" class="w-full">
@@ -164,7 +170,7 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 								<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden flex items-center justify-center ring-1 ring-white/10">
 									<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
 								</span>
-								<span class="min-w-0 text-white">
+								<span class="min-w-0 flex-1 text-white">
 									<span class="block font-bold leading-tight truncate">{{card.name}}</span>
 									<span class="block text-xs font-bold truncate text-red-600">{{LMT(card.title)}}</span>
 									<span class="block text-xs" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
@@ -175,23 +181,22 @@ rounded-xl bg-modernsecond text-white border border-gray-700 transition-colors">
 				</div>
 			</aside>
 		</main>
-		<div><a routerLink="/classic" class="underline text-dark">Classic presentation</a><br></div>
 		<app-footer></app-footer>
 	</div>
 </div>
 <ng-template #cardTemplate let-card="card" let-imageType="imageType" let-aspectClass="aspectClass">
-	<div>
-		<div class="group relative rounded-xl overflow-hidden bg-mid ring-1 ring-white/25 shadow-lg transition duration-300 hover:ring-white/75 focus-within:ring-2 focus-within:ring-white" [ngClass]="aspectClass">
+	<div class="min-w-0">
+		<div class="group relative rounded-xl overflow-hidden bg-modernsecond ring-1 ring-white/10 shadow-lg transition duration-300 hover:ring-white/75 focus-within:ring-2 focus-within:ring-white" [ngClass]="aspectClass">
 			<a class="absolute inset-0 cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }"><img [src]="'assets/modulesimages/' + card.module + '.' + imageType + '.jpg'" alt="" loading="lazy" class="w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'"></a>
-			<span class="block text-xs font-bold text--red-500" *ngIf="card.notReady != 0">{{card.notReady == 2 ? L("Setup needed") : L("Reset in progress")}}</span>
-			<ion-icon type="button" *ngIf="card.web" class="absolute top-1 right-1 w-5 h-5 px-1 py-0.5 rounded-lg bg-black/20 cursor-pointer text-white" (click)="modernbar.tag(card.module)" [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'"></ion-icon>
+			<span class="block text-xs font-bold text-amber-200 absolute bottom-12 inset-x-2 z-10 rounded-lg bg-black/80 px-2 py-1" *ngIf="card.notReady != 0">{{card.notReady == 2 ? L("Setup needed") : L("Reset in progress")}}</span>
+			<button type="button" *ngIf="card.web" class="absolute top-1 right-1 z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950/80 text-white hover:bg-red-700" [attr.aria-label]="card.tag ? L('Bookmarked') : L('Add bookmark')" (click)="modernbar.tag(card.module)"><ion-icon class="h-5 w-5" [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'"></ion-icon></button>
 			<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center opacity-0 overflow-hidden transition-opacity duration-300 group-hover:opacity-100 w-full pointer-events-none">
 				<ion-icon name="open-outline" class="w-10 h-10 shrink-0 rounded-xl bg-black/50 p-2 text-white mb-4"></ion-icon>
 				<p class="text-sm w-full text-center bg-black/50 p-2 text-white [text-shadow:_1px_1px_0px_rgba(0,0,0,1)]">{{LMD(card.description)}}</p>
 			</div>
 			<span class="absolute top-1 left-1 inline-flex items-center gap-1 rounded-full bg-black/20 px-2 py-0.5 text-xs font-semibold pointer-events-none text-white" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
-			<div class="absolute inset-x-0 bottom-0 z-20 p-1 pointer-events-none">
-				<h3 class="text-lg text-white font-extrabold leading-tight truncate inline-flex px-2 py-0.5 rounded-full bg-white/15">{{card.name}}</h3>
+			<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/50 to-transparent px-3 pointer-events-none">
+				<h3 class="block truncate text-base font-bold text-white">{{card.name}}</h3>
 			</div>
 		</div>
 		<a class="px-2 mt-1 mb-2 block text-sm font-semibold truncate hover:underline cursor-pointer text-red-600"  routerLink="/app" [queryParams]="{ name:card.module }">{{LMT(card.title)}}</a>
