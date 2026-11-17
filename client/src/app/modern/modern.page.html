@@ -160,11 +160,11 @@
 					</ng-container>
 				</div>
 			</div>
-			<aside>
-				<div class="relative flex flex-col rounded-2xl ring-1 ring-white/10 bg-modernsecond p-4 text-white">
-					<h2 class="text-xl md:text-2xl font-bold ml-2 mb-3">{{L("Trending Now")}}</h2>
-					<ol class="flex-1 min-h-0 flex flex-col flex-wrap content-start overflow-hidden">
-						<li *ngFor="let card of trendingCards; let i = index" class="w-full">
+			<aside class="xl:relative">
+				<div class="relative xl:absolute xl:inset-x-0 xl:top-0 xl:max-h-full flex flex-col rounded-2xl ring-1 ring-white/10 bg-modernsecond p-4 text-white">
+					<h2 class="text-xl md:text-2xl font-bold ml-2 mb-3 shrink-0">{{L("Trending Now")}}</h2>
+					<ol class="flex-1 min-h-0 flex flex-col overflow-y-auto [scrollbar-width:none]">
+						<li *ngFor="let card of trendingCards; let i = index" class="w-full shrink-0">
 							<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
 								<span class="w-8 shrink-0 text-center text-2xl font-extrabold tabular-nums group-hover:text-white transition-colors">{{i + 1}}</span>
 								<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden flex items-center justify-center ring-1 ring-white/10">
