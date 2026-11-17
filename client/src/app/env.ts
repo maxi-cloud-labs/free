@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
-import { Settings, CategoriesEx } from './myinterface';
+import { Settings, CategoriesEx, CategoriesOrg } from './myinterface';
 import { VERSION } from './version';
 
 declare var appConnectToggle: any;
@@ -471,6 +471,8 @@ colorWord(st, bckgd = true) {
 
 	if (CategoriesEx[st])
 		return (bckgd ? "bg--" + CategoriesEx[st].color + "-100 " : "") + "text--" + CategoriesEx[st].color + "-600";
+	if (CategoriesOrg[st])
+		return (bckgd ? "bg--" + CategoriesOrg[st].color + "-100 " : "") + "text--" + CategoriesOrg[st].color + "-600";
 /*
 bg--yellow-100 text--yellow-600
 bg--purple-100 text--purple-600
@@ -486,6 +488,8 @@ bg--lime-100 text--lime-600
 colorWord3(st) {
 	if (CategoriesEx[st])
 		return "bg--" + CategoriesEx[st].color + "-600";
+	if (CategoriesOrg[st])
+		return "bg--" + CategoriesOrg[st].color + "-600";
 /*
 bg--yellow-600
 bg--purple-600

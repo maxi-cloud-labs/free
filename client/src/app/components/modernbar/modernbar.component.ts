@@ -22,7 +22,7 @@ category: string = "All";
 showUserMenu = false;
 filteredCards = [];
 filteredGithubStars;
-CategoriesOrg = CategoriesOrg;
+CategoriesOrg = Object.values(CategoriesOrg);
 showMenuCategories = false;
 searchTerm: string = "";
 

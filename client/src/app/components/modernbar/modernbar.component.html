@@ -210,13 +210,13 @@
 		<ng-container *ngIf="showMenuCategories">
 			<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
 			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl ring-1 ring-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
-				<div *ngFor="let supset of CategoriesOrg; let i = index" class="flex flex-col">
+				<div *ngFor="let supset of CategoriesOrg" class="flex flex-col">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
-							<div class="w-6 h-6" [class]="global.colorWord3(supset.categories[0])" [style]="'mask:url(assets/images/category-' + supset.name.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
-							<span class="text-lg font-bold" [class]="global.colorWord(supset.categories[0], false)">{{LG(supset.name)}}</span>
+							<div class="w-6 h-6" [class]="global.colorWord3(supset.name)" [style]="'mask:url(assets/images/category-' + supset.name.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
+							<span class="text-lg font-bold" [class]="global.colorWord(supset.name, false)">{{LG(supset.name)}}</span>
 						</div>
-						<div *ngIf="supset.categories.length > 1" class="flex flex-col gap-1 pl-7">
+						<div class="flex flex-col gap-1 pl-7">
 							<div *ngFor="let category of supset.categories" class="flex items-center gap-2 text-sm cursor-pointer">
 								<div class="w-6 h-6" [class]="global.colorWord3(category)" [style]="'mask:url(assets/images/category-' + category.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
 								<span class="text-lg font-bold" [class]="global.colorWord(category, false)">{{LG(category)}}</span>

@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Global } from '../env';
-import { CategoriesOrg } from '../myinterface';
+import { Categories, CategoriesOrg } from '../myinterface';
 import { BleService } from '../ble';
 
 @Component({
@@ -23,8 +23,7 @@ LMD(st) { return this.global.mytranslateMD(st); }
 cardIdCur = 0;
 cardConfig;
 cards = this.global.modulesData;
-CategoriesOrg = CategoriesOrg;
-CategoriesVisible = [];
+CategoriesVisible = {};
 CategoriesVisibleAll = true;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private route: ActivatedRoute, public ble: BleService) {
@@ -52,20 +51,19 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 pageInit() {
 	const sub = this.route.queryParams.subscribe(async (params) => {
 		if (params["category"]) {
-			this.CategoriesVisible = [];
-			for(let i = 0; i < CategoriesOrg.length; i++)
-				if (CategoriesOrg[i]["name"] == params?.["category"]) {
-					for(let ii = 0; ii < CategoriesOrg[i]["categories"].length; ii++)
-						this.CategoriesVisible[ii] = { name:CategoriesOrg[i]["categories"][ii], categories:[CategoriesOrg[i]["categories"][ii]] };
-					break;
-				} else {
-					for(let ii = 0; ii < CategoriesOrg[i]["categories"].length; ii++)
-						if (CategoriesOrg[i]["categories"][ii] == params?.["category"]) {
-							this.CategoriesVisible[0] = { name:CategoriesOrg[i]["categories"][ii], categories:[CategoriesOrg[i]["categories"][ii]] };
-							break;
-						}
-				}
-			this.CategoriesVisibleAll = false;
+			if (CategoriesOrg[params["category"]]) {
+				this.CategoriesVisible = {};
+					CategoriesOrg[params["category"]].categories.forEach((name) => {
+						this.CategoriesVisible[name] = { name:name, color:Categories[name].color, categories:[name] };
+					});
+				this.CategoriesVisibleAll = false;
+			}
+			if (Categories[params["category"]]) {
+				this.CategoriesVisible = {};
+				const name = params["category"];
+				this.CategoriesVisible[params["category"]] = { name:name, color:Categories[name].color, categories:[name] };
+				this.CategoriesVisibleAll = false;
+			}
 		} else {
 			this.CategoriesVisible = CategoriesOrg;
 			this.CategoriesVisibleAll = true;
@@ -364,10 +362,7 @@ heroInit(arg) {
 	if (editorPick[arg] !== undefined)
 		this.heroCards = editorPick[arg].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
 	else {
-		let cats = [];
-		for(let i = 0; i < CategoriesOrg.length; i++)
-			if (CategoriesOrg[i]["name"] == arg)
-				cats = CategoriesOrg[i].categories;
+		const cats = CategoriesOrg[arg].categories;
 		this.heroCards = this.cards.filter(c => c.web && (arg == c.category || cats.includes(c.category))).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 7);
 	}
 	this.heroIdx = 0;

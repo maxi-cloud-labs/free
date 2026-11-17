@@ -135,13 +135,13 @@
 <!-- All -->
 		<main class="mt-12 grid min-w-0 gap-8 px-4 pb-12 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
 			<div>
-				<div *ngFor="let supercat of CategoriesVisible; let first = first" class="pb-10 scroll-mt-6">
+				<div *ngFor="let supercat of CategoriesVisible | keyvalue; let first = first" class="pb-10 scroll-mt-6">
 					<input #sortMode type="hidden" value="azn">
-					<ng-container *ngIf="(cards | filterByCategories:supercat.categories:sortMode.value) as visibleCards">
+					<ng-container *ngIf="(cards | filterByCategories:$any(supercat.value).categories:sortMode.value) as visibleCards">
 						<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
-							<a routerLink="/" [queryParams]="{ category:supercat.name }" class="flex min-w-0 flex-wrap gap-x-2 gap-y-1">
-								<h2 *ngIf="supercat.name != supercat.categories" class="text-xl md:text-2xl font-bold" [class]="global.colorWord(supercat.categories[0], false)">{{LG(supercat.name)}}:</h2>
-								<h2 *ngFor="let subcat of supercat.categories; let last = last" class="text-xl md:text-2xl font-bold cursor-pointer" [class]="global.colorWord(subcat, false)">{{LG(subcat)}}{{!last ? ', ' : ''}}</h2>
+							<a routerLink="/" [queryParams]="{ category:supercat.key }" class="flex min-w-0 flex-wrap gap-x-2 gap-y-1">
+								<h2 *ngIf="CategoriesVisibleAll" class="text-xl md:text-2xl font-bold" [class]="global.colorWord(supercat.key, false)">{{LG(supercat.key)}}:</h2>
+								<h2 *ngFor="let subcat of $any(supercat.value).categories; let last = last" class="text-xl md:text-2xl font-bold cursor-pointer" [class]="global.colorWord(subcat, false)">{{LG(subcat)}}{{!last ? ', ' : ''}}</h2>
 							</a>
 							<div class="flex items-center gap-6">
 								<select #sort_Mode (change)="sortMode.value = sort_Mode.value" [class]="sortMode.value == 'azt' || sortMode.value == 'zat' ? 'text-red-600' : 'text-white'" class="rounded-lg bg-modernsecond px-1 py-1 text-sm focus:outline-none">
@@ -159,7 +159,7 @@
 								<ng-container *ngFor="let card of visibleCards | slice:0:(CategoriesVisibleAll ? 20 : 999)">
 									<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[3/4]' }"></ng-container>
 								</ng-container>
-								<a *ngIf="CategoriesVisibleAll && visibleCards.length > 20" routerLink="/" [queryParams]="{ category:supercat.name }" class="min-w-0 flex-1 text-white">
+								<a *ngIf="CategoriesVisibleAll && visibleCards.length > 20" routerLink="/" [queryParams]="{ category:supercat.key }" class="min-w-0 flex-1 text-white">
 									<div class="group relative aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg transition duration-300 hover:ring-white/50 focus-within:ring-2 focus-within:ring-white text-center flex items-center justify-center cursor-pointer">
 										<span>more</span>
 										<ion-icon name="ellipsis-horizontal-outline" class="pl-2 block w-5 h-5 mt-2"></ion-icon>

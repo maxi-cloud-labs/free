@@ -71,13 +71,13 @@ export const Categories = {
 	}
 };
 
-export const CategoriesOrg = [
-	{ "name":"AI", "categories":["AI Generative", "AI Agentic"] },
-	{ "name":"Work", "categories":["Productivity", "Knowledge", "Collaboration"] },
-	{ "name":"Entertainment", "categories":["Personal", "Media", "Torrent"] },
-	{ "name":"Infrastructure", "categories":["Utils", "Server"] },
-	{ "name":"Development", "categories":["Developer", "Database"] }
-];
+export const CategoriesOrg = {
+	"AI": { name:"AI", color:"lime", "categories":["AI Generative", "AI Agentic"] },
+	"Work": { name:"Work", color:"purple", "categories":["Productivity", "Knowledge", "Collaboration"] },
+	"Entertainment": { name:"Entertainment", color:"teal", "categories":["Personal", "Media", "Torrent"] },
+	"Infrastructure": { name:"Infrastructure", color:"cyan", "categories":["Utils", "Server"] },
+	"Development": { name:"Development", color:"orange", "categories":["Developer", "Database"] }
+};
 
 export const CategoriesEx = {
 	...Categories,
