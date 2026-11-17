@@ -383,23 +383,25 @@ heroSelect(i) {
 }
 
 trendingCards = [];
-trendingShownCards;
-trendingIdx = 0;
-TrendingNbPerScreen = 5;
+recommendedCards = [];
+recommendedShownCards;
+recommendedIdx = 0;
+recommendedNbPerScreen = 5;
 
-trendingStep(d) {
-	const n = this.trendingCards.length;
-	this.trendingIdx = (this.trendingIdx + d * this.TrendingNbPerScreen) % n;
-	if (this.trendingIdx < 0)
-		this.trendingIdx = n - 1;
-	this.trendingIdx = Math.floor(this.trendingIdx / this.TrendingNbPerScreen) * this.TrendingNbPerScreen;
-	this.trendingShownCards = this.trendingCards.slice(this.trendingIdx, this.trendingIdx + this.TrendingNbPerScreen);
+recommendedStep(d) {
+	const n = this.recommendedCards.length;
+	this.recommendedIdx = (this.recommendedIdx + d * this.recommendedNbPerScreen) % n;
+	if (this.recommendedIdx < 0)
+		this.recommendedIdx = n - 1;
+	this.recommendedIdx = Math.floor(this.recommendedIdx / this.recommendedNbPerScreen) * this.recommendedNbPerScreen;
+	this.recommendedShownCards = this.trendingCards.slice(this.recommendedIdx, this.recommendedIdx + this.recommendedNbPerScreen);
 	this.cdr.detectChanges();
 }
 
 trendingInit() {
 	this.trendingCards = this.cards.filter(c => c.web && (c.recommended || c.githubStars > 50000)).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0));
-	this.trendingShownCards = this.trendingCards.slice(this.trendingIdx, this.trendingIdx + this.TrendingNbPerScreen);
+	this.recommendedCards = this.trendingCards.slice(0, this.recommendedNbPerScreen * 6);
+	this.recommendedShownCards = this.recommendedCards.slice(this.recommendedIdx, this.recommendedIdx + this.recommendedNbPerScreen);
 }
 
 floor(a) {

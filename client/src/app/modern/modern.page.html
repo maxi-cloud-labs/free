@@ -118,16 +118,16 @@
 			<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
 				<h2 class="text-xl md:text-2xl font-bold text-white">{{LG("Recommended")}}</h2>
 				<div class="flex max-w-full flex-wrap items-center gap-2">
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="trendingStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
-					<button *ngFor="let dummy of [].constructor(ceil(trendingCards.length / TrendingNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [class]="i == floor(trendingIdx / TrendingNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="trendingIdx = i * TrendingNbPerScreen; trendingStep(0)"></button>
-					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="trendingStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="recommendedStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
+					<button *ngFor="let dummy of [].constructor(ceil(recommendedCards.length / recommendedNbPerScreen)); let i = index" type="button" class="h-2 rounded-full transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" [class]="i == floor(recommendedIdx / recommendedNbPerScreen) ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="recommendedIdx = i * recommendedNbPerScreen; recommendedStep(0)"></button>
+					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70" (click)="recommendedStep(1)"><ion-icon name="chevron-forward-outline" class="w-5 h-5 text-white"></ion-icon></button>
 				</div>
 			</div>
 			<div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-				<div class="lg:hidden" *ngFor="let card of trendingShownCards">
+				<div class="lg:hidden" *ngFor="let card of recommendedShownCards">
 					<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[2/3]' }"></ng-container>
 				</div>
-				<div class="hidden lg:block" *ngFor="let card of trendingShownCards">
+				<div class="hidden lg:block" *ngFor="let card of recommendedShownCards">
 					<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'backdrop', aspectClass:'aspect-video' }"></ng-container>
 				</div>
 			</div>
