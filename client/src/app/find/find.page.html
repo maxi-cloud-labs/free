@@ -1,56 +1,64 @@
-<div class="grid h-dvh place-items-center bg-gradient-to-br from--gray-50 via--white to--blue-50" [class]="!ready ? '' : 'hidden'">
-	<img src="assets/images/loading.gif" class="w-12 aspect-square" alt="Loading...">
-</div>
-<div [style]="ready ? 'display:flex;' : 'display:none;'" class="min-h-screen flex items-center justify-center bg-gradient-to-br from--gray-50 via--main to--blue-50 py-12 px-4 sm:px-6 lg:px-8" [class]="ready ? '' : 'hidden'">
-	<div class="max-w-md w-full">
-		<div class="bg--main rounded-2xl shadow-xl border border--gray-300 p-8">
-			<div class="text-center mb-8 flex items-center flex-col">
-				<div class="flex items-center text-lg -mt-2 mb-4 font-bold"><img src="assets/images/logo.png" class="w-10 h-10 mr-2"><span class="text--blue-200">m</span><span class="text--blue-600">A</span><span class="text--blue-200">x</span><span class="text--blue-600 font-[monospace]">I</span><span class="text--blue-200">.cloud</span></div>
-				<div class="flex items-center gap-2 mb-2">
-					<div class="bg--blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto">
-						<ion-icon name="person-outline" class="text--white w-10 h-10"></ion-icon>
-					</div>
-					<h1 class="text-3xl font-bold text-left text--gray-900 whitespace-pre-wrap">{{L("Find\nyour Cloud")}}</h1>
-				</div>
-				<p class="text--gray-600">{{L("Find and go to your cloud")}}</p>
-			</div>
-			<form [formGroup]="formFind" (ngSubmit)="doFind();" class="space-y-6">
-				<div>
-					<label for="email1" class="block text-sm font-medium text--gray-700 mb-2">{{L("Email address")}}</label>
-					<div class="relative">
-						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-							<ion-icon name="mail-outline" class="text--gray-500 w-4 h-4"></ion-icon>
+<div class="min-h-screen bg-slate-950 text-white">
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col">
+		<div class="grid min-h-dvh place-items-center bg-slate-950 text-white" [class]="!ready ? '' : 'hidden'">
+			<img src="assets/images/loading.gif" class="w-12 aspect-square" alt="Loading...">
+		</div>
+		<div [style]="ready ? 'display:flex;' : 'display:none;'" class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready ? '' : 'hidden'">
+			<div class="w-full min-w-0 max-w-md">
+				<div class="bg-modernsecond rounded-2xl shadow-2xl ring-1 ring-white/10 p-5 sm:p-8">
+					<div class="text-center mb-8 flex items-center flex-col gap-3">
+						<div class="mb-5 flex shrink-0 items-end leading-none">
+							<img src="assets/images/logo.png" class="w-9 h-9 mr-2 self-center">
+							<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
+							<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 						</div>
-						<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="block w-full pl-10 pr-3 py-3 border border--gray-300 rounded-xl placeholder--gray-400 focus:outline-none focus:ring-2 focus:ring--blue-700 focus:border-transparent transition-colors duration-200 text--gray-900" placeholder="Enter your email" [class.border--red-300]="email1?.invalid && email1?.touched" [class.focus:ring--red-500]="email1?.invalid && email1?.touched">
+						<div class="flex w-full items-center justify-center gap-3">
+							<div class="flex h-10 w-10 shrink-0 items-center justify-center text-white/80">
+								<ion-icon name="person-outline" class="h-10 w-10 shrink-0 text-white/80"></ion-icon>
+							</div>
+							<h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white whitespace-normal">{{L("Find\nyour Cloud")}}</h1>
+						</div>
+						<p class="text-white/60">{{L("Find and go to your cloud")}}</p>
 					</div>
-					@if (email1?.invalid && email1?.touched) {
-					<div class="flex items-center gap-1 text--red-500 text-sm mt-2">
-						<ion-icon name="alert-circle-outline" class="text--red-500 w-5 h-5"></ion-icon>
-						{{L("Please enter a valid email address")}}
+					<form [formGroup]="formFind" (ngSubmit)="doFind();" class="space-y-6">
+						<div>
+							<label for="email1" class="block text-sm font-medium text-white/80 mb-2">{{L("Email address")}}</label>
+							<div class="relative">
+								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+									<ion-icon name="mail-outline" class="text-white/50 w-4 h-4"></ion-icon>
+								</div>
+								<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 ring-1 ring-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors duration-200" placeholder="Enter your email" [class.ring-red-400]="email1?.invalid && email1?.touched" [class.focus:ring-red-400]="email1?.invalid && email1?.touched">
+							</div>
+							@if (email1?.invalid && email1?.touched) {
+							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
+								<ion-icon name="alert-circle-outline" class="text-red-400 w-5 h-5"></ion-icon>
+								{{L("Please enter a valid email address")}}
+							</div>
+							}
+						</div>
+						@if (errorSt) {
+						<div class="bg-red-500/10 ring-1 ring-red-400/30 rounded-xl p-4">
+							<div class="flex items-center gap-2">
+								<ion-icon name="alert-circle-outline" class="text-red-400 w-5 h-5"></ion-icon>
+								<span class="text-red-200 text-sm font-medium">{{ errorSt }}</span>
+							</div>
+						</div>
+						}
+						<button type="submit" (click)="doFind()" [disabled]="progress || formFind.invalid" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text-slate-950 bg-white hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-modernsecond focus:ring-white/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
+							@if (progress) {
+							<ion-icon name="cog-outline" class="animate-spin w-6 h-6"></ion-icon>
+							{{L("Finding...")}}
+							} @else {
+							<ion-icon name="log-in-outline" class="shrink-0 w-6 h-6"></ion-icon>
+							{{L("Find")}}
+							}
+						</button>
+					</form>
+					<div class="mt-8 text-center">
+						<p class="text-sm text-white/60">{{L("Have some new hardware?")}} <a routerLink="/setup" class="font-semibold text-white/70 hover:text-white underline-offset-4 hover:underline transition-colors cursor-pointer">{{L("Setup here!")}}</a>
+						</p>
 					</div>
-					}
 				</div>
-				@if (errorSt) {
-				<div class="bg--red-50 border border--red-200 rounded-xl p-4">
-					<div class="flex items-center gap-2">
-						<ion-icon name="alert-circle-outline" class="text--red-500 w-5 h-5"></ion-icon>
-						<span class="text--red-800 text-sm font-medium">{{ errorSt }}</span>
-					</div>
-				</div>
-				}
-				<button type="submit" (click)="doFind()" [disabled]="progress || formFind.invalid" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text--white bg--blue-600 hover:bg--blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text--gray-900 transform hover:scale-[1.02]">
-					@if (progress) {
-					<ion-icon name="cog-outline" class="animate-spin text--white w-6 h-6"></ion-icon>
-					{{L("Finding...")}}
-					} @else {
-					<ion-icon name="log-in-outline" class="text--white w-6 h-6"></ion-icon>
-					{{L("Find")}}
-					}
-				</button>
-			</form>
-			<div class="mt-8 text-center">
-				<p class="text-sm text--gray-600">{{L("Have some new hardware?")}} <a routerLink="/setup" class="font-semibold text--blue-600 hover:text--blue-700 transition-colors cursor-pointer">{{L("Setup here!")}}</a>
-				</p>
 			</div>
 		</div>
 	</div>

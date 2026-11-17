@@ -1,78 +1,80 @@
-<div class="flex h-screen text--gray-900 h-full">
-	<app-sidebar></app-sidebar>
-	<div class="flex-1 flex flex-col overflow-x-auto">
-		<app-topbar [title]="L('Permissions')"></app-topbar>
-		<div class="flex gap-3 mt-4 mr-4">
+<div class="min-h-screen bg-slate-950 text-white">
+	<ng-template><app-sidebar></app-sidebar></ng-template>
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
+		<app-modernbar #modernbar></app-modernbar>
+		<ng-template><app-topbar [title]="L('Permissions')"></app-topbar></ng-template>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Permissions')}}</h1>
+		<div class="flex flex-wrap items-start gap-3 mx-4 mt-4 sm:mx-6 lg:mx-8">
 			<div class="ml-4 relative">
 				<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 					<ion-icon name="search-outline" class="w-5 h-5"></ion-icon>
 				</div>
-				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards()" placeholder="{{L('Find modules...')}}" class="w-full pl-10 pr-4 py-2 border border--gray-300 text--gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring--blue-600 focus:border-transparent transition-colors">
+				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards()" placeholder="{{L('Find modules...')}}" class="min-w-0 bg-slate-950/50 text-white w-full pl-10 pr-4 py-2 ring-1 ring-white/10 text-white/60 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/60 transition-colors">
 			</div>
-			<button (click)="searchTerm = ''; filterCards()" class="hidden items-center gap-2 px-4 py-2 border border--gray-300 rounded-lg text-sm font-medium text--gray-700 hover:bg--gray-200 transition-colors cursor-pointer" [class]="searchTerm != '' ? 'inline-flex' : ''">
+			<button (click)="searchTerm = ''; filterCards()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 hidden items-center gap-2 px-4 py-2 ring-1 ring-white/10 rounded-lg text-sm font-medium text-white/80 hover:bg-white/10 transition-colors cursor-pointer" [class]="searchTerm != '' ? 'inline-flex' : ''">
 				<ion-icon name="refresh-outline" class="w-6 h-6"></ion-icon>
 			</button>
-			<div class="flex-1"></div>
-			<a href="https://docs.maxi.cloud/#/permissions" target="_blank"><button class="inline-flex items-center gap-2 px-4 py-2 border border--gray-300 rounded-lg text-sm font-medium text--gray-700 hover:bg--gray-50 transition-colors cursor-pointer disabled:bg--gray-100 disabled:cursor-default disabled:text--gray-400">
+			<div class="min-w-0 flex-1"></div>
+			<a href="https://docs.maxi.cloud/#/permissions" target="_blank"><button class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 ring-1 ring-white/10 rounded-lg text-sm font-medium text-white/80 hover:bg-white/5 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-white/50">
 				<ion-icon name="information-circle-outline" class="w-6 h-6"></ion-icon>
 				<span style="text-align:left">{{L("Permissions")}}</span>
 			</button></a>
-			<button (click)="getData()" [disabled]="dResetSave" class="inline-flex items-center gap-2 px-4 py-2 border border--gray-300 rounded-lg text-sm font-medium text--gray-700 hover:bg--gray-50 transition-colors cursor-pointer disabled:bg--gray-100 disabled:cursor-default disabled:text--gray-400">
+			<button (click)="getData()" [disabled]="dResetSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 ring-1 ring-white/10 rounded-lg text-sm font-medium text-white/80 hover:bg-white/5 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-white/50">
 				<ion-icon name="refresh-outline" class="w-6 h-6"></ion-icon>
 				{{L("Reset")}}
 			</button>
-			<button (click)="save()" [disabled]="dResetSave" class="inline-flex items-center gap-2 px-4 py-2 bg--blue-600 border border--gray-300 rounded-lg text-sm font-medium text--white hover:bg--blue-700 transition-colors cursor-pointer disabled:bg--gray-100 disabled:cursor-default disabled:text--gray-400">
+			<button (click)="save()" [disabled]="dResetSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white ring-1 ring-white/10 rounded-lg text-sm font-medium text-slate-950 hover:bg-slate-200 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-slate-950/50">
 				<ion-icon name="save-outline" class="w-6 h-6"></ion-icon>
 				{{L("Save")}}
 			</button>
 		</div>
 		<label class="flex items-center gap-3 mt-4 ml-4">
-			<input type="checkbox" checked="true" disabled="true" class="form-checkbox h-4 w-4"><span>{{L("Role Admin has permission for all modules (immutable)")}}</span>
+			<input type="checkbox" checked="true" disabled="true" class="form-checkbox h-4 w-4 shrink-0 accent-white"><span>{{L("Role Admin has permission for all modules (immutable)")}}</span>
 		</label>
 		<label class="flex items-center gap-3 mt-4 ml-4 cursor-pointer">
-			<input type="checkbox" [(ngModel)]="global.session.cloud.security.grantLocalPermission" class="form-checkbox h-4 w-4">{{L("Grant access from local network for all modules (safe and recommended)")}}
+			<input type="checkbox" [(ngModel)]="global.session.cloud.security.grantLocalPermission" class="form-checkbox h-4 w-4 shrink-0 accent-white">{{L("Grant access from local network for all modules (safe and recommended)")}}
 		</label>
-		<div class="m-4 overflow-y-auto shadow md:rounded-lg flex-1">
-			<table class="min-w-full divide-y divide--gray-300">
-				<thead class="bg--gray-50 sticky top-0 z-10">
+		<div class="m-4 min-w-0 overflow-auto rounded-2xl bg-modernsecond ring-1 ring-white/10 sm:m-6 lg:mx-8">
+			<table class="min-w-[760px] w-full divide-y divide-white/10">
+				<thead class="bg-modernsecond sticky top-0 z-10">
 					<tr>
-						<th scope="col" class="px-6 py-3 text-start text-xs hidden md:table-cell font-medium text--gray-500 tracking-wider cursor-pointer" (click)="toggleSortDirection('title')"><div class="flex items-center">{{L("TITLE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['title'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-start text-xs font-medium text--gray-500 tracking-wider cursor-pointer" (click)="toggleSortDirection('name')"><div class="flex items-center">{{L("OPEN SOURCE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['name'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-center text-xs font-medium text--gray-500 tracking-wider cursor-pointer"><div class="flex items-center"><ion-icon class="w-5 h-5 mr-2" name="refresh-outline" (click)="updateHits()"></ion-icon><span (click)="toggleSortDirection('hits')">{{L("HITS")}}</span><ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['hits'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" (click)="toggleSortDirection('hits')"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-center text-xs font-medium text--gray-500 tracking-wider" *ngIf="global.setupUIProgress != 0">{{L("SETUP\nIN PROGRESS")}}</th>
-						<th scope="col" class="px-6 py-3 text-center text-xs font-medium text--gray-500 tracking-wider cursor-pointer" (click)="toggleSortDirection('bDisabled')"><div class="flex items-center">{{L("DISABLED")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bDisabled'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" (click)="toggleSortDirection('bDisabled')"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-center text-xs font-medium text--gray-500 tracking-wider cursor-pointer" (click)="toggleSortDirection('bPublic')"><div class="flex items-center">{{L("PUBLIC")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bPublic'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-center text-xs font-medium text--gray-500 tracking-wider cursor-pointer" (click)="toggleSortDirection('bUser')"><div class="flex items-center whitespace-pre-wrap">{{L("ROLE\nUSER")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bUser'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
-						<th scope="col" class="px-6 py-3 text-start text-xs hidden xl:table-cell font-medium text--gray-500 tracking-wider">{{L("DESCRIPTION")}}</th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-start text-xs table-cell font-medium text-white/60 tracking-wider cursor-pointer" (click)="toggleSortDirection('title')"><div class="flex items-center">{{L("TITLE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['title'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-start text-xs font-medium text-white/60 tracking-wider cursor-pointer" (click)="toggleSortDirection('name')"><div class="flex items-center">{{L("OPEN SOURCE")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['name'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-center text-xs font-medium text-white/60 tracking-wider cursor-pointer"><div class="flex items-center"><ion-icon class="w-5 h-5 mr-2" name="refresh-outline" (click)="updateHits()"></ion-icon><span (click)="toggleSortDirection('hits')">{{L("HITS")}}</span><ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['hits'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" (click)="toggleSortDirection('hits')"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-center text-xs font-medium text-white/60 tracking-wider" *ngIf="global.setupUIProgress != 0">{{L("SETUP\nIN PROGRESS")}}</th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-center text-xs font-medium text-white/60 tracking-wider cursor-pointer" (click)="toggleSortDirection('bDisabled')"><div class="flex items-center">{{L("DISABLED")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bDisabled'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'" (click)="toggleSortDirection('bDisabled')"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-center text-xs font-medium text-white/60 tracking-wider cursor-pointer" (click)="toggleSortDirection('bPublic')"><div class="flex items-center">{{L("PUBLIC")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bPublic'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-center text-xs font-medium text-white/60 tracking-wider cursor-pointer" (click)="toggleSortDirection('bUser')"><div class="flex items-center whitespace-pre-wrap">{{L("ROLE\nUSER")}}<ion-icon class="w-5 h-5 ml-2" [name]="sortDirection['bUser'] == 'asc' ? 'caret-up-outline' : 'caret-down-outline'"></ion-icon></div></th>
+						<th scope="col" class="px-3 sm:px-6 py-3 text-start text-xs table-cell font-medium text-white/60 tracking-wider">{{L("DESCRIPTION")}}</th>
 					</tr>
 				</thead>
-				<tbody class="divide-y divide--gray-200">
-					<tr class="hover:bg--gray-50" *ngFor="let card of filteredCards; let cc = index;">
-						<td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-							<div class="text-sm font-medium text--gray-900"><a href="{{card.link}}" title="{{LMT(card.title)}}" target="_blank" style="color:var(--ion-color-secondary);">{{LMT(card.title)}}</a></div>
+				<tbody class="divide-y divide-white/10">
+					<tr class="hover:bg-white/5" *ngFor="let card of filteredCards; let cc = index;">
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap table-cell">
+							<div class="text-sm font-medium text-white break-words"><a href="{{card.link}}" title="{{LMT(card.title)}}" target="_blank" style="color:var(--ion-color-secondary);">{{LMT(card.title)}}</a></div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900 flex items-center" *ngIf="card.github != ''"><ion-icon name="logo-github" class="w-4 h-4 mr-2 cursor-pointer" ></ion-icon><a href="https://github.com/{{card.github}}" target="_blank">{{card.name}}</a></div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+							<div class="text-sm font-medium text-white flex items-center" *ngIf="card.github != ''"><ion-icon name="logo-github" class="w-4 h-4 mr-2 cursor-pointer" ></ion-icon><a href="https://github.com/{{card.github}}" target="_blank">{{card.name}}</a></div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900 flex justify-center">{{card.hits}}</div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+							<div class="text-sm font-medium text-white flex justify-center">{{card.hits}}</div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap" *ngIf="global.setupUIProgress != 0">
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap" *ngIf="global.setupUIProgress != 0">
 							<div class="text-sm font-medium flex justify-center" *ngIf="card.notReady != 0">
-								<ion-icon name="cog-outline" class="w-4 h-4 cursor-pointer" [class]="card.notReady == 2 ? 'text--gray-900' : 'text--red-500'" disabled="true"></ion-icon>
+								<ion-icon name="cog-outline" class="w-4 h-4 cursor-pointer" [class]="card.notReady == 2 ? 'text-white' : 'text-red-400'" disabled="true"></ion-icon>
 							</div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900 flex justify-center"><input type="checkbox" [(ngModel)]="card['bDisabled']" [disabled]="card['enabledUnalterable']" (change)="updatePerm(card)" class="form-checkbox h-4 w-4"></div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+							<div class="text-sm font-medium text-white flex justify-center"><input type="checkbox" [(ngModel)]="card['bDisabled']" [disabled]="card['enabledUnalterable']" (change)="updatePerm(card)" class="form-checkbox h-4 w-4 shrink-0 accent-white"></div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900 flex justify-center"><input type="checkbox" [(ngModel)]="card['bPublic']" [disabled]="card['dPublic'] || card['permissionsPublicForbidden']" [title]="card['permissionsPublicForbidden'] ? 'For security reasons, this module cannot be made public' : ''" (change)="updatePerm(card)" class="form-checkbox h-4 w-4" [class]="card['dPublic'] ? 'hidden' : ''"></div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+							<div class="text-sm font-medium text-white flex justify-center"><input type="checkbox" [(ngModel)]="card['bPublic']" [disabled]="card['dPublic'] || card['permissionsPublicForbidden']" [title]="card['permissionsPublicForbidden'] ? 'For security reasons, this module cannot be made public' : ''" (change)="updatePerm(card)" class="form-checkbox h-4 w-4 shrink-0 accent-white" [class]="card['dPublic'] ? 'hidden' : ''"></div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900 flex justify-center"><input type="checkbox" [(ngModel)]="card['bUser']" [disabled]="card['dUser']" (change)="updatePerm(card)" class="form-checkbox h-4 w-4" [class]="card['dUser'] ? 'hidden' : ''"></div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap">
+							<div class="text-sm font-medium text-white flex justify-center"><input type="checkbox" [(ngModel)]="card['bUser']" [disabled]="card['dUser']" (change)="updatePerm(card)" class="form-checkbox h-4 w-4 shrink-0 accent-white" [class]="card['dUser'] ? 'hidden' : ''"></div>
 						</td>
-						<td class="px-6 py-4 whitespace-nowrap hidden xl:table-cell">
-							<div class="text-sm font-medium text--gray-900 max-w-xs truncate"><span>{{LMD(card.description)}}</span></div>
+						<td class="px-3 sm:px-6 py-4 whitespace-nowrap table-cell">
+							<div class="text-sm font-medium text-white max-w-xs truncate"><span>{{LMD(card.description)}}</span></div>
 						</td>
 					</tr>
 				</tbody>

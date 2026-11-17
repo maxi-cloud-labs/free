@@ -1,42 +1,44 @@
-<div class="flex h-screen text--gray-900 h-full">
-	<app-sidebar></app-sidebar>
-	<div class="flex-1 flex flex-col overflow-x-auto">
-		<app-topbar [title]="L('Users')"></app-topbar>
-		<div class="mt-4 mx-4" *ngIf="this.global.session.user.username == this.global.session.cloud.info.name">
-			{{L("Additional users management is available in the module")}} <a class="underline cursor-pointer" routerLink="/" [queryParams]="{ search:'betterauthstudio' }">{{LMT("Identity Management")}}</a>.
+<div class="min-h-screen bg-slate-950 text-white">
+	<ng-template><app-sidebar></app-sidebar></ng-template>
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
+		<app-modernbar #modernbar></app-modernbar>
+		<ng-template><app-topbar [title]="L('Users')"></app-topbar></ng-template>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Users')}}</h1>
+		<div class="mt-4 mx-4 break-words text-sm leading-relaxed text-white/70 sm:mx-6 lg:mx-8" *ngIf="this.global.session.user.username == this.global.session.cloud.info.name">
+			{{L("Additional users management is available in the module")}} <a class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer" routerLink="/" [queryParams]="{ search:'betterauthstudio' }">{{LMT("Identity Management")}}</a>.
 		</div>
-		<div class="m-4 overflow-y-auto shadow md:rounded-lg flex-1">
-			<table class="min-w-full divide-y divide--gray-300">
-				<thead class="bg--gray-50 sticky top-0 z-10">
+		<div class="m-4 min-w-0 overflow-auto rounded-2xl bg-modernsecond ring-1 ring-white/10 sm:m-6 lg:mx-8">
+			<table class="min-w-[760px] w-full divide-y divide-white/10">
+				<thead class="bg-modernsecond sticky top-0 z-10">
 					<tr>
-						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text--gray-500">{{L("EMAIL")}}</th>
-						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text--gray-500">{{L("USERNAME")}}</th>
-						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text--gray-500">{{L("ROLE")}}</th>
-						<th scope="col" align="center" class="px-2 py-3 text-xs font-medium text--gray-500 whitespace-pre-wrap">{{L("RESET\nPASSWORD")}}</th>
-						<th scope="col" align="center" class="py-3 text-xs font-medium text--gray-500 whitespace-pre-wrap">{{L("USER\nAPPROVED")}}</th>
-						<th scope="col" align="center" class="py-3 text-xs font-medium text--gray-500 whitespace-pre-wrap">{{L("EMAIL\nVERIFIED")}}</th>
-						<th scope="col" align="center" class="py-3 text-xs font-medium text--gray-500">{{L("2FA")}}</th>
+						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text-white/60">{{L("EMAIL")}}</th>
+						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text-white/60">{{L("USERNAME")}}</th>
+						<th scope="col" align="left" class="px-2 py-3 text-xs font-medium text-white/60">{{L("ROLE")}}</th>
+						<th scope="col" align="center" class="px-2 py-3 text-xs font-medium text-white/60 whitespace-pre-wrap">{{L("RESET\nPASSWORD")}}</th>
+						<th scope="col" align="center" class="py-3 text-xs font-medium text-white/60 whitespace-pre-wrap">{{L("USER\nAPPROVED")}}</th>
+						<th scope="col" align="center" class="py-3 text-xs font-medium text-white/60 whitespace-pre-wrap">{{L("EMAIL\nVERIFIED")}}</th>
+						<th scope="col" align="center" class="py-3 text-xs font-medium text-white/60">{{L("2FA")}}</th>
 					</tr>
 				</thead>
-				<tbody class="divide-y divide--gray-200">
-					<tr class="hover:bg--gray-50" *ngFor="let user of users?.users;">
+				<tbody class="divide-y divide-white/10">
+					<tr class="hover:bg-white/5" *ngFor="let user of users?.users;">
 						<td class="px-2 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900"><input type="text" (change)="setEmail(user['id'], $event)" [value]="user['email']"></div>
+							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setEmail(user['id'], $event)" [value]="user['email']" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"></div>
 						</td>
 						<td class="px-2 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text--gray-900"><input type="text" (change)="setUsername(user['id'], $event)" [value]="user['username']" [disabled]="user['username'] == global.session.cloud.info.name"></div>
+							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setUsername(user['id'], $event)" [value]="user['username']" [disabled]="user['username'] == global.session.cloud.info.name" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"></div>
 						</td>
 						<td class="px-2 py-4 whitespace-nowrap">
 							@if (user["username"] == global.session.cloud.info.name) {
-							<div class="text-sm font-medium text--gray-900">super admin</div>
+							<div class="text-sm font-medium text-white break-words">super admin</div>
 							} @else {
-							<div class="text-sm font-medium text--gray-900"><select (change)="setRole(user['id'], $event)"><option value="user" [selected]="user['role'] == 'user'">user</option><option value="admin" [selected]="user['role'] == 'admin'">admin</option></select></div>
+							<div class="text-sm font-medium text-white break-words"><select (change)="setRole(user['id'], $event)" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"><option class="bg-modernsecond text-white" value="user" [selected]="user['role'] == 'user'">user</option><option class="bg-modernsecond text-white" value="admin" [selected]="user['role'] == 'admin'">admin</option></select></div>
 							}
 						</td>
 						<td align="center" class="py-4 whitespace-nowrap"><ion-icon name="refresh-circle-outline" class="w-6 h-6" (click)="resetPassword(user['id'])"></ion-icon></td>
-						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text--gray-900"><input type="checkbox" (change)="setApproved(user['id'], $event)" [checked]="user['approved']" [disabled]="user['username'] == global.session.cloud.info.name" class="form-checkbox h-4 w-4"></td>
-						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text--gray-900"><input type="checkbox" [checked]="user['emailVerified']" disabled="true" class="form-checkbox h-4 w-4"></td>
-						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text--gray-900"><input type="checkbox" [checked]="user['twoFactorEnabled']" disabled="true" class="form-checkbox h-4 w-4"></td>
+						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text-white break-words"><input type="checkbox" (change)="setApproved(user['id'], $event)" [checked]="user['approved']" [disabled]="user['username'] == global.session.cloud.info.name" class="form-checkbox h-4 w-4 shrink-0 accent-white"></td>
+						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text-white break-words"><input type="checkbox" [checked]="user['emailVerified']" disabled="true" class="form-checkbox h-4 w-4 shrink-0 accent-white"></td>
+						<td align="center" class="py-4 whitespace-nowrap text-sm font-medium text-white break-words"><input type="checkbox" [checked]="user['twoFactorEnabled']" disabled="true" class="form-checkbox h-4 w-4 shrink-0 accent-white"></td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,32 +1,34 @@
-<div class="flex h-screen">
-	<app-sidebar></app-sidebar>
-	<div class="flex-1 flex flex-col overflow-x-auto">
-		<app-topbar [title]="L('System Logs')"></app-topbar>
-		<div class="mt-4 mx-4" *ngIf="this.global.session.user.username == this.global.session.cloud.info.name">
-			{{L("More information about the system can be seen using the module:")}} <a class="underline cursor-pointer" routerLink="/" [queryParams]="{ search:'cockpit' }">Cockpit</a>.
+<div class="min-h-screen bg-slate-950 text-white">
+	<ng-template><app-sidebar></app-sidebar></ng-template>
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
+		<app-modernbar #modernbar></app-modernbar>
+		<ng-template><app-topbar [title]="L('System Logs')"></app-topbar></ng-template>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('System Logs')}}</h1>
+		<div class="mt-4 mx-4 break-words text-sm leading-relaxed text-white/70 sm:mx-6 lg:mx-8" *ngIf="this.global.session.user.username == this.global.session.cloud.info.name">
+			{{L("More information about the system can be seen using the module:")}} <a class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer" routerLink="/" [queryParams]="{ search:'cockpit' }">Cockpit</a>.
 		</div>
-		<ul class="m-4 overflow-y-auto divide-y divide-gray-200">
+		<ul class="m-4 min-w-0 overflow-auto rounded-2xl bg-modernsecond p-3 ring-1 ring-white/10 divide-y divide-white/10 sm:m-6 lg:mx-8">
 			<ng-template #recursiveTree let-nodes="nodes" let-depth="depth">
 				<ng-container *ngFor="let node of nodes">
-					<li (click)="node.type === 'file' ? viewFileContent(node) : toggleExpand(node)" class="flex items-center p-2 hover:bg-gray-50 cursor-pointer" >
+					<li (click)="node.type === 'file' ? viewFileContent(node) : toggleExpand(node)" class="flex items-center p-2 hover:bg-white/5 cursor-pointer" >
 						<span class="mr-2">
-							<span *ngIf="node.type === 'directory'" class="text-blue-500">
+							<span *ngIf="node.type === 'directory'" class="text-red-600 font-bold">
 								{{ isExpanded(node) ? '🗁' : '🗀' }}
 							</span>
-							<span *ngIf="node.type === 'symlink'" class="text-purple-500">🔗</span>
-							<span *ngIf="node.type === 'file'" class="text-gray-500">🖹</span>
+							<span *ngIf="node.type === 'symlink'" class="text-red-600 font-bold">🔗</span>
+							<span *ngIf="node.type === 'file'" class="text-white">🖹</span>
 						</span>
-						<div class="flex-1">
-							<h3 class="font-medium text--gray-900">
+						<div class="min-w-0 flex-1">
+							<h3 class="font-medium break-all text-white break-words">
 								{{ node.name }}<br>
-								<span *ngIf="node.type !== 'file'" class="text-sm text-gray-500">
+								<span *ngIf="node.type !== 'file'" class="text-sm text-white/60">
 									{{ node.permissions }} · {{ node.owner }}:{{ node.group }}
 									<span *ngIf="node.modified" class="float-right">
 										{{ node.modified | date:'short' }}
 									</span>
 								</span>
 							</h3>
-							<p *ngIf="node.type === 'file'" class="text-sm text-gray-500">
+							<p *ngIf="node.type === 'file'" class="text-sm text-white/60">
 								{{ node.permissions }} · {{ node.owner }}:{{ node.group }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ getSizeString(node.size) }}
 								<span *ngIf="node.modified" class="float-right">
 									{{ node.modified | date:'short' }}
@@ -34,7 +36,7 @@
 							</p>
 						</div>
 					</li>
-					<div *ngIf="node.type === 'directory' && isExpanded(node)" class="border-l border-l-dashed border-l--gray-300 pl-2" [style.margin-left.px]="16 * (depth + 1)">
+					<div *ngIf="node.type === 'directory' && isExpanded(node)" class="border-l border-dashed border-l-white/10 pl-2" [style.margin-left.px]="16 * (depth + 1)">
 						<ng-container *ngTemplateOutlet="recursiveTree; context: { nodes: node.children || [], depth: depth + 1 }"></ng-container>
 					</div>
 				</ng-container>
@@ -43,14 +45,14 @@
 		</ul>
 	</div>
 </div>
-<ion-modal #modalContent>
+<ion-modal #modalContent class="[--background:var(--color-modernsecond)] [--color:white] [--max-width:calc(100vw-2rem)] [--max-height:90dvh]">
 	<ng-template>
-		<div class="bg--white">
-			<h3 class="relative flex justify-between bg--blue-800 pt-2 pb-2 text--gray-100" (click)="closeContent()">
-				<span class="mx-auto">{{modalContentName}} {{modalContentMeta}}</span>
+		<div class="bg-modernsecond text-white">
+			<h3 class="relative flex min-w-0 gap-3 justify-between bg-modernthird pt-2 pb-2 text-white" (click)="closeContent()">
+				<span class="min-w-0 break-all px-10">{{modalContentName}} {{modalContentMeta}}</span>
 				<ion-icon name="close-circle-outline" class="w-6 h-6 absolute right-3 cursor-pointer"></ion-icon>
 			</h3>
-			<pre class="m-4 text--black text-sm font-mono overflow-y-auto" style="max-height:calc(90vh - 60px);">{{ modalContentText }}</pre>
+			<pre class="m-4 max-w-full max-h-[75dvh] text-white/80 text-xs sm:text-sm font-mono overflow-auto" >{{ modalContentText }}</pre>
 		</div>
 	</ng-template>
 </ion-modal>

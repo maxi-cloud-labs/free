@@ -1,45 +1,49 @@
-<div class="flex text--gray-900 h-full">
-	<app-sidebar></app-sidebar>
-	<div class="flex-1 flex flex-col">
-		<app-topbar title="{{L('Hardware:')}} {{global.session?.cloud?.hardware?.model}}"></app-topbar>
-		<div class="p-6	flex flex-col gap-3 items-start">
-			<button (click)="connectToggle()" [class]="ble.connectedBLE == 2 || ble.connectedWS == 2 ? 'bg--green-600' : ble.connectedBLE == 1 ? 'bg--yellow-600' : 'bg--blue-600'" class="inline-flex items-center gap-2 px-4 py-2 text--white rounded-lg text-sm font-medium transition-colors" *ngIf="global.developer">
-				<ion-icon [name]="typeBluetooth ? 'bluetooth-outline' : 'globe-outline'" class="text--white w-4 h-4"></ion-icon>
+<div class="min-h-screen bg-slate-950 text-white">
+	<ng-template><app-sidebar></app-sidebar></ng-template>
+	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
+		<app-modernbar #modernbar></app-modernbar>
+		<ng-template><app-topbar title="{{L('Hardware:')}} {{global.session?.cloud?.hardware?.model}}"></app-topbar></ng-template>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Hardware:')}} {{global.session?.cloud?.hardware?.model}}</h1>
+		<div class="m-4 flex min-w-0 flex-col gap-5 rounded-2xl bg-modernsecond p-5 ring-1 ring-white/10 sm:m-6 sm:p-6 lg:mx-8">
+			<button (click)="connectToggle()" [class]="ble.connectedBLE == 2 || ble.connectedWS == 2 ? 'bg-emerald-700' : ble.connectedBLE == 1 ? 'bg-white' : 'bg-white'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 text-slate-950 rounded-lg text-sm font-medium transition-colors" *ngIf="global.developer">
+				<ion-icon [name]="typeBluetooth ? 'bluetooth-outline' : 'globe-outline'" class="shrink-0 w-4 h-4"></ion-icon>
 				<span class="text-lg">{{ble.connectedBLE == 2 || ble.connectedWS == 2 ? L("Connected") : ble.connectedBLE == 1 ? L("Searching") : L("Connect")}}</span>
 			</button>
-			<div class="flex items-center" *ngIf="global.developer"><input type="checkbox" [(ngModel)]="typeBluetooth" [disabled]="ble.connectedBLE != 0 || ble.connectedWS != 0" labelPlacement="end" class="form-checkbox h-4 w-4 mr-3">{{L("Via Bluetooth")}}</div>
+			<div class="flex items-center" *ngIf="global.developer"><input type="checkbox" [(ngModel)]="typeBluetooth" [disabled]="ble.connectedBLE != 0 || ble.connectedWS != 0" labelPlacement="end" class="form-checkbox h-4 w-4 shrink-0 accent-white mr-3">{{L("Via Bluetooth")}}</div>
 			<div class="flex flex-col gap-3" *ngIf="ble.connectedBLE == 2 || ble.connectedWS == 2">
-				<button (click)="shutdown()" class="inline-flex items-center gap-2 px-4 py-2 bg--red-600 text--white rounded-lg text-sm font-medium hover:bg--red-700 transition-colors" *ngIf="global.setupUIProgress == 0">
-					<ion-icon name="power-outline" class="text--white w-4 h-4"></ion-icon>
+				<button (click)="shutdown()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-lg text-sm font-medium hover:bg-red-600 transition-colors" *ngIf="global.setupUIProgress == 0">
+					<ion-icon name="power-outline" class="text-white shrink-0 w-4 h-4"></ion-icon>
 					<span class="text-lg">{{L("Shutdown")}}</span>
 				</button>
-				<button (click)="otp()" class="inline-flex items-center gap-2 px-4 py-2 bg--yellow-600 text--white rounded-lg text-sm font-medium hover:bg--yellow-700 transition-colors">
-					<ion-icon name="lock-open-outline" class="text--white w-4 h-4"></ion-icon>
+				<button (click)="otp()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors">
+					<ion-icon name="lock-open-outline" class="shrink-0 w-4 h-4"></ion-icon>
 					<span class="text-lg">{{L("Login OTP")}}</span>
 				</button>
-				<div class="flex rounded-lg border border--gray-200 bg--white p-1">
+				<div class="flex rounded-lg ring-1 ring-white/10 bg-modernsecond p-1">
 					<label class="relative flex flex-col grow cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="language" value="en" class="peer sr-only" checked (click)="language('en');"/>
-						<span class="absolute inset-0 z-0 rounded-md bg--gray-100 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
-						<span class="relative z-10 font-medium transition-all duration-300 peer-checked:text--gray-900">🇺🇸<br>EN</span>
+						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
+						<span class="relative z-10 font-medium transition-all duration-300 peer-checked:text-white">🇺🇸<br>EN</span>
 					</label>
 					<label class="relative flex flex-col grow cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="language" value="fr" class="peer sr-only"  (click)="language('fr');"/>
-						<span class="absolute inset-0 z-0 rounded-md bg--gray-100 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
-						<span class="relative z-10 font-medium transition-all duration-300 peer-checked:text--gray-900">🇫🇷<br>FR</span>
+						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
+						<span class="relative z-10 font-medium transition-all duration-300 peer-checked:text-white">🇫🇷<br>FR</span>
 					</label>
 				</div>
 				<b>{{L("Device version:")}}</b> {{ble.firmwareDeviceVersion}}
 			</div>
-			<div class="-ml-5" style="position:relative;">
-				<img [src]="'assets/images/hardware-' + (global.session?.cloud?.hardware?.model == 'Cloud' ? 'cloud' : global.session?.cloud?.hardware?.model == 'Raspberry Pi' ? 'raspberrypi5' : 'dongle') + '.png'" style="height:640px;" alt="Dongle" usemap="#buttonsMap">
+			<div class="w-full min-w-0 overflow-x-auto rounded-xl bg-slate-950/40 p-2">
+				<div class="relative w-max min-w-[510px]">
+				<img [src]="'assets/images/hardware-' + (global.session?.cloud?.hardware?.model == 'Cloud' ? 'cloud' : global.session?.cloud?.hardware?.model == 'Raspberry Pi' ? 'raspberrypi5' : 'dongle') + '.png'" class="h-[640px] max-w-none" alt="Dongle" usemap="#buttonsMap">
 				<map name="buttonsMap">
 					<area shape="rect" coords="15,360,55,400" alt="Left" href="javascript:;" (click)="button(105, 0);" long-press (press)="button(105, 1)">
 					<area shape="rect" coords="15,80,55,130" alt="Right" href="javascript:;" (click)="button(103, 0);" long-press (press)="button(103, 1)">
 					<area shape="rect" coords="440,360,490,400" alt="Up" href="javascript:;" (click)="button(106, 0);" long-press (press)="button(106, 1)">
 					<area shape="rect" coords="440,80,490,130" alt="Down" href="javascript:;" (click)="button(108, 0);" long-press (press)="button(108, 1)">
 				</map>
-				<canvas #canvasE id="canvas" width=128 height=128 style="border:solid black 0px; width:300px; height:300px; position:absolute; left:102px; top:85px;"></canvas>
+				<canvas #canvasE id="canvas" width=128 height=128 class="absolute left-[102px] top-[85px] h-[300px] w-[300px] border-0"></canvas>
+				</div>
 			</div>
 		</div>
 	</div>
