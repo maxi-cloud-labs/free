@@ -265,9 +265,7 @@ async helper2Send(query: string) {
 				const { value, done } = await reader.read();
 				if (done)
 					break;
-
 				buffer += decoder.decode(value, { stream:true });
-
 				let pos: number;
 				while ((pos = buffer.indexOf("\n")) !== -1) {
 					processLine(buffer.slice(0, pos));
@@ -353,15 +351,24 @@ heroStep(d) {
 }
 
 heroInit(arg) {
-	if (arg !== undefined) {
+	const editorPick = {
+		all: ["openclaw", "openwebui", "searxng", "homeassistant", "jellyfin", "stirlingpdf", "mastodon"],
+		AI: ["openclaw", "ollama", "dify", "openwebui", "comfyui", "anythingllm", "khoj"],
+		Work: ["excalidraw", "stirlingpdf", "affine", "joplin", "paperlessngx", "outline", "jitsimeet"],
+		Entertainment: ["immich", "homeassistant", "jellyfin", "qbittorrent", "searxng", "actualbudget", "navidrome"],
+		Infrastructure: ["uptimekuma", "syncthing", "vaultwarden", "pihole", "ntfy", "homepage", "convertx"],
+		Development: ["gitea", "appsmith", "swaggerui", "shields", "adminer", "sqliteweb", "pgadmin4"]
+	}
+	if (arg === undefined)
+		arg = "all"
+	if (editorPick[arg] !== undefined)
+		this.heroCards = editorPick[arg].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
+	else {
 		let cats = [];
 		for(let i = 0; i < CategoriesOrg.length; i++)
 			if (CategoriesOrg[i]["name"] == arg)
 				cats = CategoriesOrg[i].categories;
 		this.heroCards = this.cards.filter(c => c.web && (arg == c.category || cats.includes(c.category))).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 7);
-	} else {
-		const heroes = ["openclaw", "n8n", "openwebui", "searxng", "homeassistant", "invidious", "mastodon"];
-		this.heroCards = heroes.map(hero => this.cards[this.global.modulesDataFindId(hero)]);
 	}
 	this.heroIdx = 0;
 	this.heroProgressKey = 0;
