@@ -197,7 +197,7 @@ helper2PreviewApps(raw: string): string[] {
 	return apps;
 }
 
-async helper2Send(query: string, stream = true) {
+async helper2Send(query: string) {
 	this.helper2Abort?.abort();
 	this.helperQuery = query.trim();
 	this.helperAsked = true;
@@ -217,7 +217,7 @@ async helper2Send(query: string, stream = true) {
 		this.cdr.detectChanges();
 	};
 	try {
-		const response = await fetch(this.global.SERVERURL + "/master/helper2.json", { method:"POST", headers:{ "Content-Type":"application/json", "Authorization":"Bearer " + this.global.session.sessionID }, body:JSON.stringify({ messages, stream }), signal:abort.signal});
+		const response = await fetch(this.global.SERVERURL + "/master/helper2.json", { method:"POST", headers:{ "Content-Type":"application/json", "Authorization":"Bearer " + this.global.session.sessionID }, body:JSON.stringify({ messages }), signal:abort.signal});
 		if (!response.ok)
 			throw new Error("HTTP " + response.status);
 		if (requestId != this.helperRequestId)
