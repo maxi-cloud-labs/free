@@ -5,7 +5,7 @@
 <!-- Hero -->
 			<div class="flex justify-center min-w-0" [class]="helperShown ? 'lg:col-span-3' : 'lg:col-span-4'">
 				<div class="relative w-full max-w-[125vh] aspect-video min-h-[300px] max-h-[72vh] rounded-2xl border-1 border-white/10 overflow-hidden" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
-					<div *ngFor="let card of heroCards; let i = index" class="absolute inset-0 transition-opacity duration-500" [class]="i == heroIdx ? 'opacity-100' : 'invisible pointer-events-none opacity-0'" [attr.aria-hidden]="i != heroIdx">
+					<div *ngFor="let card of heroCards; let i = index" class="absolute inset-0 transition-opacity duration-500" [class]="i == heroIdx ? 'opacity-100' : 'invisible pointer-events-none opacity-0'">
 						<img [src]="'assets/modulesimages/' + card.module + '.backdrop.jpg'" alt="" class="absolute inset-0 w-full h-full object-fill">
 						<div class="relative z-10 flex h-full flex-col justify-end gap-3 p-5 pb-20 sm:p-8 sm:pb-20 bg-gradient-to-t from-slate-950/50 via-slate-950/15 to-transparent">
 							<span class="hidden md:inline-flex items-center py-0.5 gap-2 rounded-full text-sm font-bold ml-1 mr-1 text-white">
@@ -52,16 +52,16 @@
 }
 </style>
 					<div class="absolute bottom-4 right-4 z-20 flex items-center gap-1 sm:gap-2 md:bottom-6 md:right-8">
-						<button type="button" class="relative w-11 h-11 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" [attr.aria-label]="heroPaused ? L('Play') : L('Pause')" (click)="heroPaused=!heroPaused">
+						<button type="button" class="relative w-11 h-11 rounded-full flex items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" (click)="heroPaused=!heroPaused">
 							<span *ngFor="let key of [heroProgressKey]; trackBy: heroProgressTrack" class="absolute -inset-[3px] rounded-full pointer-events-none [background:conic-gradient(white_var(--progress),transparent_0)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),black_0)] hero-ring" [class.paused]="heroPaused" (animationiteration)="heroStep(1)"></span>
 							<ion-icon [name]="heroPaused ? 'play' : 'pause'"></ion-icon>
 						</button>
-						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" [attr.aria-label]="L('Previous')" (click)="heroStep(-1)">
+						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" (click)="heroStep(-1)">
 							<ion-icon name="chevron-back-outline"></ion-icon>
 						</button>
-						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all focus:outline-none focus-visible:border-2 focus-visible:border-white/70" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" [attr.aria-label]="c.name" [attr.aria-current]="i === heroIdx ? 'true' : null" (click)="heroSelect(i)">
+						<button *ngFor="let c of heroCards; let i = index" type="button" class="h-2 cursor-pointer rounded-full transition-all focus:outline-none focus-visible:border-2 focus-visible:border-white/70" [ngClass]="i === heroIdx ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white'" (click)="heroSelect(i)">
 						</button>
-						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" [attr.aria-label]="L('Next')" (click)="heroStep(1)">
+						<button type="button" class="flex w-11 h-11 rounded-full items-center justify-center bg-modernsecond/50 text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" (click)="heroStep(1)">
 							<ion-icon name="chevron-forward-outline"></ion-icon>
 						</button>
 					</div>
@@ -199,7 +199,7 @@
 		<div class="group relative rounded-xl overflow-hidden bg-modernsecond border-1 border-white/10 shadow-lg transition duration-300 hover:border-white/75 focus-within:border-2 focus-within:border-white" [ngClass]="aspectClass">
 			<a class="absolute inset-0 cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }"><img [src]="'assets/modulesimages/' + card.module + '.' + imageType + '.jpg'" alt="" loading="lazy" class="w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'"></a>
 			<span class="block text-xs font-bold text-amber-200 absolute bottom-12 inset-x-2 z-10 rounded-lg bg-black/80 px-2 py-1" *ngIf="card.notReady != 0">{{card.notReady == 2 ? L("Setup needed") : L("Reset in progress")}}</span>
-			<button type="button" *ngIf="card.web" class="absolute top-1 right-1 z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950/80 text-white hover:bg-red-700" [attr.aria-label]="card.tag ? L('Bookmarked') : L('Add bookmark')" (click)="modernbar.tag(card.module)"><ion-icon class="h-5 w-5" [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'"></ion-icon></button>
+			<button type="button" *ngIf="card.web" class="absolute top-1 right-1 z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950/80 text-white hover:bg-red-700" (click)="modernbar.tag(card.module)"><ion-icon class="h-5 w-5" [name]="card?.tag ? 'bookmarks' : 'bookmark-outline'"></ion-icon></button>
 			<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center opacity-0 overflow-hidden transition-opacity duration-300 group-hover:opacity-100 w-full pointer-events-none">
 				<ion-icon name="open-outline" class="w-10 h-10 shrink-0 rounded-xl bg-black/50 p-2 text-white mb-4"></ion-icon>
 				<p class="text-sm w-full text-center bg-black/50 p-2 text-white [text-shadow:_1px_1px_0px_rgba(0,0,0,1)]">{{LMD(card.description)}}</p>

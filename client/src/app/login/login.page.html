@@ -10,7 +10,7 @@
 					<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 				</div>
 				<div class="flex w-full items-center justify-center gap-3">
-					<ion-icon name="person-outline" class="h-10 w-10 shrink-0 text-white/80" aria-hidden="true"></ion-icon>
+					<ion-icon name="person-outline" class="h-10 w-10 shrink-0 text-white/80"></ion-icon>
 					<h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white whitespace-normal">{{L("Welcome\nback!")}}</h1>
 				</div>
 				<p class="text-white/60">{{L("Sign in to your account to continue")}}</p>
@@ -39,7 +39,7 @@
 						</div>
 						<div class="flex items-center gap-0">
 							<input #password1E id="password1" formControlName="password1" autocomplete="current-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Enter your password" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
-							<button type="button" (click)="password1Show = !password1Show;" [attr.aria-label]="password1Show ? L('Hide password') : L('Show password')" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
+							<button type="button" (click)="password1Show = !password1Show;" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 						</div>
 					</div>
 					@if (password1?.invalid && password1?.touched) {
@@ -90,7 +90,7 @@
 					<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 				</div>
 				<div class="flex w-full items-center justify-center gap-3">
-					<ion-icon name="person-add-outline" class="h-10 w-10 shrink-0 text-white/80" aria-hidden="true"></ion-icon>
+					<ion-icon name="person-add-outline" class="h-10 w-10 shrink-0 text-white/80"></ion-icon>
 					<h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white whitespace-normal">{{L("Create\nAccount")}}</h1>
 				</div>
 				<p class="text-white/60">{{L("Join this mAxI cloud!")}}</p>
@@ -134,7 +134,7 @@
 						</div>
 						<div class="flex items-center gap-0">
 							<input id="password2" formControlName="password2" autocomplete="new-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Create a strong password" [class.border-red-400]="password2?.invalid && password2?.touched" [class.focus:border-red-400]="password2?.invalid && password2?.touched" [type]="password2Show ? 'text' : 'password'">
-							<button type="button" (click)="password2Show = !password2Show;" [attr.aria-label]="password2Show ? L('Hide password') : L('Show password')" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password2Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
+							<button type="button" (click)="password2Show = !password2Show;" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password2Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 						</div>
 					</div>
 						@if (password2?.value) {
@@ -227,7 +227,7 @@
 						<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 					</div>
 					<div class="flex w-full items-center justify-center gap-3">
-						<ion-icon name="lock-closed-outline" class="h-10 w-10 shrink-0 text-white/80" aria-hidden="true"></ion-icon>
+						<ion-icon name="lock-closed-outline" class="h-10 w-10 shrink-0 text-white/80"></ion-icon>
 						<h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white whitespace-normal">{{L("Forgot your\nPassword?")}}</h1>
 					</div>
 					<p class="text-white/60">{{L("No worries! Enter your email to receive instructions.")}}</p>
@@ -310,7 +310,7 @@
 					<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 				</div>
 				<div class="flex w-full items-center justify-center gap-3">
-					<ion-icon name="person-outline" class="h-10 w-10 shrink-0 text-white/80" aria-hidden="true"></ion-icon>
+					<ion-icon name="person-outline" class="h-10 w-10 shrink-0 text-white/80"></ion-icon>
 					<h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white whitespace-normal">{{L("Welcome\nback!")}}</h1>
 				</div>
 				<p class="text-white/60">{{L("Sign in to your account to continue")}}</p>
