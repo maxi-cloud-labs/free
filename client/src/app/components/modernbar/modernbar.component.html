@@ -183,11 +183,6 @@
 				</div>
 			</div>
 		</nav>
-		<div class="flex gap-3 px-4 mb-2 text-white">
-			<a (click)="global.themeSet('light')" title="{{LG('Light')}}" [class]="global.themeSel == 'light' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="sunny-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'light' ? 'border-b border-white' : ''"></ion-icon></a>
-			<a (click)="global.themeSet('dark')" title="{{LG('Dark')}}" [class]="global.themeSel == 'dark' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="moon-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'dark' ? 'border-b border-white' : ''"></ion-icon></a>
-			<a (click)="global.themeSet('system')" title="{{LG('System')}}" [class]="global.themeSel == 'system' ? 'cursor-default' : 'cursor-pointer'"><ion-icon name="contrast-outline" class="h-4 w-4 pb-1" [class]="global.themeSel == 'system' ? 'border-b border-white' : ''"></ion-icon></a>
-		</div>
 	</div>
 </aside>
 <header (window:keydown.escape)="showSidebar = false; showUserMenu = false" class="relative flex flex-wrap items-center gap-2 sm:gap-3 px-4 py-4 text-white sm:px-6 lg:flex-nowrap lg:px-8">
