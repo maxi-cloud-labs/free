@@ -3,7 +3,7 @@
 	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
 		<app-modernbar #modernbar></app-modernbar>
 		<ng-template><app-topbar title="{{L('Hardware:')}} {{global.session?.cloud?.hardware?.model}}"></app-topbar></ng-template>
-		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Hardware:')}} {{global.session?.cloud?.hardware?.model}}</h1>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L("Hardware:")}} {{global.session?.cloud?.hardware?.model}}</h1>
 		<div class="m-4 flex min-w-0 flex-col gap-5 rounded-2xl bg-modernsecond p-5 border-1 border-white/10 sm:m-6 sm:p-6 lg:mx-8">
 			<button (click)="connectToggle()" [class]="ble.connectedBLE == 2 || ble.connectedWS == 2 ? 'bg-emerald-700' : ble.connectedBLE == 1 ? 'bg-white' : 'bg-white'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 text-slate-950 rounded-lg text-sm font-medium transition-colors" *ngIf="global.developer">
 				<ion-icon [name]="typeBluetooth ? 'bluetooth-outline' : 'globe-outline'" class="shrink-0 w-4 h-4"></ion-icon>

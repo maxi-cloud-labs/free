@@ -3,7 +3,7 @@
 	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col pb-10">
 		<app-modernbar #modernbar></app-modernbar>
 		<ng-template><app-topbar [title]="L('Profile')"></app-topbar></ng-template>
-		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Profile')}}</h1>
+		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L("Profile")}}</h1>
 		<div class="mx-4 mt-4 break-words text-sm text-white/60 sm:mx-6 lg:mx-8">{{L("Your external IP address:")}} {{externalIP}}</div>
 		<div class="flex flex-wrap items-start gap-3 mx-4 mt-4 sm:mx-6 lg:mx-8">
 			<div class="min-w-0 flex-1 break-words">{{L("This is your personal profile. The system settings can be tuned on the page:")}} <a routerLink="/settings" class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer">Settings</a></div>
