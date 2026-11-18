@@ -257,7 +257,7 @@ mytranslateP(page, st) {
 }
 
 mytranslate(st) {
-	return this.mytranslateP(this.router.url.replace(/^\/|(\?).*$/g, ""), st);
+	return this.mytranslateP(this.router.url.replace(/^\/|(\?).*$/g, "") || "modern", st);
 }
 
 mytranslateG(st) {
