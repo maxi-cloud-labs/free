@@ -52,7 +52,7 @@
 					{{LG("No tagged module.")}}
 				</div>
 				<div [class]="global.sidebarFilterType == 'search' ? '' : 'hidden'">
-					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 border border--gray-300 text--gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring--blue-600 focus:border-transparent transition-colors">
+					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 border border--gray-300 text--gray-500 rounded-lg focus:outline-none focus:border-2 focus:border--blue-600 focus:border-transparent transition-colors">
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
 					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">

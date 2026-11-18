@@ -18,8 +18,8 @@
 				<span>{{LG("Dashboard")}}</span>
 				<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.modulesData.length}}</span>
 			</a>
-			<div class="ml-2 flex flex-col rounded-lg ring-1 ring-white/10">
-				<div class="flex rounded-lg ring-1 ring-white/10 p-1">
+			<div class="ml-2 flex flex-col rounded-lg border-1 border-white/10">
+				<div class="flex rounded-lg border-1 border-white/10 p-1">
 					<label class="relative flex cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 						<input type="radio" name="modulesGroup" [(ngModel)]="global.sidebarFilterType" (click)="sidebarFilterClick('recommended')" (change)="sidebarFilterCards()" value="recommended" class="peer sr-only" checked/>
 						<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
@@ -49,7 +49,7 @@
 					{{LG("No tagged module.")}}
 				</div>
 				<div [class]="global.sidebarFilterType == 'search' ? '' : 'hidden'">
-					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 ring-1 ring-white/15 text-white/60 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:ring-2 focus:ring-white/40 transition-colors">
+					<input type="text" [(ngModel)]="global.sidebarSearchTerm" (input)="sidebarFilterCards()" placeholder="{{LG('Find modules...')}}" class="m-1 pl-2 py-1 w-40 border-1 border-white/15 text-white/60 rounded-lg focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:border-2 focus:border-white/40 transition-colors">
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
 					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
@@ -205,11 +205,11 @@
 <!-- Categories -->
 	<div (window:keydown.escape)="showMenuCategories = false">
 		<button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl bg-modernsecond hover:bg-modernthird cursor-pointer" (click)="showMenuCategories = !showMenuCategories">
-			<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 ring-1 ring-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-75" alt=""></div>
+			<div class="rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors p-2"><img src="assets/images/categories.png" class="w-6 h-6 invert opacity-75" alt=""></div>
 		</button>
 		<ng-container *ngIf="showMenuCategories">
 			<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
-			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl ring-1 ring-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
+			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl border-1 border-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
 				<div *ngFor="let supset of CategoriesOrg" class="flex flex-col">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
@@ -229,18 +229,18 @@
 	</div>
 <!-- Search -->
 	<div class="relative order-last w-full lg:order-none lg:min-w-0 lg:flex-4 lg:max-w-md">
-		<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{LG('Search app...')}}" class="w-full h-11 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 ring-1 ring-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus:bg-modernthird focus:ring-1 focus:ring-gray-400 transition-colors">
+		<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards(true)" (keydown.escape)="searchTerm = ''; filterCards()" autocomplete="off" placeholder="{{LG('Search app...')}}" class="w-full h-11 pl-10 pr-9 rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors">
 		<button type="button" (click)="searchTerm = ''; filterCards()" *ngIf="searchTerm != ''" class="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 cursor-pointer">
 			<ion-icon name="close-outline" class="w-4 h-4"></ion-icon>
 		</button>
 		<ion-icon name="search-outline" class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white"></ion-icon>
 		<ng-container *ngIf="searchTerm">
 			<div class="fixed inset-0 z-40" (click)="searchTerm = ''; filterCards()"></div>
-			<div class="absolute -right-0 top-full mt-2 z-50 w-full max-h-[75dvh] overflow-y-auto rounded-xl bg-slate-950/95 backdrop-blur-md ring-1 ring-white/50 shadow-2xl text-white">
+			<div class="absolute -right-0 top-full mt-2 z-50 w-full max-h-[75dvh] overflow-y-auto rounded-xl bg-slate-950/95 backdrop-blur-md border-1 border-white/50 shadow-2xl text-white">
 				<ul class="p-2">
 					<li *ngFor="let card of filteredCards | slice:0:8">
 						<a class="group flex items-center gap-3 rounded-xl p-2 hover:bg-white/10 focus-visible:bg-white/10 transition-colors cursor-pointer" routerLink="/app" [queryParams]="{ name:card.module }">
-							<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden ring-1 ring-white/10 bg-modernsecond">
+							<span class="relative shrink-0 w-12 aspect-[3/4] rounded-md overflow-hidden border-1 border-white/10 bg-modernsecond">
 								<img [src]="'assets/modulesimages/' + card.module + '.poster.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" (error)="$any($event.target).style.display = 'none'">
 							</span>
 							<span class="min-w-0">
@@ -273,7 +273,7 @@
 			</button>
 			@if (showUserMenu) {
 			<div class="fixed inset-0 z-40" (click)="showUserMenu = false"></div>
-			<div class="absolute bg-modernsecond right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] max-h-[75dvh] overflow-y-auto rounded-2xl shadow-2xl ring-1 ring-white/50 z-50">
+			<div class="absolute bg-modernsecond right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] max-h-[75dvh] overflow-y-auto rounded-2xl shadow-2xl border-1 border-white/50 z-50">
 				<div class="p-4 border-b border-white/10 xl:hidden">
 					<p class="text-sm font-medium text-white">{{global.session?.user?.name}}</p>
 					<p class="break-all text-sm text-white/60">{{global.session?.user?.email}}</p>

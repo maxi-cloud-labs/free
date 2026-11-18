@@ -8,7 +8,7 @@
 		<div class="flex flex-wrap items-start gap-3 mx-4 mt-4 sm:mx-6 lg:mx-8">
 			<div class="min-w-0 flex-1 break-words">{{L("Those are the system settings. Your personal settings including your password can be tuned on the page:")}} <a routerLink="/profile" class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer">Profile</a></div>
 			<div class="min-w-0 flex-1"></div>
-			<button (click)="save()" [disabled]="dSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white ring-1 ring-white/10 rounded-lg text-sm font-medium text-slate-950 hover:bg-slate-200 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-slate-950/50">
+			<button (click)="save()" [disabled]="dSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white border-1 border-white/10 rounded-lg text-sm font-medium text-slate-950 hover:bg-slate-200 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-slate-950/50">
 				<ion-icon name="save-outline" class="w-4 h-4"></ion-icon>
 				{{L("Save")}}
 			</button>
@@ -17,29 +17,29 @@
 			<main class="min-w-0 flex-1 p-4 sm:p-6 lg:px-8 bg-transparent space-y-6">
 				<div class="border-b border-white/10">
 					<nav class="flex flex-wrap gap-x-5 gap-y-1">
-						<button (click)="activeTab = 'general'" [class]="activeTab == 'general' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'general'" [class]="activeTab == 'general' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("General")}}
 						</button>
-						<button (click)="activeTab = 'domains'" [class]="activeTab == 'domains' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'domains'" [class]="activeTab == 'domains' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Domains")}}
 						</button>
-						<button (click)="activeTab = 'connectivity'" [class]="activeTab == 'connectivity' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'connectivity'" [class]="activeTab == 'connectivity' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Connectivity")}}
 						</button>
-						<button (click)="activeTab = 'vpn'" [class]="activeTab == 'vpn' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'vpn'" [class]="activeTab == 'vpn' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("VPN")}}
 						</button>
-						<button (click)="activeTab = 'security'" [class]="activeTab == 'security' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'security'" [class]="activeTab == 'security' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Security")}}
 						</button>
 					</nav>
 				</div>
 				@if (activeTab == 'general') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h4 class="text-md font-medium text-white mb-2">{{L("Language")}}</h4>
 					<p class="text-sm font-medium text-white/80">{{L("System")}}</p>
 					<div class="flex mt-2">
-						<div class="flex rounded-lg ring-1 ring-white/10 p-1">
+						<div class="flex rounded-lg border-1 border-white/10 p-1">
 							<label class="relative flex flex-col cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 								<input type="radio" name="language" value="en" class="peer sr-only" checked (click)="global.changeLanguage('en');"/>
 								<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
@@ -56,7 +56,7 @@
 					<h4 class="text-md font-medium text-white mb-2">{{L("System Time:")}} {{ currentTime }}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Time Zone")}}</p>
-						<select class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]" (change)="onTimezoneChange($event)" [value]="selectedTimezone">
+						<select class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]" (change)="onTimezoneChange($event)" [value]="selectedTimezone">
 							<option class="bg-modernsecond text-white" value="UTC">GMT +0 (UTC)</option>
 							<option class="bg-modernsecond text-white" value="Europe/London">GMT +0 (London)</option>
 							<option class="bg-modernsecond text-white" value="Europe/Paris">GMT +1 (Paris)</option>
@@ -91,7 +91,7 @@
 							<p class="text-sm font-medium text-white/80">{{L("Disable")}}</p>
 							<p class="text-sm text-white/60">{{L("Don't show Transmission, qBittorrent and rr modules.")}}</p>
 						</div>
-						<input type="checkbox" [(ngModel)]="signInNotification" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="signInNotification" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Backend")}}</h4>
@@ -100,7 +100,7 @@
 							<p class="text-sm font-medium text-white/80">{{L("Refresh")}}</p>
 							<p class="text-sm text-white/60">{{L("Restart web app server.")}}</p>
 						</div>
-						<button (click)="refresh()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+						<button (click)="refresh()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 							<ion-icon name="refresh-outline" class="shrink-0 w-4 h-4"></ion-icon>
 							<span class="text-lg">{{L("Refresh")}}</span>
 						</button>
@@ -108,20 +108,20 @@
 				</div>
 				}
 				@if (activeTab == 'domains') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Cloud Name")}}</p>
-						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.name}}.maxi.cloud" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.name}}.maxi.cloud" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Short Name")}}</p>
-						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.shortname}}.maxi.cloud" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="https://{{global.session.cloud.all?.shortname}}.maxi.cloud" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("BYO Domains (Bring Your Own Domains)")}}</p>
-						<input type="text" disabled="true" value="{{global.session.cloud.all?.domains?.join(', ')}}" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="{{global.session.cloud.all?.domains?.join(', ')}}" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
@@ -129,7 +129,7 @@
 						<span class="text-right flex flex-col items-end">
 							{{certificateExpirationDate}}<br>
 							{{certificateDomains}}<br>&nbsp;
-							<button (click)="certificateRenew()" disabled="true" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+							<button (click)="certificateRenew()" disabled="true" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 								<ion-icon name="refresh-outline" class="shrink-0 w-4 h-4"></ion-icon>
 								<span class="text-lg">{{L("Renew")}}</span>
 							</button>
@@ -138,16 +138,16 @@
 				</div>
 				}
 				@if (activeTab == 'connectivity') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h3 class="text-lg font-semibold text-white mb-4">{{L("Wi-Fi")}}</h3>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("SSID")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Type")}}</p>
-						<select class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<select class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 							<option class="bg-modernsecond text-white" value="nome">None</option>
 							<option class="bg-modernsecond text-white" value="wep">WEP</option>
 							<option class="bg-modernsecond text-white" value="wpa" selected=true>WPA/WPA2</option>
@@ -156,16 +156,16 @@
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Password")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
-					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 						<span class="text-lg">{{L("Apply")}}</span>
 					</button>
 				</div>
 				}
 				@if (activeTab == 'vpn') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h3 class="text-lg font-semibold text-white mb-4">{{L("VPN Server")}}</h3>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Configuration")}}</h4>
 					<div class="space-y-4 flex flex-col">
@@ -178,21 +178,21 @@
 					<div class="space-y-4 flex flex-col">
 						<div class="flex items-center">
 							<p class="text-sm font-medium text-white/80">{{L("OpenVPN or WireGuard .conf")}}</p>
-							<button type="button" (click)="getSshKeys()" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon name="download-outline" class="text-slate-950"></ion-icon></button>
+							<button type="button" (click)="getSshKeys()" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon name="download-outline" class="text-slate-950"></ion-icon></button>
 						</div>
 						<p class="text-sm text-white/60">{{L("You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...")}}</p>
-						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white ring-1 ring-white/15 rounded-xl px-3 py-2 placeholder:text-white/50" placeholder="click on button to retrieve what is on server / Nothing on system"></textarea>
+						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-1 border-white/15 rounded-xl px-3 py-2 placeholder:text-white/50" placeholder="click on button to retrieve what is on server / Nothing on system"></textarea>
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Enable")}}</p>
-						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Traffic Routing")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Module(s)")}}</p>
-						<select class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<select class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 							<option class="bg-modernsecond text-white" value="user">qBittorrent only</option>
 							<option class="bg-modernsecond text-white" value="user">All modules</option>
 						</select>
@@ -200,14 +200,14 @@
 				</div>
 				}
 				@if (activeTab == 'security') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h4 class="text-md font-medium text-white mb-2">{{L("New User Sign-Up")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<div>
 							<p class="text-sm font-medium text-white/80">{{L("Approval Requirement")}}</p>
 							<p class="text-sm text-white/60">{{L("A new user sign-up needs admin approval.")}}</p>
 						</div>
-						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Notification")}}</h4>
@@ -216,7 +216,7 @@
 							<p class="text-sm font-medium text-white/80">{{L("Sign-In")}}</p>
 							<p class="text-sm text-white/60">{{L("Users are notified by email of their successful sign-in.")}}</p>
 						</div>
-						<input type="checkbox" [(ngModel)]="signInNotification" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="signInNotification" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("AutoLogin")}}</h4>
@@ -225,22 +225,22 @@
 							<p class="text-sm font-medium text-white/80">{{L("Enable AutoLogin")}}</p>
 							<p class="text-sm text-white/60">{{L("AutoLogin button is present on login page (if any) of the modules.")}}</p>
 						</div>
-						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Sudo")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Admin account has sudo rights")}}</p>
-						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="adminSudo" (change)="dSave = false;" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("SSH")}}</h4>
 					<div class="space-y-4 flex flex-col">
 						<div class="flex items-center">
 							<p class="text-sm font-medium text-white/80">{{L("SSH Authorized public key(s)")}}</p>
-							<button type="button" (click)="getSshKeys()" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon name="download-outline" class="text-slate-950"></ion-icon></button>
+							<button type="button" (click)="getSshKeys()" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon name="download-outline" class="text-slate-950"></ion-icon></button>
 						</div>
-						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white rounded-xl ring-1 ring-white/15 px-3 py-2"></textarea>
+						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white rounded-xl border-1 border-white/15 px-3 py-2"></textarea>
 					</div>
 				</div>
 				}

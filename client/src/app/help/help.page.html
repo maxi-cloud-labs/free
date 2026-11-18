@@ -4,7 +4,7 @@
 		<app-modernbar #modernbar></app-modernbar>
 		<ng-template><app-topbar [title]="L('Help')"></app-topbar></ng-template>
 		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{L('Help')}}</h1>
-		<div class="m-4 flex min-w-0 flex-col gap-5 rounded-2xl bg-modernsecond p-5 ring-1 ring-white/10 sm:m-6 sm:p-6 lg:mx-8">
+		<div class="m-4 flex min-w-0 flex-col gap-5 rounded-2xl bg-modernsecond p-5 border-1 border-white/10 sm:m-6 sm:p-6 lg:mx-8">
 			<div>{{L("The support website has useful information. Perhaps your question is already answered there:")}}</div>
 			<a href="https://support.maxi.cloud" target="_blank" class="w-full justify-center sm:w-auto bg-modernthird inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg text-sm font-medium transition-colors mr-2 cursor-pointer">
 				<span class="text-lg">{{L("Open the support website")}}</span>
@@ -18,7 +18,7 @@
 				<span class="text-lg">{{L("Open the forum website")}}</span>
 			</a>
 			<div>{{L("Show again welcome tour on home page:")}}</div>
-			<button (click)="welcomeTour();" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 bg-white inline-flex items-center gap-2 px-4 py-2 text-slate-950 rounded-lg text-sm font-medium transition-colors mr-2 cursor-pointer">
+			<button (click)="welcomeTour();" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 bg-white inline-flex items-center gap-2 px-4 py-2 text-slate-950 rounded-lg text-sm font-medium transition-colors mr-2 cursor-pointer">
 				<span class="text-lg">{{L("Show welcome tour")}}</span>
 			</button>
 		</div>

@@ -7,7 +7,7 @@
 		<div class="mt-4 mx-4 break-words text-sm leading-relaxed text-white/70 sm:mx-6 lg:mx-8" *ngIf="this.global.session.user.username == this.global.session.cloud.info.name">
 			{{L("Additional users management is available in the module")}} <a class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer" routerLink="/" [queryParams]="{ search:'betterauthstudio' }">{{LMT("Identity Management")}}</a>.
 		</div>
-		<div class="m-4 min-w-0 overflow-auto rounded-2xl bg-modernsecond ring-1 ring-white/10 sm:m-6 lg:mx-8">
+		<div class="m-4 min-w-0 overflow-auto rounded-2xl bg-modernsecond border-1 border-white/10 sm:m-6 lg:mx-8">
 			<table class="min-w-[760px] w-full divide-y divide-white/10">
 				<thead class="bg-modernsecond sticky top-0 z-10">
 					<tr>
@@ -23,16 +23,16 @@
 				<tbody class="divide-y divide-white/10">
 					<tr class="hover:bg-white/5" *ngFor="let user of users?.users;">
 						<td class="px-2 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setEmail(user['id'], $event)" [value]="user['email']" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"></div>
+							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setEmail(user['id'], $event)" [value]="user['email']" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white border-1 border-white/15 focus:outline-none focus:border-2 focus:border-white/60"></div>
 						</td>
 						<td class="px-2 py-4 whitespace-nowrap">
-							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setUsername(user['id'], $event)" [value]="user['username']" [disabled]="user['username'] == global.session.cloud.info.name" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"></div>
+							<div class="text-sm font-medium text-white break-words"><input type="text" (change)="setUsername(user['id'], $event)" [value]="user['username']" [disabled]="user['username'] == global.session.cloud.info.name" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white border-1 border-white/15 focus:outline-none focus:border-2 focus:border-white/60"></div>
 						</td>
 						<td class="px-2 py-4 whitespace-nowrap">
 							@if (user["username"] == global.session.cloud.info.name) {
 							<div class="text-sm font-medium text-white break-words">super admin</div>
 							} @else {
-							<div class="text-sm font-medium text-white break-words"><select (change)="setRole(user['id'], $event)" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-white/60"><option class="bg-modernsecond text-white" value="user" [selected]="user['role'] == 'user'">user</option><option class="bg-modernsecond text-white" value="admin" [selected]="user['role'] == 'admin'">admin</option></select></div>
+							<div class="text-sm font-medium text-white break-words"><select (change)="setRole(user['id'], $event)" class="min-w-0 rounded-xl bg-slate-950/50 px-3 py-2 text-white border-1 border-white/15 focus:outline-none focus:border-2 focus:border-white/60"><option class="bg-modernsecond text-white" value="user" [selected]="user['role'] == 'user'">user</option><option class="bg-modernsecond text-white" value="admin" [selected]="user['role'] == 'admin'">admin</option></select></div>
 							}
 						</td>
 						<td align="center" class="py-4 whitespace-nowrap"><ion-icon name="refresh-circle-outline" class="w-6 h-6" (click)="resetPassword(user['id'])"></ion-icon></td>

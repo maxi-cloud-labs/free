@@ -12,23 +12,23 @@
 			<main class="min-w-0 flex-1 p-4 sm:p-6 lg:px-8 bg-transparent space-y-6">
 				<div class="border-b border-white/10">
 					<nav class="flex flex-wrap gap-x-5 gap-y-1">
-						<button (click)="activeTab = 'general'" [class]="activeTab == 'general' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'general'" [class]="activeTab == 'general' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("General")}}
 						</button>
-						<button (click)="activeTab = 'identity'" [class]="activeTab == 'identity' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'identity'" [class]="activeTab == 'identity' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Identity")}}
 						</button>
-						<button (click)="activeTab = 'security'" [class]="activeTab == 'security' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'security'" [class]="activeTab == 'security' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Security")}}
 						</button>
 					</nav>
 				</div>
 				@if (activeTab == 'general') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h4 class="text-md font-medium text-white mb-2">{{L("Language")}}</h4>
 					<p class="text-sm font-medium text-white/80">{{L("Web App")}}</p>
 					<div class="flex mt-2">
-						<div class="flex rounded-lg ring-1 ring-white/10 p-1">
+						<div class="flex rounded-lg border-1 border-white/10 p-1">
 							<label class="relative flex flex-col cursor-pointer items-center justify-center rounded-md px-3 py-1.5 transition-all duration-300">
 								<input type="radio" name="language" value="en" class="peer sr-only" checked (click)="global.changeLanguage('en');"/>
 								<span class="absolute inset-0 z-0 rounded-md bg-white/10 opacity-0 transition-all duration-300 peer-checked:opacity-100"></span>
@@ -48,7 +48,7 @@
 							<p class="text-sm font-medium text-white/80">{{L("Enable")}}</p>
 							<p class="text-sm text-white/60">{{L("Give more advanced options.")}}</p>
 						</div>
-						<input type="checkbox" [(ngModel)]="global.settings.powerUser" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="global.settings.powerUser" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Profile Settings")}}</h4>
@@ -57,7 +57,7 @@
 							<p class="text-sm font-medium text-white/80">{{L("Reset")}}</p>
 							<p class="text-sm text-white/60">{{L("Restore default profile settings.")}}</p>
 						</div>
-						<button (click)="resetSettings()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+						<button (click)="resetSettings()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 							<ion-icon name="refresh-outline" class="shrink-0 w-4 h-4"></ion-icon>
 							<span class="text-lg">{{L("Reset")}}</span>
 						</button>
@@ -65,50 +65,50 @@
 				</div>
 				}
 				@if (activeTab == 'identity') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Name")}}</p>
-						<input type="text" disabled="true" value="{{global.session.user.name}}" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="{{global.session.user.name}}" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Username")}}</p>
-						<input type="text" disabled="true" value="{{global.session.user.username}}" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="{{global.session.user.username}}" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Email")}}</p>
-						<input type="text" disabled="true" value="{{global.session.user.email}}" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" disabled="true" value="{{global.session.user.email}}" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 				</div>
 				}
 				@if (activeTab == 'security') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h4 class="text-md font-medium text-white mb-2">{{L("Two-Factor Authentication")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Enable")}}</p>
-						<input type="checkbox" [(ngModel)]="twoFA" (click)="showTwoFA()" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:ring-white/60 border-white/10 rounded">
+						<input type="checkbox" [(ngModel)]="twoFA" (click)="showTwoFA()" class="w-4 h-4 shrink-0 accent-white text-red-400 focus:border-white/60 border-white/10 rounded">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Password")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Old")}}</p>
-						<input type="password" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="password" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("New")}}</p>
-						<input type="password" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="password" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("New (confirm)")}}</p>
-						<input type="password" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="password" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80"></p>
-						<button class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+						<button class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 							<ion-icon name="cog-outline" class="shrink-0 w-4 h-4"></ion-icon>
 							<span class="text-lg">{{L("Submit")}}</span>
 						</button>
@@ -141,8 +141,8 @@
 								<ion-icon name="lock-closed-outline" class="text-white/60 w-4 h-4"></ion-icon>
 							</div>
 							<div class="flex items-center gap-0">
-								<input #password1E formControlName="password1" autocomplete="current-password" required class="min-w-0 bg-slate-950/50 text-white block w-full pl-10 pr-3 py-3 ring-1 ring-white/10 rounded-xl placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/60 transition-colors duration-200" placeholder="Enter your password" [class.ring-red-400]="password1?.invalid && password1?.touched" [class.focus:ring-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
-								<button type="button" (click)="password1Show = !password1Show;" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-slate-950"></ion-icon></button>
+								<input #password1E formControlName="password1" autocomplete="current-password" required class="min-w-0 bg-slate-950/50 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/10 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/60 transition-colors duration-200" placeholder="Enter your password" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
+								<button type="button" (click)="password1Show = !password1Show;" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-slate-950"></ion-icon></button>
 							</div>
 						</div>
 						@if (password1?.invalid && password1?.touched) {
@@ -153,14 +153,14 @@
 						}
 					</div>
 					@if (errorSt) {
-					<div class="bg-red-500/10 ring-1 ring-red-400/30 rounded-xl p-4">
+					<div class="bg-red-500/10 border-1 border-red-400/30 rounded-xl p-4">
 						<div class="flex items-center gap-2">
 							<ion-icon name="alert-circle-outline" class="text-red-400 w-5 h-5"></ion-icon>
 							<span class="text-red-200 text-sm font-medium">{{ errorSt }}</span>
 						</div>
 					</div>
 					}
-					<button type="submit" #submit1E [disabled]="progress || formTwoFA.invalid" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text-slate-950 bg-white hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-modernsecond focus:ring-white/60 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
+					<button type="submit" #submit1E [disabled]="progress || formTwoFA.invalid" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text-slate-950 bg-white hover:bg-slate-200 focus:outline-none focus:border-2 focus:border-offset-2 focus:border-offset-modernsecond focus:border-white/60 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
 						@if (progress) {
 						<ion-icon name="cog-outline" class="animate-spin w-6 h-6"></ion-icon>
 						{{L("Enabling...")}}

@@ -8,7 +8,7 @@
 		<div class="flex flex-wrap items-start gap-3 mx-4 mt-4 sm:mx-6 lg:mx-8">
 			<div class="min-w-0 flex-1 break-words">{{L("Those are the AI settings. Your personal settings including your password can be tuned on the page:")}} <a routerLink="/profile" class="underline underline-offset-4 text-white/80 hover:text-white cursor-pointer">Profile</a></div>
 			<div class="min-w-0 flex-1"></div>
-			<button (click)="save()" [disabled]="dSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white ring-1 ring-white/10 rounded-lg text-sm font-medium text-slate-950 hover:bg-slate-200 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-slate-950/50">
+			<button (click)="save()" [disabled]="dSave" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white border-1 border-white/10 rounded-lg text-sm font-medium text-slate-950 hover:bg-slate-200 transition-colors cursor-pointer disabled:bg-white/10 disabled:cursor-default disabled:text-slate-950/50">
 				<ion-icon name="save-outline" class="w-4 h-4"></ion-icon>
 				{{L("Save")}}
 			</button>
@@ -17,21 +17,21 @@
 			<main class="min-w-0 flex-1 p-4 sm:p-6 lg:px-8 bg-transparent space-y-6">
 				<div class="border-b border-white/10">
 					<nav class="flex flex-wrap gap-x-5 gap-y-1">
-						<button (click)="activeTab = 'keys'" [class]="activeTab == 'keys' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'keys'" [class]="activeTab == 'keys' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Keys")}}
 						</button>
-						<button (click)="activeTab = 'routing'" [class]="activeTab == 'routing' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
+						<button (click)="activeTab = 'routing'" [class]="activeTab == 'routing' ? 'border-white text-red-400' : 'border-transparent text-white/60 hover:text-white/80 hover:border-white/10'" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 py-2 px-1 border-b-2 font-medium text-sm transition-colors">
 							{{L("Routing")}}
 						</button>
 					</nav>
 				</div>
 				@if (activeTab == 'keys') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<h3 class="text-lg font-semibold text-white mb-4">{{L("mAxI.cloud Key")}}</h3>
 					<h4 class="text-md font-medium text-white mb-2">{{L("Free Usage")}}</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Remaining messages")}}</p>
-						<span class="font-medium text-red-400 focus:ring-white/60 border-white/10 rounded">{{adminSudo}}</span>
+						<span class="font-medium text-red-400 focus:border-white/60 border-white/10 rounded">{{adminSudo}}</span>
 					</div>
 					<div class="border-t border-white/10 my-8"></div>
 					<h3 class="text-lg font-semibold text-white mb-4">{{L("BYOK (Bring Your Own Key)")}}</h3>
@@ -39,38 +39,38 @@
 					<h4 class="text-md font-medium text-white mb-2">Anthropic (Claude)</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">Google (Gemini)</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">Mistral (Le Chat)</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<h4 class="text-md font-medium text-white mb-2">OpenAI (ChatGPT)</h4>
 					<div class="flex flex-wrap items-center justify-between gap-3">
 						<p class="text-sm font-medium text-white/80">{{L("Bearer key")}}</p>
-						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+						<input type="text" [(ngModel)]="adminSudo" (change)="dSave = false;" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
-					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 						<span class="text-lg">{{L("Apply")}}</span>
 					</button>
 				</div>
 				}
 				@if (activeTab == 'routing') {
-				<div class="rounded-2xl bg-modernsecond ring-1 ring-white/10 p-4 sm:p-6">
+				<div class="rounded-2xl bg-modernsecond border-1 border-white/10 p-4 sm:p-6">
 					<div *ngFor="let route of routing;">
 						<div class="flex flex-wrap items-center justify-between gap-3">
 							<p class="text-sm font-medium text-white/80">{{LMT(route.title)}} ({{route.name}})</p>
-							<select id="route.module" class="focus:outline-none focus:ring-2 focus:ring-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl ring-1 ring-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
+							<select id="route.module" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-white/10 rounded-xl border-1 border-white/15 px-3 py-2 w-full sm:grow sm:ml-5 sm:w-auto sm:max-w-[50%]">
 								<option class="bg-modernsecond text-white" value="_server_" selected=true>mAxI.cloud</option>
 								<option class="bg-modernsecond text-white" value="anthropic">Anthropic (Claude)</option>
 								<option class="bg-modernsecond text-white" value="google">Google (Gemini)</option>
@@ -80,7 +80,7 @@
 						</div>
 						<div class="border-t border-white/10 my-6"></div>
 					</div>
-					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
+					<button (click)="wifiApply()" [disabled]="dWiFi" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-950 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors cursor-pointer">
 						<span class="text-lg">{{L("Apply")}}</span>
 					</button>
 				</div>

@@ -4,7 +4,7 @@
 		</div>
 		<div class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready ? '' : 'hidden'">
 			<div class="w-full min-w-0 max-w-md">
-				<div class="bg-modernsecond rounded-2xl shadow-2xl ring-1 ring-white/10 p-5 sm:p-8">
+				<div class="bg-modernsecond rounded-2xl shadow-2xl border-1 border-white/10 p-5 sm:p-8">
 					@if (!showSuccess) {
 					<div>
 						<div class="text-center mb-8 flex items-center flex-col gap-3">
@@ -28,7 +28,7 @@
 									<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 										<ion-icon name="globe-outline" class="text-white/50 w-4 h-4"></ion-icon>
 									</div>
-									<input #name1E (blur)="handleBlur($event, name1)" type="text" formControlName="name1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 ring-1 ring-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors duration-200" placeholder="Enter your cloud name" [class.ring-red-400]="name1?.invalid && name1?.touched" [class.focus:ring-red-400]="name1?.invalid && name1?.touched">
+									<input #name1E (blur)="handleBlur($event, name1)" type="text" formControlName="name1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter your cloud name" [class.border-red-400]="name1?.invalid && name1?.touched" [class.focus:border-red-400]="name1?.invalid && name1?.touched">
 								</div>
 								@if (name1?.invalid && (name1?.touched || name1?.value?.length >= 1)) {
 								<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -45,10 +45,10 @@
 									<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 										<ion-icon name="mail-outline" class="text-white/50 w-4 h-4"></ion-icon>
 									</div>
-									<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 ring-1 ring-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors duration-200"
+									<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200"
 										placeholder="Enter your email address"
-										[class.ring-red-400]="email1?.invalid && email1?.touched"
-										[class.focus:ring-red-400]="email1?.invalid && email1?.touched">
+										[class.border-red-400]="email1?.invalid && email1?.touched"
+										[class.focus:border-red-400]="email1?.invalid && email1?.touched">
 								</div>
 								@if (email1?.invalid && email1?.touched) {
 								<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -58,14 +58,14 @@
 								}
 							</div>
 							@if (errorSt) {
-							<div class="bg-red-500/10 ring-1 ring-red-400/30 rounded-xl p-4">
+							<div class="bg-red-500/10 border-1 border-red-400/30 rounded-xl p-4">
 								<div class="flex items-center gap-2">
 									<ion-icon name="alert-circle-outline" class="text-red-400 w-5 h-5"></ion-icon>
 									<span class="text-red-200 text-sm font-medium">{{ errorSt }}</span>
 								</div>
 							</div>
 							}
-							<button type="submit" [disabled]="progress || formDelete.invalid" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text-white bg-red-700 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-modernsecond focus:ring-white/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer">
+							<button type="submit" [disabled]="progress || formDelete.invalid" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl text-sm font-semibold text-white bg-red-700 hover:bg-red-600 focus:outline-none focus:border-2 focus:border-offset-2 focus:border-offset-modernsecond focus:border-white/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer">
 								@if (progress) {
 								<ion-icon name="cog-outline" class="animate-spin w-6 h-6"></ion-icon>
 								{{L("Deleting...")}}
