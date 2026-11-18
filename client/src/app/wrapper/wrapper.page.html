@@ -1,15 +1,13 @@
 <div class="min-h-screen bg-slate-950 text-white">
-	<ng-template><app-sidebar></app-sidebar></ng-template>
-	<div class="mx-auto flex min-w-0 max-w-[1600px] flex-col min-h-dvh pb-0">
-		<app-modernbar #modernbar></app-modernbar>
-		<ng-template><app-topbar [title]="title"></app-topbar></ng-template>
-		<h1 class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{title}}</h1>
-			@if (this.global.demo) {
-			<div class="m-4 rounded-2xl bg-modernsecond p-5 text-white/80 leading-relaxed border-1 border-white/10 sm:m-6 lg:mx-8">{{L("This module is not accessible in the web demo. Download and run")}} <b><span class="text-white">m</span><span class="text-red-400">A</span><span class="text-white">x</span><span class="text-red-400 text-[1.04rem] font-[monospace]">I</span><span class="text-white">.cloud</span></b> {{L("on your Raspberry Pi to experience the whole demo.")}}<br><br>Read the <a href="https://docs.maxi.cloud/#/?id=install-the-free-version" target="_blank" class="underline">Install instructions</a>.</div>
-			} @else if (!this.global.developer && !this.finished) {
-			<div class="m-4 rounded-2xl bg-modernsecond p-5 text-white/80 leading-relaxed border-1 border-white/10 sm:m-6 lg:mx-8">{{L("The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.")}}</div>
-			} @else {
-			<iframe id="iframeWrapper" [src]="safeUrl" class="mt-4 min-h-[calc(100dvh-12rem)] w-full flex-1 border-0 bg-modernsecond"></iframe>
-			}
+	<div class="mx-auto flex min-h-screen min-w-0 max-w-[1600px] flex-col">
+		<app-modernbar #modernbar [title]="L('title')"></app-modernbar>
+		@if (this.global.demo) {
+		<div class="m-4 rounded-2xl bg-modernsecond p-5 text-white/80 leading-relaxed border-1 border-white/10 sm:m-6 lg:mx-8">{{L("This module is not accessible in the web demo. Download and run")}} <b><span class="text-white">m</span><span class="text-red-400">A</span><span class="text-white">x</span><span class="text-red-400 text-[1.04rem] font-[monospace]">I</span><span class="text-white">.cloud</span></b> {{L("on your Raspberry Pi to experience the whole demo.")}}<br><br>Read the <a href="https://docs.maxi.cloud/#/?id=install-the-free-version" target="_blank" class="underline">Install instructions</a>.</div>
+		} @else if (!this.global.developer && !this.finished) {
+		<div class="m-4 rounded-2xl bg-modernsecond p-5 text-white/80 leading-relaxed border-1 border-white/10 sm:m-6 lg:mx-8">{{L("The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.")}}</div>
+		} @else {
+		<iframe id="iframeWrapper" [src]="safeUrl" class="mt-4 min-h-[calc(100dvh-12rem)] w-full flex-1 border-0 bg-modernsecond"></iframe>
+		}
+		<app-footer class="mt-auto"></app-footer>
 	</div>
 </div>

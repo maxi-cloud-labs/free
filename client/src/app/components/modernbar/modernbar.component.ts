@@ -15,6 +15,7 @@ LG(st) { return this.global.mytranslateG(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 showSidebar: boolean = false;
 @ViewChild("searchTermE") searchTermE: ElementRef;
+@Input() title = "";
 private documentClickListener: (() => void) | null = null;
 cards = this.global.modulesData;
 sidebarFilteredModules;
