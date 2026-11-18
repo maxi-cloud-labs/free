@@ -269,11 +269,11 @@ mytranslateK(st) {
 }
 
 mytranslateMT(st) {
-	return this.mytranslateP("modules.title", st);
+	return this.mytranslateP("title", st);
 }
 
 mytranslateMD(st) {
-	return this.mytranslateP("modules.description", st);
+	return this.mytranslateP("description", st);
 }
 
 async sleepms(ms) {

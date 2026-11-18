@@ -106,7 +106,7 @@ store(__DIR__ . "/../client/src/assets/modulesdefault.json", $modulesDefault);
 storeC(__DIR__ . "/../client/src/assets/modulesdefault.json.br", $modulesDefault);
 ksort($modulesTranslationTitle);
 ksort($modulesTranslationDescription);
-store(__DIR__ . "/../client/src/assets/i18n/modules-en.json", array( "modules" => array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription)));
+store(__DIR__ . "/../client/src/assets/i18n/modules-en.json", array( "title" => $modulesTranslationTitle, "description" => $modulesTranslationDescription));
 ksort($modulesKeywords);
 store(__DIR__ . "/../client/src/assets/i18n/keywords-en.json", array("keywords" => $modulesKeywords));
 $modulesMarkdownHeader="|Module|Title|Description|⭐|Type|Category|\n|-|-|-|:-:|-|:-:|\n";
