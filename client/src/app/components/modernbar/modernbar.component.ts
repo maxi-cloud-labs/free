@@ -33,7 +33,9 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private route
 	this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
 		if (event instanceof NavigationEnd) {
 			this.searchTerm = "";
+			this.showSidebar = false;
 			this.showMenuCategories = false;
+			this.showUserMenu = false;
 			this.filterCards();
 			this.cdr.markForCheck();
 		}

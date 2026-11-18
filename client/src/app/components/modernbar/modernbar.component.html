@@ -13,10 +13,10 @@
 		</div>
 		<nav class="flex-1 py-6 px-3 space-y-1 min-h-0 overflow-y-auto overscroll-contain">
 			<div class="px-3 text-xs font-semibold text-white/60 tracking-wider">{{LG("MODULES")}}</div>
-			<a routerLink="/" (click)="global.openHome()" title="Dashboard" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 group cursor-pointer">
+			<a routerLink="/" (click)="global.openHome()" title="Home" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 group cursor-pointer">
 					<ion-icon name="apps-outline" class="h-5 w-5"></ion-icon>
-				<span>{{LG("Dashboard")}}</span>
-				<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.modulesData.length}}</span>
+				<span>{{LG("Home")}}</span>
+				<span class="ml-auto text-white/60 text-xs px-2 py-0.5 rounded-full font-medium">{{global.modulesData.length}} {{LG("Apps")}}</span>
 			</a>
 			<div class="ml-2 flex flex-col rounded-lg border-1 border-white/10">
 				<div class="flex rounded-lg border-1 border-white/10 p-1">
@@ -191,7 +191,7 @@
 	</button>
 	<div *ngIf="showSidebar" (click)="showSidebar = false" class="fixed inset-0 bg-black/50 z-40"></div>
 <!-- Logo -->
-	<a routerLink="/" [queryParams]="{}" title="Home" class="mr-auto flex shrink-0 items-end cursor-pointer leading-none">
+	<a routerLink="/" title="Home" class="mr-auto flex shrink-0 items-end cursor-pointer leading-none">
 		<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
 		<span class="inline-block bg-[url('assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 	</a>
@@ -205,6 +205,14 @@
 		<ng-container *ngIf="showMenuCategories">
 			<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
 			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl border-1 border-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
+				<div class="flex flex-col">
+					<a routerLink="/" class="hover:bg-modernthird px-4 py-3">
+						<div class="flex items-center gap-2">
+							<ion-icon name="home" class="w-6 h-6 text-white"></ion-icon>
+							<span class="text-lg font-bold text-white">{{LG("Home")}}</span>
+						</div>
+					</a>
+				</div>
 				<div *ngFor="let supset of CategoriesOrg" class="flex flex-col">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
@@ -276,7 +284,7 @@
 				<div class="px-4 py-2">
 					<a routerLink="/" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="apps-outline" class="h-4 w-4"></ion-icon>
-						{{LG("Dashboard")}}
+						{{LG("Home")}}
 					</a>
 					<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="person-outline" class="h-4 w-4"></ion-icon>

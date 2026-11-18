@@ -16,6 +16,7 @@
 		"free": "dispo",
 		"Hardware": "Matériel",
 		"Help": "Aide",
+		"Home": "Accueil",
 		"Keys, Routing": ", Clefs, Routage",
 		"Launch Setup": "Démarrer l'Installation",
 		"Last Backup": "Dernière sauvegarde",
@@ -42,13 +43,11 @@
 		"Terminal": "Terminal",
 		"Users": "Utilisateurs",
 		"Wi-Fi, VPN, SSH": "Wi-Fi, VPN, SSH",
-
 		"All rights reserved.": "Tous droits réservés.",
 		"Docs": "Docs.",
 		"Terms": "Conditions d'utilisation",
 		"Privacy Policy": "Confidentialité",
 		"Contact": "Contact",
-
 		"AI": "IA",
 		"AI Generative": "IA Générative",
 		"AI Agentic": "IA Agentique",
@@ -68,13 +67,11 @@
 		"Torrent": "Torrent",
 		"Utils": "Utilitaires",
 		"Work": "Travail",
-
 		"Public": "Public",
 		"Local Network": "Réseau local",
 		"Dongle": "Dongle",
 		"Admin": "Administrateur",
 		"User": "Utilisateur",
-
 		"January": "Janvier",
 		"February": "Février",
 		"March": "Mars",

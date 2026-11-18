@@ -103,7 +103,7 @@
 						</div>
 					<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden" *ngIf="!helperAsked">
 						<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden">
-							<button type="button" *ngFor="let s of ['Create an AI agent', 'Chat with an AI assistant', 'Merge some PDF files']" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors cursor-pointer" (click)="helper2Send(L(s))">{{L(s)}}</button>
+							<button type="button" *ngFor="let s of [L('Create an AI agent'), L('Chat with an AI assistant'), L('Merge some PDF files')]" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors cursor-pointer" (click)="helper2Send(L(s))">{{s}}</button>
 						</div>
 					</div>
 					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors">
