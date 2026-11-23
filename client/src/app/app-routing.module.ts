@@ -67,6 +67,10 @@ const routes: Routes = [
 		loadChildren: () => import('./pricing/pricing.module').then( m => m.PricingModule)
 	},
 	{
+		path: 'privacy',
+		loadChildren: () => import('./privacy/privacy.module').then( m => m.PrivacyModule)
+	},
+	{
 		path: 'profile',
 		canActivate: [Global],
 		loadChildren: () => import('./profile/profile.module').then( m => m.ProfileModule)
