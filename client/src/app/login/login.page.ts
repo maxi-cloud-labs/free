@@ -273,6 +273,11 @@ handlePaste(event: ClipboardEvent, startIndex: number) {
 }
 
 ngAfterViewInit() {
+	const params = new URLSearchParams(window.location.search);
+	if (params.has("signup")) {
+		this.show_Register();
+		return;
+	}
 	const inputs = this.otpInputs.toArray();
 	inputs.forEach((input: ElementRef, index: number) => {
 		input.nativeElement.addEventListener('input', (event) => {
