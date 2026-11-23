@@ -26,7 +26,7 @@ async function appInit(path, log, slave, elCanvas, dataCloud = null) {
 		initDone = true;
 	}
 	var argCmdLine = [];
-	if (window.location.hostname.indexOf("mondongle.cloud") != -1 || navigator.language.startsWith("fr"))
+	if (navigator.language.startsWith("fr"))
 		argCmdLine.push("-l", "fr");
 	if (slave)
 		argCmdLine.push("-s");
