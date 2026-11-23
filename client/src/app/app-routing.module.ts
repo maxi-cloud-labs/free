@@ -86,6 +86,10 @@ const routes: Routes = [
 		loadChildren: () => import('./splash/splash.module').then( m => m.SplashModule)
 	},
 	{
+		path: 'terms',
+		loadChildren: () => import('./terms/terms.module').then( m => m.TermsModule)
+	},
+	{
 		path: 'users',
 		canActivate: [Global],
 		loadChildren: () => import('./users/users.module').then( m => m.UsersModule)
