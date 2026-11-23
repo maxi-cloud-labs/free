@@ -80,10 +80,10 @@ else
 		"timezone": "America/Los_Angeles"
 	},
 	"info": {
-		"domain": "",
+		"domain": "example.com",
 		"language": "en",
-		"name": "johndoe",
-		"primary": "johndoe.maxi.cloud",
+		"name": "leo",
+		"primary": "leo.maxi.cloud",
 		"setup": "done2",
 		"shortname": "jd"
 	},

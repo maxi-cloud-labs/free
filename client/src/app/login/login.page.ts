@@ -112,10 +112,7 @@ async init() {
 		this.global.logout();
 	this.ready = true;
 	if (this.global.demo) {
-		if (this.global.settings.lang == "fr")
-			this.formLogin.get("email1").setValue("jean.dupont@exemple.fr");
-		else
-			this.formLogin.get("email1").setValue("john.doe@example.com");
+		this.formLogin.get("email1").setValue("leo@gmail.com");
 		this.formLogin.get("password1").setValue("demodemo");
 		if (window.self === window.top)
 			setTimeout(() => { this.submit1E.nativeElement.focus(); }, 100);

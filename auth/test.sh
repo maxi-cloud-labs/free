@@ -55,10 +55,8 @@ done
 
 if [ $CREATE = 1 ]; then
 	echo "############### Create"
-	RET_CREATE=`curl -sS --fail -X POST http://localhost:8091/auth/sign-up/email -H "Content-Type: application/json" -d '{"email":"john.doe@example.com", "name":"John Doe", "password":"demodemo"}' -c /tmp/cookie.txt`
+	RET_CREATE=`curl -sS --fail -X POST http://localhost:8091/auth/sign-up/email -H "Content-Type: application/json" -d '{"email":"leo@gmail.com", "name":"Leo", "password":"demodemo"}' -c /tmp/cookie.txt`
 	echo $RET_CREATE | jq
-	RET_CREATE2=`curl -sS --fail -X POST http://localhost:8091/auth/sign-up/email -H "Content-Type: application/json" -d '{"email":"jean.dupont@exemple.fr", "name":"Jean Dupont", "username":"jeandupont", "password":"demodemo"}'`
-	echo $RET_CREATE2 | jq
 fi
 if [ $UPDATE = 1 ]; then
 	echo "############### Update"
@@ -66,11 +64,11 @@ if [ $UPDATE = 1 ]; then
 	echo $RET_UPDATE | jq
 fi
 if [ $SIGNIN = 1 ]; then
-	RET_SIGNIN=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/email -H "Content-Type: application/json" -d '{"email":"john.doe@example.com", "password":"demodemo"}' -c /tmp/cookie.txt`
+	RET_SIGNIN=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/email -H "Content-Type: application/json" -d '{"email":"leo@gmail.com", "password":"demodemo"}' -c /tmp/cookie.txt`
 	echo $RET_SIGNIN | jq
 fi
 if [ $SIGNIN = 2 ]; then
-	RET_SIGNIN=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/username -H "Content-Type: application/json" -d '{"username":"johndoe", "password":"demodemo"}' -c /tmp/cookie.txt`
+	RET_SIGNIN=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/username -H "Content-Type: application/json" -d '{"username":"leo", "password":"demodemo"}' -c /tmp/cookie.txt`
 	echo $RET_SIGNIN | jq
 fi
 if [ $TWOFACTOR = 0 ]; then
@@ -100,7 +98,7 @@ if [ $LOGIN = 1 ]; then
 fi
 if [ $MAGIC = 1 ]; then
 	echo "############### Magic"
-	RET_MAGIC=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/magic-link -H "Content-Type: application/json" -d '{"email":"john.doe@example.com", "callbackURL":"http://localhost:8100" }'`
+	RET_MAGIC=`curl -sS --fail -X POST http://localhost:8091/auth/sign-in/magic-link -H "Content-Type: application/json" -d '{"email":"leo@gmail.com", "callbackURL":"http://localhost:8100" }'`
 	echo $RET_MAGIC | jq
 fi
 if [ $TOKEN = 1 ]; then
