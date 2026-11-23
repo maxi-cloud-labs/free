@@ -548,5 +548,51 @@ else {
 		moduleImagesIcon($file, true);
 	}
 }
+
+function generateBackground($seed) {
+	$dir = "/work/ai.maxi/private/modules/";
+	$out = "/work/ai.maxi/client/src/assets/images/background";
+	$borderSize = 40;
+	$CC = 15;
+	$RR = 20;
+	$rowHeight = 720;
+	$files = scandir($dir);
+	$modules = [];
+	foreach ($files as $file) {
+		if (!str_ends_with($file, ".json"))
+			continue;
+		$m = json_decode(file_get_contents($dir . $file), true);
+		//if ($m["github"] != "")
+		//if ($m["web"] == true)
+			$modules[] = str_replace(".json", "", $file);
+	}
+	mt_srand($seed);
+	shuffle($modules);
+	$bb = floor($CC / 2);//mt_rand(0, $CC);
+	$pp = $CC - $bb;
+	$backdrops = array_slice(array_map(fn($a) => $dir . "images/" . $a . ".backdrop.jpg", $modules), 0, count($modules) * $bb / $CC);
+	$posters = array_slice(array_map(fn($a) => $dir . "images/" . $a . ".poster.jpg", $modules), count($modules) * $bb / $CC, count($modules) * $pp / $CC);
+	$halfBorder = $borderSize / 2;
+	$rowCommands = [];
+	for ($r = 0; $r < $RR; $r++) {
+		$selected = array_merge(array_slice($backdrops, $bb * $r, $bb), array_slice($posters, $pp * $r, $pp));
+		shuffle($selected);
+		$filesArg = implode(" ", $selected);
+		$rowCommands[] = "\\( $filesArg -resize x{$rowHeight} -bordercolor black -border {$halfBorder} +append \\)";
+	}
+	$allRowsArg = implode(" ", $rowCommands);
+	$cmd0 = "convert $allRowsArg -background black -append -bordercolor black -border {$halfBorder} /tmp/background.jpg";
+	system($cmd0);
+	$cmd1 = "convert /tmp/background.jpg -resize 1600x -quality 50 {$out}1.jpg";
+	system($cmd1);
+	$distort = "0,0 %[fx:w*0.36],%[fx:-h*0.10]   %[w],0 %[fx:w*0.85],%[fx:-h*0.10]   0,%[h] %[fx:-w*0.15],%[fx:h*1.08]   %[w],%[h] %[fx:w*0.80],%[fx:h*1.72]";
+	$cmd2 = "convert /tmp/background.jpg -distort Perspective \"{$distort}\" -crop 8000x8000+3200+3400 -resize 1600x -quality 50 {$out}2.jpg";
+	system($cmd2);
+	unlink("/tmp/background.jpg");
+}
+
+echo "Creating background images\n";
+echo generateBackground(0);
+
 echo "\n";
 ?>
