@@ -54,7 +54,6 @@ pageInit() {
 	const sub = this.route.queryParams.subscribe(async (params) => {
 		if (params["name"])
 			this.cardIdCur = this.global.modulesDataFindId(params["name"]);
-		window.scrollTo({ top:0, behavior:"smooth" });
 		this.cdr.detectChanges();
 	});
 }

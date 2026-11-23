@@ -69,7 +69,6 @@ pageInit() {
 			this.CategoriesVisibleAll = true;
 		}
 		this.helperShown = this.CategoriesVisibleAll;
-		window.scrollTo({ top:0, behavior:"smooth" });
 		this.heroInit(params["category"]);
 		this.trendingInit();
 		this.cdr.detectChanges();
