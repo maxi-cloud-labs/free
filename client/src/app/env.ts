@@ -69,10 +69,7 @@ constructor(public plt: Platform, private toastr: ToastrService, private router:
 	navCtrl.setDirection("forward");
 	translate.setDefaultLang("en");
 	this.consolelog(1, "Default browser language: " + translate.getBrowserLang());
-	if (window.location.hostname.indexOf("mondongle.cloud") != -1)
-		this.changeLanguage("fr");
-	else
-		this.changeLanguage(this.translate.getBrowserLang());
+	this.changeLanguage(this.translate.getBrowserLang());
 	this.AuthStatus();
 	this.getSession();
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { this.themeSet(); });
@@ -473,6 +470,8 @@ colorWord(st, bckgd = true) {
 		return (bckgd ? "bg--" + CategoriesEx[st].color + "-100 " : "") + "text--" + CategoriesEx[st].color + "-600";
 	if (CategoriesOrg[st])
 		return (bckgd ? "bg--" + CategoriesOrg[st].color + "-100 " : "") + "text--" + CategoriesOrg[st].color + "-600";
+	if (st == "")
+		return (bckgd ? "bg--white " : "") + "text--white";
 /*
 bg--yellow-100 text--yellow-600
 bg--purple-100 text--purple-600
@@ -481,6 +480,7 @@ bg--teal-100 text--teal-600
 bg--cyan-100 text--cyan-600
 bg--orange-100 text--orange-600
 bg--lime-100 text--lime-600
+bg--white text--white
 */
 	return (bckgd ? "bg--gray-100 " : "") + "text--gray-600";
 }
@@ -665,7 +665,7 @@ statsStopPolling() {
 
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 	this.activateUrl = state.url;
-	return this.splashDone ? true : this.router.navigate(["/splash"]);
+	return this.splashDone ? true : this.router.createUrlTree(["/splash"]);
 }
 
 }
