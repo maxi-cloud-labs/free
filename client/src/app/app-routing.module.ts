@@ -23,6 +23,10 @@ const routes: Routes = [
 		loadChildren: () => import('./backup/backup.module').then( m => m.BackupModule)
 	},
 	{
+		path: 'buy',
+		loadChildren: () => import('./buy/buy.module').then( m => m.BuyModule)
+	},
+	{
 		path: 'classic',
 		canActivate: [Global],
 		loadChildren: () => import('./classic/classic.module').then( m => m.ClassicModule)

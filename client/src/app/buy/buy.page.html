@@ -1,0 +1,73 @@
+<div class="min-h-screen bg-slate-950 bg-[linear-gradient(rgb(from_var(--color-slate-950)_r_g_b/0.75),rgb(from_var(--color-slate-950)_r_g_b/0.75)),url('/assets/images/background2.jpg')] bg-cover">
+	<div class="mx-auto flex min-h-screen min-w-0 max-w-[1600px] flex-col text-white">
+		<header class="flex items-center gap-2 sm:gap-3 px-4 py-4 text-white sm:px-6 lg:px-8">
+			<a routerLink="/" title="Home" class="flex shrink-0 items-end cursor-pointer leading-none">
+				<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
+				<span class="inline-block bg-[url('/assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
+			</a>
+			<span class="hidden 2xl:block text-sm font-bold text-white leading-relaxed px-2">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
+		</header>
+		<main class="flex flex-1 items-center justify-center px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-8">
+			<section class="w-full max-w-4xl rounded-2xl border-1 border-white/10 bg-modernsecond p-5 shadow-2xl sm:p-8">
+				<div class="mb-8 text-center">
+					<div class="mb-4 flex items-center justify-center gap-3">
+						<ion-icon name="cart-outline" class="h-10 w-10 text-white/80"></ion-icon>
+						<h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">{{L("Choose your product")}}</h1>
+					</div>
+					<p class="text-white/60">{{L("Select an option to continue to secure checkout")}}</p>
+				</div>
+				<div class="mb-6 flex justify-center">
+					<div role="group" class="inline-flex rounded-full border-1 border-white/15 bg-white/5 p-1">
+						<button type="button" (click)="setBillingPeriod('month')" [disabled]="progress" class="rounded-full px-5 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed" [class.bg-white]="billingPeriod === 'month'" [class.text-slate-950]="billingPeriod === 'month'" [class.text-white/70]="billingPeriod !== 'month'">{{L("Monthly")}}</button>
+						<button type="button" (click)="setBillingPeriod('year')" [disabled]="progress" class="rounded-full px-5 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed" [class.bg-white]="billingPeriod === 'year'" [class.text-slate-950]="billingPeriod === 'year'" [class.text-white/70]="billingPeriod !== 'year'">{{L("Yearly")}}</button>
+					</div>
+				</div>
+				<div class="grid gap-4 md:grid-cols-2">
+					@for (product of products; track product.id) {
+					<button type="button" (click)="selectProduct(product.id)" [disabled]="progress" class="rounded-xl border-1 p-5 text-left transition-colors cursor-pointer disabled:cursor-not-allowed" [class.border-white/60]="selectedProduct === product.id" [class.bg-white/10]="selectedProduct === product.id" [class.border-white/15]="selectedProduct !== product.id" [class.bg-white/5]="selectedProduct !== product.id">
+						<div class="flex items-start justify-between gap-4">
+							<div>
+								<h2 class="text-lg font-semibold text-white">{{L(product.name.replaceAll("##", ""))}}</h2>
+								<p class="mt-2 text-sm text-white/60">{{L(product.description.replaceAll("##", ""))}}</p>
+							</div>
+							<div class="flex shrink-0 flex-col items-end gap-2">
+								<span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">{{discount}}</span>
+								<ion-icon [name]="selectedProduct === product.id ? 'checkmark-circle' : 'ellipse-outline'" class="h-6 w-6 text-white/80"></ion-icon>
+							</div>
+						</div>
+						<p class="mt-6"><span class="text-3xl font-bold">{{productPrice(product)}}</span><span class="ml-1 text-sm text-white/60">{{billingPeriod === "year" ? L(" / year") : L(" / month")}}</span></p>
+					</button>
+					}
+				</div>
+				@if (paymentComplete) {
+				<div role="status" class="mt-6 rounded-xl border-1 border-emerald-400/30 bg-emerald-500/10 p-4 text-center text-emerald-200">{{L("Payment successful. Thank you for your purchase!")}}</div>
+				} @else if (paymentReady) {
+				<div class="mt-6 space-y-5">
+					<div #paymentElement class="rounded-xl bg-white p-4"></div>
+					@if (errorSt) {
+					<div role="alert" class="rounded-xl border-1 border-red-400/30 bg-red-500/10 p-4">
+						<div class="flex items-center gap-2"><ion-icon name="alert-circle-outline" class="h-5 w-5 text-red-400"></ion-icon><span class="text-sm font-medium text-red-200">{{errorSt}}</span></div>
+					</div>
+					}
+					<button type="button" (click)="pay()" [disabled]="progress" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50">
+						@if (progress) { <ion-icon name="cog-outline" class="h-6 w-6 animate-spin"></ion-icon>{{L("Processing payment...")}} } @else { <ion-icon name="lock-closed-outline" class="h-5 w-5"></ion-icon>{{L("Pay")}} {{selectedPrice}} }
+					</button>
+				</div>
+				} @else {
+				@if (errorSt) {
+				<div role="alert" class="mt-6 rounded-xl border-1 border-red-400/30 bg-red-500/10 p-4">
+					<div class="flex items-center gap-2"><ion-icon name="alert-circle-outline" class="h-5 w-5 text-red-400"></ion-icon><span class="text-sm font-medium text-red-200">{{errorSt}}</span></div>
+				</div>
+				<button type="button" (click)="retryPaymentSetup()" [disabled]="progress" class="mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50">{{L("Try again")}}</button>
+				} @else if (progress) {
+				<div role="status" class="mt-6 flex items-center justify-center gap-2 rounded-xl border-1 border-white/10 bg-white/5 p-4 text-sm text-white/70">
+					<ion-icon name="cog-outline" class="h-5 w-5 animate-spin"></ion-icon>{{L("Preparing secure payment...")}}
+				</div>
+				}
+				}
+				<p class="mt-4 text-center text-xs text-white/50">{{L("Payments are securely processed by Stripe.")}}</p>
+			</section>
+		</main>
+		<app-footer class="mt-auto"></app-footer>
+	</div>
+</div>
