@@ -27,7 +27,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="mail-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter your email" [class.border-red-400]="email1?.invalid && email1?.touched" [class.focus:border-red-400]="email1?.invalid && email1?.touched">
+								<input #email1E (blur)="handleBlur($event, email1)" type="email" formControlName="email1" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter your email')" [class.border-red-400]="email1?.invalid && email1?.touched" [class.focus:border-red-400]="email1?.invalid && email1?.touched">
 							</div>
 							@if (email1?.invalid && email1?.touched) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">

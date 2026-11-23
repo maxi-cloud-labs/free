@@ -139,7 +139,7 @@
 								<ion-icon name="lock-closed-outline" class="text-white/60 w-4 h-4"></ion-icon>
 							</div>
 							<div class="flex items-center gap-0">
-								<input #password1E formControlName="password1" autocomplete="current-password" required class="min-w-0 bg-slate-950/50 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/10 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/60 transition-colors duration-200" placeholder="Enter your password" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
+								<input #password1E formControlName="password1" autocomplete="current-password" required class="min-w-0 bg-slate-950/50 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/10 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/60 transition-colors duration-200" [placeholder]="L('Enter your password')" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
 								<button type="button" (click)="password1Show = !password1Show;" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-slate-950"></ion-icon></button>
 							</div>
 						</div>

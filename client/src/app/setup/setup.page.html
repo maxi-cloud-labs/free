@@ -34,7 +34,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="globe-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input #name1E (blur)="handleBlur($event, name1)" type="text" formControlName="name1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter the desired cloud name" [class.border-red-400]="name1?.invalid && name1?.touched" [class.focus:border-red-400]="name1?.invalid && name1?.touched">
+								<input #name1E (blur)="handleBlur($event, name1)" type="text" formControlName="name1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter the desired cloud name')" [class.border-red-400]="name1?.invalid && name1?.touched" [class.focus:border-red-400]="name1?.invalid && name1?.touched">
 							</div>
 							@if (name1?.invalid && (name1?.touched || name1?.value?.length >= 1)) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -52,7 +52,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="globe-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input type="text" formControlName="shortname1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter your initials" [class.border-red-400]="shortname1?.invalid && shortname1?.touched" [class.focus:border-red-400]="shortname1?.invalid && shortname1?.touched">
+								<input type="text" formControlName="shortname1" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter your initials')" [class.border-red-400]="shortname1?.invalid && shortname1?.touched" [class.focus:border-red-400]="shortname1?.invalid && shortname1?.touched">
 							</div>
 							@if (shortname1?.invalid && (shortname1?.touched || shortname1?.value.length >= 1)) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -161,7 +161,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="person-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input #displayname2E (blur)="handleBlur($event, displayname2)" type="text" formControlName="displayname2" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter your full name" [class.border-red-400]="displayname2?.invalid && displayname2?.touched" [class.focus:border-red-400]="displayname2?.invalid && displayname2?.touched">
+								<input #displayname2E (blur)="handleBlur($event, displayname2)" type="text" formControlName="displayname2" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter your full name')" [class.border-red-400]="displayname2?.invalid && displayname2?.touched" [class.focus:border-red-400]="displayname2?.invalid && displayname2?.touched">
 							</div>
 							@if (displayname2?.invalid && displayname2?.touched) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -176,7 +176,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="mail-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input type="email" formControlName="email2" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter your email" [class.border-red-400]="email2?.invalid && email2?.touched" [class.focus:border-red-400]="email2?.invalid && email2?.touched">
+								<input type="email" formControlName="email2" autocomplete="email" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter your email')" [class.border-red-400]="email2?.invalid && email2?.touched" [class.focus:border-red-400]="email2?.invalid && email2?.touched">
 							</div>
 							@if (email2?.invalid && email2?.touched) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -192,7 +192,7 @@
 									<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
 								<div class="flex items-center gap-0">
-									<input formControlName="password2" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Create a strong password" [class.border-red-400]="password2?.invalid && password2?.touched" [class.focus:border-red-400]="password2?.invalid && password2?.touched" [type]="password2Show ? 'text' : 'password'">
+									<input formControlName="password2" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Create a strong password')" [class.border-red-400]="password2?.invalid && password2?.touched" [class.focus:border-red-400]="password2?.invalid && password2?.touched" [type]="password2Show ? 'text' : 'password'">
 									<button (click)="password2Show = !password2Show;" type="button" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70" ><ion-icon [name]="password2Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 								</div>
 							</div>
@@ -223,7 +223,7 @@
 								<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 									<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
-								<input type="password" formControlName="password2Confirm" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Confirm password" [class.border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value" [class.focus:border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value">
+								<input type="password" formControlName="password2Confirm" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Confirm password')" [class.border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value" [class.focus:border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value">
 							</div>
 							@if (password2Confirm?.touched && password2?.value != password2Confirm?.value) {
 							<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -293,7 +293,7 @@
 									<ion-icon name="wifi-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
 								<div class="flex items-center gap-2">
-									<input #ssid3E (blur)="handleBlur($event, ssid3)" type="text" formControlName="ssid3" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter the SSID of home router" [class.border-red-400]="ssid3?.invalid && ssid3?.touched" [class.focus:border-red-400]="ssid3?.invalid && ssid3?.touched">
+									<input #ssid3E (blur)="handleBlur($event, ssid3)" type="text" formControlName="ssid3" autocomplete="name" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter the SSID of home router')" [class.border-red-400]="ssid3?.invalid && ssid3?.touched" [class.focus:border-red-400]="ssid3?.invalid && ssid3?.touched">
 									<button type="button" (click)="wifiScan()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center py-3 px-2 border border-transparent rounded-xl text-sm font-semibold text-slate-950 bg-white hover:bg-slate-200 focus:outline-none focus:border-2 focus:border-offset-2 focus:border-offset-modernsecond focus:border-white/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200">
 										{{L("Scan")}}
 									</button>
@@ -318,7 +318,7 @@
 									<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 								</div>
 								<div class="flex items-center gap-0">
-									<input formControlName="password3" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" placeholder="Enter the Wi-Fi password" [class.border-red-400]="password3?.invalid && password3?.touched" [class.focus:border-red-400]="password3?.invalid && password3?.touched" [type]="password3Show ? 'text' : 'password'">
+									<input formControlName="password3" autocomplete="new-password" required class="min-w-0 bg-white/5 text-white block w-full pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200" [placeholder]="L('Enter the Wi-Fi password')" [class.border-red-400]="password3?.invalid && password3?.touched" [class.focus:border-red-400]="password3?.invalid && password3?.touched" [type]="password3Show ? 'text' : 'password'">
 									<button (click)="password3Show = !password3Show;" type="button" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70" ><ion-icon [name]="password3Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 								</div>
 							</div>

@@ -178,7 +178,7 @@
 							<button type="button" (click)="getSshKeys()" class="text-slate-950 min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 flex justify-center items-center bg-white p-2 rounded ml-2" ><ion-icon name="download-outline" class="text-slate-950"></ion-icon></button>
 						</div>
 						<p class="text-sm text-white/60">{{L("You can use any commercial VPN such as NordVPN, PIA, ProtonVPN...")}}</p>
-						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-1 border-white/15 rounded-xl px-3 py-2 placeholder:text-white/50" placeholder="click on button to retrieve what is on server / Nothing on system"></textarea>
+						<textarea rows="3" [(ngModel)]="sshKeys" (change)="dSave = false;" [disabled]="dSshKeys" class="focus:outline-none focus:border-2 focus:border-white/60 min-w-0 bg-slate-950/50 text-white border-1 border-white/15 rounded-xl px-3 py-2 placeholder:text-white/50" [placeholder]="L('click on button to retrieve what is on server / Nothing on system')"></textarea>
 					</div>
 					<div class="border-t border-white/10 my-6"></div>
 					<div class="flex flex-wrap items-center justify-between gap-3">

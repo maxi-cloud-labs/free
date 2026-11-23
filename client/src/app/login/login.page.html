@@ -22,7 +22,7 @@
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<ion-icon name="person-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
-						<input #email1E (blur)="handleBlur($event, email1)" type="text" id="email1" formControlName="email1" autocomplete="email" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Enter your email" [class.border-red-400]="email1?.invalid && email1?.touched" [class.focus:border-red-400]="email1?.invalid && email1?.touched">
+						<input #email1E (blur)="handleBlur($event, email1)" type="text" id="email1" formControlName="email1" autocomplete="email" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Enter your email')" [class.border-red-400]="email1?.invalid && email1?.touched" [class.focus:border-red-400]="email1?.invalid && email1?.touched">
 					</div>
 					@if (email1?.invalid && email1?.touched) {
 					<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -38,7 +38,7 @@
 							<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
 						<div class="flex items-center gap-0">
-							<input #password1E id="password1" formControlName="password1" autocomplete="current-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Enter your password" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
+							<input #password1E id="password1" formControlName="password1" autocomplete="current-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Enter your password')" [class.border-red-400]="password1?.invalid && password1?.touched" [class.focus:border-red-400]="password1?.invalid && password1?.touched" [type]="password1Show ? 'text' : 'password'">
 							<button type="button" (click)="password1Show = !password1Show;" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password1Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<ion-icon name="person-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
-						<input #name2E (blur)="handleBlur($event, name2)" type="text" id="name2" formControlName="name2" autocomplete="name" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Enter your full name" [class.border-red-400]="name2?.invalid && name2?.touched" [class.focus:border-red-400]="name2?.invalid && name2?.touched">
+						<input #name2E (blur)="handleBlur($event, name2)" type="text" id="name2" formControlName="name2" autocomplete="name" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Enter your full name')" [class.border-red-400]="name2?.invalid && name2?.touched" [class.focus:border-red-400]="name2?.invalid && name2?.touched">
 					</div>
 					@if (name2?.invalid && name2?.touched) {
 					<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -117,7 +117,7 @@
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<ion-icon name="at-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
-						<input type="email" id="email2" formControlName="email2" autocomplete="email" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Enter your email" [class.border-red-400]="email2?.invalid && email2?.touched" [class.focus:border-red-400]="email2?.invalid && email2?.touched">
+						<input type="email" id="email2" formControlName="email2" autocomplete="email" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Enter your email')" [class.border-red-400]="email2?.invalid && email2?.touched" [class.focus:border-red-400]="email2?.invalid && email2?.touched">
 					</div>
 					@if (email2?.invalid && email2?.touched) {
 					<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -133,7 +133,7 @@
 							<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
 						<div class="flex items-center gap-0">
-							<input id="password2" formControlName="password2" autocomplete="new-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Create a strong password" [class.border-red-400]="password2?.invalid && password2?.touched" [class.focus:border-red-400]="password2?.invalid && password2?.touched" [type]="password2Show ? 'text' : 'password'">
+							<input id="password2" formControlName="password2" autocomplete="new-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Create a strong password')" [class.border-red-400]="password2?.invalid && password2?.touched" [class.focus:border-red-400]="password2?.invalid && password2?.touched" [type]="password2Show ? 'text' : 'password'">
 							<button type="button" (click)="password2Show = !password2Show;" class="flex h-12 w-11 shrink-0 justify-center items-center bg-white/5 text-white/60 hover:text-white hover:bg-white/10 rounded-xl ml-2 cursor-pointer focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon [name]="password2Show ? 'eye-off-outline' : 'eye-outline'" class="text-white"></ion-icon></button>
 						</div>
 					</div>
@@ -164,7 +164,7 @@
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<ion-icon name="lock-closed-outline" class="text-white/50 w-4 h-4"></ion-icon>
 						</div>
-						<input type="password" id="password2Confirm" formControlName="password2Confirm" autocomplete="new-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" placeholder="Confirm password" [class.border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value" [class.focus:border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value">
+						<input type="password" id="password2Confirm" formControlName="password2Confirm" autocomplete="new-password" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white" [placeholder]="L('Confirm password')" [class.border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value" [class.focus:border-red-400]="password2Confirm?.touched && password2?.value != password2Confirm?.value">
 					</div>
 					@if (password2Confirm?.touched && password2?.value != password2Confirm?.value) {
 					<div class="flex items-center gap-1 text-red-400 text-sm mt-2">
@@ -240,9 +240,7 @@
 								<ion-icon name="mail-outline" class="text-white/50 w-4 h-4"></ion-icon>
 							</div>
 							<input #email3E (blur)="handleBlur($event, email3)" type="email" id="email3" formControlName="email3" autocomplete="email" required class="block w-full min-w-0 bg-white/5 pl-10 pr-3 py-3 border-1 border-white/15 rounded-xl placeholder-white/40 focus:outline-none focus:border-2 focus:border-white/50 transition-colors duration-200 text-white"
-								placeholder="Enter your email address"
-								[class.border-red-400]="email3?.invalid && email3?.touched"
-								[class.focus:border-red-400]="email3?.invalid && email3?.touched">
+								[placeholder]="L('Enter your email address')" [class.border-red-400]="email3?.invalid && email3?.touched" [class.focus:border-red-400]="email3?.invalid && email3?.touched">
 						</div>
 						@if (email3?.invalid && email3?.touched) {
 						<div class="flex items-center gap-1 text-red-400 text-sm mt-2">

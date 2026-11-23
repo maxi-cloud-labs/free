@@ -140,7 +140,7 @@
 								<div class="mb-2 flex items-center gap-1 text-yellow-400" role="radiogroup">
 									<button *ngFor="let n of [1,2,3,4,5]" type="button" class="cursor-pointer" (click)="reviewRating = n" (mouseenter)="reviewHover = n" (mouseleave)="reviewHover = 0"><ion-icon [name]="n <= (reviewHover || reviewRating) ? 'star' : 'star-outline'" class="w-6 h-6"></ion-icon></button>
 								</div>
-								<textarea #rv rows="3" maxlength="1000" class="w-full resize-none rounded-lg bg-modernsecond p-3 text-sm placeholder-white/50 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:border-2 focus:border-white/60" placeholder="{{L('Write your review...')}}"></textarea>
+								<textarea #rv rows="3" maxlength="1000" class="w-full resize-none rounded-lg bg-modernsecond p-3 text-sm placeholder-white/50 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:border-2 focus:border-white/60" [placeholder]="L('Write your review...')"></textarea>
 								<div class="mt-2 flex flex-wrap items-center justify-between gap-3">
 									<span class="text-xs text-white/40">{{rv.value.length}} / 1000</span>
 									<button type="button" class="rounded-full bg-red-700 hover:bg-red-600 px-5 py-2 text-sm font-bold transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-default" [disabled]="!reviewRating || !rv.value.trim()" (click)="reviewSubmit(rv.value); rv.value = ''">{{L("Post review")}}</button>

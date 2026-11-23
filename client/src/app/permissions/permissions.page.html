@@ -6,7 +6,7 @@
 				<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 					<ion-icon name="search-outline" class="w-5 h-5"></ion-icon>
 				</div>
-				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards()" placeholder="{{L('Find modules...')}}" class="min-w-0 bg-slate-950/50 text-white w-full pl-10 pr-4 py-2 border-1 border-white/10 text-white/60 rounded-lg focus:outline-none focus:border-2 focus:border-white/60 transition-colors">
+				<input type="text" [(ngModel)]="searchTerm" #searchTermE (input)="filterCards()" [placeholder]="L('Find modules...')" class="min-w-0 bg-slate-950/50 text-white w-full pl-10 pr-4 py-2 border-1 border-white/10 text-white/60 rounded-lg focus:outline-none focus:border-2 focus:border-white/60 transition-colors">
 			</div>
 			<button (click)="searchTerm = ''; filterCards()" class="min-h-10 shrink-0 focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70 hidden items-center gap-2 px-4 py-2 border-1 border-white/10 rounded-lg text-sm font-medium text-white/80 hover:bg-white/10 transition-colors cursor-pointer" [class]="searchTerm != '' ? 'inline-flex' : ''">
 				<ion-icon name="refresh-outline" class="w-6 h-6"></ion-icon>
