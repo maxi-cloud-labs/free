@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,6 @@ import { BleService } from '../ble';
 @Component({
 	selector: 'app-modern',
 	templateUrl: './modern.page.html',
-	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: false
 })
 
@@ -48,37 +47,34 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	global.sidebarFilterType = "";
 }
 
-pageInit() {
-	const sub = this.route.queryParams.subscribe(async (params) => {
-		if (params["category"]) {
-			if (CategoriesOrg[params["category"]]) {
-				this.CategoriesVisible = {};
-					CategoriesOrg[params["category"]].categories.forEach((name) => {
-						this.CategoriesVisible[name] = { name:name, color:Categories[name].color, categories:[name] };
-					});
-				this.CategoriesVisibleAll = false;
-			}
-			if (Categories[params["category"]]) {
-				this.CategoriesVisible = {};
-				const name = params["category"];
-				this.CategoriesVisible[params["category"]] = { name:name, color:Categories[name].color, categories:[name] };
-				this.CategoriesVisibleAll = false;
-			}
-		} else {
-			this.CategoriesVisible = CategoriesOrg;
-			this.CategoriesVisibleAll = true;
+paramInit(params) {
+	this.CategoriesVisibleAll = true;
+	if (params["category"]) {
+		if (CategoriesOrg[params["category"]]) {
+			this.CategoriesVisible = {};
+				CategoriesOrg[params["category"]].categories.forEach((name) => {
+					this.CategoriesVisible[name] = { name:name, color:Categories[name].color, categories:[name] };
+				});
+			this.CategoriesVisibleAll = false;
 		}
-		this.helperShown = this.CategoriesVisibleAll;
-		this.heroInit(params["category"]);
-		this.trendingInit();
-		this.cdr.detectChanges();
-	});
+		if (Categories[params["category"]]) {
+			this.CategoriesVisible = {};
+			const name = params["category"];
+			this.CategoriesVisible[params["category"]] = { name:name, color:Categories[name].color, categories:[name] };
+			this.CategoriesVisibleAll = false;
+		}
+	} else
+		this.CategoriesVisible = CategoriesOrg;
+	this.helperShown = this.CategoriesVisibleAll;
+	this.heroInit(params["category"]);
+	this.trendingInit();
+	this.cdr.detectChanges();
 }
 
 async ngOnInit() {
 	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later, meanwhile each module will be automatically set up during first use.", "firsttimesetup"))
 		this.global.setup2Start(true);
-	this.pageInit();
+	this.route.queryParams.subscribe((params) => { this.paramInit(params); } );
 }
 
 helperShown = true;
@@ -110,7 +106,7 @@ async helperSend(query: string) {
 	this.helperAnswer = "";
 	this.helperResults = [];
 	const requestId = ++this.helperRequestId;
-	const messages = [...this.helperMessages.slice(-8), { role:"user", content:query }];
+	const messages = [...this.helperMessages.slice(-8), { role:"user", content:this.helperQuery }];
 	const data = { messages };
 	try {
 		const token = this.global.session.sessionID;
@@ -202,7 +198,7 @@ async helper2Send(query: string) {
 	this.helperAnswer = "";
 	this.helperResults = [];
 	const requestId = ++this.helperRequestId;
-	const messages = [...this.helperMessages.slice(-8), { role:"user", content:query }];
+	const messages = [...this.helperMessages.slice(-8), { role:"user", content:this.helperQuery }];
 	const abort = new AbortController();
 	this.helper2Abort = abort;
 	const applyApps = (apps: string[]) => {
@@ -349,7 +345,7 @@ heroStep(d) {
 
 heroInit(arg) {
 	const editorPick = {
-		all: ["openclaw", "openwebui", "searxng", "homeassistant", "jellyfin", "stirlingpdf", "mastodon"],
+		all: ["openclaw", "openwebui", "searxng", "homeassistant", "jellyfin", "stirlingpdf", "mastodon", "ollama", "dify", "excalidraw", "immich", "syncthing", "gitea"],
 		AI: ["openclaw", "ollama", "dify", "openwebui", "comfyui", "anythingllm", "khoj"],
 		Work: ["excalidraw", "stirlingpdf", "affine", "joplin", "paperlessngx", "outline", "jitsimeet"],
 		Entertainment: ["immich", "homeassistant", "jellyfin", "qbittorrent", "searxng", "actualbudget", "navidrome"],
@@ -380,6 +376,7 @@ trendingCards = [];
 recommendedCards = [];
 recommendedShownCards;
 recommendedIdx = 0;
+recommendedNbScreen = 8;
 recommendedNbPerScreen = 5;
 
 recommendedStep(d) {
@@ -394,7 +391,7 @@ recommendedStep(d) {
 
 trendingInit() {
 	this.trendingCards = this.cards.filter(c => c.web && (c.recommended || c.githubStars > 50000)).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0));
-	this.recommendedCards = this.trendingCards.slice(0, this.recommendedNbPerScreen * 6);
+	this.recommendedCards = this.trendingCards.slice(0, this.recommendedNbPerScreen * this.recommendedNbScreen);
 	this.recommendedShownCards = this.recommendedCards.slice(this.recommendedIdx, this.recommendedIdx + this.recommendedNbPerScreen);
 }
 

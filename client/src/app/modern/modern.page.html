@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-slate-950 text-white">
 	<div class="mx-auto flex min-h-screen min-w-0 max-w-[1600px] flex-col">
 		<app-modernbar #modernbar></app-modernbar>
-		<section class="mx-auto grid w-full grid-cols-1 gap-5 px-4 pt-6 sm:px-6 lg:grid-cols-4 lg:px-8 mb-8">
+		<section class="mt-8 w-full grid grid-cols-1 lg:grid-cols-4 gap-5 px-4 sm:px-6 lg:px-8 mb-16">
 <!-- Hero -->
 			<div class="flex justify-center min-w-0" [class]="helperShown ? 'lg:col-span-3' : 'lg:col-span-4'">
 				<div class="relative w-full max-w-[125vh] aspect-video min-h-[300px] max-h-[72vh] rounded-2xl border-1 border-white/10 overflow-hidden" (window:keydown.arrowLeft)="heroKey($event, -1)" (window:keydown.arrowRight)="heroKey($event, 1)">
@@ -68,21 +68,22 @@
 					<button *ngIf="!helperShown" type="button" class="absolute top-4 right-4 z-20 inline-flex items-center gap-2 rounded-full bg-red-700 text-white font-bold p-2 hover:bg-red-600 transition-colors cursor-pointer" (click)="helperShown=true"><ion-icon name="sparkles-outline" class="w-5 h-5"></ion-icon></button>
 				</div>
 			</div>
-<!-- Chatbot -->
+<!-- Helper -->
 			<aside *ngIf="helperShown" class="relative min-w-0 h-[560px] lg:h-auto lg:col-span-1">
 				<div class="absolute inset-0 flex flex-col gap-3 rounded-2xl border-1 border-white/10 bg-modernsecond p-5 text-white">
 					<div class="flex items-center gap-2">
 						<span class="w-8 h-8 rounded-full bg-red-700 text-white flex items-center justify-center"><ion-icon name="sparkles-outline" class="w-4 h-4"></ion-icon></span>
 						<h2 class="font-bold text-white">{{L("App finder")}}</h2>
 						<div class="flex-1"></div>
+						<button type="button" class="w-8 h-8 -mr-2 rounded-full flex items-center justify-center text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="helperAsked=false; helperMessages=[]"><ion-icon name="refresh-circle-outline" class="w-6 h-6"></ion-icon></button>
 						<button type="button" class="w-8 h-8 -mr-2 rounded-full flex items-center justify-center text-white hover:bg-modernthird transition-colors cursor-pointer" (click)="helperShown=false"><ion-icon name="close-circle-outline" class="w-6 h-6"></ion-icon></button>
 					</div>
-					<div class="flex min-h-0 flex-col gap-3 pr-2 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/35">
-						<p class="text-sm leading-snug text-white rounded-xl px-3 pt-2"><span class="font-extrabold underline">Premium concierge:</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
-						<p class="text-sm leading-snug text-white rounded-xl px-3"><span class="font-extrabold underline">Your sovereignty:</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
+					<div class="flex flex-1 min-h-0 flex-col gap-3 pr-2 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/35">
+						<p class="text-sm leading-snug text-white rounded-xl px-3 pt-2"><span class="font-extrabold underline">{{L("Your concierge:")}}</span> {{L("mAxI.cloud provides the best Cloud and AI apps, all setup, secured, configured and maintained.")}}</p>
+						<p class="text-sm leading-snug text-white rounded-xl px-3"><span class="font-extrabold underline">{{L("Your sovereignty:")}}</span> {{L("mAxI.cloud has a strict no-log policy. Those are your private apps with full admin privileges.")}}</p>
 						<p class="text-sm leading-snug text-white rounded-xl px-3">{{L("Which app do you want to use now?")}}</p>
 						<div class="self-end max-w-[85%] rounded-xl rounded-tr-sm bg-blue-200/20 px-3 py-2 text-sm line-clamp-2" *ngIf="helperAsked">{{helperQuery}}</div>
-						<div class="min-h-0 flex-1 flex flex-col gap-2" *ngIf="helperAsked">
+						<div class="min-h-0 flex flex-col gap-2" *ngIf="helperAsked">
 							<p class="w-full flex items-center gap-2 text-sm text-white" *ngIf="helperBusy">
 								<span class="w-4 h-4 shrink-0 flex items-center justify-center overflow-hidden">
 									<ion-icon name="sync-outline" class="w-4 h-4 animate-spin"></ion-icon>
@@ -97,25 +98,23 @@
 								</span>
 								<ion-icon name="open-outline" class="w-5 h-5 mr-3" [class]="global.colorWord(card.category, false)"></ion-icon>
 							</a>
-							<p class="text-sm leading-snug text-white rounded-xl px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
+							<p class="w-full text-sm text-white px-3" *ngIf="helperAnswer">{{helperAnswer}}</p>
 							<p class="w-full text-sm text-white/70" *ngIf="!helperBusy && !helperAnswer && !helperResults.length">{{L("No app matches yet. Try describing what you want to do with other words.")}}</p>
 						</div>
-						</div>
-					<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden" *ngIf="!helperAsked">
-						<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden">
+						<div class="flex-1 min-h-0 flex flex-wrap content-start gap-2 overflow-hidden" *ngIf="!helperAsked">
 							<button type="button" *ngFor="let s of [L('Create an AI agent'), L('Chat with an AI assistant'), L('Merge some PDF files')]" class="px-3 py-1 text-sm rounded-xl bg-modernsecond text-gray-400 placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors cursor-pointer" (click)="helper2Send(L(s))">{{s}}</button>
 						</div>
 					</div>
 					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors">
-						<textarea #hq rows="2" maxlength="300" class="min-w-0 flex-1 resize-none bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird transition-colors" placeholder="{{L('I want to...')}}" (keydown.enter)="helperKey($event, hq)"></textarea>
+						<textarea #hq rows="2" maxlength="300" class="min-w-0 flex-1 resize-none bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird transition-colors" [placeholder]="L('I want to...')" (keydown.enter)="helperKey($event, hq)"></textarea>
 						<button type="button" class="w-9 h-9 shrink-0 rounded-xl bg-modernthird text-white flex items-center justify-center cursor-pointer" (click)="helper2Send(hq.value); hq.value = ''"><ion-icon name="send-outline" class="w-5 h-5"></ion-icon></button>
 					</div>
 				</div>
 			</aside>
 		</section>
 <!-- Recommended -->
-		<section *ngIf="CategoriesVisibleAll" class="mt-4 px-4 sm:px-6 lg:px-8">
-			<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+		<section *ngIf="CategoriesVisibleAll" class="mt-4 px-4 sm:px-6 lg:px-8 mb-20">
+			<div class="flex flex-wrap items-center justify-between gap-3">
 				<h2 class="text-xl md:text-2xl font-bold text-white">{{L("Recommended")}}</h2>
 				<div class="flex max-w-full flex-wrap items-center gap-2">
 					<button type="button" class="w-9 h-9 rounded-full flex items-center justify-center bg-modernsecond text-white hover:bg-modernthird transition-colors cursor-pointer focus:outline-none focus-visible:border-2 focus-visible:border-white/70" (click)="recommendedStep(-1)"><ion-icon name="chevron-back-outline" class="w-5 h-5 text-white"></ion-icon></button>
@@ -133,9 +132,9 @@
 			</div>
 		</section>
 <!-- All -->
-		<main class="mt-12 grid min-w-0 gap-8 px-4 pb-12 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
+		<main class="grid min-w-0 gap-8 px-4 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
 			<div>
-				<div *ngFor="let supercat of CategoriesVisible | keyvalue; let first = first" class="pb-10 scroll-mt-6">
+				<div *ngFor="let supercat of CategoriesVisible | keyvalue; let first = first" class="pb-10 mb-12">
 					<input #sortMode type="hidden" value="azn">
 					<ng-container *ngIf="(cards | filterByCategories:$any(supercat.value).categories:sortMode.value) as visibleCards">
 						<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
@@ -149,14 +148,14 @@
 									<option value="zan" class="text-white">Z↑</option>
 									<option value="azt" class="text-red-600">A↓</option>
 									<option value="zat" class="text-red-600">Z↑</option>
-									<option value="stars" class="text-white">⭐</option>
+									<option value="stars" class="text-white">⭐↓</option>
 								</select>
-								<span class="text-lg text-white">{{visibleCards.length}} {{LG("Apps")}}</span>
+								<a routerLink="/" [queryParams]="{ category:supercat.key }" class="text-lg text-white">{{visibleCards.length}} {{L("apps")}}</a>
 							</div>
 						</div>
 						<div class="pt-2">
 							<div class="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6">
-								<ng-container *ngFor="let card of visibleCards | slice:0:(CategoriesVisibleAll ? 20 : 999)">
+								<ng-container *ngFor="let card of visibleCards | slice:0:(CategoriesVisibleAll ? 17 : 999)">
 									<ng-container *ngTemplateOutlet="cardTemplate; context:{ card:card, imageType:'poster', aspectClass:'aspect-[3/4]' }"></ng-container>
 								</ng-container>
 								<a *ngIf="CategoriesVisibleAll && visibleCards.length > 20" routerLink="/" [queryParams]="{ category:supercat.key }" class="min-w-0 flex-1 text-white">
@@ -183,7 +182,7 @@
 								<span class="min-w-0 flex-1 text-white">
 									<span class="block font-bold leading-tight truncate">{{card.name}}</span>
 									<span class="block text-xs font-bold truncate text-red-600">{{LMT(card.title)}}</span>
-									<span class="block text-xs" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
+									<span class="block text-xs" *ngIf="card.github != ''">{{global.formatCount(card.githubStars)}} ⭐</span>
 								</span>
 							</a>
 						</li>
@@ -204,7 +203,7 @@
 				<ion-icon name="open-outline" class="w-10 h-10 shrink-0 rounded-xl bg-black/50 p-2 text-white mb-4"></ion-icon>
 				<p class="text-sm w-full text-center bg-black/50 p-2 text-white [text-shadow:_1px_1px_0px_rgba(0,0,0,1)]">{{LMD(card.description)}}</p>
 			</div>
-			<span class="absolute top-1 left-1 inline-flex items-center gap-1 rounded-full bg-black/20 px-2 py-0.5 text-xs font-semibold pointer-events-none text-white" *ngIf="card.github != ''">⭐ {{global.formatCount(card.githubStars)}}</span>
+			<span class="absolute top-1 left-1 inline-flex items-center gap-1 rounded-full bg-black/20 px-2 py-0.5 text-xs font-semibold pointer-events-none text-white" *ngIf="card.github != ''">{{global.formatCount(card.githubStars)}} ⭐</span>
 			<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/50 to-transparent px-3 pointer-events-none">
 				<h3 class="block truncate text-base font-bold text-white">{{card.name}}</h3>
 			</div>
