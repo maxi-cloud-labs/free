@@ -63,6 +63,10 @@ const routes: Routes = [
 		loadChildren: () => import('./permissions/permissions.module').then( m => m.PermissionsModule)
 	},
 	{
+		path: 'pricing',
+		loadChildren: () => import('./pricing/pricing.module').then( m => m.PricingModule)
+	},
+	{
 		path: 'profile',
 		canActivate: [Global],
 		loadChildren: () => import('./profile/profile.module').then( m => m.ProfileModule)

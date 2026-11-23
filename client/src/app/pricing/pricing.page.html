@@ -1,0 +1,154 @@
+<div class="min-h-screen bg-slate-950 bg-[linear-gradient(rgb(from_var(--color-slate-950)_r_g_b/0.75),rgb(from_var(--color-slate-950)_r_g_b/0.75)),url('/assets/images/background1.jpg')] bg-contain text-white">
+	<div class="mx-auto flex min-h-screen min-w-0 max-w-[1600px] flex-col">
+		<header class="flex items-center gap-2 sm:gap-3 px-4 py-4 text-white sm:px-6 lg:px-8">
+			<a routerLink="/" title="Home" class="flex shrink-0 items-end cursor-pointer leading-none">
+				<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
+				<span class="inline-block bg-[url('/assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
+			</a>
+			<span class="hidden 2xl:block text-sm font-bold text-white leading-relaxed px-2">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
+		</header>
+		<main class="px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-8">
+			<div class="mx-auto flex w-full max-w-7xl flex-col gap-14 sm:gap-20">
+				<section class="text-center">
+					<p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">{{L("Baby sitter for your sovereignty")}}</p>
+					<h1 class="text-3xl font-bold tracking-tight sm:text-5xl">{{L("Choose the plan that fits you")}}</h1>
+					<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed sm:text-lg">{{L("Start with the essentials for free, or get more room and tools for your everyday life")}}</p>
+				</section>
+				<div class="flex justify-center">
+					<div role="group" class="inline-flex rounded-full border border-white/15 bg-modernsecond p-1">
+						<button type="button" (click)="setBillingPeriod('month')" class="rounded-full px-5 py-2 text-sm font-semibold transition-colors" [class.bg-white]="billingPeriod === 'month'" [class.text-slate-950]="billingPeriod === 'month'" [class.text-white/70]="billingPeriod !== 'month'">{{L("Monthly")}}</button>
+						<button type="button" (click)="setBillingPeriod('year')" class="rounded-full px-5 py-2 text-sm font-semibold transition-colors" [class.bg-white]="billingPeriod === 'year'" [class.text-slate-950]="billingPeriod === 'year'" [class.text-white/70]="billingPeriod !== 'year'">{{L("Yearly")}}</button>
+					</div>
+				</div>
+				<section class="grid gap-5 lg:grid-cols-4">
+					<article class="flex flex-col rounded-2xl border border-white/10 bg-modernsecond p-6 shadow-2xl sm:p-8">
+						<div>
+							<h2 class="text-xl font-semibold">{{L("mAxI Free")}}</h2>
+							<p class="mt-2 min-h-12 text-sm leading-relaxed text-white/60">{{L("Free, no credit card required")}}</p>
+							<p class="mt-6"><span class="text-4xl font-bold">$0</span><span class="text-white/60">{{L(" / month")}}</span></p>
+							<a routerLink="/login" [queryParams]="{ signup:'' }" class="mt-6 block rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-white/10">{{L("Get started free")}}</a>
+						</div>
+						<ul class="mt-7 space-y-3 text-sm text-white/75">
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("100 GB storage")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("1 user")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("BYOK for AI computing")}}</li>
+						</ul>
+					</article>
+					<article class="relative flex flex-col rounded-2xl border border-red-400/50 bg-modernsecond p-6 shadow-2xl ring-1 ring-red-400/20 sm:p-8 lg:-translate-y-4">
+						<span class="absolute right-5 top-5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-300">{{L("Popular")}}</span>
+						<div>
+							<h2 class="text-xl font-semibold">{{L("mAxI Plus")}}</h2>
+							<p class="mt-2 min-h-12 text-sm leading-relaxed text-white/60">{{L("More storage, first-in-line for CPU usage.")}}</p>
+							<div class="mt-5 flex items-center justify-between gap-3">
+								<p><span class="text-4xl font-bold">{{priceFor("plus")}}</span><span class="text-white/60">{{billingPeriod === "year" ? L(" / year") : L(" / month")}}</span></p>
+								<span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">{{discountLabel()}}</span>
+							</div>
+							<a routerLink="/buy" [queryParams]="{ product:'plus', period:billingPeriod }" class="mt-5 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950 hover:bg-slate-200">{{L("Choose mAxI Plus")}}</a>
+						</div>
+						<ul class="mt-6 space-y-3 text-sm text-white/75">
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("1 TB storage")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("Multiple users")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("BYOK for AI computing")}}</li>
+						</ul>
+					</article>
+					<article class="relative flex flex-col rounded-2xl border border-white/10 bg-modernsecond p-6 shadow-2xl sm:p-8">
+						<div>
+							<h2 class="text-xl font-semibold">{{L("mAxI Boost")}}</h2>
+							<p class="mt-2 min-h-12 text-sm leading-relaxed text-white/60">{{L("All mAxI Plus with AI processing")}}</p>
+							<div class="mt-5 flex items-center justify-between gap-3">
+								<p><span class="text-4xl font-bold">{{priceFor("boost")}}</span><span class="text-white/60">{{billingPeriod === "year" ? L(" / year") : L(" / month")}}</span></p>
+								<span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300">{{discountLabel()}}</span>
+							</div>
+							<a routerLink="/buy" [queryParams]="{ product:'boost', period:billingPeriod }" class="mt-5 block rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-white/10">{{L("All Included with AI")}}</a>
+						</div>
+						<ul class="mt-6 space-y-3 text-sm text-white/75">
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("1 TB storage")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("Multiple users")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("Includes AI computing")}}</li>
+						</ul>
+					</article>
+					<article class="relative flex flex-col rounded-2xl border border-white/10 bg-modernsecond p-6 shadow-2xl sm:p-8">
+						<div>
+							<h2 class="text-xl font-semibold">{{L("mAxI Home")}}</h2>
+							<p class="mt-2 min-h-12 text-sm leading-relaxed text-white/60">{{L("Your own hardware")}}</p>
+							<div class="mt-5 flex items-center justify-between gap-3">
+								<p><span class="text-4xl font-bold">{{priceFor("home")}}</span></p>
+							</div>
+							<a routerLink="/buy" [queryParams]="{ product:'home' }" class="mt-5 block rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-white/10">{{L("All Included with AI")}}</a>
+						</div>
+						<ul class="mt-6 space-y-3 text-sm text-white/75">
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("1 TB storage")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("Multiple users")}}</li>
+							<li class="flex gap-2"><span class="text-emerald-400">✓</span>{{L("Includes AI computing")}}</li>
+						</ul>
+					</article>
+				</section>
+				<section>
+					<div class="mb-6 text-center">
+						<h2 class="text-2xl font-bold tracking-tight sm:text-3xl">{{L("Compare plans")}}</h2>
+						<p class="mt-2 text-sm text-white/60">{{L("See what is included with each option:")}}</p>
+					</div>
+					<div class="overflow-x-auto rounded-2xl border border-white/10 bg-modernsecond">
+						<table class="w-full min-w-[640px] border-collapse text-left text-sm">
+							<thead>
+								<tr class="border-b border-white/10 text-white">
+									<th scope="col" class="p-4 font-semibold">{{L("Feature")}}</th>
+									<th scope="col" class="p-4 font-semibold">{{L("Free")}}</th>
+									<th scope="col" class="p-4 font-semibold">{{L("mAxI Plus")}}</th>
+									<th scope="col" class="p-4 font-semibold">{{L("mAxI Boost")}}</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-white/10 text-white/70">
+								<tr><th scope="row" class="p-4 font-medium text-white/90">{{L("Storage")}}</th><td class="p-4">100 GB</td><td class="p-4">1 TB</td><td class="p-4">1 TB</td></tr>
+								<tr><th scope="row" class="p-4 font-medium text-white/90">{{L("Users")}}</th><td class="p-4">1</td><td class="p-4">Unlimited</td><td class="p-4">Unlimited</td></tr>
+								<tr><th scope="row" class="p-4 font-medium text-white/90">{{L("AI Processing")}}</th><td class="p-4">BYOK</td><td class="p-4">BYOK</td><td class="p-4">Included</td></tr>
+								<tr><th scope="row" class="p-4 font-medium text-white/90">{{L("Feature")}} 4</th><td class="p-4">—</td><td class="p-4">—</td><td class="p-4">{{L("Included")}}</td></tr>
+								<tr><th scope="row" class="p-4 font-medium text-white/90">{{L("Feature")}} 5</th><td class="p-4">—</td><td class="p-4">—</td><td class="p-4">{{L("Included")}}</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+				<section class="mx-auto w-full max-w-4xl">
+					<div class="mb-6 text-center">
+						<h2 class="text-2xl font-bold tracking-tight sm:text-3xl">{{L("There are no stupid questions, just frequently asked ones.")}}</h2>
+					</div>
+					<div class="divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-modernsecond px-5 sm:px-7">
+						<details class="group py-5" open>
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 1?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 1.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 2?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 2.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 3?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 3.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 4?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 4.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 5?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 5.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 6?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 6.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 7?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 7.</p>
+						</details>
+						<details class="group py-5">
+							<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">{{L("Question")}} 8?<span class="text-xl text-white/50 transition-transform group-open:rotate-45">+</span></summary>
+							<p class="mt-3 max-w-3xl text-sm leading-relaxed text-white/60">{{L("Answer")}} 8.</p>
+						</details>
+					</div>
+				</section>
+			</div>
+		</main>
+		<app-footer class="mt-auto"></app-footer>
+	</div>
+</div>
