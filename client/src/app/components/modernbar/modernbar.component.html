@@ -191,11 +191,11 @@
 	</button>
 	<div *ngIf="showSidebar" (click)="showSidebar = false" class="fixed inset-0 bg-black/50 z-40"></div>
 <!-- Logo -->
-	<a routerLink="/" title="Home" class="mr-auto flex shrink-0 items-end cursor-pointer leading-none">
+	<a routerLink="/" title="Home" class="flex shrink-0 items-end cursor-pointer leading-none focus:outline-none">
 		<span class="text-2xl sm:text-4xl font-extrabold text-white">m</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600">A</span><span class="text-2xl sm:text-4xl font-extrabold text-white">x</span><span class="text-2xl sm:text-4xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-2xl sm:text-4xl font-extrabold text-white">.</span>
 		<span class="inline-block bg-[url('/assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
 	</a>
-	<span class="hidden 2xl:block text-sm font-bold text-white/60 leading-relaxed px-2">Your <span class="text-red-600">Cloud</span>, your <span class="text-red-600">AI</span><br>your <span class="text-red-600">sovereignty</span></span>
+	<span class="hidden 2xl:block text-sm font-bold text-white leading-relaxed px-2">{{LG("Your")}} <span class="text-red-600">{{LG("cloud")}}</span>, {{LG("your")}} <span class="text-red-600">{{LG("AI")}}</span><br>{{LG("your")}} <span class="text-red-600">{{LG("sovereignty")}}</span></span>
 	<div class="flex-1"></div>
 <!-- Categories -->
 	<div (window:keydown.escape)="showMenuCategories = false">
@@ -206,14 +206,14 @@
 			<div class="fixed inset-0 z-40" (click)="showMenuCategories = false"></div>
 			<nav class="absolute top-full z-50 flex max-h-[85dvh] flex-col gap-3 overflow-y-auto rounded-2xl border-1 border-white/50 bg-modernsecond p-3 text-white shadow-2xl sm:left-auto sm:w-96">
 				<div class="flex flex-col">
-					<a routerLink="/" class="hover:bg-modernthird px-4 py-3">
+					<a routerLink="/" class="hover:bg-modernthird px-4 py-3" [class]="categoriesTitle == '' ? 'bg-modernthird' : ''">
 						<div class="flex items-center gap-2">
 							<ion-icon name="home" class="w-6 h-6 text-white"></ion-icon>
 							<span class="text-lg font-bold text-white">{{LG("Home")}}</span>
 						</div>
 					</a>
 				</div>
-				<div *ngFor="let supset of CategoriesOrg" class="flex flex-col">
+				<div *ngFor="let supset of CategoriesOrgO" class="flex flex-col" [class]="categoriesTitle == supset.name ? 'bg-modernthird' : ''">
 					<a routerLink="/" [queryParams]="{ category:supset.name }" class="hover:bg-modernthird px-4 py-3">
 						<div class="flex items-center gap-2">
 							<div class="w-6 h-6" [class]="global.colorWord3(supset.name)" [style]="'mask:url(assets/images/category-' + supset.name.toLowerCase().replace(' ', '_') + '.png) center / contain no-repeat'"></div>
@@ -260,7 +260,7 @@
 		</ng-container>
 	</div>
 	<div class="flex-1"></div>
-	<span class="hidden 2xl:block text-sm font-bold text-white/60 leading-relaxed px-2 text-right"><span class="text-red-600">Premium Concierge:</span> all apps are setup,<br> secured, configured and maintained</span>
+	<span class="hidden 2xl:block text-sm font-bold text-white leading-relaxed px-2 text-right max-w-xs"><!--<span class="text-red-600">{{LG("Your concierge:")}}</span>&nbsp;--><span [class]="global.colorWord(categoriesTitle, false)">{{categoriesAppCount}} {{LG("apps")}} ({{global.formatCount(categoriesAppStars)}}&nbsp;<span class="text-xs">⭐</span>) {{LG("configured, secured and fully maintained")}}</span></span>
 <!-- User Menu -->
 	<div class="flex shrink-0 items-center">
 		<div class="relative rounded-xl bg-modernsecond">
@@ -299,11 +299,6 @@
 						{{LG("About")}}
 					</a>
 				</div>
-				<div class="border-t border-white/10 flex gap-3 px-4 py-2 pb-1 text-white">
-					<div class="-mt-1 flex gap-3" [class]="global.demo ? '' : 'hidden'">
-						<a (click)="global.changeLanguage('en');" title="en" [class]="global.settings.lang == 'en' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'en' ? 'border-b border-white' : ''">🇺🇸</span></a>
-						<a (click)="global.changeLanguage('fr');" title="fr" [class]="global.settings.lang == 'fr' ? 'cursor-default' : 'cursor-pointer'"><span [class]="global.settings.lang == 'fr' ? 'border-b border-white' : ''">🇫🇷</span></a></div>
-					</div>
 				<div class="border-t border-white/10 px-4 py-2">
 					<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text-red-600 hover:bg-red-600/10 transition-colors w-full text-left cursor-pointer">
 						<ion-icon name="log-out-outline" class="h-4 w-4"></ion-icon>
@@ -315,4 +310,6 @@
 		</div>
 	</div>
 </header>
-<h1 *ngIf="title != ''" class="px-4 pt-6 pb-2 text-2xl font-bold tracking-tight sm:px-6 sm:text-3xl lg:px-8">{{title}}</h1>
+<!--
+<p  class="text-sm px-4 sm:px-6 lg:px-8 mb-8 font-bold rounded-lg p-1" [class]="global.colorWord(categoriesTitle, false)">{{categoriesTitle ? `${categoriesTitle}:` : ""}} {{categoriesAppCount}} {{LG("Apps")}}, {{global.formatCount(categoriesAppStars)}} ⭐</p>
+-->

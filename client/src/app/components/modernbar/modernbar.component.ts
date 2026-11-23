@@ -1,7 +1,8 @@
 import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
-import { CategoriesOrg } from '../../myinterface';
+import { Categories, CategoriesOrg } from '../../myinterface';
 import { Global } from '../../env';
 
 @Component({
@@ -15,7 +16,6 @@ LG(st) { return this.global.mytranslateG(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
 showSidebar: boolean = false;
 @ViewChild("searchTermE") searchTermE: ElementRef;
-@Input() title = "";
 private documentClickListener: (() => void) | null = null;
 cards = this.global.modulesData;
 sidebarFilteredModules;
@@ -23,11 +23,14 @@ category: string = "All";
 showUserMenu = false;
 filteredCards = [];
 filteredGithubStars;
-CategoriesOrg = Object.values(CategoriesOrg);
+CategoriesOrgO = Object.values(CategoriesOrg);
 showMenuCategories = false;
 searchTerm: string = "";
+categoriesTitle = "";
+categoriesAppCount = 0;
+categoriesAppStars = 0;
 
-constructor(public global: Global, private cdr: ChangeDetectorRef, private router: Router) {
+constructor(public global: Global, private cdr: ChangeDetectorRef, private route: ActivatedRoute, private router: Router) {
 	this.filterCards();
 	this.showMenuCategories = false;
 	this.sidebarFilterCards();
@@ -41,12 +44,37 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private route
 			this.cdr.markForCheck();
 		}
 	});
+	this.route.queryParams.subscribe((params) => { this.paramInit(params); } );
 }
 
 ngOnDestroy() {
 	if (this.documentClickListener) {
 		this.documentClickListener();
 		this.documentClickListener = null;
+	}
+}
+
+paramInit(params) {
+	let CategoriesVisibleAll = true;
+	let CategoriesVisible = [];
+	if (params["category"]) {
+		if (CategoriesOrg[params["category"]]) {
+			CategoriesVisible = CategoriesOrg[params["category"]].categories;
+			CategoriesVisibleAll = false;
+		}
+		if (Categories[params["category"]]) {
+			CategoriesVisible = [params["category"]];
+			CategoriesVisibleAll = false;
+		}
+	}
+	if (CategoriesVisibleAll) {
+		this.categoriesTitle = "";
+		this.categoriesAppCount = Object.values(this.cards).length;
+		this.categoriesAppStars = Object.values(this.cards).reduce((sum, card) => { return sum + (card["githubStars"] ?? 0); }, 0);
+	} else {
+		this.categoriesTitle = params["category"];
+		this.categoriesAppCount = Object.values(this.cards).filter(({ category }) => CategoriesVisible.includes(category)).length
+		this.categoriesAppStars = Object.values(this.cards).filter(({ category }) => CategoriesVisible.includes(category)).reduce((sum, card) => { return sum + (card["githubStars"] ?? 0); }, 0);
 	}
 }
 
