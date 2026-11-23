@@ -24,7 +24,7 @@ async forwardWhenReady() {
 	while (this.global.session === undefined && count-- > 0)
 		await this.global.sleepms(100);
 	if (this.global.session != null && this.global.activateUrl.split("?")[0] == "/") {
-		count = 20;
+		count = 40;
 		while (this.global.modulesData.length == 0 && count-- > 0)
 			await this.global.sleepms(100);
 	}
