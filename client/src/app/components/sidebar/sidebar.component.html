@@ -56,7 +56,7 @@
 				</div>
 				<div class="overflow-y-auto max-h-50" [class]="global.sidebarFilterType != '' ? '' : 'hidden'">
 					<a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text--gray-800 group" [href]="global.openModuleHref(data.module)" (click)="global.openModuleClick($event, data.module);" *ngFor="let data of sidebarFilteredModules; let dd = index;">
-						<div class="w-5 h-5" [class]="global.colorWord3(data.category)" [style]="'mask:url(assets/icons/' + data.module + '.png) center / contain no-repeat'"></div>
+						<div class="w-5 h-5" [class]="global.colorWord3(data.category)" [style]="'mask:url(/assets/modulesicons/' + data.module + '.png) center / contain no-repeat'"></div>
 						<span>{{data['title']}}</span>
 					</a>
 				</div>
