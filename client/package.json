@@ -39,6 +39,7 @@
     "@ionic/angular": "8.7.11",
     "@ngx-translate/core": "17.0.0",
     "@ngx-translate/http-loader": "17.0.0",
+    "@stripe/stripe-js": "^10.3.0",
     "@tailwindcss/postcss": "4.3.5",
     "angularx-qrcode": "20.0.0",
     "ionicons": "7.4.0",
