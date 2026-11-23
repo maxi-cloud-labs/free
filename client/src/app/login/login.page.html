@@ -1,8 +1,8 @@
-<div class="grid min-h-dvh place-items-center bg-slate-950 text-white" [class]="!ready ? '' : 'hidden'">
-	<img src="assets/images/loading.gif" class="w-12 aspect-square" alt="Loading...">
-</div>
-<div class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready && showLogin ? '' : 'hidden'">
-	<div class="w-full min-w-0 max-w-md">
+<div class="min-h-screen bg-slate-950 bg-[linear-gradient(rgb(from_var(--color-slate-950)_r_g_b/0.75),rgb(from_var(--color-slate-950)_r_g_b/0.75)),url('/assets/images/background2.jpg')] bg-cover flex justify-center">
+	<div class="grid place-items-center text-white" [class]="!ready ? '' : 'hidden'">
+		<img src="assets/images/loading.gif" class="w-12 aspect-square" alt="Loading...">
+	</div>
+	<div class="min-h-dvh flex items-center text-white w-full min-w-0 max-w-md" [class]="ready && showLogin ? '' : 'hidden'">
 		<div class="bg-modernsecond rounded-2xl shadow-2xl border-1 border-white/10 p-5 sm:p-8">
 			<div class="text-center mb-8 flex items-center flex-col gap-3">
 				<div class="mb-5 flex shrink-0 items-end leading-none">
@@ -80,9 +80,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready && showRegister ? '' : 'hidden'">
-	<div class="w-full min-w-0 max-w-md">
+	<div class="min-h-dvh flex items-center text-white w-full min-w-0 max-w-md" [class]="ready && showRegister ? '' : 'hidden'">
 		<div class="bg-modernsecond rounded-2xl shadow-2xl border-1 border-white/10 p-5 sm:p-8">
 			<div class="text-center mb-8 flex items-center flex-col gap-3">
 				<div class="mb-5 flex shrink-0 items-end leading-none">
@@ -215,9 +213,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready && showForgotPassword ? '' : 'hidden'">
-	<div class="w-full min-w-0 max-w-md">
+	<div class="min-h-dvh flex items-center text-white w-full min-w-0 max-w-md" [class]="ready && showForgotPassword ? '' : 'hidden'">
 		<div class="bg-modernsecond rounded-2xl shadow-2xl border-1 border-white/10 p-5 sm:p-8">
 			@if (!showForgotPasswordSent) {
 			<div>
@@ -298,9 +294,7 @@
 			}
 		</div>
 	</div>
-</div>
-<div class="min-h-dvh flex items-center justify-center bg-slate-950 text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8" [class]="ready && showOtp ? '' : 'hidden'">
-	<div class="w-full min-w-0 max-w-md">
+	<div class="min-h-dvh flex items-center text-white w-full min-w-0 max-w-md" [class]="ready && showOtp ? '' : 'hidden'">
 		<div class="bg-modernsecond rounded-2xl shadow-2xl border-1 border-white/10 p-5 sm:p-8">
 			<div class="text-center mb-8 flex items-center flex-col gap-3">
 				<div class="mb-5 flex shrink-0 items-end leading-none">
