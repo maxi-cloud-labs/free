@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef, ChangeDetectorRef, signal } from '@angular/core';
+import { Component, ViewChildren, ViewChild, QueryList, ElementRef, ChangeDetectorRef, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +10,7 @@ import { Global } from '../env';
 	standalone: false
 })
 
-export class Login implements AfterViewInit {
+export class Login {
 L(st) { return this.global.mytranslate(st); }
 @ViewChildren("otpInputE") otpInputs: QueryList<ElementRef>;
 @ViewChild("email1E") email1E: ElementRef;

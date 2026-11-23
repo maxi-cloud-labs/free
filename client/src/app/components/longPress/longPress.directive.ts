@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit, NgZone, EventEmitter, Output } from '@angular/core';
+import { Directive, ElementRef, Input, NgZone, EventEmitter, Output } from '@angular/core';
 import { GestureController } from '@ionic/angular';
 
 @Directive({
@@ -6,7 +6,7 @@ import { GestureController } from '@ionic/angular';
 	standalone: false
 })
 
-export class LongPressDirective implements AfterViewInit {
+export class LongPressDirective {
 @Output() tap = new EventEmitter<any>();
 @Output() press = new EventEmitter();
 @Input("delay") delay = 300;
