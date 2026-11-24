@@ -6,8 +6,13 @@
 <script src="tailwindcss-4.js"></script>
 <style type="text/tailwindcss">
 @theme {
-	--color-main: #fdfcf3;
-	--color-sidebar: #f5f6ea;
+	--color-modernsecond: #14243c;
+	--color-modernthird: #284c70;
+
+	--color-background: var(--color-slate-950);
+	--color-sidebar: var(--color-modernsecond);
+	--color-accent: var(--color-red-600);
+	--color-main: var(--color-white);
 }
 </style>
 <script>
@@ -36,14 +41,14 @@ function fillTableContent() {
 		const stars = value["githubStars"];
 		const td = document.createElement("div");
 		td.className = "grid-cell";
-		td.style.border = "1px solid black";
+		td.style.border = "1px solid white";
 		td.style.flex = "0 0 12.5%";
 		td.style.boxSizing = "border-box";
 		td.style.textAlign = "center";
 		td.style.padding = "10px";
 		td.data_content = module;
 		td.data_githubStars	= stars;
-		td.innerHTML = "<center><img src='icons_/" + module + ".png' class='w-16 h-16'></center><br><span class='font-bold text-xl'>" + title + "</span><br><a href='https://github.com/" + github + "' target='_blank' class='underline'>" + name + "</a>" + (stars !== undefined ? (" " + stars + " ⭐") : "") + "<br><br><span>" + description + "</span>";
+		td.innerHTML = "<center><img src='icons_/" + module + ".png' class='w-16 h-16 invert'></center><br><span class='font-bold text-xl'>" + title + "</span><br><a href='https://github.com/" + github + "' target='_blank' class='underline'>" + name + "</a>" + (stars !== undefined ? (" " + stars + " ⭐") : "") + "<br><br><span>" + description + "</span>";
 		tbody.appendChild(td);
 		count++;
 	});
@@ -126,7 +131,7 @@ async function onStart() {
 </script>
 </head>
 <body onload="onStart();">
-<div class="flex flex-col h-screen px-2 bg-main text-black">
+<div class="flex flex-col h-screen px-2 bg-background text-main">
 	<div class="py-2 flex">
 		<label for="versionID">Version:&nbsp;</label>
 		<select id="versionID" name="selectedOption" class="border rounded" onchange="versionChange();"></select>

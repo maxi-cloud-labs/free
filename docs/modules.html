@@ -6,8 +6,13 @@
 <script src="tailwindcss-4.js"></script>
 <style type="text/tailwindcss">
 @theme {
-	--color-main: #fdfcf3;
-	--color-sidebar: #f5f6ea;
+	--color-modernsecond: #14243c;
+	--color-modernthird: #284c70;
+
+	--color-background: var(--color-slate-950);
+	--color-sidebar: var(--color-modernsecond);
+	--color-accent: var(--color-red-600);
+	--color-main: var(--color-white);
 }
 </style>
 <script>
@@ -60,9 +65,9 @@ function fillTableHeader() {
 		}
 		th.innerHTML = tmp;
 		if (index++ == 0)
-			th.className = "bg-gray-700 sticky left-0 z-9 whitespace-nowrap px-2";
+			th.className = "bg-modernthird sticky left-0 z-9 whitespace-nowrap px-2";
 		else
-			th.className = "whitespace-nowrap px-2";
+			th.className = "bg-modernthird whitespace-nowrap px-2";
 		headerRow.appendChild(th);
 	});
 	thead.appendChild(headerRow);
@@ -74,7 +79,7 @@ function fillTableContent() {
 	let count = 1;
 	Object.entries(data).forEach(([key, value]) => {
 		const tr = document.createElement("tr");
-		tr.className = "[&:hover_td:first-child]:bg-yellow-100 [&:hover_td:not(:first-child)]:bg-yellow-100";
+		tr.className = "[&:hover_td:first-child]:bg-modernthird [&:hover_td:not(:first-child)]:bg-modernthird hover:text-red-400 hover:font-bold";
 		tr.id = "tr_" + key;
 		let cContent = "";
 		Object.entries(value).forEach(([kkey, vvalue], iindex) => {
@@ -239,7 +244,7 @@ async function onStart() {
 </script>
 </head>
 <body onload="onStart();">
-<div class="flex flex-col h-screen px-2 bg-main text-black">
+<div class="flex flex-col h-screen px-2 bg-background text-main">
 	<div class="py-2 flex">
 		<label for="versionID">Version:&nbsp;</label>
 		<select id="versionID" name="selectedOption" class="border rounded" onchange="versionChange();"></select>
@@ -252,8 +257,8 @@ async function onStart() {
 		<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"/></svg>
 		</div>
-		<input type="text" id="searchID" oninput="filterTable()" placeholder="Filter modules..." class="pl-10 pr-4 border border-gray-300 text-gray-500 rounded-lg">
-		<button id="resetID" onclick="reset()" disabled class="inline-flex items-center border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer disabled:bg-gray-100 disabled:cursor-default disabled:text-gray-400">
+		<input type="text" id="searchID" oninput="filterTable()" placeholder="Filter modules..." class="pl-10 pr-4 border border-gray-300 text-main rounded-lg">
+		<button id="resetID" onclick="reset()" disabled class="inline-flex items-center border border-white rounded-lg text-sm font-medium text-main cursor-pointer disabled:cursor-default disabled:text-gray-400">
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 512 512"><path d="M320 146s24.36-12-64-12a160 160 0 10160 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 58l80 80-80 80"/></svg>
 		</button>
 		<span id="countID" class="ml-2"></span>
