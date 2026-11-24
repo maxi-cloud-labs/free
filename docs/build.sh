@@ -32,7 +32,7 @@ if [ $CLEAN = 1 -o ! -d /tmp/docsify ]; then
 	rm -rf docsify
 	git clone https://github.com/docsifyjs/docsify
 	cd docsify
-	git checkout v4.13.1
+	git checkout v5.1.0
 	npm install
 	npm run build
 	cd $PP
@@ -43,7 +43,7 @@ if [ $TABLE = 1 ]; then
 fi
 rm -rf web
 mkdir web
-cp /tmp/docsify/lib/docsify.min.js /tmp/docsify/lib/plugins/zoom-image.min.js /tmp/docsify/lib/plugins/search.min.js /tmp/docsify/lib/themes/vue.css web
+cp /tmp/docsify/dist/docsify.min.js /tmp/docsify/dist/plugins/zoom-image.min.js /tmp/docsify/dist/plugins/search.min.js /tmp/docsify/dist/themes/core.css /tmp/docsify/dist/themes/addons/vue.css /tmp/docsify/dist/themes/addons/core-dark.css web
 cp index.html tailwindcss-4.js *.md favicon.ico web
 cp ../README.md web
 cp  ../client/src/assets/modulesmeta.json web/modules_latest.json
