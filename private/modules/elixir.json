@@ -1,7 +1,7 @@
 {
 	"module": "elixir",
 	"name": "Elixir",
-	"title": "Javascript Bundler",
+	"title": "Elixir Language",
 	"category": "Developer",
 	"version": "1.18.3",
 	"installMethod": "apt",

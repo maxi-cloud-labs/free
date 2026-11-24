@@ -22,9 +22,7 @@
 		"package",
 		"workspace"
 	],
-	"proprietary": [
-		"npm"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/pnpm"

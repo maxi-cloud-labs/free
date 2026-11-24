@@ -1,7 +1,7 @@
 {
 	"module": "nocobase",
 	"name": "NocoBase",
-	"title": "No Code",
+	"title": "No-Code Platform",
 	"category": "Productivity",
 	"version": "v1.9.6",
 	"installMethod": "clone",

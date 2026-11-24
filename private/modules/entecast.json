@@ -1,7 +1,7 @@
 {
 	"module": "entecast",
 	"name": "Ente Cast",
-	"title": "Cloud Manager Cast",
+	"title": "Photo Casting",
 	"category": "Media",
 	"version": "bbfb99f8",
 	"installMethod": "clone",

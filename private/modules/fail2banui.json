@@ -1,7 +1,7 @@
 {
 	"module": "fail2banui",
 	"name": "Fail2Ban UI",
-	"title": "Ban User Interface",
+	"title": "Intrusion Prevention UI",
 	"category": "Server",
 	"version": "v1.4.5",
 	"installMethod": "clone",

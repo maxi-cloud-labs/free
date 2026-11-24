@@ -1,10 +1,10 @@
 {
 	"module": "binaryen",
 	"name": "Binaryen",
-	"title": "Webassembly Compiler",
+	"title": "WebAssembly Compiler",
 	"category": "Developer",
 	"version": "120",
-	"installMethod": "npm",
+	"installMethod": "apt",
 	"web": false,
 	"recommended": false,
 	"finished": true,

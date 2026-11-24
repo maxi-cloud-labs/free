@@ -1,7 +1,7 @@
 {
 	"module": "ollama",
 	"name": "Ollama",
-	"title": "Chatbot backend",
+	"title": "Local LLM Runtime",
 	"category": "AI Generative",
 	"version": "0.34.2",
 	"installMethod": "clone",

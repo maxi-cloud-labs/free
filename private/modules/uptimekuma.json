@@ -1,7 +1,7 @@
 {
 	"module": "uptimekuma",
 	"name": "Uptime Kuma",
-	"title": "Monitoring",
+	"title": "Uptime Monitor",
 	"category": "Server",
 	"version": "2.0.2",
 	"installMethod": "clone",

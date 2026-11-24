@@ -22,9 +22,7 @@
 		"template",
 		"typescript"
 	],
-	"proprietary": [
-		"React"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/ng"

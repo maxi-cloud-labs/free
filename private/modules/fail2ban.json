@@ -1,7 +1,7 @@
 {
 	"module": "fail2ban",
 	"name": "Fail2Ban",
-	"title": "Ban User",
+	"title": "Intrusion Prevention",
 	"category": "Server",
 	"version": "1.1.0",
 	"installMethod": "apt",
@@ -16,10 +16,10 @@
 		"attacker",
 		"authentication",
 		"ban",
-		"brute-force",
+		"bruteforce",
 		"firewall",
 		"intrusion",
-		"iptable",
+		"iptables",
 		"security"
 	],
 	"proprietary": [

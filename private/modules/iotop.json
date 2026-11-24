@@ -1,7 +1,7 @@
 {
 	"module": "iotop",
 	"name": "iotop",
-	"title": "IO Usage",
+	"title": "Disk I/O Monitor",
 	"category": "Server",
 	"version": "0.6",
 	"installMethod": "apt",
@@ -14,7 +14,7 @@
 	"hero": "a heartbeat monitor on a disk platter with a spiking pulse, dramatic red alarm lights. medical-drama, urgent, monitoring",
 	"keywords": [
 		"disk",
-		"iop",
+		"iops",
 		"linux",
 		"monitoring",
 		"process",

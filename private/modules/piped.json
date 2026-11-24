@@ -1,7 +1,7 @@
 {
 	"module": "piped",
 	"name": "Piped",
-	"title": "Youtube Without Ads",
+	"title": "Ad-Free YouTube Frontend",
 	"category": "Media",
 	"version": "1c3cfd23",
 	"installMethod": "clone",

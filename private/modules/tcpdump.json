@@ -1,7 +1,7 @@
 {
 	"module": "tcpdump",
-	"name": "TCPdump",
-	"title": "TCP Dumper",
+	"name": "tcpdump",
+	"title": "Packet Capture",
 	"category": "Utils",
 	"version": "4.99.5",
 	"installMethod": "apt",

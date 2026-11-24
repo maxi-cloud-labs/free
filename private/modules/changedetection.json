@@ -1,6 +1,6 @@
 {
 	"module": "changedetection",
-	"name": "ChangeDetection",
+	"name": "changedetection.io",
 	"title": "Change Tracker",
 	"category": "Utils",
 	"version": "0.50.7",

@@ -1,7 +1,7 @@
 {
 	"module": "grav",
 	"name": "Grav",
-	"title": "Knowledege Site",
+	"title": "Flat-File CMS",
 	"category": "Knowledge",
 	"version": "1.7.48",
 	"installMethod": "clone",
@@ -13,7 +13,7 @@
 	"description": "A flat-file content management system for creating and maintaining Markdown-based websites.",
 	"hero": "a gravity-bent flat-file stack floating in space, light beams bending around it like a black hole. cosmic, elegant, minimal",
 	"keywords": [
-		"cm",
+		"cms",
 		"content",
 		"flatfile",
 		"markdown",

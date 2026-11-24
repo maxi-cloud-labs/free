@@ -1,7 +1,7 @@
 {
 	"module": "stremio",
 	"name": "Stremio",
-	"title": "Free Streaming",
+	"title": "Streaming Hub",
 	"category": "Media",
 	"version": "v5.0.0-beta.29",
 	"installMethod": "clone",

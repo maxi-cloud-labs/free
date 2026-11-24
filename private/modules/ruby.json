@@ -1,7 +1,7 @@
 {
 	"module": "ruby",
 	"name": "Ruby",
-	"title": "ruby Language",
+	"title": "Ruby Language",
 	"category": "Developer",
 	"version": "3.3",
 	"installMethod": "apt",
@@ -19,7 +19,7 @@
 		"interpreter",
 		"objectoriented",
 		"programming",
-		"rail",
+		"rails",
 		"scripting"
 	],
 	"proprietary": [],

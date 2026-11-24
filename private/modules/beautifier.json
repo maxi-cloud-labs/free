@@ -1,7 +1,7 @@
 {
 	"module": "beautifier",
 	"name": "JS Beautifier",
-	"title": "Javascript Formatter Tools",
+	"title": "JavaScript Formatter Tools",
 	"category": "Developer",
 	"version": "v1.15.3",
 	"installMethod": "npm",

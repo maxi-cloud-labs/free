@@ -1,10 +1,10 @@
 {
 	"module": "libreqr",
-	"name": "Libreqr",
+	"name": "LibreQR",
 	"title": "QR Code Creator",
 	"category": "Utils",
 	"version": "2.0.1",
-	"installMethod": "git",
+	"installMethod": "clone",
 	"web": true,
 	"recommended": false,
 	"finished": true,

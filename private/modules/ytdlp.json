@@ -4,7 +4,7 @@
 	"title": "YouTube Downloader",
 	"category": "Media",
 	"version": "2025.11.12",
-	"installMethod": "pip",
+	"installMethod": "wget",
 	"web": false,
 	"recommended": false,
 	"finished": true,

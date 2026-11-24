@@ -1,7 +1,7 @@
 {
 	"module": "invidious",
 	"name": "Invidious",
-	"title": "Youtube With Privacy",
+	"title": "Private YouTube Frontend",
 	"category": "Media",
 	"version": "v2.20250913.0",
 	"installMethod": "clone",

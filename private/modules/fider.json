@@ -1,7 +1,7 @@
 {
 	"module": "fider",
 	"name": "Fider",
-	"title": "Feed-back Platform",
+	"title": "Feedback Platform",
 	"category": "Collaboration",
 	"version": "v0.32.0",
 	"installMethod": "clone",

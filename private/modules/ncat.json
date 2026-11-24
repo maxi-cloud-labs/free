@@ -1,7 +1,7 @@
 {
 	"module": "ncat",
-	"name": "Network Utils",
-	"title": "Network Utils",
+	"name": "Ncat",
+	"title": "Netcat Utility",
 	"category": "Utils",
 	"version": "7.95",
 	"installMethod": "apt",

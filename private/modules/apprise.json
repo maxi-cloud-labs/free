@@ -1,7 +1,7 @@
 {
 	"module": "apprise",
 	"name": "Apprise",
-	"title": "Javascript Bundler",
+	"title": "Notification Hub",
 	"category": "Utils",
 	"version": "1.9.3",
 	"installMethod": "apt",
@@ -9,7 +9,7 @@
 	"recommended": false,
 	"finished": true,
 	"database": "",
-	"github": "elixir-lang/elixir",
+	"github": "caronc/apprise",
 	"description": "A unified notification service for sending alerts across messaging, email, and push platforms.",
 	"hero": "a carrier pigeon releasing dozens of glowing notification bubbles in all directions. joyful, dynamic, messenger-hero",
 	"keywords": [

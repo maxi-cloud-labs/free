@@ -1,7 +1,7 @@
 {
 	"module": "redoccli",
 	"name": "Redoc CLI",
-	"title": "Redoc CLI",
+	"title": "API Docs Generator",
 	"category": "Knowledge",
 	"version": "2.20.0",
 	"installMethod": "npm",

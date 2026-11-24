@@ -1,7 +1,7 @@
 {
 	"module": "apache2",
 	"name": "Apache HTTP Server",
-	"title": "Website",
+	"title": "Web Server",
 	"category": "Server",
 	"version": "2.4.65",
 	"installMethod": "apt",
@@ -14,6 +14,7 @@
 	"hero": "a majestic feather-crowned warrior silhouette guarding a gate of glowing web servers. veteran, noble, enduring, legendary",
 	"keywords": [
 		"hosting",
+		"http",
 		"module",
 		"request",
 		"routing",

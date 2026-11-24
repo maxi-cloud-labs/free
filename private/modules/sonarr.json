@@ -1,7 +1,7 @@
 {
 	"module": "sonarr",
 	"name": "Sonarr",
-	"title": "Collection Manager Movies",
+	"title": "Collection Manager TV Shows",
 	"category": "Torrent",
 	"version": "v4.0.16.2944",
 	"installMethod": "wget",

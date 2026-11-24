@@ -1,15 +1,15 @@
 {
 	"module": "postfixparser",
 	"name": "Postfix Parser",
-	"title": "Postfix Parser",
+	"title": "Mail Log Parser",
 	"category": "Utils",
 	"version": "",
-	"installMethod": "apt",
+	"installMethod": "clone",
 	"web": false,
 	"recommended": false,
 	"finished": true,
 	"database": "",
-	"github": "",
+	"github": "Privex/postfix-parser",
 	"description": "A mail log parser for inspecting Postfix message delivery, errors, and SMTP activity.",
 	"hero": "a magnifying glass over a scrolling mail log, extracting glowing envelope metadata. detective, analytical, noir",
 	"keywords": [
@@ -20,7 +20,7 @@
 		"parsing",
 		"queue",
 		"smtp",
-		"statistic"
+		"statistics"
 	],
 	"proprietary": [
 		"Datadog Log Management",

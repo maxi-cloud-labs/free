@@ -16,7 +16,7 @@
 		"indexing",
 		"jsonb",
 		"query",
-		"rdbm",
+		"rdbms",
 		"relational",
 		"replication",
 		"schema",

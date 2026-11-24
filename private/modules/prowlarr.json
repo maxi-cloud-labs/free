@@ -1,7 +1,7 @@
 {
 	"module": "prowlarr",
 	"name": "Prowlarr",
-	"title": "Central Collection Manager",
+	"title": "Indexer Manager",
 	"category": "Torrent",
 	"version": "v2.3.0.5236",
 	"installMethod": "wget",

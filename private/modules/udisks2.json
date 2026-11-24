@@ -1,6 +1,6 @@
 {
 	"module": "udisks2",
-	"name": "Udisks2",
+	"name": "UDisks2",
 	"title": "Disk Auto Mount",
 	"category": "Server",
 	"version": "2.10.1",

@@ -1,7 +1,7 @@
 {
 	"module": "metube",
 	"name": "MeTube",
-	"title": "YouTube Videos",
+	"title": "Video Downloader",
 	"category": "Media",
 	"version": "HEAD",
 	"installMethod": "clone",

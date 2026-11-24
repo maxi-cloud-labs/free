@@ -3,7 +3,7 @@
 	"name": "Mastodon",
 	"title": "Decentralized Social Network",
 	"category": "Personal",
-	"version": "",
+	"version": "v4.5.4",
 	"installMethod": "clone",
 	"web": true,
 	"recommended": false,

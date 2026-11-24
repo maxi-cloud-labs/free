@@ -1,7 +1,7 @@
 {
 	"module": "jq",
 	"name": "jq",
-	"title": "JSON parser",
+	"title": "JSON Processor",
 	"category": "Utils",
 	"version": "1.7.1",
 	"installMethod": "apt",

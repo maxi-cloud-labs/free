@@ -13,7 +13,7 @@
 	"description": "A real-time web server log analyzer with traffic statistics and interactive dashboards.",
 	"hero": "a terminal window opening like a cinema, with real-time glowing bar charts rising as spotlights. neon, live, analytical",
 	"keywords": [
-		"analytic",
+		"analytics",
 		"apache",
 		"dashboard",
 		"nginx",

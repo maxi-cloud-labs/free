@@ -1,7 +1,7 @@
 {
 	"module": "ohmyzsh",
 	"name": "Oh My Zsh",
-	"title": "Command-line Enhancer",
+	"title": "Zsh Framework",
 	"category": "Developer",
 	"version": "",
 	"installMethod": "wget",

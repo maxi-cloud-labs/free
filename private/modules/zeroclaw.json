@@ -8,7 +8,7 @@
 	"web": true,
 	"recommended": false,
 	"finished": true,
-	"database": "sqlite",
+	"database": "SQLite",
 	"github": "zeroclaw-labs/zeroclaw",
 	"description": "A compact autonomous AI assistant runtime for cross-platform task automation and agent deployment.",
 	"hero": "a tiny but sharp mechanical claw with a zero-shaped glowing core, gripping a small flame. minimal, agile, precise, hardy",

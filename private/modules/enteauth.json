@@ -1,7 +1,7 @@
 {
 	"module": "enteauth",
 	"name": "Ente Auth",
-	"title": "Cloud Manager Auth",
+	"title": "Encrypted Authenticator",
 	"category": "Utils",
 	"version": "bbfb99f8",
 	"installMethod": "clone",

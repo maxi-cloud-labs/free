@@ -1,7 +1,7 @@
 {
 	"module": "phpsandbox",
 	"name": "PHPSandbox",
-	"title": "PHP Sanbox",
+	"title": "PHP Sandbox",
 	"category": "Developer",
 	"version": "v3.1",
 	"installMethod": "clone",

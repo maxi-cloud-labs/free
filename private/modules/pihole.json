@@ -3,7 +3,7 @@
 	"name": "Pi-hole",
 	"title": "Network Ad Blocker",
 	"category": "Server",
-	"version": "v.6.3",
+	"version": "v6.3",
 	"installMethod": "clone",
 	"web": true,
 	"recommended": false,

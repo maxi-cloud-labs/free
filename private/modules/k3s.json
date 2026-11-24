@@ -1,6 +1,6 @@
 {
 	"module": "k3s",
-	"name": "Lightweight Kubernetes",
+	"name": "K3s",
 	"title": "Lightweight Container",
 	"category": "Server",
 	"version": "v1.35.0+k3s1",
@@ -19,7 +19,7 @@
 		"edge",
 		"edgecomputing",
 		"embedded",
-		"k8",
+		"k8s",
 		"orchestration"
 	],
 	"proprietary": [

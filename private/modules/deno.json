@@ -1,7 +1,7 @@
 {
 	"module": "deno",
 	"name": "Deno",
-	"title": "Javascript Runtime",
+	"title": "JavaScript Runtime",
 	"category": "Developer",
 	"version": "v2.6.4",
 	"installMethod": "wget",

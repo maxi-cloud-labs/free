@@ -1,7 +1,7 @@
 {
 	"module": "criu",
 	"name": "CRIU",
-	"title": "Checkpoint tool",
+	"title": "Process Checkpoint",
 	"category": "Server",
 	"version": "4.1.1",
 	"installMethod": "apt",

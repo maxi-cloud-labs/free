@@ -1,7 +1,7 @@
 {
 	"module": "beautifierweb",
 	"name": "JS Beautifier Web",
-	"title": "Javascript Formatter",
+	"title": "JavaScript Formatter",
 	"category": "Developer",
 	"version": "a1fa4975",
 	"installMethod": "clone",

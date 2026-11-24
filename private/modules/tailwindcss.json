@@ -1,6 +1,6 @@
 {
 	"module": "tailwindcss",
-	"name": "tailwindcss",
+	"name": "Tailwind CSS",
 	"title": "CSS Toolkit",
 	"category": "Developer",
 	"version": "4.1.18",
@@ -13,7 +13,7 @@
 	"description": "A utility-first CSS framework for styling responsive websites and interfaces with reusable classes.",
 	"hero": "a surfer riding a glowing teal wave of utility classes. breezy, breathtaking, fast",
 	"keywords": [
-		"classe",
+		"class",
 		"component",
 		"frontend",
 		"layout",

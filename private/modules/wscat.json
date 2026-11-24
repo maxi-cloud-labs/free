@@ -4,7 +4,7 @@
 	"title": "WebSocket Cat",
 	"category": "Utils",
 	"version": "v1.14.1",
-	"installMethod": "wget",
+	"installMethod": "npm",
 	"web": false,
 	"recommended": false,
 	"finished": true,

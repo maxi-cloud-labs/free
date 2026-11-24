@@ -1,7 +1,7 @@
 {
 	"module": "redoc",
 	"name": "Redoc",
-	"title": "Redoc",
+	"title": "API Docs Renderer",
 	"category": "Knowledge",
 	"version": "2.5.2",
 	"installMethod": "npm",

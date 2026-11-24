@@ -1,7 +1,7 @@
 {
 	"module": "radarr",
 	"name": "Radarr",
-	"title": "Collection Manager TVShows",
+	"title": "Collection Manager Movies",
 	"category": "Torrent",
 	"version": "v6.0.4.10291",
 	"installMethod": "wget",

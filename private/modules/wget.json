@@ -1,7 +1,7 @@
 {
 	"module": "wget",
 	"name": "Wget",
-	"title": "Get Url",
+	"title": "File Downloader",
 	"category": "Utils",
 	"version": "1.25.0",
 	"installMethod": "apt",
@@ -17,7 +17,7 @@
 		"download",
 		"ftp",
 		"http",
-		"http",
+		"https",
 		"mirroring",
 		"recursion",
 		"retrieval"

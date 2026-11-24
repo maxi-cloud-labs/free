@@ -1,6 +1,6 @@
 {
 	"module": "yarn",
-	"name": "yarn",
+	"name": "Yarn",
 	"title": "Package Manager",
 	"category": "Developer",
 	"version": "1.22.22",
@@ -22,9 +22,7 @@
 		"package",
 		"workspace"
 	],
-	"proprietary": [
-		"npm"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/yarn"

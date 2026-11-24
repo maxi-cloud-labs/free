@@ -1,7 +1,7 @@
 {
 	"module": "webssh2",
 	"name": "WebSSH2",
-	"title": "SSH",
+	"title": "Web SSH Client",
 	"category": "Server",
 	"version": "v2.3.4",
 	"installMethod": "clone",

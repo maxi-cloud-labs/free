@@ -1,7 +1,7 @@
 {
 	"module": "cmake",
 	"name": "CMake",
-	"title": "Advanced Build",
+	"title": "Build System",
 	"category": "Developer",
 	"version": "3.31.6",
 	"installMethod": "apt",

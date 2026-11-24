@@ -1,7 +1,7 @@
 {
 	"module": "markdowneditor",
 	"name": "Markdown Editor",
-	"title": "Markdown Editor",
+	"title": "Live Markdown Editor",
 	"category": "Knowledge",
 	"version": "v2",
 	"installMethod": "clone",

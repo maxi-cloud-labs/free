@@ -18,14 +18,11 @@
 		"component",
 		"hybrid",
 		"interface",
-		"io",
+		"ios",
 		"mobile",
 		"pwa"
 	],
-	"proprietary": [
-		"Flutter",
-		"React Native"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/local/bin/ionic"

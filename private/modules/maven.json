@@ -22,9 +22,7 @@
 		"pom",
 		"repository"
 	],
-	"proprietary": [
-		"Gradle"
-	],
+	"proprietary": [],
 	"default": {
 		"cmds": [
 			"/usr/bin/mvn"

@@ -4,7 +4,7 @@
 	"title": "Reverse Proxy",
 	"category": "Server",
 	"version": "v0.63.0",
-	"installMethod": "clone",
+	"installMethod": "wget",
 	"web": true,
 	"recommended": false,
 	"finished": true,

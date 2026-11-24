@@ -1,7 +1,7 @@
 {
 	"module": "umtpresponder",
 	"name": "uMTP-Responder",
-	"title": "OTG Files",
+	"title": "OTG File Transfer",
 	"category": "Server",
 	"version": "umtprd-1.8.1",
 	"installMethod": "clone",

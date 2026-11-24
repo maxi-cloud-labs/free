@@ -1,6 +1,6 @@
 {
 	"module": "pgadmin4",
-	"name": "pg Admin 4",
+	"name": "pgAdmin 4",
 	"title": "PostgreSQL Viewer",
 	"category": "Database",
 	"version": "REL-9_10",

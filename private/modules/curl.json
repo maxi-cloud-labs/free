@@ -1,7 +1,7 @@
 {
 	"module": "curl",
 	"name": "curl",
-	"title": "Download Url",
+	"title": "URL Transfer",
 	"category": "Utils",
 	"version": "8.14.1",
 	"installMethod": "apt",
@@ -15,8 +15,8 @@
 	"keywords": [
 		"api",
 		"download",
+		"ftp",
 		"header",
-		"http",
 		"http",
 		"request",
 		"rest",

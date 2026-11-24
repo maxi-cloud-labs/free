@@ -1,7 +1,7 @@
 {
 	"module": "2fauth",
 	"name": "2FAuth",
-	"title": "Two-Form Authentication",
+	"title": "Two-Factor Authentication",
 	"category": "Utils",
 	"version": "v5.6.1",
 	"installMethod": "clone",

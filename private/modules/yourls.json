@@ -13,14 +13,14 @@
 	"description": "A self-hosted URL shortening service with custom links, click statistics, and link management.",
 	"hero": "a long snaking link being cut and shortened by giant scissors, sparks flying. dramatic, snappy, comic",
 	"keywords": [
-		"analytic",
+		"analytics",
 		"clicktracking",
 		"customurl",
 		"link",
 		"qr",
 		"redirect",
 		"shortener",
-		"statistic"
+		"statistics"
 	],
 	"proprietary": [
 		"Bitly",

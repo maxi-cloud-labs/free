@@ -1,7 +1,7 @@
 {
 	"module": "jstinker",
 	"name": "JSTinker",
-	"title": "Javascript Sandbox",
+	"title": "JavaScript Sandbox",
 	"category": "Developer",
 	"version": "master",
 	"installMethod": "clone",
