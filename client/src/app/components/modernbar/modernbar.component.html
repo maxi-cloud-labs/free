@@ -300,6 +300,12 @@
 					</a>
 				</div>
 				<div class="border-t border-white/10 px-4 py-2">
+					<ion-icon name="language-outline" class="h-4 w-4"></ion-icon>
+					<select [value]="global.settings.lang" (change)="global.changeLanguage($any($event.target).value); showUserMenu = false" class="ml-2 text-sm cursor-pointer bg-transparent text-white focus:outline-none">
+						<option *ngFor="let lang of global.languages" [value]="lang.code" [lang]="lang.code" [selected]="lang.code == global.settings.lang" class="bg-modernsecond text-white">{{lang.name}}</option>
+					</select>
+				</div>
+				<div class="border-t border-white/10 px-4 py-2">
 					<button (click)="global.logoutRedirect();" class="flex items-center gap-3 py-2 text-sm text-red-600 hover:bg-red-600/10 transition-colors w-full text-left cursor-pointer">
 						<ion-icon name="log-out-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Log out")}}

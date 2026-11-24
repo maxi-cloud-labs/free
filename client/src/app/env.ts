@@ -24,6 +24,17 @@ declare var appDeveloper;
 })
 
 export class Global implements CanActivate {
+languages = [
+	{ code:"en", name:"English" },
+	{ code:"fr", name:"Français" },
+	{ code:"it", name:"Italiano" },
+	{ code:"de", name:"Deutsch" },
+	{ code:"es", name:"Español" },
+	{ code:"pt", name:"Português" },
+	{ code:"ja", name:"日本語" },
+	{ code:"ko", name:"한국어" },
+	{ code:"zh", name:"简体中文" }
+];
 modulesDefault;
 modulesMeta;
 developer: boolean = false;

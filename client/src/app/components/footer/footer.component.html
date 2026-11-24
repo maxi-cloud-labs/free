@@ -1,6 +1,6 @@
-<footer class="text-white mx-4 sm:mx-6 lg:mx-8">
-	<div class="flex w-full flex-col gap-6 py-8 lg:flex-row lg:items-center lg:justify-between">
-		<div class="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-4">
+<footer class="mb-8 mx-4 sm:mx-6 lg:mx-8">
+	<div class="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+		<div class="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-4">
 			<a routerLink="/" class="inline-flex shrink-0 items-baseline rounded-lg leading-none focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70">
 				<span class="text-xl sm:text-2xl font-extrabold text-white">m</span><span class="text-xl sm:text-2xl font-extrabold text-red-600">A</span><span class="text-xl sm:text-2xl font-extrabold text-white">x</span><span class="text-xl sm:text-2xl font-extrabold text-red-600 font-[monospace]">I</span><span class="text-xl sm:text-2xl font-extrabold text-white">.</span>
 				<span class="inline-block bg-[url('/assets/images/logo-cloud2.png')] bg-size-[55px_30px] bg-top-right bg-no-repeat pr-2 text-xl sm:pr-4 sm:text-3xl font-extrabold text-red-600">C<span class="text-xs">loud</span></span>
@@ -11,14 +11,11 @@
 				<a href="https://github.com/maxi-cloud-labs/free" target="_blank" rel="noopener noreferrer" class="flex h-10 w-10 items-center justify-center rounded-xl transition-colors hover:bg-modernsecond hover:text-white focus-visible:outline-none focus-visible:border-2 focus-visible:border-white/70"><ion-icon name="logo-github" class="h-5 w-5"></ion-icon></a>
 			</div>
 		</div>
-		<label class="relative flex h-10 w-fit items-center gap-2 rounded-xl border-1 border-white/25 pl-3 pr-8 text-sm transition-colors hover:bg-modernsecond focus-within:border-white/70">
-			<ion-icon name="language-outline" class="h-5 w-5 shrink-0" aria-hidden="true"></ion-icon>
-			<select [value]="global.settings.lang" (change)="global.changeLanguage($any($event.target).value);" aria-label="Language" class="cursor-pointer appearance-none bg-transparent text-white focus:outline-none">
-				@for (lang of languages; track lang.code) {
-				<option [value]="lang.code" [lang]="lang.code" [selected]="lang.code == global.settings.lang" class="bg-modernsecond text-white">{{lang.name}}</option>
-				}
+		<label class="relative flex h-10 w-fit items-center gap-2 rounded-xl border-1 border-white/25 px-4 text-sm transition-colors hover:bg-modernsecond focus-within:border-white/70">
+			<ion-icon name="language-outline" class="h-5 w-5" aria-hidden="true"></ion-icon>
+			<select [value]="global.settings.lang" (change)="global.changeLanguage($any($event.target).value);" class="cursor-pointer bg-transparent text-white focus:outline-none">
+				<option *ngFor="let lang of global.languages" [value]="lang.code" [lang]="lang.code" [selected]="lang.code == global.settings.lang" class="bg-modernsecond text-white">{{lang.name}}</option>
 			</select>
-			<ion-icon name="chevron-down-outline" class="pointer-events-none absolute right-2.5 h-4 w-4 text-white/70" aria-hidden="true"></ion-icon>
 		</label>
 		<!-- Language end -->
 		<nav class="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm lg:justify-end">
