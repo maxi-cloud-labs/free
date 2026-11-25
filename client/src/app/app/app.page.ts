@@ -9,7 +9,6 @@ import { BleService } from '../ble';
 @Component({
 	selector: 'app-app',
 	templateUrl: './app.page.html',
-	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: false
 })
 
@@ -56,7 +55,6 @@ queryInit(params) {
 		this.cardIdCur = this.global.modulesDataFindId(params["name"].toLowerCase());
 	else
 		this.cardIdCur = this.global.modulesDataFindId(Object.keys(params)[0].toLowerCase());
-	this.cdr.detectChanges();
 	this.reviewsLoad();
 }
 
@@ -118,7 +116,6 @@ async reviewsLoad() {
 	this.reviewRating = 0;
 	this.reviewHover = 0;
 	this.reviewText = "";
-	this.cdr.detectChanges();
 	try {
 		const data = { method:"get", module };
 		const ret = await this.httpClient.post(this.global.SERVERURL + "/master/review.json", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
@@ -131,7 +128,6 @@ async reviewsLoad() {
 		if (module === this.reviewsModule)
 			this.reviewsModule = ""; // allow a retry on next navigation
 	}
-	this.cdr.detectChanges();
 }
 
 async reviewSubmit() {
