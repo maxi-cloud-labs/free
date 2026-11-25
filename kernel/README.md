@@ -1,8 +1,8 @@
-<h1 align="center">mAxI.cloud: my Data, my AI, my Sovereignty</h1>
+<h1 align="center">mAxI.cloud: your cloud, your AI, your sovereignty</h1>
 
-**mAxI.cloud** is your **AI self-hosted OS** with AI chatbot, AI agents, mail, Office suite, video conference, web hosting, blog, photos, files exchange... **Every AI and cloud service you need. All secured.**
+**mAxI.cloud** is a disruptive, beautifully designed, all-in-one cloud & AI platform that makes digital sovereignty effortless.
 
-**mAxI.cloud** includes **250 compiled and configured** github or Open Source projects representing more than **7 million ⭐**.
+Think Netflix for Cloud & AI apps: **mAxI.cloud** is a curated catalog of **300+ configured, secured and fully maintained** github or Open Source projects representing more than **10+ million ⭐**.
 
 <p align="center">🚀 <b>mAxI.cloud</b> is ①⓪⓪%&nbsp;&nbsp;🅾🅿🅴🅽 🆂🅾🆄🆁🅲🅴. 🚀</p>
 
