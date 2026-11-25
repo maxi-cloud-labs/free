@@ -66,7 +66,7 @@ paramInit(params) {
 	} else
 		this.CategoriesVisible = CategoriesOrg;
 	this.helperShown = this.CategoriesVisibleAll;
-	this.heroInit(params["category"]);
+	this.heroInit(params);
 	this.trendingInit();
 	this.cdr.detectChanges();
 }
@@ -86,6 +86,12 @@ helperAnswer = "";
 helperResults = [];
 helperMessages: { role:string; content:string }[] = [];
 helper2Abort?: AbortController;
+
+helperReset() {
+	this.helperAsked = false;
+	this.helperMessages = [];
+	this.heroInit({});
+}
 
 helperKey(e: Event, el: HTMLTextAreaElement) {
 	const event = e as KeyboardEvent;
@@ -114,12 +120,14 @@ async helperSend(query: string) {
 		if (requestId != this.helperRequestId)
 			return;
 		this.helperResults = ret["apps"].map(name => this.cards[this.global.modulesDataFindId(name)]);
+		this.heroInit({ app:this.helperResults.map(item => item.module) });
 		this.helperAnswer = ret["answer"];
 	} catch (err) {
 		console.error("App Finder failed:", err);
 		if (requestId !== this.helperRequestId)
 			return;
 		this.helperResults = this.helperSearchFallback(query);
+		this.heroInit({ app:this.helperResults.map(item => item.module) });
 		this.helperAnswer = "I found those apps.";
 	} finally {
 		this.helperBusy = false;
@@ -203,6 +211,7 @@ async helper2Send(query: string) {
 	this.helper2Abort = abort;
 	const applyApps = (apps: string[]) => {
 		this.helperResults = apps.map(name => this.cards[this.global.modulesDataFindId(name)]).filter(Boolean);
+		this.heroInit({ app:this.helperResults.map(item => item.module) });
 	};
 	const applyResult = (ret: { apps:string[]; answer:string }) => {
 		applyApps(ret.apps);
@@ -276,6 +285,7 @@ async helper2Send(query: string) {
 			return;
 		console.error("App Finder failed:", err);
 		this.helperResults = this.helperSearchFallback(query);
+		this.heroInit({ app:this.helperResults.map(item => item.module) });
 		this.helperAnswer = "I found those apps.";
 	} finally {
 		abort.abort();
@@ -343,7 +353,7 @@ heroStep(d) {
     this.cdr.detectChanges();
 }
 
-heroInit(arg) {
+heroInit(params) {
 	const editorPick = {
 		all: ["openclaw", "openwebui", "searxng", "homeassistant", "jellyfin", "stirlingpdf", "mastodon", "ollama", "dify", "excalidraw", "immich", "syncthing", "gitea"],
 		AI: ["openclaw", "ollama", "dify", "openwebui", "comfyui", "anythingllm", "khoj"],
@@ -352,14 +362,18 @@ heroInit(arg) {
 		Infrastructure: ["uptimekuma", "syncthing", "vaultwarden", "pihole", "ntfy", "homepage", "convertx"],
 		Development: ["gitea", "appsmith", "swaggerui", "shields", "adminer", "sqliteweb", "pgadmin4"]
 	}
-	if (arg === undefined)
-		arg = "all"
-	if (editorPick[arg] !== undefined)
-		this.heroCards = editorPick[arg].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
-	else {
-		const cats = CategoriesOrg[arg].categories;
-		this.heroCards = this.cards.filter(c => c.web && (arg == c.category || cats.includes(c.category))).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 7);
-	}
+	if (params["category"]) {
+		if (editorPick[params["category"]])
+			this.heroCards = editorPick[params["category"]].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
+		else
+			this.heroCards = this.cards.filter(c => c.web && params["category"] == c.category).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 7);
+	} else if (params["app"]) {
+		let papp = params["app"];
+		if (typeof(params["app"]) == "string")
+			papp = [params["app"].toLowerCase()];
+		this.heroCards = papp.map(module => this.cards.find(c => c.module === module)).filter(Boolean);
+	} else
+		this.heroCards = editorPick["all"].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
 	this.heroIdx = 0;
 	this.heroProgressKey = 0;
 	this.heroPaused = false;
