@@ -134,7 +134,7 @@
 <!-- All -->
 		<main class="grid min-w-0 gap-8 px-4 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
 			<div>
-				<div *ngFor="let supercat of CategoriesVisible | keyvalue; let first = first" class="pb-10 mb-12">
+				<div *ngFor="let supercat of CategoriesVisible | keyvalue; let first = first" class="mb-16">
 					<input #sortMode type="hidden" value="azn">
 					<ng-container *ngIf="(cards | filterByCategories:$any(supercat.value).categories:sortMode.value) as visibleCards">
 						<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
