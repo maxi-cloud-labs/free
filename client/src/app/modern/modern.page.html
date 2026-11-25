@@ -106,7 +106,7 @@
 						</div>
 					</div>
 					<div class="flex items-end gap-2 px-4 py-2 rounded-xl bg-modernsecond text-white placeholder-gray-400 border-1 border-gray-700 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird focus:border-1 focus:border-gray-400 transition-colors">
-						<textarea #hq rows="2" maxlength="300" class="min-w-0 flex-1 resize-none bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird transition-colors" [placeholder]="L('I want to...')" (keydown.enter)="helperKey($event, hq)"></textarea>
+						<textarea #hq rows="2" maxlength="300" class="min-w-0 flex-1 resize-none bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus-visible:border-2 focus-visible:border-white/70 focus:bg-modernthird transition-colors" [placeholder]="L('I want to...')" (keydown.shift.enter)="helperKey($event, hq)" (keydown.control.enter)="helperKey($event, hq)"></textarea>
 						<button type="button" class="w-9 h-9 shrink-0 rounded-xl bg-modernthird text-white flex items-center justify-center cursor-pointer" (click)="helper2Send(hq.value); hq.value = ''"><ion-icon name="send-outline" class="w-5 h-5"></ion-icon></button>
 					</div>
 				</div>
