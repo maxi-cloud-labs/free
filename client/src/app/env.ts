@@ -132,7 +132,7 @@ getCookie(name) {
 
 async getExternalIP() {
 	try {
-		let response = await fetch("https://maxi.cloud/master/ip.json");
+		let response = await fetch(this.SERVERURL + "/master/ip.json");
 		if (!response.ok)
 			response = await fetch("https://api.ipify.org?format=json");
 		if (response.ok) {
