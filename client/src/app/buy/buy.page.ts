@@ -1,7 +1,6 @@
 import { Component, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { take } from 'rxjs/operators';
 import { loadStripe, Stripe, StripeElements, StripePaymentElement } from '@stripe/stripe-js';
 import { Global } from '../env';
 
@@ -34,7 +33,7 @@ paymentComplete = false;
 errorSt: string | null = null;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private httpClient: HttpClient) {
-	this.route.queryParamMap.pipe(take(1)).subscribe(params => this.initialize(params.get("product"), params.get("period")));
+	this.route.queryParams.subscribe(params => { this.initialize(params["product"], params["period"] ); });
 }
 
 async initialize(productParam: string | null, periodParam: string | null) {
