@@ -68,13 +68,6 @@ floor(a) {
 	return Math.floor(a);
 }
 
-
-
-
-
-
-
-
 async moduleRefresh() {}
 
 async moduleReset() {}
@@ -90,9 +83,11 @@ reviewSort = "newest"; // newest | oldest | top
 reviewsShown = 5;
 reviewRating = 0;
 reviewHover = 0;
+reviewText = "";
+reviewBusy = false;
+private reviewsModule = "";
 private reviewsMemo: any = { src: null, sort: "", n: -1, out: [] };
 
-/** Sorted + paged list. Memoised so ngFor never receives a new array on every change detection. */
 get reviewsView(): any[] {
 	const m = this.reviewsMemo;
 	if (m.src !== this.reviews || m.sort !== this.reviewSort || m.n !== this.reviewsShown) {
@@ -112,30 +107,64 @@ get reviewsAvg(): number {
 	return this.reviews.length ? this.reviews.reduce((s, r) => s + r.rating, 0) / this.reviews.length : 0;
 }
 
-/** Call it every time cardIdCur changes (and when the page opens). */
-reviewsLoad() {
+async reviewsLoad() {
+	const module = this.cards[this.cardIdCur]?.module;
+	if (!module || module === this.reviewsModule)
+		return;
+	this.reviewsModule = module;
 	this.reviews = [];
 	this.reviewsShown = 5;
 	this.reviewRating = 0;
 	this.reviewHover = 0;
-	// TODO: fetch the reviews of this.cards[this.cardIdCur].module from backend and assign them to this.reviews
+	this.reviewText = "";
+	this.cdr.detectChanges();
+	try {
+		const data = { method:"get", module };
+		const ret = await this.httpClient.post(this.global.SERVERURL + "/master/review.json", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
+		// Ignore the answer if the user navigated to another module meanwhile
+		if (module !== this.reviewsModule)
+			return;
+		this.reviews = ret["reviews"];
+	} catch (err) {
+		console.error("Reviews load failed:", err);
+		if (module === this.reviewsModule)
+			this.reviewsModule = ""; // allow a retry on next navigation
+	}
+	this.cdr.detectChanges();
 }
 
-reviewSubmit(text: string) {
-	const review = {
-		id: Date.now(),
-		author: this.global.session?.user?.name ?? "?",
-		date: new Date().toISOString(),
+async reviewSubmit() {
+	const module = this.reviewsModule;
+	const text = this.reviewText.trim();
+	if (!module || !this.reviewRating || !text || this.reviewBusy)
+		return;
+	const data = {
+		method: "put",
+		module,
+		cloud: this.global.session?.cloud?.info?.name ?? "",
+		author: this.global.session?.user?.name || this.global.session?.user?.username || "",
 		rating: this.reviewRating,
-		text: text.trim()
+		text
 	};
-	this.reviews = [review, ...this.reviews];   // shown immediately
+	this.reviewBusy = true;
+	this.cdr.detectChanges();
+	try {
+		const ret = await this.httpClient.post(this.global.SERVERURL + "/master/review.json", JSON.stringify(data), {headers:{"content-type": "application/json"}}).toPromise();
+		if (module === this.reviewsModule && ret["review"]) {
+			// The server keeps one review per author and module, so replace any previous one
+			this.reviews = [ret["review"], ...this.reviews.filter(r => r.id !== ret["review"].id)];
 	this.reviewRating = 0;
 	this.reviewHover = 0;
-	// TODO: POST { module: this.cards[this.cardIdCur].module, rating: review.rating, text: review.text } to your backend
+			this.reviewText = "";
+		}
+	} catch (err) {
+		console.error("Review submit failed:", err);
+		this.global.presentToast(this.L(err?.status == 429 ? "Too many reviews, try again later." : "Your review could not be posted. Please try again."), "error");
+	}
+	this.reviewBusy = false;
+	this.cdr.detectChanges();
 }
 
-/** "2 days ago" in the language of the user. */
 timeAgo(date: string): string {
 	const s = (new Date(date).getTime() - Date.now()) / 1000;
 	const units: [Intl.RelativeTimeFormatUnit, number][] = [["year", 31536000], ["month", 2592000], ["day", 86400], ["hour", 3600], ["minute", 60]];
