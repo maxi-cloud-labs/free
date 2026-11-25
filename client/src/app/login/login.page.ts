@@ -59,7 +59,7 @@ constructor(public global: Global, private router: Router, private httpClient: H
 		"otp54": ["", [ Validators.required, Validators.pattern(/^\d$/) ] ],
 		"otp64": ["", [ Validators.required, Validators.pattern(/^\d$/) ] ]
 	});
-	this.init();
+	this.init(router.getCurrentNavigation()?.previousNavigation);
 }
 
 handleBlur(event, element) {
@@ -101,7 +101,7 @@ checkPassword2(group: FormGroup) {
 	return group.controls.password2.value == group.controls.password2Confirm.value ? null : {"mismatch": true};
 }
 
-async init() {
+async init(prev) {
 	const params = new URLSearchParams(window.location.search);
 	const verify = params.get("verify");
 	if (params.has("verify")) {
@@ -116,7 +116,8 @@ async init() {
 		this.formLogin.get("password1").setValue("demodemo");
 		if (window.self === window.top)
 			setTimeout(() => { this.submit1E.nativeElement.focus(); }, 100);
-		this.doLogin();
+		if (prev === null)
+			this.doLogin();
 		return;
 	}
 	let email = this.global.getCookie("email");

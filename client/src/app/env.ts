@@ -198,7 +198,7 @@ async logout() {
 async logoutRedirect() {
 	await this.logout();
 	this.consolelog(1, "logout");
-	document.location.href = "/";
+	await this.router.navigate(["/login"]);
 }
 
 async settingsSave() {
