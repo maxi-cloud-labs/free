@@ -79,8 +79,14 @@ async moduleRefresh() {}
 
 async moduleReset() {}
 
-reviews: any[] = [];          // [{ id, author, date (ISO string), rating (1-5), text }]
-reviewSort = "newest";        // newest | oldest | top
+get relatedCards(): any[] {
+	const cur = this.cards[this.cardIdCur];
+	const out = cur ? this.cards.filter(c => c.module !== cur.module && c.category === cur.category && c.web).sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0)).slice(0, 8) : [];
+	return out;
+}
+
+reviews: any[] = []; // [{ id, author, date (ISO string), rating (1-5), text }]
+reviewSort = "newest"; // newest | oldest | top
 reviewsShown = 5;
 reviewRating = 0;
 reviewHover = 0;
@@ -138,32 +144,6 @@ timeAgo(date: string): string {
 		if (Math.abs(s) >= sec)
 			return rtf.format(Math.round(s / sec), unit);
 	return rtf.format(0, "second");
-}
-
-// ---------------------------------------------------------------- Similar apps (sidebar)
-private relatedMemo: any = { id: -1, src: null, out: [] };
-
-/** Same category as the current app, most starred first (max 8). Memoised on cardIdCur. */
-get relatedCards(): any[] {
-	if (this.relatedMemo.id !== this.cardIdCur || this.relatedMemo.src !== this.cards) {
-		const cur = this.cards[this.cardIdCur];
-		const out = cur ? this.cards
-			.filter(c => c.module !== cur.module && c.category === cur.category && c.web)
-			.sort((a, b) => (b.githubStars ?? 0) - (a.githubStars ?? 0))
-			.slice(0, 8) : [];
-		this.relatedMemo = { id: this.cardIdCur, src: this.cards, out };
-	}
-	return this.relatedMemo.out;
-}
-
-/** Click on a similar app: the same page is shown for that app. */
-openApp(module: string) {
-	const i = this.cards.findIndex(c => c.module === module);
-	if (i < 0)
-		return;
-	this.cardIdCur = i;
-	this.reviewsLoad();
-	window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 }
