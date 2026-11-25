@@ -40,9 +40,9 @@ ion-modal {
 }
 
 .toast-info {
-	background-color: #0092ce !important;
+	background-color: var(--color-modernthird) !important;
 }
 
 .toast-warning {
-	background-color: #d08700 !important;
+	background-color: var(--color-red-700) !important;
 }
