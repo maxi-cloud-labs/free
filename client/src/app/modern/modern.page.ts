@@ -356,13 +356,16 @@ heroStep(d) {
 heroInit(params) {
 	const editorPick = {
 		all: ["openclaw", "openwebui", "searxng", "homeassistant", "jellyfin", "stirlingpdf", "mastodon", "ollama", "dify", "excalidraw", "immich", "syncthing", "gitea"],
+		extended: ["appsmith", "automatisch", "betterauth", "bookstack", "bugzilla", "croodle", "cyberchef", "firecracker", "fscrypt", "imagemagick", "ittools", "jellyfin", "librephotos", "limesurvey", "mastodon", "mysql", "n8n", "navidrome", "ollama", "openclaw", "openproject", "outline", "pihole", "podman", "portainer", "postfix", "promptfoo", "searxng", "signoz", "stremio", "tabby", "vllm", "webtrees", "wget", "wireguard", "ytdlsub", "zola"],
 		AI: ["openclaw", "ollama", "dify", "openwebui", "comfyui", "anythingllm", "khoj"],
 		Work: ["excalidraw", "stirlingpdf", "affine", "joplin", "paperlessngx", "outline", "jitsimeet"],
 		Entertainment: ["immich", "homeassistant", "jellyfin", "qbittorrent", "searxng", "actualbudget", "navidrome"],
 		Infrastructure: ["uptimekuma", "syncthing", "vaultwarden", "pihole", "ntfy", "homepage", "convertx"],
 		Development: ["gitea", "appsmith", "swaggerui", "shields", "adminer", "sqliteweb", "pgadmin4"]
 	}
-	if (params["category"]) {
+	if (params["e"] == "")
+		this.heroCards = editorPick["extended"].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
+	else if (params["category"]) {
 		if (editorPick[params["category"]])
 			this.heroCards = editorPick[params["category"]].map(hero => this.cards[this.global.modulesDataFindId(hero)]);
 		else
