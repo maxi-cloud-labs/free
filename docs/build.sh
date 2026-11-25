@@ -44,11 +44,9 @@ fi
 rm -rf web
 mkdir web
 cp /tmp/docsify/dist/docsify.min.js /tmp/docsify/dist/plugins/zoom-image.min.js /tmp/docsify/dist/plugins/search.min.js /tmp/docsify/dist/themes/core.css /tmp/docsify/dist/themes/addons/vue.css /tmp/docsify/dist/themes/addons/core-dark.css web
-cp index.html tailwindcss-4.js *.md favicon.ico web
+cp index.html tailwindcss-4.js favicon.ico web
 cp ../README.md web
 cp  ../client/src/assets/modulesmeta.json web/modules_latest.json
-cp ../release/modules*.json web 2> /dev/null
-ls -r ../release/modulesmeta_*.json 2> /dev/null | jq -R -s 'split("\n") | map(select(length > 0) | split("_")[1] | split(".")[0]) | {list: (["latest"] + .)}' > web/releases.json
 sed -i 's/|Module|Title|Description|⭐|Type|Category|/<TABLE_MODULES>/' web/README.md
 sed -i '/^|.*/d' web/README.md
 sed -i '/<TABLE_MODULES>/ {
@@ -60,10 +58,12 @@ if [ $TEST = 1 ]; then
 	ln -sf ../modules.html web
 	ln -sf ../modules2.html web
 	ln -sf ../../private/modules/icons web/icons_
+	for md in `ls *.md`; do ln -sf ../$md web; done
 else
 	cp modules.html web
 	cp modules2.html web
 	cp -a ../private/modules/icons/ web/icons_
+	cp *.md web
 fi
 
 if [ $TEST = 1 ]; then
