@@ -29,6 +29,7 @@ CategoriesBar = CategoriesBar;
 CategoriesOrg = CategoriesOrg;
 
 constructor(public global: Global, private cdr: ChangeDetectorRef, private httpClient: HttpClient, private route: ActivatedRoute, public ble: BleService) {
+	this.route.queryParams.subscribe(params => this.queryInit(params));
 	global.refreshUI.subscribe(event => {
 		if (event === "onlybar")
 			this.modernbar.refresh();
@@ -50,18 +51,18 @@ constructor(public global: Global, private cdr: ChangeDetectorRef, private httpC
 	global.sidebarFilterType = "";
 }
 
-pageInit() {
-	const sub = this.route.queryParams.subscribe(async (params) => {
-		if (params["name"])
-			this.cardIdCur = this.global.modulesDataFindId(params["name"]);
-		this.cdr.detectChanges();
-	});
+queryInit(params) {
+	if (params["name"])
+		this.cardIdCur = this.global.modulesDataFindId(params["name"].toLowerCase());
+	else
+		this.cardIdCur = this.global.modulesDataFindId(Object.keys(params)[0].toLowerCase());
+	this.cdr.detectChanges();
+	this.reviewsLoad();
 }
 
 async ngOnInit() {
 	if (this.global.session.user.role == "admin" && this.global.session.cloud.info.setup == "done1" && await this.global.presentQuestion("First-time setup", "Do you want to do the first-time setup of all modules?", "This takes around 5 minutes during which the system will be extremelly busy. After that, you will be able to use all the modules instantaneously.\nAlternatively, you can disregard this setup. You can either launch it later, meanwhile each module will be automatically set up during first use.", "firsttimesetup"))
 		this.global.setup2Start(true);
-	this.pageInit();
 }
 
 floor(a) {
@@ -153,8 +154,8 @@ async reviewSubmit() {
 		if (module === this.reviewsModule && ret["review"]) {
 			// The server keeps one review per author and module, so replace any previous one
 			this.reviews = [ret["review"], ...this.reviews.filter(r => r.id !== ret["review"].id)];
-	this.reviewRating = 0;
-	this.reviewHover = 0;
+			this.reviewRating = 0;
+			this.reviewHover = 0;
 			this.reviewText = "";
 		}
 	} catch (err) {
