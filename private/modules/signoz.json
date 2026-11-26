@@ -30,7 +30,7 @@
 	"default": {
 		"config": true,
 		"enabled": true,
-		"localPort": 9529,
+		"localPort": 9569,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

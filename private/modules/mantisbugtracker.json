@@ -70,7 +70,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9467,
+		"localPort": 9493,
 		"permissions": [
 			"user"
 		],

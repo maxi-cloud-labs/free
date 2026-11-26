@@ -26,7 +26,7 @@
 	"default": {
 		"enabled": true,
 		"homepage": "/playground",
-		"localPort": 9509,
+		"localPort": 9547,
 		"path": "/usr/local/modules/prettier/website/build",
 		"permissions": [
 			"user"

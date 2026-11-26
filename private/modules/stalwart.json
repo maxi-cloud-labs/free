@@ -29,7 +29,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9601,
+		"localPort": 9574,
 		"permissions": [],
 		"permissionsPublicForbidden": true
 	}

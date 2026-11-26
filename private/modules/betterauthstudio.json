@@ -33,7 +33,7 @@
 			"identity"
 		],
 		"enabled": true,
-		"localPort": 9410,
+		"localPort": 9419,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reverseProxy": [

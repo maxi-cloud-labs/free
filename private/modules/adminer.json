@@ -85,7 +85,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9402,
+		"localPort": 9404,
 		"permissions": [],
 		"permissionsPublicForbidden": true
 	}

@@ -55,7 +55,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9487,
+		"localPort": 9521,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

@@ -30,7 +30,7 @@
 	"default": {
 		"addConfigBegin": "RequestHeader set Host localhost",
 		"enabled": true,
-		"localPort": 9538,
+		"localPort": 9580,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

@@ -30,7 +30,7 @@
 		"addConfigBegin": "Alias /access /usr/local/modules/cockpit/access\n\t<Directory /usr/local/modules/cockpit/access>\n\t\tRequire all granted\n\t</Directory>\n\tProxyPass /access !",
 		"enabled": true,
 		"homepage": "/access",
-		"localPort": 9413,
+		"localPort": 9423,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reservedToFirstUser": true,

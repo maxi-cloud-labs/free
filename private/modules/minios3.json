@@ -30,7 +30,7 @@
 	"default": {
 		"enabled": true,
 		"homepage": "/minio/health/ready",
-		"localPort": 9476,
+		"localPort": 9504,
 		"permissions": [
 			"user"
 		],

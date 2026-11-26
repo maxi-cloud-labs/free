@@ -65,7 +65,7 @@
 		],
 		"config": true,
 		"enabled": true,
-		"localPort": 9478,
+		"localPort": 9506,
 		"permissions": [],
 		"reset": true,
 		"reverseProxy": [

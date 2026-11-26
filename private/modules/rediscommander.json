@@ -27,7 +27,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9519,
+		"localPort": 9559,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reverseProxy": [

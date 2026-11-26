@@ -52,7 +52,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9552,
+		"localPort": 9598,
 		"permissions": [],
 		"permissionsPublicForbidden": true,
 		"reset": true,

@@ -52,7 +52,7 @@
 		},
 		"config": true,
 		"enabled": true,
-		"localPort": 9423,
+		"localPort": 9437,
 		"permissions": [
 			"hardware"
 		],

@@ -54,7 +54,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/admin",
-		"localPort": 9556,
+		"localPort": 9602,
 		"permissions": [
 			"hardware",
 			"user"

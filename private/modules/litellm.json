@@ -53,7 +53,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/ui",
-		"localPort": 9463,
+		"localPort": 9487,
 		"permissions": [
 			"user"
 		],

@@ -28,7 +28,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9446,
+		"localPort": 9464,
 		"path": "/usr/local/modules/html5qrcode/examples/html5",
 		"permissions": [
 			"user"

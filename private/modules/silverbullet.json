@@ -29,7 +29,7 @@
 	],
 	"default": {
 		"enabled": true,
-		"localPort": 9530,
+		"localPort": 9570,
 		"permissions": [],
 		"reset": true,
 		"reverseProxy": [

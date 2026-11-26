@@ -31,7 +31,7 @@
 		"config": true,
 		"enabled": true,
 		"homepage": "/ping",
-		"localPort": 9425,
+		"localPort": 9439,
 		"permissions": [
 			"user"
 		],
