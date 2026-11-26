@@ -15,11 +15,8 @@
 #include <sys/stat.h>
 #include <sys/statvfs.h>
 #include <sys/mman.h>
-#include <systemd/sd-bus.h>
 #include <arpa/inet.h>
 #include <linux/wireless.h>
-#include <curl/curl.h>
-#include <curl/easy.h>
 #include "macro.h"
 #include "common.h"
 
@@ -360,65 +357,6 @@ void touch(char *szPath) {
 		fclose(pf);
 }
 
-static size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
-	memcpy(userdata, ptr, MIN2(nmemb, 1024));
-	char *p = (char *)userdata;
-	p[MIN2(nmemb, 1024)] = '\0';
-	return nmemb;
-}
-
-int downloadURLBuffer(char *url, char *buf, char *header, char *post, char *cookieI, char *cookieO) {
-	int ret = -1;
-	CURL *curl = curl_easy_init();
-	if (curl) {
-		curl_easy_setopt(curl, CURLOPT_URL, url);
-		struct curl_slist *headers = NULL;
-		if (header) {
-			headers = curl_slist_append(headers, header);
-			curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-		}
-		if (post) {
-			curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post);
-			curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, (long)strlen(post));
-		}
-		if (cookieI)
-			curl_easy_setopt(curl, CURLOPT_COOKIEFILE, cookieI);
-		if (cookieO)
-			curl_easy_setopt(curl, CURLOPT_COOKIEJAR, cookieO);
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, buf);
-		ret = curl_easy_perform(curl);
-		if (headers)
-		curl_slist_free_all(headers);
-		//PRINTF("Download (ret:%d) %s\n", ret, buf);
-		curl_easy_cleanup(curl);
-	}
-	return ret;
-}
-
-int getExternalIP(char *szIPExternal) {
-	char buf[1024];
-	buf[0] = '\0';
-	downloadURLBuffer("https://maxi.cloud/master/ip.json", buf, NULL, NULL, NULL, NULL);
-	char *quote3 = NULL;
-	char *quote4 = NULL;
-	char *quote1 = strchr(buf, '"');
-	if (quote1) {
-		char *quote2 = strchr(quote1 + 1, '"');
-		if (quote2) {
-			quote3 = strchr(quote2 + 1, '"');
-			if (quote3)
-				quote4 = strchr(quote3 + 1, '"');
-		}
-	}
-	if (quote3 && quote4) {
-		strcpy(szIPExternal, quote3 + 1);
-		szIPExternal[quote4 - quote3 - 1] = '\0';
-		int ret = 0;
-	}
-	int ret = -1;
-}
-
 int getLocalIP(char *szIPLocal) {
 	int ret = 0;
 	int sockInet;
@@ -466,44 +404,4 @@ int getLocalIP(char *szIPLocal) {
 	PRINTF("Current IP address is %s\n", szIPLocal);
 	close(sockInet);
 	return ret;
-}
-
-void serviceAction(const char *name, const char *action) {
-	PRINTF("Service: %s %s\n", name, action);
-	sd_bus *bus = NULL;
-	int r = sd_bus_open_system(&bus);
-	if (r < 0) {
-		PRINTF("Failed to connect to system bus: %s\n", strerror(-r));
-		return;
-	}
-	sd_bus_error error = SD_BUS_ERROR_NULL;
-	r = sd_bus_call_method( bus, "org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager", action, &error, NULL, "ss", name, "replace");
-	if (r < 0) {
-		PRINTF("Failed unit %s: %s\n", name, error.message);
-		sd_bus_error_free(&error);
-	}
-	sd_bus_close(bus);
-}
-
-int serviceState(const char *name) {
-	sd_bus *bus = NULL;
-	sd_bus_error error = SD_BUS_ERROR_NULL;
-	char *path = NULL;
-	char *state = NULL;
-	char full_name[256];
-	snprintf(full_name, sizeof(full_name), "%s.service", name);
-	int r = sd_bus_open_system(&bus);
-	if (r < 0) return -1;
-	r = sd_bus_path_encode("/org/freedesktop/systemd1/unit", full_name, &path);
-	if (r < 0) {
-		sd_bus_unref(bus);
-		return -1;
-	}
-	r = sd_bus_get_property_string(bus, "org.freedesktop.systemd1", path, "org.freedesktop.systemd1.Unit", "ActiveState", &error, &state);
-	int ret = (r >= 0 && strcmp(state, "active") == 0);
-	free(state);
-	free(path);
-	sd_bus_error_free(&error);
-	sd_bus_flush_close_unref(bus);
-	return (r < 0) ? -1 : ret;
 }

@@ -14,16 +14,15 @@ endif
 PRE = ../build/_app/
 APP_VERSION=\"$(shell cat version.txt)\"
 
-OBJs := $(PRE)apache2.o \
-	$(PRE)backend.o \
+OBJs := $(PRE)backend.o \
 	$(PRE)bluetoothAddr.o \
 	$(PRE)btlib.o \
 	$(PRE)certificate.o \
 	$(PRE)cJSON.o \
 	$(PRE)common.o \
 	$(PRE)communication.o \
+	$(PRE)comAuth.o \
 	$(PRE)comBle.o \
-	$(PRE)comWebSocket.o \
 	$(PRE)diskNotify.o \
 	$(PRE)json.o \
 	$(PRE)language.o \
@@ -34,25 +33,18 @@ OBJs := $(PRE)apache2.o \
 	$(PRE)lv_font_montserrat_30.o \
 	$(PRE)logic.o \
 	$(PRE)main.o \
-	$(PRE)modules.o \
 	$(PRE)password.o \
 	$(PRE)sbl.o \
 	$(PRE)sbl2.o \
 	$(PRE)state.o \
-	$(PRE)ui.o \
-	$(PRE)wifi.o \
-	$(PRE)wsServer/base64.o \
-	$(PRE)wsServer/handshake.o \
-	$(PRE)wsServer/sha1.o \
-	$(PRE)wsServer/utf8.o \
-	$(PRE)wsServer/ws.o
+	$(PRE)ui.o
 
 MYCFLAGS = $(CFLAGS) -Wno-deprecated-declarations -DAPP_VERSION=$(APP_VERSION)
-MYLDFLAGS = -pthread -lcrypto -lssl -lcurl -loath
+MYLDFLAGS = -pthread -lcrypto -lssl -loath
 
 OBJs_APP := $(OBJs) $(PRE)backend-spi.o
-MYCFLAGS_APP = $(MYCFLAGS) -I ../build/lvgl/ `pkg-config --cflags libnm`
-MYLDFLAGS_APP = $(MYLDFLAGS) -L ../build/lvgl/build/lib/ -llvgl -llvgl_thorvg -linput -lcrypt -lsystemd `pkg-config --libs libnm`
+MYCFLAGS_APP = $(MYCFLAGS) -I ../build/lvgl/
+MYLDFLAGS_APP = $(MYLDFLAGS) -L ../build/lvgl/build/lib/ -llvgl -llvgl_thorvg -linput -lcrypt -lsystemd
 
 OBJs_DESKTOP := $(OBJs:%.o=%_.o) $(PRE)backend-gtk_.o
 MYCFLAGS_DESKTOP = $(MYCFLAGS_APP) -DDESKTOP `pkg-config --cflags gtk+-3.0`
@@ -92,7 +84,7 @@ endif
 clean: cleanup
 
 pre_build:
-	@mkdir -p $(PRE) $(PRE)/wsServer
+	@mkdir -p $(PRE)
 ifeq ($(shell [ "$$(uname -m)" = "aarch64" ] || ischroot ; echo $$?), 0)
 	@ln -sf /usr/local/modules/_core_/version.txt version.txt
 endif

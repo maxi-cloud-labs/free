@@ -17,7 +17,6 @@
 #include "logic.h"
 #include "cJSON.h"
 #include "state.h"
-#include "modules.h"
 #include "diskNotify.h"
 
 //Defines
@@ -34,7 +33,7 @@ int eventFdUI = 0;
 //Private variables
 static lv_indev_t *indevK;
 #ifndef WEB
-static struct pollfd pollfd[5];
+static struct pollfd pollfd[4];
 #endif
 static int autoSleep = -1;
 
@@ -195,10 +194,8 @@ void backendInit(int daemon) {
 	pollfd[1].events = POLLIN;
 	pollfd[2].fd = eventFdUI;
 	pollfd[2].events = POLLIN;
-	pollfd[3].fd = diskNotifyStart(ADMIN_PATH "_config_/_modules_.json");
+	pollfd[3].fd = diskNotifyStart(ADMIN_PATH "_config_/_cloud_.json");
 	pollfd[3].events = POLLIN;
-	pollfd[4].fd = diskNotifyStart(ADMIN_PATH "_config_/_cloud_.json");
-	pollfd[4].events = POLLIN;
 #endif
 }
 
@@ -222,7 +219,7 @@ void backendLoop() {
 #ifdef WEB
 	usleep(1000 * time_till_next);
 #else
-	int ret = poll(pollfd, 5, time_till_next);
+	int ret = poll(pollfd, 4, time_till_next);
 	if (doLoop == 0)
 		return;
 	if (pollfd[0].revents & POLLIN) {
@@ -253,9 +250,7 @@ void backendLoop() {
 		logicUpdate();
 	}
 	if (pollfd[3].revents & POLLIN)
-		diskNotifyCB(pollfd[3].fd, &modulesInitA2o);
-	if (pollfd[4].revents & POLLIN)
-		diskNotifyCB(pollfd[4].fd, &stateLoad);
+		diskNotifyCB(pollfd[3].fd, &stateLoad);
 #endif
 	static int count = 0;
 	if (count++ % 30 == 0)

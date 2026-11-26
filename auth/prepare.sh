@@ -41,7 +41,7 @@ elif [ $CLEAN = 1 ]; then
 	#On PC only
 	echo "{}" > ../rootfs/disk/admin/modules/_config_/_cloud_.json
 	echo "{}" > ../rootfs/disk/admin/modules/_config_/_modules_.json
-	rm -rf node_modules betterauth ../rootfs/disk/admin/modules/betterauth
+	rm -rf node_modules betterauth ../rootfs/disk/admin/modules/apache2 ../rootfs/disk/admin/modules/betterauth ../rootfs/disk/admin/modules/frp
 elif [ $CLEAN = 2 ]; then
 	#On PC only
 	echo "{}" > ../rootfs/disk/admin/modules/_config_/_cloud_.json

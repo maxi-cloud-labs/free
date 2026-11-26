@@ -29,10 +29,6 @@ void buzzer(int n);
 void touchClick();
 void jingle();
 void touch(char *szPath);
-int downloadURLBuffer(char *szURL, char *buf, char *header, char *post, char *cookieI, char *cookieO);
-int getExternalIP(char *szIPExternal);
 int getLocalIP(char *szIPLocal);
-void serviceAction(const char *name, const char *action);
-int serviceState(const char *name);
 
 #endif

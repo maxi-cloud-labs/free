@@ -13,11 +13,10 @@
 #include "language.h"
 #ifndef WEB
 #include "comBle.h"
-#include "comWebSocket.h"
+#include "comAuth.h"
 #endif
 #include "cJSON.h"
 #include "state.h"
-#include "modules.h"
 #include "common.h"
 #include "communication.h"
 #include "password.h"
@@ -93,9 +92,6 @@ int main(int argc, char *argv[]) {
 		state.rotation = forceRotation;
 	if (forceLanguage != -1)
 		state.language = forceLanguage;
-#ifndef WEB
-	modulesInit();
-#endif
 #ifdef DESKTOP
 	languageTest();
 #endif
@@ -106,7 +102,7 @@ int main(int argc, char *argv[]) {
 	buzzer(1);
 #endif
 #ifndef WEB
-	communicationWebSocket();
+	communicationAuth();
 #endif
 	backendInit_plat(argc, argv);
 	backendInit(daemon);

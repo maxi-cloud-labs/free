@@ -1,7 +1,6 @@
 import { existsSync, statSync, readFileSync, readdirSync, writeFileSync } from "fs";
 import { execSync } from "child_process";
 import { randomBytes, X509Certificate } from "crypto";
-import { WebSocket } from "ws";
 import { watch, FSWatcher } from "chokidar";
 import { totalmem, networkInterfaces } from "os";
 import { importJWK, KeyObject, exportSPKI } from "jose";
@@ -11,6 +10,7 @@ import { APIError, createAuthEndpoint, createAuthMiddleware, sensitiveSessionMid
 import { username, customSession, emailOTP, magicLink, twoFactor, haveIBeenPwned, admin, jwt } from "better-auth/plugins";
 import { sendMagicLinkEmail, sendVerificationEmail, sendPasswordResetVerificationEmail, sendSignInNotification, sendSignInOTP, sendVerificationEmailURL } from "./email";
 import { folderAndChildren } from "./tree";
+import { communicationReceive } from "./communication";
 import Database from "better-sqlite3";
 import "dotenv/config";
 
@@ -158,11 +158,7 @@ function findDomain(hostname) {
 }
 
 function sendToApp(data) {
-	const client = new WebSocket("ws://127.0.0.1:8094");
-	client.onopen = () => {
-		client.send(JSON.stringify(data));
-		client.close();
-	};
+	communicationReceive(JSON.stringify(data), "auth");
 }
 
 function extraEndpoints(): BetterAuthPlugin {
@@ -621,7 +617,7 @@ export const auth = betterAuth({
 					console.log("Sign-in for " + ctx.context.returned?.["user"]?.email + ", " + ctx.context.returned?.["user"]?.username);
 				else {
 					if (cloud?.security?.signInNotification === true && ctx.context.returned?.["user"]?.email !== "")
-						sendSignInNotification(ctx.context.returned?.["user"]?.email);
+						sendSignInNotification(ctx.context.returned?.["user"]?.email).catch((e) => console.error("auth.ts: sendSignInNotification " + e.message));
 				}
 				const domain = findDomain(ctx.request?.headers?.get("host") || "");
 				const currentCookie = ctx?.context?.responseHeaders?.get("set-cookie");
@@ -650,7 +646,7 @@ export const auth = betterAuth({
 					console.log("Sign-up for " + ctx.context.returned?.["user"]?.email + ", " + ctx.context.returned?.["user"]?.username);
 				else {
 					if (cloud?.security?.signInNotification === true && ctx.context.returned?.["user"]?.email !== "")
-						sendSignInNotification(ctx.context.returned?.["user"]?.email);
+						sendSignInNotification(ctx.context.returned?.["user"]?.email).catch((e) => console.error("auth.ts: sendSignInNotification " + e.message));
 				}
 			}
 		})

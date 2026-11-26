@@ -39,8 +39,6 @@
 #define OATH_PATH "/disk/admin/modules/pam/oath.txt"
 #define BLE_CHUNK 182
 #define COMSOCKET_PORT 8093
-#define COMWEBSOCKET_PORT 8094
-#define NM_CONFIG_PATH "/etc/NetworkManager/system-connections/%s"
 
 #define ZIGBEE_DEV "/dev/tty_zigbee"
 #define ZIGBEE_FIRMWARE "/usr/local/modules/_core_/CC2652R1_coordinator.bin"

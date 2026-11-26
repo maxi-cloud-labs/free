@@ -3,6 +3,8 @@ import { writeFileSync } from "fs";
 import { toNodeHandler } from "better-auth/node";
 import cookieParser from "cookie-parser";
 import { auth, jwkInit, port } from "./auth";
+import { websocketInit } from "./websocket";
+import { modulesInit, modulesWatch } from "./modules";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
@@ -39,6 +41,9 @@ function main() {
 	app.use("/auth", toNodeHandler(auth.handler));
 	app.listen(port, "127.0.0.1", () => {
 		jwkInit();
+		websocketInit();
+		modulesInit();
+		modulesWatch();
 		console.log("Server running at http://localhost: " + port + " (" + (process.env.PRODUCTION === "true" ? "production" : "development") + ")");
 	});
 }
