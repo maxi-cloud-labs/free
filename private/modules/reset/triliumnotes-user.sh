@@ -20,7 +20,7 @@ while [ $TIMEOUT -gt 0 ]; do
 done
 echo "Doing triliumnotes user"
 
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 curl -sS -X POST "$URL/api/setup/new-document" -H "Content-Type: application/x-www-form-urlencoded" --data-urlencode "initialized=true"
 curl -sS -X POST "$URL/set-password" --data-urlencode "password1=$PASSWD" --data-urlencode "password2=$PASSWD"
 

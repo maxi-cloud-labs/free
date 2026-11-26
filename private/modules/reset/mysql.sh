@@ -6,7 +6,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset mysql##################"
-PASSWORD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWORD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 systemctl stop mysql.service
 mkdir -p /var/run/mysqld
 chown mysql:mysql /var/run/mysqld

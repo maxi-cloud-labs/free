@@ -9,7 +9,7 @@ echo "#Reset signoz##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 systemctl stop signoz.service
 rm -rf /disk/admin/modules/signoz

@@ -11,7 +11,7 @@ EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
 SECRET_KEY_BASE=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 64)
-DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSP=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 systemctl stop mastodon.service
 systemctl stop mastodon-sidekiq.service

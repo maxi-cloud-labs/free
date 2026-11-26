@@ -9,9 +9,9 @@ echo "#Reset ente##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 SMTPPASSWD=$(jq -r ".password" /disk/admin/modules/_config_/postfix.json)
-DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSP=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 read -r PORTACCOUNTS PORTAUTH PORTCAST PORTEMBED PORTENSU PORTPHOTOS PORTSHARE << EOF
 	$(jq -r ".enteaccounts.localPort,.enteauth.localPort,.entecast.localPort,.enteembed.localPort,.enteensu.localPort,.entephotos.localPort,.enteshare.localPort" /usr/local/modules/_core_/web/assets/modulesdefault.json | xargs)
 EOF

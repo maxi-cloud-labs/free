@@ -8,7 +8,7 @@ fi
 
 echo "#Reset agentzero##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 rm -rf /disk/admin/modules/agentzero
 mkdir /disk/admin/modules/agentzero

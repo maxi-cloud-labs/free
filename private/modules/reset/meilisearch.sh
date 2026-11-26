@@ -6,7 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Reset meilisearch##################"
-PASSWORD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWORD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 systemctl stop meilisearch.service
 rm -rf /disk/admin/modules/meilisearch

@@ -6,7 +6,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "#Reset postgresql##################"
-PASSWORD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWORD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 grep -q "local all postgres md5" /etc/postgresql/17/main/pg_hba.conf
 if [ $? = 0 ]; then
 	echo "Restarting postgresql service before changing password"

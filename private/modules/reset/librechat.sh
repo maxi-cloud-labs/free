@@ -9,7 +9,7 @@ echo "#Reset librechat##################"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 AIKEY=$(jq -r ".ai.keys._server_" /disk/admin/modules/_config_/_cloud_.json)
-DBPASSMO=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSMO=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 MEILISEARCH_KEY=$(jq -r ".key" /disk/admin/modules/_config_/meilisearch.json)
 cd /disk/admin/modules
 systemctl stop librechat.service
@@ -29,7 +29,7 @@ db.createUser({
 });
 EOF
 
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 rm -rf /disk/admin/modules/librechat
 mkdir -p /disk/admin/modules/librechat/logs

@@ -9,7 +9,7 @@ echo "#Reset immich##################"
 systemctl stop immich-machinelearning.service
 systemctl stop immich.service
 SALT=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 16)
-DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSP=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF

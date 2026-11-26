@@ -6,7 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "#Reset qbittorrent##################"
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 HASH=`python3 -c "import hashlib, os, base64; s=os.urandom(16); p=\"${PASSWD}\"; dk=hashlib.pbkdf2_hmac(\"sha512\", p.encode(), s, 100000); print(f\"@ByteArray({base64.b64encode(s).decode()}:{base64.b64encode(dk).decode()})\")"`
 
 systemctl stop qbittorrent.service

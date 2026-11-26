@@ -31,7 +31,7 @@ done
 echo "Doing homeassistant user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 LANGUAGE="en"
 
 data="{ \"client_id\": \"$URL\", \"name\": \"${CLOUDNAME}\", \"username\": \"${CLOUDNAME}\", \"password\": \"${PASSWD}\", \"language\": \"$LANGUAGE\" }"

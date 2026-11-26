@@ -9,7 +9,7 @@ echo "#Reset piped##################"
 systemctl stop pipedbackend.service
 systemctl stop pipedproxy.service
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
-DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSP=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF

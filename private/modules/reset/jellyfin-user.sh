@@ -34,7 +34,7 @@ done
 echo "Doing jellyfin user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 response=`curl -sS -X POST "$URL/Startup/Configuration" -H "Content-Type: application/json" -d '{"UICulture":"en-US", "MetadataCountryCode":"US", "PreferredMetadataLanguage":"en"}'`
 response=`curl -sS -X GET "$URL/Startup/FirstUser"`

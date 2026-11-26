@@ -12,7 +12,7 @@ mkdir /disk/admin/modules/wgdashboard
 mkdir /disk/admin/modules/wgdashboard/db
 mkdir /disk/admin/modules/wgdashboard/attachments
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 EXTERNALIP=`wget -q https://maxi.cloud/master/ip.json -O- | jq -r .ip`
 KEY=$(tr -dc 'A-Z0-9' < /dev/urandom | head -c 32)
 HASH=$(python3 -c "import bcrypt; print(bcrypt.hashpw('${PASSWD}'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'))")

@@ -20,7 +20,7 @@ while [ $TIMEOUT -gt 0 ]; do
 done
 echo "Doing newapi user"
 
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 data="{\"password\":\"${PASSWD}\",\"confirmPassword\":\"${PASSWD}\",\"username\":\"admin\",\"SelfUseModeEnabled\":false,\"DemoSiteEnabled\":false}"
 response=`curl -sS -X POST $URL/api/setup -H "Content-Type: application/json" -d "$data"`

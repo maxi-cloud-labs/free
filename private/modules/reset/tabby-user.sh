@@ -33,7 +33,7 @@ echo "Doing tabby user"
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
 PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 URL2="https://aicode.${PRIMARY}"
 
 curl -sS --fail -o /tmp/tabby.txt -X POST $URL/graphql -H "Content-Type: application/json" --data-binary "{ \"operationName\":\"register\", \"query\":\"mutation register(\$name: String!, \$email: String!, \$password1: String!, \$password2: String!, \$invitationCode: String) { register( name: \$name email: \$email password1: \$password1 password2: \$password2 invitationCode: \$invitationCode ) { accessToken refreshToken __typename } }\", \"variables\":{\"email\":\"${EMAIL}\", \"name\":\"${CLOUDNAME}\", \"password1\":\"${PASSWD}\", \"password2\":\"${PASSWD}\" } }"

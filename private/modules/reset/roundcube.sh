@@ -10,7 +10,7 @@ CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 SHORTNAME=$(jq -r ".info.shortname" /disk/admin/modules/_config_/_cloud_.json)
 DOMAIN=$(jq -r ".info.domain" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 PWD=`doveadm pw -s SHA512-CRYPT -p "${PASSWD}"`
 
 

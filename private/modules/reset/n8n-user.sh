@@ -32,7 +32,7 @@ echo "Doing n8n user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
 EMAIL="admin@${CLOUDNAME}.maxi.cloud"
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 
 data="{ \"email\":\"${EMAIL}\", \"firstName\":\"${CLOUDNAME}\", \"lastName\":\"${CLOUDNAME}\", \"password\":\"${PASSWD}\" }"
 response=`curl -sS -X POST $URL/rest/owner/setup -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d "$data"`

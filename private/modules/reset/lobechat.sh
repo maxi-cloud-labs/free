@@ -13,7 +13,7 @@ PRIMARY=$(jq -r ".info.primary" /disk/admin/modules/_config_/_cloud_.json)
 KEY_VAULTS_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 BETTER_AUTH_SECRET=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
 QSTASH_TOKEN=$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)
-DBPASSP=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
+DBPASSP=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/," 12 1)
 
 export PGPASSWORD=`jq -r .password /disk/admin/modules/_config_/postgresql.json`
 su postgres -c "psql" << EOF

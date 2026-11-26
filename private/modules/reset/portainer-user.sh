@@ -31,7 +31,7 @@ done
 echo "Doing portainer user"
 
 CLOUDNAME=$(jq -r ".info.name" /disk/admin/modules/_config_/_cloud_.json)
-PASSWD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 data="{\"Username\":\"${CLOUDNAME}\", \"Password\":\"${PASSWD}\"}"
 response=`curl -sS -X POST "${URL}/api/users/admin/init" -H "Content-Type: application/json" -d "$data"`
 #echo $reponse

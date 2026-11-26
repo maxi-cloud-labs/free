@@ -7,7 +7,7 @@ fi
 
 echo "#Reset mongodb##################"
 DATE=$(date +%s)
-PASSWORD=$(pwgen -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
+PASSWORD=$(pwgen -s -B -c -y -n -r "\"\!\'\`\$@~#%^&*()+={[}]|:;<>?/" 12 1)
 systemctl stop mongodb.service
 rm -rf /disk/admin/modules/mongodb
 mkdir /disk/admin/modules/mongodb
