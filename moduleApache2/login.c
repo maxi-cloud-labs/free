@@ -70,7 +70,7 @@ static apr_status_t html_filter(ap_filter_t *f, apr_bucket_brigade *bb) {
 		}
 #define MIN2(a,b) ((a)>(b)?(b):(a))
 		//PRINTFc("%.*s", MIN2(128, len), data);
-		char *pos = strstr(data, "<head>");
+		const char *pos = strstr(data, "<head>");
 		if (pos == NULL) {
 			pos = strstr(data, "<html>");
 			if (pos == NULL) {
@@ -104,7 +104,7 @@ static apr_status_t html_filter(ap_filter_t *f, apr_bucket_brigade *bb) {
 }
 
 static void replace(ap_filter_t *f, char *input, char *search1, char *search2, char *arg1, char *arg2, char **output) {
-	char *posArg1 = strstr(input, search1);
+	const char *posArg1 = strstr(input, search1);
 	char *tmp;
 	if (posArg1 && arg1) {
 		tmp = malloc(strlen(input) + strlen(arg1) - strlen(search1) + 1);
