@@ -538,11 +538,11 @@ void uiScreenHome() {
 		sprintf(sz, "%d%%, %dGB/%dTB", state.storageUsed * 100 / state.storageTotal, state.storageUsed / 1000, state.storageTotal / 1000 / 1000);
 		progressBar(120, 82, L("Disk"), sz, state.storageUsed * 100 / state.storageTotal);
 	} else if (state.homePos == 3) {
-		doubleText("Port https (443)", "OK", 28, 100);
-		doubleText("Port mail (25)", "OK", 42, 100);
-		doubleText("Port pop3s (995)", "OK", 56, 100);
-		doubleText("Port imaps (993)", "OK", 70, 100);
-		doubleText("Port smtps (465)", "OK", 84, 100);
+		doubleText(L("Port https (443)"), "OK", 28, 100);
+		doubleText(L("Port mail (25)"), "OK", 42, 100);
+		doubleText(L("Port pop3s (995)"), "OK", 56, 100);
+		doubleText(L("Port imaps (993)"), "OK", 70, 100);
+		doubleText(L("Port smtps (465)"), "OK", 84, 100);
 	}
 
 	button(LV_KEY_LEFT, L("Tips"), NULL);

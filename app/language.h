@@ -2,7 +2,7 @@
 #define LANGUAGE_H
 
 //Define
-#define NB_LANG 10
+#define NB_LANG 9
 
 //Struct
 typedef struct mylanguage {

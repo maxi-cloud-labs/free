@@ -17,10 +17,9 @@ mylanguage mylanguages[NB_LANG] = {
 	{"Portuguese", "pt"},
 	{"German", "de"},
 	{"Italian", "it"},
-	{"Dutch", "nl"},
 	{"Chinese", "zh"},
 	{"Japanese", "ja"},
-	{"Korean", "kr"},
+	{"Korean", "ko"},
 };
 
 //Private variables
