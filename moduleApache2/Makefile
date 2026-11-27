@@ -20,7 +20,7 @@ OBJs := $(PRE)module.o \
 	$(PRE)login_.o
 
 MYCFLAGS = $(CFLAGS) -DAPP_VERSION=$(APP_VERSION) -Wformat-truncation -O2 -flto=auto -ffat-lto-objects -I/usr/include/apache2 -fPIC -DPIC `pkg-config --cflags apr-1`
-MYLDFLAGS = -shared -fPIC -DPIC -flto=auto -Wl,--as-needed -Wl,-Bsymbolic-functions -Wl,-soname -Wl,mod_app.so -ljwt
+MYLDFLAGS = -shared -fPIC -DPIC -flto=auto -Wl,--as-needed -Wl,-Bsymbolic-functions -Wl,-soname -Wl,mod_app.so -ljwt -lcrypto
 
 .PHONY : clean
 
