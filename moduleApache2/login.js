@@ -81,7 +81,7 @@ function _app_Insert() {
 					<circle cx="250" cy="348" r="20"/>
 				</svg>
 			</a>
-			<a href="https://app.%s.maxi.cloud/?search=%s&settings=true" title="See those Credentials" target="_blank" style="color:black">
+			<a href="https://app.%s.maxi.cloud/app?name=%s&settings=true" title="See those Credentials" target="_blank" style="color:black">
 				<svg xmlns="http://www.w3.org/2000/svg" style="width:20px; height:20px; cursor:pointer;" viewBox="0 0 512 512">
 					<path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="white" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/>
 					<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M220 220h32v116"/>
@@ -97,11 +97,12 @@ function _app_Insert() {
 			</svg>
 		</a>
 	</div>
-	<div style="background-color:#000f4e; color:white; font-weight:bold; text-align:center; border:2px solid white; border-radius:15px; padding:10px;">
+	<div style="background-color:#090e1e; color:white; font-weight:bold; text-align:center; border:2px solid white; border-radius:15px; padding:10px;">
 		mAx<span style="font-family:monospace">I</span>.cloud<br>
-		<button style="text-align:center; background-color:#0092ce; color:white; margin-top:10px; border-radius:10px; padding:5px; cursor:pointer;" onclick="window._app_Credentials();">
+		<button style="text-align:center; background-color:#14243c; color:white; margin-top:10px; border-radius:10px; padding:5px; cursor:pointer;" onclick="window._app_Credentials();">
 			Automatic<br>Login
 		</button>
+	</div>
 </div>`);
 			if (_app_OriginalPushState != null) {
 				window.history.pushState = _app_OriginalPushState;
