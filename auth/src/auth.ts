@@ -1,5 +1,5 @@
 import { existsSync, statSync, readFileSync, readdirSync, writeFileSync } from "fs";
-import { execSync } from "child_process";
+import { execSync, execFileSync } from "child_process";
 import { randomBytes, X509Certificate } from "crypto";
 import { watch, FSWatcher } from "chokidar";
 import { totalmem, networkInterfaces } from "os";
@@ -196,7 +196,7 @@ function extraEndpoints(): BetterAuthPlugin {
 				if (ctx.body?.security?.sshKeys !== "")
 					writeFileSync(sshKeysPath, ctx.body?.security?.sshKeys, "utf-8");
 				if (ctx.body?.timezone !== cloud.hardware.timezone)
-					execSync("sudo /usr/local/modules/_core_/reset.sh -t \"" + (ctx.body.timezone) + "\"");
+					execFileSync("sudo", ["/usr/local/modules/_core_/reset.sh", "-t", String(ctx.body.timezone)]);
 				return Response.json({ status:(ret ? "success" : "error") }, { status:200 });
 			}),
 
