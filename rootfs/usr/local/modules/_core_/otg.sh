@@ -17,7 +17,7 @@ fi
 
 MANUFACTURER="mAxI.cloud"
 PRODUCT="mAxI.cloud `cat /dev/dongle_platform/model | sed 's/./\U&/'`"
-SERIAL=`cat /dev/dongle_platform/serial`
+SERIALNUM=`cat /dev/dongle_platform/serial`
 VERSION=`cat /usr/local/modules/_core_/version.txt`
 MODEL=`cat /dev/dongle_platform/model`
 PATHg1=/sys/kernel/config/usb_gadget/mygadget
@@ -67,13 +67,13 @@ else
 	echo "Starting OTG in MTP:${MTP} Serial:${SERIAL}"
 fi
 
-if [ $MODEL = "Dongle Std" ]; then
+if [ "$MODEL" = "Dongle Std" ]; then
 	PATHg1=/tmp/config/usb_gadget/g1
 	FFS="ffs.usb0"
 fi
 
 if [ $STOP = 1 ]; then
-	if [ $MODEL = "Dongle Std" -a ! -d /tmp/config ]; then
+	if [ "$MODEL" = "Dongle Std" -a ! -d /tmp/config ]; then
 		echo "configfs is not mounted. Exiting"
 		exit 0
 	fi
@@ -92,7 +92,7 @@ if [ $STOP = 1 ]; then
 	fi
 	if [ $MTP = 1 ]; then
 		killall umtprd
-		umount /dev/ffs-mtp
+		umount /dev/ffs-umtp
 	fi
 	echo "" > $PATHg1/UDC
 	if [ $SERIAL = 1 ]; then
@@ -112,14 +112,14 @@ if [ $STOP = 1 ]; then
 	fi
 	rmdir $PATHg1/strings/0x409
 	rmdir $PATHg1
-	if [ $MODEL = "Dongle Std" ]; then
+	if [ "$MODEL" = "Dongle Std" ]; then
 		umount /tmp/config
 		rmdir /tmp/config
 	fi
 	exit 0
 fi
 
-if [ $MODEL = "Dongle Std" ]; then
+if [ "$MODEL" = "Dongle Std" ]; then
 	if [ ! -d /tmp/config ]; then
 		mkdir /tmp/config
 		mount -t configfs none /tmp/config
@@ -134,10 +134,10 @@ mkdir $PATHg1/strings/0x409
 
 echo -n $MANUFACTURER > $PATHg1/strings/0x409/manufacturer
 echo -n $PRODUCT > $PATHg1/strings/0x409/product
-echo -n $SERIAL > $PATHg1/strings/0x409/serialnumber
+echo -n $SERIALNUM > $PATHg1/strings/0x409/serialnumber
 sed -i -e "s/manufacturer.*/manufacturer \"${MANUFACTURER}\"/" /disk/admin/modules/mtp/umtprd.conf
 sed -i -e "s/product.*/product \"${PRODUCT}\"/" /disk/admin/modules/mtp/umtprd.conf
-sed -i -e "s/serial.*/serial \"${SERIAL}\"/" /disk/admin/modules/mtp/umtprd.conf
+sed -i -e "s/serial.*/serial \"${SERIALNUM}\"/" /disk/admin/modules/mtp/umtprd.conf
 sed -i -e "s/firmware_version.*/firmware_version \"${VERSION}\"/" /disk/admin/modules/mtp/umtprd.conf
 echo 0x0 > $PATHg1/bDeviceClass
 echo 0x0 > $PATHg1/bDeviceSubClass
@@ -160,10 +160,20 @@ if [ $MTP = 1 ]; then
 	echo "0x4ee1" > $PATHg1/idProduct
 	mkdir $PATHg1/functions/$FFS
 	ln -s functions/$FFS configs/c.1/
-	mkdir -p /dev/ffs-mtp
-	mount -t functionfs mtp /dev/ffs-mtp
+	mkdir -p /dev/ffs-umtp
+	mount -t functionfs mtp /dev/ffs-umtp
 	/usr/local/bin/umtprd -conf /disk/admin/modules/mtp/umtprd.conf &
-	sleep 1
+	UMTP_PID=$!
+	i=0
+	while [ ! -e /dev/ffs-umtp/ep1 ] && [ $i -lt 50 ]; do
+		kill -0 $UMTP_PID 2>/dev/null || break
+		sleep 0.1
+		i=$((i+1))
+	done
+	if [ ! -e /dev/ffs-umtp/ep1 ]; then
+		echo "umtprd failed to initialise FunctionFS"
+		exit 1
+	fi
 fi
 ls /sys/class/udc/ > $PATHg1/UDC
 echo "OTG done" > /dev/dongle_platform/printk
