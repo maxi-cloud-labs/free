@@ -286,6 +286,10 @@
 						<ion-icon name="apps-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Home")}}
 					</a>
+					<a routerLink="/launch" [queryParams]="{ name:'roundcube', subdomain:'mail' }" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
+						<ion-icon name="mail-outline" class="h-4 w-4"></ion-icon>
+						{{LG("Mail")}}
+					</a>
 					<a routerLink="/profile" class="flex items-center gap-3 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors cursor-pointer">
 						<ion-icon name="person-outline" class="h-4 w-4"></ion-icon>
 						{{LG("Profile")}}
