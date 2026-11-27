@@ -28,7 +28,7 @@ if [ $INSTALL = 1 ]; then
 	echo "{}" > /disk/admin/modules/_config_/_modules_.json
 	rm -rf betterauth /disk/admin/modules/betterauth
 	mkdir /disk/admin/modules/betterauth/
-	npm install
+	npm install --dangerously-allow-all-scripts
 	sed -i -e 's/PRODUCTION=false/PRODUCTION=true/' .env
 	npx @better-auth/cli migrate -y
 	rm -f /disk/admin/modules/betterauth/secret.txt
