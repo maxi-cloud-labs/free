@@ -3,7 +3,7 @@
 	"name": "Python",
 	"title": "Python Language",
 	"category": "Developer",
-	"version": "3.13.5",
+	"version": "3.13.18",
 	"installMethod": "apt",
 	"web": false,
 	"recommended": false,

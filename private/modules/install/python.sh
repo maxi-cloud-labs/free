@@ -10,5 +10,6 @@ install() {
 	make altinstall
 }
 
-install 3.11.14
-install 3.12.12
+install 3.11.18
+install 3.12.16
+install 3.14.9
