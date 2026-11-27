@@ -34,15 +34,15 @@ done
 cd `dirname $0`
 PP=`pwd`
 
-if [ ! -z $TIMEZONE ]; then
+if [ ! -z "$TIMEZONE" ]; then
 	if timedatectl list-timezones | grep -qx "$TIMEZONE"; then
 		timedatectl set-timezone -- "$TIMEZONE"
 	fi
 	exit
 fi
 
-if [ $SUDOERS != -1 ]; then
-	if [ $SUDOERS = 1 ]; then
+if [ "$SUDOERS" != "-1" ]; then
+	if [ "$SUDOERS" = "1" ]; then
 		adduser admin sudo
 	else
 		deluser admin sudo
@@ -52,24 +52,27 @@ fi
 
 shift $((OPTIND -1))
 NAME=$1
+case "$NAME" in
+	""|*[!a-z0-9_-]*) echo "Invalid name"; exit 1;;
+esac
 if [ $DEPENDENCIES = 1 ]; then
-	LIST2=`jq -r ".$NAME.setupDependencies | join(\" \")" $PP/web/assets/modulesdefault.json 2> /dev/null`
+	LIST2=`jq -r ".\"$NAME\".setupDependencies | join(\" \")" $PP/web/assets/modulesdefault.json 2> /dev/null`
 	for tt in $LIST2; do
-		ALREADYDONE=`jq -r ".$tt.setupDone" /disk/admin/modules/_config_/_modules_.json 2> /dev/null`
+		ALREADYDONE=`jq -r ".\"$tt\".setupDone" /disk/admin/modules/_config_/_modules_.json 2> /dev/null`
 		if [ "$ALREADYDONE" != "true" ]; then
-			$PP/reset.sh -d $tt
+			"$PP/reset.sh" -d "$tt"
 		fi
 	done
 fi
-if [ $USER = -1 ]; then
+if [ "$USER" = "-1" ]; then
 	USER=`jq -r ".\"$NAME\".setupRoot | if . == true then 1 else 0 end" $PP/web/assets/modulesdefault.json 2> /dev/null`
 fi
-if [ ! -f $PP/reset/$NAME.sh ]; then
+if [ ! -f "$PP/reset/$NAME.sh" ]; then
 	echo "#Doing nothing for $NAME##################"
 else
 	export RESET_SYNC=1
-	if [ $USER = 1 ]; then
-		$PP/reset/$NAME.sh
+	if [ "$USER" = "1" ]; then
+		"$PP/reset/$NAME.sh"
 	else
 		su admin -c "$PP/reset/$NAME.sh"
 	fi
