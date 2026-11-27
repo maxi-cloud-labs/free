@@ -1,5 +1,7 @@
 #!/bin/sh
 
+apt-get install -y flex bison bc
+
 cd /home/ai/build
  wget -nv --show-progress --progress=bar:force:noscroll https://github.com/firecracker-microvm/firecracker/releases/download/v1.17.0/firecracker-v1.17.0-aarch64.tgz
 tar -xpf firecracker-*.tgz
@@ -7,7 +9,7 @@ mkdir /usr/local/modules/firecracker
 mv release-*/firecracker*aarch64 /usr/local/modules/firecracker/firecracker
 
 cd /home/ai/build
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.54.tar.xz
+ wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.54.tar.xz
 tar -xpf linux-6.18.54.tar.xz
  wget -nv --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/firecracker-microvm/firecracker/refs/heads/main/resources/guest_configs/microvm-kernel-ci-aarch64-6.18.config
 cat > linux-6.18.54.patch << EOF
