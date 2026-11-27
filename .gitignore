@@ -1,3 +1,4 @@
+app/i18n/app-en.json
 app/translation.h
 auth/betterauth/
 auth/node_modules/
@@ -14,6 +15,7 @@ client/web/
 client/src/assets/js/app.js
 client/src/assets/i18n/keywords-en.json
 client/src/assets/i18n/modules-en.json
+client/src/assets/i18n/pages-en.json
 client/src/assets/modulesdefault.json
 client/src/assets/modulesdefault.json.br
 client/src/assets/modulesmeta.json
