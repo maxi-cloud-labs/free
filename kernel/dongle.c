@@ -290,7 +290,7 @@ static void dongle_remove(struct platform_device *pdev) {
 #endif
 	int ret;
 
-	ret = del_timer(&my_timer_buzzer);
+	ret = timer_delete(&my_timer_buzzer);
 	if (ret)
 		printk("Dongle: Timer buzzer still in use\n");
 

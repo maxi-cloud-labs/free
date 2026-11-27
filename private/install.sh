@@ -368,7 +368,7 @@ echo "Cleanup"
 echo "################################"
 apt-get -y purge python3-rpi-lgpio rpicam-apps-core rpicam-apps-lite
 apt-get -y autoremove
-rm -rf /lib/modules/6.12.47*
+rm -rf /lib/modules/6.18.50*
 rm -f /etc/udev/rules.d/99-rpi-keyboard.rules
 rm -f /etc/systemd/system/multi-user.target.wants/nginx.service
 rm -f /etc/systemd/system/multi-user.target.wants/named.service

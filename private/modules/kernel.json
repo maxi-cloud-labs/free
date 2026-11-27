@@ -3,7 +3,7 @@
 	"name": "Linux kernel",
 	"title": "Linux Kernel",
 	"category": "Server",
-	"version": "6.12.47",
+	"version": "6.18.50",
 	"installMethod": "apt",
 	"web": false,
 	"recommended": false,
