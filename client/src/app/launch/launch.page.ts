@@ -4,12 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Global } from '../env';
 
 @Component({
-	selector: 'app-wrapper',
-	templateUrl: 'wrapper.page.html',
+	selector: 'app-launch',
+	templateUrl: 'launch.page.html',
 	standalone: false
 })
 
-export class Wrapper {
+export class Launch {
 L(st) { return this.global.mytranslate(st); }
 LG(st) { return this.global.mytranslateG(st); }
 LMT(st) { return this.global.mytranslateMT(st); }
@@ -25,7 +25,7 @@ constructor(public global: Global, private route: ActivatedRoute, private saniti
 		this.module = params?.module;
 		this.subdomain = params?.subdomain;
 		this.page = params?.page;
-		this.title = "Wrapper: " + this.LMT(this.global.modulesMeta[this.module].title) + " (" + this.global.modulesMeta[this.module].name + ")";
+		this.title = "Launch: " + this.LMT(this.global.modulesMeta[this.module].title) + " (" + this.global.modulesMeta[this.module].name + ")";
 		this.finished = this.global.modulesMeta[this.module].finished;
 		if (!this.global.demo && (this.global.developer || this.finished))
 			this.update();

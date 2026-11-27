@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Wrapper } from './wrapper.page';
+import { Launch } from './launch.page';
 
 const routes: Routes = [{
 	path: '',
-	component: Wrapper,
+	component: Launch,
 }];
 
 @NgModule({
@@ -12,4 +12,4 @@ const routes: Routes = [{
 	exports: [RouterModule]
 })
 
-export class WrapperRoutingModule {}
+export class LaunchRoutingModule {}

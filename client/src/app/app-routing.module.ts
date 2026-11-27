@@ -54,6 +54,11 @@ const routes: Routes = [
 		loadChildren: () => import('./modern/modern.module').then( m => m.ModernModule)
 	},
 	{
+		path: 'launch',
+		canActivate: [Global],
+		loadChildren: () => import('./launch/launch.module').then( m => m.LaunchModule)
+	},
+	{
 		path: 'login',
 		loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
 	},
@@ -101,11 +106,6 @@ const routes: Routes = [
 		path: 'users',
 		canActivate: [Global],
 		loadChildren: () => import('./users/users.module').then( m => m.UsersModule)
-	},
-	{
-		path: 'wrapper',
-		canActivate: [Global],
-		loadChildren: () => import('./wrapper/wrapper.module').then( m => m.WrapperModule)
 	},
 	{
 		path: '**',

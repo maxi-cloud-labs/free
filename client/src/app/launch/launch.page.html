@@ -6,7 +6,7 @@
 		} @else if (!this.global.developer && !this.finished) {
 		<div class="m-4 rounded-2xl bg-modernsecond p-5 text-white/80 leading-relaxed border-1 border-white/10 sm:m-6 lg:mx-8">{{L("The integration of this module is not yet finished. Check the next monthly release of mAxI.cloud.")}}</div>
 		} @else {
-		<iframe id="iframeWrapper" [src]="safeUrl" class="mt-4 min-h-[calc(100dvh-12rem)] w-full flex-1 border-0 bg-modernsecond"></iframe>
+		<iframe id="iframeLaunch" [src]="safeUrl" class="mt-4 min-h-[calc(100dvh-12rem)] w-full flex-1 border-0 bg-modernsecond"></iframe>
 		}
 		<app-footer class="mt-auto"></app-footer>
 	</div>

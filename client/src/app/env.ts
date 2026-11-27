@@ -302,7 +302,7 @@ openModuleHref(identifier:number|string) {
 	const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
 	const page_ = this.modulesData[id].homepage ?? "";
 	if (this.demo)
-		return "/wrapper?module=" + this.modulesData[id].module + "&subdomain=" + subdomain + "&page=" + page_;
+		return "/launch?name=" + this.modulesData[id].module + "&subdomain=" + subdomain + "&page=" + page_;
 	else
 		return location.protocol + "//" + location.host + "/m/" + subdomain + page_;
 }
@@ -331,7 +331,7 @@ async openModuleClick(event, identifier:number|string, t = null) {
 		event.preventDefault();
 		const subdomain = this.modulesData[id].alias[0] ?? this.modulesData[id].module;
 		const page_ = this.modulesData[id].homepage ?? "";
-		this.router.navigate(["/wrapper"], { queryParams: {
+		this.router.navigate(["/launch"], { queryParams: {
 			module: this.modulesData[id].module,
 			subdomain,
 			page: page_

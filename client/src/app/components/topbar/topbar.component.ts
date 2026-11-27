@@ -43,7 +43,7 @@ getInitials() {
 }
 
 extract() {
-	window.open((document.getElementById("iframeWrapper") as HTMLIFrameElement).src, "_blank");
+	window.open((document.getElementById("iframeLaunch") as HTMLIFrameElement).src, "_blank");
 }
 
 }

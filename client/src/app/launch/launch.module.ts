@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../components/components.module';
-import { Wrapper } from './wrapper.page';
-import { WrapperRoutingModule } from './wrapper-routing.module';
+import { Launch } from './launch.page';
+import { LaunchRoutingModule } from './launch-routing.module';
 
 @NgModule({
 	imports: [
@@ -12,9 +12,9 @@ import { WrapperRoutingModule } from './wrapper-routing.module';
 		IonicModule,
 		TranslateModule,
 		ComponentsModule,
-		WrapperRoutingModule
+		LaunchRoutingModule
 	],
-	declarations: [Wrapper]
+	declarations: [Launch]
 })
 
-export class WrapperModule {}
+export class LaunchModule {}
