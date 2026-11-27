@@ -30,8 +30,9 @@ EOF
 
 helper() {
 echo "*******************************************************"
-echo "Usage for install [-c -h -p]"
+echo "Usage for install [-c -d -h -p]"
 echo "c:	Do full clone of all modules"
+echo "d:	Install only modules with installMethod=deb"
 echo "h:	Print this usage and exit"
 echo "p:	Do production image"
 exit 0
@@ -39,9 +40,11 @@ exit 0
 
 PROD=0
 CLONE=0
-while getopts chp opt; do
+ONLYDEBMODULES=0
+while getopts cdhp opt; do
 	case "$opt" in
 		c) CLONE=1;;
+		d) ONLYDEBMODULES=1;;
 		h) helper;;
 		p) PROD=1;;
 	esac
@@ -326,13 +329,16 @@ echo "################################"
 echo "Install via modules scripts"
 echo "################################"
 LIST=`find $PP/modules/ -name "*.json" -printf "%f\n" | sort`
+ESSENTIAL="_core_ betterauth firecracker frp kernel ollama umtpresponder websocat webssh2"
 COUNT=0
 TOTAL=`echo "$LIST" | wc -l` 
 for NAME in $LIST; do
 	NAME="${NAME%?????}"
+	if [ $ONLYDEBMODULES = 0 -o "${ESSENTIAL#*"$NAME"}" != "$ESSENTIAL" -o "m`jq -r .installMethod $PP/modules/$NAME.json`" = "mapt" ]; then
 	COUNT=$((COUNT + 1))
 	echo "$COUNT/$TOTAL"
 	installModule $NAME
+	fi
 done
 
 echo "################################"
