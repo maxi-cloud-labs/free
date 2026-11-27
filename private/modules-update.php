@@ -37,7 +37,7 @@ $modulesMarkdown = array();
 $modulesKeywords = array();
 $modulesSetup = array();
 $modulesReset = array();
-$modulesLocalPort = array();
+$finishedStrange = array();
 $count = 0;
 foreach ($files as $file) {
     $fullPath = $modulesPath . "/" . $file;
@@ -58,9 +58,11 @@ foreach ($files as $file) {
 		exit;
 	}
 	if (isset($module["default"]["setup"]) && !isset($module["default"]["setupDependencies"])) {
-		echo "\n\default.SetupDependencies for " . $name . " doesn't exist but has default.setup property\n\n";
+		echo "\n\ndefault.SetupDependencies for " . $name . " doesn't exist but has default.setup property\n\n";
 		exit;
 	}
+	if ($module["finished"] == true && $module["installMethod"] != "apt" && !file_exists($modulesPath . "/install/" . $name . ".sh") && !file_exists($modulesPath . "/reset/" . $name . ".sh"))
+		array_push($finishedStrange, $name);
 	if ($module["web"] === true) {
 		if (isset($modulesLocalPort[$module["default"]["localPort"]])) {
 			echo "\nProblem localPort " . $module["default"]["localPort"] . " for " . $name . "\n\n";
@@ -99,7 +101,11 @@ foreach ($files as $file) {
 	$modulesMarkdown[$count] = str_replace("0.0k", "", $modulesMarkdown[$count]);
 	$count++;
 }
-echo "\n\nSetup (" . count($modulesSetup) . "): " . implode(", ", $modulesSetup) . "\n\nReset (" . count($modulesReset) . "): " . implode(", ", $modulesReset) . "\n\n" . $count . " modules for " . $starsTotal . " ⭐\n";
+echo "\n\n";
+echo "Setup (" . count($modulesSetup) . "): " . implode(", ", $modulesSetup) . "\n\n";
+echo "Reset (" . count($modulesReset) . "): " . implode(", ", $modulesReset) . "\n\n";
+echo "IsItFinished? (" . count($finishedStrange) . "): " . implode(", ", $finishedStrange) . "\n\n";
+echo $count . " modules for " . $starsTotal . " ⭐\n";
 store(__DIR__ . "/../client/src/assets/modulesmeta.json", $modulesMeta);
 storeC(__DIR__ . "/../client/src/assets/modulesmeta.json.br", $modulesMeta);
 store(__DIR__ . "/../client/src/assets/modulesdefault.json", $modulesDefault);
