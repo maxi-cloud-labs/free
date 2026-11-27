@@ -1,5 +1,4 @@
 import fs from "fs";
-import userid from "userid";
 import path from "path";
 
 //Interface
@@ -15,6 +14,30 @@ interface FileSystemNode {
 }
 
 //Functions
+function getUsername(uid: number): string {
+  try {
+    const line = fs
+      .readFileSync("/etc/passwd", "utf8")
+      .split("\n")
+      .find((entry) => entry.split(":")[2] === String(uid));
+    return line ? line.split(":")[0] : String(uid);
+  } catch {
+    return String(uid);
+  }
+}
+
+function getGroupname(gid: number): string {
+  try {
+    const line = fs
+      .readFileSync("/etc/group", "utf8")
+      .split("\n")
+      .find((entry) => entry.split(":")[2] === String(gid));
+    return line ? line.split(":")[0] : String(gid);
+  } catch {
+    return String(gid);
+  }
+}
+
 function getFileStats(filePath: string): FileSystemNode {
 	const stats = fs.statSync(filePath);
 	const { uid, gid, mode, size, mtime } = stats;
@@ -35,8 +58,8 @@ function getFileStats(filePath: string): FileSystemNode {
 		name: path.basename(filePath),
 		type: stats.isDirectory() ? "directory" : stats.isSymbolicLink() ? "symlink" : "file",
 		permissions,
-		owner: userid.username(uid),
-		group: userid.groupname(gid),
+		owner: getUsername(uid),
+		group: getGroupname(gid),
 		size: size,
 		modified: mtime.toISOString(),
 	};
