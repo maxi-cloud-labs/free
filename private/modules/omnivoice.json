@@ -7,7 +7,7 @@
 	"installMethod": "pip",
 	"web": true,
 	"recommended": false,
-	"finished": false,
+	"finished": true,
 	"database": "",
 	"github": "k2-fsa/OmniVoice",
 	"description": "A multilingual text-to-speech engine for high-quality synthetic speech and voice cloning.",

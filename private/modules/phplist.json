@@ -7,7 +7,7 @@
 	"installMethod": "wget",
 	"web": true,
 	"recommended": false,
-	"finished": false,
+	"finished": true,
 	"database": "",
 	"github": "phpList/core",
 	"description": "An email newsletter management platform for subscriber lists, campaigns, and bulk mailing.",

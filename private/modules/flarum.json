@@ -7,7 +7,7 @@
 	"installMethod": "clone",
 	"web": true,
 	"recommended": false,
-	"finished": false,
+	"finished": true,
 	"database": "MySQL",
 	"github": "flarum/flarum",
 	"description": "A streamlined discussion forum platform for building and moderating online communities.",

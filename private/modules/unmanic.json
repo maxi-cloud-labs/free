@@ -7,7 +7,7 @@
 	"installMethod": "pip",
 	"web": true,
 	"recommended": false,
-	"finished": false,
+	"finished": true,
 	"database": "",
 	"github": "Unmanic/unmanic",
 	"description": "An automated media library optimizer for transcoding files and streamlining media storage.",

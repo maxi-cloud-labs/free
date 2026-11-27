@@ -7,7 +7,7 @@
 	"installMethod": "clone",
 	"web": true,
 	"recommended": false,
-	"finished": false,
+	"finished": true,
 	"database": "",
 	"github": "getgrav/grav",
 	"description": "A flat-file content management system for creating and maintaining Markdown-based websites.",
