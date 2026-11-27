@@ -209,6 +209,46 @@ static authz_status app_permission_check(request_rec *r, const char *require_lin
 	return authorization2(r, permission, 0);
 }
 
+// Removes the auth cookies before the request reaches the module (proxy, PHP, CGI)
+static int cookieStrip(request_rec *r) {
+	const char *cookies = apr_table_get(r->headers_in, "Cookie");
+	if (cookies == NULL)
+		return DECLINED;
+	char *jwt = cookieGet(r, cookies, "jwt");
+	if (jwt)
+		apr_table_setn(r->notes, "APP_JWT", jwt);
+	// better-auth needs its session cookies, nothing else does
+	int keepAuth = r->uri && strncmp(r->uri, "/_app_/auth/", 12) == 0;
+	char *out = "";
+	int changed = 0;
+	const char *p = cookies;
+	while (*p) {
+		while (*p == ' ' || *p == ';')
+			p++;
+		if (*p == '\0')
+			break;
+		const char *end = strchr(p, ';');
+		size_t len = end == NULL ? strlen(p) : (size_t)(end - p);
+		int drop = jwt && len == 4 + strlen(jwt) && strncmp(p, "jwt=", 4) == 0 && strncmp(p + 4, jwt, len - 4) == 0;
+		if (!keepAuth && strncmp(p, "better-auth.", 12) == 0)
+			drop = 1;
+		if (drop)
+			changed = 1;
+		else
+			out = apr_pstrcat(r->pool, out, *out ? "; " : "", apr_pstrndup(r->pool, p, len), NULL);
+		if (end == NULL)
+			break;
+		p = end;
+	}
+	if (changed) {
+		if (*out)
+			apr_table_setn(r->headers_in, "Cookie", out);
+		else
+			apr_table_unset(r->headers_in, "Cookie");
+	}
+	return DECLINED;
+}
+
 static int statsCounter(request_rec *r) {
 #ifdef STATS
 	server_rec *s = r->server;
@@ -237,6 +277,7 @@ static const authz_provider authz_app_module_provider = { &app_permission_check,
 static void registerHooks(apr_pool_t *p) {
 	ap_register_auth_provider(p, AUTHZ_PROVIDER_GROUP, "AppModulePermission", AUTHZ_PROVIDER_VERSION, &authz_app_module_provider, AP_AUTH_INTERNAL_PER_CONF);
 	ap_hook_access_checker(statsCounter, NULL, NULL, APR_HOOK_FIRST);
+	//ap_hook_fixups(cookieStrip, NULL, NULL, APR_HOOK_LAST);
 	registerFilter();
 }
 
