@@ -31,7 +31,6 @@ const certificatePath = adminPath + "letsencrypt/fullchain.pem";
 const rootPath = "/var/log/";
 let usersNb = 0;
 let version = "";
-let trustedOrigins;
 let watcher: FSWatcher | null = null;
 
 //Functions
@@ -101,15 +100,6 @@ function start() {
 	} catch(e) {}
 	if (!existsSync(secretPath))
 		writeFileSync(secretPath, randomBytes(32).toString("base64"), "utf-8");
-
-	if (process.env.PRODUCTION === "true") {
-		trustedOrigins = [ "*.maxi.cloud" ];
-		if (cloud?.hardware?.info?.domain)
-			trustedOrigins.push("*." + cloud.info.domain);
-		if (cloud?.hardware && cloud.hardware.internalIP !== "")
-			trustedOrigins.push(cloud.hardware.internalIP, cloud.hardware.internalIP + ":9400");
-	} else
-		trustedOrigins = [ "http://localhost:8100" ];
 	initCloud();
 }
 
@@ -512,7 +502,7 @@ start();
 export const auth = betterAuth({
 	secret: readFileSync(secretPath, "utf-8").trim(),
 	baseURL: "http://localhost:" + port + "/auth",
-	trustedOrigins,
+	trustedOrigins: async () => getTrustedOrigins(),
 	database: new Database(databasePath),
 	emailAndPassword: { enabled:true, autoSignIn:false },
 	advanced: { disableOriginCheck: process.env.PRODUCTION !== "true" },
