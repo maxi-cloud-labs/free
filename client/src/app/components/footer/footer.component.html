@@ -17,14 +17,19 @@
 				<option *ngFor="let lang of global.languages" [value]="lang.code" [lang]="lang.code" [selected]="lang.code == global.settings.lang" class="bg-modernsecond text-white">{{lang.name}}</option>
 			</select>
 		</label>
-		<!-- Language end -->
-		<nav class="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm lg:justify-end">
+		<nav class="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm lg:justify-end" *ngIf="global.demo">
 			<a routerLink="/pricing">{{LG("Pricing")}}</a>
 			<a routerLink="/buy">{{LG("Buy")}}</a>
 			<a href="https://docs.maxi.cloud" target="_blank" rel="noopener noreferrer">{{LG("Docs")}}</a>
 			<a routerLink="/terms">{{LG("Terms")}}</a>
 			<a routerLink="/privacy">{{LG("Privacy Policy")}}</a>
 			<a href="mailto:@maxi.cloud">{{LG("Contact")}}</a>
+		</nav>
+		<nav class="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm lg:justify-end" *ngIf="!global.demo">
+			<a href="https://docs.maxi.cloud" target="_blank" rel="noopener noreferrer">{{LG("Docs")}}</a>
+			<a href="mailto:support@maxi.cloud">{{LG("Support")}}</a>
+			<a routerLink="/terms">{{LG("Terms")}}</a>
+			<a routerLink="/privacy">{{LG("Privacy Policy")}}</a>
 		</nav>
 	</div>
 </footer>
