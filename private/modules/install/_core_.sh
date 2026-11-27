@@ -4,6 +4,7 @@ mkdir -p /usr/local/modules/_core_
 cd /home/ai/app
 cp ../rootfs/usr/local/modules/_core_/version.txt /usr/local/modules/_core_/version.txt
 ./lvgl.sh -b -c
+touch translation.h
 make
 ln -sf /etc/systemd/system/hardware-app.service /etc/systemd/system/multi-user.target.wants/hardware-app.service
 
