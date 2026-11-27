@@ -160,8 +160,8 @@ echo "################################"
 echo "node"
 echo "################################"
 cd /home/ai/build
-FILENODE=`wget -q -O - https://nodejs.org/dist/latest-v22.x/ | grep "\-linux\-arm64\.tar\.xz" | sed -E "s|.*>([^<]*)<.*|\1|"`
-wget -nv https://nodejs.org/dist/latest-v22.x/$FILENODE
+FILENODE=`wget -q -O - https://nodejs.org/dist/latest-v24.x/ | grep "\-linux\-arm64\.tar\.xz" | sed -E "s|.*>([^<]*)<.*|\1|"`
+wget -nv https://nodejs.org/dist/latest-v24.x/$FILENODE
 tar -xJpf node-v*
 cp -a node-v*/bin/ node-v*/include/ node-v*/lib/ node-v*/share/ /usr/local
 cd ..
