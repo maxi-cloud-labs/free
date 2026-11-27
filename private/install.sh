@@ -3,7 +3,7 @@
 #On PC
 cat > /dev/null << EOF
 tar -cjpf a.tbz2 app/ auth/ kernel/ rootfs/ screenAvr/ moduleApache2/ pam/ moduleIpApache2/ private/install.sh private/modules/ private/preseed*.cfg build/screen
-scp a.tbz2 build/img/clone.tbz2 ai@192.168.10.12:/tmp
+scp a.tbz2 build/img/clone.tbz2 ai@pi5:/tmp
 rm a.tbz2
 EOF
 
