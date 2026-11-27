@@ -125,32 +125,44 @@ static const char *autoLoginSet(cmd_parms *cmd, void *mconfig, const char *arg) 
 	return NULL;
 }
 
-static char *extractCookieValue(const char *cookie, const char *name, struct request_rec *r) {
-	if (cookie == NULL || name == NULL)
-		return NULL;
-	const char *name_start = strstr(cookie, name);
-	if (name_start == NULL)
-		return NULL;
-	if (*(name_start + strlen(name)) != '=')
-		return extractCookieValue(name_start + 1, name, r);
+// Returns the value of cookie name, matching whole names only
+static char *cookieGet(request_rec *r, const char *cookies, const char *name) {
+	size_t nameLen = strlen(name);
+	const char *p = cookies;
+	while (p && *p) {
+		while (*p == ' ' || *p == ';')
+			p++;
+		const char *end = strchr(p, ';');
+		size_t len = end == NULL ? strlen(p) : (size_t)(end - p);
+		if (len > nameLen && strncmp(p, name, nameLen) == 0 && p[nameLen] == '=')
+			return apr_pstrndup(r->pool, p + nameLen + 1, len - nameLen - 1);
+		p = end;
+	}
+	return NULL;
+}
 
-	const char *value_start = name_start + strlen(name) + 1;
-	const char *value_end = strchr(value_start, ';');
-
-	size_t value_len = value_end == NULL ? strlen(value_start) : (value_end - value_start);
-	char *extracted_value = apr_pstrndup(r->pool, value_start, value_len);
-	return extracted_value;
+// The jwt cookie is removed in fixups, so later phases and internal redirects use the saved note
+const char *appJwt(request_rec *r) {
+	for (request_rec *rr = r; rr; rr = rr->prev ? rr->prev : rr->main) {
+		const char *jwt = apr_table_get(rr->notes, "APP_JWT");
+		if (jwt)
+			return jwt;
+	}
+	return cookieGet(r, apr_table_get(r->headers_in, "Cookie"), "jwt");
 }
 
 static int decodeAndCheck(server_rec *s, const char *token, const char *keyPem, const char *permission, int strict) {
 	int ret = 0;
 	jwt_t* jwt_decoded;
+	if (keyPem == NULL)
+		return 0;
 	int result = jwt_decode(&jwt_decoded, token, (const unsigned char*)keyPem, strlen(keyPem));
 	if (result == 0) {
 		time_t current_time = time(NULL);
 		time_t exp_time = (time_t)jwt_get_grant_int(jwt_decoded, "exp");
-		if (current_time < exp_time) {
-			const char *jwtRole = jwt_get_grant(jwt_decoded, "role");
+		const char *jwtRole = jwt_get_grant(jwt_decoded, "role");
+		// Only ES256: libjwt follows the header alg, and HS256 would use the public PEM as HMAC secret
+		if (jwt_get_alg(jwt_decoded) == JWT_ALG_ES256 && jwtRole != NULL && current_time < exp_time) {
 			if (strict)
 				ret = strcmp(jwtRole, "admin") == 0;
 			else {
@@ -171,8 +183,7 @@ int authorization2(request_rec *r, const char *permission, int strict) {
 	server_rec *s = r->server;
 	if (!strict && strcmp(permission, "public") == 0)
 		return AUTHZ_GRANTED;
-	const char *cookies = apr_table_get(r->headers_in, "Cookie");
-	char *cookieJwt = extractCookieValue(cookies, "jwt", r);
+	const char *cookieJwt = appJwt(r);
 	//PRINTF("APP: authorization2 cookieJwt: %s", cookieJwt);
 	if (cookieJwt != NULL && strlen(cookieJwt) > 0) {
 		configVH *confVH = (configVH *)ap_get_module_config(s->module_config, &app_module);
