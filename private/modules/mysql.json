@@ -3,7 +3,7 @@
 	"name": "MySQL",
 	"title": "MySQL Database",
 	"category": "Database",
-	"version": "8.0.43",
+	"version": "8.0.46",
 	"installMethod": "deb",
 	"web": false,
 	"recommended": false,
