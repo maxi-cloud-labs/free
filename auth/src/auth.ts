@@ -68,12 +68,14 @@ async function initCloud() {
 			cloud.hardware.mem = Math.round(totalmem() / (1024 ** 3));
 		} catch (e) {}
 	}
-	const internalIP = getinternalIP();
+	const internalIP = getInternalIP();
+	console.log("IP internal: " + internalIP);
 	if (cloud?.hardware && cloud.hardware.internalIP !== internalIP) {
 		cloud.hardware.internalIP = internalIP;
 		needSave = true;
 	}
-	const externalIP = await getexternalIP();
+	const externalIP = await getExternalIP();
+	console.log("IP external: " + externalIP);
 	if (cloud?.hardware && cloud.hardware.externalIP !== externalIP) {
 		cloud.hardware.externalIP = externalIP;
 		needSave = true;
@@ -111,7 +113,21 @@ function start() {
 	initCloud();
 }
 
-async function getexternalIP() {
+// Evaluated per request so changes to cloud (first boot, setup, IP change) apply without restart
+function getTrustedOrigins(): string[] {
+	if (process.env.PRODUCTION !== "true")
+		return [ "http://localhost:8100" ];
+	const origins = [ "*.maxi.cloud" ];
+	const domain = cloud?.info?.domain;
+	if (typeof domain === "string" && domain.length > 0)
+		origins.push(domain, "*." + domain);
+	const ip = cloud?.hardware?.internalIP;
+	if (ip)
+		origins.push("http://" + ip, "http://" + ip + ":9400");
+	return origins;
+}
+
+export async function getExternalIP() {
 	try {
 		let response = await fetch("https://maxi.cloud/master/ip.json");
 		if (!response.ok)
@@ -126,7 +142,7 @@ async function getexternalIP() {
 	return "";
 }
 
-function getinternalIP() {
+function getInternalIP() {
 	const networkInterfaces_ = networkInterfaces();
 	for (const name of Object.keys(networkInterfaces_)) {
 		const addresses = networkInterfaces_[name];
@@ -257,8 +273,8 @@ function extraEndpoints(): BetterAuthPlugin {
 				method: "GET",
 				use: [sensitiveSessionMiddleware]
 			}, async(ctx) => {
-				cloud.hardware.internalIP = getinternalIP();
-				cloud.hardware.externalIP = await getexternalIP();
+				cloud.hardware.internalIP = getInternalIP();
+				cloud.hardware.externalIP = await getExternalIP();
 				return Response.json(cloud.hardware, { status:200, headers:{ "Cache-Control":"no-store, no-cache, must-revalidate" } });
 			}),
 

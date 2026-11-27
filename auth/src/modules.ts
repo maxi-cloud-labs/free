@@ -5,6 +5,7 @@ import { watch } from "chokidar";
 import { buildApache2Conf, buildApache2ConfBeforeSetup } from "./apache2";
 import { appSend, broadcast } from "./websocket";
 import { adminPath, frpPath, webPath, jsonRead, jsonWrite, has, num, children, printArray } from "./common";
+import { getExternalIP } from "./auth";
 
 //Define
 const PERFORMANCE = true;
@@ -85,15 +86,6 @@ async function serviceStates(names: string[]): Promise<number[]> {
 	if (lines.length != names.length)
 		return names.map(() => -1);
 	return lines.map((l) => l === "active" ? 1 : 0);
-}
-
-async function getExternalIP(): Promise<string> {
-	try {
-		const response = await fetch("https://maxi.cloud/master/ip.json");
-		if (response.ok)
-			return (await response.json())["ip"] ?? "";
-	} catch (e) {}
-	return "";
 }
 
 function fqdnInit(elCloud): string[] {
@@ -183,10 +175,8 @@ async function modulesWork(elCloud, modulesDefault, modules, fqdn: string[]) {
 
 function modulesInit_(apache2Only: boolean): Promise<void> {
 	return withLock(async () => {
-		if (ipExternal.length == 0) {
+		if (ipExternal.length == 0)
 			ipExternal = await getExternalIP();
-			console.log("IPExternal: " + ipExternal);
-		}
 		console.log("moduleInit_");
 		const cloud = jsonRead(cloudPath) ?? {};
 		const modulesDefault = jsonRead(modulesDefaultPath);
