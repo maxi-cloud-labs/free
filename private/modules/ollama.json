@@ -3,7 +3,7 @@
 	"name": "Ollama",
 	"title": "Local LLM Runtime",
 	"category": "AI Generative",
-	"version": "0.34.2",
+	"version": "0.40.17",
 	"installMethod": "clone",
 	"web": true,
 	"recommended": false,
@@ -47,6 +47,7 @@
 			"ollama"
 		],
 		"setup": true,
-		"setupDependencies": []
+		"setupDependencies": [],
+		"setupRoot": true
 	}
 }
